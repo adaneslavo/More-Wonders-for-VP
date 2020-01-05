@@ -1,0 +1,9 @@
+-- Credits
+-- Author: adan_eslavo
+-- DateCreated: 1/5/2020
+--------------------------------------------------------------
+Special thanks to:
+- wonders' creators: Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe,
+- splash screen for Peterhof Palace creator: Valery (16 national wonder mod),
+- mod creator: Infixo,
+- improving modders: ProCatGamer and Asterix Rage.
