@@ -33,50 +33,50 @@ INSERT INTO VPWEConfig (WType, WActive, WFake)
 VALUES
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
-('ARECIBO',     1, 0), -- Arecibo Observatory
-('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
+--('ARECIBO',     1, 0), -- Arecibo Observatory
+--('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
 --('BAMIYAN',     1, 1), -- Buddhas of Bamiyan
 --('BENHADDOU',   1, 1), -- Ait Benhaddou
-('BROOKLYN',    1, 0), -- Brooklyn Bridge
-('CHARTRES',    1, 0), -- Chartres Cathedral
-('CHEVALIERS',  1, 0), -- Krak des Chevaliers
-('DAMASCUS',    1, 0), -- Forge of Damascus
+--('BROOKLYN',    1, 0), -- Brooklyn Bridge
+--('CHARTRES',    1, 0), -- Chartres Cathedral
+--('CHEVALIERS',  1, 0), -- Krak des Chevaliers
+--('DAMASCUS',    1, 0), -- Forge of Damascus
 --('DUOMO',       1, 1), -- Cattedrale di Santa Maria del Fiore /  Il Duomo di Firenze
-('GRIPSHOLM',   1, 0), -- Gripsholm Castle
-('HOLLYWOOD',   1, 0), -- Hollywood
-('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
-('JUMEIRAH',    1, 0), -- Palm Jumeirah
+--('GRIPSHOLM',   1, 0), -- Gripsholm Castle
+--('HOLLYWOOD',   1, 0), -- Hollywood
+--('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
+--('JUMEIRAH',    1, 0), -- Palm Jumeirah
 ('KARNAK',      1, 0), -- Karnak Temple
-('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
+--('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
 --('LEONARDO', 1, 1), -- Leonardo's Workshop
-('MALWIYA',     1, 0), -- Malwiya Minaret (Great Mosque of Samarra)
+--('MALWIYA',     1, 0), -- Malwiya Minaret (Great Mosque of Samarra)
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA', 1, 1), -- Monastery of the Holy Trinity (Meteora)
-('MICHEL',      1, 0), -- Mont Saint Michel
-('MILLAU',      1, 0), -- Millau Viaduct
-('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
-('MUSEUM_ISLAND', 1, 0), --Museum Island
-('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
-('NAZCA',       1, 0), -- Nazca Lines
+--('MICHEL',      1, 0), -- Mont Saint Michel
+--('MILLAU',      1, 0), -- Millau Viaduct
+--('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
+--('MUSEUM_ISLAND', 1, 0), --Museum Island
+--('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
+('NAZCA',       1, 0); -- Nazca Lines
 --('PEARLTOWER', 1, 1), -- Oriental Pearl Radio & TV Tower
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
-('PANAMA',      1, 0), -- Panama Canal
-('PETERHOF',   1, 0), -- Peterhof Palace
-('ROCKEFELLER', 1, 0), -- Rockefeller Center
+--('PANAMA',      1, 0), -- Panama Canal
+--('PETERHOF',   1, 0), -- Peterhof Palace
+--('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SAGRADA',     1, 1), -- Sagrada Familia
-('SHWEDAGON',   1, 0), -- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+--('SHWEDAGON',   1, 0), -- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 --('SKYTREE',     1, 1), -- Tokyo Skytree
-('SOLOMON',     1, 0), -- Solomon's Temple
-('SOVIETS',     1, 0), -- Palace of the Soviets
-('SPUTNIK',     1, 0), -- Sputnik Program, The
-('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
-('TAIPEI101',   1, 0), -- Taipei 101
+--('SOLOMON',     1, 0), -- Solomon's Temple
+--('SOVIETS',     1, 0), -- Palace of the Soviets
+--('SPUTNIK',     1, 0), -- Sputnik Program, The
+--('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
+--('TAIPEI101',   1, 0), -- Taipei 101
 --('TOCALI',      1, 1), -- Templo Mayor / Huey Tocali
-('TRAFALGAR',   1, 0), -- Trafalgar Square
+--('TRAFALGAR',   1, 0), -- Trafalgar Square
 --('WARTBURG',    1, 1), -- Wartburg Castle
-('WHITESANDS',  1, 0), -- White Sands Missile Range
-('WILLIS',      1, 0); -- Sears / Willis Tower
+--('WHITESANDS',  1, 0), -- White Sands Missile Range
+--('WILLIS',      1, 0); -- Sears / Willis Tower
 
 -- This will disable by default all Wonders not yet programmed
 UPDATE VPWEConfig SET WActive = 0 WHERE WFake = 1;
