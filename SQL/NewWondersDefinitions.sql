@@ -14,6 +14,21 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 032,		'WE_PI_032.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 016,		'WE_PI_016.dds',	'2',			'1');
 ----------------------------------------------------
+-- NEOLITHIC ERA
+----------------------------------------------------
+-- ATAMIRA CAVE (NEW)
+
+-- BARNENEZ (NEW)
+
+-- GGANTIJA (NEW)
+
+-- NEW GRANGE (NEW) - science, culture, faith
+
+-- SKARA BRAE (NEW)
+
+
+
+----------------------------------------------------
 -- ANCIENT ERA
 ----------------------------------------------------
 -- KARNAK (NEW) - Late game tourism, faith and production, faith and culture from oasis and flood plains, free monument
@@ -39,8 +54,9 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 
 -- STONEHENGE
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_STONEHENGE';
+	UPDATE Buildings SET ProhibitedNearbyTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Plains[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Plains[ENDCOLOR]. Cannot be built if [COLOR_CYAN]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 
 -- NAZCA (NEW) - Late game tourism, science, scientist, food and faith from planes, faith to shrines
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING',	NumPoliciesNeeded = 1, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_NAZCA';
@@ -72,9 +88,10 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- TEMPLE OF ARTEMIS
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
 	INSERT INTO Building_LocalFeatureOrs (BuildingType, FeatureType) VALUES ('BUILDING_TEMPLE_ARTEMIS', 'FEATURE_FOREST');
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
+	UPDATE Buildings SET ProhibitedNearbyTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby. Cannot be built if [COLOR_CYAN]Desert[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
 
--- MAUSOLEUM OF HALICARNASSUSS
+-- MAUSOLEUM OF HALICARNASSUS
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]Sea[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
