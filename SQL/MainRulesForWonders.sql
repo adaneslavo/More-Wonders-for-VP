@@ -12,10 +12,6 @@ CREATE TABLE VPWEConfig (
 	WType	TEXT	NOT NULL,  	-- Wonder Type
 	WActive	INTEGER	NOT NULL,   -- 1 = Wonder active / 0 = Wonder not active
 	WFake	INTEGER	NOT NULL,   -- 1 = Fake texts / 0 = Real texts
---	PTech	TEXT,  				-- PrereqTech
---	PCivic	TEXT,  				-- PrereqCivic
---	PDist	TEXT	NOT NULL,  	-- PrereqDistrict
---	UMain	INTEGER NOT NULL DEFAULT 0, -- Maintenance
 	PRIMARY KEY (WType)
 );
 
@@ -29,8 +25,16 @@ CREATE TABLE VPWEConfig (
 -- ('BROOKLYN',    0, 0), -- Brooklyn is DISABLED
 --------------------------------------------------------------
 
-INSERT INTO VPWEConfig (WType, WActive, WFake)
-VALUES
+INSERT INTO VPWEConfig	(WType,				WActive,	WFake)
+VALUES					('ALTAMIRA',		1,			0),		-- Altamira Cave
+						('GGANTIJA',		1,			0),		-- Ggantija
+						('GOEBEKLI_TEPE',	1,			0),		-- Goebekli Tepe
+						('SKARA_BRAE',		1,			0),		-- Skara Brae
+						('KARNAK',			1,			0),		-- Karnak Temple
+						('NAZCA',			1,			0),		-- Nazca Lines
+						('WIELICZKA',		1,			0);		-- Wieliczka Salt Mine
+
+
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
 --('ARECIBO',     1, 0), -- Arecibo Observatory
@@ -46,7 +50,7 @@ VALUES
 --('HOLLYWOOD',   1, 0), -- Hollywood
 --('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
-('KARNAK',      1, 0), -- Karnak Temple
+
 --('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
 --('LEONARDO', 1, 1), -- Leonardo's Workshop
 --('MALWIYA',     1, 0), -- Malwiya Minaret (Great Mosque of Samarra)
@@ -57,7 +61,7 @@ VALUES
 --('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
 --('MUSEUM_ISLAND', 1, 0), --Museum Island
 --('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
-('NAZCA',       1, 0); -- Nazca Lines
+
 --('PEARLTOWER', 1, 1), -- Oriental Pearl Radio & TV Tower
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
