@@ -29,11 +29,13 @@ INSERT INTO VPWEConfig	(WType,				WActive,	WFake)
 VALUES					('ALTAMIRA',		1,			0),		-- Altamira Cave
 						('GGANTIJA',		1,			0),		-- Ggantija
 						('GOEBEKLI_TEPE',	1,			0),		-- Goebekli Tepe
+						('MAJORVILLE',		1,			0),		-- Majorville Medicine Wheel
+						('MOHENJO_DARO',	1,			0),		-- Mohenjo-Daro
 						('SKARA_BRAE',		1,			0),		-- Skara Brae
 						('KARNAK',			1,			0),		-- Karnak Temple
 						('NAZCA',			1,			0),		-- Nazca Lines
 						('WIELICZKA',		1,			0);		-- Wieliczka Salt Mine
-
+						
 
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo

@@ -51,7 +51,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GGANTIJA (NEW) - faith, global food, instant food;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
-	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_GGANTIJA';
+	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,		Yield)
@@ -63,7 +63,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 
 	INSERT INTO Building_InstantYield
 				(BuildingType,			YieldType,		Yield) 
-	VALUES		('BUILDING_GGANTIJA',	'YIELD_FOOD',	25);
+	VALUES		('BUILDING_GGANTIJA',	'YIELD_FOOD',	50);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors
 				(BuildingType,			FlavorType,			Flavor)
@@ -73,7 +73,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_GGANTIJA',		'Ggantija'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP',	'+5% [ICON_FOOD] Food in all Cities. Grants 25 [ICON_FOOD] Food after construction. [NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Plains[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP',	'+5% [ICON_FOOD] Food in all Cities. Grants 25 [ICON_FOOD] Food after construction. [NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR].'),
 				('TXT_KEY_WONDER_GGANTIJA_QUOTE',	'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
 				('TXT_KEY_WONDER_GGANTIJA_PEDIA',	'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,6 +111,66 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',	'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. It was not thought different until 1994, and not excavated until a year later. The complex is similar in manner to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- MAJORVILLE (NEW) - science and faith, faith from tundra, science to monuments;
+	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
+	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA'  WHERE Type = 'BUILDING_MAJORVILLE';
+	---------------------------------------------------------	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_MAJORVILLE',	'YIELD_FAITH',		2),
+				('BUILDING_MAJORVILLE',	'YIELD_SCIENCE',	1);
+	
+	INSERT INTO Building_TerrainYieldChanges 
+				(BuildingType,			TerrainType,		YieldType,		Yield) 
+	VALUES		('BUILDING_MAJORVILLE',	'TERRAIN_TUNDRA',	'YIELD_FAITH',	1);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_MAJORVILLE',	'BUILDINGCLASS_MONUMENT',	'YIELD_SCIENCE',	1);
+	---------------------------------------------------------	
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_MAJORVILLE',	'FLAVOR_SCIENCE',		20),
+				('BUILDING_MAJORVILLE',	'FLAVOR_RELIGION',		50);
+	---------------------------------------------------------	
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_MAJORVILLE',		'Majorville Medicine Wheel'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Monuments receive +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MAJORVILLE_QUOTE',	'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
+				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',	'TODO');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MOHENJO-DARO (NEW) - culture, faith from rivers, defense, free well;
+	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
+	UPDATE Buildings SET Hill = 1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_MOHENJO_DARO';
+	---------------------------------------------------------	
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL', Defense = 1000 WHERE Type = 'BUILDING_MOHENJO_DARO';
+	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_MOHENJO_DARO',	'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_RiverPlotYieldChanges
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_MOHENJO_DARO',	'YIELD_FAITH',		1);
+	---------------------------------------------------------	
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_MOHENJO_DARO',	'FLAVOR_CULTURE',		20),
+				('BUILDING_MOHENJO_DARO',	'FLAVOR_DEFENSE',		20),
+				('BUILDING_MOHENJO_DARO',	'FLAVOR_PRODUCTION',	10),
+				('BUILDING_MOHENJO_DARO',	'FLAVOR_RELIGION',		30),
+				('BUILDING_MOHENJO_DARO',	'FLAVOR_GROWTH',		20);
+	---------------------------------------------------------	
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',		'Mohenjo-daro'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',	'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants free [COLOR_POSITIVE_TEXT]Well[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Walls[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',	'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',	'TODO');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- SKARA BRAE (NEW) - food and production, global food from Deer, Fish, Cattle, Sheep and Wheet;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, ProhibitedCityTerrain = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_SKARA_BRAE';
@@ -127,6 +187,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_SKARA_BRAE', 'YIELD_PRODUCTION',	1),
 				('BUILDING_SKARA_BRAE', 'YIELD_FOOD',		1);
+	
 	INSERT INTO Building_ResourceYieldChangesGlobal 
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
 	VALUES		('BUILDING_SKARA_BRAE', 'RESOURCE_FISH',	'YIELD_FOOD',	1),
@@ -241,8 +302,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_WIELICZKA';
 	
 	INSERT INTO Building_LocalResourceOrs 
-	(BuildingType, ResourceType) 
-	VALUES ('BUILDING_PYRAMID', 'RESOURCE_SALT');
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT');
 	---------------------------------------------------------	
 	UPDATE Buildings SET EnhancedYieldTech = 'TECH_SCIENTIFIC_THEORY', TechEnhancedTourism = 2 WHERE Type = 'BUILDING_WIELICZKA';
 	
@@ -280,7 +341,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- PETRA
 	UPDATE Buildings SET Mountain = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Beside [COLOR_CYAN]Desert[ENDCOLOR] city must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
