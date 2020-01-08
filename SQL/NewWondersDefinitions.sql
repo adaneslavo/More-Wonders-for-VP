@@ -166,7 +166,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',		'Mohenjo-daro'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',	'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants free [COLOR_POSITIVE_TEXT]Well[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Walls[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',	'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants free [COLOR_POSITIVE_TEXT]Well[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',	'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',	'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------

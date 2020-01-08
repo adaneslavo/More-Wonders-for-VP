@@ -1,6 +1,6 @@
 -- Credits
 -- Author: adan_eslavo
--- DateCreated: 1/5/2020
+-- Jan 5, 2020: Created
 --------------------------------------------------------------
 Special thanks to:
 - mod creator: Infixo;
@@ -9,5 +9,7 @@ Special thanks to:
 	- "base wonders": Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe;
 	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
 	- altamira cave: guillermuin;
-	- goebekli tepe
-	- wieliczka
+	- goebekli tepe: Pouakai, sukritact;
+	- ggantija, skara brae: artisanix;
+	- wieliczka: DeadMu5;
+	
