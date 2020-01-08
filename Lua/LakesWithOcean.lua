@@ -1,11 +1,10 @@
 print("Loading LakesWithOcean.lua from MWfVP");
 --------------------------------------------------------------
--- Vox Populi Wonders Expanded
 -- Support for true Lake locations for Wonders and Buildings using CityCanConstruct event
 -- Lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
 -- The game allows for building on the Coast with River in that situation - the script removes that possibility
--- Author: Infixo
--- Dec 15th, 2017: Created
+-- Dec 15, 2017: Created, Infixo
+-- Jan 7, 2020: Improved, adan_eslavo
 --------------------------------------------------------------
 
 -- debug output routine
@@ -21,48 +20,67 @@ function dprint(sStr,p1,p2,p3,p4,p5,p6)
 end
 
 
-local tValidBuildings = {};
+local tValidBuildingsLake = {};
+local tValidBuildingsMine = {};
 
 -- main function, will be called MANY times, so make it fast!
-function CityCanConstruct(iPlayer, iCity, iBuildingType)
-   --dprint("FUNSTA CityCanConstruct()", iPlayer, iCity, iBuildingType);
-   -- if this is NOT a tracked Building then quit immediately
-   if not tValidBuildings[iBuildingType] then return true; end
-   local pPlayer = Players[iPlayer];
-   if not pPlayer:IsAlive() then return false; end
+function LakeWithOcean(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsLake[iBuildingType] then return true; end
+   
+	local pPlayer = Players[iPlayer];
+   
+	if not pPlayer:IsAlive() then return false; end
 
-   local pCity = pPlayer:GetCityByID(iCity);
-   local iCityX = pCity:GetX();
-   local iCityY = pCity:GetY();
+	local pCity = pPlayer:GetCityByID(iCity);
+	local iCityX = pCity:GetX();
+	local iCityY = pCity:GetY();
 
-   if pCity:IsCoastal(1) then -- city is adjacent to at least one coast/lake tile
-       -- check all six dir for at least one lake tile
-       for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
-           if Map.PlotDirection(iCityX, iCityY, dir):IsLake() then
-               --dprint("FUNEND Lake!");
-               return true;
-           end
-       end
-   end
-   --dprint("FUNEND NOT Lake!");
-   return false;
-end
-GameEvents.CityCanConstruct.Add(CityCanConstruct);
-
-function Initialize()
-	--dprint("FUNSTA Initialize()");
-	-- find all valid Buildings
-	-- Lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
-	for building in GameInfo.Buildings() do	
-		--local thisBuildingClass = GameInfo.BuildingClasses[building.BuildingClass];
-		--if thisBuildingClass.MaxGlobalInstances == 1 and building.IsCorporation == 0 and building.MutuallyExclusiveGroup > 0 then -- exclude Corporations
-		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
-			local iBuilding = GameInfoTypes[building.Type];
-			dprint("...adding (id,building)", building.ID, building.Type);
-			tValidBuildings[building.ID] = true;
+	if pCity:IsCoastal(1) then -- city is adjacent to at least one water tile
+		for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+			if Map.PlotDirection(iCityX, iCityY, dir):IsLake() then
+				return true;
+			end
 		end
 	end
-	--dprint("FUNEND Initialize()");
+
+	return false;
+end
+GameEvents.CityCanConstruct.Add(LakeWithOcean);
+
+function CityWithMine(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsMine[iBuildingType] then return true; end
+   
+	local pPlayer = Players[iPlayer];
+   
+	if not pPlayer:IsAlive() then return false; end
+
+	local pCity = pPlayer:GetCityByID(iCity);
+	local iCityX = pCity:GetX();
+	local iCityY = pCity:GetY();
+
+	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+		if Map.PlotDirection(iCityX, iCityY, dir):GetImprovementType() == GameInfoTypes.IMPROVEMENT_MINE then
+			return true;
+		end
+	end
+
+	return false;
+end
+GameEvents.CityCanConstruct.Add(CityWithMine);
+
+function Initialize()
+	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
+	for building in GameInfo.Buildings() do	
+		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
+			local iBuilding = GameInfoTypes[building.Type];
+			
+			dprint("...adding (id,building)", building.ID, building.Type);
+			tValidBuildingsLake[building.ID] = true;
+		end
+	end
+
+	-- add mine buildings
+	tValidBuildingsMine[GameInfo.Buildings(GameInfoTypes[BUILDING_TERRACOTTA_ARMY]).ID] = true;
 end
 Initialize();
 

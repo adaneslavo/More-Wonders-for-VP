@@ -1,9 +1,7 @@
 --------------------------------------------------------------
--- Vox Populi Wonders Expanded
 -- Automatic changes applied to all new Wonders
--- Author: Infixo, adan_eslavo
--- Dec 9, 2017: Created
--- Jan 6, 2020: Improved
+-- Dec 9, 2017: Created, Infixo
+-- Jan 6, 2020: Improved, adan_eslavo
 --------------------------------------------------------------
 --------------------------------------------------------------
 -- Table with new Wonder Types
@@ -33,12 +31,18 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('SKARA_BRAE',		1,			0),		-- Skara Brae
 			('KARNAK',			1,			0),		-- Karnak Temple
 			('NAZCA',			1,			0),		-- Nazca Lines
-			('WIELICZKA',		1,			0);		-- Wieliczka Salt Mine
+			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
+			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
+			--('BAMIYAN',			1,			0),		-- Buddhas of Bamiyan
+			('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			--('MAHABALIPURAM',	1,			0),		-- Mahabaliputram Temple / Shore Temple (Great Mosque of Samarra)
+			--('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
+			--('CHAND_BAORI',		1,			0);		-- Chand Baori Well
+
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
---('BAMIYAN',     1, 1), -- Buddhas of Bamiyan
 --('BENHADDOU',   1, 1), -- Ait Benhaddou
 --('BROOKLYN',    1, 0), -- Brooklyn Bridge
 --('CHARTRES',    1, 0), -- Chartres Cathedral
@@ -51,7 +55,6 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
 --('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
 --('LEONARDO', 1, 1), -- Leonardo's Workshop
---('MALWIYA',     1, 0), -- Malwiya Minaret (Great Mosque of Samarra)
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA', 1, 1), -- Monastery of the Holy Trinity (Meteora)
 --('MICHEL',      1, 0), -- Mont Saint Michel
@@ -66,7 +69,6 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('PETERHOF',   1, 0), -- Peterhof Palace
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SAGRADA',     1, 1), -- Sagrada Familia
---('SHWEDAGON',   1, 0), -- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 --('SKYTREE',     1, 1), -- Tokyo Skytree
 --('SOLOMON',     1, 0), -- Solomon's Temple
 --('SOVIETS',     1, 0), -- Palace of the Soviets

@@ -1,18 +1,32 @@
 ----------------------------------------------------
--- Vox Populi Wonders Expanded
 -- Main file for all Wonders
--- Author: Infixo, adan_eslavo
--- Dec 9, 2017: Created
--- Jan 6, 2020: Improved
-----------------------------------------------------
+-- Dec 9, 2017: Created, Infixo
+-- Jan 6, 2020: Improved, adan_eslavo
+--============================================--
 -- Promotion Icons Atlas
-----------------------------------------------------
+--============================================--
 INSERT INTO IconTextureAtlases	(Atlas,				IconSize,	Filename,			IconsPerRow,	IconsPerColumn) 
 VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 064,		'WE_PI_064.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 045,		'WE_PI_045.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 032,		'WE_PI_032.dds',	'2',			'1'),
 								('vpwe_promoAtlas', 016,		'WE_PI_016.dds',	'2',			'1');
+--============================================--
+-- HELP
+--============================================--
+-- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is Sea, MinAreaSize=1 is Lake)
+-- River - city must be built NEXT TO a RIVER
+-- FreshWater - city must be built next to a RIVER or adjacent to a LAKE or OASIS tile
+-- Mountain - city must be built NEXT TO a MOUNTAIN tile
+-- NearbyMountainRequired - city must be built WITHIN 2 TILES OF a MOUNTAIN tile, Mountain must be within cultural borders
+-- Hill - city must be built ON a HILL tile
+-- Flat - city MUST NOT be built ON a HILL tile
+-- HolyCity
+-- (VP) IsNoWater - very strict, forbids ALL Water types: River, Lake and Coast
+-- (VP) IsNoRiver
+-- (VP) CapitalOnly
+-- (VP) ResourceType - Allows for Building to be unlocked by a specific resource being owned (can be strategic or luxury)
+-- (VP) RequiresRail - rail connection
 --============================================--
 -- NEOLITHIC ERA
 --============================================--
@@ -369,3 +383,220 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --============================================--
 -- CLASSICAL ERA
 --============================================--
+-- GREAT LIGHTHOUSE
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Coast[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GREAT LIBRARY
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_GREAT_LIBRARY';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_GREAT_LIBRARY',	'RESOURCE_PAPER');
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have [ICON_RES_PAPER] Paper nearby.' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HANGING GARDENS
+	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_HANGING_GARDEN_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- FORUM ROMANUM
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_FORUM';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,					FeatureType) 
+	VALUES		('BUILDING_FORUM',	'FEATURE_MARSH');
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MALWIYA MINARET
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');
+
+
+
+UPDATE Buildings
+SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1
+WHERE Type = 'BUILDING_MALWIYA';
+
+INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
+('BUILDING_MALWIYA', 'YIELD_CULTURE', 2);
+
+INSERT INTO Building_FreeUnits (BuildingType, UnitType, NumUnits) VALUES
+('BUILDING_MALWIYA', 'UNIT_ENGINEER', 1);
+
+INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield) VALUES
+('BUILDING_MALWIYA', 'IMPROVEMENT_MANUFACTORY', 'YIELD_FAITH', 3),
+('BUILDING_MALWIYA', 'IMPROVEMENT_MANUFACTORY', 'YIELD_PRODUCTION', 3),
+('BUILDING_MALWIYA', 'IMPROVEMENT_QUARRY', 'YIELD_FAITH', 1),
+('BUILDING_MALWIYA', 'IMPROVEMENT_QUARRY', 'YIELD_PRODUCTION', 1);
+
+INSERT INTO Building_BuildingClassYieldChanges (BuildingType, BuildingClassType, YieldType, YieldChange) VALUES
+('BUILDING_MALWIYA', 'BUILDINGCLASS_STONE_WORKS', 'YIELD_FAITH', 1),
+('BUILDING_MALWIYA', 'BUILDINGCLASS_STONE_WORKS', 'YIELD_PRODUCTION', 1);
+
+/*
+INSERT INTO Building_ResourceYieldChanges (BuildingType, ResourceType, YieldType, Yield) VALUES
+('BUILDING_MALWIYA', 'RESOURCE_STONE',  'YIELD_PRODUCTION', 1),
+('BUILDING_MALWIYA', 'RESOURCE_STONE',  'YIELD_FAITH', 1),
+('BUILDING_MALWIYA', 'RESOURCE_MARBLE', 'YIELD_PRODUCTION', 1),
+('BUILDING_MALWIYA', 'RESOURCE_MARBLE', 'YIELD_FAITH', 1),
+('BUILDING_MALWIYA', 'RESOURCE_JADE',   'YIELD_PRODUCTION', 1),
+('BUILDING_MALWIYA', 'RESOURCE_JADE',   'YIELD_FAITH', 1),
+('BUILDING_MALWIYA', 'RESOURCE_LAPIS',  'YIELD_PRODUCTION', 1),
+('BUILDING_MALWIYA', 'RESOURCE_LAPIS',  'YIELD_FAITH', 1);
+*/
+
+INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
+('BUILDING_MALWIYA', 'FLAVOR_GREAT_PEOPLE', 30),
+('BUILDING_MALWIYA', 'FLAVOR_PRODUCTION', 50),
+('BUILDING_MALWIYA', 'FLAVOR_RELIGION', 60);
+
+INSERT INTO Language_en_US (Tag, Text) VALUES
+('TXT_KEY_BUILDING_MALWIYA',     'Malwiya Minaret'),
+('TXT_KEY_WONDER_MALWIYA_HELP',  'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works and Quarries receive +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith. All Manufactories receive +3 [ICON_PRODUCTION] Production and +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+('TXT_KEY_WONDER_MALWIYA_QUOTE', '[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
+('TXT_KEY_WONDER_MALWIYA_PEDIA', 'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TERRACOTA ARMY
+	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
+	
+	-- +Mine
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Mine[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- PARTHENON
+	UPDATE Buildings SET Hill = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_PARTHENON',	'RESOURCE_MARBLE');
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]Marble[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ORACLE
+	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ORACLE';
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GOLDEN DAGON PAGODA
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_SCHWEDAGON';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_SCHWEDAGON',	'RESOURCE_GOLD');
+	
+
+
+UPDATE Buildings
+SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',
+	SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1
+WHERE Type = 'BUILDING_SHWEDAGON';
+
+INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
+('BUILDING_SHWEDAGON', 'YIELD_CULTURE', 2);
+
+INSERT INTO Building_SpecificGreatPersonRateModifier (BuildingType, SpecialistType, Modifier) VALUES
+('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 33);
+
+INSERT INTO Building_SpecialistYieldChanges (BuildingType, SpecialistType, YieldType, Yield) VALUES
+('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_FAITH', 2);
+
+INSERT INTO Building_ThemingBonuses (BuildingType, Description, Bonus, MustBeArt, RequiresOwner, AIPriority) VALUES
+('BUILDING_SHWEDAGON', 'TXT_KEY_THEMING_BONUS_SHWEDAGON', 8, 1, 1, 5);
+
+INSERT INTO Building_ThemingYieldBonus (BuildingType, YieldType, Yield) VALUES
+('BUILDING_SHWEDAGON', 'YIELD_CULTURE', 2),
+('BUILDING_SHWEDAGON', 'YIELD_FAITH', 2),
+('BUILDING_SHWEDAGON', 'YIELD_GOLDEN_AGE_POINTS', 2),
+('BUILDING_SHWEDAGON', 'YIELD_TOURISM', 2);
+
+INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
+('BUILDING_SHWEDAGON', 'FLAVOR_CULTURE', 50),
+('BUILDING_SHWEDAGON', 'FLAVOR_GREAT_PEOPLE', 30),
+('BUILDING_SHWEDAGON', 'FLAVOR_RELIGION', 40);
+
+INSERT INTO Language_en_US (Tag, Text) VALUES
+('TXT_KEY_BUILDING_SHWEDAGON',     'Golden Dagon Pagoda'),
+('TXT_KEY_WONDER_SHWEDAGON_HELP',  '+2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_CULTURE] Culture, [ICON_PEACE] Faith, [ICON_GOLDEN_AGE] Golden Age Points and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GOLD] [COLOR_CYAN]Gold[ENDCOLOR], [ICON_RES_SILVER] [COLOR_CYAN]Silver[ENDCOLOR], [ICON_RES_GEMS] [COLOR_CYAN]Gems[ENDCOLOR] or [ICON_RES_PEARLS] [COLOR_CYAN]Pearls[ENDCOLOR] nearby.'),
+('TXT_KEY_WONDER_SHWEDAGON_QUOTE', '[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
+('TXT_KEY_WONDER_SHWEDAGON_PEDIA', 'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
+('TXT_KEY_THEMING_BONUS_SHWEDAGON', 'Relics of the four previous Buddhas of the present kalpa'),
+('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', 'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ANGKOR WAT
+	UPDATE Buildings SET Water = 1, MinAreaSize = 1, Fresh Water = 1, NearbyMountainRequired = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_ANGKOR_WAT';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE');
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Jungle[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GREAT WALL
+	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- COLOSSUS
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_COLOSSUS';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_IRON');
+	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_PAPER] Iron nearby.' WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
+--============================================--
+-- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
+--============================================--
+-- Borobudur - Buddhism - Early Medieval
+-- Hagia Sophia - Orthodox/Islam - Early Medieval
+-- Al Masjid an-Nabawi - Islam - Early Medieval
+-- Cathedral of St. Basil - Orthodox - Early Medieval
+-- St Peter's Basilica - Catholic - Early Renaissance
+-- El Ghriba - Judaism - Modern
+UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', 'BUILDING_EL_GHRIBA');
+
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR].' WHERE Tag IN
+('TXT_KEY_WONDER_BOROBUDUR_HELP', 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP', 'BUILDING_KREMLIN');
