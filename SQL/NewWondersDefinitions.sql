@@ -462,6 +462,30 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Mine[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- BUDDHAS OF BAMYAN
+	UPDATE Buildings SET Mountain = 1, ProhibitedCityTerrain = "TERRAIN_GRASS" WHERE Type = 'BUILDING_BAMYAN';
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+	(BuildingType, YieldType, Yield) VALUES
+	('BUILDING_BAMYAN', 'YIELD_CULTURE', 2),
+	('BUILDING_BAMYAN', 'YIELD_FAITH', 3),
+	('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE', 1);
+	
+	-- 100% Pressure
+	-- CS Friend and Ally
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
+	('BUILDING_BAMYAN', 'FLAVOR_CULTURE', 30),
+	('BUILDING_BAMYAN', 'FLAVOR_RELIGION', 60),
+	('BUILDING_BAMYAN', 'FLAVOR_GOLDEN_AGE', 40);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US (Tag, Text) VALUES
+	('TXT_KEY_BUILDING_BAMYAN',     'Buddhas of Bamyan'),
+	('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grasslands[ENDCOLOR].'),
+	('TXT_KEY_WONDER_BAMYAN_QUOTE', '[NEWLINE][NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE][NEWLINE] - Buddha[NEWLINE][NEWLINE]'),
+	('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- GATE OF THE SUN
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NEarbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	---------------------------------------------------------
@@ -480,10 +504,9 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Building_BuildingClassYieldChanges (BuildingType, BuildingClassType, YieldType, YieldChange) VALUES
 	('BUILDING_GATE_OF_SUN', 'BUILDINGCLASS_WALLS', 'YIELD_SCIENCE', 1);
 
-	INSERT INTO Building_YieldPerXFeatureTimes100 
-				(BuildingType,		FeatureType,			YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN', 'FEATURE_LAKE',		'YIELD_CULTURE',	100),
-				('BUILDING_GATE_OF_SUN', 'FEATURE_LAKE',		'YIELD_GOLD',		100);	
+	INSERT INTO Building_LakePlotYieldChanges (BuildingType, YieldType, Yield)
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	100),
+				('BUILDING_GATE_OF_SUN',	'YIELD_GOLD',		100);	
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
 	('BUILDING_GATE_OF_SUN', 'FLAVOR_CULTURE', 50),
@@ -494,8 +517,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US (Tag, Text) VALUES
 	('TXT_KEY_BUILDING_GATE_OF_SUN',     'Gate of the Sun'),
 	('TXT_KEY_WONDER_GATE_OF_SUN_HELP',  'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
-	('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE', '[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
-	('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA', 'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
+	('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE', '[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
+	('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA', '');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PARTHENON
