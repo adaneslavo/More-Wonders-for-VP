@@ -199,7 +199,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SKARA_BRAE', 'YIELD_PRODUCTION',	1),
+	VALUES		('BUILDING_SKARA_BRAE', 'YIELD_PRODUCTION',	2),
 				('BUILDING_SKARA_BRAE', 'YIELD_FOOD',		1);
 	
 	INSERT INTO Building_ResourceYieldChangesGlobal 
@@ -224,7 +224,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --============================================--
 -- ANCIENT ERA
 --============================================--
--- KARNAK (NEW) - late game tourism, faith and production, faith and culture from Oasis and Flood Plains, free Monument;
+-- KARNAK (NEW) - late game tourism, faith and food, faith and culture from Oasis and Flood Plains, free Monument;
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_POTTERY',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_KARNAK';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KARNAK';
 	
@@ -237,8 +237,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_KARNAK', 'YIELD_PRODUCTION',	1),
-				('BUILDING_KARNAK', 'YIELD_FAITH',		1);
+	VALUES		('BUILDING_KARNAK', 'YIELD_FOOD',	1),
+				('BUILDING_KARNAK', 'YIELD_FAITH',		2);
 	
 	INSERT INTO Building_YieldPerXFeatureTimes100 
 				(BuildingType,		FeatureType,			YieldType,			Yield) 
@@ -268,7 +268,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- NAZCA (NEW) - late game tourism, science, scientist, food and faith from Plains, faith to Shrines;
+-- NAZCA (NEW) - late game tourism, science, scientist, food and faith from Plains, faith to Shrines, scientist points;
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_TRAPPING',	NumPoliciesNeeded = 1, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_NAZCA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA';
 	---------------------------------------------------------	
@@ -413,7 +413,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MALWIYA MINARET
+-- MALWIYA MINARET (NEW) - culture, production from quarries, manufactories and stone works, faith from stone and stone works, free engineer, engineer points
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_MATHEMATICS', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_MALWIYA';
 	
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
@@ -456,7 +456,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_MALWIYA',		'Malwiya Minaret'),
-				('TXT_KEY_WONDER_MALWIYA_HELP',		'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',		'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
 				('TXT_KEY_WONDER_MALWIYA_QUOTE',	'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
 				('TXT_KEY_WONDER_MALWIYA_PEDIA',	'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -468,7 +468,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Mine[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- BUDDHAS OF BAMYAN
+-- BUDDHAS OF BAMYAN (NEW) - culture, faith and golden age points, faith from CS friend, golden age from CS ally, culture at rocketry;
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
 	
 	UPDATE Buildings SET Mountain = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BAMYAN';
@@ -507,7 +507,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GATE OF THE SUN
+-- GATE OF THE SUN (NEW) - culture and science, culture and gold to lakes and mountains, science to walls, scientist points;
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GATE_OF_SUN';
 	
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
@@ -587,49 +587,50 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
--- GOLDEN DAGON PAGODA
-	/*UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_SCHWEDAGON';
+-- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SCHWEDAGON';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_SCHWEDAGON',	'RESOURCE_GOLD');
-	
-	UPDATE Buildings
-	SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',
-		SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1
-	WHERE Type = 'BUILDING_SHWEDAGON';
-
-	INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-	('BUILDING_SHWEDAGON', 'YIELD_CULTURE', 2);
+	VALUES		('BUILDING_SCHWEDAGON',	'RESOURCE_GOLD'),
+				('BUILDING_SCHWEDAGON',	'RESOURCE_GEMS');
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
 	INSERT INTO Building_SpecificGreatPersonRateModifier (BuildingType, SpecialistType, Modifier) VALUES
 	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 33);
 
 	INSERT INTO Building_SpecialistYieldChanges (BuildingType, SpecialistType, YieldType, Yield) VALUES
-	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_FAITH', 2);
+	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_FAITH', 1),
+	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_CULTURE', 1);
 
+	INSERT INTO Building_ResourceYieldChanges 
+				(BuildingType,			ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_SHWEDAGON',	'RESOURCE_GOLD',	'YIELD_FAITH',	1),
+				('BUILDING_SHWEDAGON',	'RESOURCE_GEMS',	'YIELD_FAITH',	1);
+	
 	INSERT INTO Building_ThemingBonuses (BuildingType, Description, Bonus, MustBeArt, RequiresOwner, AIPriority) VALUES
 	('BUILDING_SHWEDAGON', 'TXT_KEY_THEMING_BONUS_SHWEDAGON', 8, 1, 1, 5);
 
 	INSERT INTO Building_ThemingYieldBonus (BuildingType, YieldType, Yield) VALUES
 	('BUILDING_SHWEDAGON', 'YIELD_CULTURE', 2),
 	('BUILDING_SHWEDAGON', 'YIELD_FAITH', 2),
-	('BUILDING_SHWEDAGON', 'YIELD_GOLDEN_AGE_POINTS', 2),
+	('BUILDING_SHWEDAGON', 'YIELD_GOLD', 2),
 	('BUILDING_SHWEDAGON', 'YIELD_TOURISM', 2);
-
+	---------------------------------------------------------
 	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-	('BUILDING_SHWEDAGON', 'FLAVOR_CULTURE', 50),
-	('BUILDING_SHWEDAGON', 'FLAVOR_GREAT_PEOPLE', 30),
+	('BUILDING_SHWEDAGON', 'FLAVOR_CULTURE', 40),
+	('BUILDING_SHWEDAGON', 'FLAVOR_GREAT_PEOPLE', 40),
+	('BUILDING_SHWEDAGON', 'FLAVOR_GOLD', 20),
 	('BUILDING_SHWEDAGON', 'FLAVOR_RELIGION', 40);
-
+	---------------------------------------------------------
 	INSERT INTO Language_en_US (Tag, Text) VALUES
 	('TXT_KEY_BUILDING_SHWEDAGON',     'Golden Dagon Pagoda'),
-	('TXT_KEY_WONDER_SHWEDAGON_HELP',  '+2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_CULTURE] Culture, [ICON_PEACE] Faith, [ICON_GOLDEN_AGE] Golden Age Points and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GOLD] [COLOR_CYAN]Gold[ENDCOLOR], [ICON_RES_SILVER] [COLOR_CYAN]Silver[ENDCOLOR], [ICON_RES_GEMS] [COLOR_CYAN]Gems[ENDCOLOR] or [ICON_RES_PEARLS] [COLOR_CYAN]Pearls[ENDCOLOR] nearby.'),
+	('TXT_KEY_WONDER_SHWEDAGON_HELP',  '+1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Nearby [ICON_GEMS] Gems: +1 [ICON_RES_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
 	('TXT_KEY_WONDER_SHWEDAGON_QUOTE', '[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 	('TXT_KEY_WONDER_SHWEDAGON_PEDIA', 'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 	('TXT_KEY_THEMING_BONUS_SHWEDAGON', 'Relics of the four previous Buddhas of the present kalpa'),
 	('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', 'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
-	*/
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
