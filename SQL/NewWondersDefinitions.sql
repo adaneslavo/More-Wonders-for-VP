@@ -127,7 +127,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAJORVILLE (NEW) - science and faith, faith from tundra, science to monuments;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
-	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA'  WHERE Type = 'BUILDING_MAJORVILLE';
+	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -249,8 +249,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
-	VALUES		('BUILDING_KARNAK', 'FLAVOR_CULTURE',		40),
-				('BUILDING_KARNAK', 'FLAVOR_HAPPINESS',		20),
+	VALUES		('BUILDING_KARNAK', 'FLAVOR_CULTURE',		50),
 				('BUILDING_KARNAK', 'FLAVOR_PRODUCTION',	20),
 				('BUILDING_KARNAK', 'FLAVOR_RELIGION',		40);
 	---------------------------------------------------------	
@@ -341,8 +340,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,			FlavorType,				Flavor) 
 	VALUES		('BUILDING_WIELICZKA',	'FLAVOR_GROWTH',		50),
 				('BUILDING_WIELICZKA',	'FLAVOR_PRODUCTION',	10),
-				('BUILDING_WIELICZKA',	'FLAVOR_CULTURE',		10),
-				('BUILDING_WIELICZKA',	'FLAVOR_HAPPINESS',		40);
+				('BUILDING_WIELICZKA',	'FLAVOR_CULTURE',		30);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
@@ -409,50 +407,58 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_FORUM';
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,					FeatureType) 
+				(BuildingType,		FeatureType) 
 	VALUES		('BUILDING_FORUM',	'FEATURE_MARSH');
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET
+	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_MATHEMATICS', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_MALWIYA';
+	
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
 	
 	INSERT INTO Building_ClassesNeededInCity 
-	(BuildingType,			BuildingClassType) 
+				(BuildingType,			BuildingClassType) 
 	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MALWIYA';
 
 	INSERT INTO Building_YieldChanges 
-	(BuildingType, YieldType, Yield) VALUES
-	('BUILDING_MALWIYA', 'YIELD_CULTURE', 2);
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_MALWIYA',	'YIELD_CULTURE',	2);
 
-	INSERT INTO Building_FreeUnits (BuildingType, UnitType, NumUnits) VALUES
-	('BUILDING_MALWIYA', 'UNIT_ENGINEER', 1);
+	INSERT INTO Building_FreeUnits 
+				(BuildingType,			UnitType,			NumUnits) 
+	VALUES		('BUILDING_MALWIYA',	'UNIT_ENGINEER',	1);
 
-	INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield) VALUES
-	('BUILDING_MALWIYA', 'IMPROVEMENT_MANUFACTORY', 'YIELD_FAITH', 3),
-	('BUILDING_MALWIYA', 'IMPROVEMENT_MANUFACTORY', 'YIELD_PRODUCTION', 1),
-	('BUILDING_MALWIYA', 'IMPROVEMENT_QUARRY', 'YIELD_FAITH', 1),
-	('BUILDING_MALWIYA', 'IMPROVEMENT_QUARRY', 'YIELD_PRODUCTION', 1),
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,			ImprovementType,			YieldType,			Yield) 
+	VALUES		('BUILDING_MALWIYA',	'IMPROVEMENT_MANUFACTORY',	'YIELD_FAITH',		3),
+				('BUILDING_MALWIYA',	'IMPROVEMENT_MANUFACTORY',	'YIELD_PRODUCTION', 1),
+				('BUILDING_MALWIYA',	'IMPROVEMENT_QUARRY',		'YIELD_FAITH',		1),
+				('BUILDING_MALWIYA',	'IMPROVEMENT_QUARRY',		'YIELD_PRODUCTION', 1);
 
-	INSERT INTO Building_BuildingClassYieldChanges (BuildingType, BuildingClassType, YieldType, YieldChange) VALUES
-	('BUILDING_MALWIYA', 'BUILDINGCLASS_STONE_WORKS', 'YIELD_PRODUCTION', 1);
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS',	'YIELD_PRODUCTION', 1);
 
-	INSERT INTO Building_ResourceYieldChanges (BuildingType, ResourceType, YieldType, Yield) VALUES
-	('BUILDING_MALWIYA', 'RESOURCE_STONE',  'YIELD_PRODUCTION', 1);
+	INSERT INTO Building_ResourceYieldChanges 
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MALWIYA',	'RESOURCE_STONE',	'YIELD_PRODUCTION', 1);
 	---------------------------------------------------------
-	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-	('BUILDING_MALWIYA', 'FLAVOR_GREAT_PEOPLE', 30),
-	('BUILDING_MALWIYA', 'FLAVOR_PRODUCTION', 50),
-	('BUILDING_MALWIYA', 'FLAVOR_RELIGION', 60);
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor) 
+	VALUES		('BUILDING_MALWIYA',	'FLAVOR_GREAT_PEOPLE',	30),
+				('BUILDING_MALWIYA',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_MALWIYA',	'FLAVOR_RELIGION',		60);
 	---------------------------------------------------------
-	INSERT INTO Language_en_US (Tag, Text) VALUES
-	('TXT_KEY_BUILDING_MALWIYA',     'Malwiya Minaret'),
-	('TXT_KEY_WONDER_MALWIYA_HELP',  'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works receive +1 [ICON_PRODUCTION] Production. All Quarries receive +1 [ICON_PRODUCTION] Production, and Manufactories receive +1 [ICON_PRODUCTION] Production and +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
-	('TXT_KEY_WONDER_MALWIYA_QUOTE', '[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
-	('TXT_KEY_WONDER_MALWIYA_PEDIA', 'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_MALWIYA',		'Malwiya Minaret'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',		'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_MALWIYA_QUOTE',	'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
+				('TXT_KEY_WONDER_MALWIYA_PEDIA',	'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TERRACOTA ARMY
@@ -463,72 +469,89 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BUDDHAS OF BAMYAN
-	UPDATE Buildings SET Mountain = 1, ProhibitedCityTerrain = "TERRAIN_GRASS" WHERE Type = 'BUILDING_BAMYAN';
-	---------------------------------------------------------
-	INSERT INTO Building_YieldChanges 
-	(BuildingType, YieldType, Yield) VALUES
-	('BUILDING_BAMYAN', 'YIELD_CULTURE', 2),
-	('BUILDING_BAMYAN', 'YIELD_FAITH', 3),
-	('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE', 1);
+	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
 	
-	-- 100% Pressure
-	-- CS Friend and Ally
+	UPDATE Buildings SET Mountain = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BAMYAN';
 	---------------------------------------------------------
-	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-	('BUILDING_BAMYAN', 'FLAVOR_CULTURE', 30),
-	('BUILDING_BAMYAN', 'FLAVOR_RELIGION', 60),
-	('BUILDING_BAMYAN', 'FLAVOR_GOLDEN_AGE', 40);
+	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY' WHERE Type = 'BUILDING_BAMYAN';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,					Yield) 
+	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',			2),
+				('BUILDING_BAMYAN', 'YIELD_FAITH',				3),
+				('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	1);
+	
+	INSERT INTO Building_YieldPerFriend
+				(BuildingType,		YieldType,		Yield) 
+	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	2);
+	
+	INSERT INTO Building_YieldPerAlly
+				(BuildingType,		YieldType,					Yield) 
+	VALUES		('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	3);
+
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',	3);
 	---------------------------------------------------------
-	INSERT INTO Language_en_US (Tag, Text) VALUES
-	('TXT_KEY_BUILDING_BAMYAN',     'Buddhas of Bamyan'),
-	('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grasslands[ENDCOLOR].'),
-	('TXT_KEY_WONDER_BAMYAN_QUOTE', '[NEWLINE][NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE][NEWLINE] - Buddha[NEWLINE][NEWLINE]'),
-	('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor) 
+	VALUES		('BUILDING_BAMYAN', 'FLAVOR_CULTURE',		30),
+				('BUILDING_BAMYAN', 'FLAVOR_RELIGION',		60),
+				('BUILDING_BAMYAN', 'FLAVOR_HAPPINESS',		40);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,							Text)
+	VALUES		('TXT_KEY_BUILDING_BAMYAN',     'Buddhas of Bamyan'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grasslands[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_QUOTE', '[NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
+				('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GATE OF THE SUN
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NEarbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
+	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GATE_OF_SUN';
+	
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	
 	INSERT INTO Building_YieldChanges 
-	(BuildingType, YieldType, Yield) VALUES
-	('BUILDING_GATE_OF_SUN', 'YIELD_CULTURE', 2),
-	('BUILDING_GATE_OF_SUN', 'YIELD_SCIENCE', 2);
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	2),
+				('BUILDING_GATE_OF_SUN',	'YIELD_SCIENCE',	2);
 
 	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,		TerrainType,		YieldType,		Yield) 
+				(BuildingType,				TerrainType,		YieldType,			Yield) 
 	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_CULTURE',	1),
-				('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_GOLD',	1);
+				('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_GOLD',		1);
 	
-	INSERT INTO Building_BuildingClassYieldChanges (BuildingType, BuildingClassType, YieldType, YieldChange) VALUES
-	('BUILDING_GATE_OF_SUN', 'BUILDINGCLASS_WALLS', 'YIELD_SCIENCE', 1);
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,				BuildingClassType,		YieldType,			YieldChange) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'BUILDINGCLASS_WALLS',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_LakePlotYieldChanges (BuildingType, YieldType, Yield)
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	100),
 				('BUILDING_GATE_OF_SUN',	'YIELD_GOLD',		100);	
 	---------------------------------------------------------
-	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-	('BUILDING_GATE_OF_SUN', 'FLAVOR_CULTURE', 50),
-	('BUILDING_GATE_OF_SUN', 'FLAVOR_SCIENCE', 30),
-	('BUILDING_GATE_OF_SUN', 'FLAVOR_GOLD', 10),
-	('BUILDING_GATE_OF_SUN', 'FLAVOR_GREAT_PEOPLE', 10);
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'FLAVOR_CULTURE',		50),
+				('BUILDING_GATE_OF_SUN',	'FLAVOR_SCIENCE',		30),
+				('BUILDING_GATE_OF_SUN',	'FLAVOR_GOLD',			10),
+				('BUILDING_GATE_OF_SUN',	'FLAVOR_GREAT_PEOPLE',	10);
 	---------------------------------------------------------
-	INSERT INTO Language_en_US (Tag, Text) VALUES
-	('TXT_KEY_BUILDING_GATE_OF_SUN',     'Gate of the Sun'),
-	('TXT_KEY_WONDER_GATE_OF_SUN_HELP',  'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
-	('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE', '[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
-	('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA', '');
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',		'Gate of the Sun'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',	'[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PARTHENON
 	UPDATE Buildings SET Hill = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
-	
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_PARTHENON',	'RESOURCE_MARBLE');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]Marble[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ORACLE
@@ -538,13 +561,13 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
-	UPDATE Buildings SET Water = 1, MinAreaSize = 1, Fresh Water = 1, NearbyMountainRequired = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_ANGKOR_WAT';
+	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Jungle[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Jungle[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT WALL
@@ -560,7 +583,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_IRON');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_PAPER] Iron nearby.' WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_IRON] Iron nearby.' WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
@@ -617,7 +640,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- Borobudur - Buddhism - Late Medieval
 -- St Peter's Basilica - Catholic - Early Renaissance
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', 'BUILDING_EL_GHRIBA');
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN');--, 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', 'BUILDING_EL_GHRIBA');
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR].' WHERE Tag IN
-('TXT_KEY_WONDER_BOROBUDUR_HELP', 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP', 'BUILDING_KREMLIN');
+('TXT_KEY_WONDER_BOROBUDUR_HELP', 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP', 'TXT_KEY_WONDER_KREMLIN_HELP');

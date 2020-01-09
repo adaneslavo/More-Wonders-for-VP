@@ -33,12 +33,13 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('NAZCA',			1,			0),		-- Nazca Lines
 			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
 			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
-			--('BAMIYAN',			1,			0),		-- Buddhas of Bamiyan
-			('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
-			--('MAHABALIPURAM',	1,			0),		-- Mahabaliputram Temple / Shore Temple (Great Mosque of Samarra)
+			('GATE_OF_SUN',		1,			0),		-- Gate of the Sun
+			('BAMYAN',			1,			0);		-- Buddhas of Bamiyan
+			--('EL_GHRIBA',		1,			0);		-- El Ghriba Synagougue
 			--('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
-			--('CHAND_BAORI',		1,			0);		-- Chand Baori Well
-
+			--('CHAND_BAORI',		1,			0),		-- Chand Baori Well
+			--('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
 --('ARECIBO',     1, 0), -- Arecibo Observatory

@@ -1,4 +1,4 @@
-print("Loading LakesWithOcean.lua from MWfVP");
+print("Loading UniqueWonderRequirements.lua from MWfVP");
 --------------------------------------------------------------
 -- Support for true Lake locations for Wonders and Buildings using CityCanConstruct event
 -- Lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
@@ -21,7 +21,8 @@ end
 
 
 local tValidBuildingsLake = {};
-local tValidBuildingsMine = {};
+local tValidBuildingsMineBuildings = {};
+local tValidBuildingsMineResources = {};
 
 -- main function, will be called MANY times, so make it fast!
 function LakeWithOcean(iPlayer, iCity, iBuildingType)
@@ -48,7 +49,7 @@ end
 GameEvents.CityCanConstruct.Add(LakeWithOcean);
 
 function CityWithMine(iPlayer, iCity, iBuildingType)
-	if not tValidBuildingsMine[iBuildingType] then return true; end
+	if not tValidBuildingsMineBuildings[iBuildingType] then return true; end
    
 	local pPlayer = Players[iPlayer];
    
@@ -58,8 +59,17 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 	local iCityX = pCity:GetX();
 	local iCityY = pCity:GetY();
 
-	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
-		if Map.PlotDirection(iCityX, iCityY, dir):GetImprovementType() == GameInfoTypes.IMPROVEMENT_MINE then
+	--[[for resource in tValidBuildingsMineResources() do
+		if pCity:IsHasResourceLocal(resource) then
+			return true;
+		end
+	end--]]
+
+	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
+		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+		local iPlotOwner = pSpecificPlot:GetOwner()
+				
+		if iPlotOwner == iPlayer and pSpecificPlot:GetImprovementType() == GameInfoTypes.IMPROVEMENT_MINE then
 			return true;
 		end
 	end
@@ -74,14 +84,23 @@ function Initialize()
 		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
 			local iBuilding = GameInfoTypes[building.Type];
 			
-			dprint("...adding (id,building)", building.ID, building.Type);
+			dprint("...adding (id,building)", building.ID, building.Type, "(Building require lake)");
 			tValidBuildingsLake[building.ID] = true;
 		end
 	end
 
 	-- add mine buildings
-	tValidBuildingsMine[GameInfo.Buildings(GameInfoTypes[BUILDING_TERRACOTTA_ARMY]).ID] = true;
+	dprint("...adding (id,building)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine)");
+	tValidBuildingsMineBuildings[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true;
+
+	-- add mining resources (currently unused)
+	for improvement in GameInfo.Improvement_ResourceTypes() do
+		if improvement.ImprovementType == "IMPROVEMENT_MINE" then
+			dprint("...adding (id,resource)", GameInfo.Resources[improvement.ResourceType].ID, improvement.ResourceType, "(Mining Resource)");
+			tValidBuildingsMineResources[GameInfo.Resources[improvement.ResourceType].ID] = true;
+		end
+	end
 end
 Initialize();
 
-print("Loaded LakesWithOcean.lua from MWfVP");
+print("Loaded UniqueWonderRequirements.lua from MWfVP");
