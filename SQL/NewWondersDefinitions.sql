@@ -297,7 +297,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,							Text) 
 	VALUES		('TXT_KEY_BUILDING_NAZCA',		'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to [COLOR_CYAN]Plains[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NAZCA_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to [COLOR_CYAN]Plains[ENDCOLOR].'),
 				('TXT_KEY_WONDER_NAZCA_QUOTE',	'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
 				('TXT_KEY_WONDER_NAZCA_PEDIA',	'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -450,17 +450,52 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	---------------------------------------------------------
 	INSERT INTO Language_en_US (Tag, Text) VALUES
 	('TXT_KEY_BUILDING_MALWIYA',     'Malwiya Minaret'),
-	('TXT_KEY_WONDER_MALWIYA_HELP',  'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works and Quarries receive +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith. All Manufactories receive +3 [ICON_PRODUCTION] Production and +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+	('TXT_KEY_WONDER_MALWIYA_HELP',  'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works receive +1 [ICON_PRODUCTION] Production. All Quarries receive +1 [ICON_PRODUCTION] Production, and Manufactories receive +1 [ICON_PRODUCTION] Production and +3 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
 	('TXT_KEY_WONDER_MALWIYA_QUOTE', '[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
 	('TXT_KEY_WONDER_MALWIYA_PEDIA', 'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TERRACOTA ARMY
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	
-	-- +Mine
+	-- +Mine (Lua)
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Mine[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GATE OF THE SUN
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NEarbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
+	
+	INSERT INTO Building_YieldChanges 
+	(BuildingType, YieldType, Yield) VALUES
+	('BUILDING_GATE_OF_SUN', 'YIELD_CULTURE', 2),
+	('BUILDING_GATE_OF_SUN', 'YIELD_SCIENCE', 2);
+
+	INSERT INTO Building_TerrainYieldChanges 
+				(BuildingType,		TerrainType,		YieldType,		Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_CULTURE',	1),
+				('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_GOLD',	1);
+	
+	INSERT INTO Building_BuildingClassYieldChanges (BuildingType, BuildingClassType, YieldType, YieldChange) VALUES
+	('BUILDING_GATE_OF_SUN', 'BUILDINGCLASS_WALLS', 'YIELD_SCIENCE', 1);
+
+	INSERT INTO Building_YieldPerXFeatureTimes100 
+				(BuildingType,		FeatureType,			YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN', 'FEATURE_LAKE',		'YIELD_CULTURE',	100),
+				('BUILDING_GATE_OF_SUN', 'FEATURE_LAKE',		'YIELD_GOLD',		100);	
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
+	('BUILDING_GATE_OF_SUN', 'FLAVOR_CULTURE', 50),
+	('BUILDING_GATE_OF_SUN', 'FLAVOR_SCIENCE', 30),
+	('BUILDING_GATE_OF_SUN', 'FLAVOR_GOLD', 10),
+	('BUILDING_GATE_OF_SUN', 'FLAVOR_GREAT_PEOPLE', 10);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US (Tag, Text) VALUES
+	('TXT_KEY_BUILDING_GATE_OF_SUN',     'Gate of the Sun'),
+	('TXT_KEY_WONDER_GATE_OF_SUN_HELP',  'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+	('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE', '[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
+	('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA', 'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PARTHENON
