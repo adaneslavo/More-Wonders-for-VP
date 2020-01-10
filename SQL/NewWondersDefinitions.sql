@@ -554,10 +554,75 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- EL GHRIBA (NEW) -
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA_AND_POETRY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
+	
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EL_GHRIBA';
+	---------------------------------------------------------
+	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1 WHERE Type = 'BUILDING_EL_GHRIBA';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_CULTURE',	2),
+				('BUILDING_EL_GHRIBA',	'YIELD_GOLD',	1),
+				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',	2);
+	-- Arc of the Covenant
+	
+
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_EL_GHRIBA',	'FLAVOR_CULTURE',		60),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_FAITH',		30),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_GOLD',			10);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',		'El Ghriba Synagogue'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Arc of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest for the ark of the covenant of the Lord, and for the footstool of our God"[NEWLINE] - 1 Chronicles 28:2[NEWLINE]'),
+				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',	'');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- ORACLE
 	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ORACLE';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ETCHMIADZIN (NEW) -
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
+	
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_ETCHMIADZIN',		'FEATURE_FOREST');
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1 WHERE Type = 'BUILDING_EL_GHRIBA';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_ETCHMIADZIN',	'YIELD_GOLDEN_AGE_POINTS',	2),
+				('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',	2);
+	
+	-- 10% faith to gap and culture
+	-- Holy Lance
+	-- +1 faith to Great Works
+
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_ETCHMIADZIN',	'FLAVOR_CULTURE',		50),
+				('BUILDING_ETCHMIADZIN',	'FLAVOR_FAITH',		60),
+				('BUILDING_ETCHMIADZIN',	'FLAVOR_HAPPINESS',			20);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',		'Etchmiadzin Cathedral'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
@@ -574,6 +639,42 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- CHAND BAORI
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_ENGINEERING', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_CHAND_BAORI';
+	
+	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_CHAND_BAORI',	'YIELD_FOOD',	3),
+				('BUILDING_CHAND_BAORI',	'YIELD_GOLD',	1),
+				('BUILDING_CHAND_BAORI',	'YIELD_CULTURE',	2);
+	
+	INSERT INTO Building_TerrainYieldChanges 
+				(BuildingType,				TerrainType,		YieldType,			Yield) 
+	VALUES		('BUILDING_CHAND_BAORI',	'TERRAIN_DESERT',	'YIELD_GOOD',	1);
+	
+	-- +10% GPP in the city
+	-- -5 unhappiness urbanization
+	
+	
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_CHAND_BAORI',	'FLAVOR_GROWTH',		60),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_CULTURE',		20),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_GREAT_PEOPLE',		10),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_HAPPINESS',			20),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_GOLD',			10);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori Well'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% [ICON_GREAT_PEOPLE] Great People Rate in this City. +1 [ICON_FOOD] Food from local Desert tiles. -5 Unhappiness from Urbanization in this City.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR]. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),
+				('TXT_KEY_WONDER_CHAND_BAORI_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- COLOSSUS
