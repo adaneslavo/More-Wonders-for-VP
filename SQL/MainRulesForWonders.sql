@@ -34,11 +34,11 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
 			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',		1,			0),		-- Gate of the Sun
-			('BAMYAN',			1,			0);		-- Buddhas of Bamiyan
-			--('EL_GHRIBA',		1,			0);		-- El Ghriba Synagougue
-			--('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
-			--('CHAND_BAORI',		1,			0),		-- Chand Baori Well
-			--('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('BAMYAN',			1,			0),		-- Buddhas of Bamiyan
+			('EL_GHRIBA',		1,			0),		-- El Ghriba Synagougue
+			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
+			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
+			('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
@@ -100,8 +100,8 @@ FROM VPWEConfig WHERE WActive = 1;
 -- Set Cost = -1 and later apply proper value for enabled buildings
 -- GreatWorkCount defaults to 0, PrereqTech defaults to NULL
 INSERT INTO Buildings
-			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,            PortraitIndex, WonderSplashImage,             WonderSplashAnchor)
-SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_VPWE_'||WType, 0,             'VPWE_'||WType||'_splash.dds', 'R,T'
+			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,             WonderSplashAnchor)
+SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_NEW_WONDERS'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
 FROM VPWEConfig WHERE WActive = 1;
 --------------------------------------------------------------
 -- Panama Canal is already in the game
@@ -129,11 +129,11 @@ SELECT		'BUILDING_'||WType, 'FLAVOR_WONDER',	20
 FROM VPWEConfig;
 --------------------------------------------------------------
 -- IconTextureAtlases
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_VPWE_'||WType, 256, 'VPWE_'||WType||'_256.dds', '1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_VPWE_'||WType, 128, 'VPWE_'||WType||'_128.dds', '1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_VPWE_'||WType,  80, 'VPWE_'||WType||'_80.dds', '1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_VPWE_'||WType,  64, 'VPWE_'||WType||'_64.dds', '1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_VPWE_'||WType,  45, 'VPWE_'||WType||'_45.dds', '1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType, 256, 'Wonder_'||WType||'_256.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType, 128, 'Wonder_'||WType||'_128.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  80, 'Wonder_'||WType||'_80.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  64, 'Wonder_'||WType||'_64.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  45, 'Wonder_'||WType||'_45.dds',	'1', '1' FROM VPWEConfig;
 --------------------------------------------------------------
 -- Fake texts; if the real ones are created, set WFake to 0 (zero)
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_BUILDING_'||WType,         'Wonder '||WType 					    FROM VPWEConfig WHERE WFake = 1;

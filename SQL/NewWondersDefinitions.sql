@@ -87,7 +87,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_GGANTIJA',		'Ggantija'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP',	'+5% [ICON_FOOD] Food in all Cities. Grants 25 [ICON_FOOD] Food after construction. [NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP',	'+5% [ICON_FOOD] Food in all Cities. Grants 25 [ICON_FOOD] Food after construction. [NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].'),
 				('TXT_KEY_WONDER_GGANTIJA_QUOTE',	'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
 				('TXT_KEY_WONDER_GGANTIJA_PEDIA',	'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -265,7 +265,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA (NEW) - late game tourism, science, scientist, food and faith from Plains, faith to Shrines, scientist points;
@@ -390,11 +390,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- GREAT LIBRARY
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_GREAT_LIBRARY';
 	
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_GREAT_LIBRARY',	'RESOURCE_PAPER');
+	INSERT INTO Building_ResourceQuantityRequirements
+				(BuildingType,				ResourceType,		Cost) 
+	VALUES		('BUILDING_GREAT_LIBRARY',	'RESOURCE_PAPER',	1);
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have [ICON_RES_PAPER] Paper nearby.' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Uses 1 copy of [ICON_RES_PAPER] Paper.' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HANGING GARDENS
@@ -502,7 +502,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,							Text)
 	VALUES		('TXT_KEY_BUILDING_BAMYAN',     'Buddhas of Bamyan'),
-				('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grasslands[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grassland[ENDCOLOR].'),
 				('TXT_KEY_WONDER_BAMYAN_QUOTE', '[NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -530,8 +530,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 
 	INSERT INTO Building_LakePlotYieldChanges 
 				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	100),
-				('BUILDING_GATE_OF_SUN',	'YIELD_GOLD',		100);	
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
+				('BUILDING_GATE_OF_SUN',	'YIELD_GOLD',		1);	
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
@@ -551,37 +551,40 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- PARTHENON
 	UPDATE Buildings SET Hill = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Cannot be built if [COLOR_RED]Grassland[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EL GHRIBA (NEW) -
-	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA_AND_POETRY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
 	
 	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EL_GHRIBA';
 	---------------------------------------------------------
-	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1 WHERE Type = 'BUILDING_EL_GHRIBA';
+	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_THE_ARK' WHERE Type = 'BUILDING_EL_GHRIBA';
 	
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,				YieldType,			Yield) 
+				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_CULTURE',	2),
-				('BUILDING_EL_GHRIBA',	'YIELD_GOLD',	1),
-				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',	2);
-	-- Arc of the Covenant
+				('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		1),
+				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',		2);
 	
-
+	INSERT INTO GreatWorks
+				(Type,					Description,					GreatWorkClassType,	Audio,							Image,							Quote) 
+	VALUES		('GREAT_WORK_THE_ARK',	'TXT_KEY_GREAT_WORK_THE_ARK',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Ark_of_the_Covenant.dds',	'TXT_KEY_GREAT_WORK_THE_ARK');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
-				(BuildingType,				FlavorType,				Flavor) 
-	VALUES		('BUILDING_EL_GHRIBA',	'FLAVOR_CULTURE',		60),
-				('BUILDING_EL_GHRIBA',	'FLAVOR_FAITH',		30),
-				('BUILDING_EL_GHRIBA',	'FLAVOR_GOLD',			10);
+				(BuildingType,			FlavorType,			Flavor) 
+	VALUES		('BUILDING_EL_GHRIBA',	'FLAVOR_CULTURE',	60),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_RELIGION',	30),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_GOLD',		10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
-	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',		'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Arc of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
-				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest for the ark of the covenant of the Lord, and for the footstool of our God"[NEWLINE] - 1 Chronicles 28:2[NEWLINE]'),
-				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',	'');
+	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be built in [NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR], on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
+				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'TODO'),
+				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant');
+				('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God"[NEWLINE] - 1 Chronicles 28:2[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ORACLE
@@ -599,30 +602,40 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_ETCHMIADZIN',		'FEATURE_FOREST');
 	---------------------------------------------------------
-	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1 WHERE Type = 'BUILDING_EL_GHRIBA';
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_LANCE'  WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,				YieldType,			Yield) 
+				(BuildingType,				YieldType,					Yield) 
 	VALUES		('BUILDING_ETCHMIADZIN',	'YIELD_GOLDEN_AGE_POINTS',	2),
-				('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',	2);
+				('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',				2);
 	
-	-- 10% faith to gap and culture
-	-- Holy Lance
-	-- +1 faith to Great Works
-
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,				YieldIn,		YieldOut,					Value) 
+	VALUES		('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',	'YIELD_CULTURE',			10),
+				('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_ETCHMIADZIN',	'YIELD_FAITH',	1);
+	
+	INSERT INTO GreatWorks
+				(Type,						Description,						GreatWorkClassType,	Audio,							Image,							Quote) 
+	VALUES		('GREAT_WORK_HOLY_LANCE',	'TXT_KEY_GREAT_WORK_HOLY_LANCE',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Lance.dds',	'TXT_KEY_GREAT_WORK_HOLY_LANCE');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
-				(BuildingType,				FlavorType,				Flavor) 
-	VALUES		('BUILDING_ETCHMIADZIN',	'FLAVOR_CULTURE',		50),
-				('BUILDING_ETCHMIADZIN',	'FLAVOR_FAITH',		60),
-				('BUILDING_ETCHMIADZIN',	'FLAVOR_HAPPINESS',			20);
+				(BuildingType,				FlavorType,			Flavor) 
+	VALUES		('BUILDING_ETCHMIADZIN',	'FLAVOR_CULTURE',	50),
+				('BUILDING_ETCHMIADZIN',	'FLAVOR_RELIGION',	60),
+				('BUILDING_ETCHMIADZIN',	'FLAVOR_HAPPINESS',	20);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',		'Etchmiadzin Cathedral'),
-				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grasslands[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
-				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'');
+				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'TODO'),
+				('TXT_KEY_GREAT_WORK_HOLY_LANCE',		'Holy Lance');
+				('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',	'[NEWLINE]One of the soldiers pierced his side with a lance, [NEWLINE]and immediately there came out blood and water.[NEWLINE] - John 19:34[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
@@ -646,27 +659,24 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	
 	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
 	---------------------------------------------------------
+	UPDATE Buildings SET NoUnhappfromXSpecialists = 5, GreatPeopleRateModifier = 10 WHERE Type = 'BUILDING_CHAND_BAORI';
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield) 
-	VALUES		('BUILDING_CHAND_BAORI',	'YIELD_FOOD',	3),
-				('BUILDING_CHAND_BAORI',	'YIELD_GOLD',	1),
+	VALUES		('BUILDING_CHAND_BAORI',	'YIELD_FOOD',		3),
+				('BUILDING_CHAND_BAORI',	'YIELD_GOLD',		1),
 				('BUILDING_CHAND_BAORI',	'YIELD_CULTURE',	2);
 	
 	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,				TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_CHAND_BAORI',	'TERRAIN_DESERT',	'YIELD_GOOD',	1);
-	
-	-- +10% GPP in the city
-	-- -5 unhappiness urbanization
-	
-	
+				(BuildingType,				TerrainType,		YieldType,		Yield) 
+	VALUES		('BUILDING_CHAND_BAORI',	'TERRAIN_DESERT',	'YIELD_FOOD',	1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
 	VALUES		('BUILDING_CHAND_BAORI',	'FLAVOR_GROWTH',		60),
 				('BUILDING_CHAND_BAORI',	'FLAVOR_CULTURE',		20),
-				('BUILDING_CHAND_BAORI',	'FLAVOR_GREAT_PEOPLE',		10),
-				('BUILDING_CHAND_BAORI',	'FLAVOR_HAPPINESS',			20),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_GREAT_PEOPLE',	10),
+				('BUILDING_CHAND_BAORI',	'FLAVOR_HAPPINESS',		20),
 				('BUILDING_CHAND_BAORI',	'FLAVOR_GOLD',			10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -689,49 +699,57 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- MEDIEVAL ERA
 --============================================--
 -- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SCHWEDAGON';
+	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SCHWEDAGON';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_SCHWEDAGON',	'RESOURCE_GOLD'),
-				('BUILDING_SCHWEDAGON',	'RESOURCE_GEMS');
+	VALUES		('BUILDING_SHWEDAGON',	'RESOURCE_GOLD'),
+				('BUILDING_SHWEDAGON',	'RESOURCE_GEMS');
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
-	INSERT INTO Building_SpecificGreatPersonRateModifier (BuildingType, SpecialistType, Modifier) VALUES
-	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 33);
+	INSERT INTO Building_SpecificGreatPersonRateModifier 
+				(BuildingType,			SpecialistType,			Modifier)
+	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	33);
 
-	INSERT INTO Building_SpecialistYieldChanges (BuildingType, SpecialistType, YieldType, Yield) VALUES
-	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_FAITH', 1),
-	('BUILDING_SHWEDAGON', 'SPECIALIST_ARTIST', 'YIELD_CULTURE', 1);
+	INSERT INTO Building_SpecialistYieldChanges 
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_FAITH',		1),
+				('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_CULTURE',	1);
 
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
 	VALUES		('BUILDING_SHWEDAGON',	'RESOURCE_GOLD',	'YIELD_FAITH',	1),
 				('BUILDING_SHWEDAGON',	'RESOURCE_GEMS',	'YIELD_FAITH',	1);
 	
-	INSERT INTO Building_ThemingBonuses (BuildingType, Description, Bonus, MustBeArt, RequiresOwner, AIPriority) VALUES
-	('BUILDING_SHWEDAGON', 'TXT_KEY_THEMING_BONUS_SHWEDAGON', 8, 1, 1, 5);
+	INSERT INTO Building_ThemingBonuses 
+				(BuildingType,			Description,						Bonus,	MustBeArt,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON',	8,		1,			1,				5);
 
-	INSERT INTO Building_ThemingYieldBonus (BuildingType, YieldType, Yield) VALUES
-	('BUILDING_SHWEDAGON', 'YIELD_CULTURE', 2),
-	('BUILDING_SHWEDAGON', 'YIELD_FAITH', 2),
-	('BUILDING_SHWEDAGON', 'YIELD_GOLD', 2),
-	('BUILDING_SHWEDAGON', 'YIELD_TOURISM', 2);
+	INSERT INTO Building_ThemingYieldBonus 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	2),
+				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		2),
+				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		2),
+				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	2);
 	---------------------------------------------------------
-	INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-	('BUILDING_SHWEDAGON', 'FLAVOR_CULTURE', 40),
-	('BUILDING_SHWEDAGON', 'FLAVOR_GREAT_PEOPLE', 40),
-	('BUILDING_SHWEDAGON', 'FLAVOR_GOLD', 20),
-	('BUILDING_SHWEDAGON', 'FLAVOR_RELIGION', 40);
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_SHWEDAGON',	'FLAVOR_CULTURE',		40),
+				('BUILDING_SHWEDAGON',	'FLAVOR_GREAT_PEOPLE',	40),
+				('BUILDING_SHWEDAGON',	'FLAVOR_GOLD',			20),
+				('BUILDING_SHWEDAGON',	'FLAVOR_RELIGION',		40);
 	---------------------------------------------------------
-	INSERT INTO Language_en_US (Tag, Text) VALUES
-	('TXT_KEY_BUILDING_SHWEDAGON',     'Golden Dagon Pagoda'),
-	('TXT_KEY_WONDER_SHWEDAGON_HELP',  '+1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Nearby [ICON_GEMS] Gems: +1 [ICON_RES_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
-	('TXT_KEY_WONDER_SHWEDAGON_QUOTE', '[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
-	('TXT_KEY_WONDER_SHWEDAGON_PEDIA', 'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
-	('TXT_KEY_THEMING_BONUS_SHWEDAGON', 'Relics of the four previous Buddhas of the present kalpa'),
-	('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', 'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
+	INSERT INTO Language_en_US 
+				(Tag,										Text)
+	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
+				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
+				('TXT_KEY_THEMING_BONUS_SHWEDAGON',			'Relics of the four previous Buddhas of the present kalpa'),
+				('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
@@ -742,7 +760,15 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- Borobudur - Buddhism - Late Medieval
 -- St Peter's Basilica - Catholic - Early Renaissance
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN');--, 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', 'BUILDING_EL_GHRIBA');
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA');--, 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', );
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR].' WHERE Tag IN
 ('TXT_KEY_WONDER_BOROBUDUR_HELP', 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP', 'TXT_KEY_WONDER_KREMLIN_HELP');
+--============================================--
+-- VP FIXES
+--============================================--
+UPDATE Buildings SET NumPoliciesNeeded = 7 WHERE Type = 'BUILDING_BOROBUDUR';
+UPDATE Buildings SET NumPoliciesNeeded = 8 WHERE Type = 'BUILDING_KREMLIN';
+UPDATE Buildings SET NumPoliciesNeeded = 4 WHERE Type = 'BUILDING_FORUM';
+UPDATE GreatWorks SET Audio = 'AS2D_GREAT_ARTIST_ARTWORK' WHERE Type = 'GREAT_WORK_THE_CROWN_JEWELS';
+--UPDATE Language_en_US SET Text = '???' WHERE Tag = 'TXT_KEY_GREAT_WORK_THE_CROWN_JEWELS_QUOTE';

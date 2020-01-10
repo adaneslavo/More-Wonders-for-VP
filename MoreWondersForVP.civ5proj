@@ -97,315 +97,403 @@ Currently compatible with 12-20-3.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Art\Ancient\VPWE_Karnak_128.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Karnak_256.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Karnak_45.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Karnak_64.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Karnak_80.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Karnak_splash.dds">
+    <Content Include="Art\Ancient\Wonder_Karnak_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_128.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_256.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_45.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_64.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_80.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Nazca_splash.dds">
+    <Content Include="Art\Ancient\Wonder_Nazca_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_128.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_256.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_45.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_64.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_80.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Ancient\VPWE_Wieliczka_splash.dds">
+    <Content Include="Art\Ancient\Wonder_Wieliczka_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_128.dds">
+    <Content Include="Art\Classical\Great_Work_Holy_Lance.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_256.dds">
+    <Content Include="Art\Classical\Great_Work_Holy_Lance2.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_45.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_64.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_80.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Bamyan_splash.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_128.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_256.dds">
+    <Content Include="Art\Classical\Wonder_Bamyan_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_45.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_64.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_80.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Gate_of_Sun_splash.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_128.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_256.dds">
+    <Content Include="Art\Classical\Wonder_Chand_Baori_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_45.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_64.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_80.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Classical\VPWE_Malwiya_splash.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_128.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_256.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_45.dds">
+    <Content Include="Art\Classical\Wonder_El_Ghriba_splash2.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_64.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_80.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Medieval\VPWE_Shwedagon_splash.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_128.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_256.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_45.dds">
+    <Content Include="Art\Classical\Wonder_Etchmiadzin_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_64.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_80.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Altamira_splash.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_128.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_256.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_45.dds">
+    <Content Include="Art\Classical\Wonder_Gate_of_Sun_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_64.dds">
+    <Content Include="Art\Classical\Great_Work_Ark_of_the_Covenant.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_80.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Ggantija_splash.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_128.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_256.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_45.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_64.dds">
+    <Content Include="Art\Classical\Wonder_Malwiya_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_80.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Goebekli_Tepe_splash.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_128.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_256.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_45.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_64.dds">
+    <Content Include="Art\Medieval\Wonder_Shwedagon_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_80.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Majorville_splash.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_128.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_256.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_45.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_64.dds">
+    <Content Include="Art\Neolithic\Wonder_Altamira_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_80.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Mohenjo_Daro_splash.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_128.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_256.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_45.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_64.dds">
+    <Content Include="Art\Neolithic\Wonder_Ggantija_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_80.dds">
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Neolithic\VPWE_Skara_Brae_splash.dds">
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Goebekli_Tepe_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Majorville_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Mohenjo_Daro_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Neolithic\Wonder_Skara_Brae_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -574,10 +662,6 @@ Currently compatible with 12-20-3.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\VPWE_Gripsholm_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_GW_Ark_Covenant.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
