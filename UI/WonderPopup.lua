@@ -80,7 +80,9 @@ function OnPopup( popupInfo )
 		local bExcludeHeader = true;
 		strGameInfo = GetHelpTextForBuilding(iBuildingID, bExcludeName, bExcludeHeader, false);
 	end
-    
+
+	strGameInfo = strGameInfo .. "_CUT" -- shorter help text for wonder splash screen (without reuirements)
+		
     if( strGameInfo ~= nil ) then
         Controls.Stats:SetText( Locale.ConvertTextKey( strGameInfo ) );
     	Controls.Stats:SetHide( false );

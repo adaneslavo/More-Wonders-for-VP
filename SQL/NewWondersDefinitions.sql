@@ -51,20 +51,22 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_ALTAMIRA',	'RESOURCE_DEER',	'YIELD_CULTURE',	1);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
-				(BuildingType,			FlavorType,			Flavor) 
-	VALUES		('BUILDING_ALTAMIRA',	'FLAVOR_DEFENSE',	10),
-				('BUILDING_ALTAMIRA',	'FLAVOR_CULTURE',	60);
+				(BuildingType,			FlavorType,				Flavor) 
+	VALUES		('BUILDING_ALTAMIRA',	'FLAVOR_CITY_DEFENSE',	10),
+				('BUILDING_ALTAMIRA',	'FLAVOR_CULTURE',		60);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_ALTAMIRA',		'Altamira Caves'),
-				('TXT_KEY_WONDER_ALTAMIRA_HELP',	'Conatins 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] and [ICON_RES_BISON] Bison or [ICON_RES_DEER] Deer nearby.'),
-				('TXT_KEY_WONDER_ALTAMIRA_QUOTE',	'[NEWLINE]"After Altamira everything seems decadent". [NEWLINE]- Pablo Picasso'),
-				('TXT_KEY_WONDER_ALTAMIRA_PEDIA',	'The cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.');
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Caves'),
+				('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] and [ICON_RES_BISON] Bison or [ICON_RES_DEER] Deer nearby.'),
+				('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT',	'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.'),
+				('TXT_KEY_WONDER_ALTAMIRA_QUOTE',		'[NEWLINE]"After Altamira everything seems decadent". [NEWLINE]- Pablo Picasso'),
+				('TXT_KEY_WONDER_ALTAMIRA_PEDIA',		'The cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GGANTIJA (NEW) - faith, global food, instant food;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges 
@@ -85,11 +87,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_GGANTIJA',	'FLAVOR_GROWTH',	50);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_GGANTIJA',		'Ggantija'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP',	'+5% [ICON_FOOD] Food in all Cities. Grants 25 [ICON_FOOD] Food after construction. [NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].'),
-				('TXT_KEY_WONDER_GGANTIJA_QUOTE',	'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
-				('TXT_KEY_WONDER_GGANTIJA_PEDIA',	'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 25 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP_CUT',	'Grants 25 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire.'),
+				('TXT_KEY_WONDER_GGANTIJA_QUOTE',		'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
+				('TXT_KEY_WONDER_GGANTIJA_PEDIA',		'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOEBEKLI TEPE (NEW) - faith, culture, science, faith from mountains, science from marble and stone;
@@ -118,11 +121,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_RELIGION',	40);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,									Text) 
-	VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',		'Goebekli Tepe'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',	'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]River[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',	'[NEWLINE]"Listen a hundred times. Ponder a thousand times. Speak once."[NEWLINE] - Turkish Proverb[NEWLINE]'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',	'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. It was not thought different until 1994, and not excavated until a year later. The complex is similar in manner to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
+				(Tag,										Text) 
+	VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Goebekli Tepe'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]River[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',		'[NEWLINE]"Listen a hundred times. Ponder a thousand times. Speak once."[NEWLINE] - Turkish Proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',		'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. It was not thought different until 1994, and not excavated until a year later. The complex is similar in manner to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAJORVILLE (NEW) - science and faith, faith from tundra, science to monuments;
@@ -148,15 +152,17 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_MAJORVILLE',	'FLAVOR_RELIGION',		50);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_MAJORVILLE',		'Majorville Medicine Wheel'),
-				('TXT_KEY_WONDER_MAJORVILLE_HELP',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Monuments receive +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
-				('TXT_KEY_WONDER_MAJORVILLE_QUOTE',	'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
-				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',	'TODO');
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Monuments receive +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Monuments receive +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_MAJORVILLE_QUOTE',		'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
+				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MOHENJO-DARO (NEW) - culture, faith from rivers, defense, free well;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET Hill = 1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_MOHENJO_DARO';
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL', Defense = 1000 WHERE Type = 'BUILDING_MOHENJO_DARO';
@@ -172,21 +178,23 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
 	VALUES		('BUILDING_MOHENJO_DARO',	'FLAVOR_CULTURE',		20),
-				('BUILDING_MOHENJO_DARO',	'FLAVOR_DEFENSE',		20),
+				('BUILDING_MOHENJO_DARO',	'FLAVOR_CITY_DEFENSE',	20),
 				('BUILDING_MOHENJO_DARO',	'FLAVOR_PRODUCTION',	10),
 				('BUILDING_MOHENJO_DARO',	'FLAVOR_RELIGION',		30),
 				('BUILDING_MOHENJO_DARO',	'FLAVOR_GROWTH',		20);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,									Text) 
-	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',		'Mohenjo-daro'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',	'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants free [COLOR_POSITIVE_TEXT]Well[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',	'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',	'TODO');
+				(Tag,										Text) 
+	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',			'Mohenjo-daro'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP_CUT',	'+1 [ICON_PEACE] Faith from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well.'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',		'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SKARA BRAE (NEW) - food and production, global food from Deer, Fish, Cattle, Sheep and Wheet;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, ProhibitedCityTerrain = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_SKARA_BRAE';
 	
 	INSERT INTO Building_LocalResourceOrs 
@@ -216,11 +224,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_SKARA_BRAE', 'FLAVOR_GROWTH',		60);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-													(Tag, Text)
-	VALUES		('TXT_KEY_BUILDING_SKARA_BRAE',     'Skara Brae'),
-				('TXT_KEY_WONDER_SKARA_BRAE_HELP',  'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_COW] Cattle, [ICON_RES_DEER] Deer, [ICON_RES_FISH] Fish, [ICON_RES_SHEEP] Sheep or [ICON_RES_WHEAT] Wheat nearby. Cannot be built if [COLOR_RED]Desert[ENDCOLOR] is next to it.'),
-				('TXT_KEY_WONDER_SKARA_BRAE_QUOTE', '[NEWLINE]"No great thing is created suddenly."[NEWLINE] - Epictetus[NEWLINE]'),
-				('TXT_KEY_WONDER_SKARA_BRAE_PEDIA', 'Skara Brae is a stone-built Neolithic settlement, located on the Bay of Skaill on the west coast of Mainland, the largest island in the Orkney archipelago of Scotland. It consists of eight clustered houses, and was occupied from roughly 3180 BC - 2500 BC.[NEWLINE][NEWLINE]Given the number of homes, it seems likely that no more than fifty people lived in Skara Brae at any given time. Apart from being makers and users of grooved ware, a distinctive style of pottery that appeared in northern Scotland not long before the establishment of the village, they were primarily pastorialists who raised cattle and sheep.');
+				(Tag, Text)
+	VALUES		('TXT_KEY_BUILDING_SKARA_BRAE',			'Skara Brae'),
+				('TXT_KEY_WONDER_SKARA_BRAE_HELP',		'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_COW] Cattle, [ICON_RES_DEER] Deer, [ICON_RES_FISH] Fish, [ICON_RES_SHEEP] Sheep or [ICON_RES_WHEAT] Wheat nearby. Cannot be built if [COLOR_RED]Desert[ENDCOLOR] is next to it.'),
+				('TXT_KEY_WONDER_SKARA_BRAE_HELP_CUT',  'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.'),
+				('TXT_KEY_WONDER_SKARA_BRAE_QUOTE',		'[NEWLINE]"No great thing is created suddenly."[NEWLINE] - Epictetus[NEWLINE]'),
+				('TXT_KEY_WONDER_SKARA_BRAE_PEDIA',		'Skara Brae is a stone-built Neolithic settlement, located on the Bay of Skaill on the west coast of Mainland, the largest island in the Orkney archipelago of Scotland. It consists of eight clustered houses, and was occupied from roughly 3180 BC - 2500 BC.[NEWLINE][NEWLINE]Given the number of homes, it seems likely that no more than fifty people lived in Skara Brae at any given time. Apart from being makers and users of grooved ware, a distinctive style of pottery that appeared in northern Scotland not long before the establishment of the village, they were primarily pastorialists who raised cattle and sheep.');
 --============================================--
 -- ANCIENT ERA
 --============================================--
@@ -254,17 +263,24 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_KARNAK', 'FLAVOR_RELIGION',		40);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,							Text) 
-	VALUES		('TXT_KEY_BUILDING_KARNAK',     'Karnak'),
-				('TXT_KEY_WONDER_KARNAK_HELP',  'Free [COLOR_POSITIVE_TEXT]Monument[ENDCOLOR] in this City. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_KARNAK_QUOTE', '[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
-				('TXT_KEY_WONDER_KARNAK_PEDIA', 'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
+				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
+				('TXT_KEY_WONDER_KARNAK_QUOTE',		'[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_KARNAK_PEDIA',		'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- STONEHENGE
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
 	---------------------------------------------------------	
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_STONEHENGE_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -294,11 +310,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_NAZCA',	'FLAVOR_SCIENCE',	20);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,							Text) 
-	VALUES		('TXT_KEY_BUILDING_NAZCA',		'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to [COLOR_CYAN]Plains[ENDCOLOR].'),
-				('TXT_KEY_WONDER_NAZCA_QUOTE',	'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
-				('TXT_KEY_WONDER_NAZCA_PEDIA',	'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
+				('TXT_KEY_WONDER_NAZCA_HELP',		'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to [COLOR_CYAN]Plains[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.'),
+				('TXT_KEY_WONDER_NAZCA_QUOTE',		'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
+				('TXT_KEY_WONDER_NAZCA_PEDIA',		'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PYRAMIDS
@@ -343,14 +360,16 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_WIELICZKA',	'FLAVOR_CULTURE',		30);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_WIELICZKA',		'Wieliczka Salt Mine'),
-				('TXT_KEY_WONDER_WIELICZKA_HELP',	'City gains 2 copies of [ICON_RES_SALT] Salt resource. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must have [ICON_RES_SALT] Salt nearby.'),
-				('TXT_KEY_WONDER_WIELICZKA_QUOTE',	'[NEWLINE]"You are the salt of the earth. But remember that salt is useful when in association, but useless in isolation."[NEWLINE] - Israelmore Ayivor[NEWLINE]'),
-				('TXT_KEY_WONDER_WIELICZKA_PEDIA',	'The Wieliczka Salt Mine, in the town of Wieliczka, southern Poland, lies within the Kraków metropolitan area. Sodium chloride (table salt) was formerly produced there from the upwelling brine - and had been since Neolithic times. The Wieliczka salt mine, excavated from the 13th century, produced table salt continuously until 2007, as one of the world''s oldest operating salt mines.');
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_WIELICZKA',			'Wieliczka Salt Mine'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP',		'City gains 2 copies of [ICON_RES_SALT] Salt resource. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must have [ICON_RES_SALT] Salt nearby.'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP_CUT',	'City gains 2 copies of [ICON_RES_SALT] Salt resource. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.'),
+				('TXT_KEY_WONDER_WIELICZKA_QUOTE',		'[NEWLINE]"You are the salt of the earth. But remember that salt is useful when in association, but useless in isolation."[NEWLINE] - Israelmore Ayivor[NEWLINE]'),
+				('TXT_KEY_WONDER_WIELICZKA_PEDIA',		'The Wieliczka Salt Mine, in the town of Wieliczka, southern Poland, lies within the Kraków metropolitan area. Sodium chloride (table salt) was formerly produced there from the upwelling brine - and had been since Neolithic times. The Wieliczka salt mine, excavated from the 13th century, produced table salt continuously until 2007, as one of the world''s oldest operating salt mines.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PETRA
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_PETRA';
 	UPDATE Buildings SET Mountain = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
 	---------------------------------------------------------	
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Beside [COLOR_CYAN]Desert[ENDCOLOR] city must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
@@ -398,12 +417,14 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HANGING GARDENS
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_HANGING_GARDEN_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_FORUM';
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_FORUM';
 	
 	INSERT INTO Building_LocalFeatureOrs 
@@ -415,6 +436,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW) - culture, production from quarries, manufactories and stone works, faith from stone and stone works, free engineer, engineer points
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_MATHEMATICS', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_MALWIYA';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MALWIYA';
 	
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
 	
@@ -454,14 +476,16 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_MALWIYA',	'FLAVOR_RELIGION',		60);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_MALWIYA',		'Malwiya Minaret'),
-				('TXT_KEY_WONDER_MALWIYA_HELP',		'Grants a free [ICON_GREAT_ENGINEER] [COLOR_POSITIVE_TEXT]Great Engineer[ENDCOLOR]. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
-				('TXT_KEY_WONDER_MALWIYA_QUOTE',	'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
-				('TXT_KEY_WONDER_MALWIYA_PEDIA',	'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_MALWIYA',			'Malwiya Minaret'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_MALWIYA_QUOTE',		'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
+				('TXT_KEY_WONDER_MALWIYA_PEDIA',		'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TERRACOTA ARMY
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- +Mine (Lua)
 	---------------------------------------------------------
@@ -470,6 +494,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BUDDHAS OF BAMYAN (NEW) - culture, faith and golden age points, faith from CS friend, golden age from CS ally, culture at rocketry;
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BAMYAN';
 	
 	UPDATE Buildings SET Mountain = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BAMYAN';
 	---------------------------------------------------------
@@ -500,16 +525,18 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_BAMYAN', 'FLAVOR_HAPPINESS',		40);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
-				(Tag,							Text)
-	VALUES		('TXT_KEY_BUILDING_BAMYAN',     'Buddhas of Bamyan'),
-				('TXT_KEY_WONDER_BAMYAN_HELP',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend, and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grassland[ENDCOLOR].'),
-				('TXT_KEY_WONDER_BAMYAN_QUOTE', '[NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
-				('TXT_KEY_WONDER_BAMYAN_PEDIA', '');
+				(Tag,								Text)
+	VALUES		('TXT_KEY_BUILDING_BAMYAN',			'Buddhas of Bamyan'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grassland[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.'),
+				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
+				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GATE OF THE SUN (NEW) - culture and science, culture and gold to lakes and mountains, science to walls, scientist points;
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GATE_OF_SUN';
-	
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GATE_OF_SUN';
+
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
@@ -541,11 +568,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_GATE_OF_SUN',	'FLAVOR_GREAT_PEOPLE',	10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
-				(Tag,									Text) 
-	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',		'Gate of the Sun'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',	'[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',	'');
+				(Tag,										Text) 
+	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',			'Gate of the Sun'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_HELP_CUT',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',		'[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',		'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PARTHENON
@@ -556,7 +584,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EL GHRIBA (NEW) -
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
-	
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_EL_GHRIBA';
+
 	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EL_GHRIBA';
 	---------------------------------------------------------
 	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_THE_ARK' WHERE Type = 'BUILDING_EL_GHRIBA';
@@ -568,8 +597,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',		2);
 	
 	INSERT INTO GreatWorks
-				(Type,					Description,					GreatWorkClassType,	Audio,							Image,							Quote) 
-	VALUES		('GREAT_WORK_THE_ARK',	'TXT_KEY_GREAT_WORK_THE_ARK',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Ark_of_the_Covenant.dds',	'TXT_KEY_GREAT_WORK_THE_ARK');
+				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
+	VALUES		('GREAT_WORK_THE_ARK',	'TXT_KEY_GREAT_WORK_THE_ARK',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Ark_of_the_Covenant.dds',	'TXT_KEY_GREAT_WORK_THE_ARK_QUOTE');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,			Flavor) 
@@ -580,10 +609,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be built in [NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR], on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'TODO'),
-				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant');
+				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
 				('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God"[NEWLINE] - 1 Chronicles 28:2[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -595,7 +625,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ETCHMIADZIN (NEW) -
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
-	
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
+
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
 	INSERT INTO Building_LocalFeatureOrs 
@@ -620,7 +651,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	
 	INSERT INTO GreatWorks
 				(Type,						Description,						GreatWorkClassType,	Audio,							Image,							Quote) 
-	VALUES		('GREAT_WORK_HOLY_LANCE',	'TXT_KEY_GREAT_WORK_HOLY_LANCE',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Lance.dds',	'TXT_KEY_GREAT_WORK_HOLY_LANCE');
+	VALUES		('GREAT_WORK_HOLY_LANCE',	'TXT_KEY_GREAT_WORK_HOLY_LANCE',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Lance.dds',	'TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor) 
@@ -632,13 +663,15 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',		'Etchmiadzin Cathedral'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP_CUT',	'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'TODO'),
-				('TXT_KEY_GREAT_WORK_HOLY_LANCE',		'Holy Lance');
-				('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',	'[NEWLINE]One of the soldiers pierced his side with a lance, [NEWLINE]and immediately there came out blood and water.[NEWLINE] - John 19:34[NEWLINE]');
+				('TXT_KEY_GREAT_WORK_HOLY_LANCE',		'Holy Lance'),
+				('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',	'[NEWLINE]One of the soldiers pierced his side [NEWLINE]with a lance, and immediately [NEWLINE]there came out blood and water.[NEWLINE] - John 19:34[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	
 	INSERT INTO Building_LocalFeatureOrs 
@@ -649,6 +682,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT WALL
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_WALL';
 	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP';
@@ -682,7 +716,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori Well'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% [ICON_GREAT_PEOPLE] Great People Rate in this City. +1 [ICON_FOOD] Food from local Desert tiles. -5 Unhappiness from Urbanization in this City.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR]. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_2] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR]. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_2] Unhappiness from Urbanization.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),
 				('TXT_KEY_WONDER_CHAND_BAORI_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -699,9 +734,10 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- MEDIEVAL ERA
 --============================================--
 -- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
-	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SCHWEDAGON';
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SHWEDAGON';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SHWEDAGON';
 	
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SCHWEDAGON';
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
@@ -745,7 +781,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in all Cities. +33% faster generation of [ICON_GREAT_ARTIST] Great Artists in this City. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. Provides +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if Themed.[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Requires an improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 				('TXT_KEY_THEMING_BONUS_SHWEDAGON',			'Relics of the four previous Buddhas of the present kalpa'),
@@ -767,8 +804,8 @@ UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Must be built in a [CO
 --============================================--
 -- VP FIXES
 --============================================--
-UPDATE Buildings SET NumPoliciesNeeded = 7 WHERE Type = 'BUILDING_BOROBUDUR';
-UPDATE Buildings SET NumPoliciesNeeded = 8 WHERE Type = 'BUILDING_KREMLIN';
-UPDATE Buildings SET NumPoliciesNeeded = 4 WHERE Type = 'BUILDING_FORUM';
-UPDATE GreatWorks SET Audio = 'AS2D_GREAT_ARTIST_ARTWORK' WHERE Type = 'GREAT_WORK_THE_CROWN_JEWELS';
---UPDATE Language_en_US SET Text = '???' WHERE Tag = 'TXT_KEY_GREAT_WORK_THE_CROWN_JEWELS_QUOTE';
+UPDATE Buildings SET NumPoliciesNeeded = 7 WHERE Type = 'BUILDING_BOROBUDUR'; -- was 8
+UPDATE Buildings SET NumPoliciesNeeded = 8 WHERE Type = 'BUILDING_KREMLIN'; -- was 7
+UPDATE Buildings SET NumPoliciesNeeded = 4 WHERE Type = 'BUILDING_FORUM'; -- was 3
+UPDATE GreatWorks SET Audio = 'AS2D_GREAT_ARTIST_ARTWORK' WHERE Type = 'GREAT_WORK_THE_CROWN_JEWELS'; -- all other art has it
+UPDATE Language_en_US SET Text = 'On the contrary. Every Bison dollar will be worth [NEWLINE]five British pounds. That is the exchange rate [NEWLINE]that the bank of England will implement [NEWLINE]after I kidnap their queen.[NEWLINE] - M. Bison[NEWLINE]' WHERE Tag = 'TXT_KEY_GREAT_WORK_THE_CROWN_JEWELS_QUOTE'; -- did not fit the screen
