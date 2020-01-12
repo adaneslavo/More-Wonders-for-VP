@@ -60,13 +60,7 @@ Currently compatible with 12-20-3.</Description>
         <Type>InGameUIAddin</Type>
         <Name>WonderChartres</Name>
         <Description>Rules for Chartres</Description>
-        <FileName>Lua/WonderChartres.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>WonderMichel</Name>
-        <Description>Rules for Michel</Description>
-        <FileName>Lua/WonderMichel.lua</FileName>
+        <FileName>Lua/WonderChartres(unused).lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
@@ -609,465 +603,441 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_128.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_256.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_45.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_64.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_80.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Anitkabir_splash.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_128.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_256.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_45.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_64.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_80.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Arecibo_splash.dds">
+    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_128.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_256.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_45.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_64.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_80.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Brooklyn_splash.dds">
+    <Content Include="Art\4.Renaissance\VPWE_Peterhof_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_128.dds">
+    <Content Include="Art\4.Renaissance\VPWE_StPeters_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_256.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_45.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_64.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_80.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Chartres_Splash.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_128.dds">
+    <Content Include="Art\5.Industrial\VPWE_Brooklyn_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_256.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_45.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_64.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_80.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Gripsholm_splash.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_128.dds">
+    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_256.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_45.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_64.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_80.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Hollywood_splash.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_128.dds">
+    <Content Include="Art\5.Industrial\VPWE_Museum_Island_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_256.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_45.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_64.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_80.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Jumeirah_Splash.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_128.dds">
+    <Content Include="Art\5.Industrial\VPWE_Trafalgar_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_256.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_45.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_64.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_80.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_KinkakuJi_splash.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_128.dds">
+    <Content Include="Art\6.Modern\VPWE_Hollywood_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_256.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_45.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_64.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_80.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Millau_splash.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_128.dds">
+    <Content Include="Art\6.Modern\VPWE_Rockefeller_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_256.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_45.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_64.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_80.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_MonteCarlo_splash.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_128.dds">
+    <Content Include="Art\6.Modern\VPWE_Soviets_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Museum_Island_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_128.dds">
+    <Content Include="Art\7.Atomic\VPWE_Anitkabir_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Peterhof_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_128.dds">
+    <Content Include="Art\7.Atomic\VPWE_Arecibo_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Rockefeller_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_128.dds">
+    <Content Include="Art\7.Atomic\VPWE_Millau_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Soviets_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_128.dds">
+    <Content Include="Art\7.Atomic\VPWE_Sputnik_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Sputnik_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_StPeters_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_WhiteSands_Splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_128.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_256.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_45.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_64.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_80.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Taipei101_splash.dds">
+    <Content Include="Art\7.Atomic\VPWE_Willis_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_128.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_256.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_45.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_64.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_80.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_Trafalgar_splash.dds">
+    <Content Include="Art\8.Information\VPWE_Jumeirah_Splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_128.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_256.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_45.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_64.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_80.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\VPWE_WhiteSands_Splash.dds">
+    <Content Include="Art\8.Information\VPWE_Taipei101_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\VPWE_Willis_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\WE_PI_016.dds">
       <SubType>Lua</SubType>
@@ -1097,7 +1067,7 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\WonderChartres.lua">
+    <Content Include="Lua\WonderChartres(unused).lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1106,10 +1076,6 @@ Currently compatible with 12-20-3.</Description>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\UniqueWonderRequirements.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Lua\WonderMichel.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1143,6 +1109,11 @@ Currently compatible with 12-20-3.</Description>
     <Folder Include="Art\1.Ancient" />
     <Folder Include="Art\2.Classical" />
     <Folder Include="Art\3.Medieval" />
+    <Folder Include="Art\4.Renaissance" />
+    <Folder Include="Art\5.Industrial" />
+    <Folder Include="Art\6.Modern" />
+    <Folder Include="Art\7.Atomic" />
+    <Folder Include="Art\8.Information" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="UI" />

@@ -785,7 +785,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
-	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori Well'),
+	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori'),
 				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Well[ENDCOLOR] already constructed. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR] is nearby.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),

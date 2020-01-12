@@ -24,6 +24,7 @@ local tValidBuildingsUndergroundBuildings = {}
 local tValidBuildingsMineResources = {}
 local tValidBuildingsWithProhibitedTerrain = {}
 local tProhibitedTerrainForBuilding = {}
+local tValidBuildingsOneTile = {}
 
 -- checks if city is between lake and sea and adds this condition (normally it would be treated like city wothout lake)
 function LakeWithOcean(iPlayer, iCity, iBuildingType)
@@ -114,6 +115,29 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(ProhibitionAround)
 
+-- checks if city is one-tile
+function OneTileCity(iPlayer, iCity, iBuildingType)
+	if tValidBuildingsOneTile[iBuildingType] then return true; end
+	
+	local pPlayer = Players[iPlayer];
+	
+	if not pPlayer:IsAlive() then return false; end
+	
+	local pCity = pPlayer:GetCityByID(iCity);
+	local iCityX = pCity:GetX();
+	local iCityY = pCity:GetY();
+	
+	-- check all six dir, quit if not water
+	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+		if not Map.PlotDirection(iCityX, iCityY, dir):IsWater() then
+			return false;
+		end
+	end
+	
+	return true;
+end
+GameEvents.CityCanConstruct.Add(OneTileCity);
+
 function Initialize()
 	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
 	for building in GameInfo.Buildings() do	
@@ -145,6 +169,11 @@ function Initialize()
 			tProhibitedTerrainForBuilding[building.ID] = GameInfo.Terrains[building.ProhibitedCityTerrain].ID
 		end
 	end
+
+	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(One-tile city)")
+	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID, GameInfo.Buildings.BUILDING_SOLOVIETSKY.Type, "(One-tile city)")
+	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
 end
 Initialize()
 
