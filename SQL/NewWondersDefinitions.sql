@@ -660,8 +660,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Ark of the Covenant[ENDCOLOR] artifact.'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR] artifact.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR] artifact.'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'TODO'),
 				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
@@ -718,8 +718,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',		'Etchmiadzin Cathedral'),
-				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_ETCHMIADZIN_HELP_CUT',	'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_MAGENTA]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP_CUT',	'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_MAGENTA]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'TODO'),
 				('TXT_KEY_GREAT_WORK_HOLY_LANCE',		'Holy Lance'),
@@ -961,7 +961,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	SELECT		'TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWTLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
+	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
