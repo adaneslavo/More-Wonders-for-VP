@@ -19,10 +19,11 @@ function dprint(sStr,p1,p2,p3,p4,p5,p6)
 	print(sOutStr);
 end
 
-
 local tValidBuildingsLake = {};
 local tValidBuildingsMineBuildings = {};
 local tValidBuildingsMineResources = {};
+local tValidBuildingsWithProhibitedTerrain = {};
+local tProhibitedTerrainForBuilding = {};
 
 -- main function, will be called MANY times, so make it fast!
 function LakeWithOcean(iPlayer, iCity, iBuildingType)
@@ -78,26 +79,69 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(CityWithMine);
 
+function ProhibitionAround(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsWithProhibitedTerrain[iBuildingType] then return true; end
+   
+	local pPlayer = Players[iPlayer];
+   
+	if not pPlayer:IsAlive() then return false; end
+
+	local pCity = pPlayer:GetCityByID(iCity);
+	local iCityTerrain = pCity:GetCityIndexPlot(0):GetTerrainType();
+	local iProhibitedTerrain = tProhibitedTerrainForBuilding[iBuildingType];
+	
+	if iCityTerrain == iProhibitedTerrain then
+		return false;
+	elseif iProhibitedTerrain == 3 and iCityTerrain == GameInfoTypes.TERRAIN_SNOW then
+		return false;
+	end
+	
+	local iCityX = pCity:GetX();
+	local iCityY = pCity:GetY();
+	
+	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+		local iTerrain = Map.PlotDirection(iCityX, iCityY, dir):GetTerrainType()
+		
+		if iTerrain == iProhibitedTerrain then
+			return false;
+		elseif iProhibitedTerrain == 3 and iTerrain == 4 then
+			return false;
+		end
+	end
+	
+	return true;
+end
+GameEvents.CityCanConstruct.Add(ProhibitionAround);
+
 function Initialize()
 	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
 	for building in GameInfo.Buildings() do	
 		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
 			local iBuilding = GameInfoTypes[building.Type];
 			
-			dprint("...adding (id,building)", building.ID, building.Type, "(Building require lake)");
+			dprint("...adding (id,building,requirement)", building.ID, building.Type, "(Building require lake)");
 			tValidBuildingsLake[building.ID] = true;
 		end
 	end
 
 	-- add mine buildings
-	dprint("...adding (id,building)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine)");
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine)");
 	tValidBuildingsMineBuildings[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true;
 
 	-- add mining resources (currently unused)
 	for improvement in GameInfo.Improvement_ResourceTypes() do
 		if improvement.ImprovementType == "IMPROVEMENT_MINE" then
-			dprint("...adding (id,resource)", GameInfo.Resources[improvement.ResourceType].ID, improvement.ResourceType, "(Mining Resource)");
+			dprint("...adding (id,resource,requirement)", GameInfo.Resources[improvement.ResourceType].ID, improvement.ResourceType, "(Mining Resource)");
 			tValidBuildingsMineResources[GameInfo.Resources[improvement.ResourceType].ID] = true;
+		end
+	end
+
+	-- add buildings with prohibited terrain
+	for building in GameInfo.Buildings() do
+		if building.ProhibitedCityTerrain ~= nil then
+			dprint("...adding (id,building,prohibition,terrain)", building.ID, building.Type, "(Building is prohibited on: " .. building.ProhibitedCityTerrain .. ")");
+			tValidBuildingsWithProhibitedTerrain[building.ID] = true;
+			tProhibitedTerrainForBuilding[building.ID] = GameInfo.Terrains[building.ProhibitedCityTerrain].ID;
 		end
 	end
 end

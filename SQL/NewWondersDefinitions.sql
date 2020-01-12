@@ -58,7 +58,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Caves'),
-				('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] and [ICON_RES_BISON] Bison or [ICON_RES_DEER] Deer nearby.'),
+				('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] and improved [ICON_RES_BISON] Bison or [ICON_RES_DEER] Deer nearby.'),
 				('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT',	'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_CULTURE] Culture.'),
 				('TXT_KEY_WONDER_ALTAMIRA_QUOTE',		'[NEWLINE]"After Altamira everything seems decadent". [NEWLINE]- Pablo Picasso'),
 				('TXT_KEY_WONDER_ALTAMIRA_PEDIA',		'The cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.');
@@ -89,7 +89,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 25 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 25 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
 				('TXT_KEY_WONDER_GGANTIJA_HELP_CUT',	'Grants 25 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire.'),
 				('TXT_KEY_WONDER_GGANTIJA_QUOTE',		'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
 				('TXT_KEY_WONDER_GGANTIJA_PEDIA',		'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
@@ -226,7 +226,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag, Text)
 	VALUES		('TXT_KEY_BUILDING_SKARA_BRAE',			'Skara Brae'),
-				('TXT_KEY_WONDER_SKARA_BRAE_HELP',		'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_COW] Cattle, [ICON_RES_DEER] Deer, [ICON_RES_FISH] Fish, [ICON_RES_SHEEP] Sheep or [ICON_RES_WHEAT] Wheat nearby. Cannot be built if [COLOR_RED]Desert[ENDCOLOR] is next to it.'),
+				('TXT_KEY_WONDER_SKARA_BRAE_HELP',		'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have improved [ICON_RES_COW] Cattle, [ICON_RES_DEER] Deer, [ICON_RES_FISH] Fish, [ICON_RES_SHEEP] Sheep or [ICON_RES_WHEAT] Wheat nearby. City cannot be built on or next to a [COLOR_RED]Desert[ENDCOLOR].'),
 				('TXT_KEY_WONDER_SKARA_BRAE_HELP_CUT',  'All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.'),
 				('TXT_KEY_WONDER_SKARA_BRAE_QUOTE',		'[NEWLINE]"No great thing is created suddenly."[NEWLINE] - Epictetus[NEWLINE]'),
 				('TXT_KEY_WONDER_SKARA_BRAE_PEDIA',		'Skara Brae is a stone-built Neolithic settlement, located on the Bay of Skaill on the west coast of Mainland, the largest island in the Orkney archipelago of Scotland. It consists of eight clustered houses, and was occupied from roughly 3180 BC - 2500 BC.[NEWLINE][NEWLINE]Given the number of homes, it seems likely that no more than fifty people lived in Skara Brae at any given time. Apart from being makers and users of grooved ware, a distinctive style of pottery that appeared in northern Scotland not long before the establishment of the village, they were primarily pastorialists who raised cattle and sheep.');
@@ -281,7 +281,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	SELECT		'TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_STONEHENGE_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on or next to a [COLOR_CYAN]Grassland[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA (NEW) - late game tourism, science, scientist, food and faith from Plains, faith to Shrines, scientist points;
@@ -312,7 +312,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',		'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on or next to [COLOR_CYAN]Plains[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NAZCA_HELP',		'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to [COLOR_CYAN]Plains[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
 				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains worked by the City. All Shrines receive +1 [ICON_PEACE] Faith. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_TOURISM] Tourism with Flight.'),
 				('TXT_KEY_WONDER_NAZCA_QUOTE',		'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
 				('TXT_KEY_WONDER_NAZCA_PEDIA',		'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
@@ -325,7 +325,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_PYRAMID',	'RESOURCE_STONE');
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_CHICHEN_ITZA_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have improved [COLOR_CYAN]Stone[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_RED]Tundra[ENDCOLOR] nor [COLOR_RED]Snow[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WIELICZKA (NEW) - late game tourism, +2 Salt, production, 5% global food, food from Salt;
@@ -372,7 +377,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_PETRA';
 	UPDATE Buildings SET Mountain = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Beside [COLOR_CYAN]Desert[ENDCOLOR] city must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	SELECT		'TXT_KEY_WONDER_PETRA_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PETRA_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Beside being built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] city must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
@@ -382,12 +392,22 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_TEMPLE_ARTEMIS', 'FEATURE_FOREST');
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Desert[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_RED]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	---------------------------------------------------------	
+	INSERT INTO Language_en_US 
+				(Tag,												Text) 
+	SELECT		'TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and [COLOR_CYAN]Hill[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -396,14 +416,24 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,				ResourceType) 
 	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE');
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Marble[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have improved [COLOR_CYAN]Marble[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 --============================================--
 -- CLASSICAL ERA
 --============================================--
 -- GREAT LIGHTHOUSE
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Coast[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT LIBRARY
@@ -413,6 +443,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,				ResourceType,		Cost) 
 	VALUES		('BUILDING_GREAT_LIBRARY',	'RESOURCE_PAPER',	1);
 	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_GREAT_LIBRARY_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Uses 1 copy of [ICON_RES_PAPER] Paper.' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -420,6 +455,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
 	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_HANGING_GARDEN_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HANGING_GARDEN_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_HANGING_GARDEN_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -431,7 +471,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,		FeatureType) 
 	VALUES		('BUILDING_FORUM',	'FEATURE_MARSH');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	SELECT		'TXT_KEY_BUILDING_FORUM_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_FORUM_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW) - culture, production from quarries, manufactories and stone works, faith from stone and stone works, free engineer, engineer points
@@ -489,7 +534,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- +Mine (Lua)
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]Mine[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have constructed [COLOR_CYAN]Mine[ENDCOLOR] nearby. City cannot be built next to a [COLOR_RED]Water[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BUDDHAS OF BAMYAN (NEW) - culture, faith and golden age points, faith from CS friend, golden age from CS ally, culture at rocketry;
@@ -570,7 +620,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',			'Gate of the Sun'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_HELP_CUT',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',		'[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',		'');
@@ -579,7 +629,12 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- PARTHENON
 	UPDATE Buildings SET Hill = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. Cannot be built if [COLOR_RED]Grassland[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_PARTHENON_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PARTHENON_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built on or next to a [COLOR_RED]Grassland[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EL GHRIBA (NEW) -
@@ -620,6 +675,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- ORACLE
 	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ORACLE';
 	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	SELECT		'TXT_KEY_WONDER_ORACLE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ORACLE_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -662,7 +722,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',		'Etchmiadzin Cathedral'),
-				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_ETCHMIADZIN_HELP',		'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_HELP_CUT',	'Converts 10% of [ICON_PEACE] Faith to [ICON_CULTURE] Culture and another 10% to [ICON_GOLDEN_AGE] Golden Age Points. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [COLOR_CYAN]Holy Lance[ENDCOLOR] artifact. All [ICON_GREAT_WORK] Great Works receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'TODO'),
@@ -672,19 +732,29 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANGKOR_WAT';
-	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_ANGKOR_WAT';
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_ANGKOR_WAT';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Jungle[ENDCOLOR] nearby. Cannot be built if [COLOR_RED]Tundra[ENDCOLOR] is nearby.' WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_ANGKOR_WAT_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Jungle[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT WALL
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_WALL';
 	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
 	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_GREAT_WALL_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GREAT_WALL_HELP';
+				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -716,8 +786,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori Well'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_2] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR]. Cannot be built if [COLOR_RED]Water[ENDCOLOR] is nearby.'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_2] Unhappiness from Urbanization.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR]. City cannot be built next to a [COLOR_RED]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 5 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),
 				('TXT_KEY_WONDER_CHAND_BAORI_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -729,13 +799,113 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_IRON');
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [ICON_RES_IRON] Iron nearby.' WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_COLOSSUS_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have an [ICON_RES_IRON] Iron nearby.' WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
+-- UNIVERSITY OF SANKORE
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_DESERT', ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on [COLOR_RED]Tundra[ENDCOLOR] nor [COLOR_RED]Snow[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HAGIA SOPHIA
+	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	VALUES		('BUILDING_HAGIA_SOPHIA',	'BUILDINGCLASS_TEMPLE');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and have [COLOR_CYAN]Temple[ENDCOLOR] already constructed.' WHERE Tag ='TXT_KEY_WONDER_HAGIA_SOPHIA_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- BOROBUDUR
+	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BOROBUDUR';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_BOROBUDUR',		'FEATURE_JUNGLE');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_BOROBUDUR_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BOROBUDUR_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Jungle[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_RED]Tundra[ENDCOLOR] nor [COLOR_RED]Snow[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ALHAMBRA
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_ALHAMBRA',		'FEATURE_FOREST');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	SELECT		'TXT_KEY_WONDER_ALHAMBRA_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ALHAMBRA_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MACHU PICCHU
+	UPDATE Buildings SET Mountain = 1 WHERE Type = 'BUILDING_MACHU_PICHU';
+	-- +earlier Mountain in range
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR] and have another [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- FORBIDDEN PALACE
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,					BuildingClassType) 
+	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Walls[ENDCOLOR] already constructed.' WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- CATHEDRAL OF ST. BASIL
+	UPDATE Buildings SET River = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	SELECT		'TXT_KEY_WONDER_KREMLIN_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built next to a [COLOR_CYAN]River[ENDCOLOR]. City cannot be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SHWEDAGON';
-	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SHWEDAGON';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SHWEDAGON';
 	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
@@ -781,12 +951,25 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
 				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 				('TXT_KEY_THEMING_BONUS_SHWEDAGON',			'Relics of the four previous Buddhas of the present kalpa'),
 				('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- NOTRE DAME
+	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_NOTRE_DAME';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
+	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME';
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	SELECT		'TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
+				
+	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWTLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
@@ -796,11 +979,23 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 -- Al Masjid an-Nabawi - Islam - Early Medieval
 -- Borobudur - Buddhism - Late Medieval
 -- St Peter's Basilica - Catholic - Early Renaissance
+---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
 ('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA');--, 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', );
+--============================================--
+-- POLICY FINISHERS
+--============================================--
+-- MutuallyExclusiveGroup indicator works only on the city level, so you cannot build a Wonder in the city where the other exists
+-- but you can build it in another city. To achieve true 'mutually exclusive' situation we need a dummy building that will be placed
+-- in all your cities and block the construction of the 2nd Wonder.
+---------------------------------------------------------
+UPDATE Buildings SET MutuallyExclusiveGroup = 61, PolicyType = 'POLICY_TRADITION_FINISHER' 	 WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME');
+UPDATE Buildings SET MutuallyExclusiveGroup = 62, PolicyType = 'POLICY_LIBERTY_FINISHER' 	 WHERE Type IN ('BUILDING_FORBIDDEN_PALACE'/*,	'BUILDING_WARTBURG'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA'/*,			'BUILDING_DAMASCUS'*/);
 
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR].' WHERE Tag IN
-('TXT_KEY_WONDER_BOROBUDUR_HELP', 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP', 'TXT_KEY_WONDER_KREMLIN_HELP');
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Notre Dame[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Wartburg Castle[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Forge of Damascus[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
 --============================================--
 -- VP FIXES
 --============================================--
