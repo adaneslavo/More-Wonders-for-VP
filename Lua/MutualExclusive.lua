@@ -44,7 +44,7 @@ function CheckMutualExclusiveness(iPlayer, iCity, iBuildingType)
 	local iGroup = tWonderGroups[iBuildingType];
 	
 	for wonder, group in pairs(tWonderGroups) do
-		if group == iGroup and CountNumBuildingsLocal(pPlayer, wonder) > 0 then -- for some reasons this function doesn't work sometimes...
+		if group == iGroup and CountNumBuildingsLocal(pPlayer, wonder) > 0 then
 			return false;
 		end
 	end
