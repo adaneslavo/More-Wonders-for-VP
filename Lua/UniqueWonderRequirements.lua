@@ -20,7 +20,7 @@ function dprint(sStr,p1,p2,p3,p4,p5,p6)
 end
 
 local tValidBuildingsLake = {}
-local tValidBuildingsMineBuildings = {}
+local tValidBuildingsUndergroundBuildings = {}
 local tValidBuildingsMineResources = {}
 local tValidBuildingsWithProhibitedTerrain = {}
 local tProhibitedTerrainForBuilding = {}
@@ -49,9 +49,9 @@ function LakeWithOcean(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(LakeWithOcean)
 
--- looks for mine in the city terrain
+-- looks for mine or quarry in the city terrain
 function CityWithMine(iPlayer, iCity, iBuildingType)
-	if not tValidBuildingsMineBuildings[iBuildingType] then return true end
+	if not tValidBuildingsUndergroundBuildings[iBuildingType] then return true end
    
 	local pPlayer = Players[iPlayer]
    
@@ -61,17 +61,12 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 
-	--[[for resource in tValidBuildingsMineResources() do
-		if pCity:IsHasResourceLocal(resource) then
-			return true
-		end
-	end--]]
-
 	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
 		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+		local iImprovement = pSpecificPlot:GetImprovementType()
 		local iPlotOwner = pSpecificPlot:GetOwner()
 				
-		if iPlotOwner == iPlayer and pSpecificPlot:GetImprovementType() == GameInfoTypes.IMPROVEMENT_MINE then
+		if iPlotOwner == iPlayer and (iImprovement == GameInfoTypes.IMPROVEMENT_MINE or iImprovement == GameInfoTypes.IMPROVEMENT_QUARRY) then
 			return true
 		end
 	end
@@ -94,12 +89,14 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 	local iCityTerrain = pCity:GetCityIndexPlot(0):GetTerrainType()
 	local iProhibitedTerrain = tProhibitedTerrainForBuilding[iBuildingType]
 	
+	-- check city tile
 	--[[if iCityTerrain == iProhibitedTerrain then
 		return false -- already part of existing functionPRohibitedCityTerrain
 	else--]]if iProhibitedTerrain == 3 and iCityTerrain == 4 then
 		return false
 	end
 	
+	-- check tiles around the city
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 	
@@ -109,7 +106,7 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 		if iTerrain == iProhibitedTerrain then
 			return false
 		elseif iProhibitedTerrain == 3 and iTerrain == 4 then
-			return false
+			return false -- if not tundra then also not snow
 		end
 	end
 	
@@ -130,15 +127,15 @@ function Initialize()
 
 	-- add mine buildings
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine)")
-	tValidBuildingsMineBuildings[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true
+	tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true
 
 	-- add mining resources (currently unused)
-	for improvement in GameInfo.Improvement_ResourceTypes() do
+	--[[for improvement in GameInfo.Improvement_ResourceTypes() do
 		if improvement.ImprovementType == "IMPROVEMENT_MINE" then
 			dprint("...adding (id,resource,requirement)", GameInfo.Resources[improvement.ResourceType].ID, improvement.ResourceType, "(Mining Resource)")
 			tValidBuildingsMineResources[GameInfo.Resources[improvement.ResourceType].ID] = true
 		end
-	end
+	end--]]
 
 	-- add buildings with prohibited terrain
 	for building in GameInfo.Buildings() do
