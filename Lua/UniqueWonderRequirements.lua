@@ -117,7 +117,7 @@ GameEvents.CityCanConstruct.Add(ProhibitionAround)
 
 -- checks if city is one-tile
 function OneTileCity(iPlayer, iCity, iBuildingType)
-	if tValidBuildingsOneTile[iBuildingType] then return true; end
+	if not tValidBuildingsOneTile[iBuildingType] then return true; end
 	
 	local pPlayer = Players[iPlayer];
 	
