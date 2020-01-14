@@ -5,12 +5,13 @@
 --============================================--
 -- Promotion Icons Atlas
 --============================================--
-INSERT INTO IconTextureAtlases	(Atlas,				IconSize,	Filename,			IconsPerRow,	IconsPerColumn) 
-VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
-								('vpwe_promoAtlas', 064,		'WE_PI_064.dds',	'2',			'1'),
-								('vpwe_promoAtlas', 045,		'WE_PI_045.dds',	'2',			'1'),
-								('vpwe_promoAtlas', 032,		'WE_PI_032.dds',	'2',			'1'),
-								('vpwe_promoAtlas', 016,		'WE_PI_016.dds',	'2',			'1');
+INSERT INTO IconTextureAtlases	
+			(Atlas,				IconSize,	Filename,						IconsPerRow,	IconsPerColumn) 
+VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
+			('vpwe_promoAtlas', 064,		'WonderPromotionIcons_64.dds',	'2',			'1'),
+			('vpwe_promoAtlas', 045,		'WonderPromotionIcons_45.dds',	'2',			'1'),
+			('vpwe_promoAtlas', 032,		'WonderPromotionIcons_32.dds',	'2',			'1'),
+			('vpwe_promoAtlas', 016,		'WonderPromotionIcons_16.dds',	'2',			'1');
 --============================================--
 -- HELP
 --============================================--
@@ -67,7 +68,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Caves'),
 				('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] and improved [ICON_RES_BISON] Bison or [ICON_RES_DEER] Deer nearby.'),
 				('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT',	'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or an Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.'),
-				('TXT_KEY_WONDER_ALTAMIRA_QUOTE',		'[NEWLINE]"After Altamira everything seems decadent". [NEWLINE]- Pablo Picasso'),
+				('TXT_KEY_WONDER_ALTAMIRA_QUOTE',		'[NEWLINE]"After Altamira everything seems decadent."[NEWLINE] - Pablo Picasso[NEWLINE]'),
 				('TXT_KEY_WONDER_ALTAMIRA_PEDIA',		'The cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -295,7 +296,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
-				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have a [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
 				('TXT_KEY_WONDER_KARNAK_QUOTE',		'[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_KARNAK_PEDIA',		'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
@@ -322,10 +323,11 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,		TerrainType,		YieldType,		Yield) 
-	VALUES		('BUILDING_NAZCA',	'TERRAIN_PLAINS',	'YIELD_FOOD',	2),
-				('BUILDING_NAZCA',	'TERRAIN_PLAINS',	'YIELD_FAITH',	1),
-				('BUILDING_NAZCA',	'TERRAIN_HILL',		'YIELD_FOOD',	1),
-				('BUILDING_NAZCA',	'TERRAIN_HILL',		'YIELD_FAITH',	2);
+	VALUES		('BUILDING_NAZCA',	'TERRAIN_PLAINS',	'YIELD_FOOD',	2);
+	
+	INSERT INTO Building_PlotYieldChanges 
+				(BuildingType,		PlotType,		YieldType,		Yield) 
+	VALUES		('BUILDING_NAZCA',	'PLOT_HILLS',	'YIELD_FAITH',	2);
 	
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
@@ -341,8 +343,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains and +1 [ICON_FOOD] Food and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to [COLOR_CYAN]Plains[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
-				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from nearby Plains and +1 [ICON_FOOD] Food and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
+				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
 				('TXT_KEY_WONDER_NAZCA_QUOTE',		'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
 				('TXT_KEY_WONDER_NAZCA_PEDIA',		'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -433,7 +435,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	SELECT		'TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and [COLOR_CYAN]Hill[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and a [COLOR_CYAN]Hill[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- STATUE OF ZEUS
@@ -556,9 +558,9 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MALWIYA',			'Malwiya Minaret'),
-				('TXT_KEY_WONDER_MALWIYA_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
 				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_MALWIYA_QUOTE',		'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S.Lewis[NEWLINE]'),
+				('TXT_KEY_WONDER_MALWIYA_QUOTE',		'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S. Lewis[NEWLINE]'),
 				('TXT_KEY_WONDER_MALWIYA_PEDIA',		'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -613,7 +615,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	VALUES		('TXT_KEY_BUILDING_BAMYAN',			'Buddhas of Bamyan'),
 				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Grassland[ENDCOLOR].'),
 				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.'),
-				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There’s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
+				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There''s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -655,7 +657,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',			'Gate of the Sun'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_HELP_CUT',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',		'[NEWLINE][NEWLINE]"May the sun set on where my love dwells."[NEWLINE][NEWLINE] - Bolivian proverb[NEWLINE][NEWLINE]'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',		'[NEWLINE]"May the sun set on where my love dwells."[NEWLINE] - Bolivian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',		'');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -704,7 +706,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'TODO'),
 				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
-				('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God"[NEWLINE] - 1 Chronicles 28:2[NEWLINE]');
+				('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God."[NEWLINE] - 1 Chronicles, 28:2[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ORACLE
@@ -762,7 +764,7 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',	'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',	'TODO'),
 				('TXT_KEY_GREAT_WORK_HOLY_LANCE',		'Holy Lance'),
-				('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',	'[NEWLINE]One of the soldiers pierced his side [NEWLINE]with a lance, and immediately [NEWLINE]there came out blood and water.[NEWLINE] - John 19:34[NEWLINE]');
+				('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',	'[NEWLINE]One of the soldiers pierced his side [NEWLINE]with a lance, and immediately [NEWLINE]there came out blood and water.[NEWLINE] - John, 19:34[NEWLINE]');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
@@ -947,14 +949,18 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_GOLD',		2),
+				('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	2);
+	
 	INSERT INTO Building_SpecificGreatPersonRateModifier 
 				(BuildingType,			SpecialistType,			Modifier)
 	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	33);
 
-	INSERT INTO Building_SpecialistYieldChanges 
+	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_FAITH',		1),
-				('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_CULTURE',	1);
+	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_FAITH',		2);
 
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
@@ -982,8 +988,8 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% faster generation and +1 [ICON_CULTURE] and +1 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% faster generation and +2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 				('TXT_KEY_THEMING_BONUS_SHWEDAGON',			'Relics of the four previous Buddhas of the present kalpa'),
@@ -1001,6 +1007,45 @@ VALUES							('vpwe_promoAtlas', 256,		'WE_PI_256.dds',	'2',			'1'),
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 				
 	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- KRAK DES CHEVALIERS
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_CHEVALIERS';
+	
+	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraCityHitPoints = 75, Defense = 1500 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET ExtraCityHitPoints = 25, Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_CHEVALIERS',			'YIELD_PRODUCTION', 2),
+				('BUILDING_CHEVALIERS',			'YIELD_FAITH',		2),
+				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',		1);
+
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,			UnitCombatType,			Modifier) 
+	VALUES		('BUILDING_CHEVALIERS', 'UNITCOMBAT_MOUNTED',	25),
+				('BUILDING_CHEVALIERS', 'UNITCOMBAT_SIEGE',		25);
+
+	INSERT INTO Building_FreeUnits 
+				(BuildingType,			UnitType,				NumUnits)
+	VALUES		('BUILDING_CHEVALIERS', 'UNIT_GREAT_GENERAL',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_CHEVALIERS', 'FLAVOR_CITY_DEFENSE',	60),
+				('BUILDING_CHEVALIERS', 'FLAVOR_OFFENSE',		40),
+				('BUILDING_CHEVALIERS', 'FLAVOR_RELIGION',		20);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text)
+	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+100 HP and 20 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+100 HP and 20 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
+				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--

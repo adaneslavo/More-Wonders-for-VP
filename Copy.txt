@@ -410,40 +410,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_WONDER_CHARTRES_PEDIA', 'The Cathedral Basilica of Our Lady of Chartres is a medieval Roman Rite Catholic church in Chartres in France. The building is one of the best examples of French Gothic architecture and is a World Heritage Site. The current cathedral is the the fifth in the town''s history as it became a bishopric in the 4th century, the current structure had begun construction after a fire ruined the previous structure in 1194. Since the 12th century the cathedral is a popular site for Christian pilgrims and visitors, all to see the building''s infamous relic - the Sancta Camisa, a tunic said to be worn by the Virgin Mary during the birth of Christ. During the Middle Ages the cathedral was also a cathedral school, Bishop Fulbert in the 11th century established Chartres as a leading school in Europe. By the new century the status of the cathedral was on the wane as the University of Paris grew into prominence and the emphasis of the cathedral moved away from education.');
 
 
-----------------------------------------------------
--- CHEVALIERS - Krak des Chevaliers
-----------------------------------------------------
-
-UPDATE Buildings
-SET ExtraCityHitPoints = 0, Defense = 0, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER'
-WHERE Type = 'BUILDING_CHEVALIERS';
-
-UPDATE Buildings
-SET ExtraCityHitPoints = 50, Defense = 500, CitySupplyFlat = 1
-WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
-
-INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_CHEVALIERS', 'YIELD_PRODUCTION', 2),
-('BUILDING_CHEVALIERS_DUMMY', 'YIELD_FAITH', 1);
-
-INSERT INTO Building_UnitCombatProductionModifiers 	(BuildingType, UnitCombatType, Modifier) VALUES
-('BUILDING_CHEVALIERS', 'UNITCOMBAT_MOUNTED', 33),
-('BUILDING_CHEVALIERS', 'UNITCOMBAT_SIEGE', 33);
-
---INSERT INTO Building_FreeUnits (BuildingType, UnitType, NumUnits) VALUES
---('BUILDING_CHEVALIERS', 'UNIT_GREAT_GENERAL', 1);
-
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_CHEVALIERS', 'FLAVOR_CITY_DEFENSE', 60),
-('BUILDING_CHEVALIERS', 'FLAVOR_DEFENSE', 40),
-('BUILDING_CHEVALIERS', 'FLAVOR_OFFENSE', 30);
-
-INSERT INTO Language_en_US (Tag, Text)VALUES
-('TXT_KEY_BUILDING_CHEVALIERS',     'Krak des Chevaliers'),
-('TXT_KEY_WONDER_CHEVALIERS_HELP',  'Grants a free [COLOR_POSITIVE_TEXT]Order[ENDCOLOR]. +33% faster production of Mounted and Siege Units in this City. All Cities that are [COLOR_RED]not[ENDCOLOR] on the Coast receive +1 [ICON_PEACE] Faith, have increased +5 [ICON_STRENGTH] City Defense, +50 HP and provide +1 Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR].'),
-('TXT_KEY_WONDER_CHEVALIERS_QUOTE', '[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent" - Saladin to Richard I[NEWLINE]'),
-('TXT_KEY_WONDER_CHEVALIERS_PEDIA', 'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
-
 
 ----------------------------------------------------
 -- DAMASCUS - Forge of Damascus

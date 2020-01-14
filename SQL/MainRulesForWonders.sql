@@ -38,8 +38,10 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('EL_GHRIBA',		1,			0),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
-			('SHWEDAGON',		1,			0);		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
-			
+			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
+
+
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
 --('ARECIBO',     1, 0), -- Arecibo Observatory
@@ -47,7 +49,6 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('BENHADDOU',   1, 1), -- Ait Benhaddou
 --('BROOKLYN',    1, 0), -- Brooklyn Bridge
 --('CHARTRES',    1, 0), -- Chartres Cathedral
---('CHEVALIERS',  1, 0), -- Krak des Chevaliers
 --('DAMASCUS',    1, 0), -- Forge of Damascus
 --('DUOMO',       1, 1), -- Cattedrale di Santa Maria del Fiore /  Il Duomo di Firenze
 --('GRIPSHOLM',   1, 0), -- Gripsholm Castle
@@ -100,7 +101,7 @@ FROM VPWEConfig WHERE WActive = 1;
 -- Set Cost = -1 and later apply proper value for enabled buildings
 -- GreatWorkCount defaults to 0, PrereqTech defaults to NULL
 INSERT INTO Buildings
-			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,             WonderSplashAnchor)
+			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,				WonderSplashAnchor)
 SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_NEW_WONDERS'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
 FROM VPWEConfig WHERE WActive = 1;
 --------------------------------------------------------------
@@ -148,8 +149,7 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 --------------------------------------------------------------
 INSERT INTO VPWEConfig 
 			(WType,					WActive,	WFake)
-VALUES		('CHARTRES_DUMMY',		2,			0), -- For Chartres Cathedral
-			('CHEVALIERS_DUMMY',	2,			0); -- For Krak des Chevaliers
+VALUES		('CHEVALIERS_DUMMY',	2,			0); -- For Krak des Chevaliers
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)
@@ -163,7 +163,7 @@ FROM VPWEConfig WHERE WActive = 2;
 
 INSERT INTO Language_en_US 
 			(Tag,						Text) 
-SELECT		'TXT_KEY_BUILDING_'||WType, WType 
-FROM VPWEConfig WHERE WActive = 2;
+SELECT		'TXT_KEY_BUILDING_'||WType, 'Dummy Building for Krak des Chevaliers' 
+FROM VPWEConfig WHERE WActive = 2;				
 --------------------------------------------------------------
 --------------------------------------------------------------

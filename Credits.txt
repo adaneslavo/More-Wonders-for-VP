@@ -1,10 +1,10 @@
 -- Credits
--- Author: adan_eslavo
--- Jan 5, 2020: Created
+-- Jan 5, 2020: Created, adan_eslavo
 --------------------------------------------------------------
 Special thanks to:
 - mod creator: Infixo;
 - other modders: ProCatGamer and Asterix Rage;
+- promotion icon designer: Asterix Rage;
 - wonders creators: 
 	- "base wonders": Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe;
 	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
@@ -12,4 +12,6 @@ Special thanks to:
 	- goebekli tepe, gate of the sun: Pouakai, sukritact;
 	- ggantija, skara brae: artisanix;
 	- wieliczka: DeadMu5;
+	- el ghriba, chand baori, majorville, bamyan: hokath;
+	- mohenjo-daro: adan_eslavo;
 	

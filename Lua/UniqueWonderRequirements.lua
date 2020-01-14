@@ -21,10 +21,11 @@ end
 
 local tValidBuildingsLake = {}
 local tValidBuildingsUndergroundBuildings = {}
-local tValidBuildingsMineResources = {}
+--local tValidBuildingsMineResources = {}
 local tValidBuildingsWithProhibitedTerrain = {}
 local tProhibitedTerrainForBuilding = {}
 local tValidBuildingsOneTile = {}
+local tValidBuildingsPeace = {}
 
 -- checks if city is between lake and sea and adds this condition (normally it would be treated like city wothout lake)
 function LakeWithOcean(iPlayer, iCity, iBuildingType)
@@ -117,26 +118,45 @@ GameEvents.CityCanConstruct.Add(ProhibitionAround)
 
 -- checks if city is one-tile
 function OneTileCity(iPlayer, iCity, iBuildingType)
-	if not tValidBuildingsOneTile[iBuildingType] then return true; end
+	if not tValidBuildingsOneTile[iBuildingType] then return true end
 	
-	local pPlayer = Players[iPlayer];
+	local pPlayer = Players[iPlayer]
 	
-	if not pPlayer:IsAlive() then return false; end
+	if not pPlayer:IsAlive() then return false end
 	
-	local pCity = pPlayer:GetCityByID(iCity);
-	local iCityX = pCity:GetX();
-	local iCityY = pCity:GetY();
+	local pCity = pPlayer:GetCityByID(iCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
 	
 	-- check all six dir, quit if not water
 	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 		if not Map.PlotDirection(iCityX, iCityY, dir):IsWater() then
-			return false;
+			return false
 		end
 	end
 	
-	return true;
+	return true
 end
-GameEvents.CityCanConstruct.Add(OneTileCity);
+GameEvents.CityCanConstruct.Add(OneTileCity)
+
+-- checks if player is at peace
+function PlayerIsNotAtWar(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsPeace[iBuildingType] then return true end
+	
+	local pPlayer = Players[iPlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local pTeam = Teams[pPlayer:GetTeam()]
+	local iCountWars = pTeam:GetAtWarCount(false)
+	print (pTeam:GetName(), iCountWars)
+	if iCountWars > 0 then
+		return false
+	end
+	
+	return true
+end
+GameEvents.CityCanConstruct.Add(PlayerIsNotAtWar)
 
 function Initialize()
 	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
@@ -170,10 +190,15 @@ function Initialize()
 		end
 	end
 
+	-- add buildings that require one-tile city
 	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(One-tile city)")
 	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID, GameInfo.Buildings.BUILDING_SOLOVIETSKY.Type, "(One-tile city)")
 	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
 	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
+
+	-- add buildings that require peace
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(Player at peace)")
+	tValidBuildingsPeace[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
 end
 Initialize()
 

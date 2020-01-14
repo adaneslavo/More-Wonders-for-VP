@@ -10,8 +10,8 @@
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
 Currently compatible with 12-20-3.</Description>
-    <Authors>adan_eslavo</Authors>
-    <SpecialThanks>Infixo</SpecialThanks>
+    <Authors>Infixo, adan_eslavo</Authors>
+    <SpecialThanks>Infixo, Asterix_Rage, hokath</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
     <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
@@ -60,13 +60,13 @@ Currently compatible with 12-20-3.</Description>
         <Type>InGameUIAddin</Type>
         <Name>WonderChartres</Name>
         <Description>Rules for Chartres</Description>
-        <FileName>Lua/WonderChartres(unused).lua</FileName>
+        <FileName>Lua/(unused).lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
         <Name>WonderChevaliers</Name>
         <Description>Rules for Chevaliers</Description>
-        <FileName>Lua/WonderChevaliers.lua</FileName>
+        <FileName>Lua/WonderAbilityChevaliers.lua</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -317,123 +317,123 @@ Currently compatible with 12-20-3.</Description>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Chevaliers_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Damascus_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Itsukushima_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Michel_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Nabawi_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\3.Medieval\Wonder_Shwedagon_128.dds">
       <SubType>Lua</SubType>
@@ -1039,23 +1039,23 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\WE_PI_016.dds">
+    <Content Include="Art\Icons\WonderPromotionIcons_16.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\WE_PI_032.dds">
+    <Content Include="Art\Icons\WonderPromotionIcons_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\WE_PI_045.dds">
+    <Content Include="Art\Icons\WonderPromotionIcons_32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\WE_PI_064.dds">
+    <Content Include="Art\Icons\WonderPromotionIcons_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\WE_PI_256.dds">
+    <Content Include="Art\Icons\WonderPromotionIcons_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1067,11 +1067,11 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\WonderChartres(unused).lua">
+    <Content Include="Lua\(unused).lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\WonderChevaliers.lua">
+    <Content Include="Lua\WonderAbilityChevaliers.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1114,6 +1114,7 @@ Currently compatible with 12-20-3.</Description>
     <Folder Include="Art\6.Modern" />
     <Folder Include="Art\7.Atomic" />
     <Folder Include="Art\8.Information" />
+    <Folder Include="Art\Icons" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="UI" />
