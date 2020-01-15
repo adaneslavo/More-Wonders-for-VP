@@ -21,9 +21,11 @@ end
 
 local tValidBuildingsLake = {}
 local tValidBuildingsUndergroundBuildings = {}
+local tValidBuildingsFarms = {}
 --local tValidBuildingsMineResources = {}
 local tValidBuildingsWithProhibitedTerrain = {}
 local tProhibitedTerrainForBuilding = {}
+local tValidBuildingsMountains = {}
 local tValidBuildingsOneTile = {}
 local tValidBuildingsPeace = {}
 
@@ -51,7 +53,7 @@ function LakeWithOcean(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(LakeWithOcean)
 
--- looks for mine or quarry in the city terrain
+-- looks for mine or quarry inside the city (TERRACOTA)
 function CityWithMine(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsUndergroundBuildings[iBuildingType] then return true end
    
@@ -68,7 +70,9 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 		local iImprovement = pSpecificPlot:GetImprovementType()
 		local iPlotOwner = pSpecificPlot:GetOwner()
 				
-		if iPlotOwner == iPlayer and (iImprovement == GameInfoTypes.IMPROVEMENT_MINE or iImprovement == GameInfoTypes.IMPROVEMENT_QUARRY) then
+		if iPlotOwner == iPlayer and 
+			(iImprovement == GameInfoTypes.IMPROVEMENT_MINE or iImprovement == GameInfoTypes.IMPROVEMENT_QUARRY) and
+			not pSpecificPlot:IsImprovementPillaged() then
 			return true
 		end
 	end
@@ -77,9 +81,39 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(CityWithMine)
 
+-- looks for 3 farms inside the city (ARTEMIS)
+function CityWithFarms(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsFarms[iBuildingType] then return true end
+   
+	local pPlayer = Players[iPlayer]
+   
+	if not pPlayer:IsAlive() then return false end
+
+	local pCity = pPlayer:GetCityByID(iCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
+	local iFarmCount = 0
+
+	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
+		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+		local iImprovement = pSpecificPlot:GetImprovementType()
+		local iPlotOwner = pSpecificPlot:GetOwner()
+				
+		if iPlotOwner == iPlayer and iImprovement == GameInfoTypes.IMPROVEMENT_FARM and not pSpecificPlot:IsImprovementPillaged() then
+			iFarmCount = iFarmCount + 1
+			
+			if iFarmCount >= 3 then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+GameEvents.CityCanConstruct.Add(CityWithFarms)
+
 -- expands ProhibitedCityTerrain function by tiles around the city
 -- adds condition: if not tundra then also not snow
--- 0 Grass, 1 Plains, 2 Desert, 3 Tundra, 4 Snow, 5 Coast, 6 Ocean, 7 Mountain, 8 Hill
 function ProhibitionAround(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsWithProhibitedTerrain[iBuildingType] then return true end
    
@@ -90,11 +124,13 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 	local pCity = pPlayer:GetCityByID(iCity)
 	local iCityTerrain = pCity:GetCityIndexPlot(0):GetTerrainType()
 	local iProhibitedTerrain = tProhibitedTerrainForBuilding[iBuildingType]
-	
+	local iTundra = GameInfoTypes.TERRAIN_TUNDRA
+	local iSnow = GameInfoTypes.TERRAIN_SNOW
+
 	-- check city tile
 	--[[if iCityTerrain == iProhibitedTerrain then
 		return false -- already part of existing functionPRohibitedCityTerrain
-	else--]]if iProhibitedTerrain == 3 and iCityTerrain == 4 then
+	else--]]if iProhibitedTerrain == iTundra and iCityTerrain == iSnow then
 		return false
 	end
 	
@@ -107,7 +143,7 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 		
 		if iTerrain == iProhibitedTerrain then
 			return false
-		elseif iProhibitedTerrain == 3 and iTerrain == 4 then
+		elseif iProhibitedTerrain == iTundra and iTerrain == iSnow then
 			return false -- if not tundra then also not snow
 		end
 	end
@@ -116,7 +152,38 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(ProhibitionAround)
 
--- checks if city is one-tile
+-- looks for 2 mountains in city range (MACHU PICCHU)
+function CityOnMountains(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsMountains[iBuildingType] then return true end
+   
+	local pPlayer = Players[iPlayer]
+   
+	if not pPlayer:IsAlive() then return false end
+
+	local pCity = pPlayer:GetCityByID(iCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
+	local iMountainCount = 0
+
+	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
+		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+		local iTerrain = pSpecificPlot:GetTerrainType()
+		local iPlotOwner = pSpecificPlot:GetOwner()
+				
+		if iPlotOwner == iPlayer and iTerrain == GameInfoTypes.TERRAIN_MOUNTAIN then
+			iMountainCount = iMountainCount + 1
+			
+			if iMountainCount >= 2 then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+GameEvents.CityCanConstruct.Add(CityOnMountains)
+
+-- checks if city is one-tile (MONT ST MICHELLE, SOLOVIETSKY)
 function OneTileCity(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsOneTile[iBuildingType] then return true end
 	
@@ -139,7 +206,7 @@ function OneTileCity(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(OneTileCity)
 
--- checks if player is at peace
+-- checks if player is at peace (BUDDHAS OF BAMYAN)
 function PlayerIsNotAtWar(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsPeace[iBuildingType] then return true end
 	
@@ -170,7 +237,7 @@ function Initialize()
 	end
 
 	-- add mine buildings
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine)")
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine or quarry)")
 	tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true
 
 	-- add mining resources (currently unused)
@@ -181,6 +248,10 @@ function Initialize()
 		end
 	end--]]
 
+	-- add farm buldings (x3)
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID, GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.Type, "(Building require 3 farms)")
+	tValidBuildingsFarms[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = true
+
 	-- add buildings with prohibited terrain
 	for building in GameInfo.Buildings() do
 		if building.ProhibitedCityTerrain ~= nil then
@@ -190,6 +261,10 @@ function Initialize()
 		end
 	end
 
+	-- add mountain buildings (x2)
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MACHU_PICHU.ID, GameInfo.Buildings.BUILDING_MACHU_PICHU.Type, "(Building require 2 mountains)")
+	tValidBuildingsMountains[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true
+
 	-- add buildings that require one-tile city
 	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(One-tile city)")
 	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID, GameInfo.Buildings.BUILDING_SOLOVIETSKY.Type, "(One-tile city)")
@@ -197,7 +272,7 @@ function Initialize()
 	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
 
 	-- add buildings that require peace
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(Player at peace)")
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(Player may not be at war)")
 	tValidBuildingsPeace[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
 end
 Initialize()

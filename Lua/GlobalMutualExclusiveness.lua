@@ -31,9 +31,8 @@ end
 local tValidWonders = {}
 local tWonderGroups = {}
 
--- main function, will be called MANY times, so make it fast!
+-- check for exclusiveness
 function CheckMutualExclusiveness(iPlayer, iCity, iBuildingType)
-	-- if this is NOT a tracked Wonder then quit immediately
 	if not tValidWonders[iBuildingType] then return true end
 	
 	local pPlayer = Players[iPlayer]
@@ -52,7 +51,6 @@ function CheckMutualExclusiveness(iPlayer, iCity, iBuildingType)
 	return true
 end
 GameEvents.CityCanConstruct.Add(CheckMutualExclusiveness)
-
 
 function Initialize()
 	-- find all valid Wonders

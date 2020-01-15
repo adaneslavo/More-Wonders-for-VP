@@ -54,7 +54,7 @@ Currently compatible with 12-20-3.</Description>
         <Type>InGameUIAddin</Type>
         <Name>MutualExclusive</Name>
         <Description>Checks exclusiveness of branch and ideology wonders.</Description>
-        <FileName>Lua/MutualExclusive.lua</FileName>
+        <FileName>Lua/GlobalMutualExclusiveness.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
@@ -1079,7 +1079,7 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\MutualExclusive.lua">
+    <Content Include="Lua\GlobalMutualExclusiveness.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

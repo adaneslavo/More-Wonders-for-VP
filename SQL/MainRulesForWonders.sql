@@ -40,6 +40,11 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
+			--('DAMASCUS',    1, 0), -- Forge of Damascus
+			--('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
+			--('MICHEL',      1, 0), -- Mont Saint Michel
+			--('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
+			--('WARTBURG',    1, 1), -- Wartburg Castle
 
 
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
@@ -48,22 +53,17 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
 --('BENHADDOU',   1, 1), -- Ait Benhaddou
 --('BROOKLYN',    1, 0), -- Brooklyn Bridge
---('CHARTRES',    1, 0), -- Chartres Cathedral
---('DAMASCUS',    1, 0), -- Forge of Damascus
 --('DUOMO',       1, 1), -- Cattedrale di Santa Maria del Fiore /  Il Duomo di Firenze
 --('GRIPSHOLM',   1, 0), -- Gripsholm Castle
 --('HOLLYWOOD',   1, 0), -- Hollywood
---('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
 --('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
 --('LEONARDO', 1, 1), -- Leonardo's Workshop
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA', 1, 1), -- Monastery of the Holy Trinity (Meteora)
---('MICHEL',      1, 0), -- Mont Saint Michel
 --('MILLAU',      1, 0), -- Millau Viaduct
 --('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
 --('MUSEUM_ISLAND', 1, 0), --Museum Island
---('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
 --('PEARLTOWER', 1, 1), -- Oriental Pearl Radio & TV Tower
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
@@ -72,14 +72,12 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SAGRADA',     1, 1), -- Sagrada Familia
 --('SKYTREE',     1, 1), -- Tokyo Skytree
---('SOLOMON',     1, 0), -- Solomon's Temple
 --('SOVIETS',     1, 0), -- Palace of the Soviets
 --('SPUTNIK',     1, 0), -- Sputnik Program, The
 --('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
 --('TAIPEI101',   1, 0), -- Taipei 101
 --('TOCALI',      1, 1), -- Templo Mayor / Huey Tocali
 --('TRAFALGAR',   1, 0), -- Trafalgar Square
---('WARTBURG',    1, 1), -- Wartburg Castle
 --('WHITESANDS',  1, 0), -- White Sands Missile Range
 --('WILLIS',      1, 0); -- Sears / Willis Tower
 --------------------------------------------------------------

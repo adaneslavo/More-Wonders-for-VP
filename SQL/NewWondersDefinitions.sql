@@ -6,12 +6,12 @@
 -- Promotion Icons Atlas
 --============================================--
 INSERT INTO IconTextureAtlases	
-			(Atlas,				IconSize,	Filename,						IconsPerRow,	IconsPerColumn) 
-VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
-			('vpwe_promoAtlas', 064,		'WonderPromotionIcons_64.dds',	'2',			'1'),
-			('vpwe_promoAtlas', 045,		'WonderPromotionIcons_45.dds',	'2',			'1'),
-			('vpwe_promoAtlas', 032,		'WonderPromotionIcons_32.dds',	'2',			'1'),
-			('vpwe_promoAtlas', 016,		'WonderPromotionIcons_16.dds',	'2',			'1');
+			(Atlas,								IconSize,	Filename,						IconsPerRow,	IconsPerColumn) 
+VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	64,			'WonderPromotionIcons_64.dds',	'2',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	45,			'WonderPromotionIcons_45.dds',	'2',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	32,			'WonderPromotionIcons_32.dds',	'2',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	16,			'WonderPromotionIcons_16.dds',	'2',			'1');
 --============================================--
 -- HELP
 --============================================--
@@ -414,17 +414,14 @@ VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
 	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
-	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_TEMPLE_ARTEMIS', 'FEATURE_FOREST');
+	-- +3xFarm (lua)
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	SELECT		'TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]3 Farms[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
@@ -567,7 +564,7 @@ VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
 -- TERRACOTA ARMY
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	-- + Mine or Quarry (Lua)
+	-- +Mine or Quarry (Lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
@@ -582,7 +579,7 @@ VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BAMYAN';
 	
 	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_BAMYAN';
-	-- + Peace (Lua)
+	-- +Peace (Lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY' WHERE Type = 'BUILDING_BAMYAN';
 	
@@ -613,7 +610,7 @@ VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
 	INSERT INTO Language_en_US 
 				(Tag,								Text)
 	VALUES		('TXT_KEY_BUILDING_BAMYAN',			'Buddhas of Bamyan'),
-				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Grassland[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby. Player may not be at [COLOR_NEGATIVE_TEXT]War[ENDCOLOR].'),
 				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.'),
 				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There''s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'');
@@ -899,15 +896,15 @@ VALUES		('vpwe_promoAtlas', 256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MACHU PICCHU
-	UPDATE Buildings SET Mountain = 1 WHERE Type = 'BUILDING_MACHU_PICHU';
-	-- +earlier Mountain in range
+	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
+	-- +2xMountain in range (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR] and have another [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] in its territory.' WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORBIDDEN PALACE
