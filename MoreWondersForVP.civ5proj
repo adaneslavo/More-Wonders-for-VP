@@ -66,7 +66,7 @@ Currently compatible with 12-20-3.</Description>
         <Type>InGameUIAddin</Type>
         <Name>WonderChevaliers</Name>
         <Description>Rules for Chevaliers</Description>
-        <FileName>Lua/WonderAbilityChevaliers.lua</FileName>
+        <FileName>Lua/WonderAbilityDummyBuilding.lua</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -1071,7 +1071,7 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\WonderAbilityChevaliers.lua">
+    <Content Include="Lua\WonderAbilityDummyBuilding.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

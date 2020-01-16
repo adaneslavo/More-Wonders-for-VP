@@ -38,12 +38,12 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('EL_GHRIBA',		1,			0),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
+			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
 			--('DAMASCUS',    1, 0), -- Forge of Damascus
-			--('ITSUKUSHIMA', 1, 0), -- Itsukushima Shrine
 			--('MICHEL',      1, 0), -- Mont Saint Michel
-			--('NABAWI',      1, 0), -- Al-Masjid an-Nabawi (Prophet's Mosque)
 			--('WARTBURG',    1, 1), -- Wartburg Castle
 
 
@@ -147,7 +147,8 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 --------------------------------------------------------------
 INSERT INTO VPWEConfig 
 			(WType,					WActive,	WFake)
-VALUES		('CHEVALIERS_DUMMY',	2,			0); -- For Krak des Chevaliers
+VALUES		('CHEVALIERS_DUMMY',	2,			0), -- for Krak des Chevaliers
+			('ITSUKUSHIMA_DUMMY',	2,			0); -- for Itsukushima
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)
@@ -161,7 +162,7 @@ FROM VPWEConfig WHERE WActive = 2;
 
 INSERT INTO Language_en_US 
 			(Tag,						Text) 
-SELECT		'TXT_KEY_BUILDING_'||WType, 'Dummy Building for Krak des Chevaliers' 
-FROM VPWEConfig WHERE WActive = 2;				
+SELECT		'TXT_KEY_BUILDING_'||WType, WType
+FROM VPWEConfig WHERE WActive = 2;					
 --------------------------------------------------------------
 --------------------------------------------------------------

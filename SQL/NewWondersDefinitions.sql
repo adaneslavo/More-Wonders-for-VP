@@ -216,7 +216,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- SKARA BRAE (NEW) - food and production, global food from Deer, Fish, Cattle, Sheep and Wheet;
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, ProhibitedCityTerrain = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_SKARA_BRAE';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType, ResourceType) 
@@ -244,10 +244,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_SKARA_BRAE',	'IMPROVEMENT_TRADING_POST',	'YIELD_GOLD',		1);
 ---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
-				(BuildingType,			FlavorType,				Flavor) 
-	VALUES		('BUILDING_SKARA_BRAE', 'FLAVOR_PRODUCTION',	20),
-				('BUILDING_SKARA_BRAE', 'FLAVOR_GROWTH',		60),
-				('BUILDING_SKARA_BRAE', 'FLAVOR_GOLD',			20);
+				(BuildingType,			FlavorType,					Flavor) 
+	VALUES		('BUILDING_SKARA_BRAE', 'FLAVOR_PRODUCTION',		20),
+				('BUILDING_SKARA_BRAE', 'FLAVOR_GROWTH',			60),
+				('BUILDING_SKARA_BRAE', 'FLAVOR_GOLD',				20),
+				('BUILDING_SKARA_BRAE', 'FLAVOR_TILE_IMPROVEMENT',	20);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag, Text)
@@ -547,10 +548,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_MALWIYA',	'RESOURCE_STONE',	'YIELD_PRODUCTION', 1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
-				(BuildingType,			FlavorType,				Flavor) 
-	VALUES		('BUILDING_MALWIYA',	'FLAVOR_GREAT_PEOPLE',	30),
-				('BUILDING_MALWIYA',	'FLAVOR_PRODUCTION',	50),
-				('BUILDING_MALWIYA',	'FLAVOR_RELIGION',		60);
+				(BuildingType,			FlavorType,					Flavor) 
+	VALUES		('BUILDING_MALWIYA',	'FLAVOR_GREAT_PEOPLE',		30),
+				('BUILDING_MALWIYA',	'FLAVOR_PRODUCTION',		50),
+				('BUILDING_MALWIYA',	'FLAVOR_RELIGION',			60),
+				('BUILDING_MALWIYA',	'FLAVOR_TILE_IMPROVEMENT',	30);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -858,6 +860,52 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- NABAWI (NEW)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NABAWI';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_NABAWI';
+	
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_NABAWI';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MOSQUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 2, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, ThemingBonusHelp = 'TXT_KEY_NABAWI_THEMING_BONUS_HELP' WHERE Type = 'BUILDING_NABAWI';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,		 Yield)
+	VALUES		('BUILDING_NABAWI', 'YIELD_CULTURE', 3);
+
+	INSERT INTO Building_SpecificGreatPersonRateModifier
+				(BuildingType,		SpecialistType,			Modifier)
+	VALUES		('BUILDING_NABAWI', 'SPECIALIST_WRITER',	25);
+
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_NABAWI', 'YIELD_FAITH',	10);
+
+	INSERT INTO Building_ThemingBonuses
+				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 8,		1,				5);
+
+	INSERT INTO Building_ThemingYieldBonus
+				(BuildingType,		YieldType,					Yield)
+	VALUES		('BUILDING_NABAWI', 'YIELD_GOLDEN_AGE_POINTS',	4),
+				('BUILDING_NABAWI', 'YIELD_FAITH',				4);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_NABAWI', 'FLAVOR_CULTURE',		50),
+				('BUILDING_NABAWI', 'FLAVOR_RELIGION',		60),
+				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	60);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text)
+	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Al-Masjid an-Nabawi'),
+				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a free [COLOR_POSITIVE_TEXT]Mosque[ENDCOLOR]. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a free [COLOR_POSITIVE_TEXT]Mosque[ENDCOLOR]. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
+				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
+				('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
+				('TXT_KEY_NABAWI_THEMING_BONUS_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.'),
+				('TXT_KEY_THEMING_BONUS_NABAWI',		'Islamic calligraphy works');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
 	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	
@@ -993,6 +1041,57 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- ITSUKUSHIMA (NEW)
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_FISH'),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE');
+	---------------------------------------------------------
+	UPDATE Buildings SET WorkerSpeedModifier = 25 WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	UPDATE Buildings SET GlobalPlotCultureCostModifier = -15 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_ResourceYieldChanges 
+				(BuildingType,				ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL',	'YIELD_FAITH',	2),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB',	'YIELD_FAITH',	2),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS',	'YIELD_FAITH',	2),
+				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE',	'YIELD_FAITH',	2);
+
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,				ImprovementType,				YieldType,		Yield) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'IMPROVEMENT_FISHING_BOATS',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_SeaPlotYieldChanges 
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_FAITH',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,					Flavor) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'FLAVOR_CULTURE',			60),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_RELIGION',			60),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	30);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag, Text) 
+	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+25% Work Rate in your Empire. +15% faster Border Growth in coastal cities. +1 [ICON_PEACE] Faith from each Ocean tiles. +1 [ICON_CULTURE] Culture from all Fishing Boats.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+25% Work Rate in your Empire. +15% faster Border Growth in coastal cities. +1 [ICON_PEACE] Faith from each Ocean tiles. +1 [ICON_CULTURE] Culture from all Fishing Boats.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- NOTRE DAME
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
@@ -1006,13 +1105,13 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- KRAK DES CHEVALIERS
+-- KRAK DES CHEVALIERS (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
 	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 75, Defense = 1500 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 4000 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET ExtraCityHitPoints = 25, Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
@@ -1039,8 +1138,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+100 HP and 20 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+100 HP and 20 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
@@ -1054,7 +1153,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- St Peter's Basilica - Catholic - Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA');--, 'BUILDING_NABAWI', 'BUILDING_ST_PETERS_BASILICA', );
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI');--, , 'BUILDING_ST_PETERS_BASILICA', );
 --============================================--
 -- POLICY FINISHERS
 --============================================--

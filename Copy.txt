@@ -520,45 +520,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_WONDER_HOLLYWOOD_PEDIA', 'Hollywood is a district of Los Angeles, USA, famous for it''s film industry. The area started life as a idealistic "suburban America", however it quickly grew from 1909, when film-makers started to arrive, and is now synonomous with the American Film Industry.[NEWLINE][NEWLINE]  Today, Hollywood is glamourised for being the land of the rich and famous, where dreams are made and wishes come true. It is home to several iconic buildings, including the Hollywood Bowl and Grauman''s Chinese Theatre. However, when most people think of Hollywood, they think of the large sign atop the Hollywood hills. This sign started life as a billboard for the suburban settlement, then named "Hollywoodland". In 1949, the "Land" was removed as part of a renovation contract.');
 
 
-----------------------------------------------------
--- ITSUKUSHIMA - Itsukushima Shrine
--- Progress Finisher
--- Culture from Sea, Faith from SeaRes, Faster workers and cost of tiles -15%
-----------------------------------------------------
-
-UPDATE Buildings
-SET WorkerSpeedModifier = 25, GlobalPlotCultureCostModifier = -15, GlobalPlotBuyCostModifier = -15
-WHERE Type = 'BUILDING_ITSUKUSHIMA';
-
-INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_ITSUKUSHIMA', 'YIELD_CULTURE', 2);
-
-/*
-INSERT INTO Building_ResourceYieldChanges (BuildingType, ResourceType, YieldType, Yield) VALUES
-('BUILDING_ITSUKUSHIMA', 'RESOURCE_CORAL',  'YIELD_FAITH', 2),
-('BUILDING_ITSUKUSHIMA', 'RESOURCE_CRAB',   'YIELD_FAITH', 2),
-('BUILDING_ITSUKUSHIMA', 'RESOURCE_FISH',   'YIELD_FAITH', 2),
-('BUILDING_ITSUKUSHIMA', 'RESOURCE_PEARLS', 'YIELD_FAITH', 2),
-('BUILDING_ITSUKUSHIMA', 'RESOURCE_WHALE',  'YIELD_FAITH', 2);
-*/
-INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield) VALUES
-('BUILDING_ITSUKUSHIMA', 'IMPROVEMENT_FISHING_BOATS', 'YIELD_FAITH', 1);
-
-INSERT INTO Building_SeaPlotYieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_ITSUKUSHIMA', 'YIELD_CULTURE', 1);
-
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_ITSUKUSHIMA', 'FLAVOR_CULTURE', 40),
-('BUILDING_ITSUKUSHIMA', 'FLAVOR_GROWTH', 40),
-('BUILDING_ITSUKUSHIMA', 'FLAVOR_RELIGION', 50),
-('BUILDING_ITSUKUSHIMA', 'FLAVOR_TILE_IMPROVEMENT', 30);
-
-INSERT INTO Language_en_US (Tag, Text) VALUES
-('TXT_KEY_BUILDING_ITSUKUSHIMA',     'Itsukushima Shrine'),
---('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',  'Tile improvement construction speed increased by 25%. [ICON_GOLD] Gold and [ICON_CULTURE] Culture cost of acquiring new tiles reduced by 15% in all cities. +2 [ICON_PEACE] Faith from each sea resource worked by the city, and +1 [ICON_CULTURE] Culture from each sea tile.[NEWLINE][NEWLINE]Requires completion of [COLOR_CYAN]Progress Branch[ENDCOLOR]. City must be built on the [COLOR_CYAN]Coast[ENDCOLOR].'),
-('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',  'Tile improvement construction speed increased by 25%. [ICON_GOLD] Gold and [ICON_CULTURE] Culture cost of acquiring new tiles reduced by 15% in all cities. All Fishing Boats provide +1 [ICON_PEACE] Faith. In this City +1 [ICON_CULTURE] Culture from each worked sea tile.[NEWLINE][NEWLINE]Requires completion of [COLOR_CYAN]Progress Branch[ENDCOLOR]. City must be built on the [COLOR_CYAN]Coast[ENDCOLOR].'),
-('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE', '[NEWLINE]"From far and near, Hearing the sounds of waterfalls, Young leaves"[NEWLINE] - Buson[NEWLINE]'),
-('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA', 'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
 
 
 ----------------------------------------------------
@@ -783,44 +744,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_MUSEUM_ISLAND_THEMING_BONUS_HELP', 'To get the theming bonus, make sure to have 4 artifacts from different players and different eras.'),
 ('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND', 'Wonders of Museumsinsel'); 
 
-
-----------------------------------------------------
--- NABAWI - Al-Masjid an-Nabawi (Prophet's Mosque)
--- Gives a free Mosque. Building_GlobalYieldModifiers +10% Faith. 2 slot of GWW
-----------------------------------------------------
-
-UPDATE Buildings
-SET FreeBuildingThisCity = 'BUILDINGCLASS_MOSQUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 2,
-	SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, ThemingBonusHelp = 'TXT_KEY_NABAWI_THEMING_BONUS_HELP'
-WHERE Type = 'BUILDING_NABAWI';
-
---INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
---('BUILDING_NABAWI', 'YIELD_CULTURE', 3);
-
-INSERT INTO Building_SpecificGreatPersonRateModifier (BuildingType, SpecialistType, Modifier) VALUES
-('BUILDING_NABAWI', 'SPECIALIST_WRITER', 25);
-
-INSERT INTO Building_GlobalYieldModifiers (BuildingType, YieldType, Yield) VALUES
-('BUILDING_NABAWI', 'YIELD_FAITH', 10);
-
-INSERT INTO Building_ThemingBonuses (BuildingType, Description, Bonus, RequiresOwner, AIPriority)
-VALUES ('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 8, 1, 5);
-
-INSERT INTO Building_ThemingYieldBonus (BuildingType, YieldType, Yield) VALUES
-('BUILDING_NABAWI', 'YIELD_GOLDEN_AGE_POINTS', 4),
-('BUILDING_NABAWI', 'YIELD_FAITH', 4);
-
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_NABAWI', 'FLAVOR_CULTURE', 50),
-('BUILDING_NABAWI', 'FLAVOR_RELIGION', 60);
-
-INSERT INTO Language_en_US (Tag, Text) VALUES
-('TXT_KEY_BUILDING_NABAWI',     'Al-Masjid an-Nabawi'),
-('TXT_KEY_WONDER_NABAWI_HELP',  'Grants a free [COLOR_POSITIVE_TEXT]Mosque[ENDCOLOR]. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if Themed. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]Must be built in a [COLOR_CYAN]Holy City[ENDCOLOR].'),
-('TXT_KEY_WONDER_NABAWI_QUOTE', '[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
-('TXT_KEY_WONDER_NABAWI_PEDIA', 'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
-('TXT_KEY_NABAWI_THEMING_BONUS_HELP', 'To maximize your bonus, make sure both Great Works are filled with Writings created by you.'),
-('TXT_KEY_THEMING_BONUS_NABAWI', 'Islamic calligraphy works');
 
 
 ----------------------------------------------------

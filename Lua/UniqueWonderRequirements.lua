@@ -29,7 +29,7 @@ local tValidBuildingsMountains = {}
 local tValidBuildingsOneTile = {}
 local tValidBuildingsPeace = {}
 
--- checks if city is between lake and sea and adds this condition (normally it would be treated like city wothout lake)
+-- checks if city is between LAKE and sea and adds this condition (normally it would be treated like city wothout lake)
 function LakeWithOcean(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsLake[iBuildingType] then return true end
    
@@ -53,7 +53,7 @@ function LakeWithOcean(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(LakeWithOcean)
 
--- looks for mine or quarry inside the city (TERRACOTA)
+-- looks for MINE or QUARRY inside the city (TERRACOTA)
 function CityWithMine(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsUndergroundBuildings[iBuildingType] then return true end
    
@@ -81,7 +81,7 @@ function CityWithMine(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(CityWithMine)
 
--- looks for 3 farms inside the city (ARTEMIS)
+-- looks for 3 FARMS inside the city (ARTEMIS)
 function CityWithFarms(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsFarms[iBuildingType] then return true end
    
@@ -152,7 +152,7 @@ function ProhibitionAround(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(ProhibitionAround)
 
--- looks for 2 mountains in city range (MACHU PICCHU)
+-- looks for 2 MOUNTAINS in city range (MACHU PICCHU)
 function CityOnMountains(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsMountains[iBuildingType] then return true end
    
@@ -183,7 +183,7 @@ function CityOnMountains(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(CityOnMountains)
 
--- checks if city is one-tile (MONT ST MICHELLE, SOLOVIETSKY)
+-- checks if city is ONE-tile (MONT ST MICHELLE, SOLOVIETSKY)
 function OneTileCity(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsOneTile[iBuildingType] then return true end
 	
@@ -206,7 +206,7 @@ function OneTileCity(iPlayer, iCity, iBuildingType)
 end
 GameEvents.CityCanConstruct.Add(OneTileCity)
 
--- checks if player is at peace (BUDDHAS OF BAMYAN)
+-- checks if player is at PEACE (BUDDHAS OF BAMYAN)
 function PlayerIsNotAtWar(iPlayer, iCity, iBuildingType)
 	if not tValidBuildingsPeace[iBuildingType] then return true end
 	
