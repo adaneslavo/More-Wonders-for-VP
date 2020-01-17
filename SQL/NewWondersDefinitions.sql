@@ -172,7 +172,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
-				('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. [NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_FUR] Furs: +1 [ICON_CULTURE] Culture. [NEWLINE]Nearby [ICON_RES_TOBACCO] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. [NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_FUR] Furs: +1 [ICON_CULTURE] Culture. [NEWLINE]Nearby [ICON_RES_TOBACCO] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
 				('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. [NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_FUR] Furs: +1 [ICON_CULTURE] Culture. [NEWLINE]Nearby [ICON_RES_TOBACCO] Bison: +1 [ICON_CULTURE] Culture.'),
 				('TXT_KEY_WONDER_MAJORVILLE_QUOTE',		'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
 				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',		'TODO');
@@ -207,8 +207,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',			'Mohenjo-daro'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'+1 [ICON_CULTURE] Culture from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_HELP_CUT',	'+1 [ICON_CULTURE] Culture from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well.'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'+1 [ICON_CULTURE] Culture from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP_CUT',	'+1 [ICON_CULTURE] Culture from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built.'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',		'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -297,8 +297,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
-				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have a [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in this City. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
+				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have a [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
 				('TXT_KEY_WONDER_KARNAK_QUOTE',		'[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_KARNAK_PEDIA',		'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -344,8 +344,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
-				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_GREAT_SCIENTIST] Great Scientist Point. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
+				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
 				('TXT_KEY_WONDER_NAZCA_QUOTE',		'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
 				('TXT_KEY_WONDER_NAZCA_PEDIA',		'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -663,6 +663,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- PARTHENON
 	UPDATE Buildings SET Hill = 1, IsNoRiver = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
 	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Substr(Text, 1, 68)||Substr(Text, 175, 1000) WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 	UPDATE Language_en_US SET Text = Text||' Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Phidias Showing the Frieze of the Parthenon to his Friends[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 
 	INSERT INTO Language_en_US 
@@ -700,8 +701,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'Free [COLOR_POSITIVE_TEXT]Synagogue[ENDCOLOR] in this City. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR], must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'TODO'),
 				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
@@ -826,8 +827,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 3 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Well[ENDCOLOR] already constructed. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR] is nearby.'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in this City. +1 [ICON_FOOD] Food from Desert tiles in this City. 3 Specialists in this City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_PEOPLE] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. +1 [ICON_FOOD] Food from Desert tiles in the City. 3 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Well[ENDCOLOR] already constructed. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_PEOPLE] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. +1 [ICON_FOOD] Food from Desert tiles in the City. 3 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),
 				('TXT_KEY_WONDER_CHAND_BAORI_PEDIA',	'');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -860,7 +861,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- NABAWI (NEW)
+-- AL-MASJID AN-NABAWI (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NABAWI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_NABAWI';
 	
@@ -897,9 +898,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
-	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Al-Masjid an-Nabawi'),
-				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a free [COLOR_POSITIVE_TEXT]Mosque[ENDCOLOR]. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].'),
-				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a free [COLOR_POSITIVE_TEXT]Mosque[ENDCOLOR]. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
+	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
+				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].'),
+				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% faster generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
 				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
 				('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
 				('TXT_KEY_NABAWI_THEMING_BONUS_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.'),
@@ -924,6 +925,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- BOROBUDUR
 	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BOROBUDUR';
 	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Substr(Text, 31, 1000) WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
+
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_BOROBUDUR_HELP_CUT',	Text
@@ -947,12 +950,67 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
 	-- +2xMountain in range (lua)
 	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Substr(Text, 80, 1000) WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP';
 				
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] in its territory.' WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- FORGE OF DAMASCUS
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_DAMASCUS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_DAMASCUS';
+	
+	UPDATE Buildings SET FreshWater = 1, ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_DAMASCUS';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_DAMASCUS',	'RESOURCE_IRON');
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_FORGE', FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION',	2),
+				('BUILDING_DAMASCUS',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION', 3);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_DAMASCUS',	'RESOURCE_IRON',	'YIELD_PRODUCTION', 1),
+				('BUILDING_DAMASCUS',	'RESOURCE_IRON',	'YIELD_SCIENCE',	1);
+
+	INSERT INTO UnitPromotions 
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			0,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,			UnitCombatType)
+	VALUES		('PROMOTION_DAMASCUS',	'UNITCOMBAT_MELEE'),
+				('PROMOTION_DAMASCUS',	'UNITCOMBAT_MOUNTED');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_DAMASCUS',	'FLAVOR_DEFENSE',		10),
+				('BUILDING_DAMASCUS',	'FLAVOR_OFFENSE',		40),
+				('BUILDING_DAMASCUS',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_DAMASCUS',	'FLAVOR_SCIENCE',		30);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
+				('TXT_KEY_WONDER_DAMASCUS_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. +3 [ICON_PRODUCTION] Production with Metallurgy. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted units get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must have source of [COLOR_CYAN]Fresh Water[ENDCOLOR] and improved [ICON_RES_IRON] Iron nearby.'),
+				('TXT_KEY_WONDER_DAMASCUS_HELP_CUT',	'+3 [ICON_PRODUCTION] Production with Metallurgy. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted units get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_DAMASCUS_QUOTE',		'[NEWLINE]"The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. The manufacturing technique has yet to be reverse engineered, even in modern times."[NEWLINE] - from legends about Damascus Steel[NEWLINE]'),
+				('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE]  The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time.'),
+				('TXT_KEY_PROMOTION_DAMASCUS',			'Damascus Steel'),
+				('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+20% [ICON_STRENGTH] Combat Strength');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORBIDDEN PALACE
@@ -973,12 +1031,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- CATHEDRAL OF ST. BASIL
 	UPDATE Buildings SET River = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
 	---------------------------------------------------------
+	UPDATE Language_en_US SET Text = Substr(Text, 31, 1000) WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	SELECT		'TXT_KEY_WONDER_KREMLIN_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built next to a [COLOR_CYAN]River[ENDCOLOR]. City cannot be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built next to a [COLOR_CYAN]River[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
@@ -1033,7 +1093,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built o a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% faster generation and +2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems or [ICON_RES_GOLD] Gold nearby.'),
 				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% faster generation and +2 [ICON_PEACE] Faith from [ICON_GREAT_ARTIST] Artists in Empire. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
@@ -1041,7 +1101,44 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_SHWEDAGON_THEMING_BONUS_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by you.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- ITSUKUSHIMA (NEW)
+-- MONT ST. MICHEL (NEW)
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MICHEL';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
+	
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MICHEL';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY', TechEnhancedTourism = 3 WHERE Type = 'BUILDING_MICHEL';
+
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,		YieldType,		Yield) 
+	VALUES		('BUILDING_MICHEL',	'YIELD_GOLD',	3);
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,					Yield) 
+	VALUES		('BUILDING_MICHEL',	'YIELD_GOLD',				2),
+				('BUILDING_MICHEL',	'YIELD_GOLDEN_AGE_POINTS',	2);
+	
+	INSERT INTO Building_YieldChangesPerPop 
+				(BuildingType,		YieldType,		Yield) 
+	VALUES		('BUILDING_MICHEL', 'YIELD_FAITH',	40);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor) 
+	VALUES		('BUILDING_MICHEL', 'FLAVOR_DEFENSE',		50),
+				('BUILDING_MICHEL', 'FLAVOR_GROWTH',		30),
+				('BUILDING_MICHEL', 'FLAVOR_PRODUCTION',	30),
+				('BUILDING_MICHEL', 'FLAVOR_RELIGION',		50);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont Saint-Michel'),
+				('TXT_KEY_WONDER_MICHEL_HELP',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. +10 [ICON_STRENGTH] City Defense and +200 HP. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on a [COLOR_CYAN]single-tile Island[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MICHEL_HELP_CUT',  'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. +10 [ICON_STRENGTH] City Defense and +200 HP. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.'),
+				('TXT_KEY_WONDER_MICHEL_QUOTE',		'[NEWLINE]"Therefore in the east give glory to the Lord. Exalt the name of the Lord, the God of Israel, in the islands of the sea."[NEWLINE] - Isaiah, 24:15[NEWLINE]'),
+				('TXT_KEY_WONDER_MICHEL_PEDIA',		'Perched on a rocky islet in the midst of vast sandbanks exposed to powerful tides between Normandy and Brittany stand the "Wonder of the West", a Gothic-style Benedictine abbey dedicated to the archangel St Michael, and the village that grew up in the shadow of its great walls. Built between the 11th and 16th centuries, the abbey is a technical and artistic tour de force, having had to adapt to the problems posed by this unique natural site.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ITSUKUSHIMA SHRINE (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	
@@ -1049,14 +1146,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_FISH'),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'),
+	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'),
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'),
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'),
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE');
 	---------------------------------------------------------
-	UPDATE Buildings SET WorkerSpeedModifier = 25 WHERE Type = 'BUILDING_ITSUKUSHIMA';
-	UPDATE Buildings SET GlobalPlotCultureCostModifier = -15 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
+	UPDATE Buildings SET GlobalPlotCultureCostModifier = -30 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -1086,8 +1181,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag, Text) 
 	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+25% Work Rate in your Empire. +15% faster Border Growth in coastal cities. +1 [ICON_PEACE] Faith from each Ocean tiles. +1 [ICON_CULTURE] Culture from all Fishing Boats.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+25% Work Rate in your Empire. +15% faster Border Growth in coastal cities. +1 [ICON_PEACE] Faith from each Ocean tiles. +1 [ICON_CULTURE] Culture from all Fishing Boats.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+30% faster Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+30% faster Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1102,7 +1197,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch.[NEWLINE]'||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
+	UPDATE Language_en_US SET Text = 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. '||Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KRAK DES CHEVALIERS (NEW)
@@ -1138,8 +1233,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in this City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in the City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% faster production of Mounted and Siege Units in the City. All other [COLOR_NEGATIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
@@ -1163,7 +1258,7 @@ UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
 ---------------------------------------------------------
 UPDATE Buildings SET MutuallyExclusiveGroup = 61, PolicyType = 'POLICY_TRADITION_FINISHER' 	 WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME');
 UPDATE Buildings SET MutuallyExclusiveGroup = 62, PolicyType = 'POLICY_LIBERTY_FINISHER' 	 WHERE Type IN ('BUILDING_FORBIDDEN_PALACE'/*,	'BUILDING_WARTBURG'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA'/*,			'BUILDING_DAMASCUS'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS');
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Notre Dame[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Wartburg Castle[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
@@ -1176,4 +1271,5 @@ UPDATE Buildings SET NumPoliciesNeeded = 8 WHERE Type = 'BUILDING_KREMLIN'; -- w
 UPDATE Buildings SET NumPoliciesNeeded = 4 WHERE Type = 'BUILDING_FORUM'; -- was 3
 UPDATE GreatWorks SET Audio = 'AS2D_GREAT_ARTIST_ARTWORK' WHERE Type = 'GREAT_WORK_THE_CROWN_JEWELS'; -- all other art has it
 UPDATE Language_en_US SET Text = 'On the contrary. Every Bison dollar will be worth [NEWLINE]five British pounds. That is the exchange rate [NEWLINE]that the bank of England will implement [NEWLINE]after I kidnap their queen.[NEWLINE] - M. Bison[NEWLINE]' WHERE Tag = 'TXT_KEY_GREAT_WORK_THE_CROWN_JEWELS_QUOTE'; -- did not fit the screen
-UPDATE Language_en_US SET Text = Text||' Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]The Crown Jewels[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
+UPDATE Language_en_US SET Text = Substr(Text, 59, 1000) WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
+UPDATE Language_en_US SET Text = 'Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]The Crown Jewels[ENDCOLOR]. '||Text WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';

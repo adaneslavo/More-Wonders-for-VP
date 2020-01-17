@@ -266,10 +266,10 @@ function Initialize()
 	tValidBuildingsMountains[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true
 
 	-- add buildings that require one-tile city
-	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(One-tile city)")
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(One-tile city)")
 	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID, GameInfo.Buildings.BUILDING_SOLOVIETSKY.Type, "(One-tile city)")
-	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
-	--tValidBuildingsUndergroundBuildings[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
+	tValidBuildingsOneTile[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+	--tValidBuildingsOneTile[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
 
 	-- add buildings that require peace
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(Player may not be at war)")

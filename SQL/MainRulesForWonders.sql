@@ -39,13 +39,14 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
 			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
+			--('LAVAUX',		1,			1),		-- Lavaux
+			--('WARTBURG',		1,			1),		-- Wartburg Castle
+			('DAMASCUS',		1,			0),		-- Forge of Damascus
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('MICHEL',			1,			0),		-- Mont Saint Michel
 			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
+			--('QALHAT',		1,			1),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
-			--('DAMASCUS',    1, 0), -- Forge of Damascus
-			--('MICHEL',      1, 0), -- Mont Saint Michel
-			--('WARTBURG',    1, 1), -- Wartburg Castle
-
 
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
 --('ALAMO',       1, 1), -- Alamo
@@ -67,7 +68,6 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('PEARLTOWER', 1, 1), -- Oriental Pearl Radio & TV Tower
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
---('PANAMA',      1, 0), -- Panama Canal
 --('PETERHOF',   1, 0), -- Peterhof Palace
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SAGRADA',     1, 1), -- Sagrada Familia

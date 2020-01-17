@@ -36,8 +36,6 @@ function WasChevaliersAlreadyBuilt()
 			end
 		end
 	end
-	print(bHasChevaliers, iChevaliersOwner)
-	print(bHasItsukushima, iItsukushimaOwner)
 end
 Events.LoadScreenClose.Add(WasChevaliersAlreadyBuilt)
 
