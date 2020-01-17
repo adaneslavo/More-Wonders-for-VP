@@ -39,13 +39,13 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
 			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			--('LAVAUX',		1,			1),		-- Lavaux
-			--('WARTBURG',		1,			1),		-- Wartburg Castle
+			--('LAVAUX',		1,			0),		-- Lavaux
+			('WARTBURG',		1,			0),		-- Wartburg Castle
 			('DAMASCUS',		1,			0),		-- Forge of Damascus
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('MICHEL',			1,			0),		-- Mont Saint Michel
 			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
-			--('QALHAT',		1,			1),		-- Qalhat
+			--('QALHAT',		1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
 
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
