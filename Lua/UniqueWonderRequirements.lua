@@ -22,6 +22,7 @@ end
 local tValidBuildingsLake = {}
 local tValidBuildingsUndergroundBuildings = {}
 local tValidBuildingsFarms = {}
+local tValidBuildingsVillage = {}
 --local tValidBuildingsMineResources = {}
 local tValidBuildingsWithProhibitedTerrain = {}
 local tProhibitedTerrainForBuilding = {}
@@ -111,6 +112,32 @@ function CityWithFarms(iPlayer, iCity, iBuildingType)
 	return false
 end
 GameEvents.CityCanConstruct.Add(CityWithFarms)
+
+-- looks for VILLAGE inside the city (QALHAT)
+function CityWithVillage(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsVillage[iBuildingType] then return true end
+   
+	local pPlayer = Players[iPlayer]
+   
+	if not pPlayer:IsAlive() then return false end
+
+	local pCity = pPlayer:GetCityByID(iCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
+
+	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
+		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+		local iImprovement = pSpecificPlot:GetImprovementType()
+		local iPlotOwner = pSpecificPlot:GetOwner()
+				
+		if iPlotOwner == iPlayer and iImprovement == GameInfoTypes.IMPROVEMENT_TRADING_POST and not pSpecificPlot:IsImprovementPillaged() then
+			return true
+		end
+	end
+
+	return false
+end
+GameEvents.CityCanConstruct.Add(CityWithVillage)
 
 -- expands ProhibitedCityTerrain function by tiles around the city
 -- adds condition: if not tundra then also not snow
@@ -248,9 +275,13 @@ function Initialize()
 		end
 	end--]]
 
-	-- add farm buldings (x3)
+	-- add farm (x3) buldings
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID, GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.Type, "(Building require 3 farms)")
 	tValidBuildingsFarms[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = true
+
+	-- add village buldings
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_QALHAT.ID, GameInfo.Buildings.BUILDING_QALHAT.Type, "(Building require village)")
+	tValidBuildingsVillage[GameInfo.Buildings.BUILDING_QALHAT.ID] = true
 
 	-- add buildings with prohibited terrain
 	for building in GameInfo.Buildings() do
@@ -261,7 +292,7 @@ function Initialize()
 		end
 	end
 
-	-- add mountain buildings (x2)
+	-- add mountain (x2) buildings
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MACHU_PICHU.ID, GameInfo.Buildings.BUILDING_MACHU_PICHU.Type, "(Building require 2 mountains)")
 	tValidBuildingsMountains[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true
 

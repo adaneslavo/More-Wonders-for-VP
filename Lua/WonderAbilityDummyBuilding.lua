@@ -17,6 +17,12 @@ local iItsukushimaDummy = GameInfoTypes["BUILDING_ITSUKUSHIMA_DUMMY"]
 local bHasItsukushima = false
 local iItsukushimaOwner
 
+-- Qalhat
+local iQalhat = GameInfoTypes["BUILDING_QALHAT"]
+local iQalhatDummy = GameInfoTypes["BUILDING_QALHAT_DUMMY"]
+local bHasQalhat = false
+local iQalhatOwner
+
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -32,6 +38,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(iItsukushima) then
 					bHasItsukushima = true
 					iItsukushimaOwner = i
+				end
+
+				if city:IsHasBuilding(iQalhat) then
+					bHasQalhat = true
+					iQalhatOwner = i
 				end
 			end
 		end
@@ -68,6 +79,60 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 					city:SetNumRealBuilding(iItsukushimaDummy, 1);
 				end
 			end
+		end
+	end
+
+	if not bHasQalhat then
+		if iBuilding == iQalhat then
+			bHasQalhat = true
+			iQalhatOwner = iPlayer
+			
+			local pPlayer = Players[iPlayer]
+			local pCity = pPlayer:GetCityByID(iCity)
+			local iNumberSeaTROtherPlayers = 0
+
+			for _, player in ipairs(Players) do
+				iCurrentPlayer = player:GetID()
+				
+				--[[for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+					print(tradeRoute.Domain, tradeRoute.FromCivilizationType, Locale.ConvertTextKey(GameInfo.Civilizations[tradeRoute.FromCivilizationType].ShortDescription), tradeRoute.FromCityName, tradeRoute.ToCivilizationType, Locale.ConvertTextKey(GameInfo.Civilizations[tradeRoute.ToCivilizationType].ShortDescription), tradeRoute.ToCityName)
+				end--]]
+
+				for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+					if (tradeRoute.FromID == iPlayer or tradeRoute.ToID == iPlayer) and tradeRoute.FromID ~= tradeRoute.ToID and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+						iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+					end
+				end
+			end
+
+			pCity:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
+
+			--[[		
+		
+			Domain - DomainTypes.DOMAIN_LAND or DomainTypes.DOMAIN_SEA (int)
+			TurnsLeft - turns left before the trade route can be reassigned (int)
+			FromCivilizationType - eg GameInfoTypes.CIVILIZATION_ENGLAND (int)
+			FromID - from player ID (int)
+			FromCityName - from city name (string)
+			FromCity - from city (Lua pCity object)
+			ToCivilizationType - to player civ type (int)
+			ToID - to player ID (int)
+			ToCityName - to city name (string)
+			ToCity - to city (Lua pCity object)
+			FromGPT - route yield (int)
+			ToGPT - route yield (int)
+			ToFood - route yield (int)
+			ToProduction - route yield (int)
+			FromScience - route yield (int)
+			ToScience - route yield (int)
+			ToReligion - to religion type (or -1) (int)
+			ToPressure - to pressure (int)
+			FromReligion - from religion type (or -1) (int)
+			FromPressure - from pressure (int)
+			FromTourism - from tourism (int)
+			ToTourism - to tourism (int)
+
+			--]]
 		end
 	end
 end

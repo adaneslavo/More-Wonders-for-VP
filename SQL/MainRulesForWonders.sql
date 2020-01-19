@@ -39,7 +39,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
 			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			--('LAVAUX',		1,			0),		-- Lavaux
+			('LAVAUX',			1,			0),		-- Lavaux
 			('WARTBURG',		1,			0),		-- Wartburg Castle
 			--('GREAT_ZIMBABWE',	1,			0),		-- Great Zimbabwe
 			('FALUN',			1,			0),		-- Falun Mine
@@ -47,7 +47,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('MICHEL',			1,			0),		-- Mont Saint Michel
 			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
-			--('QALHAT',		1,			0),		-- Qalhat
+			('QALHAT',			1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
 
 --('ABUSIMBEL',   1, 1), -- Abu Simbel
@@ -150,7 +150,8 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 INSERT INTO VPWEConfig 
 			(WType,					WActive,	WFake)
 VALUES		('CHEVALIERS_DUMMY',	2,			0), -- for Krak des Chevaliers
-			('ITSUKUSHIMA_DUMMY',	2,			0); -- for Itsukushima
+			('ITSUKUSHIMA_DUMMY',	2,			0), -- for Itsukushima
+			('QALHAT_DUMMY',		2,			0); -- for Qalhat
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

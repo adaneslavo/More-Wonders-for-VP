@@ -416,7 +416,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
 	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
-	-- +3xFarm (lua)
+	-- + 3 x Farm (lua)
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
@@ -567,7 +567,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- TERRACOTA ARMY
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	-- +Mine or Quarry (Lua)
+	-- + Mine or Quarry (Lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
@@ -582,7 +582,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BAMYAN';
 	
 	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_BAMYAN';
-	-- +Peace (Lua)
+	-- + Peace (Lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY' WHERE Type = 'BUILDING_BAMYAN';
 	
@@ -936,6 +936,49 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- LAVAUX (NEW)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_LAVAUX';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_LAVAUX';
+	
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE');
+	---------------------------------------------------------
+	UPDATE Buildings SET EmpireNeedsModifierGlobal = -15, Happiness = 2 WHERE Type = 'BUILDING_LAVAUX';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_LAVAUX', 'YIELD_FOOD',	3),
+				('BUILDING_LAVAUX', 'YIELD_GOLD',	2);
+
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_LAVAUX',	'YIELD_FOOD',	1);	
+	
+	INSERT INTO Building_ResourceYieldChanges 
+				(BuildingType,		ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_FOOD',	1),
+				('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_GOLD',	1),
+				('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_FAITH',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_LAVAUX', 'FLAVOR_GROWTH',		50),
+				('BUILDING_LAVAUX', 'FLAVOR_GOLD',			40),
+				('BUILDING_LAVAUX', 'FLAVOR_HAPPINESS',		60),
+				('BUILDING_LAVAUX', 'FLAVOR_RELIGION',		10);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text)
+	VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
+				('TXT_KEY_WONDER_LAVAUX_HELP',			'Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 15% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have improved [ICON_RES_WINE] Wine nearby.'),
+				('TXT_KEY_WONDER_LAVAUX_HELP_CUT',		'Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 15% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
+				('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- ALHAMBRA
 	UPDATE Buildings SET IsNoRiver = 1, Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA';
 	---------------------------------------------------------
@@ -995,7 +1038,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MACHU PICCHU
 	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
-	-- +2xMountain in range (lua)
+	-- + 2 x Mountain in range (lua)
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Substr(Text, 80, 1000) WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
 
@@ -1232,8 +1275,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont Saint-Michel'),
-				('TXT_KEY_WONDER_MICHEL_HELP',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. +10 [ICON_STRENGTH] City Defense and +200 HP. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on a [COLOR_CYAN]single-tile Island[ENDCOLOR].'),
-				('TXT_KEY_WONDER_MICHEL_HELP_CUT',  'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. +10 [ICON_STRENGTH] City Defense and +200 HP. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.'),
+				('TXT_KEY_WONDER_MICHEL_HELP',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on a [COLOR_CYAN]single-tile Island[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MICHEL_HELP_CUT',  'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with Electricity.'),
 				('TXT_KEY_WONDER_MICHEL_QUOTE',		'[NEWLINE]"Therefore in the east give glory to the Lord. Exalt the name of the Lord, the God of Israel, in the islands of the sea."[NEWLINE] - Isaiah, 24:15[NEWLINE]'),
 				('TXT_KEY_WONDER_MICHEL_PEDIA',		'Perched on a rocky islet in the midst of vast sandbanks exposed to powerful tides between Normandy and Brittany stand the "Wonder of the West", a Gothic-style Benedictine abbey dedicated to the archangel St Michael, and the village that grew up in the shadow of its great walls. Built between the 11th and 16th centuries, the abbey is a technical and artistic tour de force, having had to adapt to the problems posed by this unique natural site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1279,12 +1322,49 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	30);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
-				(Tag, Text) 
+				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+30% Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+30% Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- QALHAT (NEW)
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_QALHAT';
+	
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT';
+	-- + Village (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NumTradeRouteBonus = 3, TradeRouteSeaGoldBonus = 100, TradeRouteSeaDistanceModifier = 100 WHERE Type = 'BUILDING_QALHAT';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		2),
+				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_ImprovementYieldChanges
+				(BuildingType,		ImprovementType,			YieldType,		Yield) 
+	VALUES		('BUILDING_QALHAT',	'IMPROVEMENT_TRADING_POST',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,		UnitCombatType,		Modifier) 
+	VALUES		('BUILDING_QALHAT', 'UNITCOMBAT_CARGO',	50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,					Flavor) 
+	VALUES		('BUILDING_QALHAT',	'FLAVOR_CULTURE',			60),
+				('BUILDING_QALHAT',	'FLAVOR_RELIGION',			60),
+				('BUILDING_QALHAT',	'FLAVOR_TILE_IMPROVEMENT',	30);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,								Text) 
+	VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
+				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_CULTURE] Culture. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [COLOR_CYAN]Village[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_CULTURE] Culture. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
+				('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
+				('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NOTRE DAME
@@ -1333,8 +1413,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'+50 HP and +40 [ICON_STRENGTH] City Defense. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--

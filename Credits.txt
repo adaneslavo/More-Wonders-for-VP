@@ -5,6 +5,8 @@ Special thanks to:
 - mod creator: Infixo;
 - other modders: ProCatGamer and Asterix Rage;
 - promotion icon designer: Asterix Rage;
+- civilopedia texts: Kenneth1221;
+- ideas and additional support: pineappledan, Kenneth1221, Bordukov, ProCatGamer, hokath, How To Know and others; 
 - wonders creators: 
 	- "base wonders": Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe;
 	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
@@ -12,6 +14,6 @@ Special thanks to:
 	- goebekli tepe, gate of the sun: Pouakai, sukritact;
 	- ggantija, skara brae: artisanix;
 	- wieliczka: DeadMu5;
-	- el ghriba, chand baori, majorville, bamyan: hokath;
+	- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat: hokath;
 	- mohenjo-daro: adan_eslavo;
 	
