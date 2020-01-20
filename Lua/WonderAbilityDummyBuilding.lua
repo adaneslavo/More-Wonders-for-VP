@@ -88,24 +88,24 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 			iQalhatOwner = iPlayer
 			
 			local pPlayer = Players[iPlayer]
-			local iNumberSeaTROtherPlayers = 0
+			local iSeaTradeRoutesWithMajors = 0
 
 			for _, player in ipairs(Players) do
-				iCurrentPlayer = player:GetID()
-				
-				for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-					if ((tradeRoute.FromID == iPlayer and not Players[tradeRoute.ToID]:IsMinorCiv()) 
-					or (tradeRoute.ToID == iPlayer and not Players[tradeRoute.FromID]:IsMinorCiv())) 
-					and tradeRoute.FromID ~= tradeRoute.ToID 
-					and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
-						iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+				if player:IsAlive() then
+					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+						if ((tradeRoute.FromID == iPlayer and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+						or (tradeRoute.ToID == iPlayer and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+						and tradeRoute.FromID ~= tradeRoute.ToID 
+						and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+							iSeaTradeRoutesWithMajors = iSeaTradeRoutesWithMajors + 1
+						end
 					end
 				end
 			end
 
 			local pCity = pPlayer:GetCityByID(iCity)
 			
-			pCity:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
+			pCity:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
 			
 			--[[		
 			Domain - DomainTypes.DOMAIN_LAND or DomainTypes.DOMAIN_SEA (int)
@@ -196,22 +196,22 @@ function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iP
 		
 		if pConqCity:IsHasBuilding(iQalhat) then
 			iQalhatOwner = iNewOwner
-			local iNumberSeaTROtherPlayers = 0
+			local iSeaTradeRoutesWithMajors = 0
 			
 			for _, player in ipairs(Players) do
-				iCurrentPlayer = player:GetID()
-				
-				for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-					if ((tradeRoute.FromID == iNewOwner and not Players[tradeRoute.ToID]:IsMinorCiv()) 
-					or (tradeRoute.ToID == iNewOwner and not Players[tradeRoute.FromID]:IsMinorCiv())) 
-					and tradeRoute.FromID ~= tradeRoute.ToID 
-					and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
-						iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+				if player:IsAlive() then
+					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+						if ((tradeRoute.FromID == iNewOwner and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+						or (tradeRoute.ToID == iNewOwner and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+						and tradeRoute.FromID ~= tradeRoute.ToID 
+						and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+							iSeaTradeRoutesWithMajors = iSeaTradeRoutesWithMajors + 1
+						end
 					end
 				end
 			end
 
-			pConqCity:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
+			pConqCity:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
 		end
 	end
 end
@@ -255,27 +255,28 @@ function SetDummiesOnUnitActionChange(iPlayer, iUnit)
 		
 		if iUnitClass ~= GameInfoTypes.UNITCLASS_CARGO_SHIP then return end
 		
-		local iNumberSeaTROtherPlayers = 0
+		local iSeaTradeRoutesWithMajors = 0
 
 		for _, player in ipairs(Players) do
-			for city in player:Cities() do
-				if city:IsHasBuilding(iQalhat) then
-					for _, trader in ipairs(Players) do
-						if not trader:IsEverAlive() then break end
-						iCurrentPlayer = trader:GetID()
-				
-						for _, tradeRoute in ipairs(trader:GetTradeRoutes()) do
-							if ((tradeRoute.FromID == player:GetID() and not Players[tradeRoute.ToID]:IsMinorCiv()) 
-							or (tradeRoute.ToID == player:GetID() and not Players[tradeRoute.FromID]:IsMinorCiv())) 
-							and tradeRoute.FromID ~= tradeRoute.ToID 
-							and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
-								iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+			if player:IsAlive() then
+				for city in player:Cities() do
+					if city:IsHasBuilding(iQalhat) then
+						for _, trader in ipairs(Players) do
+							if not trader:IsEverAlive() then break end
+						
+							for _, tradeRoute in ipairs(trader:GetTradeRoutes()) do
+								if ((tradeRoute.FromID == player:GetID() and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+								or (tradeRoute.ToID == player:GetID() and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+								and tradeRoute.FromID ~= tradeRoute.ToID 
+								and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+									iSeaTradeRoutesWithMajors = iSeaTradeRoutesWithMajors + 1
+								end
 							end
 						end
-					end
 
-					city:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
-					return
+						city:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
+						return
+					end
 				end
 			end
 		end

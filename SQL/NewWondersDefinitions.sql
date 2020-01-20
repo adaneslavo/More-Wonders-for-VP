@@ -31,7 +31,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --============================================--
 -- NEOLITHIC ERA
 --============================================--
--- ALTAMIRA CAVE (NEW) - culture, culture from bison and deer, slot for art, defense;
+-- ALTAMIRA CAVE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_ALTAMIRA';
 	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ALTAMIRA';
 	
@@ -72,7 +72,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_ALTAMIRA_PEDIA',		'Altamira Cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GGANTIJA (NEW) - faith, global food, instant food;
+-- GGANTIJA (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA';
@@ -107,7 +107,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_GGANTIJA_PEDIA',		'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GOEBEKLI TEPE (NEW) - faith, culture, science, faith from mountains, science from marble and stone;
+-- GOEBEKLI TEPE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	UPDATE Buildings SET NearbyMountainRequired = 1, River = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	---------------------------------------------------------	
@@ -143,7 +143,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',		'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. This belief persisted until 1994, and not excavated until a year later. The complex is similar in form to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MAJORVILLE (NEW) - science and faith, faith from tundra, science to monuments;
+-- MAJORVILLE MEDICINE WHEEL (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
 	---------------------------------------------------------	
@@ -178,7 +178,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',		'The Majorville Medicine Wheel is an archaeological site of the Blackfeet nation dating to 3200 BCE. It is a round stone cairn connected to a cobble circle by 28 stone spokes. Traditionally, in certain Native American cultures, medicine wheels are metaphors for a variety of spiritual concepts. However, as it is believed that the Majorville Medicine Wheel was improved upon for successive generations, the precise meaning of the wheel may differ for each generation. Offerings found at the site included sweet grass, willow, cloth, tobacco, and iniskim stones ("buffalo calling stones").');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MOHENJO-DARO (NEW) - culture, faith from rivers, defense, free well;
+-- MOHENJO-DARO (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'  WHERE Type = 'BUILDING_MOHENJO_DARO';
@@ -214,7 +214,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- Mohenjo Daro text is taken straight from Civ 6 and wikipedia, but if this is unacceptable, will change. 				
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- SKARA BRAE (NEW) - food and production, global food from Deer, Fish, Cattle, Sheep and Wheet;
+-- SKARA BRAE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_SKARA_BRAE';
@@ -261,7 +261,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --============================================--
 -- ANCIENT ERA
 --============================================--
--- KARNAK (NEW) - late game tourism, faith and food, faith and culture from Oasis and Flood Plains, free Monument;
+-- KARNAK (NEW)
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_POTTERY',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_KARNAK';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KARNAK';
 	
@@ -317,7 +317,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].' WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- NAZCA (NEW) - late game tourism, science, scientist, food and faith from Plains, faith to Shrines, scientist points;
+-- NAZCA (NEW)
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_TRAPPING',	NumPoliciesNeeded = 1, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_NAZCA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA';
 	---------------------------------------------------------	
@@ -362,7 +362,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- WIELICZKA (NEW) - late game tourism, +2 Salt, production, 5% global food, food from Salt;
+-- WIELICZKA (NEW)
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_WIELICZKA';
 	
 	INSERT INTO Building_LocalResourceOrs 
@@ -513,7 +513,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MALWIYA MINARET (NEW) - culture, production from quarries, manufactories and stone works, faith from stone and stone works, free engineer, engineer points
+-- MALWIYA MINARET (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_MATHEMATICS', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_MALWIYA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MALWIYA';
 	
@@ -577,7 +577,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have constructed [COLOR_CYAN]Mine[ENDCOLOR] nearby. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- BUDDHAS OF BAMYAN (NEW) - culture, faith and golden age points, faith from CS friend, golden age from CS ally, culture at rocketry;
+-- BUDDHAS OF BAMYAN (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BAMYAN';
 	
@@ -619,7 +619,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'Deep in the Hindu Kush, in the Bamyan Valley, along the Silk Road, the Buddhas of Bamyan once towered over the region. Bamyan was a religious site from the 2nd century until the later half of the 7th century, and the Buddhas were constructed throughout that time. The Chinese Buddhist pilgrim Xuanzang visited in 630 CE, describing Bamyan as a flourishing Buddhist center "with more than ten monstaries and more than a thousand monks". In 2001, the Buddhas were destroyed by the Taliban, either in protest of international aid priorities or as part of Islamic religious iconoclasm, to both international and domestic condemnation. Since then, international efforts have been made to reconstruct the Buddhas. Furthermore, after the destruction of the Buddhas, caves containing art from the 5th through 9th centuries were discovered, as well as Xuanzang''s translation of the Pratityasamutpada Sutra that spelled out the basic belief of Buddhism: all things are transient.While the original Buddhas of Bamyan may be gone, their message and cultural significance will echo for all eternity.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GATE OF THE SUN (NEW) - culture and science, culture and gold to lakes and mountains, science to walls, scientist points;
+-- GATE OF THE SUN (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GATE_OF_SUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GATE_OF_SUN';
 
@@ -675,7 +675,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Grassland[ENDCOLOR] nor next to a [COLOR_NEGATIVE_TEXT]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- EL GHRIBA (NEW) - gold, culture and faith, free synagogue and artifact;
+-- EL GHRIBA (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_EL_GHRIBA';
 
@@ -721,7 +721,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- ETCHMIADZIN (NEW) - faith and gap, culture and gap from faith, faith from gw, free artifact;
+-- ETCHMIADZIN (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
 
@@ -796,7 +796,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR]' WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- CHAND BAORI (NEW) - food, gold and culture, food on desert, gpp, no unhappy specialists;
+-- CHAND BAORI (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_ENGINEERING', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_CHAND_BAORI';
 	
 	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
@@ -990,7 +990,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to a [COLOR_NEGATIVE_TEXT]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- WARTBURG
+-- WARTBURG (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_CHIVALRY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_WARTBURG';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_WARTBURG';
 	
@@ -1080,7 +1080,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- FALUN MINE
+-- FALUN MINE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FALUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FALUN';
 	
@@ -1133,7 +1133,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- FORGE OF DAMASCUS
+-- FORGE OF DAMASCUS (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_DAMASCUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_DAMASCUS';
 	
@@ -1214,7 +1214,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built next to a [COLOR_CYAN]River[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GOLDEN DAGON PAGODA (NEW) - more Great Artists, artist points, culture and faith to all artists, faith to gold and gems, 4 slots of art (theming: gold, culture, faith, tourism);
+-- GOLDEN DAGON PAGODA (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SHWEDAGON';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SHWEDAGON';
 	
@@ -1258,7 +1258,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_SHWEDAGON',	'FLAVOR_CULTURE',		40),
+	VALUES		('BUILDING_SHWEDAGON',	'FLAVOR_CULTURE',		50),
 				('BUILDING_SHWEDAGON',	'FLAVOR_GREAT_PEOPLE',	40),
 				('BUILDING_SHWEDAGON',	'FLAVOR_GOLD',			20),
 				('BUILDING_SHWEDAGON',	'FLAVOR_RELIGION',		40);
@@ -1279,6 +1279,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
 	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MICHEL';
+	-- + One-Tile City (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY', TechEnhancedTourism = 3 WHERE Type = 'BUILDING_MICHEL';
 
@@ -1297,10 +1298,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
-	VALUES		('BUILDING_MICHEL', 'FLAVOR_DEFENSE',		50),
-				('BUILDING_MICHEL', 'FLAVOR_GROWTH',		30),
-				('BUILDING_MICHEL', 'FLAVOR_PRODUCTION',	30),
-				('BUILDING_MICHEL', 'FLAVOR_RELIGION',		50);
+	VALUES		('BUILDING_MICHEL', 'FLAVOR_GOLD',			40),
+				('BUILDING_MICHEL', 'FLAVOR_HAPPINESS',		20),
+				('BUILDING_MICHEL', 'FLAVOR_RELIGION',		30),
+				('BUILDING_MICHEL', 'FLAVOR_CITY_DEFENSE',	10),
+				('BUILDING_MICHEL', 'FLAVOR_CULTURE',		10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
@@ -1324,7 +1326,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'),
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE');
 	---------------------------------------------------------
-	UPDATE Buildings SET GlobalPlotCultureCostModifier = -30 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
+	UPDATE Buildings SET GlobalPlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -1347,15 +1349,16 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,					Flavor) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'FLAVOR_CULTURE',			60),
-				('BUILDING_ITSUKUSHIMA',	'FLAVOR_RELIGION',			60),
-				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	30);
+	VALUES		('BUILDING_ITSUKUSHIMA',	'FLAVOR_CULTURE',			70),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_RELIGION',			70),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	30),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_EXPANSION',			20);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 30% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 30% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1376,7 +1379,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	INSERT INTO Building_ImprovementYieldChanges
 				(BuildingType,		ImprovementType,			YieldType,		Yield) 
-	VALUES		('BUILDING_QALHAT',	'IMPROVEMENT_TRADING_POST',	'YIELD_CULTURE',	1);
+	VALUES		('BUILDING_QALHAT',	'IMPROVEMENT_TRADING_POST',	'YIELD_GOLD',	1);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,		UnitCombatType,		Modifier) 
@@ -1385,14 +1388,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,					Flavor) 
 	VALUES		('BUILDING_QALHAT',	'FLAVOR_CULTURE',			30),
-				('BUILDING_QALHAT',	'FLAVOR_CULTURE',			30),
-				('BUILDING_QALHAT',	'FLAVOR_I_SEA_TRADE_ROUTE',	60);
+				('BUILDING_QALHAT',	'FLAVOR_GOLD',				50),
+				('BUILDING_QALHAT',	'FLAVOR_I_SEA_TRADE_ROUTE',	60),
+				('BUILDING_QALHAT',	'FLAVOR_PRODUCTION',		10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
-				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_CULTURE] Culture. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [COLOR_CYAN]Village[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_CULTURE] Culture. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
+				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [COLOR_CYAN]Village[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
 				('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
 				('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1421,14 +1425,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_CHEVALIERS',			'YIELD_PRODUCTION', 2),
-				('BUILDING_CHEVALIERS',			'YIELD_FAITH',		2),
+	VALUES		('BUILDING_CHEVALIERS',			'YIELD_PRODUCTION', 1),
+				('BUILDING_CHEVALIERS',			'YIELD_FAITH',		1),
 				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',		1);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,			UnitCombatType,			Modifier) 
-	VALUES		('BUILDING_CHEVALIERS', 'UNITCOMBAT_MOUNTED',	25),
-				('BUILDING_CHEVALIERS', 'UNITCOMBAT_SIEGE',		25);
+	VALUES		('BUILDING_CHEVALIERS', 'UNITCOMBAT_MOUNTED',	20),
+				('BUILDING_CHEVALIERS', 'UNITCOMBAT_SIEGE',		20);
 
 	INSERT INTO Building_FreeUnits 
 				(BuildingType,			UnitType,				NumUnits)
@@ -1437,14 +1441,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_CHEVALIERS', 'FLAVOR_CITY_DEFENSE',	60),
-				('BUILDING_CHEVALIERS', 'FLAVOR_OFFENSE',		40),
-				('BUILDING_CHEVALIERS', 'FLAVOR_RELIGION',		20);
+				('BUILDING_CHEVALIERS', 'FLAVOR_OFFENSE',		30),
+				('BUILDING_CHEVALIERS', 'FLAVOR_RELIGION',		40),
+				('BUILDING_CHEVALIERS', 'FLAVOR_PRODUCTION',	20);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +25% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
@@ -1458,7 +1463,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- St Peter's Basilica - Catholic - Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI');--, , 'BUILDING_ST_PETERS_BASILICA', );
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI'); -- 'BUILDING_ST_PETERS_BASILICA'
 --============================================--
 -- POLICY FINISHERS
 --============================================--

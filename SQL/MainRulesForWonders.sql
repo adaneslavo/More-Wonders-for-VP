@@ -50,38 +50,28 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('QALHAT',			1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
 
---('ABUSIMBEL',   1, 1), -- Abu Simbel
---('ALAMO',       1, 1), -- Alamo
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
 --('BENHADDOU',   1, 1), -- Ait Benhaddou
 --('BROOKLYN',    1, 0), -- Brooklyn Bridge
---('DUOMO',       1, 1), -- Cattedrale di Santa Maria del Fiore /  Il Duomo di Firenze
 --('GRIPSHOLM',   1, 0), -- Gripsholm Castle
 --('HOLLYWOOD',   1, 0), -- Hollywood
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
---('KINKAKUJI',   1, 0), -- Kinkaku-ji / Golden Pavilion
---('LEONARDO', 1, 1), -- Leonardo's Workshop
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA', 1, 1), -- Monastery of the Holy Trinity (Meteora)
 --('MILLAU',      1, 0), -- Millau Viaduct
 --('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
 --('MUSEUM_ISLAND', 1, 0), --Museum Island
---('PEARLTOWER', 1, 1), -- Oriental Pearl Radio & TV Tower
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
 --('PETERHOF',   1, 0), -- Peterhof Palace
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center
---('SAGRADA',     1, 1), -- Sagrada Familia
 --('SKYTREE',     1, 1), -- Tokyo Skytree
 --('SOVIETS',     1, 0), -- Palace of the Soviets
 --('SPUTNIK',     1, 0), -- Sputnik Program, The
 --('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
 --('TAIPEI101',   1, 0), -- Taipei 101
---('TOCALI',      1, 1), -- Templo Mayor / Huey Tocali
---('TRAFALGAR',   1, 0), -- Trafalgar Square
 --('WHITESANDS',  1, 0), -- White Sands Missile Range
---('WILLIS',      1, 0); -- Sears / Willis Tower
 --------------------------------------------------------------
 --------------------------------------------------------------
 -- WONDERS INITIAL CONFIGURATION
