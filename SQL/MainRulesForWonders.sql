@@ -41,7 +41,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
 			('LAVAUX',			1,			0),		-- Lavaux
 			('WARTBURG',		1,			0),		-- Wartburg Castle
-			--('GREAT_ZIMBABWE',	1,			0),		-- Great Zimbabwe
+			('GREAT_ZIMBABWE',	1,			0),		-- Great Zimbabwe
 			('FALUN',			1,			0),		-- Falun Mine
 			('DAMASCUS',		1,			0),		-- Forge of Damascus
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda

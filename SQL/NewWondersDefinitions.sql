@@ -139,7 +139,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Goebekli Tepe'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]River[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',		'[NEWLINE]"Listen a hundred times. Ponder a thousand times. Speak once."[NEWLINE] - Turkish Proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',		'[NEWLINE]"Listen a hundred times. Ponder a thousand times. Speak once."[NEWLINE] - Turkish proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',		'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. This belief persisted until 1994, and not excavated until a year later. The complex is similar in form to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1050,6 +1050,36 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] in its territory.' WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- GREAT ZIMBABWE (NEW)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	
+	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 1000, GlobalPlotCultureCostModifier = -30, GlobalPlotBuyCostModifier = -30, SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_GREAT_ZIMBABWE',	'YIELD_FAITH',		1),
+				('BUILDING_GREAT_ZIMBABWE',	'YIELD_GOLD',		3),
+				('BUILDING_GREAT_ZIMBABWE',	'YIELD_CULTURE',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_GREAT_ZIMBABWE',	'FLAVOR_GOLD',			50),
+				('BUILDING_GREAT_ZIMBABWE',	'FLAVOR_RELIGION',		10),
+				('BUILDING_GREAT_ZIMBABWE',	'FLAVOR_CULTURE',		10),
+				('BUILDING_GREAT_ZIMBABWE',	'FLAVOR_EXPANSION',		40);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	VALUES		('TXT_KEY_BUILDING_GREAT_ZIMBABWE',			'Great Zimbabwe'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. [ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]Lake[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP_CUT',	'[ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_QUOTE',		'[NEWLINE]"God is good, but never dance with a lion."[NEWLINE] - Zimbabwean proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_PEDIA',		'TODO');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- FALUN MINE
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FALUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FALUN';
@@ -1324,8 +1354,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+30% Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+30% Border Growth in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 30% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 30% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1337,11 +1367,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT';
 	-- + Village (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 3, TradeRouteSeaGoldBonus = 100, TradeRouteSeaDistanceModifier = 100 WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100, TradeRouteSeaDistanceModifier = 100 WHERE Type = 'BUILDING_QALHAT';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		2),
+	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3),
 				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	2);
 
 	INSERT INTO Building_ImprovementYieldChanges
@@ -1353,10 +1383,10 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_QALHAT', 'UNITCOMBAT_CARGO',	50);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
-				(BuildingType,				FlavorType,					Flavor) 
-	VALUES		('BUILDING_QALHAT',	'FLAVOR_CULTURE',			60),
-				('BUILDING_QALHAT',	'FLAVOR_RELIGION',			60),
-				('BUILDING_QALHAT',	'FLAVOR_TILE_IMPROVEMENT',	30);
+				(BuildingType,		FlavorType,					Flavor) 
+	VALUES		('BUILDING_QALHAT',	'FLAVOR_CULTURE',			30),
+				('BUILDING_QALHAT',	'FLAVOR_CULTURE',			30),
+				('BUILDING_QALHAT',	'FLAVOR_I_SEA_TRADE_ROUTE',	60);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
@@ -1438,7 +1468,7 @@ UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
 ---------------------------------------------------------
 UPDATE Buildings SET MutuallyExclusiveGroup = 61, PolicyType = 'POLICY_TRADITION_FINISHER' 	 WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME',	'BUILDING_SHWEDAGON');
 UPDATE Buildings SET MutuallyExclusiveGroup = 62, PolicyType = 'POLICY_LIBERTY_FINISHER' 	 WHERE Type IN ('BUILDING_FORBIDDEN_PALACE',	'BUILDING_WARTBURG',	'BUILDING_FALUN');
-UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS'/*,	'BUILDING_GREAT_ZIMBABWE'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS',	'BUILDING_GREAT_ZIMBABWE');
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Golden Dagon Pagoda[ENDCOLOR].' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Notre Dame[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';

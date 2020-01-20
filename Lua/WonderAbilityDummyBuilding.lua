@@ -1,4 +1,4 @@
-print("Loading WonderChevaliers.lua from MWfVP");
+print("Loading WonderAbilityDummyBuilding.lua from MWfVP");
 --------------------------------------------------------------
 -- Orginal script for Kronborg was created by LeeS 
 -- Dec 13, 2017: Retrofitted for Vox Populi, Infixo
@@ -88,27 +88,26 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 			iQalhatOwner = iPlayer
 			
 			local pPlayer = Players[iPlayer]
-			local pCity = pPlayer:GetCityByID(iCity)
 			local iNumberSeaTROtherPlayers = 0
 
 			for _, player in ipairs(Players) do
 				iCurrentPlayer = player:GetID()
 				
-				--[[for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-					print(tradeRoute.Domain, tradeRoute.FromCivilizationType, Locale.ConvertTextKey(GameInfo.Civilizations[tradeRoute.FromCivilizationType].ShortDescription), tradeRoute.FromCityName, tradeRoute.ToCivilizationType, Locale.ConvertTextKey(GameInfo.Civilizations[tradeRoute.ToCivilizationType].ShortDescription), tradeRoute.ToCityName)
-				end--]]
-
 				for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-					if (tradeRoute.FromID == iPlayer or tradeRoute.ToID == iPlayer) and tradeRoute.FromID ~= tradeRoute.ToID and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+					if ((tradeRoute.FromID == iPlayer and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+					or (tradeRoute.ToID == iPlayer and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+					and tradeRoute.FromID ~= tradeRoute.ToID 
+					and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
 						iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
 					end
 				end
 			end
 
+			local pCity = pPlayer:GetCityByID(iCity)
+			
 			pCity:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
-
+			
 			--[[		
-		
 			Domain - DomainTypes.DOMAIN_LAND or DomainTypes.DOMAIN_SEA (int)
 			TurnsLeft - turns left before the trade route can be reassigned (int)
 			FromCivilizationType - eg GameInfoTypes.CIVILIZATION_ENGLAND (int)
@@ -131,7 +130,6 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 			FromPressure - from pressure (int)
 			FromTourism - from tourism (int)
 			ToTourism - to tourism (int)
-
 			--]]
 		end
 	end
@@ -191,6 +189,31 @@ function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iP
 			end
 		end
 	end
+
+	if bHasQalhat then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(iQalhat) then
+			iQalhatOwner = iNewOwner
+			local iNumberSeaTROtherPlayers = 0
+			
+			for _, player in ipairs(Players) do
+				iCurrentPlayer = player:GetID()
+				
+				for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+					if ((tradeRoute.FromID == iNewOwner and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+					or (tradeRoute.ToID == iNewOwner and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+					and tradeRoute.FromID ~= tradeRoute.ToID 
+					and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+						iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+					end
+				end
+			end
+
+			pConqCity:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -220,4 +243,44 @@ function BuildDummyInNewCity(iPlayer, iX, iY)
 end
 GameEvents.PlayerCityFounded.Add(BuildDummyInNewCity)
 
-print("Loaded WonderChevaliers.lua from MWfVP");
+-- check if unit action changed
+function SetDummiesOnUnitActionChange(iPlayer, iUnit)
+	if bHasQalhat then
+		local pPlayer = Players[iPlayer]
+		local pUnit = pPlayer:GetUnitByID(iUnit)
+		
+		if pUnit == nil then return end 	
+		
+		local iUnitClass = pUnit:GetUnitClassType()
+		
+		if iUnitClass ~= GameInfoTypes.UNITCLASS_CARGO_SHIP then return end
+		
+		local iNumberSeaTROtherPlayers = 0
+
+		for _, player in ipairs(Players) do
+			for city in player:Cities() do
+				if city:IsHasBuilding(iQalhat) then
+					for _, trader in ipairs(Players) do
+						if not trader:IsEverAlive() then break end
+						iCurrentPlayer = trader:GetID()
+				
+						for _, tradeRoute in ipairs(trader:GetTradeRoutes()) do
+							if ((tradeRoute.FromID == player:GetID() and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+							or (tradeRoute.ToID == player:GetID() and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+							and tradeRoute.FromID ~= tradeRoute.ToID 
+							and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
+								iNumberSeaTROtherPlayers = iNumberSeaTROtherPlayers + 1
+							end
+						end
+					end
+
+					city:SetNumRealBuilding(iQalhatDummy, iNumberSeaTROtherPlayers);
+					return
+				end
+			end
+		end
+	end
+end
+Events.UnitActionChanged.Add(SetDummiesOnUnitActionChange)
+
+print("Loaded WonderAbilityDummyBuilding.lua from MWfVP");
