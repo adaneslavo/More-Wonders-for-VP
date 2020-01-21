@@ -1094,8 +1094,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield)
-	VALUES		('BUILDING_FALUN',	'YIELD_PRODUCTION',	2),
-				('BUILDING_FALUN',	'YIELD_GOLD',		4);
+	VALUES		('BUILDING_FALUN',	'YIELD_PRODUCTION',	1),
+				('BUILDING_FALUN',	'YIELD_GOLD',		3);
 
 	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,		ResourceType,		YieldType,			Yield) 
@@ -1111,8 +1111,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_FALUN',	'IMPROVEMENT_MINE',	'YIELD_GOLD',	1);
 
 	INSERT INTO Building_SpecialistYieldChanges
-				(BuildingType,		SpecialistType,			YieldType,		Yield) 
-	VALUES		('BUILDING_FALUN',	'SPECIALIST_ENGINEER',	'YIELD_GOLD',	1);
+				(BuildingType,		SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_FALUN',	'SPECIALIST_ENGINEER',	'YIELD_PRODUCTION',	1);
 
 	INSERT INTO Building_ResourceQuantity 
 				(BuildingType,		ResourceType,		Quantity) 
@@ -1127,8 +1127,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
-				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. All Mines receive +1 [ICON_GOLD]. +1 [ICON_GOLD] Gold from Engineers in the City.[NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have improved [ICON_RES_COPPER] Copper, [ICON_RES_GOLD] Gold or [ICON_RES_SILVER] Silver nearby.'),
-				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'All Mines receive +1 [ICON_GOLD] Gold and +1 [ICON_GOLD] Gold from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].'),
+				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. All Mines receive +1 [ICON_GOLD]. +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have improved [ICON_RES_COPPER] Copper, [ICON_RES_GOLD] Gold or [ICON_RES_SILVER] Silver nearby.'),
+				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'All Mines receive +1 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].'),
 				('TXT_KEY_WONDER_FALUN_QUOTE',		'[NEWLINE]"The finest workers in stone are not copper or steel tools, but the gentle touches of air and water working at their leisure with a liberal allowance of time."[NEWLINE] - Henry David Thoreau[NEWLINE]'),
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1420,12 +1420,13 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 4000 WHERE Type = 'BUILDING_CHEVALIERS';
-	UPDATE Buildings SET ExtraCityHitPoints = 25, Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
+	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_CHEVALIERS',			'YIELD_PRODUCTION', 1),
+	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',		1),
+				('BUILDING_CHEVALIERS',			'YIELD_PRODUCTION', 1),
 				('BUILDING_CHEVALIERS',			'YIELD_FAITH',		1),
 				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',		1);
 
@@ -1442,14 +1443,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_CHEVALIERS', 'FLAVOR_CITY_DEFENSE',	60),
 				('BUILDING_CHEVALIERS', 'FLAVOR_OFFENSE',		30),
-				('BUILDING_CHEVALIERS', 'FLAVOR_RELIGION',		40),
-				('BUILDING_CHEVALIERS', 'FLAVOR_PRODUCTION',	20);
+				('BUILDING_CHEVALIERS', 'FLAVOR_RELIGION',		20),
+				('BUILDING_CHEVALIERS', 'FLAVOR_PRODUCTION',	20),
+				('BUILDING_CHEVALIERS', 'FLAVOR_GROWTH',		10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense, +25 HP and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
