@@ -379,10 +379,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_FOOD',	1);
 	
-	INSERT INTO Building_ResourceQuantity 
+	/*INSERT INTO Building_ResourceQuantity 
 				(BuildingType,			ResourceType,		Quantity) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2);
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2);*/
 	
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,			ResourceType,		NumPlots) 
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	1);
+
 	INSERT INTO Building_GlobalYieldModifiers 
 				(BuildingType,			YieldType,		Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'YIELD_FOOD',	5);
@@ -396,8 +400,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_WIELICZKA',			'Wieliczka Salt Mine'),
-				('TXT_KEY_WONDER_WIELICZKA_HELP',		'City gains 2 copies of [ICON_RES_SALT] Salt resource. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must have [ICON_RES_SALT] Salt nearby.'),
-				('TXT_KEY_WONDER_WIELICZKA_HELP_CUT',	'City gains 2 copies of [ICON_RES_SALT] Salt resource. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP',		'Wonder places 1 new [ICON_RES_SALT] Salt resource inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must have [ICON_RES_SALT] Salt nearby.'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP_CUT',	'Wonder places 1 new [ICON_RES_SALT] Salt resource inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.'),
 				('TXT_KEY_WONDER_WIELICZKA_QUOTE',		'[NEWLINE]"You are the salt of the earth. But remember that salt is useful when in association, but useless in isolation."[NEWLINE] - Israelmore Ayivor[NEWLINE]'),
 				('TXT_KEY_WONDER_WIELICZKA_PEDIA',		'The Wieliczka Salt Mine, in the town of Wieliczka, southern Poland, lies within the Kraków metropolitan area. Sodium chloride (table salt) was formerly produced there from the upwelling brine - and had been since Neolithic times. The Wieliczka salt mine, excavated from the 13th century, produced table salt continuously until 2007, as one of the world''s oldest operating salt mines.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -453,7 +457,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have improved [COLOR_CYAN]Marble[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have improved [ICON_RES_MARBLE] Marble nearby.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 --============================================--
 -- CLASSICAL ERA
 --============================================--
@@ -558,8 +562,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MALWIYA',			'Malwiya Minaret'),
-				('TXT_KEY_WONDER_MALWIYA_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
-				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby Stone: +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and have [COLOR_CYAN]Stone Works[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_MALWIYA_QUOTE',		'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S. Lewis[NEWLINE]'),
 				('TXT_KEY_WONDER_MALWIYA_PEDIA',		'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1063,6 +1067,10 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_GREAT_ZIMBABWE',	'YIELD_FAITH',		1),
 				('BUILDING_GREAT_ZIMBABWE',	'YIELD_GOLD',		3),
 				('BUILDING_GREAT_ZIMBABWE',	'YIELD_CULTURE',	1);
+	
+	INSERT INTO Building_ResourceYieldChangesGlobal
+				(BuildingType,				ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_GREAT_ZIMBABWE',	'RESOURCE_IVORY',	'YIELD_GOLD',	1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
@@ -1074,7 +1082,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GREAT_ZIMBABWE',			'Great Zimbabwe'),
-				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. [ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]Lake[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. [ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.[NEWLINE][NEWLINE]All [ICON_RES_IVORY] Ivory: +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]Lake[ENDCOLOR].'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP_CUT',	'[ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_QUOTE',		'[NEWLINE]"God is good, but never dance with a lion."[NEWLINE] - Zimbabwean proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_PEDIA',		'TODO');
@@ -1114,8 +1122,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,		SpecialistType,			YieldType,			Yield) 
 	VALUES		('BUILDING_FALUN',	'SPECIALIST_ENGINEER',	'YIELD_PRODUCTION',	1);
 
-	INSERT INTO Building_ResourceQuantity 
+	/*INSERT INTO Building_ResourceQuantity 
 				(BuildingType,		ResourceType,		Quantity) 
+	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	2);*/
+
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,		ResourceType,		NumPlots) 
 	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
@@ -1127,8 +1139,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
-				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. All Mines receive +1 [ICON_GOLD]. +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have improved [ICON_RES_COPPER] Copper, [ICON_RES_GOLD] Gold or [ICON_RES_SILVER] Silver nearby.'),
-				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'All Mines receive +1 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].'),
+				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. All Mines receive +1 [ICON_GOLD]. +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have improved [ICON_RES_COPPER] Copper, [ICON_RES_GOLD] Gold or [ICON_RES_SILVER] Silver nearby.'),
+				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. All Mines receive +1 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].'),
 				('TXT_KEY_WONDER_FALUN_QUOTE',		'[NEWLINE]"The finest workers in stone are not copper or steel tools, but the gentle touches of air and water working at their leisure with a liberal allowance of time."[NEWLINE] - Henry David Thoreau[NEWLINE]'),
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1202,6 +1214,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
 	UPDATE Buildings SET River = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Substr(Text, 31, 1000) WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
@@ -1395,8 +1408,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
-				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [COLOR_CYAN]Village[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 3 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
+				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and a [COLOR_CYAN]Coast[ENDCOLOR], and must have [COLOR_CYAN]Village[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
 				('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
 				('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1450,8 +1463,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and provide +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength of the City. +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and provide +1 [ICON_WAR] Military Unit Supply Cap.'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
 --============================================--
