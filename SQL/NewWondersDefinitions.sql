@@ -679,7 +679,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Grassland[ENDCOLOR] nor next to a [COLOR_NEGATIVE_TEXT]River[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- EL GHRIBA (NEW)
+-- EL GHRIBA SYNAGOGUE (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_EL_GHRIBA';
 
@@ -725,7 +725,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- ETCHMIADZIN (NEW)
+-- ETCHMIADZIN CATHEDRAL (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
 
@@ -866,7 +866,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- AL-MASJID AN-NABAWI (NEW)
+-- PROPHET'S MOSQUE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NABAWI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_NABAWI';
 	
@@ -903,7 +903,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
-	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Al-Masjid an-Nabawi'),
+	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
 				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and on a [COLOR_CYAN]Flat[ENDCOLOR].'),
 				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
 				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
@@ -1280,7 +1280,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
-	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Shwedagon Pagoda'),
+	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
 				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. +33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and have improved [ICON_RES_GEMS] Gems, [ICON_RES_GOLD] Gold or [ICON_RES_JADE] Jade nearby.'),
 				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
@@ -1289,7 +1289,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Artifacts created by you.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MONT ST. MICHEL (NEW)
+-- MONT SAINT-MICHEL (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MICHEL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
 	
@@ -1478,9 +1478,10 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- Al Masjid an-Nabawi - Islam - Early Medieval
 -- Cathedral of St. Basil - Orthodox - Late Medieval
 -- St Peter's Basilica - Catholic - Early Renaissance
+-- Meenakshi Temple - Hindu - Early Renaissance
 ---------------------------------------------------------
-UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI'); -- 'BUILDING_ST_PETERS_BASILICA'
+UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI'); -- 'BUILDING_ST_PETERS_BASILICA' 'MEENAKSHI'
 --============================================--
 -- POLICY FINISHERS
 --============================================--
@@ -1488,13 +1489,13 @@ UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 70 WHERE Type IN
 -- but you can build it in another city. To achieve true 'mutually exclusive' situation we need a dummy building that will be placed
 -- in all your cities and block the construction of the 2nd Wonder.
 ---------------------------------------------------------
-UPDATE Buildings SET MutuallyExclusiveGroup = 61, PolicyType = 'POLICY_TRADITION_FINISHER' 	 WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME',	'BUILDING_SHWEDAGON');
-UPDATE Buildings SET MutuallyExclusiveGroup = 62, PolicyType = 'POLICY_LIBERTY_FINISHER' 	 WHERE Type IN ('BUILDING_FORBIDDEN_PALACE',	'BUILDING_WARTBURG',	'BUILDING_FALUN');
-UPDATE Buildings SET MutuallyExclusiveGroup = 63, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS',	'BUILDING_GREAT_ZIMBABWE');
+UPDATE Buildings SET MutuallyExclusiveGroup = 261, PolicyType = 'POLICY_TRADITION_FINISHER' 	 WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME',	'BUILDING_SHWEDAGON');
+UPDATE Buildings SET MutuallyExclusiveGroup = 262, PolicyType = 'POLICY_LIBERTY_FINISHER' 	 WHERE Type IN ('BUILDING_FORBIDDEN_PALACE',	'BUILDING_WARTBURG',	'BUILDING_FALUN');
+UPDATE Buildings SET MutuallyExclusiveGroup = 263, PolicyType = 'POLICY_HONOR_FINISHER' 		 WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS',	'BUILDING_GREAT_ZIMBABWE');
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Golden Dagon Pagoda[ENDCOLOR].' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Notre Dame[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Wartburg Castle[ENDCOLOR].' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Wartburg[ENDCOLOR].' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Falun Mine[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Great Zimbabwe[ENDCOLOR].' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_POSITIVE_TEXT]Forge of Damascus[ENDCOLOR]. However, only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
