@@ -20,6 +20,7 @@ function dprint(sStr,p1,p2,p3,p4,p5,p6)
 end
 
 local tValidBuildingsLake = {}
+local tValidBuildingsNoWater = {}
 local tValidBuildingsUndergroundBuildings = {}
 local tValidBuildingsFarms = {}
 local tValidBuildingsVillage = {}
@@ -53,6 +54,26 @@ function LakeWithOcean(iPlayer, iCity, iBuildingType)
 	return false
 end
 GameEvents.CityCanConstruct.Add(LakeWithOcean)
+
+-- checks if city is NOT near WATER
+function CityWithNoWater(iPlayer, iCity, iBuildingType)
+	if not tValidBuildingsNoWater[iBuildingType] then return true end
+   
+	local pPlayer = Players[iPlayer]
+   
+	if not pPlayer:IsAlive() then return false end
+
+	local pCity = pPlayer:GetCityByID(iCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
+
+	if pCity:IsCoastal(1) then -- city is adjacent to at least one water tile
+		return false
+	end
+
+	return true
+end
+GameEvents.CityCanConstruct.Add(CityWithNoWater)
 
 -- looks for MINE or QUARRY inside the city (TERRACOTA)
 function CityWithMine(iPlayer, iCity, iBuildingType)
@@ -262,6 +283,12 @@ function Initialize()
 			tValidBuildingsLake[building.ID] = true
 		end
 	end
+
+	-- add no water buildings
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building must not be build next to a water)")
+	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_CHEVALIERS.ID, GameInfo.Buildings.BUILDING_CHEVALIERS.Type, "(Building must not be build next to a water)")
+	tValidBuildingsNoWater[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true
+	tValidBuildingsNoWater[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true
 
 	-- add mine buildings
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(Building require mine or quarry)")

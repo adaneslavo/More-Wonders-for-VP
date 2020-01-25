@@ -24,8 +24,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- Flat - city MUST NOT be built ON a HILL tile
 -- HolyCity
 -- (VP) IsNoWater - restricts Fresh Water (River, Lake)
--- (VP) AnyWater - restricts any type of water (Lake, Coast, River)
 -- (VP) IsNoRiver
+-- (VP) AnyWater - requires any type of water (Lake, Coast, River)
 -- (VP) CapitalOnly
 -- (VP) ResourceType - Allows for Building to be unlocked by a specific resource being owned (can be strategic or luxury)
 -- (VP) RequiresRail - rail connection
@@ -480,8 +480,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,				ResourceType,		Cost) 
 	VALUES		('BUILDING_GREAT_LIBRARY',	'RESOURCE_PAPER',	1);
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Text||' Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Flood Tablet[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
-
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	SELECT		'TXT_KEY_WONDER_GREAT_LIBRARY_HELP_CUT',	Text
@@ -571,7 +569,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TERRACOTA ARMY
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	UPDATE Buildings SET AnyWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
+	UPDATE Buildings SET IsNoRiver = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- + Mine or Quarry (Lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -669,7 +667,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- PARTHENON
 	UPDATE Buildings SET Hill = 1, IsNoRiver = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_PARTHENON';
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Substr(Text, 1, 68)||Substr(Text, 175, 1000) WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
+	UPDATE Language_en_US SET Text = Substr(Text, 1, 68)||Substr(Text, 175, 2000) WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 	UPDATE Language_en_US SET Text = Text||' Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Phidias Showing the Frieze of the Parthenon to his Friends[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP';
 
 	INSERT INTO Language_en_US 
@@ -931,7 +929,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- BOROBUDUR
 	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BOROBUDUR';
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Substr(Text, 31, 1000) WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
+	UPDATE Language_en_US SET Text = Substr(Text, 31, 2000) WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
 
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -1045,7 +1043,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
 	-- + 2 x Mountain in range (lua)
 	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = Substr(Text, 80, 1000) WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+	UPDATE Language_en_US SET Text = Substr(Text, 80, 2000) WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
 
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -1219,7 +1217,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET River = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = 'St. Basil''s Cathedral' WHERE Tag ='TXT_KEY_WONDER_KREMLIN';
-	UPDATE Language_en_US SET Text = Substr(Text, 31, 1000) WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+	UPDATE Language_en_US SET Text = Substr(Text, 31, 2000) WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
 
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
@@ -1434,7 +1432,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
-	UPDATE Buildings SET Hill = 1, AnyWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET Hill = 1, IsNoRiver = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
@@ -1473,13 +1471,13 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
--- El Ghriba - Judaism - Late Classical
--- Hagia Sophia - Orthodox/Islam - Early Medieval
--- Borobudur - Buddhism - Early Medieval
--- Al Masjid an-Nabawi - Islam - Early Medieval
--- Cathedral of St. Basil - Orthodox - Late Medieval
--- St Peter's Basilica - Catholic - Early Renaissance
--- Meenakshi Temple - Hindu - Early Renaissance
+-- El Ghriba				- Judaism			- Late Classical
+-- Hagia Sophia				- Orthodox/Islam	- Early Medieval
+-- Borobudur				- Buddhism			- Early Medieval
+-- Al Masjid an-Nabawi		- Islam				- Early Medieval
+-- Cathedral of St. Basil	- Orthodox			- Late Medieval
+-- St Peter's Basilica		- Catholic			- Early Renaissance
+-- Meenakshi Temple			- Hindu				- Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
 ('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI'); -- 'BUILDING_ST_PETERS_BASILICA' 'MEENAKSHI'
@@ -1508,5 +1506,9 @@ UPDATE Buildings SET NumPoliciesNeeded = 8 WHERE Type = 'BUILDING_KREMLIN'; -- w
 UPDATE Buildings SET NumPoliciesNeeded = 4 WHERE Type = 'BUILDING_FORUM'; -- was 3
 UPDATE GreatWorks SET Audio = 'AS2D_GREAT_ARTIST_ARTWORK' WHERE Type = 'GREAT_WORK_THE_CROWN_JEWELS'; -- all other art has it
 UPDATE Language_en_US SET Text = 'On the contrary. Every Bison dollar will be worth [NEWLINE]five British pounds. That is the exchange rate [NEWLINE]that the bank of England will implement [NEWLINE]after I kidnap their queen.[NEWLINE] - M. Bison[NEWLINE]' WHERE Tag = 'TXT_KEY_GREAT_WORK_THE_CROWN_JEWELS_QUOTE'; -- did not fit the screen
-UPDATE Language_en_US SET Text = Substr(Text, 59, 1000) WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
-UPDATE Language_en_US SET Text = 'Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]The Crown Jewels[ENDCOLOR]. '||Text WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
+--============================================--
+-- FREE ART HELP TEXTS
+--============================================--
+UPDATE Language_en_US SET Text = Substr(Text, 59, 2000) WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
+UPDATE Language_en_US SET Text = 'Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]The Crown Jewels[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
+UPDATE Language_en_US SET Text = Substr(Text, 1, 276)||'starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Flood Tablet[ENDCOLOR] '||Substr(Text, 360, 2000) WHERE Tag ='TXT_KEY_BUILDING_ROYAL_LIBRARY_HELP';
