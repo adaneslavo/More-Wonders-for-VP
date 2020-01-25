@@ -23,7 +23,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- Hill - city must be built ON a HILL tile
 -- Flat - city MUST NOT be built ON a HILL tile
 -- HolyCity
--- (VP) IsNoWater - very strict, forbids ALL Water types: River, Lake and Coast
+-- (VP) IsNoWater - restricts Fresh Water (River, Lake)
+-- (VP) AnyWater - restricts any type of water (Lake, Coast, River)
 -- (VP) IsNoRiver
 -- (VP) CapitalOnly
 -- (VP) ResourceType - Allows for Building to be unlocked by a specific resource being owned (can be strategic or luxury)
@@ -570,7 +571,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TERRACOTA ARMY
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
+	UPDATE Buildings SET AnyWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- + Mine or Quarry (Lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -578,7 +579,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have constructed [COLOR_CYAN]Mine[ENDCOLOR] nearby. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have constructed [COLOR_CYAN]Mine[ENDCOLOR] nearby. City cannot be built next to any [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BUDDHAS OF BAMYAN (NEW)
@@ -832,7 +833,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_CHAND_BAORI',		'Chand Baori'),
-				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_PEOPLE] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. +1 [ICON_FOOD] Food from Desert tiles in the City. 3 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Well[ENDCOLOR] already constructed. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR] is nearby.'),
+				('TXT_KEY_WONDER_CHAND_BAORI_HELP',		'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_PEOPLE] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. +1 [ICON_FOOD] Food from Desert tiles in the City. 3 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and have [COLOR_CYAN]Well[ENDCOLOR] already constructed. City cannot be built next to any [COLOR_NEGATIVE_TEXT]Fresh Water[ENDCOLOR].'),
 				('TXT_KEY_WONDER_CHAND_BAORI_HELP_CUT',	'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_PEOPLE] Great Person of your choice. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. +1 [ICON_FOOD] Food from Desert tiles in the City. 3 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization.'),
 				('TXT_KEY_WONDER_CHAND_BAORI_QUOTE',	'[NEWLINE]"When the well''s dry, we know the worth of water."[NEWLINE] - Benjamin Franklin[NEWLINE]'),
 				('TXT_KEY_WONDER_CHAND_BAORI_PEDIA',	'Built over a thousand years ago, Chand Baori is a stepwell located in the Abhaneri village of Rajasthan, India. Stepwells are unique to the Indian subcontinent, and are wells with steps leading down to the water. They were one of many developments to deal with the seasonal availability of water. [NEWLINE]Chand Baori is quite possibly the largest of the stepwells, and may be the most visually spectacular. It is a four-sided structure, with a temple to Harshat Mata, goddess of joy, at one face. In the modern era, Chand Baori has been included in several Bollywood films, though stepwells have fallen out of favor with the arrival of running water.');
@@ -1433,7 +1434,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
-	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET Hill = 1, AnyWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
@@ -1465,7 +1466,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
-				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
+				('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built next to any [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'),
 				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
