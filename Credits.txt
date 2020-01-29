@@ -2,19 +2,20 @@
 -- Jan 5, 2020: Created, adan_eslavo
 --------------------------------------------------------------
 Special thanks to:
-- mod creator: Infixo;
-- other modders which supported this work during Infixo's absence: ProCatGamer and Asterix Rage;
-- promotion icon designer: Asterix Rage;
-- civilopedia texts: Kenneth1221;
-- ideas and additional support: pineappledan, Padre19, Kenneth1221, Bordukov, ProCatGamer, hokath, How To Know and many others; 
-- wonders art creators: 
+- coders and supporters:
+	- mod creator: Infixo;
+	- other modders which supported this work during Infixo's absence: ProCatGamer and Asterix Rage;
+	- support: Bordukov, gwennog, hokath, Kenneth1221, KittyKat3120, Padre19, pineappledan, ProCatGamer and many others; 
+	- civilopedia: Kenneth1221;
+- art creators: 
 	- "base wonders": Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe;
+	- "new wonders":
+		- altamira cave: guillermuin;
+		- goebekli tepe, gate of the sun: Pouakai, sukritact;
+		- ggantija, skara brae: artisanix;
+		- mohenjo-daro: adan_eslavo;
+		- wieliczka: DeadMu5;
+		- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, falun, wartburg: hokath;
+		- great zimbabwe: LastSword;
 	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
-	- altamira cave: guillermuin;
-	- goebekli tepe, gate of the sun: Pouakai, sukritact;
-	- ggantija, skara brae: artisanix;
-	- wieliczka: DeadMu5;
-	- great zimbabwe: LastSword;
-	- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat: hokath;
-	- mohenjo-daro: adan_eslavo;
-	
+	- promotion icons designer: Asterix Rage;

@@ -11,7 +11,7 @@
     <Description>This mod adds more World Wonders for Vox Populi.
 Currently compatible with 12-20-3.</Description>
     <Authors>Infixo, adan_eslavo</Authors>
-    <SpecialThanks>Infixo, Asterix_Rage, hokath</SpecialThanks>
+    <SpecialThanks>Infixo, Asterix_Rage, hokath and others in credits file</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
     <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
@@ -78,6 +78,7 @@ Currently compatible with 12-20-3.</Description>
         <MaxVersion>999</MaxVersion>
       </Association>
     </ModDependencies>
+    <Homepage>https://forums.civfanatics.com/threads/more-wonders-for-vp.653498/</Homepage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
