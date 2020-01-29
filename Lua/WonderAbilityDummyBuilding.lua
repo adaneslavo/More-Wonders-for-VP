@@ -6,22 +6,29 @@ print("Loading WonderAbilityDummyBuilding.lua from MWfVP");
 --------------------------------------------------------------
 
 -- Chevaliers
-local iChevaliers = GameInfoTypes["BUILDING_CHEVALIERS"]
-local iChevaliersDummy = GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"]
+local eChevaliers = GameInfoTypes["BUILDING_CHEVALIERS"]
+local eChevaliersDummy = GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"]
 local bHasChevaliers = false
-local iChevaliersOwner
+local eChevaliersOwner
 
 -- Itsukushima
-local iItsukushima = GameInfoTypes["BUILDING_ITSUKUSHIMA"]
-local iItsukushimaDummy = GameInfoTypes["BUILDING_ITSUKUSHIMA_DUMMY"]
+local eItsukushima = GameInfoTypes["BUILDING_ITSUKUSHIMA"]
+local eItsukushimaDummy = GameInfoTypes["BUILDING_ITSUKUSHIMA_DUMMY"]
 local bHasItsukushima = false
-local iItsukushimaOwner
+local eItsukushimaOwner
 
 -- Qalhat
-local iQalhat = GameInfoTypes["BUILDING_QALHAT"]
-local iQalhatDummy = GameInfoTypes["BUILDING_QALHAT_DUMMY"]
+local eQalhat = GameInfoTypes["BUILDING_QALHAT"]
+local eQalhatDummy = GameInfoTypes["BUILDING_QALHAT_DUMMY"]
 local bHasQalhat = false
-local iQalhatOwner
+local eQalhatOwner
+
+-- Qalhat
+local eSunGate = GameInfoTypes["BUILDING_GATE_OF_SUN"]
+local eSunGateDummy = GameInfoTypes["BUILDING_GATE_OF_SUN_DUMMY"]
+local eWalls = GameInfoTypes["BUILDING_WALLS"]
+local bHasSunGate = false
+local eSunGateOwner
 
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
@@ -30,19 +37,24 @@ function WasChevaliersAlreadyBuilt()
 	
 		if pPlayer:IsEverAlive() then
 			for city in pPlayer:Cities() do
-				if city:IsHasBuilding(iChevaliers) then
+				if city:IsHasBuilding(eChevaliers) then
 					bHasChevaliers = true
-					iChevaliersOwner = i
+					eChevaliersOwner = i
 				end
 
-				if city:IsHasBuilding(iItsukushima) then
+				if city:IsHasBuilding(eItsukushima) then
 					bHasItsukushima = true
-					iItsukushimaOwner = i
+					eItsukushimaOwner = i
 				end
 
-				if city:IsHasBuilding(iQalhat) then
+				if city:IsHasBuilding(eQalhat) then
 					bHasQalhat = true
-					iQalhatOwner = i
+					eQalhatOwner = i
+				end
+
+				if city:IsHasBuilding(eSunGate) then
+					bHasSunGate = true
+					eSunGateOwner = i
 				end
 			end
 		end
@@ -51,50 +63,50 @@ end
 Events.LoadScreenClose.Add(WasChevaliersAlreadyBuilt)
 
 -- check if wonder was built
-function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith) 
+function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith) 
 	if not bHasChevaliers then	
-		if iBuilding == iChevaliers then
+		if eBuilding == eChevaliers then
 			bHasChevaliers = true
-			iChevaliersOwner = iPlayer
+			eChevaliersOwner = ePlayer
 			
-			local pPlayer = Players[iPlayer]
+			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
-				if not city:IsCoastal(10) and not city:IsHasBuilding(iChevaliers) then
-					city:SetNumRealBuilding(iChevaliersDummy, 1);
+				if not city:IsCoastal(10) and not city:IsHasBuilding(eChevaliers) then
+					city:SetNumRealBuilding(eChevaliersDummy, 1);
 				end
 			end
 		end
 	end
 
 	if not bHasItsukushima then	
-		if iBuilding == iItsukushima then
+		if eBuilding == eItsukushima then
 			bHasItsukushima = true
-			iItsukushimaOwner = iPlayer
+			eItsukushimaOwner = ePlayer
 			
-			local pPlayer = Players[iPlayer]
+			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(iItsukushimaDummy, 1);
+					city:SetNumRealBuilding(eItsukushimaDummy, 1);
 				end
 			end
 		end
 	end
 
 	if not bHasQalhat then
-		if iBuilding == iQalhat then
+		if eBuilding == eQalhat then
 			bHasQalhat = true
-			iQalhatOwner = iPlayer
+			eQalhatOwner = ePlayer
 			
-			local pPlayer = Players[iPlayer]
+			local pPlayer = Players[ePlayer]
 			local iSeaTradeRoutesWithMajors = 0
 
 			for _, player in ipairs(Players) do
 				if player:IsAlive() then
 					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-						if ((tradeRoute.FromID == iPlayer and not Players[tradeRoute.ToID]:IsMinorCiv()) 
-						or (tradeRoute.ToID == iPlayer and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+						if ((tradeRoute.FromID == ePlayer and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+						or (tradeRoute.ToID == ePlayer and not Players[tradeRoute.FromID]:IsMinorCiv())) 
 						and tradeRoute.FromID ~= tradeRoute.ToID 
 						and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
 							iSeaTradeRoutesWithMajors = iSeaTradeRoutesWithMajors + 1
@@ -103,9 +115,9 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 				end
 			end
 
-			local pCity = pPlayer:GetCityByID(iCity)
+			local pCity = pPlayer:GetCityByID(eCity)
 			
-			pCity:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
+			pCity:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors);
 			
 			--[[		
 			Domain - DomainTypes.DOMAIN_LAND or DomainTypes.DOMAIN_SEA (int)
@@ -133,33 +145,55 @@ function IsWonderConstructed(iPlayer, iCity, iBuilding, bGold, bFaith)
 			--]]
 		end
 	end
+
+	if not bHasSunGate then	
+		if eBuilding == eSunGate then
+			bHasSunGate = true
+			eSunGateOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			for city in pPlayer:Cities() do
+				if city:IsHasBuilding(eWalls) then
+					city:SetNumRealBuilding(eSunGateDummy, 1);
+				end
+			end
+		end
+	else
+		if eBuilding == eWalls then
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+
+			pCity:SetNumRealBuilding(eSunGateDummy, 1);
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
 -- check if wonder conquered by another player
-function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iPop, bConquest)
+function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iPop, bConquest)
 	if bHasChevaliers then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(iChevaliers) then
-			local pOldOwner = Players[iOldOwner]
+		if pConqCity:IsHasBuilding(eChevaliers) then
+			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(iChevaliersDummy, 0)
+				city:SetNumRealBuilding(eChevaliersDummy, 0)
 			end
 			
-			local pNewOwner = Players[iNewOwner]
-			iChevaliersOwner = iNewOwner
+			local pNewOwner = Players[eNewOwner]
+			eChevaliersOwner = eNewOwner
 			
 			for city in pNewOwner:Cities() do
-				if not city:IsCoastal(10) and not city:IsHasBuilding(iChevaliers) then
-					city:SetNumRealBuilding(iChevaliersDummy, 1)
+				if not city:IsCoastal(10) and not city:IsHasBuilding(eChevaliers) then
+					city:SetNumRealBuilding(eChevaliersDummy, 1)
 				end
 			end		
 		else
-			if iNewOwner == iChevaliersOwner and not pConqCity:IsCoastal(10) then
-				pConqCity:SetNumRealBuilding(iChevaliersDummy, 1)
+			if eNewOwner == eChevaliersOwner and not pConqCity:IsCoastal(10) then
+				pConqCity:SetNumRealBuilding(eChevaliersDummy, 1)
 			end
 		end
 	end
@@ -168,24 +202,24 @@ function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iP
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(iItsukushima) then
-			local pOldOwner = Players[iOldOwner]
+		if pConqCity:IsHasBuilding(eItsukushima) then
+			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(iItsukushimaDummy, 0)
+				city:SetNumRealBuilding(eItsukushimaDummy, 0)
 			end
 			
-			local pNewOwner = Players[iNewOwner]
-			iItsukushimaOwner = iNewOwner
+			local pNewOwner = Players[eNewOwner]
+			eItsukushimaOwner = eNewOwner
 			
 			for city in pNewOwner:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(iItsukushimaDummy, 1)
+					city:SetNumRealBuilding(eItsukushimaDummy, 1)
 				end
 			end		
 		else
-			if iNewOwner == iItsukushimaOwner and pConqCity:IsCoastal(10) then
-				pConqCity:SetNumRealBuilding(iItsukushimaDummy, 1)
+			if eNewOwner == eItsukushimaOwner and pConqCity:IsCoastal(10) then
+				pConqCity:SetNumRealBuilding(eItsukushimaDummy, 1)
 			end
 		end
 	end
@@ -194,15 +228,15 @@ function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iP
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(iQalhat) then
-			iQalhatOwner = iNewOwner
+		if pConqCity:IsHasBuilding(eQalhat) then
+			eQalhatOwner = eNewOwner
 			local iSeaTradeRoutesWithMajors = 0
 			
 			for _, player in ipairs(Players) do
 				if player:IsAlive() then
 					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
-						if ((tradeRoute.FromID == iNewOwner and not Players[tradeRoute.ToID]:IsMinorCiv()) 
-						or (tradeRoute.ToID == iNewOwner and not Players[tradeRoute.FromID]:IsMinorCiv())) 
+						if ((tradeRoute.FromID == eNewOwner and not Players[tradeRoute.ToID]:IsMinorCiv()) 
+						or (tradeRoute.ToID == eNewOwner and not Players[tradeRoute.FromID]:IsMinorCiv())) 
 						and tradeRoute.FromID ~= tradeRoute.ToID 
 						and tradeRoute.Domain == GameInfoTypes.DOMAIN_SEA then
 							iSeaTradeRoutesWithMajors = iSeaTradeRoutesWithMajors + 1
@@ -211,32 +245,69 @@ function CheckForWonderAfterCapture(iOldOwner, bIsCapital, iX, iY, iNewOwner, iP
 				end
 			end
 
-			pConqCity:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
+			pConqCity:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors);
+		end
+	end
+
+	if bHasSunGate then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eSunGate) then
+			local pOldOwner = Players[eOldOwner]
+			
+			for city in pOldOwner:Cities() do
+				city:SetNumRealBuilding(eSunGateDummy, 0)
+			end
+			
+			local pNewOwner = Players[eNewOwner]
+			eSunGateOwner = eNewOwner
+			
+			for city in pNewOwner:Cities() do
+				if city:IsHasBuilding(eWalls) then
+					city:SetNumRealBuilding(eSunGateDummy, 1)
+				end
+			end		
+		else
+			if eNewOwner == eSunGateOwner and pConqCity:IsHasBuilding(eWalls) then
+				pConqCity:SetNumRealBuilding(eSunGateDummy, 1)
+			end
 		end
 	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
 -- check if new city has effects
-function BuildDummyInNewCity(iPlayer, iX, iY)
+function BuildDummyInNewCity(ePlayer, iX, iY)
 	if bHasChevaliers then
-		if iPlayer == iChevaliersOwner then
+		if ePlayer == eChevaliersOwner then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			if not pCity:IsCoastal(10) then
-				pCity:SetNumRealBuilding(iChevaliersDummy, 1)
+				pCity:SetNumRealBuilding(eChevaliersDummy, 1)
 			end
 		end
 	end
 
 	if bHasItsukushima then
-		if iPlayer == iItsukushimaOwner then
+		if ePlayer == eItsukushimaOwner then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			if pCity:IsCoastal(10) then
-				pCity:SetNumRealBuilding(iItsukushimaDummy, 1)
+				pCity:SetNumRealBuilding(eItsukushimaDummy, 1)
+			end
+		end
+	end
+
+	if bHasSunGate then
+		if ePlayer == eSunGateOwner then
+			local pPlot = Map.GetPlot(iX, iY)
+			local pCity = pPlot:GetWorkingCity()
+			
+			if pCity:IsHasBuilding(eWalls) then
+				pCity:SetNumRealBuilding(eSunGateDummy, 1)
 			end
 		end
 	end
@@ -244,9 +315,9 @@ end
 GameEvents.PlayerCityFounded.Add(BuildDummyInNewCity)
 
 -- check if unit action changed
-function SetDummiesOnUnitActionChange(iPlayer, iUnit)
+function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 	if bHasQalhat then
-		local pPlayer = Players[iPlayer]
+		local pPlayer = Players[ePlayer]
 		local pUnit = pPlayer:GetUnitByID(iUnit)
 		
 		if pUnit == nil then return end 	
@@ -260,7 +331,7 @@ function SetDummiesOnUnitActionChange(iPlayer, iUnit)
 		for _, player in ipairs(Players) do
 			if player:IsAlive() then
 				for city in player:Cities() do
-					if city:IsHasBuilding(iQalhat) then
+					if city:IsHasBuilding(eQalhat) then
 						for _, trader in ipairs(Players) do
 							if not trader:IsEverAlive() then break end
 						
@@ -274,7 +345,7 @@ function SetDummiesOnUnitActionChange(iPlayer, iUnit)
 							end
 						end
 
-						city:SetNumRealBuilding(iQalhatDummy, iSeaTradeRoutesWithMajors);
+						city:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors);
 						return
 					end
 				end

@@ -141,7 +141,8 @@ INSERT INTO VPWEConfig
 			(WType,					WActive,	WFake)
 VALUES		('CHEVALIERS_DUMMY',	2,			0), -- for Krak des Chevaliers
 			('ITSUKUSHIMA_DUMMY',	2,			0), -- for Itsukushima
-			('QALHAT_DUMMY',		2,			0); -- for Qalhat
+			('QALHAT_DUMMY',		2,			0), -- for Qalhat
+			('GATE_OF_SUN_DUMMY',	2,			0); -- for Gate of the Sun
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

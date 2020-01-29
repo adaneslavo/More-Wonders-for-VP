@@ -83,9 +83,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			YieldType,		Yield)
 	VALUES		('BUILDING_GGANTIJA',	'YIELD_FAITH',	2);
 
-	INSERT INTO Building_GlobalYieldModifiers
-				(BuildingType,			YieldType,		Yield)
-	VALUES		('BUILDING_GGANTIJA',	'YIELD_FOOD',	5);
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,			ImprovementType,	YieldType,		Yield) 
+	VALUES		('BUILDING_GGANTIJA',	'IMPROVEMENT_FARM',	'YIELD_FOOD',	1);
 
 	INSERT INTO Building_InstantYield
 				(BuildingType,			YieldType,		Yield) 
@@ -103,8 +103,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 50 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire. Converts 10% [ICON_PEACE] Faith into [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]2 Farms[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_GGANTIJA_HELP_CUT',	'Grants 50 [ICON_FOOD] Food after construction. +5% [ICON_FOOD] Food in your Empire. Converts 10% [ICON_PEACE] Faith into [ICON_FOOD] Food.'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 50 [ICON_FOOD] Food after construction. All Farms receive +1 [ICON_FOOD] Food. Converts 10% [ICON_PEACE] Faith into [ICON_FOOD] Food.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Grassland[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]2 Farms[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GGANTIJA_HELP_CUT',	'Grants 50 [ICON_FOOD] Food after construction. All Farms receive +1 [ICON_FOOD] Food. Converts 10% [ICON_PEACE] Faith into [ICON_FOOD] Food.'),
 				('TXT_KEY_WONDER_GGANTIJA_QUOTE',		'[NEWLINE]"Growth is the only evidence of life."[NEWLINE] - John Henry Newman[NEWLINE]'),
 				('TXT_KEY_WONDER_GGANTIJA_PEDIA',		'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -157,31 +157,33 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_MAJORVILLE',	'YIELD_FAITH',		2),
+	VALUES		('BUILDING_MAJORVILLE',	'YIELD_FAITH',		1),
 				('BUILDING_MAJORVILLE',	'YIELD_SCIENCE',	1);
 	
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,			TerrainType,		YieldType,		Yield) 
 	VALUES		('BUILDING_MAJORVILLE',	'TERRAIN_TUNDRA',	'YIELD_FAITH',	1);
 
-	INSERT INTO Building_ResourceYieldChanges 
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,			ImprovementType,	YieldType,		Yield) 
+	VALUES		('BUILDING_MAJORVILLE',	'IMPROVEMENT_CAMP',	'YIELD_FOOD',	1);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
-	VALUES		('BUILDING_MAJORVILLE',	'RESOURCE_BISON',	'YIELD_FAITH',		1),
-				('BUILDING_MAJORVILLE',	'RESOURCE_BISON',	'YIELD_FOOD',		1),
-				('BUILDING_MAJORVILLE',	'RESOURCE_FUR',		'YIELD_CULTURE',	1),
-				('BUILDING_MAJORVILLE',	'RESOURCE_TOBACCO',	'YIELD_CULTURE',	1);
+	VALUES		('BUILDING_MAJORVILLE', 'RESOURCE_BISON',	'YIELD_CULTURE',	1);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
-	VALUES		('BUILDING_MAJORVILLE',	'FLAVOR_SCIENCE',		20),
-				('BUILDING_MAJORVILLE',	'FLAVOR_RELIGION',		50),
-				('BUILDING_MAJORVILLE',	'FLAVOR_CULTURE',		20);
+	VALUES		('BUILDING_MAJORVILLE',	'FLAVOR_SCIENCE',		10),
+				('BUILDING_MAJORVILLE',	'FLAVOR_RELIGION',		30),
+				('BUILDING_MAJORVILLE',	'FLAVOR_CULTURE',		30),
+				('BUILDING_MAJORVILLE',	'FLAVOR_GROWTH',		30);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
-				('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. [NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_FUR] Furs: +1 [ICON_CULTURE] Culture. [NEWLINE]Nearby [ICON_RES_TOBACCO] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built on a [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'),
-				('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. [NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_FUR] Furs: +1 [ICON_CULTURE] Culture. [NEWLINE]Nearby [ICON_RES_TOBACCO] Bison: +1 [ICON_CULTURE] Culture.'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Camps receive +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]All [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Tundra[ENDCOLOR] and on a [COLOR_CYAN]Hill[ENDCOLOR]. City cannot be built on a [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by the City. All Camps receive +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]All [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.'),
 				('TXT_KEY_WONDER_MAJORVILLE_QUOTE',		'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
 				('TXT_KEY_WONDER_MAJORVILLE_PEDIA',		'The Majorville Medicine Wheel is an archaeological site of the Blackfeet nation dating to 3200 BCE. It is a round stone cairn connected to a cobble circle by 28 stone spokes. Traditionally, in certain Native American cultures, medicine wheels are metaphors for a variety of spiritual concepts. However, as it is believed that the Majorville Medicine Wheel was improved upon for successive generations, the precise meaning of the wheel may differ for each generation. Offerings found at the site included sweet grass, willow, cloth, tobacco, and iniskim stones ("buffalo calling stones").');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -283,9 +285,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_YieldPerXFeatureTimes100 
 				(BuildingType,		FeatureType,			YieldType,			Yield) 
-	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_CULTURE',	100),
+	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FOOD',		100),
 				('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FAITH',		100),
-				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_CULTURE',	50),
+				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FOOD',		50),
 				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FAITH',		50);
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
@@ -294,15 +296,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
-	VALUES		('BUILDING_KARNAK', 'FLAVOR_CULTURE',		50),
-				('BUILDING_KARNAK', 'FLAVOR_PRODUCTION',	20),
-				('BUILDING_KARNAK', 'FLAVOR_RELIGION',		40);
+	VALUES		('BUILDING_KARNAK', 'FLAVOR_CULTURE',		40),
+				('BUILDING_KARNAK', 'FLAVOR_RELIGION',		40),
+				('BUILDING_KARNAK', 'FLAVOR_GROWTH',		40);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
-				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have a [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
+				('TXT_KEY_WONDER_KARNAK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.[NEWLINE][NEWLINE]City must be built on or next a [COLOR_CYAN]Desert[ENDCOLOR] and have a [COLOR_CYAN]Flood Plains[ENDCOLOR] or an [COLOR_CYAN]Oasis[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
 				('TXT_KEY_WONDER_KARNAK_QUOTE',		'[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_KARNAK_PEDIA',		'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -333,8 +335,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_PlotYieldChanges 
 				(BuildingType,		PlotType,		YieldType,		Yield) 
-	VALUES		('BUILDING_NAZCA',	'PLOT_HILLS',	'YIELD_FAITH',	2);
+	VALUES		('BUILDING_NAZCA',	'PLOT_HILLS',	'YIELD_FAITH',	1);
 	
+	INSERT INTO Building_ImprovementYieldChanges 
+				(BuildingType,		ImprovementType,	YieldType,			Yield) 
+	VALUES		('BUILDING_NAZCA',	'IMPROVEMENT_CAMP',	'YIELD_SCIENCE',	1);
+
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
 	VALUES		('BUILDING_NAZCA', 'YIELD_SCIENCE',		4);
@@ -349,8 +355,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
-				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]1 Camp[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food from nearby Plains and +2 [ICON_PEACE] Faith from nearby Hills worked by the City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
+				('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains and +1 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_RESEARCH] Science to Camps worked by this City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR], on a [COLOR_CYAN]Hill[ENDCOLOR] and have [COLOR_CYAN]1 Camp[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_NAZCA_HELP_CUT',	'+2 [ICON_FOOD] Food from nearby Plains and +1 [ICON_PEACE] Faith from nearby Hills worked by the City. +1 [ICON_RESEARCH] Science to Camps worked by this City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with Flight.'),
 				('TXT_KEY_WONDER_NAZCA_QUOTE',		'[NEWLINE]"The true mystery of the world is the visible, not the invisible."[NEWLINE] - Oscar Wilde[NEWLINE]'),
 				('TXT_KEY_WONDER_NAZCA_PEDIA',		'The Nazca Lines, located between the Peruvian towns of Nazca and Palpa, are a series of enormous Geoglyphs designed on a large plateau, spanning over 80 kilometres. The designs have long been a source of mystery for those who have gazed upon them. It is estimated that the lines were constructed by the Nazca culture, hense the name, between 450 and 600 CE. The level of complexity of design varies between designs. Some are simple lines hundreds of metres long, while others are incredibly complex patterns resembling a variety of zoological designs - Monkeys, Condors, Spiders and Orca (Killer whale) to name but a few.[NEWLINE][NEWLINE]  The Nazca Lines are particularily popular amongst circles which believe in the existance of extra-terrestrial life, which the Nazca culture mistook for their gods. They believe that the simpler, straight lines are in fact landing strips for interstellar crafts used by the extra-terrestrials to land, and that a humanoid figure represented in the patterns is one of the extraterrestrials. Modern science has had a range of theories, amongst which the lines serving a purpose similar to that of Stonehenge as an early form of an observatory / astronomical calendar. Other theories were that the geometric lines could indicate the flow of water, irrigation schemes, or be a part of rituals to "summon" water. However, to this day the exact purpose of the lines remains a mystery.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -378,15 +384,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_WIELICZKA',	'YIELD_PRODUCTION', 1);
+	VALUES		('BUILDING_WIELICZKA',	'YIELD_PRODUCTION', 1),
+				('BUILDING_WIELICZKA',	'YIELD_GOLD',		1);
 	
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_FOOD',	1);
-	
-	/*INSERT INTO Building_ResourceQuantity 
-				(BuildingType,			ResourceType,		Quantity) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2);*/
 	
 	INSERT INTO Building_ResourcePlotsToPlace
 				(BuildingType,			ResourceType,		NumPlots) 
@@ -455,18 +458,18 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE');
 	-- +Afraid,Guarded(1) (lua)
 	---------------------------------------------------------
-	INSERT INTO Building_ResourceYieldChangesGlobal 
+	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,				ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE',	'YIELD_FAITH',	1);
+	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE',	'YIELD_FAITH',	2);
 	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE] All [ICON_RES_MARBLE] Marble: +1 [ICON_PEACE] Faith.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +2 [ICON_PEACE] Faith.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 	
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have improved [ICON_RES_MARBLE] Marble nearby and at least one other player must be [COLOR_CYAN]Guarded or Afraid[ENDCOLOR] towards you.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must have improved [ICON_RES_MARBLE] Marble nearby and at least one other player must be [COLOR_CYAN]Guarded, Afraid, Hostile or War-like[ENDCOLOR] towards you.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 --============================================--
 -- CLASSICAL ERA
 --============================================--
@@ -601,13 +604,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	-- + Peace (lua)
 	-- + Mountains(2) (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY' WHERE Type = 'BUILDING_BAMYAN';
+	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY', DoFToVotes = 1 WHERE Type = 'BUILDING_BAMYAN';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
-	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',			2),
-				('BUILDING_BAMYAN', 'YIELD_FAITH',				3),
-				('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	1);
+	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',			1),
+				('BUILDING_BAMYAN', 'YIELD_FAITH',				2);
 	
 	INSERT INTO Building_YieldPerFriend
 				(BuildingType,		YieldType,		Yield) 
@@ -618,8 +620,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	3);
 
 	INSERT INTO Building_TechEnhancedYieldChanges
-				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',	3);
+				(BuildingType,		YieldType,					Yield) 
+	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',			2),
+				('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
@@ -630,8 +633,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text)
 	VALUES		('TXT_KEY_BUILDING_BAMYAN',			'Buddhas of Bamyan'),
-				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] nearby. Player may not be at [COLOR_NEGATIVE_TEXT]War[ENDCOLOR].'),
-				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally.'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each Declaration of Friendship.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] nearby. Player may not be at [COLOR_NEGATIVE_TEXT]War[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each Declaration of Friendship.'),
 				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There''s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'Deep in the Hindu Kush, in the Bamyan Valley, along the Silk Road, the Buddhas of Bamyan once towered over the region. Bamyan was a religious site from the 2nd century until the later half of the 7th century, and the Buddhas were constructed throughout that time. The Chinese Buddhist pilgrim Xuanzang visited in 630 CE, describing Bamyan as a flourishing Buddhist center "with more than ten monstaries and more than a thousand monks". In 2001, the Buddhas were destroyed by the Taliban, either in protest of international aid priorities or as part of Islamic religious iconoclasm, to both international and domestic condemnation. Since then, international efforts have been made to reconstruct the Buddhas. Furthermore, after the destruction of the Buddhas, caves containing art from the 5th through 9th centuries were discovered, as well as Xuanzang''s translation of the Pratityasamutpada Sutra that spelled out the basic belief of Buddhism: all things are transient.While the original Buddhas of Bamyan may be gone, their message and cultural significance will echo for all eternity.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -642,37 +645,44 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	---------------------------------------------------------
-	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	
+	INSERT INTO Building_YieldModifiers
+				(BuildingType,					YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN_DUMMY',	'YIELD_SCIENCE',	5);
+
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	3);
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
+				('BUILDING_GATE_OF_SUN',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,				TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_CULTURE',	1),
-				('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_GOLD',		1);
+	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_CULTURE',	1);
+	
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1);	
+	
+	INSERT INTO Building_GoldenAgeYieldMod 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_SCIENCE',	5);	
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,				BuildingClassType,		YieldType,			YieldChange) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'BUILDINGCLASS_WALLS',	'YIELD_SCIENCE',	2);
+	VALUES		('BUILDING_GATE_OF_SUN',	'BUILDINGCLASS_WALLS',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_LakePlotYieldChanges 
-				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
-				('BUILDING_GATE_OF_SUN',	'YIELD_GOLD',		1);	
+	-- +science_per_city_with_walls (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'FLAVOR_CULTURE',		50),
-				('BUILDING_GATE_OF_SUN',	'FLAVOR_SCIENCE',		30),
-				('BUILDING_GATE_OF_SUN',	'FLAVOR_GOLD',			10),
-				('BUILDING_GATE_OF_SUN',	'FLAVOR_GREAT_PEOPLE',	10);
+	VALUES		('BUILDING_GATE_OF_SUN',	'FLAVOR_CULTURE',		30),
+				('BUILDING_GATE_OF_SUN',	'FLAVOR_SCIENCE',		60);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GATE_OF_SUN',			'Gate of the Sun'),
-				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_GATE_OF_SUN_HELP',			'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_CULTURE] Culture. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art. +5% [ICON_RESEARCH] Science during [ICON_GOLDEN_AGE] Golden Age and +5% [ICON_RESEARCH] Science in Cities with Walls.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have a [COLOR_CYAN]Mountain[ENDCOLOR] nearby.'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_HELP_CUT',		'All Walls receive +1 [ICON_RESEARCH] Science. All Mountains and Lakes receive +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_QUOTE',		'[NEWLINE]"May the sun set on where my love dwells."[NEWLINE] - Bolivian proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GATE_OF_SUN_PEDIA',		'The Gate of the Sun is a stone arch constructed by the ancient Tiwanaku culture of Bolivia, dated to between 500-950 CE. The lintel is carved with 48 squars surrounding a central figure. The central figure is a man with his head surrounded by 24 rays. Some believe that the Gate of the Sun possesses an astronomical or astrological significance, or may have served as a calendar. No one knows for sure.');
@@ -702,9 +712,13 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_CULTURE',	3),
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_CULTURE',	1),
 				('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		1),
-				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',		3);
+				('BUILDING_EL_GHRIBA',	'YIELD_FAITH',		4);
+	
+	INSERT INTO Building_YieldFromFaithPurchase
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		30);
 	
 	INSERT INTO GreatWorks
 				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
@@ -712,15 +726,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,			Flavor) 
-	VALUES		('BUILDING_EL_GHRIBA',	'FLAVOR_CULTURE',	60),
-				('BUILDING_EL_GHRIBA',	'FLAVOR_RELIGION',	30),
-				('BUILDING_EL_GHRIBA',	'FLAVOR_GOLD',		10);
+	VALUES		('BUILDING_EL_GHRIBA',	'FLAVOR_CULTURE',	30),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_RELIGION',	50),
+				('BUILDING_EL_GHRIBA',	'FLAVOR_GOLD',		30);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. 30 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built on or next to a [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR] nor [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. 30 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'El Ghriba Synagogue, located on the Tunisian island of Djerba, is the oldest synagogue in Tunisa and the center of the village''s holy life. According to legend, it was constructed with a door and a stone from the destruction of either Solomon''s Temple in 586 BCE or the Second Temple in 70 CE. Thus, it links the local Jewish community to the ancestral heart of Judaism and remains a pilgrimage site into the modern day.'),
 				('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
@@ -805,7 +819,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- GREAT WALL
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_WALL';
 	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
-	-- +Deceptive, Hostile, War(1) (lua)
+	-- +Deceptive,Hostile,War(1) (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -1386,6 +1400,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_SeaPlotYieldChanges 
 				(BuildingType,				YieldType,		Yield) 
 	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_FAITH',	1);
+
+	-- +increased_border_growth_in_coastal_cities (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,					Flavor) 
@@ -1427,6 +1443,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,		UnitCombatType,		Modifier) 
 	VALUES		('BUILDING_QALHAT', 'UNITCOMBAT_CARGO',	50);
+
+	-- +culture_for_each_sea_trade_route_to_other_major_civ (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,					Flavor) 
@@ -1483,6 +1501,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_FreeUnits 
 				(BuildingType,			UnitType,				NumUnits)
 	VALUES		('BUILDING_CHEVALIERS', 'UNIT_GREAT_GENERAL',	1);
+
+	-- +bonuses_in_non-coastal_cities (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)

@@ -327,6 +327,7 @@ function IsMajorApproach(ePlayer, eCity, eBuilding)
 			local eRequiredApproach1 = building.eRequiredApproach1
 			local eRequiredApproach2 = building.eRequiredApproach2
 			local eRequiredApproach3 = building.eRequiredApproach3
+			local eRequiredApproach4 = building.eRequiredApproach4
 			
 			for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
 				local pTargetPlayer = Players[i]
@@ -336,8 +337,8 @@ function IsMajorApproach(ePlayer, eCity, eBuilding)
 				local eApproachTrue = pPlayer:GetMajorCivApproach(i)
 				local eApproachGuess = pPlayer:GetApproachTowardsUsGuess(i)
 				print("approach:", pPlayer:GetName(), pTargetPlayer:GetName(), pPlayer:GetMajorCivApproach(i), pPlayer:GetApproachTowardsUsGuess(i), pPlayer:GetMajorCivApproach(i, false), pPlayer:GetMajorCivApproach(i, true))
-				if eApproach == eRequiredApproach1 or eApproach == eRequiredApproach2 or eApproach == eRequiredApproach3 or
-				   eApproachGuess == eRequiredApproach1 or eApproachGuess == eRequiredApproach2 or eApproachGuess == eRequiredApproach3 then
+				if eApproachTrue == eRequiredApproach1 or eApproachTrue == eRequiredApproach2 or eApproachTrue == eRequiredApproach3 or eApproachTrue == eRequiredApproach4 or
+				   eApproachGuess == eRequiredApproach1 or eApproachGuess == eRequiredApproach2 or eApproachGuess == eRequiredApproach3 or eApproachGuess == eRequiredApproach4 then
 					print("approach-match!")
 					return true
 				end
@@ -470,13 +471,15 @@ function Initialize()
 	-- IsMajorApproach
 	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_STATUE_ZEUS.ID] = {
 		sType = "BUILDING_STATUE_ZEUS",
-		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_GUARDED,
-		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_AFRAID
+		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
+		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
+		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_GUARDED,
+		eRequiredApproach4 = GameInfoTypes.MAJOR_CIV_APPROACH_AFRAID
 	}
 	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_GREAT_WALL.ID] = {
 		sType = "BUILDING_GREAT_WALL",
-		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
-		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
+		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
+		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
 		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_DECEPTIVE
 	}
 	for id, building in pairs(tValidIsMajorApproach) do
