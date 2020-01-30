@@ -77,6 +77,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA';
+	
 	-- +Farm(2) (lua)
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges 
@@ -153,6 +154,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- MAJORVILLE MEDICINE WHEEL (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
+	
 	-- +IsNoCoast (lua)
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
@@ -325,6 +327,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- NAZCA LINES (NEW)
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_TRAPPING',	NumPoliciesNeeded = 1, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_NAZCA';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA';
+	
 	-- +Camp(1) (lua)
 	---------------------------------------------------------	
 	UPDATE Buildings SET EnhancedYieldTech = 'TECH_FLIGHT', TechEnhancedTourism = 4, SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_NAZCA';
@@ -430,6 +433,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
 	UPDATE Buildings SET FreshWater = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
+	
 	-- +Camp(1) (lua)
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
@@ -442,6 +446,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
+	
 	-- +Quarry(1) (lua)
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
@@ -456,7 +461,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
 	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE');
-	-- +Afraid,Guarded(1) (lua)
+	
+	-- +Afraid,Guarded,Hostile,War(1) (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,				ResourceType,		YieldType,		Yield) 
@@ -507,6 +513,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- HANGING GARDENS
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
+	
 	-- +IsNoCoast (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -587,6 +594,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- TERRACOTA ARMY
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
+	
 	-- + IsNoCoast (lua)
 	-- + Mine/Quarry(1) (lua)
 	---------------------------------------------------------
@@ -601,6 +609,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- BUDDHAS OF BAMYAN (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BAMYAN';
+	
 	-- + Peace (lua)
 	-- + Mountains(2) (lua)
 	---------------------------------------------------------
@@ -761,6 +770,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_ETCHMIADZIN',	'FEATURE_FOREST');
+	
 	-- +IsNoCoast (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_LANCE'  WHERE Type = 'BUILDING_ETCHMIADZIN';
@@ -819,6 +829,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- GREAT WALL
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_WALL';
 	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
+	
 	-- +Deceptive,Hostile,War(1) (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -904,6 +915,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_NABAWI';
 	
 	UPDATE Buildings SET Flat = 1, IsNoWater = 1 WHERE Type = 'BUILDING_NABAWI';
+	
 	-- +IsNoCoast (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MOSQUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 2, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_NABAWI_HELP' WHERE Type = 'BUILDING_NABAWI';
@@ -1088,6 +1100,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MACHU PICCHU
 	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
+	
 	-- + Mountains(2) (lua)
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = Substr(Text, 80, 2000) WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
@@ -1105,6 +1118,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	
 	-- +IsNoCoast (lua)
 	-- +Mine/Camp(3) (lua)
 	---------------------------------------------------------
@@ -1141,6 +1155,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FALUN';
 	
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_FALUN';
+	
 	-- +Mine(4) (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
@@ -1193,6 +1208,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_DAMASCUS',	'RESOURCE_IRON');
+	
 	-- +LumberMill(1) (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_FORGE', FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
@@ -1333,6 +1349,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
 	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MICHEL';
+	
 	-- + One-Tile_City (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY', TechEnhancedTourism = 3 WHERE Type = 'BUILDING_MICHEL';
@@ -1466,6 +1483,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME';
+	
 	-- +LumberMill(1) (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
@@ -1481,6 +1499,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
 	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
