@@ -23,12 +23,18 @@ local eQalhatDummy = GameInfoTypes["BUILDING_QALHAT_DUMMY"]
 local bHasQalhat = false
 local eQalhatOwner
 
--- Qalhat
+-- Gate of the Sun
 local eSunGate = GameInfoTypes["BUILDING_GATE_OF_SUN"]
 local eSunGateDummy = GameInfoTypes["BUILDING_GATE_OF_SUN_DUMMY"]
 local eWalls = GameInfoTypes["BUILDING_WALLS"]
 local bHasSunGate = false
 local eSunGateOwner
+
+-- Great Zimbabwe
+local eZimbabwe = GameInfoTypes["BUILDING_GREAT_ZIMBABWE"]
+local eZimbabweDummy = GameInfoTypes["BUILDING_GREAT_ZIMBABWE_DUMMY"]
+local bHasZimbabwe = false
+local eZimbabweOwner
 
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
@@ -55,6 +61,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(eSunGate) then
 					bHasSunGate = true
 					eSunGateOwner = i
+				end
+
+				if city:IsHasBuilding(eZimbabwe) then
+					bHasZimbabwe = true
+					eZimbabweOwner = i
 				end
 			end
 		end
@@ -100,6 +111,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			eQalhatOwner = ePlayer
 			
 			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
 			local iSeaTradeRoutesWithMajors = 0
 
 			for _, player in ipairs(Players) do
@@ -115,8 +127,6 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 				end
 			end
 
-			local pCity = pPlayer:GetCityByID(eCity)
-			
 			pCity:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors);
 			
 			--[[		
@@ -165,6 +175,29 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			local pCity = pPlayer:GetCityByID(eCity)
 
 			pCity:SetNumRealBuilding(eSunGateDummy, 1);
+		end
+	end
+
+	if not bHasZimbabwe then
+		if eBuilding == eZimbabwe then
+			bHasZimbabwe = true
+			eZimbabweOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+			local iActiveTradeRoutes = 0
+
+			for _, player in ipairs(Players) do
+				if player:IsAlive() then
+					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+						if tradeRoute.FromID == ePlayer then
+							iActiveTradeRoutes = iActiveTradeRoutes + 1
+						end
+					end
+				end
+			end
+
+			pCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes)
 		end
 	end
 end
@@ -274,6 +307,28 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end
 		end
 	end
+
+	if bHasZimbabwe then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eZimbabwe) then
+			eZimbabweOwner = eNewOwner
+			local iActiveTradeRoutes = 0
+			
+			for _, player in ipairs(Players) do
+				if player:IsAlive() then
+					for _, tradeRoute in ipairs(player:GetTradeRoutes()) do
+						if tradeRoute.FromID == ePlayer then
+							iActiveTradeRoutes = iActiveTradeRoutes + 1
+						end
+					end
+				end
+			end
+
+			pConqCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes);
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -352,7 +407,44 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 			end
 		end
 	end
+
+	if bHasZimbabwe then
+		local pPlayer = Players[ePlayer]
+		local pUnit = pPlayer:GetUnitByID(iUnit)
+		
+		if pUnit == nil then return end 	
+		
+		local iUnitClass = pUnit:GetUnitClassType()
+		
+		if iUnitClass ~= GameInfoTypes.UNITCLASS_CARGO_SHIP then return end
+		
+		local iActiveTradeRoutes = 0
+
+		for _, player in ipairs(Players) do
+			if player:IsAlive() then
+				for city in player:Cities() do
+					if city:IsHasBuilding(eZimbabwe) then
+						for _, trader in ipairs(Players) do
+							if not trader:IsEverAlive() then break end
+						
+							for _, tradeRoute in ipairs(trader:GetTradeRoutes()) do
+								if tradeRoute.FromID == ePlayer then
+									iActiveTradeRoutes = iActiveTradeRoutes + 1
+								end
+							end
+						end
+
+						city:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes);
+						return
+					end
+				end
+			end
+		end
+	end
 end
 Events.UnitActionChanged.Add(SetDummiesOnUnitActionChange)
-
+--------------------------------------------------------------
+--------------------------------------------------------------
 print("Loaded WonderAbilityDummyBuilding.lua from MWfVP");
+--------------------------------------------------------------
+--------------------------------------------------------------

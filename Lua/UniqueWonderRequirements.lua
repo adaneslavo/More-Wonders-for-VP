@@ -34,7 +34,7 @@ local tValidIsMajorApproach = {}
 local bReachedMaxEra
 
 -- IsMaxEra
-function IsMaxEra(ePlayer, eCity, eBuilding)
+--[[function IsMaxEra(ePlayer, eCity, eBuilding)
 	if not tValidIsMaxEra[eBuilding] then 
 		bReachedMaxEra = false 
 		return true
@@ -86,7 +86,7 @@ function IsMaxEra(ePlayer, eCity, eBuilding)
 		
 	return false
 end
-GameEvents.CityCanConstruct.Add(IsMaxEra)
+GameEvents.CityCanConstruct.Add(IsMaxEra)--]]
 
 -- checks if city is between LAKE and sea and adds this condition (normally it would be treated like city wothout lake)
 function IsLakeWithOcean(ePlayer, eCity, eBuilding)
@@ -256,7 +256,7 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 							end
 						end
 					end
-				
+					
 					if iCurrentRoads >= iRequiredRoads and iCurrentImprovements >= iRequiredImprovements then
 						return true
 					end
@@ -437,12 +437,12 @@ function Initialize()
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 2
 	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 		sType = "BUILDING_FALUN",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		iRequiredImprovements = 4
 	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_DAMASCUS.ID] = {
 		sType = "BUILDING_DAMASCUS",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LUMBERMILL,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_LUMBERMILL_JUNGLE,
@@ -487,5 +487,8 @@ function Initialize()
 	end
 end
 Initialize()
-
+--------------------------------------------------------------
+--------------------------------------------------------------
 print("Loaded UniqueWonderRequirements.lua from MWfVP")
+--------------------------------------------------------------
+--------------------------------------------------------------

@@ -138,11 +138,12 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 --------------------------------------------------------------
 --------------------------------------------------------------
 INSERT INTO VPWEConfig 
-			(WType,					WActive,	WFake)
-VALUES		('CHEVALIERS_DUMMY',	2,			0), -- for Krak des Chevaliers
-			('ITSUKUSHIMA_DUMMY',	2,			0), -- for Itsukushima
-			('QALHAT_DUMMY',		2,			0), -- for Qalhat
-			('GATE_OF_SUN_DUMMY',	2,			0); -- for Gate of the Sun
+			(WType,						WActive,	WFake)
+VALUES		('CHEVALIERS_DUMMY',		2,			0), -- for Krak des Chevaliers
+			('ITSUKUSHIMA_DUMMY',		2,			0), -- for Itsukushima
+			('QALHAT_DUMMY',			2,			0), -- for Qalhat
+			('GATE_OF_SUN_DUMMY',		2,			0), -- for Gate of the Sun
+			('GREAT_ZIMBABWE_DUMMY',	2,			0); -- for Gate of the Sun
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

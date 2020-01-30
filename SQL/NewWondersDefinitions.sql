@@ -428,7 +428,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_PETRA_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PETRA_HELP';
 				
-	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Beside being built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] city must be built next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Desert[ENDCOLOR] and next to a [COLOR_CYAN]Mountain[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
@@ -918,15 +918,16 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	-- +IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MOSQUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 2, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_NABAWI_HELP' WHERE Type = 'BUILDING_NABAWI';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MOSQUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_NABAWI_HELP' WHERE Type = 'BUILDING_NABAWI';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,		YieldType,		 Yield)
-	VALUES		('BUILDING_NABAWI', 'YIELD_CULTURE', 3);
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_NABAWI', 'YIELD_CULTURE',	2),
+				('BUILDING_NABAWI', 'YIELD_FAITH',		5);
 
 	INSERT INTO Building_SpecificGreatPersonRateModifier
 				(BuildingType,		SpecialistType,			Modifier)
-	VALUES		('BUILDING_NABAWI', 'SPECIALIST_WRITER',	25);
+	VALUES		('BUILDING_NABAWI', 'SPECIALIST_WRITER',	20);
 
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,		YieldType,		Yield)
@@ -943,15 +944,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
-	VALUES		('BUILDING_NABAWI', 'FLAVOR_CULTURE',		50),
-				('BUILDING_NABAWI', 'FLAVOR_RELIGION',		60),
-				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	60);
+	VALUES		('BUILDING_NABAWI', 'FLAVOR_CULTURE',		30),
+				('BUILDING_NABAWI', 'FLAVOR_RELIGION',		70),
+				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	20);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
-				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]'),
-				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +25% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
+				('TXT_KEY_WONDER_NABAWI_HELP',			'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in the City.[NEWLINE][NEWLINE]City must be a [COLOR_CYAN]Holy City[ENDCOLOR] and must be built on a [COLOR_CYAN]Flat[ENDCOLOR]. City cannot be built next to a [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]'),
+				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
 				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
 				('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
 				('TXT_KEY_THEMING_BONUS_NABAWI',		'Islamic calligraphy works'),
@@ -1062,36 +1063,46 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			BuildingClassType) 
 	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP', SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_WARTBURG';
+	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_WARTBURG',	'YIELD_CULTURE',	6);
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_WARTBURG',	'YIELD_CULTURE',			1),
+				('BUILDING_WARTBURG',	'YIELD_GOLDEN_AGE_POINTS',	1);
 	
 	INSERT INTO Building_SpecificGreatPersonRateModifier 
 				(BuildingType,			SpecialistType,			Modifier)
-	VALUES		('BUILDING_WARTBURG',	'SPECIALIST_WRITER',	25);
+	VALUES		('BUILDING_WARTBURG',	'SPECIALIST_WRITER',	30);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,		YieldChange) 
+	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD',	'YIELD_FAITH',	1);
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,						Bonus,	RequiresOwner,	AIPriority)
 	VALUES		('BUILDING_WARTBURG',	'TXT_KEY_THEMING_BONUS_WARTBURG',	8,		1,				5);
 
+	INSERT INTO Building_DomainFreeExperiencePerGreatWork
+				(BuildingType,			DomainType,		Experience)
+	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	10);
+
 	INSERT INTO Building_ThemingYieldBonus 
-				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_WARTBURG',	'YIELD_CULTURE',	4),
-				('BUILDING_WARTBURG',	'YIELD_FAITH',		4);
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_WARTBURG',	'YIELD_CULTURE',			3),
+				('BUILDING_WARTBURG',	'YIELD_FAITH',				3),
+				('BUILDING_WARTBURG',	'YIELD_GOLDEN_AGE_POINTS',	3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_WARTBURG',	'FLAVOR_CULTURE',		70),
-				('BUILDING_WARTBURG',	'FLAVOR_GREAT_PEOPLE',	40),
-				('BUILDING_WARTBURG',	'FLAVOR_RELIGION',		20);
+	VALUES		('BUILDING_WARTBURG',	'FLAVOR_CULTURE',		30),
+				('BUILDING_WARTBURG',	'FLAVOR_GREAT_PEOPLE',	60),
+				('BUILDING_WARTBURG',	'FLAVOR_RELIGION',		30);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
-				('TXT_KEY_WONDER_WARTBURG_HELP',			'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. +25% generation of [ICON_GREAT_ARTIST] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +4 [ICON_CULTURE] Culture and +4 [ICON_PEACE] Faith if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR], have a [COLOR_CYAN]Forest[ENDCOLOR] nearby and have [COLOR_CYAN]Writer''s Guild[ENDCOLOR] already constructed.'),
-				('TXT_KEY_WONDER_WARTBURG_HELP_CUT',		'+25% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +4 [ICON_CULTURE] Culture and +4 [ICON_PEACE] Faith if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].'),
+				('TXT_KEY_WONDER_WARTBURG_HELP',			'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. +30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds receive +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR], have a [COLOR_CYAN]Forest[ENDCOLOR] nearby and have [COLOR_CYAN]Writer''s Guild[ENDCOLOR] already constructed.'),
+				('TXT_KEY_WONDER_WARTBURG_HELP_CUT',		'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_WARTBURG_QUOTE',			'[NEWLINE]"In nature we never see anything isolated, but everything in connection with something else which is before it, beside it, under it and over it."[NEWLINE] - Johann Wolfgang von Goethe[NEWLINE]'),
 				('TXT_KEY_WONDER_WARTBURG_PEDIA',			'Wartburg Castle was built in 1067 by Ludwig der Springer to secure his traditional territories. From 1172 to 1211, it was an important princely court in the Holy Roman Empire and a support for poets, thus becoming the setting of the legendary Sangerkrieg. Following his excommunication, Martin Luther stayed at Wartburg when he translated the New Testament from ancient Greek into German.[NEWLINE]For centuries, Wartburg has been a place of pilgrimage for its significance in German and Christian history. In the modern day, Wartburg remains a popular tourist attraction. It often stages the opera Tannhauser. While the castle still contains original structures from the 12th through 15th centuries, much of the interior dates back only to the 19th century, transformed under communist rule in the time of the GDR.'),
 				('TXT_KEY_THEMING_BONUS_WARTBURG',			'Literature that inspired whole nations'),
@@ -1122,17 +1133,20 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	-- +IsNoCoast (lua)
 	-- +Mine/Camp(3) (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 1000, GlobalPlotCultureCostModifier = -30, GlobalPlotBuyCostModifier = -30, SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_GREAT_ZIMBABWE',	'YIELD_FAITH',		1),
-				('BUILDING_GREAT_ZIMBABWE',	'YIELD_GOLD',		3),
-				('BUILDING_GREAT_ZIMBABWE',	'YIELD_CULTURE',	1);
+				(BuildingType,						YieldType,					Yield)
+	VALUES		('BUILDING_GREAT_ZIMBABWE',			'YIELD_FAITH',				1),
+				('BUILDING_GREAT_ZIMBABWE',			'YIELD_GOLD',				1),
+				('BUILDING_GREAT_ZIMBABWE',			'YIELD_CULTURE',			1),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
 	
-	INSERT INTO Building_ResourceYieldChangesGlobal
-				(BuildingType,				ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_GREAT_ZIMBABWE',	'RESOURCE_IVORY',	'YIELD_GOLD',	1);
+	INSERT INTO Building_DomainFreeExperiencesGlobal
+				(BuildingType,						DomainType,		Experience)
+	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_LAND',	2),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_AIR',	2),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_SEA',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
@@ -1144,8 +1158,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GREAT_ZIMBABWE',			'Great Zimbabwe'),
-				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. [ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.[NEWLINE][NEWLINE]All [ICON_RES_IVORY] Ivory: +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have sum of [COLOR_CYAN]Mines and Camps[ENDCOLOR] equal or greater than [COLOR_CYAN]3[ENDCOLOR]. City cannot be built on a [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'),
-				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP_CUT',	'[ICON_CULTURE] Culture and [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities.'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have sum of [COLOR_CYAN]Mines and Camps[ENDCOLOR] equal or greater than [COLOR_CYAN]3[ENDCOLOR]. City cannot be built on a [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP_CUT',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_QUOTE',		'[NEWLINE]"God is good, but never dance with a lion."[NEWLINE] - Zimbabwean proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1159,42 +1173,43 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	-- +Mine(4) (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,		YieldType,			Yield)
-	VALUES		('BUILDING_FALUN',	'YIELD_PRODUCTION',	1),
-				('BUILDING_FALUN',	'YIELD_GOLD',		3);
+				(BuildingType,		YieldType,					Yield)
+	VALUES		('BUILDING_FALUN',	'YIELD_PRODUCTION',			1),
+				('BUILDING_FALUN',	'YIELD_GOLDEN_AGE_POINTS',	1);
 
 	INSERT INTO Building_ResourceYieldChanges
-				(BuildingType,		ResourceType,		YieldType,			Yield) 
-	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	'YIELD_PRODUCTION', 1),
-				('BUILDING_FALUN',	'RESOURCE_COPPER',	'YIELD_GOLD',		1),
-				('BUILDING_FALUN',	'RESOURCE_GOLD',	'YIELD_PRODUCTION', 1),
-				('BUILDING_FALUN',	'RESOURCE_GOLD',	'YIELD_GOLD',		1),
-				('BUILDING_FALUN',	'RESOURCE_SILVER',	'YIELD_PRODUCTION', 1),
-				('BUILDING_FALUN',	'RESOURCE_SILVER',	'YIELD_GOLD',		1);
+				(BuildingType,		ResourceType,		YieldType,					Yield) 
+	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	'YIELD_GOLDEN_AGE_POINTS',	1),
+				('BUILDING_FALUN',	'RESOURCE_COPPER',	'YIELD_GOLD',				1);
 
-	INSERT INTO Building_ImprovementYieldChangesGlobal 
+	INSERT INTO Building_ImprovementYieldChanges
 				(BuildingType,		ImprovementType,	YieldType,		Yield) 
 	VALUES		('BUILDING_FALUN',	'IMPROVEMENT_MINE',	'YIELD_GOLD',	1);
-
-	INSERT INTO Building_SpecialistYieldChanges
-				(BuildingType,		SpecialistType,			YieldType,			Yield) 
-	VALUES		('BUILDING_FALUN',	'SPECIALIST_ENGINEER',	'YIELD_PRODUCTION',	1);
 
 	INSERT INTO Building_ResourcePlotsToPlace
 				(BuildingType,		ResourceType,		NumPlots) 
 	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	2);
+	
+	INSERT INTO Building_FreeUnits 
+				(BuildingType,		UnitType,				NumUnits) 
+	VALUES		('BUILDING_FALUN',	'UNIT_GREAT_GENERAL',	1);
+	
+	INSERT INTO Building_GreatPersonProgressFromConstruction
+				(BuildingType,		GreatPersonType,		EraType,		Value) 
+	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_MEDIEVAL',	50);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
-	VALUES		('BUILDING_FALUN',	'FLAVOR_GOLD',			70),
-				('BUILDING_FALUN',	'FLAVOR_PRODUCTION',	50),
-				('BUILDING_FALUN',	'FLAVOR_HAPPINESS',		30);
+	VALUES		('BUILDING_FALUN',	'FLAVOR_GOLD',			40),
+				('BUILDING_FALUN',	'FLAVOR_PRODUCTION',	10),
+				('BUILDING_FALUN',	'FLAVOR_HAPPINESS',		50),
+				('BUILDING_FALUN',	'FLAVOR_GREAT_PEOPLE',	40);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
-				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. All Mines receive +1 [ICON_GOLD]. +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]4 Mines[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. All Mines receive +1 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from Engineers in the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].[NEWLINE]Nearby [ICON_RES_SILVER] Silver: +1 [ICON_PRODUCTION] and +1 [ICON_GOLD].'),
+				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +50% generation of [ICON_GREAT_ENGINEER] Great Engineers during Medieval Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]4 Mines[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +50% generation of [ICON_GREAT_ENGINEER] Great Engineers during Medieval Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
 				('TXT_KEY_WONDER_FALUN_QUOTE',		'[NEWLINE]"The finest workers in stone are not copper or steel tools, but the gentle touches of air and water working at their leisure with a liberal allowance of time."[NEWLINE] - Henry David Thoreau[NEWLINE]'),
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1309,22 +1324,20 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
 	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_FAITH',		2);
 
-	INSERT INTO Building_ResourceYieldChanges 
-				(BuildingType,			ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_SHWEDAGON',	'RESOURCE_GOLD',	'YIELD_FAITH',	1),
-				('BUILDING_SHWEDAGON',	'RESOURCE_GEMS',	'YIELD_FAITH',	1),
-				('BUILDING_SHWEDAGON',	'RESOURCE_JADE',	'YIELD_FAITH',	1);
-	
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,						Bonus,	MustBeArtifact,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON',	8,		1,				1,				5);
+	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON',	16,		1,				1,				5);
 
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,			YieldType,		Yield) 
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_GOLD',	1);
+	
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	2),
-				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		2),
-				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		2),
-				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	2);
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	3),
+				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		3),
+				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		3),
+				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1336,8 +1349,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. +33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR], have source of [COLOR_CYAN]Fresh Water[ENDCOLOR] and a [COLOR_CYAN]Jungle[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +2 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_GEMS] Gems: +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_GOLD] Gold: +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. +33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR], have source of [COLOR_CYAN]Fresh Water[ENDCOLOR] and a [COLOR_CYAN]Jungle[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 				('TXT_KEY_THEMING_BONUS_SHWEDAGON',			'Relics of the four previous Buddhas of the present kalpa'),
@@ -1417,21 +1430,29 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_SeaPlotYieldChanges 
 				(BuildingType,				YieldType,		Yield) 
 	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_FAITH',	1);
+	
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,					FeatureType,		YieldType,			Yield) 
+	VALUES		('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_CULTURE',	1),
+				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FOOD',		1),
+				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FAITH',		1);
 
 	-- +increased_border_growth_in_coastal_cities (lua)
+	-- +boost_in_coastal_cities_to_atolls (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,					Flavor) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'FLAVOR_CULTURE',			70),
-				('BUILDING_ITSUKUSHIMA',	'FLAVOR_RELIGION',			70),
-				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	30),
-				('BUILDING_ITSUKUSHIMA',	'FLAVOR_EXPANSION',			20);
+	VALUES		('BUILDING_ITSUKUSHIMA',	'FLAVOR_CULTURE',			60),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_RELIGION',			60),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_TILE_IMPROVEMENT',	20),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_EXPANSION',			10),
+				('BUILDING_ITSUKUSHIMA',	'FLAVOR_GROWTH',			10);
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
-				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith to Atolls and [ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR] and must have [ICON_RES_CORAL] Coral, [ICON_RES_CRAB] Crab, [ICON_RES_PEARLS] Pearls or [ICON_RES_WHALE] Whales nearby.'),
+				('TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith to Atolls and [ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"From far and near, hearing the sounds of waterfalls, young leaves."[NEWLINE] - Buson[NEWLINE]'),
 				('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE]  The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1453,9 +1474,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3),
 				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	2);
 
-	INSERT INTO Building_ImprovementYieldChanges
-				(BuildingType,		ImprovementType,			YieldType,		Yield) 
-	VALUES		('BUILDING_QALHAT',	'IMPROVEMENT_TRADING_POST',	'YIELD_GOLD',	1);
+	INSERT INTO Building_ResourceYieldChanges
+				(BuildingType,		ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_QALHAT',	'RESOURCE_HORSE',	'YIELD_GOLD',	2);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,		UnitCombatType,		Modifier) 
@@ -1473,8 +1494,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
-				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR], and must have improved [ICON_RES_HORSE] Horses nearby.'),
-				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. All Villages receive +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.'),
+				('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD].[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Hill[ENDCOLOR] and on a [COLOR_CYAN]Coast[ENDCOLOR], and must have improved [ICON_RES_HORSE] Horses nearby.'),
+				('TXT_KEY_WONDER_QALHAT_HELP_CUT',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD].'),
 				('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
 				('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
