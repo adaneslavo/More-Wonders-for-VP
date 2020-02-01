@@ -4,7 +4,6 @@ print("Loading WonderAbilityDummyBuilding.lua from MWfVP");
 -- Dec 13, 2017: Retrofitted for Vox Populi, Infixo
 -- Jan 14, 2020: Improved, adan_eslavo
 --------------------------------------------------------------
-
 -- Chevaliers
 local eChevaliers = GameInfoTypes["BUILDING_CHEVALIERS"]
 local eChevaliersDummy = GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"]

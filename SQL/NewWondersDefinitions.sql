@@ -642,8 +642,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text)
 	VALUES		('TXT_KEY_BUILDING_BAMYAN',			'Buddhas of Bamyan'),
-				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each Declaration of Friendship.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] nearby. Player may not be at [COLOR_NEGATIVE_TEXT]War[ENDCOLOR].'),
-				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each Declaration of Friendship.'),
+				('TXT_KEY_WONDER_BAMYAN_HELP',		'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship.[NEWLINE][NEWLINE]City must have [COLOR_CYAN]2 Mountains[ENDCOLOR] nearby. Player may not be at [COLOR_NEGATIVE_TEXT]War[ENDCOLOR].'),
+				('TXT_KEY_WONDER_BAMYAN_HELP_CUT',  'City generates +100% religious pressure. +2 [ICON_PEACE] per City-State Friend and +3 [ICON_GOLDEN_AGE] per City-State Ally. +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship.'),
 				('TXT_KEY_WONDER_BAMYAN_QUOTE',		'[NEWLINE]"The past is already gone, the future is not yet here. There''s only one moment for you to live."[NEWLINE] - Buddha[NEWLINE]'),
 				('TXT_KEY_WONDER_BAMYAN_PEDIA',		'Deep in the Hindu Kush, in the Bamyan Valley, along the Silk Road, the Buddhas of Bamyan once towered over the region. Bamyan was a religious site from the 2nd century until the later half of the 7th century, and the Buddhas were constructed throughout that time. The Chinese Buddhist pilgrim Xuanzang visited in 630 CE, describing Bamyan as a flourishing Buddhist center "with more than ten monstaries and more than a thousand monks". In 2001, the Buddhas were destroyed by the Taliban, either in protest of international aid priorities or as part of Islamic religious iconoclasm, to both international and domestic condemnation. Since then, international efforts have been made to reconstruct the Buddhas. Furthermore, after the destruction of the Buddhas, caves containing art from the 5th through 9th centuries were discovered, as well as Xuanzang''s translation of the Pratityasamutpada Sutra that spelled out the basic belief of Buddhism: all things are transient.While the original Buddhas of Bamyan may be gone, their message and cultural significance will echo for all eternity.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1195,8 +1195,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_FALUN',	'UNIT_GREAT_GENERAL',	1);
 	
 	INSERT INTO Building_GreatPersonProgressFromConstruction
-				(BuildingType,		GreatPersonType,		EraType,		Value) 
-	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_MEDIEVAL',	50);
+				(BuildingType,		GreatPersonType,		EraType,			Value) 
+	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_MEDIEVAL',		100),
+				('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_RENAISSANCE',	100);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
@@ -1208,8 +1209,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
-				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +50% generation of [ICON_GREAT_ENGINEER] Great Engineers during Medieval Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]4 Mines[ENDCOLOR] nearby.'),
-				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +50% generation of [ICON_GREAT_ENGINEER] Great Engineers during Medieval Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
+				('TXT_KEY_WONDER_FALUN_HELP',		'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]Lake[ENDCOLOR] and have [COLOR_CYAN]4 Mines[ENDCOLOR] nearby.'),
+				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
 				('TXT_KEY_WONDER_FALUN_QUOTE',		'[NEWLINE]"The finest workers in stone are not copper or steel tools, but the gentle touches of air and water working at their leisure with a liberal allowance of time."[NEWLINE] - Henry David Thoreau[NEWLINE]'),
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1603,3 +1604,5 @@ UPDATE Language_en_US SET Text = 'On the contrary. Every Bison dollar will be wo
 UPDATE Language_en_US SET Text = Substr(Text, 59, 2000) WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
 UPDATE Language_en_US SET Text = 'Starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]The Crown Jewels[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
 UPDATE Language_en_US SET Text = Substr(Text, 1, 276)||'starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Flood Tablet[ENDCOLOR] '||Substr(Text, 360, 2000) WHERE Tag ='TXT_KEY_BUILDING_ROYAL_LIBRARY_HELP';
+--------------------------------------------------------------
+--------------------------------------------------------------

@@ -4,7 +4,6 @@ print("Loading UniqueWonderRequirements.lua from MWfVP")
 -- Dec 15, 2017: Created, Infixo
 -- Jan 7, 2020: Improved, adan_eslavo
 --------------------------------------------------------------
-
 -- debug output routine
 function dprint(sStr,p1,p2,p3,p4,p5,p6)
 	local sOutStr = sStr
@@ -30,6 +29,7 @@ local tValidIsOneTile = {}
 ----
 local tValidIsAtPeace = {}
 local tValidIsMajorApproach = {}
+
 
 local bReachedMaxEra
 
@@ -91,7 +91,7 @@ GameEvents.CityCanConstruct.Add(IsMaxEra)--]]
 -- checks if city is between LAKE and sea and adds this condition (normally it would be treated like city wothout lake)
 function IsLakeWithOcean(ePlayer, eCity, eBuilding)
 	if not tValidIsLake[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
    
@@ -116,7 +116,7 @@ GameEvents.CityCanConstruct.Add(IsLakeWithOcean)
 -- checks if city is NOT near COAST
 function IsNoCoast(ePlayer, eCity, eBuilding)
 	if not tValidIsNoCoast[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
    
@@ -137,7 +137,7 @@ GameEvents.CityCanConstruct.Add(IsNoCoast)
 -- looks for 2 MOUNTAINS in city range (MACHU PICCHU, BUDDHAS OF BAMYAN)
 function IsMountains(ePlayer, eCity, eBuilding)
 	if not tValidIsMountains[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
    
@@ -174,7 +174,7 @@ GameEvents.CityCanConstruct.Add(IsMountains)
 -- adds condition: if not tundra then also not snow
 function IsProhibitedTerrainExpanded(ePlayer, eCity, eBuilding)
 	if not tValidIsProhibitedTerrain[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
    
@@ -212,7 +212,7 @@ GameEvents.CityCanConstruct.Add(IsProhibitedTerrainExpanded)
 -- looks for IMPROVEMENTS
 function IsHasImprovement(ePlayer, eCity, eBuilding)
 	if not tValidIsHasImprovement[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
    
@@ -272,7 +272,7 @@ GameEvents.CityCanConstruct.Add(IsHasImprovement)
 -- checks if city is ONE-tile (MONT ST MICHELLE, SOLOVIETSKY)
 function IsOneTile(ePlayer, eCity, eBuilding)
 	if not tValidIsOneTile[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
 	
@@ -296,7 +296,7 @@ GameEvents.CityCanConstruct.Add(IsOneTile)
 -- checks if player is at PEACE (BUDDHAS OF BAMYAN)
 function IsAtPeace(ePlayer, eCity, eBuilding)
 	if not tValidIsAtPeace[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
 	
@@ -316,7 +316,7 @@ GameEvents.CityCanConstruct.Add(IsAtPeace)
 -- checks if other player's APPROACHES (STATUE OF ZEUS, GREAT WALL)
 function IsMajorApproach(ePlayer, eCity, eBuilding)
 	if not tValidIsMajorApproach[eBuilding] then return true end
-	if bReachedMaxEra then  return false end
+	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
 	

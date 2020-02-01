@@ -1,8 +1,9 @@
 print("Loading WonderPopup.lua from MWfVP")
--------------------------------------------------
--- Wonder popup
--------------------------------------------------
-
+--------------------------------------------------------------
+-- Wonder Popup screen
+-- Dec 15, 2017: Adapted, Infixo
+-- Jan 7, 2020: Improved, adan_eslavo
+--------------------------------------------------------------
 include("IconSupport");
 include("InfoTooltipInclude");
 
@@ -165,5 +166,8 @@ ContextPtr:SetShowHideHandler(ShowHideHandler);
 -- 'Active' (local human) player has changed
 ----------------------------------------------------------------
 Events.GameplaySetActivePlayer.Add(OnClose);
-
-print("OK loaded WonderPopup.lua from MWfVP")
+--------------------------------------------------------------
+--------------------------------------------------------------
+print("Loaded WonderPopup.lua from MWfVP")
+--------------------------------------------------------------
+--------------------------------------------------------------

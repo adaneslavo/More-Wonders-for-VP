@@ -2,18 +2,18 @@
 -- Automatic changes applied to all new Wonders
 -- Dec 9, 2017: Created, Infixo
 -- Jan 6, 2020: Improved, adan_eslavo
---------------------------------------------------------------
---------------------------------------------------------------
+--============================================--
 -- Table with new Wonder Types
---------------------------------------------------------------
+--============================================--
 CREATE TABLE VPWEConfig (
 	WType	TEXT	NOT NULL,  	-- Wonder Type
 	WActive	INTEGER	NOT NULL,   -- 1 = Wonder active / 0 = Wonder not active
 	WFake	INTEGER	NOT NULL,   -- 1 = Fake texts / 0 = Real texts
 	PRIMARY KEY (WType)
 );
---------------------------------------------------------------
+--============================================--
 -- CONFIGURATION
+--============================================--
 -- Use below table to DISABLE a specific Wonder
 -- Change the 1st number to 0 (ZERO) to disable.
 -- DO NOT CHANGE 2ND NUMBER!
@@ -72,11 +72,9 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
 --('TAIPEI101',   1, 0), -- Taipei 101
 --('WHITESANDS',  1, 0), -- White Sands Missile Range
---------------------------------------------------------------
---------------------------------------------------------------
+--============================================--
 -- WONDERS INITIAL CONFIGURATION
---------------------------------------------------------------
---------------------------------------------------------------
+--============================================--
 -- This will disable by default all Wonders not yet programmed
 UPDATE VPWEConfig SET WActive = 0 WHERE WFake = 1;
 --------------------------------------------------------------
@@ -92,7 +90,7 @@ FROM VPWEConfig WHERE WActive = 1;
 -- GreatWorkCount defaults to 0, PrereqTech defaults to NULL
 INSERT INTO Buildings
 			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,				WonderSplashAnchor)
-SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_NEW_WONDERS'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
+SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_NEW_WONDERS_'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
 FROM VPWEConfig WHERE WActive = 1;
 --------------------------------------------------------------
 -- Panama Canal is already in the game
@@ -120,23 +118,21 @@ SELECT		'BUILDING_'||WType, 'FLAVOR_WONDER',	20
 FROM VPWEConfig;
 --------------------------------------------------------------
 -- IconTextureAtlases
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType, 256, 'Wonder_'||WType||'_256.dds',	'1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType, 128, 'Wonder_'||WType||'_128.dds',	'1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  80, 'Wonder_'||WType||'_80.dds',	'1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  64, 'Wonder_'||WType||'_64.dds',	'1', '1' FROM VPWEConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS'||WType,  45, 'Wonder_'||WType||'_45.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType, 256, 'Wonder_'||WType||'_256.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType, 128, 'Wonder_'||WType||'_128.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  80, 'Wonder_'||WType||'_80.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  64, 'Wonder_'||WType||'_64.dds',	'1', '1' FROM VPWEConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  45, 'Wonder_'||WType||'_45.dds',	'1', '1' FROM VPWEConfig;
 --------------------------------------------------------------
 -- Fake texts; if the real ones are created, set WFake to 0 (zero)
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_BUILDING_'||WType,         'Wonder '||WType 					    FROM VPWEConfig WHERE WFake = 1;
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'Civilopedia text for Wonder '||WType FROM VPWEConfig WHERE WFake = 1;
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_HELP',  'Help text for Wonder '||WType 	    FROM VPWEConfig WHERE WFake = 1;
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE', '[NEWLINE]Quote for Wonder '||WType 	FROM VPWEConfig WHERE WFake = 1;
---------------------------------------------------------------
---------------------------------------------------------------
+--============================================--
 -- DUMMY BUILDINGS
 -- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
---------------------------------------------------------------
---------------------------------------------------------------
+--============================================--
 INSERT INTO VPWEConfig 
 			(WType,						WActive,	WFake)
 VALUES		('CHEVALIERS_DUMMY',		2,			0), -- for Krak des Chevaliers
