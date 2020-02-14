@@ -126,7 +126,7 @@ function IsNoCoast(ePlayer, eCity, eBuilding)
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 
-	if pCity:IsCoastal(10) then
+	if pCity:IsCoastal(15) then
 		return false
 	end
 
