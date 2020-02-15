@@ -225,7 +225,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- SKARA BRAE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_SKARA_BRAE';
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SKARA_BRAE';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType, ResourceType) 
@@ -445,7 +445,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	
 	-- +Quarry(1) (lua)
 	---------------------------------------------------------	
@@ -480,7 +480,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- CLASSICAL ERA
 --============================================--
 -- GREAT LIGHTHOUSE
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,						FeatureType) 
@@ -879,7 +879,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- COLOSSUS
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_COLOSSUS';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_COLOSSUS';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
@@ -960,7 +960,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
-	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -1400,7 +1400,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
@@ -1460,7 +1460,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_QALHAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_QALHAT';
 	
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
@@ -1558,6 +1558,102 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_CHEVALIERS_HELP_CUT',	'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in the City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.'),
 				('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 				('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.');
+--============================================--
+-- RENAISSANCE ERA
+--============================================--
+-- GLOBE THETRE
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GLOBE_THEATRE';
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_GLOBE_THEATRE';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	VALUES		('BUILDING_GLOBE_THEATRE',	'BUILDINGCLASS_BATHS'),
+				('BUILDING_GLOBE_THEATRE',	'BUILDINGCLASS_AMPHITHEATER');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_GLOBE_THEATRE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GLOBE_THEATRE_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]River[ENDCOLOR] and have [COLOR_CYAN]Amphitheater[ENDCOLOR] and [COLOR_CYAN]Baths[ENDCOLOR] already constructed.' WHERE Tag ='TXT_KEY_WONDER_GLOBE_THEATRE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- CHICHEN ITZA
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHICHEN_ITZA';
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_CHICHEN_ITZA';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	VALUES		('BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_CHICHEN_ITZA_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on or next to a [COLOR_CYAN]Plains[ENDCOLOR], on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HIMEJI CASTLE
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_HIMEJI_CASTLE';
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HIMEJI_CASTLE';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	VALUES		('BUILDING_HIMEJI_CASTLE',	'FEATURE_FOREST');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_HIMEJI_CASTLE_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HIMEJI_CASTLE_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR], on a [COLOR_CYAN]Flat[ENDCOLOR] and have a [COLOR_CYAN]Forest[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_HIMEJI_CASTLE_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- LEANING TOWER OF PISA
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_LEANING_TOWER';
+	UPDATE Buildings SET Flat = 1, AnyWater = 1 WHERE Type = 'BUILDING_LEANING_TOWER';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	VALUES		('BUILDING_LEANING_TOWER',	'FEATURE_MARSH');
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_LEANING_TOWER_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LEANING_TOWER_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Flat[ENDCOLOR], near [COLOR_CYAN]Water[ENDCOLOR] and have a [COLOR_CYAN]Marsh[ENDCOLOR] nearby.' WHERE Tag ='TXT_KEY_WONDER_LEANING_TOWER_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- PORCELAIN TOWER
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_PORCELAIN_TOWER';
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PORCELAIN_TOWER';
+	
+	-- +CS_Ally(2)
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built next to a [COLOR_CYAN]River[ENDCOLOR] and Player must have at least [COLOR_CYAN]2 City-State Allies[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_PORCELAIN_TOWER_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TAJ MAHAL
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAJ_MAHAL';
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	SELECT		'TXT_KEY_WONDER_TAJ_MAHAL_HELP_CUT',	Text
+	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP';
+				
+	UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]City must be built on a [COLOR_CYAN]Coast[ENDCOLOR], on a [COLOR_CYAN]Flat[ENDCOLOR] and next to a [COLOR_CYAN]River[ENDCOLOR] and Player must have at least [COLOR_CYAN]2 City-State Allies[ENDCOLOR].' WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
