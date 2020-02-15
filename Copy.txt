@@ -96,19 +96,6 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM VPWEConfig WHERE WActive = 0);
 
 
 
-UPDATE Buildings SET MutuallyExclusiveGroup = 64, PolicyType = 'POLICY_PIETY_FINISHER' 		 WHERE Type IN ('BUILDING_RED_FORT',        'BUILDING_STPETERS');
-UPDATE Buildings SET MutuallyExclusiveGroup = 65, PolicyType = 'POLICY_PATRONAGE_FINISHER'   WHERE Type IN ('BUILDING_BIG_BEN', 		 'BUILDING_BROOKLYN');
-UPDATE Buildings SET MutuallyExclusiveGroup = 66, PolicyType = 'POLICY_AESTHETICS_FINISHER'  WHERE Type IN ('BUILDING_LOUVRE', 			 'BUILDING_MONTECARLO');
-UPDATE Buildings SET MutuallyExclusiveGroup = 67, PolicyType = 'POLICY_COMMERCE_FINISHER' 	 WHERE Type IN ('BUILDING_BROADWAY', 		 'BUILDING_WILLIS');
-UPDATE Buildings SET MutuallyExclusiveGroup = 68, PolicyType = 'POLICY_EXPLORATION_FINISHER' WHERE Type IN ('BUILDING_PENTAGON', 		 'BUILDING_WHITESANDS');
-UPDATE Buildings SET MutuallyExclusiveGroup = 69, PolicyType = 'POLICY_RATIONALISM_FINISHER' WHERE Type IN ('BUILDING_BLETCHLEY_PARK',   'BUILDING_ARECIBO');
-
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]St. Peter'' Basilica[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]Brooklyn Bridge[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]Monte Carlo Casino[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]Willis Tower[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]White Sands Missile Range[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET] Unlocks building the [COLOR_CYAN]Arecibo Observatory[ENDCOLOR]. However, only [COLOR_RED]one[ENDCOLOR] of those newly unlocked Wonders can be built.' WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
 
 
 ----------------------------------------------------

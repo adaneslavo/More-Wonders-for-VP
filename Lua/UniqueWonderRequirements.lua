@@ -89,12 +89,12 @@ end
 GameEvents.CityCanConstruct.Add(IsMaxEra)--]]
 
 -- checks if city is between River and Sea and adds this condition (normally it would be treated like city with Lake)
--- Sea and Lake		=	FreshWater == true, 	Water>1 == true		true
--- Lake and River	=	FreshWater == true, 	Water>1 == true		true
--- Sea and River	=	FreshWater == true, 	Water>1 == true		true? should be false
--- Sea			=	FreshWater == false, 	Water>1 == true		false
--- Lake			=	FreshWater == true, 	Water>1 == true		true
--- River		=	FreshWater == true, 	Water>1 == false	false
+-- Sea and Lake		=	FreshWater == true, 	Water>=1 == true			true
+-- Lake and River	=	FreshWater == true, 	Water>=1 == true			true
+-- Sea and River	=	FreshWater == true, 	Water>=1 == true			true? (should be false)
+-- Sea				=	FreshWater == false, 	Water>=1 == true			false
+-- Lake				=	FreshWater == true, 	Water>=1 == true			true
+-- River			=	FreshWater == true, 	Water>=1 == false			false
 function IsLakeWithOcean(ePlayer, eCity, eBuilding)
 	if not tValidIsLake[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -384,14 +384,20 @@ function Initialize()
 	tValidIsNoCoast[GameInfo.Buildings.BUILDING_NABAWI.ID] = true
 	tValidIsNoCoast[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true
 	tValidIsNoCoast[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MAJORVILLE.ID, GameInfo.Buildings.BUILDING_MAJORVILLE.Type, "(IsNoCoast)")
+	tValidIsNoCoast[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true
+	tValidIsNoCoast[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true
+	--[[dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MAJORVILLE.ID, GameInfo.Buildings.BUILDING_MAJORVILLE.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID, GameInfo.Buildings.BUILDING_HANGING_GARDEN.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID, GameInfo.Buildings.BUILDING_ETCHMIADZIN.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_NABAWI.ID, GameInfo.Buildings.BUILDING_NABAWI.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID, GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.Type, "(IsNoCoast)")
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_CHEVALIERS.ID, GameInfo.Buildings.BUILDING_CHEVALIERS.Type, "(IsNoCoast)")
-	
+	--]]
+	for id, building in pairs(tValidIsNoCoast) do
+		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
+	end
+
 	-- IsMountains
 	tValidIsMountains[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true
 	tValidIsMountains[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true

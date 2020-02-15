@@ -29,15 +29,18 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('MAJORVILLE',		1,			0),		-- Majorville Medicine Wheel
 			('MOHENJO_DARO',	1,			0),		-- Mohenjo-Daro
 			('SKARA_BRAE',		1,			0),		-- Skara Brae
+			----------------------------------------------------------------------------------------
 			('KARNAK',			1,			0),		-- Karnak Temple
 			('NAZCA',			1,			0),		-- Nazca Lines
 			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
+			----------------------------------------------------------------------------------------
 			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',		1,			0),		-- Gate of the Sun
 			('BAMYAN',			1,			0),		-- Buddhas of Bamiyan
 			('EL_GHRIBA',		1,			0),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',		1,			0),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',		1,			0),		-- Chand Baori Well
+			----------------------------------------------------------------------------------------
 			('NABAWI',			1,			0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
 			('LAVAUX',			1,			0),		-- Lavaux
 			('WARTBURG',		1,			0),		-- Wartburg Castle
@@ -49,12 +52,15 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
 			('QALHAT',			1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
-
+			----------------------------------------------------------------------------------------
+			--('BENHADDOU',		1,			1),		-- Ait Benhaddou
+			--('STPETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
+			--('KINKAKUJI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
+			--('PETERHOF',		1,			0),		-- Peterhof Palace
+			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
---('BENHADDOU',   1, 1), -- Ait Benhaddou
 --('BROOKLYN',    1, 0), -- Brooklyn Bridge
---('GRIPSHOLM',   1, 0), -- Gripsholm Castle
 --('HOLLYWOOD',   1, 0), -- Hollywood
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
@@ -64,12 +70,10 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 --('MUSEUM_ISLAND', 1, 0), --Museum Island
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
---('PETERHOF',   1, 0), -- Peterhof Palace
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SKYTREE',     1, 1), -- Tokyo Skytree
 --('SOVIETS',     1, 0), -- Palace of the Soviets
 --('SPUTNIK',     1, 0), -- Sputnik Program, The
---('STPETERS',    1, 0), -- Papal Basilica of St. Peter in the Vatican
 --('TAIPEI101',   1, 0), -- Taipei 101
 --('WHITESANDS',  1, 0), -- White Sands Missile Range
 --============================================--
@@ -139,7 +143,7 @@ VALUES		('CHEVALIERS_DUMMY',		2,			0), -- for Krak des Chevaliers
 			('ITSUKUSHIMA_DUMMY',		2,			0), -- for Itsukushima
 			('QALHAT_DUMMY',			2,			0), -- for Qalhat
 			('GATE_OF_SUN_DUMMY',		2,			0), -- for Gate of the Sun
-			('GREAT_ZIMBABWE_DUMMY',	2,			0); -- for Gate of the Sun
+			('GREAT_ZIMBABWE_DUMMY',	2,			0); -- for Great Zimbabwe
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)
