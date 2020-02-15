@@ -225,7 +225,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- SKARA BRAE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_SKARA_BRAE';
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SKARA_BRAE';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType, ResourceType) 
@@ -445,7 +445,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	
 	-- +Quarry(1) (lua)
 	---------------------------------------------------------	
@@ -480,7 +480,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- CLASSICAL ERA
 --============================================--
 -- GREAT LIGHTHOUSE
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,						FeatureType) 
@@ -879,7 +879,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- COLOSSUS
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_COLOSSUS';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_COLOSSUS';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
@@ -960,7 +960,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
-	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -1400,7 +1400,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
@@ -1460,7 +1460,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_QALHAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_QALHAT';
 	
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 15 WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT';
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
