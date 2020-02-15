@@ -88,7 +88,13 @@ local bReachedMaxEra
 end
 GameEvents.CityCanConstruct.Add(IsMaxEra)--]]
 
--- checks if city is between LAKE and sea and adds this condition (normally it would be treated like city wothout lake)
+-- checks if city is between River and Sea and adds this condition (normally it would be treated like city with Lake)
+-- Sea and Lake		=	FreshWater == true, 	Water>1 == true	true
+-- Lake and River	=	FreshWater == true, 	Water>1 == true	true
+-- Sea and River	=	FreshWater == true, 	Water>1 == true	true? should be false
+-- Sea			=	FreshWater == false, 	Water>1 == true	false
+-- Lake			=	FreshWater == true, 	Water>1 == true	
+-- River		=	FreshWater == true, 	Water>1 == false
 function IsLakeWithOcean(ePlayer, eCity, eBuilding)
 	if not tValidIsLake[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -126,7 +132,7 @@ function IsNoCoast(ePlayer, eCity, eBuilding)
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 
-	if pCity:IsCoastal(15) then
+	if pCity:IsCoastal(10) then
 		return false
 	end
 
