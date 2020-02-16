@@ -53,10 +53,17 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('QALHAT',			1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
 			----------------------------------------------------------------------------------------
-			--('BENHADDOU',		1,			1),		-- Ait Benhaddou
+			--('BENHADDOU',		1,			0),		-- Ait Benhaddou
+			--('KILWA_KISIWANI',		1,			0),		-- Kilwa Kisiwani
 			--('STPETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
 			--('KINKAKUJI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
+			--('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
+			--('MEENAKSHI',		1,			0),		-- Meenakshi Temple
 			--('PETERHOF',		1,			0),		-- Peterhof Palace
+			--('BAKKEN',		1,			0),		-- Bakken
+			--('HOUSE_OF_TRADE',		1,			0),		-- Casa de Contratación
+			--('SOLOVIETSKY',		1,			0),		-- Solovietsky Monastery
+			
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
