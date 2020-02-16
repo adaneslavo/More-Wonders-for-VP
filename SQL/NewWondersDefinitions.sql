@@ -114,12 +114,9 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- GOEBEKLI TEPE (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
-	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
+	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_MARBLE'),
-				('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE');
+	-- + IsNoCoast (lua)
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
@@ -127,16 +124,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_GOEBEKLI_TEPE',	'YIELD_SCIENCE',	1),
 				('BUILDING_GOEBEKLI_TEPE',	'YIELD_FAITH',		1);
 
-	INSERT INTO Building_ResourceYieldChanges 
+	INSERT INTO Building_ResourceYieldChangesGlobal
 				(BuildingType,				ResourceType,		YieldType,			Yield) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_MARBLE',	'YIELD_SCIENCE',	1),
-				('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_SCIENCE',	1),
-				('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_MARBLE',	'YIELD_FAITH',		1),
-				('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_FAITH',		1);
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,				TerrainType,		YieldType,		Yield) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN', 'YIELD_FAITH',	1);
+				(BuildingType,				TerrainType,		YieldType,			Yield) 
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN', 'YIELD_FAITH',		1),
+				('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN', 'YIELD_SCIENCE',	1);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor) 
@@ -147,8 +142,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Goebekli Tepe'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR]; Resource: [ICON_RES_MARBLE] [COLOR_CYAN]Marble[ENDCOLOR]/[ICON_RES_STONE] [COLOR_CYAN]Stone[ENDCOLOR].[NEWLINE][NEWLINE]+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT',	'+1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_MARBLE] Marble: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]+1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]All [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT',	'+1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith from Mountains worked by the City.[NEWLINE][NEWLINE]All [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',		'[NEWLINE]"Listen a hundred times. Ponder a thousand times. Speak once."[NEWLINE] - Turkish proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',		'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. This belief persisted until 1994, and not excavated until a year later. The complex is similar in form to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -196,7 +191,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- MOHENJO-DARO (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_MOHENJO_DARO';
-	UPDATE Buildings SET Hill = 1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
+	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
@@ -219,7 +214,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',			'Mohenjo-daro'),
-				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built.'),
+				('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built.'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_HELP_CUT',	'+1 [ICON_FOOD] Food from River tiles worked by the City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built.'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_QUOTE',		'[NEWLINE]"A river is an ocean in a desert."[NEWLINE] - Matshona Dhliwayo[NEWLINE]'),
 				('TXT_KEY_WONDER_MOHENJO_DARO_PEDIA',		'Built sometime around 2500 BC, Mohenjo-daro was one of the largest of the Harappan civilization’s settlements, center of a thriving culture that spanned northern India and Pakistan. While the Egyptians were building pyramids for their pharaohs and the Minoans were leaping over bulls for sport, the 40,000 (or so) citizens of Mohenjo-daro were building striking structures of fired and mortared brick: public baths, a central market with a public well, spacious homes, a great granary (with air ducts to dry the grain), the “Pillared Hall” for assemblies, and the “College Hall” (78 rooms thought to have been a residence for priests). Mohenjo-daro was the most advanced city of its time, with remarkably sophisticated civil engineering and urban planning. When the Harappan civilization went into a sudden – and as yet unexplained, although historians have lots of theories – decline around 1900 BC, Mohenjo-daro was gradually abandoned, to be lost until 1920 AD. (Adapted from Sid Meier''s Civilization 6)');
@@ -290,11 +285,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_KARNAK', 'YIELD_CULTURE',	1);
 	
 	INSERT INTO Building_YieldPerXFeatureTimes100 
-				(BuildingType,		FeatureType,			YieldType,			Yield) 
-	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FOOD',		100),
-				('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FAITH',		100),
-				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FOOD',		50),
-				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FAITH',		50);
+				(BuildingType,		FeatureType,			YieldType,				Yield) 
+	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_PRODUCTION',		100),
+				('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FAITH',			100),
+				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_PRODUCTION',		50),
+				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FAITH',			50);
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,		BuildingClassType,			YieldType,			YieldChange) 
@@ -309,8 +304,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
-				('TXT_KEY_WONDER_KARNAK_HELP',		'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
-				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_FOOD] Food and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
+				('TXT_KEY_WONDER_KARNAK_HELP',		'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
+				('TXT_KEY_WONDER_KARNAK_HELP_CUT',  '[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built. All Monuments receive +1 [ICON_CULTURE] Culture. +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with Archeology.'),
 				('TXT_KEY_WONDER_KARNAK_QUOTE',		'[NEWLINE]"The body is the house of god. That is why it is said ''Man know yourself''."[NEWLINE] - Egyptian Proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_KARNAK_PEDIA',		'Karnak is a large temple complex located in Thebes (nowadays is Luxor). It was constructed during the reign of Ramesses II as a place of worship for many different gods and goddesses, instead of focusing on just one member of the Egyptian Pantheon.[NEWLINE][NEWLINE]  The complex is a vast open-air museum, and the second largest ancient religious site in the world (after the Angkor Wat in Cambodia). It is believed to be the second most visited historical site in Egypt, only the Giza Pyramids near Cairo receive more visits.[NEWLINE][NEWLINE]  One famous aspect of Karnak is the Hypostyle Hall in the Precinct of Amun-Re, a hall area of 50,000 sq ft (5,000 m2) with 134 massive columns arranged in 16 rows. 122 of these columns are 10 meters tall, and the other 12 are 21 meters tall with a diameter of over three meters.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -319,13 +314,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
+
+	-- +Road(2) (lua)
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_STONEHENGE_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Roads[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improvement: [COLOR_CYAN]Road[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA LINES (NEW)
@@ -386,47 +383,46 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_WIELICZKA';
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WIELICZKA';
 	
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT');
+	-- + Mine(2) lua
 	---------------------------------------------------------	
-	UPDATE Buildings SET EnhancedYieldTech = 'TECH_SCIENTIFIC_THEORY', TechEnhancedTourism = 2 WHERE Type = 'BUILDING_WIELICZKA';
-	
-	INSERT INTO Building_YieldChanges 
-				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_WIELICZKA',	'YIELD_PRODUCTION', 1),
-				('BUILDING_WIELICZKA',	'YIELD_GOLD',		1);
-	
 	INSERT INTO Building_ResourceYieldChanges 
-				(BuildingType,			ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_FOOD',	1);
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_PRODUCTION',	1),
+				('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_GOLD',	1);
 	
 	INSERT INTO Building_ResourcePlotsToPlace
 				(BuildingType,			ResourceType,		NumPlots) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	1);
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2);
 
 	INSERT INTO Building_GlobalYieldModifiers 
 				(BuildingType,			YieldType,		Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'YIELD_FOOD',	5);
+	
+	INSERT INTO Building_ImprovementYieldChanges 
+				(BuildingType,			ImprovementType,	YieldType,		Yield) 
+	VALUES		('BUILDING_WIELICZKA',	'IMPROVEMENT_MINE',	'YIELD_FOOD',	1);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor) 
 	VALUES		('BUILDING_WIELICZKA',	'FLAVOR_GROWTH',		50),
 				('BUILDING_WIELICZKA',	'FLAVOR_PRODUCTION',	10),
-				('BUILDING_WIELICZKA',	'FLAVOR_CULTURE',		30);
+				('BUILDING_WIELICZKA',	'FLAVOR_GOLD',			20),
+				('BUILDING_WIELICZKA',	'FLAVOR_HAPPINESS',		20);
 	---------------------------------------------------------	
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_WIELICZKA',			'Wieliczka Salt Mine'),
-				('TXT_KEY_WONDER_WIELICZKA_HELP',		'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Resource: [ICON_RES_SALT] [COLOR_CYAN]Salt[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 1 new [ICON_RES_SALT] Salt resource inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.'),
-				('TXT_KEY_WONDER_WIELICZKA_HELP_CUT',	'Wonder places 1 new [ICON_RES_SALT] Salt resource inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +2 [ICON_TOURISM] Tourism with Scientific Theory.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_FOOD] Food.'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP',		'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Mines[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_SALT] Salt resources inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +1 [ICON_FOOD] Food from Mines worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold.'),
+				('TXT_KEY_WONDER_WIELICZKA_HELP_CUT',	'Wonder places 2 new [ICON_RES_SALT] Salt resources inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +1 [ICON_FOOD] Food from Mines worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold.'),
 				('TXT_KEY_WONDER_WIELICZKA_QUOTE',		'[NEWLINE]"You are the salt of the earth. But remember that salt is useful when in association, but useless in isolation."[NEWLINE] - Israelmore Ayivor[NEWLINE]'),
 				('TXT_KEY_WONDER_WIELICZKA_PEDIA',		'The Wieliczka Salt Mine, in the town of Wieliczka, southern Poland, lies within the Kraków metropolitan area. Sodium chloride (table salt) was formerly produced there from the upwelling brine - and had been since Neolithic times. The Wieliczka salt mine, excavated from the 13th century, produced table salt continuously until 2007, as one of the world''s oldest operating salt mines.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PETRA
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_PETRA';
-	UPDATE Buildings SET Mountain = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
+	UPDATE Buildings SET Hill = 1, IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
+	
+	-- + IsNoCoast (lua)
 	---------------------------------------------------------	
 	UPDATE Language_en_US SET Text = Substr(Text, 42, 2000) WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
 	
@@ -435,7 +431,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_PETRA_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PETRA_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR], [COLOR_CYAN]Mountain (next to)[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
@@ -471,22 +467,17 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE');
+	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE'),
+				('BUILDING_STATUE_ZEUS',	'RESOURCE_STONE');
 	
 	-- + Afraid/Guarded/Hostile/War (lua)
 	---------------------------------------------------------
-	INSERT INTO Building_ResourceYieldChanges
-				(BuildingType,				ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_STATUE_ZEUS',	'RESOURCE_MARBLE',	'YIELD_FAITH',	2);
-	---------------------------------------------------------	
-	UPDATE Language_en_US SET Text = 'Nearby [ICON_RES_MARBLE] Marble: +2 [ICON_PEACE] Faith.' WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
-	
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Resource: [ICON_RES_MARBLE] [COLOR_CYAN]Marble[ENDCOLOR]; Other Player: [COLOR_CYAN]Guarded[ENDCOLOR]/[COLOR_CYAN]Afraid[ENDCOLOR]/[COLOR_CYAN]Hostile[ENDCOLOR]/[COLOR_CYAN]Warring[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
+	UPDATE Language_en_US SET Text = 'Resource: [ICON_RES_MARBLE] [COLOR_CYAN]Marble[ENDCOLOR]/[ICON_RES_STONE] [COLOR_CYAN]Stone[ENDCOLOR]; Other Player: [COLOR_CYAN]Guarded[ENDCOLOR]/[COLOR_CYAN]Afraid[ENDCOLOR]/[COLOR_CYAN]Hostile[ENDCOLOR]/[COLOR_CYAN]Warring[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_HELP';
 --============================================--
 -- CLASSICAL ERA
 --============================================--
@@ -494,33 +485,33 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,						FeatureType) 
-	VALUES		('BUILDING_GREAT_LIGHTHOUSE',		'FEATURE_OASIS'),
-				('BUILDING_GREAT_LIGHTHOUSE',		'FEATURE_FLOOD_PLAINS');
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,						ResourceType) 
+	VALUES		('BUILDING_GREAT_LIGHTHOUSE',		'FEATURE_STONE');
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	SELECT		'TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Resource: [ICON_RES_STONE] [COLOR_CYAN]Stone[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT LIBRARY
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_GREAT_LIBRARY';
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_GREAT_LIBRARY';
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_GREAT_LIBRARY';
 	
-	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_GREAT_LIBRARY',	'BUILDINGCLASS_WRITERS_GUILD');
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_GREAT_LIBRARY',	'FEATURE_FOREST'),
+				('BUILDING_GREAT_LIBRARY',	'FEATURE_JUNGLE');
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	SELECT		'TXT_KEY_WONDER_GREAT_LIBRARY_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Building: [COLOR_CYAN]Writer''s Guild[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HANGING GARDENS
@@ -539,7 +530,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T', PrereqTech = 'TECH_WRITING' WHERE Type = 'BUILDING_FORUM';
-	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_FORUM';
+	UPDATE Buildings SET AnyWater = 1 WHERE Type = 'BUILDING_FORUM';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,		FeatureType) 
@@ -550,7 +541,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_BUILDING_FORUM_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_FORUM_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]-1[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
+	UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Water[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]-1[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW)
@@ -563,30 +554,21 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(BuildingType,			BuildingClassType) 
 	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');
 	---------------------------------------------------------
-	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MALWIYA';
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_MALWIYA',	'YIELD_CULTURE',	2);
-
-	INSERT INTO Building_FreeUnits 
-				(BuildingType,			UnitType,			NumUnits) 
-	VALUES		('BUILDING_MALWIYA',	'UNIT_ENGINEER',	1);
+	VALUES		('BUILDING_MALWIYA',	'YIELD_FAITH',		3);
 
 	INSERT INTO Building_ImprovementYieldChangesGlobal 
 				(BuildingType,			ImprovementType,			YieldType,			Yield) 
 	VALUES		('BUILDING_MALWIYA',	'IMPROVEMENT_MANUFACTORY',	'YIELD_FAITH',		3),
-				('BUILDING_MALWIYA',	'IMPROVEMENT_MANUFACTORY',	'YIELD_PRODUCTION', 1),
 				('BUILDING_MALWIYA',	'IMPROVEMENT_QUARRY',		'YIELD_FAITH',		1),
 				('BUILDING_MALWIYA',	'IMPROVEMENT_QUARRY',		'YIELD_PRODUCTION', 1);
 
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
-	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS',	'YIELD_PRODUCTION', 1);
-
-	INSERT INTO Building_ResourceYieldChanges 
-				(BuildingType,			ResourceType,		YieldType,			Yield) 
-	VALUES		('BUILDING_MALWIYA',	'RESOURCE_STONE',	'YIELD_PRODUCTION', 1);
+	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS',	'YIELD_PRODUCTION', 2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,					Flavor) 
@@ -598,8 +580,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_MALWIYA',			'Malwiya Minaret'),
-				('TXT_KEY_WONDER_MALWIYA_HELP',			'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Building: [COLOR_CYAN]Stone Works[ENDCOLOR].[NEWLINE][NEWLINE]Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_ENGINEER] Great Engineer. All Stone Works, Quarries and Manufactories receive +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith, and Quarries +1 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]Nearby [ICON_RES_STONE] Stone: +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP',			'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Building: [COLOR_CYAN]Stone Works[ENDCOLOR].[NEWLINE][NEWLINE]All Stone Works receive +2 [ICON_PRODUCTION] Production and Quarries +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith and Quarries +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_MALWIYA_HELP_CUT',		'All Stone Works receive +2 [ICON_PRODUCTION] Production and Quarries +1 [ICON_PRODUCTION] Production. All Manufactories receive +3 [ICON_PEACE] Faith and Quarries +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_MALWIYA_QUOTE',		'[NEWLINE]"Aim at heaven and you will get Earth... Aim at Earth and you will get neither."[NEWLINE] - C.S. Lewis[NEWLINE]'),
 				('TXT_KEY_WONDER_MALWIYA_PEDIA',		'The Malwiya Minaret (also known as the Spiral Minaret) is part of the Great Mosque of Samarra, located in Samarra, Iraq. The complex was built over a period of four years, from 848 to 852 CE. The main mosque was completed one year before the Minaret. The complex was constructed during the reign of Al-Mutawakkil, an Abbasid Caliph. For a time it was the largest mosque in the world.[NEWLINE][NEWLINE]  The minaret (tower) was constructed of sandstone, and is unique among other minarets because of its ascending spiral conical design. 52 metres high and 33 metres wide at the base, the spiral contains stairs reaching to the top. The word "malwiya" translates as "twisted" or "snail shell".[NEWLINE][NEWLINE]  With the turbulence of the Iraq war, the Malwiya Minaret has been damaged by bomb blasts, one in 2005 and one in 2011, when it was attacked by Iraqi insurgents.');
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -729,7 +711,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_EL_GHRIBA';
 
-	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_EL_GHRIBA';
+	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_EL_GHRIBA';
 	---------------------------------------------------------
 	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_THE_ARK' WHERE Type = 'BUILDING_EL_GHRIBA';
 	
@@ -756,7 +738,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
-				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. 30 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
+				('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. 30 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
 				('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. 30 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_MAGENTA]Ark of the Covenant[ENDCOLOR].'),
 				('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself: he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 				('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'El Ghriba Synagogue, located on the Tunisian island of Djerba, is the oldest synagogue in Tunisa and the center of the village''s holy life. According to legend, it was constructed with a door and a stone from the destruction of either Solomon''s Temple in 586 BCE or the Second Temple in 70 CE. Thus, it links the local Jewish community to the ancestral heart of Judaism and remains a pilgrimage site into the modern day.'),
@@ -900,20 +882,20 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_COPPER');
+	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_IRON');
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_COLOSSUS_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Resource: [ICON_RES_COPPER] [COLOR_CYAN]Copper[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
 -- UNIVERSITY OF SANKORE
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
-	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_DESERT', ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
@@ -924,14 +906,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Building: [COLOR_CYAN]Library[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Building: [COLOR_CYAN]Library[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PROPHET'S MOSQUE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_WRITING', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NABAWI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_NABAWI';
 	
-	UPDATE Buildings SET Flat = 1, IsNoWater = 1 WHERE Type = 'BUILDING_NABAWI';
+	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_NABAWI';
 	
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
@@ -968,7 +950,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
-				('TXT_KEY_WONDER_NABAWI_HELP',			'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
+				('TXT_KEY_WONDER_NABAWI_HELP',			'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
 				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in the City.'),
 				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
 				('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
@@ -979,22 +961,17 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- HAGIA SOPHIA
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
-	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_HAGIA_SOPHIA',	'FEATURE_FOREST');
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	SELECT		'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]: Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_HAGIA_SOPHIA_HELP';
+	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]: Terrain: [COLOR_CYAN]Coast[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_HAGIA_SOPHIA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BOROBUDUR
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_BOROBUDUR';
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_BOROBUDUR';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
@@ -1007,7 +984,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_BOROBUDUR_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BOROBUDUR_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Feature: [COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
+	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Feature: [COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- LAVAUX (NEW)
@@ -1016,16 +993,14 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX';
 	
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,		ResourceType) 
-	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE');
+	-- + Plantation(3) lua
 	---------------------------------------------------------
-	UPDATE Buildings SET EmpireNeedsModifierGlobal = -15, Happiness = 2 WHERE Type = 'BUILDING_LAVAUX';
+	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_LAVAUX', 'YIELD_FOOD',	3),
-				('BUILDING_LAVAUX', 'YIELD_GOLD',	2);
+	VALUES		('BUILDING_LAVAUX', 'YIELD_FOOD',	2),
+				('BUILDING_LAVAUX', 'YIELD_GOLD',	1);
 
 	INSERT INTO Building_LakePlotYieldChanges 
 				(BuildingType,		YieldType,		Yield)
@@ -1036,6 +1011,10 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_FOOD',	1),
 				('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_GOLD',	1),
 				('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_FAITH',	1);
+
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,		ResourceType,		NumPlots) 
+	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
@@ -1047,15 +1026,15 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
-				('TXT_KEY_WONDER_LAVAUX_HELP',			'Feature: [COLOR_CYAN]Lake[ENDCOLOR]; Resource: [ICON_RES_WINE] [COLOR_CYAN]Wine[ENDCOLOR].[NEWLINE][NEWLINE]Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 15% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_LAVAUX_HELP_CUT',		'Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 15% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_LAVAUX_HELP',			'Feature: [COLOR_CYAN]Lake[ENDCOLOR]; Improvement: [COLOR_CYAN]3 Plantations[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_LAVAUX_HELP_CUT',		'Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
 				('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ALHAMBRA
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_ALHAMBRA';
-	UPDATE Buildings SET FreshWater = 1, Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA';
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
@@ -1066,14 +1045,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_ALHAMBRA_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ALHAMBRA_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP';
+	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WARTBURG (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_CHIVALRY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_WARTBURG';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_WARTBURG';
-	
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WARTBURG';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
@@ -1121,7 +1098,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
-				('TXT_KEY_WONDER_WARTBURG_HELP',			'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Forest: [COLOR_CYAN]Forest[ENDCOLOR]; Building: [COLOR_CYAN]Writer''s Guild[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. +30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds receive +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_WARTBURG_HELP',			'Feature: [COLOR_CYAN]Forest[ENDCOLOR]; Building: [COLOR_CYAN]Writer''s Guild[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. +30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_WARTBURG_HELP_CUT',		'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds receive +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_WARTBURG_QUOTE',			'[NEWLINE]"In nature we never see anything isolated, but everything in connection with something else which is before it, beside it, under it and over it."[NEWLINE] - Johann Wolfgang von Goethe[NEWLINE]'),
 				('TXT_KEY_WONDER_WARTBURG_PEDIA',			'Wartburg Castle was built in 1067 by Ludwig der Springer to secure his traditional territories. From 1172 to 1211, it was an important princely court in the Holy Roman Empire and a support for poets, thus becoming the setting of the legendary Sangerkrieg. Following his excommunication, Martin Luther stayed at Wartburg when he translated the New Testament from ancient Greek into German.[NEWLINE]For centuries, Wartburg has been a place of pilgrimage for its significance in German and Christian history. In the modern day, Wartburg remains a popular tourist attraction. It often stages the opera Tannhauser. While the castle still contains original structures from the 12th through 15th centuries, much of the interior dates back only to the 19th century, transformed under communist rule in the time of the GDR.'),
@@ -1148,8 +1125,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- GREAT ZIMBABWE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
-	
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	
 	-- + IsNoCoast (lua)
 	-- + Mine/Camp(3) (lua)
@@ -1179,7 +1154,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
 	VALUES		('TXT_KEY_BUILDING_GREAT_ZIMBABWE',			'Great Zimbabwe'),
-				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR]; Improvement: [COLOR_CYAN]3 (Mines + Camps)[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.'),
+				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]3 (Mines + Camps)[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP_CUT',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_QUOTE',		'[NEWLINE]"God is good, but never dance with a lion."[NEWLINE] - Zimbabwean proverb[NEWLINE]'),
 				('TXT_KEY_WONDER_GREAT_ZIMBABWE_PEDIA',		'TODO');
@@ -1188,8 +1163,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- FALUN MINE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FALUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FALUN';
-	
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_FALUN';
 	
 	-- + Mine(4) (lua)
 	---------------------------------------------------------
@@ -1230,7 +1203,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,								Text) 
 	VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
-				('TXT_KEY_WONDER_FALUN_HELP',		'Feature: [COLOR_CYAN]Lake[ENDCOLOR]; Improvement: [COLOR_CYAN]4 Mines[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
+				('TXT_KEY_WONDER_FALUN_HELP',		'Improvement: [COLOR_CYAN]4 Mines[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
 				('TXT_KEY_WONDER_FALUN_HELP_CUT',	'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.'),
 				('TXT_KEY_WONDER_FALUN_QUOTE',		'[NEWLINE]"The finest workers in stone are not copper or steel tools, but the gentle touches of air and water working at their leisure with a liberal allowance of time."[NEWLINE] - Henry David Thoreau[NEWLINE]'),
 				('TXT_KEY_WONDER_FALUN_PEDIA',		'Operating in Falun, Sweden from the tenth century to 1992, Falun Mine produced as much as two thirds of Europe''s copper needs and helped fund many of Sweden''s wars in the 17th century. The operation of the mine granted Sweden a virtual monopoly on copper through the 17th century, funding the various wars of Sweden during its great power era, though the output of the mine was a pittance by modern standards. In 1992, commercial mining ceased as the mine was no longer economically viable. In 2001, Falun Mine was selected as a UNESCO World Heritage site.');
@@ -1283,7 +1256,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
-				('TXT_KEY_WONDER_DAMASCUS_HELP',		'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR]; Improvement: [COLOR_CYAN]Lumber Mill[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. +3 [ICON_PRODUCTION] Production with Metallurgy. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted units get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_DAMASCUS_HELP',		'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. +3 [ICON_PRODUCTION] Production with Metallurgy. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted units get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
 				('TXT_KEY_WONDER_DAMASCUS_HELP_CUT',	'+3 [ICON_PRODUCTION] Production with Metallurgy. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted units get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
 				('TXT_KEY_WONDER_DAMASCUS_QUOTE',		'[NEWLINE]"The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. The manufacturing technique has yet to be reverse engineered, even in modern times."[NEWLINE] - from legends about Damascus Steel[NEWLINE]'),
 				('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE]  The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time.'),
@@ -1293,7 +1266,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORBIDDEN PALACE
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
-	UPDATE Buildings SET Flat = 1, Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
+	UPDATE Buildings SET Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
@@ -1304,12 +1277,12 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
+	UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
-	UPDATE Buildings SET River = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
+	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_KREMLIN';
 	---------------------------------------------------------
 	UPDATE Language_en_US SET Text = 'St. Basil''s Cathedral' WHERE Tag ='TXT_KEY_WONDER_KREMLIN';
 	UPDATE Language_en_US SET Text = Substr(Text, 31, 2000) WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
@@ -1319,7 +1292,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_KREMLIN_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+	UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW)
@@ -1327,10 +1300,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SHWEDAGON';
 	
 	UPDATE Buildings SET Hill = 1, FreshWater = 1 WHERE Type = 'BUILDING_SHWEDAGON';
-	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,			FeatureType) 
-	VALUES		('BUILDING_SHWEDAGON',	'FEATURE_JUNGLE');
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 
@@ -1372,7 +1341,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,										Text)
 	VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
-				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR], [COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. +33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].'),
+				('TXT_KEY_WONDER_SHWEDAGON_HELP',			'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. +33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].'),
 				('TXT_KEY_WONDER_SHWEDAGON_HELP_CUT',		'+33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].'),
 				('TXT_KEY_WONDER_SHWEDAGON_QUOTE',			'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 				('TXT_KEY_WONDER_SHWEDAGON_PEDIA',			'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
@@ -1525,8 +1494,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME';
-	
-	-- + LumberMill(1) (lua)
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -1725,7 +1692,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RED FORT
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_RED_FORT';
-	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_RED_FORT';
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT';
 	
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
@@ -1734,7 +1701,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	SELECT		'TXT_KEY_WONDER_RED_FORT_HELP_CUT',	Text
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_RED_FORT_HELP';
 				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP';
+	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP';
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--

@@ -364,22 +364,21 @@ function IsCsAllies(ePlayer, eCity, eBuilding)
 	
 	local iRequiredCsAllies = tValidIsCsAllies[eBuilding]
 	local iCurrentCsAllies = 0
-	print("Allies", ePlayer, eBuilding)
+
 	for eCs = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_PLAYERS - 2, 1 do
 		local pCs = Players[eCs]
 		
-		if not pCs:IsEverAlive() then print("not ever alive") break end
-		print("cs check", eCs)	
+		if not pCs:IsEverAlive() then break end
+		
 		if pCs:IsAlive() and pCs:IsAllies(ePlayer) then
 			iCurrentCsAllies = iCurrentCsAllies + 1
-			print("cs is alive and is allies")	
+			
 			if iCurrentCsAllies >= iRequiredCsAllies then
-				print("cs passed")	
 				return true
 			end
 		end
 	end
-	print("cs not passed")	
+
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsCsAllies)
@@ -397,22 +396,19 @@ function IsGreatWorks(ePlayer, eCity, eBuilding)
 	local eGreatWorkType = tValidIsGreatWorks[eBuilding].eGreatWorkType
 	local iRequiredGreatWorks = tValidIsGreatWorks[eBuilding].iRequiredGreatWorks
 	local iCurrentGreatWorks = 0
-	print("player, building, GWtype, Req, Curr", ePlayer, eBuilding, eGreatWorkType, iRequiredGreatWorks, iCurrentGreatWorks)
+	
 	for city in pPlayer:Cities() do
-		print("Check", city:GetName())
 		for building in GameInfo.Buildings() do
-			print("Check", building.Type)
-			if pCity:IsHasBuilding(building.ID) then
-    				iCurrentGreatWorks = iCurrentGreatWorks + CheckArt(building, city, eGreatWorkType)
-				print("check art, curr", CheckArt(building, city, eGreatWorkType), iCurrentGreatWorks)
+			if city:IsHasBuilding(building.ID) then
+    			iCurrentGreatWorks = iCurrentGreatWorks + CheckArt(building, city, eGreatWorkType)
+				
 				if iCurrentGreatWorks >= iRequiredGreatWorks then
-					print("passed")
 					return true
 				end
 			end
 		end
 	end
-	print("not passed")
+	
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsGreatWorks)
@@ -420,25 +416,21 @@ GameEvents.CityCanConstruct.Add(IsGreatWorks)
 function CheckArt(pBuilding, pCity, eGreatWorkType)
 	local iGreatWorks = 0
 	local iAvailableSlots = pBuilding.GreatWorkCount
-	print("building, gw 0, slots", pBuilding.Type, iGreatWorks, iAvailableSlots)
+	
 	if iAvailableSlots > 0 then
-		print("available slot")
 		local eCurrentGreatWorkType = pBuilding.GreatWorkSlotType
-		print("gw type", eCurrentGreatWorkType)
+		
 		if eCurrentGreatWorkType == eGreatWorkType then
-			print("gw type match")
 			for slot = 0, iAvailableSlots - 1, 1 do
-				print("slot", slot)
 				local iWork = pCity:GetBuildingGreatWork(GameInfoTypes[pBuilding.BuildingClass], slot)
-				print("iWork", iWork)
+				
 				if iWork ~= -1 then
-					print("iWork not -1")
 					iGreatWorks = iGreatWorks + 1
 				end
 			end
 		end
 	end
-	print("return", iGreatWorks)
+	
 	return iGreatWorks
 end
 -------------------------------------------------------------------------------------------------------------------------
@@ -464,7 +456,9 @@ function Initialize()
 
 	-- IsNoCoast
 	tValidIsNoCoast = {
+		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
+		[GameInfo.Buildings.BUILDING_PETRA.ID] = true,
 		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
 		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 		[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
@@ -501,7 +495,7 @@ function Initialize()
 		iRequiredImprovements = 2
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = {
-		iRequiredRoads = 2
+		iRequiredRoads = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
@@ -511,9 +505,17 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 1
 	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+		iRequiredImprovements = 2
+	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
 		iRequiredImprovements = 1
+	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LAVAUX.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
+		iRequiredImprovements = 3
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
@@ -529,18 +531,8 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		iRequiredImprovements = 4
 	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_DAMASCUS.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LUMBERMILL,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_LUMBERMILL_JUNGLE,
-		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NOTRE_DAME.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LUMBERMILL,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_LUMBERMILL_JUNGLE,
-		iRequiredImprovements = 2
-	}
 	for id, building in pairs(tValidIsHasImprovement) do
-		dprint("...adding (id,building,requirement1,requirement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+		dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 	end
 
 	-- IsOneTile
@@ -574,7 +566,7 @@ function Initialize()
 	-- IsCsAllies
 	tValidIsCsAllies = {
 		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
-		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2
+		--[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2
 	}
 	for id, building in pairs(tValidIsCsAllies) do
 		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsCsAllies[id])
