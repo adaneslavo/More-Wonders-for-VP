@@ -17,19 +17,17 @@ function dprint(sStr,p1,p2,p3,p4,p5,p6)
 end
 
 local tValidIsMaxEra = {}
-----
+
 local tValidIsLake = {}
 local tValidIsNoCoast = {} -- temporary?
 local tValidIsMountains = {}
 local tValidIsProhibitedTerrain = {}
-----
 local tValidIsHasImprovement = {}
-----
 local tValidIsOneTile = {}
-----
 local tValidIsAtPeace = {}
 local tValidIsMajorApproach = {}
-
+local tValidIsCsAllies = {}
+local tValidIsGreatWorks = {}
 
 local bReachedMaxEra
 
@@ -342,19 +340,107 @@ function IsMajorApproach(ePlayer, eCity, eBuilding)
 
 				local eApproachTrue = pPlayer:GetMajorCivApproach(i)
 				local eApproachGuess = pPlayer:GetApproachTowardsUsGuess(i)
-				print("approach:", pPlayer:GetName(), pTargetPlayer:GetName(), pPlayer:GetMajorCivApproach(i), pPlayer:GetApproachTowardsUsGuess(i), pPlayer:GetMajorCivApproach(i, false), pPlayer:GetMajorCivApproach(i, true))
+				
 				if eApproachTrue == eRequiredApproach1 or eApproachTrue == eRequiredApproach2 or eApproachTrue == eRequiredApproach3 or eApproachTrue == eRequiredApproach4 or
 				   eApproachGuess == eRequiredApproach1 or eApproachGuess == eRequiredApproach2 or eApproachGuess == eRequiredApproach3 or eApproachGuess == eRequiredApproach4 then
-					print("approach-match!")
 					return true
 				end
 			end
-			print("approach-notmuch")
+			
 			return false
 		end
 	end
 end
 GameEvents.CityCanConstruct.Add(IsMajorApproach)
+
+-- checks number of CS ALLIES (PORCELAIN TOWER, HOUSE OF TRADE OF THE INDIES)
+function IsCsAllies(ePlayer, eCity, eBuilding)
+	if not tValidIsCsAllies[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iRequiredCsAllies = tValidIsCsAllies[eBuilding]
+	local iCurrentCsAllies = 0
+	print("Allies", ePlayer, eBuilding)
+	for eCs = GameDefines.MAX_MAJOR_CIVS, GameDefines.MAX_PLAYERS - 2, 1 do
+		local pCs = Players[eCs]
+		
+		if not pCs:IsEverAlive() then print("not ever alive") break end
+		print("cs check", eCs)	
+		if pCs:IsAlive() and pCs:IsAllies(ePlayer) then
+			iCurrentCsAllies = iCurrentCsAllies + 1
+			print("cs is alive and is allies")	
+			if iCurrentCsAllies >= iRequiredCsAllies then
+				print("cs passed")	
+				return true
+			end
+		end
+	end
+	print("cs not passed")	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsCsAllies)
+
+
+-- checks number of GREAT WORKS (UFFIZI)
+function IsGreatWorks(ePlayer, eCity, eBuilding)
+	if not tValidIsGreatWorks[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local eGreatWorkType = tValidIsGreatWorks[eBuilding].eGreatWorkType
+	local iRequiredGreatWorks = tValidIsGreatWorks[eBuilding].iRequiredGreatWorks
+	local iCurrentGreatWorks = 0
+	print("player, building, GWtype, Req, Curr", ePlayer, eBuilding, eGreatWorkType, iRequiredGreatWorks, iCurrentGreatWorks)
+	for city in pPlayer:Cities() do
+		print("Check", city:GetName())
+		for building in GameInfo.Buildings() do
+			print("Check", building.Type)
+			if pCity:IsHasBuilding(building.ID) then
+    				iCurrentGreatWorks = iCurrentGreatWorks + CheckArt(building, city, eGreatWorkType)
+				print("check art, curr", CheckArt(building, city, eGreatWorkType), iCurrentGreatWorks)
+				if iCurrentGreatWorks >= iRequiredGreatWorks then
+					print("passed")
+					return true
+				end
+			end
+		end
+	end
+	print("not passed")
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsGreatWorks)
+
+function CheckArt(pBuilding, pCity, eGreatWorkType)
+	local iGreatWorks = 0
+	local iAvailableSlots = pBuilding.GreatWorkCount
+	print("building, gw 0, slots", pBuilding.Type, iGreatWorks, iAvailableSlots)
+	if iAvailableSlots > 0 then
+		print("available slot")
+		local eCurrentGreatWorkType = pBuilding.GreatWorkSlotType
+		print("gw type", eCurrentGreatWorkType)
+		if eCurrentGreatWorkType == eGreatWorkType then
+			print("gw type match")
+			for slot = 0, iAvailableSlots - 1, 1 do
+				print("slot", slot)
+				local iWork = pCity:GetBuildingGreatWork(GameInfoTypes[pBuilding.BuildingClass], slot)
+				print("iWork", iWork)
+				if iWork ~= -1 then
+					print("iWork not -1")
+					iGreatWorks = iGreatWorks + 1
+				end
+			end
+		end
+	end
+	print("return", iGreatWorks)
+	return iGreatWorks
+end
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -377,125 +463,130 @@ function Initialize()
 	end
 
 	-- IsNoCoast
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_NABAWI.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true
-	tValidIsNoCoast[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true
-	--[[dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MAJORVILLE.ID, GameInfo.Buildings.BUILDING_MAJORVILLE.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID, GameInfo.Buildings.BUILDING_HANGING_GARDEN.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID, GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID, GameInfo.Buildings.BUILDING_ETCHMIADZIN.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_NABAWI.ID, GameInfo.Buildings.BUILDING_NABAWI.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID, GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.Type, "(IsNoCoast)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_CHEVALIERS.ID, GameInfo.Buildings.BUILDING_CHEVALIERS.Type, "(IsNoCoast)")
-	--]]
+	tValidIsNoCoast = {
+		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
+		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
+		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
+		[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
+		[GameInfo.Buildings.BUILDING_NABAWI.ID] = true,
+		[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
+		[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
+		[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
+		[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true
+	}
 	for id, building in pairs(tValidIsNoCoast) do
 		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 	end
 
 	-- IsMountains
-	tValidIsMountains[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true
-	tValidIsMountains[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MACHU_PICHU.ID, GameInfo.Buildings.BUILDING_MACHU_PICHU.Type, "(IsMountains)")
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsMountains)")
+	tValidIsMountains = {
+		[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true,
+		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
+	}
+	for id, building in pairs(tValidIsMountains) do
+		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsMountains)")
+	end
 	
 	-- IsProhibitedTerrain
 	for building in GameInfo.Buildings() do
 		if building.ProhibitedCityTerrain ~= nil then
-			dprint("...adding (id,building,prohibition,terrain)", building.ID, building.Type, "(Building is prohibited on: " .. building.ProhibitedCityTerrain .. ")")
+			dprint("...adding (id,building,prohibition)", building.ID, building.Type, "(Prohibited: " .. building.ProhibitedCityTerrain .. ")")
 			tValidIsProhibitedTerrain[building.ID] = GameInfo.Terrains[building.ProhibitedCityTerrain].ID
 		end
 	end
 
 	-- IsHasImprovement
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
-		sType = "BUILDING_GGANTIJA",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
 		iRequiredImprovements = 2
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = {
-		sType = "BUILDING_STONEHENGE",
 		iRequiredRoads = 2
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
-		sType = "BUILDING_NAZCA",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
-		sType = "BUILDING_TEMPLE_ARTEMIS",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
-		sType = "BUILDING_MAUSOLEUM_HALICARNASSUS",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
 		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
-		sType = "BUILDING_TERRACOTTA_ARMY",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
 		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
-		sType = "BUILDING_GREAT_ZIMBABWE",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 2
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
-		sType = "BUILDING_FALUN",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		iRequiredImprovements = 4
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_DAMASCUS.ID] = {
-		sType = "BUILDING_DAMASCUS",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LUMBERMILL,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_LUMBERMILL_JUNGLE,
 		iRequiredImprovements = 2
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NOTRE_DAME.ID] = {
-		sType = "BUILDING_NOTRE_DAME",
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LUMBERMILL,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_LUMBERMILL_JUNGLE,
 		iRequiredImprovements = 2
 	}
 	for id, building in pairs(tValidIsHasImprovement) do
-		dprint("...adding (id,building,requirement1,requirement2,count,roads)", id, building.sType, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+		dprint("...adding (id,building,requirement1,requirement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 	end
 
 	-- IsOneTile
-	tValidIsOneTile[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
-	--tValidIsOneTile[GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID] = true
+	tValidIsOneTile = {
+		[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+	}
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
-	--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_SOLOVIETSKY.ID, GameInfo.Buildings.BUILDING_SOLOVIETSKY.Type, "(One-tile city)")
-	
+		
 	-- IsAtPeace
-	tValidIsAtPeace[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
+	tValidIsAtPeace = {
+		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
+	}
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
 	
 	-- IsMajorApproach
 	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_STATUE_ZEUS.ID] = {
-		sType = "BUILDING_STATUE_ZEUS",
 		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
 		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
 		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_GUARDED,
 		eRequiredApproach4 = GameInfoTypes.MAJOR_CIV_APPROACH_AFRAID
 	}
 	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_GREAT_WALL.ID] = {
-		sType = "BUILDING_GREAT_WALL",
 		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
 		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
 		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_DECEPTIVE
 	}
 	for id, building in pairs(tValidIsMajorApproach) do
-		dprint("...adding (id,building,approach1,approach2,approach3)", id, building.sType, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
+		dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
+	end
+	
+	-- IsCsAllies
+	tValidIsCsAllies = {
+		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
+		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2
+	}
+	for id, building in pairs(tValidIsCsAllies) do
+		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsCsAllies[id])
+	end
+	
+	-- IsGreatWorks
+	tValidIsGreatWorks[GameInfo.Buildings.BUILDING_UFFIZI.ID] = {
+		eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
+		iRequiredGreatWorks = 2
+	}
+	for id, building in pairs(tValidIsGreatWorks) do
+		dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
 	end
 end
 Initialize()
