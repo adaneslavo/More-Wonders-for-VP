@@ -33,7 +33,9 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('KARNAK',			1,			0),		-- Karnak Temple
 			('NAZCA',			1,			0),		-- Nazca Lines
 			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
+			--('MARAE',		1,			0),		-- Marae Arahurahu
 			----------------------------------------------------------------------------------------
+			--('AHU',		1,			0),		-- Ahu Tongariki
 			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',		1,			0),		-- Gate of the Sun
 			('BAMYAN',			1,			0),		-- Buddhas of Bamiyan
@@ -51,18 +53,18 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('MICHEL',			1,			0),		-- Mont Saint Michel
 			('ITSUKUSHIMA',		1,			0),		-- Itsukushima Shrine
 			('QALHAT',			1,			0),		-- Qalhat
-			('CHEVALIERS',		1,			0);		-- Krak des Chevaliers
+			('CHEVALIERS',		1,			0),		-- Krak des Chevaliers
 			----------------------------------------------------------------------------------------
 			--('BENHADDOU',		1,			0),		-- Ait Benhaddou
 			--('KILWA_KISIWANI',		1,			0),		-- Kilwa Kisiwani
-			--('STPETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
-			--('KINKAKUJI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
+			('ST_PETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
+			('KINKAKU_JI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
 			--('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
 			--('MEENAKSHI',		1,			0),		-- Meenakshi Temple
-			--('PETERHOF',		1,			0),		-- Peterhof Palace
+			('PETERHOF',		1,			0),		-- Peterhof Palace
 			--('BAKKEN',		1,			0),		-- Bakken
 			--('HOUSE_OF_TRADE',		1,			0),		-- Casa de Contratación
-			--('SOLOVIETSKY',		1,			0),		-- Solovietsky Monastery
+			('SOLOVIETSKY',		1,			0);		-- Solovietsky Monastery
 			
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
@@ -108,7 +110,7 @@ FROM VPWEConfig WHERE WActive = 1;
 UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 25, WonderSplashImage = 'WonderConceptPanamaCanal.dds' WHERE Type = 'BUILDING_PANAMA';
 --------------------------------------------------------------
 -- Also, for reasons, an icon for St. Peter's Basilica is available
-UPDATE Buildings SET IconAtlas = 'EXPANSION_SCEN_WONDER_ATLAS', PortraitIndex = 6 WHERE Type = 'BUILDING_STPETERS';
+UPDATE Buildings SET IconAtlas = 'EXPANSION_SCEN_WONDER_ATLAS', PortraitIndex = 6 WHERE Type = 'BUILDING_ST_PETERS';
 --------------------------------------------------------------
 -- Civilization_BuildingClassOverrides
 INSERT INTO Civilization_BuildingClassOverrides 

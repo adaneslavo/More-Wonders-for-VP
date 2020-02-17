@@ -286,10 +286,13 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_YieldPerXFeatureTimes100 
 				(BuildingType,		FeatureType,			YieldType,				Yield) 
-	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_PRODUCTION',		100),
-				('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FAITH',			100),
-				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_PRODUCTION',		50),
+	VALUES		('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_PRODUCTION',		50),
 				('BUILDING_KARNAK', 'FEATURE_FLOOD_PLAINS', 'YIELD_FAITH',			50);
+
+	INSERT INTO Building_FeatureYieldChanges 
+				(BuildingType,		FeatureType,			YieldType,				Yield) 
+	VALUES		('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_PRODUCTION',		1),
+				('BUILDING_KARNAK', 'FEATURE_OASIS',		'YIELD_FAITH',			1);
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,		BuildingClassType,			YieldType,			YieldChange) 
@@ -487,7 +490,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,						ResourceType) 
-	VALUES		('BUILDING_GREAT_LIGHTHOUSE',		'FEATURE_STONE');
+	VALUES		('BUILDING_GREAT_LIGHTHOUSE',		'RESOURCE_STONE');
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,										Text) 
@@ -713,7 +716,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_EL_GHRIBA';
 	---------------------------------------------------------
-	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_THE_ARK' WHERE Type = 'BUILDING_EL_GHRIBA';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_SYNAGOGUE', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_THE_ARK' WHERE Type = 'BUILDING_EL_GHRIBA';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
@@ -960,7 +963,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
-	UPDATE Buildings SET HolyCity = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	---------------------------------------------------------
 	INSERT INTO Language_en_US 
 				(Tag,									Text) 
@@ -991,9 +994,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_LAVAUX';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_LAVAUX';
 	
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX';
-	
-	-- + Plantation(3) lua
+	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_LAVAUX';
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
 
@@ -1026,7 +1027,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Language_en_US 
 				(Tag,									Text)
 	VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
-				('TXT_KEY_WONDER_LAVAUX_HELP',			'Feature: [COLOR_CYAN]Lake[ENDCOLOR]; Improvement: [COLOR_CYAN]3 Plantations[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
+				('TXT_KEY_WONDER_LAVAUX_HELP',			'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_LAVAUX_HELP_CUT',		'Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by the City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
 				('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
 				('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO');
@@ -1567,6 +1568,43 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR]; Building: [COLOR_CYAN]Amphitheater[ENDCOLOR], [COLOR_CYAN]Baths[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_GLOBE_THEATER_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- ST. PETER'S BASILICA (NEW)
+	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_ST_PETERS';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_ST_PETERS';
+	
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_ST_PETERS';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CATHEDRAL', ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_ST_PETERS';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_ST_PETERS',			'YIELD_FAITH',		4),
+				('BUILDING_ST_PETERS',			'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_FreeUnits 
+				(BuildingType,			UnitType,				NumUnits)
+	VALUES		('BUILDING_ST_PETERS', 'UNIT_INQUISITOR',		3);
+
+	INSERT INTO Building_BuildingClassHappiness (BuildingType,			BuildingClassType,	Happiness)
+	SELECT DISTINCT								'BUILDING_ST_PETERS',	BuildingClass,		1
+	FROM Buildings WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ST_PETERS',	'FLAVOR_RELIGION',		60),
+				('BUILDING_ST_PETERS',	'FLAVOR_PRODUCTION',	20),
+				('BUILDING_ST_PETERS',	'FLAVOR_HAPPINESS',		40),
+				('BUILDING_ST_PETERS',	'FLAVOR_DIPLOMACY',		10);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_ST_PETERS',			'St. Peter''s Basilica'),
+				('TXT_KEY_WONDER_ST_PETERS_HELP',		'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR][NEWLINE][NEWLINE]Grants [COLOR_POSITIVE_ICON]Free[ENDCOLOR] Cathedral and 3 [COLOR_POSITIVE_ICON]Free[ENDCOLOR] Inquisitors. +1 [ICON_HAPPINESS_1] Happiness from all unique Religious buildings. Grants [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.'),
+				('TXT_KEY_WONDER_ST_PETERS_HELP_CUT',	'Grants [COLOR_POSITIVE_ICON]Free[ENDCOLOR] Cathedral and 3 [COLOR_POSITIVE_ICON]Free[ENDCOLOR] Inquisitors. +1 [ICON_HAPPINESS_1] Happiness from all unique Religious buildings. Grants [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.'),
+				('TXT_KEY_WONDER_ST_PETERS_QUOTE',		'[NEWLINE]"A rock pile ceases to be a rock pile the moment a single man contemplates it, bearing within him the image of a cathedral."[NEWLINE] - Antoine de Saint-Exupery[NEWLINE]'),
+				('TXT_KEY_WONDER_ST_PETERS_PEDIA',		'Basilica Papale di San Pietro in Vaticano, better known as St. Peter''s Basilica, is a late Renaissance church in Vatican City, with the largest interior of any Christian church in the world. The supposed burial site of the apostle Peter in 64 AD, some years later a shrine was constructed there. Replacing the shrine, construction of "old" St. Peter''s was begun by the Emperor Constantine between 319 and 333 AD.[NEWLINE][NEWLINE]  Having fallen into serious disrepair over the centuries, Pope Julius II in 1505 determined to demolish the old church and replace it with a monumental structure, a construction project that spanned the next 120 years under a succession of popes and architects. To finance the colossal project, a number of popes authorized the wholesale selling of indulgences, a practice that led in part to Martin Luther''s protestant movement.[NEWLINE][NEWLINE]  With work by some of the Renaissance''s leading figures - Michelangelo, Raphael, Bramante, Bernini and others - the church now stands as one of the great treasures of Western civilization.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- CHICHEN ITZA
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_CHICHEN_ITZA';
@@ -1581,6 +1619,54 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP';
 				
 	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP';
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GOLDEN PAVILION (NEW)
+	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KINKAKU_JI';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KINKAKU_JI';
+	
+	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	VALUES		('BUILDING_KINKAKU_JI',		'FEATURE_FOREST'),
+				('BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE');
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		2),
+				('BUILDING_KINKAKU_JI',			'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_KINKAKU_JI',	'YIELD_CULTURE',	1),
+				('BUILDING_KINKAKU_JI',	'YIELD_FAITH',		1),
+				('BUILDING_KINKAKU_JI',	'YIELD_FOOD',		1);
+	
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,			FeatureType,			YieldType,				Yield) 
+	VALUES		('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_CULTURE',		1),
+				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FAITH',			1),
+				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FOOD',			1),
+				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_CULTURE',		1),
+				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FAITH',			1),
+				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FOOD',			1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_KINKAKU_JI',	'FLAVOR_RELIGION',		50),
+				('BUILDING_KINKAKU_JI',	'FLAVOR_CULTURE',		50),
+				('BUILDING_KINKAKU_JI',	'FLAVOR_GROWTH',		30);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_KINKAKU_JI',			'Golden Pavilion'),
+				('TXT_KEY_WONDER_KINKAKU_JI_HELP',		'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Fealty[ENDCOLOR] Branch. Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Pagoda. +1 [ICON_FOOD] Food, +1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from each Lake, Forest and Jungle tile worked by the city. Has 1 slot for [ICON_GREAT_WORK] Great Works of Literature.'),
+				('TXT_KEY_WONDER_KINKAKU_JI_HELP_CUT',	'Grants a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Pagoda. +1 [ICON_FOOD] Food, +1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from each Lake, Forest and Jungle tile worked by the city. Has 1 slot for [ICON_GREAT_WORK] Great Works of Literature.'),
+				('TXT_KEY_WONDER_KINKAKU_JI_QUOTE',		'[NEWLINE]"A book holds a house of Gold."[NEWLINE] - Chinese Proverb[NEWLINE]'),
+				('TXT_KEY_WONDER_KINKAKU_JI_PEDIA',		'Kinkaku-ji (literally "Temple of the Golden Pavilion") is a Buddhist temple in Kyoto, Japan. it was originally built as a villa at an unknown date, however was bought in 1397 by Shogun Ashikaga Yoshimitsu, who converted the villa into the Kinkaku-ji complex. Upon his death, it was converted to a Zen temple by his son.[NEWLINE][NEWLINE]  In July 1950 it was burnt down by a Monk with a mental illness, causing a massive renovation project to be undertaken. The renovations took five years, completed in 1955. The exterior of the upper two floors were covered in pure gold leave, giving the name "Golden Pavilion", however it is unclear wether the gold leaf was present in the pre-1950''s version.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HIMEJI CASTLE
@@ -1657,6 +1743,40 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR]; Great Works: [COLOR_CYAN]2 [ICON_GREAT_WORK] GW of Art[ENDCOLOR].[NEWLINE][NEWLINE]'||'Requires completion of [COLOR_MAGENTA]Artistry[ENDCOLOR] Branch. '||Text WHERE Tag ='TXT_KEY_WONDER_UFFIZI_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- PETERHOF (NEW)
+	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PETERHOF';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PETERHOF';
+	
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PETERHOF';
+	---------------------------------------------------------
+	UPDATE Buildings SET WLTKDTurns = 20, GreatPeopleRateModifier = 10 WHERE Type = 'BUILDING_PETERHOF';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,					Yield)
+	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	6);
+
+	INSERT INTO Building_WLTKDYieldMod
+				(BuildingType,			YieldType,					Yield)
+	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	15),
+				('BUILDING_PETERHOF',	'YIELD_GOLD',				15),
+				('BUILDING_PETERHOF',	'YIELD_PRODUCTION',			15);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_PETERHOF',	'FLAVOR_GOLD',			40),
+				('BUILDING_PETERHOF',	'FLAVOR_PRODUCTION',	40),
+				('BUILDING_PETERHOF',	'FLAVOR_HAPPINESS',		40),
+				('BUILDING_PETERHOF',	'FLAVOR_GREAT_PEOPLE',	20);
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,									Text) 
+	VALUES		('TXT_KEY_BUILDING_PETERHOF',			'Peterhof'),
+				('TXT_KEY_WONDER_PETERHOF_HELP',		'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Imperialism[ENDCOLOR] Branch. +10% generation of [ICON_GREAT_PEOPLE] Great People in the City. Starts 20 turn of [ICON_HAPPINESS_1] WLTKD in the City. +15% [ICON_PRODUCTION] Production, [ICON_GOLD] Gold and [ICON_GOLDEN_AGE] Golden Age Points during [ICON_HAPPINESS_1] WLTKD.'),
+				('TXT_KEY_WONDER_PETERHOF_HELP_CUT',	'+10% generation of [ICON_GREAT_PEOPLE] Great People in the City. Starts 20 turn of [ICON_HAPPINESS_1] WLTKD in the City. +15% [ICON_PRODUCTION] Production, [ICON_GOLD] Gold and [ICON_GOLDEN_AGE] Golden Age Points during [ICON_HAPPINESS_1] WLTKD.'),
+				('TXT_KEY_WONDER_PETERHOF_QUOTE',		'[NEWLINE]"It is my great desire to reform my subjects, and yet I am ashamed to confess that I am unable to reform myself."[NEWLINE] - Peter The Great[NEWLINE]'),
+				('TXT_KEY_WONDER_PETERHOF_PEDIA',		'The Peterhof Palace is a series of palaces and gardens located in Saint Petersburg, Russia, laid out on the orders of Peter the Great. These Palaces and gardens are sometimes referred as the "Russian Versailles". The palace-ensemble along with the city centre is recognised as a UNESCO World Heritage Site.');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- SISTINE CHAPEL
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
 	
@@ -1690,6 +1810,49 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR], [COLOR_CYAN]Lake[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_SUMMER_PALACE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- SOLOVIETSKY MONASTERY (NEW)
+	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SOLOVIETSKY';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_SOLOVIETSKY';
+	
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY';
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_SOLOVIETSKY';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,					Yield)
+	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_PRODUCTION',			1),
+				('BUILDING_SOLOVIETSKY',	'YIELD_GOLDEN_AGE_POINTS',	1),
+				('BUILDING_SOLOVIETSKY',	'YIELD_FAITH',				1);
+
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,				TerrainType,			YieldType,				Yield) 
+	VALUES		('BUILDING_SOLOVIETSKY',	'TERRAIN_TUNDRA',		'YIELD_PRODUCTION',		1),
+				('BUILDING_SOLOVIETSKY',	'TERRAIN_TUNDRA',		'YIELD_FAITH',			1);
+
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,				UnitCombatType,				Modifier) 
+	VALUES		('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALMELEE',	15),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALRANGED',	15),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_SUBMARINE',		15),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_CARRIER',		15);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,					Flavor)
+	VALUES		('BUILDING_SOLOVIETSKY',	'FLAVOR_PRODUCTION',	60),
+				('BUILDING_SOLOVIETSKY',	'FLAVOR_RELIGION',		30),
+				('BUILDING_SOLOVIETSKY',	'FLAVOR_OFFENSE',		10),
+				('BUILDING_SOLOVIETSKY',	'FLAVOR_CITY_DEFENSE',	30),
+				('BUILDING_SOLOVIETSKY',	'FLAVOR_NAVAL',			30);				
+	---------------------------------------------------------
+	INSERT INTO Language_en_US 
+				(Tag,										Text) 
+	VALUES		('TXT_KEY_BUILDING_SOLOVIETSKY',			'Solovietsky Monastery'),
+				('TXT_KEY_WONDER_SOLOVIETSKY_HELP',			'Terrain: [COLOR_CYAN]Tundra[ENDCOLOR], [COLOR_CYAN]Coast[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Fealty[ENDCOLOR] Branch. +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +1 [ICON_WAR] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.'),
+				('TXT_KEY_WONDER_SOLOVIETSKY_HELP_CUT',		'+1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of the City. +1 [ICON_WAR] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.'),
+				('TXT_KEY_WONDER_SOLOVIETSKY_QUOTE',		'[NEWLINE]"Everything is defeated before love."[NEWLINE] - Elder Thaddeus of Vitovnica[NEWLINE]'),
+				('TXT_KEY_WONDER_SOLOVIETSKY_PEDIA',		'The Solovetsky Monastery is a fortified monastery located on the Solovetsky Islands in the White Sea in northern Russia. It was one of the largest Christian citadels in northern Russia before it was converted into a Soviet prison and labor camp in 1926-39, and served as a prototype for the camps of the Gulag system. The monastery has experienced several major changes and military sieges. Its most important structures date from the 16th century, when Filip Kolychev was its hegumen (comparable to an abbot).');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- RED FORT
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_RED_FORT';
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT';
@@ -1714,7 +1877,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 -- Meenakshi Temple			- Hindu				- Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
-('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI'); -- 'BUILDING_ST_PETERS_BASILICA' 'MEENAKSHI'
+('BUILDING_BOROBUDUR', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_KREMLIN', 'BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_ST_PETERS'); --  'MEENAKSHI'
 --============================================--
 -- POLICY FINISHERS
 --============================================--
@@ -1725,23 +1888,23 @@ UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
 UPDATE Buildings SET MutuallyExclusiveGroup = 261, PolicyType = 'POLICY_TRADITION_FINISHER' 	WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',		'BUILDING_NOTRE_DAME',			'BUILDING_SHWEDAGON');
 UPDATE Buildings SET MutuallyExclusiveGroup = 262, PolicyType = 'POLICY_LIBERTY_FINISHER' 		WHERE Type IN ('BUILDING_FORBIDDEN_PALACE',		'BUILDING_WARTBURG',			'BUILDING_FALUN');
 UPDATE Buildings SET MutuallyExclusiveGroup = 263, PolicyType = 'POLICY_HONOR_FINISHER' 		WHERE Type IN ('BUILDING_ALHAMBRA',				'BUILDING_DAMASCUS',			'BUILDING_GREAT_ZIMBABWE');
-UPDATE Buildings SET MutuallyExclusiveGroup = 264, PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_RED_FORT'/*,				'BUILDING_KINKAKUJI',			'BUILDING_SOLOVIETSKY'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 264, PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_RED_FORT',				'BUILDING_KINKAKU_JI',			'BUILDING_SOLOVIETSKY');
 UPDATE Buildings SET MutuallyExclusiveGroup = 265, PolicyType = 'POLICY_PATRONAGE_FINISHER'		WHERE Type IN ('BUILDING_BIG_BEN'/*, 				'BUILDING_KILWA_KISIWANI',		'BUILDING_OLD_BRIDGE'*/);
 UPDATE Buildings SET MutuallyExclusiveGroup = 266, PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_LOUVRE', 				'BUILDING_UFFIZI'/*,				'BUILDING_MUSEUM_ISLAND'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY'/*, 			'BUILDING_RUHR_VALLEY',			'BUILDING_TRANS_SIBERIAN'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_PENTAGON'/*, 			'BUILDING_PETERHOF',			'BUILDING_THULE'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY'/*, 			'BUILDING_RUHR_VALLEY',			'BUILDING_BANFF'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_PENTAGON', 			'BUILDING_PETERHOF'/*,			'BUILDING_THULE'*/);
 UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK'/*,		'BUILDING_KEW_GARDEN',				'BUILDING_ARECIBO'*/);
 
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Falun Mine[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Alhambra[ENDCOLOR].', 			'Wonders: [COLOR_CYAN]Alhambra[ENDCOLOR], [COLOR_CYAN]Forge of Damascus[ENDCOLOR] and [COLOR_CYAN]Great Zimbabwe[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Red Fort[ENDCOLOR], [COLOR_CYAN]Golden Pavilion[ENDCOLOR] and [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 			'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Uffizi[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 			'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_CYAN]Trans-Siberian Railway[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Peterhof Palace[ENDCOLOR] and [COLOR_CYAN]Thule Air Base[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Garden[ENDCOLOR] and [COLOR_CYAN]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire.') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Falun Mine[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Alhambra[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Alhambra[ENDCOLOR], [COLOR_CYAN]Forge of Damascus[ENDCOLOR] and [COLOR_CYAN]Great Zimbabwe[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Red Fort[ENDCOLOR], [COLOR_CYAN]Golden Pavilion[ENDCOLOR] and [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Uffizi[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_CYAN]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Peterhof Palace[ENDCOLOR] and [COLOR_CYAN]Thule Air Base[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Garden[ENDCOLOR] and [COLOR_CYAN]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
 --============================================--
 -- VP FIXES
 --============================================--

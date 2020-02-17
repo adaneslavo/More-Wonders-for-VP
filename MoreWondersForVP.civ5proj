@@ -728,81 +728,81 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_128.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_256.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_45.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_64.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_80.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Gripsholm_splash.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Kinkaku_Ji_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_128.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_256.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_45.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_64.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_80.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_KinkakuJi_splash.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Peterhof_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_128.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_256.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_45.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_64.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_80.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_Peterhof_splash.dds">
+    <Content Include="Art\4.Renaissance\Wonder_Solovietsky_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\4.Renaissance\VPWE_StPeters_splash.dds">
+    <Content Include="Art\4.Renaissance\Wonder_St_Peters_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\5.Industrial\VPWE_Brooklyn_128.dds">
       <SubType>Lua</SubType>

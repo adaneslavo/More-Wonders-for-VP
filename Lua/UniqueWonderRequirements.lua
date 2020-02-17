@@ -513,10 +513,6 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
 		iRequiredImprovements = 1
 	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LAVAUX.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
-		iRequiredImprovements = 3
-	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,

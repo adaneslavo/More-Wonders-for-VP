@@ -454,32 +454,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 
 
 
-----------------------------------------------------
--- KINKAKUJI - Kinkaku-ji / Golden Pavilion
-----------------------------------------------------
-
-UPDATE Buildings
-SET FreeBuildingThisCity = 'BUILDINGCLASS_PAGODA'
-WHERE Type = 'BUILDING_KINKAKUJI';
-
-INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_KINKAKUJI', 'YIELD_CULTURE', 3),
-('BUILDING_KINKAKUJI', 'YIELD_FAITH', 3);
-
-INSERT INTO Building_LakePlotYieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_KINKAKUJI', 'YIELD_CULTURE', 1),
-('BUILDING_KINKAKUJI', 'YIELD_FAITH', 1);
-
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_KINKAKUJI', 'FLAVOR_CULTURE', 30),
-('BUILDING_KINKAKUJI', 'FLAVOR_RELIGION', 30);
-
-INSERT INTO Language_en_US (Tag, Text) VALUES
-('TXT_KEY_BUILDING_KINKAKUJI',     'Kinkaku-ji (The Golden Pavilion)'),
-('TXT_KEY_WONDER_KINKAKUJI_HELP',  'Grants a free [COLOR_POSITIVE_TEXT]Pagoda[ENDCOLOR]. +1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from each Lake tile worked by the city.[NEWLINE][NEWLINE]City must be built near the [COLOR_CYAN]Lake[ENDCOLOR].'),
-('TXT_KEY_WONDER_KINKAKUJI_QUOTE', '[NEWLINE]"A book holds a house of Gold"[NEWLINE] - Chinese Proverb[NEWLINE]'),
-('TXT_KEY_WONDER_KINKAKUJI_PEDIA', 'Kinkaku-ji (literally "Temple of the Golden Pavilion") is a Buddhist temple in Kyoto, Japan. it was originally built as a villa at an unknown date, however was bought in 1397 by Shogun Ashikaga Yoshimitsu, who converted the villa into the Kinkaku-ji complex. Upon his death, it was converted to a Zen temple by his son.[NEWLINE][NEWLINE]  In July 1950 it was burnt down by a Monk with a mental illness, causing a massive renovation project to be undertaken. The renovations took five years, completed in 1955. The exterior of the upper two floors were covered in pure gold leave, giving the name "Golden Pavilion", however it is unclear wether the gold leaf was present in the pre-1950''s version.');
-
 
 
 ----------------------------------------------------
@@ -641,35 +615,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_WONDER_PANAMA_PEDIA', 'The Panama Canal is a manmade shipping lane located on the Panama Isthmus seperating the Pacific Ocean and Carribean Sea. The idea of a canal in the location was first proposed int he sixteenth century by Charles V, Holy Roman Emperor, who asked for a link to shorten the journey between Spain and their colony of Peru. In 1698 the Kingdom of Scotland launched a project to create an overland trade route in the area, which was abandoned due to inhospitiable conditions a year later.[NEWLINE][NEWLINE]  It was not until 1855 that a link was first established, the Panama Canal Railway, as a result of the 1849 discovery of Gold in the American state of California. This railway was used extensively in the American construction of the canal from 1904 to 1914. As opposed to the French plan of constructing a flat water canal, much like that of the Suez Canal, the American design featured a series of ship locks to rise the ships over a range that caused problems for the French design. The American design proved sucessful, and was opened on August 15, 1914. Railway cars had been used to transport approximately 152,910,972 cubic metres of excevations through the construction, while it had cost 27,500 lives across the whole project.');
 
 
-----------------------------------------------------
--- PETERHOF - Peterhof Palace
--- +1 Trade Route, 15% increased great people generation in this city, We love the king day begins in the city and produces 10% more culture, gold and food
-----------------------------------------------------
-
-UPDATE Buildings
-SET NumTradeRouteBonus = 1, WLTKDTurns = 20, GreatPeopleRateModifier = 15
-WHERE Type = 'BUILDING_PETERHOF';
-
-INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_PETERHOF', 'YIELD_CULTURE', 3);
-
-INSERT INTO Building_WLTKDYieldMod (BuildingType, YieldType, Yield) VALUES
-('BUILDING_PETERHOF', 'YIELD_FOOD', 10),
-('BUILDING_PETERHOF', 'YIELD_CULTURE', 10),
-('BUILDING_PETERHOF', 'YIELD_GOLD', 10);
-
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_PETERHOF', 'FLAVOR_CULTURE', 25),
-('BUILDING_PETERHOF', 'FLAVOR_GOLD', 20),
-('BUILDING_PETERHOF', 'FLAVOR_GROWTH', 35),
-('BUILDING_PETERHOF', 'FLAVOR_GREAT_PEOPLE', 50);
-
-INSERT INTO Language_en_US (Tag, Text) VALUES
-('TXT_KEY_BUILDING_PETERHOF',     'Peterhof Palace'),
-('TXT_KEY_WONDER_PETERHOF_HELP',  '+1 trade route. The rate at which [ICON_GREAT_PEOPLE] great people are born in this city increased by 15%. Starts 20 turn of [COLOR_POSITIVE_TEXT]We Love The King Day[ENDCOLOR] in the city. During a [COLOR_POSITIVE_TEXT]We Love The King Day[ENDCOLOR], [ICON_FOOD] Food, [ICON_CULTURE] Culture and [ICON_GOLD] Gold increase by 10%.[NEWLINE][NEWLINE]City must be built on or next to [COLOR_CYAN]Tundra[ENDCOLOR].'),
-('TXT_KEY_WONDER_PETERHOF_QUOTE', '[NEWLINE]"It is my great desire to reform my subjects, and yet I am ashamed to confess that I am unable to reform myself."[NEWLINE] - Peter The Great[NEWLINE]'),
-('TXT_KEY_WONDER_PETERHOF_PEDIA', 'The Peterhof Palace is a series of palaces and gardens located in Saint Petersburg, Russia, laid out on the orders of Peter the Great. These Palaces and gardens are sometimes referred as the "Russian Versailles". The palace-ensemble along with the city centre is recognised as a UNESCO World Heritage Site.');
-
 
 ----------------------------------------------------
 -- ROCKEFELLER - Rockefeller Center
@@ -767,38 +712,6 @@ INSERT INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_WONDER_SPUTNIK_HELP',  '1 Free [COLOR_POSITIVE_TEXT]Social Policy[ENDCOLOR]. Reduces [ICON_HAPPINESS_3] Boredom in all cities. +33% faster generation of [ICON_GREAT_ENGINEER] Great Engineers and [ICON_GREAT_SCIENTIST] Scientists in this City and +10% faster generation of all [ICON_GREAT_PEOPLE] Great People in all Cities. +25% [ICON_PRODUCTION] Production in this City when building Spaceship Parts.[NEWLINE][NEWLINE]Requires [COLOR_CYAN]Order[ENDCOLOR]. City must be built on a [COLOR_CYAN]Flat[ENDCOLOR] terrain.'),
 ('TXT_KEY_WONDER_SPUTNIK_QUOTE', '[NEWLINE]"Beep... Beep... Beep..."[NEWLINE] - Sputnik 1[NEWLINE]'),
 ('TXT_KEY_WONDER_SPUTNIK_PEDIA', 'The Sputnik program was a series of robotic spacecraft missions launched by the Soviet Union. The first of these, Sputnik 1, launched the first human-made object to orbit the Earth. That launch took place on October 4, 1957 as part of the International Geophysical Year and demonstrated the viability of using artificial satellites to explore the upper atmosphere.[NEWLINE][NEWLINE]  The value of Sputnik 1 as Soviet propaganda was especially evident in the response of the American public. Sputnik crushed the American perception of the United States as the technological superpower by demonstrating that the Soviets were not the ignorant Easterners they had been perceived as prior to the launch. As a result, panic overtook the American public, which created an enormous sense of vulnerability regarding the United States'' ability to defend its territory.');
-
-
-----------------------------------------------------
--- STPETERS - Papal Basilica of St. Peter in the Vatican
--- Faith from GWA. Reduces Poverty in All Cities. +1 Hap from All religious buildings.
-----------------------------------------------------
-
-UPDATE Buildings
-SET PovertyHappinessChangeGlobal = -20, SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1
-WHERE Type = 'BUILDING_STPETERS';
-
-INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES
-('BUILDING_STPETERS', 'YIELD_CULTURE', 2);
-
-INSERT INTO Building_GreatWorkYieldChanges (BuildingType, YieldType, Yield)
-VALUES ('BUILDING_STPETERS', 'YIELD_FAITH', 1);
-
-INSERT INTO Building_BuildingClassHappiness (BuildingType, BuildingClassType, Happiness)
-SELECT DISTINCT 'BUILDING_STPETERS', BuildingClass, 1
-FROM Buildings
-WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
-	
-INSERT INTO Building_Flavors (BuildingType, FlavorType, Flavor) VALUES
-('BUILDING_STPETERS', 'FLAVOR_HAPPINESS', 50),
-('BUILDING_STPETERS', 'FLAVOR_RELIGION', 40);
-
-INSERT INTO Language_en_US (Tag, Text) VALUES
-('TXT_KEY_BUILDING_STPETERS',     'St. Peter''s Basilica'),
-('TXT_KEY_WONDER_STPETERS_HELP',  'Reduces [ICON_HAPPINESS_3] Poverty in all cities. +1 [ICON_PEACE] Faith from all [ICON_GREAT_WORK] Great Works of Art. +1 [ICON_HAPPINESS_1] Happiness from all unique Religious buildings.[NEWLINE][NEWLINE]Requires completion of [COLOR_CYAN]Fealty Branch[ENDCOLOR].'),
-('TXT_KEY_WONDER_STPETERS_QUOTE', '[NEWLINE]"A rock pile ceases to be a rock pile the moment a single man contemplates it, bearing within him the image of a cathedral."[NEWLINE] - Antoine de Saint-Exupery[NEWLINE]'),
-('TXT_KEY_WONDER_STPETERS_PEDIA', 'Basilica Papale di San Pietro in Vaticano, better known as St. Peter''s Basilica, is a late Renaissance church in Vatican City, with the largest interior of any Christian church in the world. The supposed burial site of the apostle Peter in 64 AD, some years later a shrine was constructed there. Replacing the shrine, construction of "old" St. Peter''s was begun by the Emperor Constantine between 319 and 333 AD.[NEWLINE][NEWLINE]  Having fallen into serious disrepair over the centuries, Pope Julius II in 1505 determined to demolish the old church and replace it with a monumental structure, a construction project that spanned the next 120 years under a succession of popes and architects. To finance the colossal project, a number of popes authorized the wholesale selling of indulgences, a practice that led in part to Martin Luther''s protestant movement.[NEWLINE][NEWLINE]  With work by some of the Renaissance''s leading figures - Michelangelo, Raphael, Bramante, Bernini and others - the church now stands as one of the great treasures of Western civilization.');
-
 
 ----------------------------------------------------
 -- TAIPEI101 - Taipei 101
