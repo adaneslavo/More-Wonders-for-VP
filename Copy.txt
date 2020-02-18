@@ -33,28 +33,6 @@ FLAVOR_WONDER
 */
 
 
-----------------------------------------------------
--- Costs and Tech placement - only for active Wonders
-----------------------------------------------------
--- ANC
---UPDATE Buildings SET Cost =  185, PrereqTech = 'TECH_MASONRY',      NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_ABUSIMBEL';
--- MED
-UPDATE Buildings SET Cost =  400, PrereqTech = 'TECH_STEEL',        NumPoliciesNeeded = 0,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_DAMASCUS'; -- HONOR
-UPDATE Buildings SET Cost =  400, PrereqTech = 'TECH_THEOLOGY',     NumPoliciesNeeded = 7,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NABAWI';
-UPDATE Buildings SET Cost =  400, PrereqTech = 'TECH_EDUCATION',    NumPoliciesNeeded = 7,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MICHEL';
-UPDATE Buildings SET Cost =  500, PrereqTech = 'TECH_COMPASS',      NumPoliciesNeeded = 0,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA'; -- LIBERTY
-UPDATE Buildings SET Cost =  500, PrereqTech = 'TECH_MACHINERY',    NumPoliciesNeeded = 8,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
-UPDATE Buildings SET Cost =  500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHARTRES'; -- TRADITION
---UPDATE Buildings SET Cost =  500, PrereqTech = 'TECH_MACHINERY',    NumPoliciesNeeded = 8,  MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_WARTBURG';
--- REN
---UPDATE Buildings SET Cost =  800, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_DUOMO';
-UPDATE Buildings SET Cost =  800, PrereqTech = 'TECH_ASTRONOMY',    NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_TOCALI';
---UPDATE Buildings SET Cost =  800, PrereqTech = 'TECH_GUNPOWDER',    NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BENHADDOU';
-UPDATE Buildings SET Cost =  800, PrereqTech = 'TECH_BANKING',      NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KINKAKUJI';
-UPDATE Buildings SET Cost =  900, PrereqTech = 'TECH_NAVIGATION',   NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_GRIPSHOLM';
---UPDATE Buildings SET Cost =  900, PrereqTech = 'TECH_ECONOMICS',    NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_LEONARDO';
-UPDATE Buildings SET Cost =  900, PrereqTech = 'TECH_ACOUSTICS',    NumPoliciesNeeded = 0,  MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_STPETERS'; -- PIETY
-UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ARCHITECTURE',   NumPoliciesNeeded = 13, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PETERHOF';
 -- IND
 --UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RIFLING',      NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_ALAMO';
 UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD',     NumPoliciesNeeded =  0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_BROOKLYN'; -- PATRONAGE
@@ -81,22 +59,6 @@ UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_ELECTRONICS',  NumPoliciesN
 UPDATE Buildings SET Cost = 3000, PrereqTech = 'TECH_ROBOTICS',     NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_JUMEIRAH';
 UPDATE Buildings SET Cost = 3000, PrereqTech = 'TECH_LASERS',       NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_TAIPEI101';
 --UPDATE Buildings SET Cost = 3000, PrereqTech = 'TECH_STEALTH',      NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_MARINASANDS';
-
-
-----------------------------------------------------
--- Hide all INACTIVE Wonders - override any previous settings
--- Warning! They will still be visible in Civilopedia!
-----------------------------------------------------
-
-UPDATE Buildings
-SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1
-WHERE Type IN (SELECT 'BUILDING_'||WType FROM VPWEConfig WHERE WActive = 0);
-
-
-
-
-
-
 
 ----------------------------------------------------
 -- Ideology Wonders

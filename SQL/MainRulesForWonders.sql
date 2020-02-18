@@ -33,9 +33,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('KARNAK',			1,			0),		-- Karnak Temple
 			('NAZCA',			1,			0),		-- Nazca Lines
 			('WIELICZKA',		1,			0),		-- Wieliczka Salt Mine
-			--('MARAE',		1,			0),		-- Marae Arahurahu
 			----------------------------------------------------------------------------------------
-			--('AHU',		1,			0),		-- Ahu Tongariki
 			('MALWIYA',			1,			0),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',		1,			0),		-- Gate of the Sun
 			('BAMYAN',			1,			0),		-- Buddhas of Bamiyan
@@ -48,6 +46,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('WARTBURG',		1,			0),		-- Wartburg Castle
 			('GREAT_ZIMBABWE',	1,			0),		-- Great Zimbabwe
 			('FALUN',			1,			0),		-- Falun Mine
+			--('AHU',		1,			0),		-- Ahu Tongariki
 			('DAMASCUS',		1,			0),		-- Forge of Damascus
 			('SHWEDAGON',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('MICHEL',			1,			0),		-- Mont Saint Michel
@@ -55,10 +54,11 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('QALHAT',			1,			0),		-- Qalhat
 			('CHEVALIERS',		1,			0),		-- Krak des Chevaliers
 			----------------------------------------------------------------------------------------
-			--('BENHADDOU',		1,			0),		-- Ait Benhaddou
-			--('KILWA_KISIWANI',		1,			0),		-- Kilwa Kisiwani
+			('BENHADDOU',		1,			0),		-- Ait Benhaddou
+			('KILWA_KISIWANI',	1,			0),		-- Kilwa Kisiwani
 			('ST_PETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
 			('KINKAKU_JI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
+			--('MARAE',		1,			0),		-- Marae Arahurahu
 			--('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
 			--('MEENAKSHI',		1,			0),		-- Meenakshi Temple
 			('PETERHOF',		1,			0),		-- Peterhof Palace
@@ -147,12 +147,13 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 -- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
 --============================================--
 INSERT INTO VPWEConfig 
-			(WType,						WActive,	WFake)
-VALUES		('CHEVALIERS_DUMMY',		2,			0), -- for Krak des Chevaliers
-			('ITSUKUSHIMA_DUMMY',		2,			0), -- for Itsukushima
-			('QALHAT_DUMMY',			2,			0), -- for Qalhat
-			('GATE_OF_SUN_DUMMY',		2,			0), -- for Gate of the Sun
-			('GREAT_ZIMBABWE_DUMMY',	2,			0); -- for Great Zimbabwe
+			(WType,							WActive,	WFake)
+VALUES		('CHEVALIERS_DUMMY',			2,			0), -- for Krak des Chevaliers
+			('ITSUKUSHIMA_DUMMY',			2,			0), -- for Itsukushima
+			('QALHAT_DUMMY',				2,			0), -- for Qalhat
+			('GATE_OF_SUN_DUMMY',			2,			0), -- for Gate of the Sun
+			('GREAT_ZIMBABWE_DUMMY',		2,			0), -- for Great Zimbabwe
+			('KILWA_KISIWANI_DUMMY',		2,			0); -- for Kilwa Kisiwani
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

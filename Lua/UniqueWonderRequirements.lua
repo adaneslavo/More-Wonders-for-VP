@@ -28,6 +28,7 @@ local tValidIsAtPeace = {}
 local tValidIsMajorApproach = {}
 local tValidIsCsAllies = {}
 local tValidIsGreatWorks = {}
+local tValidIsReligionFounded = {}
 
 local bReachedMaxEra
 
@@ -433,6 +434,23 @@ function CheckArt(pBuilding, pCity, eGreatWorkType)
 	
 	return iGreatWorks
 end
+
+-- checks if player found RELIGION (SISTINE CHAPEL)
+function IsReligionFounded(ePlayer, eCity, eBuilding)
+	if not tValidIsReligionFounded[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	if pPlayer:HasCreatedReligion() then
+		return true
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsReligionFounded)
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -465,6 +483,7 @@ function Initialize()
 		[GameInfo.Buildings.BUILDING_NABAWI.ID] = true,
 		[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 		[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
+		[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = true,
 		[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
 		[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true
 	}
@@ -523,6 +542,11 @@ function Initialize()
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 2
 	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
+		iRequiredImprovements = 3
+	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		iRequiredImprovements = 4
@@ -575,6 +599,14 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsGreatWorks) do
 		dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
+	end
+
+	-- IsReligionFounded
+	tValidIsReligionFounded = {
+		[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = true
+	}
+	for id, building in pairs(tValidIsReligionFounded) do
+		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
 	end
 end
 Initialize()

@@ -35,6 +35,12 @@ local eZimbabweDummy = GameInfoTypes["BUILDING_GREAT_ZIMBABWE_DUMMY"]
 local bHasZimbabwe = false
 local eZimbabweOwner
 
+-- Kilwa Kisiwani
+local eKilwa = GameInfoTypes["BUILDING_KILWA_KISIWANI"]
+local eKilwaDummy = GameInfoTypes["BUILDING_KILWA_KISIWANI_DUMMY"]
+local bHasKilwa = false
+local eKilwaOwner
+
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -65,6 +71,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(eZimbabwe) then
 					bHasZimbabwe = true
 					eZimbabweOwner = i
+				end
+
+				if city:IsHasBuilding(eKilwa) then
+					bHasKilwa = true
+					eKilwaOwner = i
 				end
 			end
 		end
@@ -199,6 +210,18 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			pCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes)
 		end
 	end
+
+	if not bHasKilwa then	
+		if eBuilding == eKilwa then
+			bHasKilwa = true
+			eKilwaOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+
+			pCity:SetNumRealBuilding(eKilwaDummy, 1)
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
@@ -326,6 +349,17 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end
 
 			pConqCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes);
+		end
+	end
+
+	if bHasKilwa then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eKilwa) then
+			eKilwaOwner = eNewOwner
+			
+			pConqCity:SetNumRealBuilding(eKilwaDummy, 1);
 		end
 	end
 end
