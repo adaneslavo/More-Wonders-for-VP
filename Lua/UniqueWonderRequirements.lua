@@ -29,6 +29,7 @@ local tValidIsMajorApproach = {}
 local tValidIsCsAllies = {}
 local tValidIsGreatWorks = {}
 local tValidIsReligionFounded = {}
+local tValidIsHappiness = {}
 
 local bReachedMaxEra
 
@@ -451,6 +452,25 @@ function IsReligionFounded(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsReligionFounded)
+
+-- checks if player passes the HAPPINESS value (BAKKEN)
+function IsHappiness(ePlayer, eCity, eBuilding)
+	if not tValidIsHappiness[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iRequiredHappiness = tValidIsHappiness[eBuilding]
+	print(pPlayer:GetHappiness())
+	if pPlayer:GetHappiness() > iRequiredHappiness then
+		return true
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHappiness)
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -564,6 +584,7 @@ function Initialize()
 	-- IsAtPeace
 	tValidIsAtPeace = {
 		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
+		[GameInfo.Buildings.BUILDING_OLD_BRIDGE.ID] = true
 	}
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
 	
@@ -586,7 +607,7 @@ function Initialize()
 	-- IsCsAllies
 	tValidIsCsAllies = {
 		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
-		--[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2
+		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2
 	}
 	for id, building in pairs(tValidIsCsAllies) do
 		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsCsAllies[id])
@@ -607,6 +628,14 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsReligionFounded) do
 		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
+	end
+
+	-- IsHappiness
+	tValidIsHappiness = {
+		[GameInfo.Buildings.BUILDING_BAKKEN.ID] = 80
+	}
+	for id, building in pairs(tValidIsHappiness) do
+		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHapiness)")
 	end
 end
 Initialize()

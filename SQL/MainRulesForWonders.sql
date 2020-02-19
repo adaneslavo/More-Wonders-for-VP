@@ -59,11 +59,11 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('ST_PETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
 			('KINKAKU_JI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
 			--('MARAE',		1,			0),		-- Marae Arahurahu
-			--('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
-			--('MEENAKSHI',		1,			0),		-- Meenakshi Temple
+			('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
+			('MEENAKSHI',		1,			0),		-- Meenakshi Temple
 			('PETERHOF',		1,			0),		-- Peterhof Palace
-			--('BAKKEN',		1,			0),		-- Bakken
-			--('HOUSE_OF_TRADE',		1,			0),		-- Casa de Contratación
+			('BAKKEN',			1,			0),		-- Bakken
+			('HOUSE_OF_TRADE',	1,			0),		-- House of Trade of the Indies (Casa de Contratación)
 			('SOLOVIETSKY',		1,			0);		-- Solovietsky Monastery
 			
 			
