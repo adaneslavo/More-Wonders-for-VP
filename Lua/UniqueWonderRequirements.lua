@@ -496,6 +496,7 @@ function Initialize()
 	tValidIsNoCoast = {
 		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
+		[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
 		[GameInfo.Buildings.BUILDING_PETRA.ID] = true,
 		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
 		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
@@ -583,7 +584,7 @@ function Initialize()
 		
 	-- IsAtPeace
 	tValidIsAtPeace = {
-		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true
+		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
 		[GameInfo.Buildings.BUILDING_OLD_BRIDGE.ID] = true
 	}
 	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
