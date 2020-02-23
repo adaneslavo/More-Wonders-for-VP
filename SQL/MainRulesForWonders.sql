@@ -58,7 +58,7 @@ VALUES		('ALTAMIRA',		1,			0),		-- Altamira Cave
 			('KILWA_KISIWANI',	1,			0),		-- Kilwa Kisiwani
 			('ST_PETERS',		1,			0),		-- Papal Basilica of St. Peter in the Vatican
 			('KINKAKU_JI',		1,			0),		-- Golden Pavilion (Kikaku-Ji)
-			--('MARAE',		1,			0),		-- Marae Arahurahu
+			('MARAE',			1,			0),		-- Marae Arahurahu
 			('OLD_BRIDGE',		1,			0),		-- Old Bridge in Mostar
 			('MEENAKSHI',		1,			0),		-- Meenakshi Temple
 			('PETERHOF',		1,			0),		-- Peterhof Palace
@@ -153,7 +153,8 @@ VALUES		('CHEVALIERS_DUMMY',			2,			0), -- for Krak des Chevaliers
 			('QALHAT_DUMMY',				2,			0), -- for Qalhat
 			('GATE_OF_SUN_DUMMY',			2,			0), -- for Gate of the Sun
 			('GREAT_ZIMBABWE_DUMMY',		2,			0), -- for Great Zimbabwe
-			('KILWA_KISIWANI_DUMMY',		2,			0); -- for Kilwa Kisiwani
+			('KILWA_KISIWANI_DUMMY',		2,			0), -- for Kilwa Kisiwani
+			('MARAE_DUMMY',					2,			0); -- for Marae Arahurahu
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

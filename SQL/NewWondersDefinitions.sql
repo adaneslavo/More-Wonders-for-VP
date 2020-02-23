@@ -7,11 +7,11 @@
 --============================================--
 INSERT INTO IconTextureAtlases	
 			(Atlas,								IconSize,	Filename,						IconsPerRow,	IconsPerColumn) 
-VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'2',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	64,			'WonderPromotionIcons_64.dds',	'2',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	45,			'WonderPromotionIcons_45.dds',	'2',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	32,			'WonderPromotionIcons_32.dds',	'2',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	16,			'WonderPromotionIcons_16.dds',	'2',			'1');
+VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'4',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	64,			'WonderPromotionIcons_64.dds',	'4',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	45,			'WonderPromotionIcons_45.dds',	'4',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	32,			'WonderPromotionIcons_32.dds',	'4',			'1'),
+			('NEW_WONDERS_PROMO_ICON_ATLAS',	16,			'WonderPromotionIcons_16.dds',	'4',			'1');
 --============================================--
 -- HELP
 --============================================--
@@ -711,16 +711,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_NABAWI', 'FLAVOR_CULTURE',		30),
 				('BUILDING_NABAWI', 'FLAVOR_RELIGION',		70),
 				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	20);
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,									Text)
-	VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
-				('TXT_KEY_WONDER_NABAWI_HELP',			'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in this City.'),
-				('TXT_KEY_WONDER_NABAWI_HELP_CUT',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in this City.'),
-				('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
-				('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
-				('TXT_KEY_THEMING_BONUS_NABAWI',		'Islamic calligraphy works'),
-				('TXT_KEY_THEMING_BONUS_NABAWI_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
@@ -785,14 +775,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_LAVAUX', 'FLAVOR_GOLD',			40),
 				('BUILDING_LAVAUX', 'FLAVOR_HAPPINESS',		60),
 				('BUILDING_LAVAUX', 'FLAVOR_RELIGION',		10);
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,									Text)
-	VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
-				('TXT_KEY_WONDER_LAVAUX_HELP',			'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_LAVAUX_HELP_CUT',		'Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
-				('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ALHAMBRA
@@ -857,16 +839,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_WARTBURG',	'FLAVOR_CULTURE',		30),
 				('BUILDING_WARTBURG',	'FLAVOR_GREAT_PEOPLE',	60),
 				('BUILDING_WARTBURG',	'FLAVOR_RELIGION',		30);
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,										Text)
-	VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
-				('TXT_KEY_WONDER_WARTBURG_HELP',			'Feature: [COLOR_CYAN]Forest[ENDCOLOR]; Building: [COLOR_CYAN]Writer''s Guild[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. +30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_WARTBURG_HELP_CUT',		'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.'),
-				('TXT_KEY_WONDER_WARTBURG_QUOTE',			'[NEWLINE]"In nature we never see anything isolated, but everything in connection with something else which is before it, beside it, under it and over it."[NEWLINE] - Johann Wolfgang von Goethe[NEWLINE]'),
-				('TXT_KEY_WONDER_WARTBURG_PEDIA',			'Wartburg Castle was built in 1067 by Ludwig der Springer to secure his traditional territories. From 1172 to 1211, it was an important princely court in the Holy Roman Empire and a support for poets, thus becoming the setting of the legendary Sangerkrieg. Following his excommunication, Martin Luther stayed at Wartburg when he translated the New Testament from ancient Greek into German.[NEWLINE]For centuries, Wartburg has been a place of pilgrimage for its significance in German and Christian history. In the modern day, Wartburg remains a popular tourist attraction. It often stages the opera Tannhauser. While the castle still contains original structures from the 12th through 15th centuries, much of the interior dates back only to the 19th century, transformed under communist rule in the time of the GDR.'),
-				('TXT_KEY_THEMING_BONUS_WARTBURG',			'Literature that inspired whole nations'),
-				('TXT_KEY_THEMING_BONUS_WARTBURG_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with literature created by you.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MACHU PICCHU
@@ -1020,11 +992,11 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				(Tag,									Text) 
 	VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
 				('TXT_KEY_WONDER_DAMASCUS_HELP',		'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. +3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
-				('TXT_KEY_WONDER_DAMASCUS_HELP_CUT',	'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion (+20% [ICON_STRENGTH] Combat Strength).[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
+				('TXT_KEY_WONDER_DAMASCUS_HELP_CUT',	'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.'),
 				('TXT_KEY_WONDER_DAMASCUS_QUOTE',		'[NEWLINE]"The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. The manufacturing technique has yet to be reverse engineered, even in modern times."[NEWLINE] - from legends about Damascus Steel[NEWLINE]'),
 				('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE]  The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time.'),
 				('TXT_KEY_PROMOTION_DAMASCUS',			'Damascus Steel'),
-				('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+20% [ICON_STRENGTH] Combat Strength');
+				('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+20%[ICON_STRENGTH]Combat Strength.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORBIDDEN PALACE
@@ -1513,6 +1485,56 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('TXT_KEY_WONDER_KINKAKU_JI_PEDIA',		'Kinkaku-ji (literally "Temple of the Golden Pavilion") is a Buddhist temple in Kyoto, Japan. it was originally built as a villa at an unknown date, however was bought in 1397 by Shogun Ashikaga Yoshimitsu, who converted the villa into the Kinkaku-ji complex. Upon his death, it was converted to a Zen temple by his son.[NEWLINE][NEWLINE]  In July 1950 it was burnt down by a Monk with a mental illness, causing a massive renovation project to be undertaken. The renovations took five years, completed in 1955. The exterior of the upper two floors were covered in pure gold leave, giving the name "Golden Pavilion", however it is unclear wether the gold leaf was present in the pre-1950''s version.');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- MARAE ARAHURAHU (NEW)
+	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MARAE';
+	
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,		BuildingClassType) 
+	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 1, SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
+
+	INSERT INTO Building_DomainFreeExperiencePerGreatWork
+				(BuildingType,		DomainType,		Experience)
+	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	10),
+				('BUILDING_MARAE',	'DOMAIN_SEA',	10);
+
+	INSERT INTO UnitPromotions 
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				1,					10,			2,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
+				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				1,					0,			3,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,			UnitCombatType)
+	VALUES		('PROMOTION_MARAE',		'UNITCOMBAT_ARCHER'),
+				('PROMOTION_MARAE',		'UNITCOMBAT_GUN'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_ARCHER'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_GUN'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_ARMOR'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_MELEE'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_MOUNTED'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_RECON'),
+				('PROMOTION_ARAHURAHU',	'UNITCOMBAT_SIEGE');
+
+	INSERT INTO UnitPromotions_YieldFromKills
+				(PromotionType,			YieldType,			Yield)
+	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	15);
+	
+	INSERT INTO Building_YieldFromDeath
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	15);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_MARAE',		'FLAVOR_RELIGION',		30),
+				('BUILDING_MARAE',		'FLAVOR_CULTURE',		60),
+				('BUILDING_MARAE',		'FLAVOR_OFFENSE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- HIMEJI CASTLE
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HIMEJI_CASTLE';
 	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HIMEJI_CASTLE';
@@ -1657,6 +1679,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- UFFIZI
+	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_UFFIZI';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_UFFIZI';
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_UFFIZI';
 
@@ -1705,7 +1728,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BAKKEN (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BAKKEN';
+	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BAKKEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_BAKKEN';
 	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_BAKKEN';
@@ -1771,7 +1794,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HOUSE OF TRADE OF THE INDIES (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
+	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
 	
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HOUSE_OF_TRADE';

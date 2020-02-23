@@ -41,6 +41,12 @@ local eKilwaDummy = GameInfoTypes["BUILDING_KILWA_KISIWANI_DUMMY"]
 local bHasKilwa = false
 local eKilwaOwner
 
+-- Marae Arahurahu
+local eMarae = GameInfoTypes["BUILDING_MARAE"]
+local eMaraeDummy = GameInfoTypes["BUILDING_MARAE_DUMMY"]
+local bHasMarae = false
+local eMaraeOwner
+
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -76,6 +82,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(eKilwa) then
 					bHasKilwa = true
 					eKilwaOwner = i
+				end
+
+				if city:IsHasBuilding(eMarae) then
+					bHasMarae = true
+					eMaraeOwner = i
 				end
 			end
 		end
@@ -222,6 +233,18 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			pCity:SetNumRealBuilding(eKilwaDummy, 1)
 		end
 	end
+
+	if not bHasMarae then	
+		if eBuilding == eMarae then
+			bHasMarae = true
+			eMaraeOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+
+			pCity:SetNumRealBuilding(eMaraeDummy, 1)
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
@@ -360,6 +383,17 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			eKilwaOwner = eNewOwner
 			
 			pConqCity:SetNumRealBuilding(eKilwaDummy, 1);
+		end
+	end
+
+	if bHasMarae then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eMarae) then
+			eMaraeOwner = eNewOwner
+			
+			pConqCity:SetNumRealBuilding(eMaraeDummy, 1);
 		end
 	end
 end

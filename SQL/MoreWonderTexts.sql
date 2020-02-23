@@ -325,7 +325,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_EL_GHRIBA_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP';		
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP';		
 ----------------------------------------------------
 -- Etchmiadzin Cathedral
 INSERT INTO Language_en_US 
@@ -444,7 +444,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Grassland[ENDCOL
 ----------------------------------------------------
 -- Oracle
 UPDATE Language_en_US
-SET Text = 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR] gives you massive [ICON_RESEARCH] Science and [ICON_CULTURE] Culture injection. Unlike standard [COLOR_YIELD_FOOD]Temple[ENDCOLOR] it also focus on decreasing [ICON_HAPPINESS_3] Illiteracy in your City.'
+SET Text = 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR] gives you massive [ICON_RESEARCH] Science and [ICON_CULTURE] Culture injection. Unlike standard [COLOR_YIELD_FOOD]Temple[ENDCOLOR], it also focus on decreasing [ICON_HAPPINESS_3] Illiteracy in your City.'
 WHERE Tag = 'TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -456,7 +456,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR], [COLO
 ----------------------------------------------------
 -- Angkor Wat
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] boosts your border growth and, unlike other [COLOR_YIELD_FOOD]Mandirs[ENDCOLOR] supports your [ICON_CULTURE] Culture generation in addition to [ICON_PEACE] Faith.'
+SET Text = '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] boosts your border growth and, unlike other [COLOR_YIELD_FOOD]Mandirs[ENDCOLOR], supports your [ICON_CULTURE] Culture generation in addition to [ICON_PEACE] Faith.'
 WHERE Tag = 'TXT_KEY_WONDER_ANGKOR_WAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -491,5 +491,161 @@ SELECT		'TXT_KEY_WONDER_COLOSSUS_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR]/[ICON_RES_COPPER] [COLOR_CYAN]Copper[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP';
+----------------------------------------------------
+----------------------------------------------------
+-- Prophet's Mosque
+INSERT INTO Language_en_US 
+			(Tag,									Text)
+VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
+			('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
+			('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, often called the Prophet''s Mosque, is a mosque situated in the city of Medina. As the final resting place of the Islamic prophet Muhammad, it is considered the second holiest site in Islam by Muslims (the first being the Masjid al-Haram in Mecca) and is one of the largest mosques in the World. The mosque is under the control of the Custodian of the Two Holy Mosques. It is the second mosque built in history.[NEWLINE][NEWLINE]  One of the most notable features of the site is the Green Dome over the center of the mosque, where the tomb of Muhammad is located. It is not exactly known when the green dome was constructed but manuscripts dating to the early 12th century describe the dome. It is known as the Dome of the Prophet or the Green Dome. Subsequent Islamic rulers greatly expanded and decorated it. Early Muslim leaders Abu Bakr and Umar are buried in an adjacent area in the mosque.[NEWLINE][NEWLINE]  The site was originally Muhammad''s house; he settled there after his Hijra to Medina, later building a mosque on the grounds. He himself shared in the heavy work of construction. The original mosque was an open-air building. The basic plan of the building has been adopted in the building of other mosques throughout the world.'),
+			('TXT_KEY_THEMING_BONUS_NABAWI',		'Islamic calligraphy works'),
+			('TXT_KEY_THEMING_BONUS_NABAWI_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.'),
+			('TXT_KEY_WONDER_NABAWI_HELP',			'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in this City.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is a place where you can learn arabic religious literature. Massive [ICON_PEACE] Faith output from all of your cities and greater chance for [ICON_GREAT_WRITER] Great Writers will help you in achieving cultural victory.'
+WHERE Tag = 'TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_NABAWI_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_NABAWI_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP';		
+----------------------------------------------------
+-- Lavaux
+INSERT INTO Language_en_US 
+			(Tag,									Text)
+VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
+			('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
+			('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO'),
+			('TXT_KEY_WONDER_LAVAUX_HELP',			'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].[NEWLINE][NEWLINE]Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.');
+			
+UPDATE Language_en_US
+SET Text = 'Wineyards in [COLOR_YIELD_FOOD]Lavaux[ENDCOLOR] are well-known source of unique grapes. Try to make all your [ICON_CITIZEN] Citizens happier using your new sources of these wonderful fruits, which benefit pure waters of nearby lake.'
+WHERE Tag = 'TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_LAVAUX_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LAVAUX_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LAVAUX_HELP';		
+----------------------------------------------------
+-- Wartburg
+INSERT INTO Language_en_US 
+			(Tag,										Text)
+VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
+			('TXT_KEY_WONDER_WARTBURG_QUOTE',			'[NEWLINE]"In nature we never see anything isolated, but everything in connection with something else which is before it, beside it, under it and over it."[NEWLINE] - Johann Wolfgang von Goethe[NEWLINE]'),
+			('TXT_KEY_WONDER_WARTBURG_PEDIA',			'Wartburg Castle was built in 1067 by Ludwig der Springer to secure his traditional territories. From 1172 to 1211, it was an important princely court in the Holy Roman Empire and a support for poets, thus becoming the setting of the legendary Sangerkrieg. Following his excommunication, Martin Luther stayed at Wartburg when he translated the New Testament from ancient Greek into German.[NEWLINE]For centuries, Wartburg has been a place of pilgrimage for its significance in German and Christian history. In the modern day, Wartburg remains a popular tourist attraction. It often stages the opera Tannhauser. While the castle still contains original structures from the 12th through 15th centuries, much of the interior dates back only to the 19th century, transformed under communist rule in the time of the GDR.'),
+			('TXT_KEY_THEMING_BONUS_WARTBURG',			'Literature that inspired whole nations'),
+			('TXT_KEY_THEMING_BONUS_WARTBURG_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with literature created by you.'),
+			('TXT_KEY_WONDER_WARTBURG_HELP',			'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.');
+			
+UPDATE Language_en_US
+SET Text = 'Castle of [COLOR_YIELD_FOOD]Wartburg[ENDCOLOR] is place where crucial literature for mankind is written. Huge cultural impact, religious influence, much faster [ICON_GOLDEN] Golden Ages and even stronger defensive and offensive of your inspired troops are all you can get from its presence.'
+WHERE Tag = 'TXT_KEY_WONDER_WARTBURG_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_WARTBURG_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_WARTBURG_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR]; Building: [COLOR_CYAN]Writer''s Guild[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WARTBURG_HELP';		
+----------------------------------------------------
+-- Great Zimbabwe
+----------------------------------------------------
+-- Ahu Tongariki
+----------------------------------------------------
+-- Falun Mine
+----------------------------------------------------
+-- Forge of Damascus
+----------------------------------------------------
+-- Golden Dagon Pagoda
+----------------------------------------------------
+-- Mont St. Michel
+----------------------------------------------------
+-- Itsukushima Shrine
+----------------------------------------------------
+-- Qalhat
+----------------------------------------------------
+-- Krak des Chevaliers
+----------------------------------------------------
+-- University of Sankore
+----------------------------------------------------
+-- Hagia Sophia
+----------------------------------------------------
+-- Borobudur
+----------------------------------------------------
+-- Alhambra
+----------------------------------------------------
+-- Machu Picchu
+----------------------------------------------------
+-- Forbidden Palace
+----------------------------------------------------
+-- Cathedral of St. Basil
+----------------------------------------------------
+-- Notre Dame
+----------------------------------------------------
+----------------------------------------------------
+-- Ait Benhaddou
+----------------------------------------------------
+-- Kilwa Kisiwani
+----------------------------------------------------
+-- St. Peter's Basilica
+----------------------------------------------------
+-- Golden Pavilion
+----------------------------------------------------
+-- Marae Arahurahu
+INSERT INTO Language_en_US 
+			(Tag,									Text) 
+VALUES		('TXT_KEY_BUILDING_MARAE',				'Marae Arahurahu'),
+			('TXT_KEY_WONDER_MARAE_QUOTE',			'[NEWLINE]"The leader at the front and the workers behind the scenes."[NEWLINE] - Maori proverb[NEWLINE]'),
+			('TXT_KEY_WONDER_MARAE_PEDIA',			'TODO'),
+			('TXT_KEY_WONDER_MARAE_HELP',			'Has 1 slot for [ICON_GREAT_WORK] Great Works of Music. 10 XP per each [ICON_GREAT_WORK] Great Work for Land and Sea Units trained in this City. All Ranged Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land and Sea Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_MARAE',				'Marae'),
+			('TXT_KEY_PROMOTION_MARAE_HELP',		'+10%[ICON_RANGE_STRENGTH]Ranged Combat Strength.'),
+			('TXT_KEY_PROMOTION_ARAHURAHU',			'Arahurahu'),
+			('TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'15 [ICON_CULTURE] Culture on Kill and 15 [ICON_PEACE] Faith on Death.');
+
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Marae Arahurahu[ENDCOLOR] motivates your troops so successfully, that even if they die on battlefield, [ICON_PEACE] Faith growths. They also spread your [ICON_CULTURE] Culture when fighting enemies, singing sublime songs.'
+WHERE Tag = 'TXT_KEY_WONDER_MARAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_MARAE_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MARAE_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], [COLOR_CYAN]Coast[ENDCOLOR]; Building: [COLOR_CYAN]Garden[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MARAE_HELP';		
+----------------------------------------------------
+-- Old Bridge
+----------------------------------------------------
+-- Meenakshi Temple
+----------------------------------------------------
+-- Peterhof
+----------------------------------------------------
+-- Bakken
+----------------------------------------------------
+-- House of Trades of the Indies
+----------------------------------------------------
+-- Solovietsky Monastery
+----------------------------------------------------
+-- Globe Theater
+----------------------------------------------------
+-- Chichen Itza
+----------------------------------------------------
+-- Himeji Castle
+----------------------------------------------------
+-- Leaning Tower of Pisa
+----------------------------------------------------
+-- Porcelain Tower
+----------------------------------------------------
+-- Taj Mahal
+----------------------------------------------------
+-- Uffizi
+----------------------------------------------------
+-- Sistine Chapel
+----------------------------------------------------
+-- Summer Palace
+----------------------------------------------------
+-- Red Fort
 ----------------------------------------------------
 ----------------------------------------------------
