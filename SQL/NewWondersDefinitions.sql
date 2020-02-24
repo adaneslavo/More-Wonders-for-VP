@@ -925,8 +925,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	
 	INSERT INTO Building_GreatPersonProgressFromConstruction
 				(BuildingType,		GreatPersonType,		EraType,			Value) 
-	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_MEDIEVAL',		100),
-				('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_RENAISSANCE',	100);
+	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_CLASSICAL',	50);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)

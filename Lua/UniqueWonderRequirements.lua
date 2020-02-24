@@ -497,6 +497,7 @@ function Initialize()
 		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
+		[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = true,
 		[GameInfo.Buildings.BUILDING_PETRA.ID] = true,
 		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
 		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
@@ -533,9 +534,6 @@ function Initialize()
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
 		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = {
-		iRequiredRoads = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,

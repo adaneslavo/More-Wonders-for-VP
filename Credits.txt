@@ -13,9 +13,8 @@ Special thanks to:
 		- altamira cave: guillermuin;
 		- goebekli tepe, gate of the sun: Pouakai, sukritact;
 		- ggantija, skara brae: artisanix;
-		- mohenjo-daro: adan_eslavo;
 		- wieliczka: DeadMu5;
-		- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, falun, wartburg: hokath;
+		- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, falun, wartburg, mohenjo-daro: hokath;
 		- great zimbabwe: LastSword;
 	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
-	- promotion icons designer: Asterix Rage;
+	- 4 new promotion icons designer: Asterix Rage;
