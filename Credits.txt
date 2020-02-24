@@ -3,18 +3,19 @@
 --------------------------------------------------------------
 Special thanks to:
 - coders and supporters:
-	- mod creator: Infixo;
-	- other modders which supported this work during Infixo's absence: ProCatGamer and Asterix Rage;
-	- support: Bordukov, gwennog, hokath, Kenneth1221, KittyKat3120, Padre19, pineappledan, ProCatGamer and many others; 
-	- civilopedia: Kenneth1221;
+	- @Infixo: mod creator;
+	- @ProCatGamer and @Asterix Rage: other modders which supported this work during Infixo's absence;
+	- @Bordukov, @gwennog, @hokath, @Kenneth1221, @KittyKat3120, @Padre19, @pineappledan, @ProCatGamer and many others: support; 
+	- @Kenneth1221: civilopedia;
 - art creators: 
-	- "base wonders": Pouakai, regalmanemperor, Envoy, Hammurabi1337, BoOoSs, Epsilon, Moriboe;
+	- @Pouakai, @regalmanemperor, @Envoy, @Hammurabi1337, @BoOoSs, @Epsilon, @Moriboe: "base wonders";
 	- "new wonders":
-		- altamira cave: guillermuin;
-		- goebekli tepe, gate of the sun: Pouakai, sukritact;
-		- ggantija, skara brae: artisanix;
-		- wieliczka: DeadMu5;
-		- el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, falun, wartburg, mohenjo-daro: hokath;
-		- great zimbabwe: LastSword;
-	- splash screen for Peterhof Palace: Valery (16 national wonder mod);
-	- 4 new promotion icons designer: Asterix Rage;
+		- @guillermuin: altamira cave;
+		- @Pouakai, @sukritact: goebekli tepe, gate of the sun;
+		- @artisanix: ggantija, skara brae;
+		- @hokath: el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, 
+					falun, wartburg, mohenjo-daro;
+		- @LastSword: great zimbabwe;
+		- @maxf: soloviesky;
+	- @Valery: splash screen for Peterhof Palace (16 national wonder mod);
+	- @Asterix Rage: 4 new promotion icons designer;
