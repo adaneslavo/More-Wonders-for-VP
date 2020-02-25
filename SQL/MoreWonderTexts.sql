@@ -503,7 +503,7 @@ VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
 			('TXT_KEY_WONDER_NABAWI_HELP',			'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mosque in the City in which it is built. All Cities generate +10% [ICON_PEACE] Faith. Has 2 slot for [ICON_GREAT_WORK] Great Works of Writing that provide +4 [ICON_PEACE] Faith and [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. +20% generation of [ICON_GREAT_WRITER] Great Writers in this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is a place where you can learn arabic religious literature. Massive [ICON_PEACE] Faith output from all of your cities and greater chance for [ICON_GREAT_WRITER] Great Writers will help you in achieving cultural victory.'
+SET Text = 'This Wonder is a unique [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] ([ICON_RESEARCH];[ICON_PEACE];[ICON_GREAT_WORK];[ICON_CULTURE];[ICON_GOLDEN_AGE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER];2[ICON_GREAT_WORK]). Massive faith output (+10% Global[ICON_PEACE]) from all of your Cities will help you in achieving cultural domination.'
 WHERE Tag = 'TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -521,7 +521,7 @@ VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
 			('TXT_KEY_WONDER_LAVAUX_HELP',			'Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.');
 			
 UPDATE Language_en_US
-SET Text = 'Wineyards in [COLOR_YIELD_FOOD]Lavaux[ENDCOLOR] are well-known source of unique grapes. Try to make all your [ICON_CITIZEN] Citizens happier using these wonderful fruits, which benefit pure waters of nearby lake.'
+SET Text = 'Wineyards in [COLOR_YIELD_FOOD]Lavaux[ENDCOLOR] are well-known source of unique [COLOR_CYAN]Grapes[ENDCOLOR] (+2[ICON_RES_WINE]). Try to make all your citizens much happier (-10% Global[ICON_HAPPINESS_3]Needs) using these wonderful fruits (+1[ICON_FOOD],+1[ICON_GOLD],+1[ICON_PEACE]/[ICON_RES_WINE]), which benefit pure waters of nearby [COLOR_CITY_GREEN]Lake[ENDCOLOR] (+1[ICON_FOOD]).'
 WHERE Tag = 'TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -541,7 +541,7 @@ VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
 			('TXT_KEY_WONDER_WARTBURG_HELP',			'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 10 XP per each [ICON_GREAT_WORK] Great Work for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.');
 			
 UPDATE Language_en_US
-SET Text = 'Castle of [COLOR_YIELD_FOOD]Wartburg[ENDCOLOR] is place where crucial literature for mankind is written. Huge cultural impact, religious influence, much faster [ICON_GOLDEN_AGE] Golden Ages and even stronger defensive and offensive of your inspired troops are all you can get from its presence.'
+SET Text = 'With [COLOR_YIELD_FOOD]Wartburg[ENDCOLOR] you will become king of literature (+2[ICON_GREAT_WRITER];+30%[ICON_GREAT_WRITER]), which can be stored on your new shelves (3[ICON_GREAT_WORK]). Increase your faith output by constructing [COLOR_YIELD_FOOD]Writer''s Guilds[ENDCOLOR] (+1[ICON_PEACE]) in your Empire and raise up XP of your Land Units using your City collection (10 XP/[ICON_GREAT_WORK]).'
 WHERE Tag = 'TXT_KEY_WONDER_WARTBURG_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -559,7 +559,7 @@ VALUES		('TXT_KEY_BUILDING_GREAT_ZIMBABWE',			'Great Zimbabwe'),
 			('TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. [ICON_GOLD] Gold cost of aquiring new tiles reduced by 30% in all Cities. +2 [ICON_GOLDEN_AGE] Golden Age Points in this City and 10 XP to units constructed in all Cities for each active [ICON_INTERNATIONAL_TRADE] Trade Route.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Great Zimbabwe[ENDCOLOR] makes use from new [ICON_INTERNATIONAL_TRADE] Trade Routes, strengthens you army and speeds up [ICON_GOLDEN_AGE] Golden Ages. With money earned that way, you may also expand your territory significantly and for lower cost.'
+SET Text = '[COLOR_YIELD_FOOD]Great Zimbabwe[ENDCOLOR] makes use from your expanded trade network (+1[ICON_INTERNATIONAL_TRADE]), which supports your Empire''s yields (2[ICON_GOLDEN_AGE]/[ICON_INTERNATIONAL_TRADE]) and army (2 XP/[ICON_INTERNATIONAL_TRADE]). Make sure to use your treasury to expand the City more than your neighbours (-30%[ICON_GOLD]Plot Cost).'
 WHERE Tag = 'TXT_KEY_WONDER_GREAT_ZIMBABWE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -579,7 +579,7 @@ VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
 			('TXT_KEY_WONDER_FALUN_HELP',		'Wonder places 2 new [ICON_RES_COPPER] Copper resources inside City range if possible. +1 [ICON_GOLD] Gold from Mines worked by this City. Receive 1 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_GENERAL] Great General and +100 [ICON_GREAT_ENGINEER] Great Engineers Progress on construction during Medieval or Renaissance Era.[NEWLINE][NEWLINE]Nearby [ICON_RES_COPPER] Copper: +1 [ICON_GOLD] and +1 [ICON_GOLDEN_AGE] Golden Age Point.');
 			
 UPDATE Language_en_US
-SET Text = 'Mining complex at [COLOR_YIELD_FOOD]Falun[ENDCOLOR] can raise up your army''s strength beyond imagination. Huge [ICON_PRODUCTION] Production and [ICON_GOLD] Gold boost, new [ICON_RES_COPPER] [COLOR_CYAN]Copper[ENDCOLOR] deposits, more valuable [COLOR_YIELD_GOLD]Mines[ENDCOLOR] and investment in engineering branch can easily buy you leadership of the world.'
+SET Text = 'Mining complex at [COLOR_YIELD_FOOD]Falun[ENDCOLOR] makes all difficult investments possible. Huge support of [COLOR_SELECTED_TEXT]Great Engineers[ENDCOLOR] (2%[ICON_GREAT_ENGINEER]/Construction) or [COLOR_SELECTED_TEXT]Great General[ENDCOLOR], 2 new [COLOR_CYAN]Copper[ENDCOLOR] deposits (+1[ICON_GOLD],[ICON_GOLDEN_AGE]/[ICON_RES_COPPER]) and more valuable local [COLOR_YIELD_GOLD]Mines[ENDCOLOR] (+1[ICON_GOLD]) can easily buy you leadership of the world.'
 WHERE Tag = 'TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -599,7 +599,7 @@ VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
 			('TXT_KEY_WONDER_DAMASCUS_HELP',		'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR], thanks to recent scientific discovery, turns your weaponry into masterpiece, which cannot by copied in any way. Your [ICON_PRODUCTION] Production literally explodes and your [ICON_RESEARCH] Science keeps growing. Remember to claim all [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR] possible.'
+SET Text = '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR], thanks to recent scientific discovery, turns your Melee weaponry into masterpiece (+20%[ICON_STRENGTH]), which cannot be copied in any other [COLOR_YIELD_FOOD]Forge[ENDCOLOR] ([ICON_PRODUCTION];[ICON_GOLD];[ICON_GREAT_ENGINEER];[ICON_RESEARCH]). Your production and science literally explode, so remember to claim all available [COLOR_CYAN]Iron[ENDCOLOR] deposits (+1[ICON_PRODUCTION],[ICON_RESEARCH]/Global[ICON_RES_IRON]).'
 WHERE Tag = 'TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -619,7 +619,7 @@ VALUES		('TXT_KEY_BUILDING_SHWEDAGON',				'Golden Dagon Pagoda'),
 			('TXT_KEY_WONDER_SHWEDAGON_HELP',			'+33% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to [ICON_GREAT_WORK] Art. Religious and more frequent artists, more valuable artwork and incredible 4 slots for new [ICON_GREAT_WORK] Great Works will make your City shine!'
+SET Text = '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry. Religious and more frequent Artists in this City (+1[ICON_GREAT_ARTIST];+33%[ICON_GREAT_ARTIST];2[ICON_PEACE]/[ICON_GREAT_ARTIST]), more valuable Great Works of your Empire (+1[ICON_GOLD]) and much more space for new Art (4[ICON_GREAT_WORK]) will make your City shine!'
 WHERE Tag = 'TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -637,7 +637,7 @@ VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont Saint-Michel'),
 			('TXT_KEY_WONDER_MICHEL_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monastery in the City in which it is built. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with [COLOR_CYAN]Electricity[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = 'Lonely [COLOR_YIELD_FOOD]Mont Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress, where you can focus on your soul and plan next expenses for your growing [ICON_GOLD] Gold treasury.'
+SET Text = 'Lonely [COLOR_YIELD_FOOD]Mont Saint-Michel[ENDCOLOR] will turn your vulnerable [COLOR_YIELD_FOOD]Monastery[ENDCOLOR] ([ICON_FOOD];[ICON_RESEARCH];[ICON_PEACE]) into a fortress (+10[ICON_STRENGTH];+100 HP), where you can focus on your soul (40%[ICON_PEACE]/Global[ICON_CITIZEN]) and plan next expenses for your growing treasury.'
 WHERE Tag = 'TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -655,7 +655,7 @@ VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
 			('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith to Atolls and [ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats in the Empire receive +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Itsukushima Shrine[ENDCOLOR] boost [ICON_CULTURE] Culture and [ICON_PEACE] Faith generation of nearby Seas, Atolls and sea resources. Additionally expansion of your coastal Cities is now much easier.'
+SET Text = '[COLOR_YIELD_FOOD]Itsukushima Shrine[ENDCOLOR] boost yields generated by nearby [COLOR_CITY_BLUE]Oceans[ENDCOLOR] (+1[ICON_PEACE]), [COLOR_CYAN]Sea Luxuries[ENDCOLOR] (+2[ICON_PEACE]) and [COLOR_YIELD_GOLD]Fishing Boats[ENDCOLOR] (+1[ICON_CULTURE]) as well as all [COLOR_CITY_GREEN]Atolls[ENDCOLOR] in your Empire (+1[ICON_FOOD];+1[ICON_CULTURE];+1[ICON_PEACE]). Additionally expansion of your coastal Cities is now much easier (+50%[ICON_CULTURE]Border Growth).'
 WHERE Tag = 'TXT_KEY_WONDER_ITSUKUSHIMA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -673,7 +673,7 @@ VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
 			('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and +1 [ICON_GOLD] Gold. +50% [ICON_PRODUCTION] Production of Cargo Ships. +2 [ICON_CULTURE] Culture for each [ICON_INTERNATIONAL_TRADE] Sea Trade Route from or to other major Player.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Qalhat[ENDCOLOR], mentioned by some europeans sailors, is a wonderful place, where merchants of all seas meet and exchange their goods. Gain [ICON_CULTURE] Culture by monopolizing [ICON_INTERNATIONAL_TRADE] Sea Trade.'
+SET Text = '[COLOR_YIELD_FOOD]Qalhat[ENDCOLOR], mentioned by some europeans sailors seeking your unique supplies (+1[ICON_GOLD]/[ICON_RES_HORSE]), is a wonderful place, where merchants of all seas meet and exchange their goods (Sea[ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD],2x[ICON_SWAP]). Learn foreign culture by monopolizing sea trade (2[ICON_CULTURE]/Sea[ICON_INTERNATIONAL_TRADE]with Major).'
 WHERE Tag = 'TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -691,7 +691,7 @@ VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
 			('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in this City. Carries over 10% of [ICON_FOOD] Food after [ICON_CITIZEN] City Growth. +1 [ICON_WAR] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities receive +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_WAR] Military Unit Supply Cap.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Krak des Chevaliers[ENDCOLOR], castle on top of a hill, a perfect place to defend against your enemies. Huge [ICON_FOOD] Food supplies gathered inside, increased [ICON_PRODUCTION] Production of your forces and awesome leadership in all your non-coastal Cities are all you can get from this wonder.'
+SET Text = '[COLOR_YIELD_FOOD]Krak des Chevaliers[ENDCOLOR], castle on top of a hill, a perfect place to defend against your enemies (30[ICON_STRENGTH]) and plan next offensive. Increased production of your troops (+20%[ICON_PRODUCTION]/Mounted,Siege) and awesome leadership of new [COLOR_SELECTED_TEXT]Great General[ENDCOLOR], including all your non-coastal Cities (+1[ICON_PEACE];+5[ICON_STRENGTH];+1[ICON_WAR]) are just a beginning of your glory.'
 WHERE Tag = 'TXT_KEY_WONDER_CHEVALIERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -702,7 +702,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [CO
 ----------------------------------------------------
 -- University of Sankore
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR] invests in both [ICON_RESEARCH] Science and [ICON_PEACE] Faith. Nearby [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] will attract noble [ICON_GREAT_PEOPLE] Great People, who use their influence to boost your researches.'
+SET Text = '[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR] successfully combines science and faith. Nearby [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] ([ICON_RESEARCH];[ICON_PEACE];[ICON_GREAT_WORK];[ICON_CULTURE];[ICON_GOLDEN_AGE]) will attract noble Great People, who use their influence to boost your researches (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).'
 WHERE Tag = 'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
@@ -716,7 +716,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[END
 ----------------------------------------------------
 -- Hagia Sophia
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hagia Sophia[ENDCOLOR] profits from its rich history and fully reorganizes your religion. New [ICON_PROPHET] [COLOR_POSITIVE_TEXT]Prophet[ENDCOLOR], recently constructed [COLOR_YIELD_FOOD]Church[ENDCOLOR] and increased pressure on dissenters will force your will among other nations.'
+SET Text = '[COLOR_YIELD_FOOD]Hagia Sophia[ENDCOLOR] profits from its rich history and fully reorganizes your religion. New [ICON_PROPHET] [COLOR_SELECTED_TEXT]Great Prophet[ENDCOLOR], recently constructed [COLOR_YIELD_FOOD]Church[ENDCOLOR] ([ICON_PEACE];[ICON_MISSIONARY];[ICON_CULTURE];[ICON_GREAT_WORK]) and increased pressure on dissenters (+25%[ICON_MISSIONARY]Strength) will force your will among other nations.'
 WHERE Tag = 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -728,7 +728,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]: Terr
 ----------------------------------------------------
 -- Borobudur
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Borobudur[ENDCOLOR] is a [COLOR_YIELD_FOOD]Stupa[ENDCOLOR], which focuses on small actions, that can flow other Cities with your [ICON_PEACE] Faith. Use existing and produce new more powerful [COLOR_POSITIVE_TEXT]Missionaries[ENDCOLOR] to change minds of your enemies.'
+SET Text = '[COLOR_YIELD_FOOD]Borobudur[ENDCOLOR] is a gigantic [COLOR_YIELD_FOOD]Stupa[ENDCOLOR] ([ICON_PEACE];[ICON_MISSIONARY];[ICON_RESEARCH];[ICON_GOLDEN_AGE];[ICON_TOURISM]), which focuses on small actions, that can flow other Cities with your faith (+5[ICON_PEACE]). Use existing and produce new more powerful [COLOR_SELECTED_TEXT]Missionaries[ENDCOLOR] (+1[ICON_MISSIONARY]Spread) to quickly convert your enemies.'
 WHERE Tag = 'TXT_KEY_WONDER_BOROBUDUR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
@@ -750,7 +750,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_CYAN]Holy City[ENDCOLOR]; Feat
 UPDATE Language_en_US SET Text = 'St. Basil''s Cathedral' WHERE Tag ='TXT_KEY_WONDER_KREMLIN';
 
 UPDATE Language_en_US
-SET Text = 'Colourful [COLOR_YIELD_FOOD]Cathedral of St. Basil[ENDCOLOR] is a kind of [COLOR_YIELD_FOOD]Order[ENDCOLOR], which allows for much quicker Reformation (-5%). Use it to gain new abilities just before your enemies do the same!'
+SET Text = 'Colourful [COLOR_YIELD_FOOD]Cathedral of St. Basil[ENDCOLOR] is a kind of [COLOR_YIELD_FOOD]Order[ENDCOLOR] ([ICON_PEACE];[ICON_MISSIONARY];[ICON_STRENGTH];[ICON_WAR]), which has high base yields (+3[ICON_CULTURE];+4[ICON_PEACE]) and lowers requirement for Reformation (-5%[ICON_RELIGION]Followers). Use it to gain new abilities just before your enemies do the same!'
 WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
@@ -786,7 +786,7 @@ VALUES		('TXT_KEY_BUILDING_MARAE',				'Marae Arahurahu'),
 			('TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'15 [ICON_CULTURE] Culture [COLOR:255:230:85:255]on Kill[ENDCOLOR] and 15 [ICON_PEACE] Faith [COLOR:255:230:85:255]on Death[ENDCOLOR].');
 
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Marae Arahurahu[ENDCOLOR] motivates your troops, so they sing sublime songs to defeat enemies (15 [ICON_CULTURE]), and if they die on the battlefield, your faith growths (15 [ICON_PEACE]). From now, ranged land units should be core of your army (10 [ICON_RANGED_STRENGTH]). Remember to collect numerous great works in this city to maximize experience gained (10 XP per GW) by your land and naval units.'
+SET Text = '[COLOR_YIELD_FOOD]Marae Arahurahu[ENDCOLOR] greatly supports your army, especially Ranged Land Units (+10%[ICON_RANGE_STRENGTH]), which should be core of your army ever since. Motivated troops are rewarded if they kill enemies (15[ICON_CULTURE]) or if they die on the battlefield (15[ICON_PEACE]). Remember, that Great Works in the City increase XP gained by your Land and Naval Units (10 XP/[ICON_GREAT_WORK]).'
 WHERE Tag = 'TXT_KEY_WONDER_MARAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
