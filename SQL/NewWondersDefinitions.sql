@@ -761,13 +761,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
 	VALUES		('BUILDING_ALHAMBRA',	'FEATURE_FOREST');
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	SELECT		'TXT_KEY_WONDER_ALHAMBRA_HELP_CUT',	Text
-	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ALHAMBRA_HELP';
-				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WARTBURG (NEW)
@@ -823,15 +816,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
 	
 	-- + Mountains(2) (lua)
-	---------------------------------------------------------
-	UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built within 2 tiles of a Mountain that is inside your territory. ', '') WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
-	
-	INSERT INTO Language_en_US 
-				(Tag,									Text) 
-	SELECT		'TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT',	Text
-	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP';
-				
-	UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]2 Mountains[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT ZIMBABWE (NEW)
@@ -956,13 +940,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
 	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,										Text) 
-	SELECT		'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	Text
-	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
-				
-	UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
@@ -1057,7 +1034,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'),
 				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE');
 	---------------------------------------------------------
-	UPDATE Buildings SET GlobalPlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
+	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -1135,13 +1112,6 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME';
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,									Text) 
-	SELECT		'TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	Text
-	FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
-				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Improvement: [COLOR_CYAN]Lumber Mill[ENDCOLOR].[NEWLINE][NEWLINE]'||'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. '||Text WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KRAK DES CHEVALIERS (NEW)
