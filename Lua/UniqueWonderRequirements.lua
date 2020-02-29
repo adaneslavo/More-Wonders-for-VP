@@ -463,8 +463,8 @@ function IsHappiness(ePlayer, eCity, eBuilding)
 	if not pPlayer:IsAlive() then return false end
 	
 	local iRequiredHappiness = tValidIsHappiness[eBuilding]
-	print(pPlayer:GetHappiness())
-	if pPlayer:GetHappiness() > iRequiredHappiness then
+	
+	if pPlayer:GetExcessHappiness() > iRequiredHappiness then
 		return true
 	end
 	
