@@ -27,6 +27,7 @@ INSERT INTO MWfVPConfig
 VALUES		('ALTAMIRA',		'None',		1,			0),		-- Altamira Cave
 			('GGANTIJA',		'None',		1,			0),		-- Ggantija
 			('GOEBEKLI_TEPE',	'None',		1,			0),		-- Goebekli Tepe
+			('KUK',				'None',		1,			0),		-- Kuk Swamp
 			('MAJORVILLE',		'None',		1,			0),		-- Majorville Medicine Wheel
 			('MOHENJO_DARO',	'None',		1,			0),		-- Mohenjo-Daro
 			('SKARA_BRAE',		'None',		1,			0),		-- Skara Brae
@@ -47,7 +48,7 @@ VALUES		('ALTAMIRA',		'None',		1,			0),		-- Altamira Cave
 			('WARTBURG',		'None',		1,			0),		-- Wartburg Castle
 			('GREAT_ZIMBABWE',	'None',		1,			0),		-- Great Zimbabwe
 			('FALUN',			'None',		1,			0),		-- Falun Mine
-			--('AHU',		'None',		1,			0),		-- Ahu Tongariki
+			('AHU',				'None',		1,			0),		-- Ahu Tongariki
 			('DAMASCUS',		'None',		1,			0),		-- Forge of Damascus
 			('SHWEDAGON',		'None',		1,			0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('MICHEL',			'None',		1,			0),		-- Mont Saint Michel
@@ -104,7 +105,7 @@ FROM MWfVPConfig WHERE WActive = 1;
 -- GreatWorkCount defaults to 0, PrereqTech defaults to NULL
 INSERT INTO Buildings
 			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,				WonderSplashAnchor)
-SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_NEW_WONDERS_'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
+SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_MORE_WONDERS_'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
 FROM MWfVPConfig WHERE WActive = 1;
 --------------------------------------------------------------
 -- Panama Canal is already in the game
@@ -132,11 +133,11 @@ SELECT		'BUILDING_'||WType, 'FLAVOR_WONDER',	20
 FROM MWfVPConfig;
 --------------------------------------------------------------
 -- IconTextureAtlases
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType, 256, 'Wonder_'||WType||'_256.dds',	'1', '1' FROM MWfVPConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType, 128, 'Wonder_'||WType||'_128.dds',	'1', '1' FROM MWfVPConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  80, 'Wonder_'||WType||'_80.dds',	'1', '1' FROM MWfVPConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  64, 'Wonder_'||WType||'_64.dds',	'1', '1' FROM MWfVPConfig;
-INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_NEW_WONDERS_'||WType,  45, 'Wonder_'||WType||'_45.dds',	'1', '1' FROM MWfVPConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_MORE_WONDERS_'||WType, 256, 'Wonder_'||WType||'_256.dds',	'1', '1' FROM MWfVPConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_MORE_WONDERS_'||WType, 128, 'Wonder_'||WType||'_128.dds',	'1', '1' FROM MWfVPConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_MORE_WONDERS_'||WType,  80, 'Wonder_'||WType||'_80.dds',	'1', '1' FROM MWfVPConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_MORE_WONDERS_'||WType,  64, 'Wonder_'||WType||'_64.dds',	'1', '1' FROM MWfVPConfig;
+INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) SELECT 'ATLAS_MORE_WONDERS_'||WType,  45, 'Wonder_'||WType||'_45.dds',	'1', '1' FROM MWfVPConfig;
 --------------------------------------------------------------
 -- Fake texts; if the real ones are created, set WFake to 0 (zero)
 INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_BUILDING_'||WType,         'Wonder '||WType 					    FROM MWfVPConfig WHERE WFake = 1;
@@ -155,7 +156,8 @@ VALUES		('CHEVALIERS_DUMMY',			'Krak des Chevaliers',	2,			0),
 			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',		2,			0),
 			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',		2,			0),
 			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',		2,			0),
-			('MARAE_DUMMY',					'Marae Arahurahu',		2,			0);
+			('MARAE_DUMMY',					'Marae Arahurahu',		2,			0),
+			('KUK_DUMMY',					'Kuk',					2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

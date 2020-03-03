@@ -97,6 +97,30 @@ Currently compatible with 12-20-3.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\0.Neolithic\Wonder_Kuk_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\1.Ancient\Wonder_Karnak_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1365,23 +1389,59 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Icons\WonderPromotionIcons_16.dds">
+    <Content Include="Art\Promotions\PromotionMoreWondersIcons_16.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Icons\WonderPromotionIcons_256.dds">
+    <Content Include="Art\Promotions\PromotionMoreWondersIcons_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Icons\WonderPromotionIcons_32.dds">
+    <Content Include="Art\Promotions\PromotionMoreWondersIcons_32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Icons\WonderPromotionIcons_45.dds">
+    <Content Include="Art\Promotions\PromotionMoreWondersIcons_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Icons\WonderPromotionIcons_64.dds">
+    <Content Include="Art\Promotions\PromotionMoreWondersIcons_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\FontIcons\TernFontIcon_022.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\FontIcons\TernFontIcon_022.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_256f.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Resources\ResourceMoreWondersIcon_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1444,7 +1504,9 @@ Currently compatible with 12-20-3.</Description>
     <Folder Include="Art\6.Modern" />
     <Folder Include="Art\7.Atomic" />
     <Folder Include="Art\8.Information" />
-    <Folder Include="Art\Icons" />
+    <Folder Include="Art\Promotions" />
+    <Folder Include="Art\Resources" />
+    <Folder Include="Art\Resources\FontIcons" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="UI" />

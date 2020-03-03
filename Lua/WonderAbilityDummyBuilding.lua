@@ -47,6 +47,12 @@ local eMaraeDummy = GameInfoTypes["BUILDING_MARAE_DUMMY"]
 local bHasMarae = false
 local eMaraeOwner
 
+-- Kuk Swamp
+local eKuk = GameInfoTypes["BUILDING_KUK"]
+local eKukDummy = GameInfoTypes["BUILDING_KUK_DUMMY"]
+local bHasKuk = false
+local eKukOwner
+
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -87,6 +93,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(eMarae) then
 					bHasMarae = true
 					eMaraeOwner = i
+				end
+
+				if city:IsHasBuilding(eKuk) then
+					bHasKuk = true
+					eKukOwner = i
 				end
 			end
 		end
@@ -245,6 +256,19 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			pCity:SetNumRealBuilding(eMaraeDummy, 1)
 		end
 	end
+
+	if not bHasKuk then	
+		if eBuilding == eKuk then
+			bHasKuk = true
+			eKukOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			for city in pPlayer:Cities() do
+				city:SetNumRealBuilding(eKukDummy, 1);
+			end
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
@@ -272,6 +296,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		else
 			if eNewOwner == eChevaliersOwner and not pConqCity:IsCoastal(10) then
 				pConqCity:SetNumRealBuilding(eChevaliersDummy, 1)
+			elseif eNewOwner ~= eChevaliersOwner then
+				pConqCity:SetNumRealBuilding(eChevaliersDummy, 0)
 			end
 		end
 	end
@@ -298,6 +324,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		else
 			if eNewOwner == eItsukushimaOwner and pConqCity:IsCoastal(10) then
 				pConqCity:SetNumRealBuilding(eItsukushimaDummy, 1)
+			elseif eNewOwner ~= eItsukushimaOwner then
+				pConqCity:SetNumRealBuilding(eItsukushimaDummy, 0)
 			end
 		end
 	end
@@ -349,6 +377,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		else
 			if eNewOwner == eSunGateOwner and pConqCity:IsHasBuilding(eWalls) then
 				pConqCity:SetNumRealBuilding(eSunGateDummy, 1)
+			elseif eNewOwner ~= eSunGateOwner then
+				pConqCity:SetNumRealBuilding(eSunGateDummy, 0)
 			end
 		end
 	end
@@ -396,6 +426,32 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			pConqCity:SetNumRealBuilding(eMaraeDummy, 1);
 		end
 	end
+
+	if bHasKuk then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eKuk) then
+			local pOldOwner = Players[eOldOwner]
+			
+			for city in pOldOwner:Cities() do
+				city:SetNumRealBuilding(eKukDummy, 0)
+			end
+			
+			local pNewOwner = Players[eNewOwner]
+			eKukOwner = eNewOwner
+			
+			for city in pNewOwner:Cities() do
+				city:SetNumRealBuilding(eKukDummy, 1)
+			end		
+		else
+			if eNewOwner == eKukOwner then
+				pConqCity:SetNumRealBuilding(eKukDummy, 1)
+			else
+				pConqCity:SetNumRealBuilding(eKukDummy, 0)
+			end
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -431,6 +487,15 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			if pCity:IsHasBuilding(eWalls) then
 				pCity:SetNumRealBuilding(eSunGateDummy, 1)
 			end
+		end
+	end
+
+	if bHasKuk then
+		if ePlayer == eKukOwner then
+			local pPlot = Map.GetPlot(iX, iY)
+			local pCity = pPlot:GetWorkingCity()
+			
+			pCity:SetNumRealBuilding(eKukDummy, 1)
 		end
 	end
 end

@@ -6,12 +6,12 @@
 -- Promotion Icons Atlas
 --============================================--
 INSERT INTO IconTextureAtlases	
-			(Atlas,								IconSize,	Filename,						IconsPerRow,	IconsPerColumn) 
-VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'4',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	64,			'WonderPromotionIcons_64.dds',	'4',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	45,			'WonderPromotionIcons_45.dds',	'4',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	32,			'WonderPromotionIcons_32.dds',	'4',			'1'),
-			('NEW_WONDERS_PROMO_ICON_ATLAS',	16,			'WonderPromotionIcons_16.dds',	'4',			'1');
+			(Atlas,								IconSize,	Filename,								IconsPerRow,	IconsPerColumn) 
+VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dds',	'4',			'1'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	64,			'PromotionMoreWondersIcons_64.dds',		'4',			'1'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	45,			'PromotionMoreWondersIcons_45.dds',		'4',			'1'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'4',			'1'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'4',			'1');
 --============================================--
 -- HELP
 --============================================--
@@ -122,6 +122,38 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 	VALUES		('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_CULTURE',	10),
 				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_SCIENCE',	40),
 				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_RELIGION',	40);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- KUK (NEW)
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KUK';
+	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_KUK';
+	UPDATE Buildings SET Hill = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_KUK';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,		FeatureType) 
+	VALUES		('BUILDING_KUK',	'FEATURE_MARSH');
+	---------------------------------------------------------	
+	UPDATE Buildings SET FoodKept = 10 WHERE Type = 'BUILDING_KUK';
+	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_KUK',	'YIELD_FOOD',		1),
+				('BUILDING_KUK',	'YIELD_SCIENCE',	1);
+
+	INSERT INTO Building_GrowthExtraYield
+				(BuildingType,		YieldType,				Yield) 
+	VALUES		('BUILDING_KUK',	'YIELD_PRODUCTION',		5);
+	
+	INSERT INTO Building_FeatureYieldChanges 
+				(BuildingType,			FeatureType,			YieldType,				Yield) 
+	VALUES		('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_PRODUCTION',		1),
+				('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_SCIENCE',		1);
+	---------------------------------------------------------	
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor) 
+	VALUES		('BUILDING_KUK',	'FLAVOR_GROWTH',		40),
+				('BUILDING_KUK',	'FLAVOR_SCIENCE',		30),
+				('BUILDING_KUK',	'FLAVOR_PRODUCTION',	40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAJORVILLE MEDICINE WHEEL (NEW)
@@ -848,6 +880,90 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 				('BUILDING_GREAT_ZIMBABWE',	'FLAVOR_EXPANSION',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- AHU TONGARIKI (NEW)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_AHU';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_AHU';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_AHU';
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,		FeatureType) 
+	VALUES		('BUILDING_AHU',	'FEATURE_FOREST'),
+				('BUILDING_AHU',	'FEATURE_JUNGLE');
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	VALUES		('BUILDING_AHU',	'RESOURCE_STONE');
+	---------------------------------------------------------
+	UPDATE Buildings SET WorkerSpeedModifier = 20 WHERE Type = 'BUILDING_AHU';
+	
+	INSERT INTO Building_ResourceQuantity
+				(BuildingType,		ResourceType,		Quantity) 
+	VALUES		('BUILDING_AHU',	'RESOURCE_TERN',	1);
+	
+	INSERT INTO Building_ImprovementYieldChangesGlobal
+				(BuildingType,		ImprovementType,		YieldType,			Yield) 
+	VALUES		('BUILDING_AHU',	'IMPROVEMENT_QUARRY',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_TerrainYieldChanges 
+				(BuildingType,		TerrainType,		YieldType,		Yield) 
+	VALUES		('BUILDING_AHU',	'TERRAIN_COAST',	'YIELD_FAITH',	1);
+	
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,		FeatureType,		YieldType,				Yield) 
+	VALUES		('BUILDING_AHU',	'FEATURE_FOREST',	'YIELD_PRODUCTION',		1),
+				('BUILDING_AHU',	'FEATURE_JUNGLE',	'YIELD_PRODUCTION',		1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_AHU',	'FLAVOR_CULTURE',		20),
+				('BUILDING_AHU',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_AHU',	'FLAVOR_RELIGION',		30),
+				('BUILDING_AHU',	'FLAVOR_HAPPINESS',		20);
+	---------------------------------------------------------
+	INSERT INTO Resources 
+				(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 							CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
+	VALUES		('RESOURCE_TERN',	null,			null,				'TXT_KEY_RESOURCE_TERN',	'TXT_KEY_RESOURCE_TERN_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_TERN',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_TERN',	null,					0,				2,			2,				'[ICON_RES_TERN]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
+
+	INSERT INTO Resource_YieldChanges 	
+				(ResourceType, 			YieldType, 			Yield)
+	VALUES		('RESOURCE_TERN',		'YIELD_FOOD',		1),
+				('RESOURCE_TERN',		'YIELD_FAITH',		3);
+
+	INSERT INTO Resource_CityYieldModFromMonopoly 	
+				(ResourceType, 			YieldType, 			Yield)
+	VALUES		('RESOURCE_TERN',		'YIELD_FAITH',		10);
+
+	INSERT INTO Resource_Flavors 	
+				(ResourceType, 		FlavorType, 			Flavor)
+	VALUES		('RESOURCE_TERN',	'FLAVOR_GROWTH',		10),
+				('RESOURCE_TERN',	'FLAVOR_RELIGION',		50);
+	---------------------------------------------------------
+	INSERT INTO IconTextureAtlases 
+				(Atlas, 							IconSize, 	Filename, 								IconsPerRow, 	IconsPerColumn)
+	VALUES		('RESOURCE_MORE_WONDERS_ATLAS', 	256, 		'ResourceMoreWondersIcon_256.dds',		1, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	128, 		'ResourceMoreWondersIcon_128.dds',		1, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	80, 		'ResourceMoreWondersIcon_80.dds',		1, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	64, 		'ResourceMoreWondersIcon_64.dds',		1, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	45, 		'ResourceMoreWondersIcon_45.dds',		1, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	32, 		'ResourceMoreWondersIcon_32.dds',		1,				1);	
+	---------------------------------------------------------
+	INSERT INTO ArtDefine_StrategicView
+				(StrategicViewType, 					TileType, 		Asset)
+	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'ResourceMoreWondersIcon_256f.dds');
+
+	INSERT INTO ArtDefine_LandmarkTypes
+				(Type, 									LandmarkType, 	FriendlyName)
+	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'MORE_WONDERS_TERN');
+	---------------------------------------------------------
+	INSERT INTO IconFontTextures 
+				(IconFontTexture, 							IconFontTextureFile)
+	VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'TernFontIcon_022');
+
+	INSERT INTO IconFontMapping 
+				(IconName, 			IconFontTexture,						IconMapping)
+	VALUES		('ICON_RES_TERN', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- FALUN MINE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FALUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FALUN';
@@ -918,7 +1034,7 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			0,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1357,8 +1473,8 @@ VALUES		('NEW_WONDERS_PROMO_ICON_ATLAS',	256,		'WonderPromotionIcons_256.dds',	'
 
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				1,					10,			2,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
-				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				1,					0,			3,				'NEW_WONDERS_PROMO_ICON_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
+	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				1,					10,			2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
+				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				1,					0,			3,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1794,6 +1910,6 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'comes with both a [COLOR_POSITIV
 --============================================--
 UPDATE Buildings
 SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1
-WHERE Type IN (SELECT 'BUILDING_'||WType FROM VPWEConfig WHERE WActive = 0);
+WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 --------------------------------------------------------------
 --------------------------------------------------------------
