@@ -149,15 +149,16 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 -- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
 --============================================--
 INSERT INTO MWfVPConfig 
-			(WType,							WDummy,					WActive,	WFake)
-VALUES		('CHEVALIERS_DUMMY',			'Krak des Chevaliers',	2,			0),
-			('ITSUKUSHIMA_DUMMY',			'Itsukushima Shrine',	2,			0),
-			('QALHAT_DUMMY',				'Qalhat',				2,			0),
-			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',		2,			0),
-			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',		2,			0),
-			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',		2,			0),
-			('MARAE_DUMMY',					'Marae Arahurahu',		2,			0),
-			('KUK_DUMMY',					'Kuk',					2,			0);
+			(WType,							WDummy,						WActive,	WFake)
+VALUES		('KUK_DUMMY',					'Kuk',						2,			0),
+			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',			2,			0),
+			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',			2,			0),
+			('ITSUKUSHIMA_DUMMY',			'Itsukushima Shrine',		2,			0),
+			('QALHAT_DUMMY',				'Qalhat',					2,			0),
+			('CHEVALIERS_DUMMY',			'Krak des Chevaliers',		2,			0),
+			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',			2,			0),
+			('MARAE_DUMMY',					'Marae Arahurahu',			2,			0),
+			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',	2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

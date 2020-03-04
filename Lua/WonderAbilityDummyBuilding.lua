@@ -53,6 +53,12 @@ local eKukDummy = GameInfoTypes["BUILDING_KUK_DUMMY"]
 local bHasKuk = false
 local eKukOwner
 
+-- St. Peter's Basilica
+local eStPeters = GameInfoTypes["BUILDING_ST_PETERS"]
+local eStPetersDummy = GameInfoTypes["BUILDING_ST_PETERS_DUMMY"]
+local bHasStPeters = false
+local eStPetersOwner
+
 -- load game and check if they are built
 function WasChevaliersAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -98,6 +104,11 @@ function WasChevaliersAlreadyBuilt()
 				if city:IsHasBuilding(eKuk) then
 					bHasKuk = true
 					eKukOwner = i
+				end
+
+				if city:IsHasBuilding(eStPeters) then
+					bStPetersKuk = true
+					eStPetersOwner = i
 				end
 			end
 		end
@@ -267,6 +278,18 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			for city in pPlayer:Cities() do
 				city:SetNumRealBuilding(eKukDummy, 1);
 			end
+		end
+	end
+
+	if not bHasStPeters then	
+		if eBuilding == eStPeters then
+			bHasStPeters = true
+			eStPetersOwner = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+
+			pCity:SetNumRealBuilding(eStPetersDummy, 1)
 		end
 	end
 end
@@ -450,6 +473,17 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			else
 				pConqCity:SetNumRealBuilding(eKukDummy, 0)
 			end
+		end
+	end
+
+	if bHasStPeters then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(eStPeters) then
+			eStPetersOwner = eNewOwner
+			
+			pConqCity:SetNumRealBuilding(eStPetersDummy, 1);
 		end
 	end
 end
