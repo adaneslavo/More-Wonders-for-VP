@@ -575,7 +575,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		30);
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		50);
 	
 	INSERT INTO GreatWorks
 				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
@@ -1291,7 +1291,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	INSERT INTO Building_ImprovementYieldChanges
 				(BuildingType,			ImprovementType,			YieldType,			Yield) 
-	VALUES		('BUILDING_BENHADDOU',	'IMPROVEMENT_TRADING_POST',	'YIELD_TOURISM',	3);
+	VALUES		('BUILDING_BENHADDOU',	'IMPROVEMENT_TRADING_POST',	'YIELD_TOURISM',	3),
+				('BUILDING_BENHADDOU',	'IMPROVEMENT_TRADING_POST',	'YIELD_GOLD',		3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1551,7 +1552,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,		Yield) 
-	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	20);
+	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	100);
 	
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
