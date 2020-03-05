@@ -1516,13 +1516,6 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_LEANING_TOWER',	'FEATURE_MARSH');
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,										Text) 
-	SELECT		'TXT_KEY_WONDER_LEANING_TOWER_HELP_CUT',	Text
-	FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LEANING_TOWER_HELP';
-				
-	UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LEANING_TOWER_HELP';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MEENAKSHI TEMPLE (NEW)
@@ -1636,14 +1629,6 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	VALUES		('BUILDING_BAKKEN',	'FLAVOR_CULTURE',		10),
 				('BUILDING_BAKKEN',	'FLAVOR_HAPPINESS',		80),
 				('BUILDING_BAKKEN',	'FLAVOR_GOLD',			20);
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,								Text) 
-	VALUES		('TXT_KEY_BUILDING_BAKKEN',			'Bakken'),
-				('TXT_KEY_WONDER_BAKKEN_HELP',		'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Player: [COLOR_CYAN]Happiness > 80%[ENDCOLOR].[NEWLINE][NEWLINE]Starts 10 turn of [ICON_HAPPINESS_1] WLTKD in this City. +33% [ICON_TOURISM] Tourism during [ICON_HAPPINESS_1] WLTKD.'),
-				('TXT_KEY_WONDER_BAKKEN_HELP_CUT',	'Starts 10 turn of [ICON_HAPPINESS_1] WLTKD in this City. +33% [ICON_TOURISM] Tourism during [ICON_HAPPINESS_1] WLTKD.'),
-				('TXT_KEY_WONDER_BAKKEN_QUOTE',		'[NEWLINE]"Amusement is appealing because we don''t have to think. It spares us the fear and anxiety that might otherwise prey on our thoughts."[NEWLINE] - John Ortberg[NEWLINE]'),
-				('TXT_KEY_WONDER_BAKKEN_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SISTINE CHAPEL
@@ -1697,14 +1682,6 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_HOUSE_OF_TRADE',	'FLAVOR_GREAT_PEOPLE',	30),
 				('BUILDING_HOUSE_OF_TRADE',	'FLAVOR_NAVAL',			20),
 				('BUILDING_HOUSE_OF_TRADE',	'FLAVOR_PRODUCTION',	10);
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,										Text) 
-	VALUES		('TXT_KEY_BUILDING_HOUSE_OF_TRADE',			'House of Trade of the Indies'),
-				('TXT_KEY_WONDER_HOUSE_OF_TRADE_HELP',		'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Player: [COLOR_CYAN]2 CS Allies[ENDCOLOR].[NEWLINE][NEWLINE]Receive 1 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_DIPLOMAT] Great Admiral. Gain 2 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. +10% [ICON_PRODUCTION] Production towards Naval Military Units and Cargo Ships.'),
-				('TXT_KEY_WONDER_HOUSE_OF_TRADE_HELP_CUT',	'Receive 1 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_DIPLOMAT] Great Admiral. Gain 2 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slots. +10% [ICON_PRODUCTION] Production towards Naval Military Units and Cargo Ships.'),
-				('TXT_KEY_WONDER_HOUSE_OF_TRADE_QUOTE',		'[NEWLINE]"All other lands found on the western side of the boundary shall belong to the King and Queen of Castille - and their successors."[NEWLINE] - Treaty of Tordesillas[NEWLINE]'),
-				('TXT_KEY_WONDER_HOUSE_OF_TRADE_PEDIA',		'TODO');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SOLOVIETSKY MONASTERY (NEW)
@@ -1739,15 +1716,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_SOLOVIETSKY',	'FLAVOR_RELIGION',		30),
 				('BUILDING_SOLOVIETSKY',	'FLAVOR_OFFENSE',		10),
 				('BUILDING_SOLOVIETSKY',	'FLAVOR_CITY_DEFENSE',	30),
-				('BUILDING_SOLOVIETSKY',	'FLAVOR_NAVAL',			30);				
-	---------------------------------------------------------
-	INSERT INTO Language_en_US 
-				(Tag,										Text) 
-	VALUES		('TXT_KEY_BUILDING_SOLOVIETSKY',			'Solovietsky Monastery'),
-				('TXT_KEY_WONDER_SOLOVIETSKY_HELP',			'Terrain: [COLOR_CYAN]Tundra[ENDCOLOR], [COLOR_CYAN]Coast[ENDCOLOR].[NEWLINE][NEWLINE]Requires completion of [COLOR_MAGENTA]Fealty[ENDCOLOR] Branch. +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +1 [ICON_WAR] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.'),
-				('TXT_KEY_WONDER_SOLOVIETSKY_HELP_CUT',		'+1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +1 [ICON_WAR] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.'),
-				('TXT_KEY_WONDER_SOLOVIETSKY_QUOTE',		'[NEWLINE]"Everything is defeated before love."[NEWLINE] - Elder Thaddeus of Vitovnica[NEWLINE]'),
-				('TXT_KEY_WONDER_SOLOVIETSKY_PEDIA',		'The Solovetsky Monastery is a fortified monastery located on the Solovetsky Islands in the White Sea in northern Russia. It was one of the largest Christian citadels in northern Russia before it was converted into a Soviet prison and labor camp in 1926-39, and served as a prototype for the camps of the Gulag system. The monastery has experienced several major changes and military sieges. Its most important structures date from the 16th century, when Filip Kolychev was its hegumen (comparable to an abbot).');
+				('BUILDING_SOLOVIETSKY',	'FLAVOR_NAVAL',			30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RED FORT
