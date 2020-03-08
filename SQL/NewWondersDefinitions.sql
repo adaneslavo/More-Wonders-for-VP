@@ -344,6 +344,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	-- + Mine(2) lua
 	---------------------------------------------------------	
+	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_WIELICZKA';
+
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_PRODUCTION',	1),
@@ -758,6 +760,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_LAVAUX';
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
+	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_LAVAUX';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,		Yield)
@@ -896,6 +899,15 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 20 WHERE Type = 'BUILDING_AHU';
 	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_AHU',	'YIELD_FAITH',	3),
+				('BUILDING_AHU',	'YIELD_FOOD',	1);
+	
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_AHU',	'YIELD_FAITH',	10);
+
 	INSERT INTO Building_ResourceQuantity
 				(BuildingType,		ResourceType,		Quantity) 
 	VALUES		('BUILDING_AHU',	'RESOURCE_TERN',	1);
@@ -923,15 +935,6 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	INSERT INTO Resources 
 				(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 							CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
 	VALUES		('RESOURCE_TERN',	null,			null,				'TXT_KEY_RESOURCE_TERN',	'TXT_KEY_RESOURCE_TERN_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_TERN',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_TERN',	null,					0,				2,			2,				'[ICON_RES_TERN]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
-
-	INSERT INTO Resource_YieldChanges 	
-				(ResourceType, 			YieldType, 			Yield)
-	VALUES		('RESOURCE_TERN',		'YIELD_FOOD',		1),
-				('RESOURCE_TERN',		'YIELD_FAITH',		3);
-
-	INSERT INTO Resource_CityYieldModFromMonopoly 	
-				(ResourceType, 			YieldType, 			Yield)
-	VALUES		('RESOURCE_TERN',		'YIELD_FAITH',		10);
 
 	INSERT INTO Resource_Flavors 	
 				(ResourceType, 		FlavorType, 			Flavor)
@@ -970,6 +973,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	-- + Mine(4) (lua)
 	---------------------------------------------------------
+	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_FALUN';
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield)
 	VALUES		('BUILDING_FALUN',	'YIELD_PRODUCTION',			1),

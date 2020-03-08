@@ -68,17 +68,17 @@ VALUES		('ALTAMIRA',		'None',		1,			0),		-- Altamira Cave
 			('HOUSE_OF_TRADE',	'None',		1,			0),		-- House of Trade of the Indies (Casa de Contratación)
 			('SOLOVIETSKY',		'None',		1,			0);		-- Solovietsky Monastery
 			----------------------------------------------------------------------------------------
+			--('MUSEUM_ISLAND',	'None',		1,			0),		-- Museum Island
+			--('BROOKLYN',		'None',		1,			0),		-- Brooklyn Bridge
+			--('MONTE_CARLO',		'None',		1,			0),		-- Monte Carlo Casino
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
---('BROOKLYN',    1, 0), -- Brooklyn Bridge
 --('HOLLYWOOD',   1, 0), -- Hollywood
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA', 1, 1), -- Monastery of the Holy Trinity (Meteora)
 --('MILLAU',      1, 0), -- Millau Viaduct
---('MONTECARLO',  1, 0), -- Monte Carlo Casino, The
---('MUSEUM_ISLAND', 1, 0), --Museum Island
 --('PETRONAS',    1, 1), -- The Petronas Towers
 --('RUSHMORE',    1, 1), -- Mount Rushmore
 --('ROCKEFELLER', 1, 0), -- Rockefeller Center

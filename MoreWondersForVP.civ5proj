@@ -1029,101 +1029,77 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_128.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_256.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_45.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_64.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_80.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Brooklyn_splash.dds">
+    <Content Include="Art\5.Industrial\Wonder_Brooklyn_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_128.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_256.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_45.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_64.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_80.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_MonteCarlo_splash.dds">
+    <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_128.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_256.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_45.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_64.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_80.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\5.Industrial\VPWE_Museum_Island_splash.dds">
+    <Content Include="Art\5.Industrial\Wonder_Museum_Island_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\5.Industrial\VPWE_Trafalgar_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\6.Modern\VPWE_Hollywood_128.dds">
       <SubType>Lua</SubType>

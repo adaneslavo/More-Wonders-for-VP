@@ -22,7 +22,7 @@ VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Cave'),
 			('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or Artifact.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.');
 
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] greatly supports early [ICON_CULTURE] Culture generation especially if [ICON_RES_BISON] [COLOR_CYAN]Bisons[ENDCOLOR] or [ICON_RES_DEER] [COLOR_CYAN]Deers[ENDCOLOR] are present in the City. Maximize its effectiveness by filling [ICON_GREAT_WORK] Art slot or by rushing [COLOR_CYAN]Archaeology[ENDCOLOR].'
+SET Text = '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] greatly supports early culture generation (+2[ICON_CULTURE]), especially if [COLOR_CYAN]Bisons[ENDCOLOR] or [COLOR_CYAN]Deers[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON], [ICON_RES_DEER]) are present in the City. Maximize its effectiveness by filling slot for art (+1[ICON_GREAT_WORK]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology:[ENDCOLOR] +3[ICON_CULTURE]).'
 WHERE Tag = 'TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -40,7 +40,7 @@ VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'),
 			('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 50 [ICON_FOOD] Food after construction. Converts 10% [ICON_PEACE] Faith produced by this City into [ICON_FOOD] Food. All Farms in the Empire receive +1 [ICON_FOOD] Food.');
 
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Ggantija[ENDCOLOR] instantly boosts [ICON_FOOD] Food generation and upgrades all Farms in the Empire. To increase your City [ICON_FOOD] Growth even more, produce as much [ICON_PEACE] Faith in the City as possible.'
+SET Text = '[COLOR_YIELD_FOOD]Ggantija[ENDCOLOR] boosts your growth right after construction (50[ICON_FOOD]) and upgrades all [COLOR_SELECTED_TEXT]Farms[ENDCOLOR] (+1[ICON_FOOD][ICON_FOOD]) in your empire. To increase your city growth even more, you must fully focus on religion (10%[ICON_PEACE] into [ICON_FOOD]).'
 WHERE Tag = 'TXT_KEY_WONDER_GGANTIJA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -58,7 +58,7 @@ VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Goebekli Tepe'),
 			('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'+1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith from Mountains worked by this City.[NEWLINE][NEWLINE]All [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Goebekli Tepe[ENDCOLOR] is excellent wonder in mountainous terrain, which increase [ICON_RESEARCH] Science, [ICON_CULTURE] Culture and [ICON_PEACE] Faith generation. Make sure to claim each [ICON_RES_STONE] [COLOR_CYAN]Stone[ENDCOLOR] deposit you can find.'
+SET Text = '[COLOR_YIELD_FOOD]Goebekli Tepe[ENDCOLOR] is excellent wonder in [COLOR_CITY_BLUE]Mountainous[ENDCOLOR] (+1[ICON_RESEARCH]; +1[ICON_PEACE]) area, which increase important yield output significantly (+1[ICON_RESEARCH]; +1[ICON_CULTURE]; +1[ICON_PEACE]). Make sure to claim each [COLOR_CYAN]Stone[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_RES_STONE][ICON_RES_STONE]) deposit you can find.'
 WHERE Tag = 'TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -76,7 +76,7 @@ VALUES		('TXT_KEY_BUILDING_KUK',		'Kuk'),
 			('TXT_KEY_WONDER_KUK_HELP',		'10% [ICON_FOOD] Food and 5% [ICON_PRODUCTION] Production is carried over after new [ICON_CITIZEN] Citizen is born. +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science from Marshes worked by this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Kuk[ENDCOLOR], thanks to unique agricultural techniques turned [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION]; +1[ICON_RESEARCH]) into rich soil. Use its power to increase effectiveness of your huge city (+10%[ICON_FOOD], +5%[ICON_PRODUCTION]/New [ICON_CITIZEN]).'
+SET Text = '[COLOR_YIELD_FOOD]Kuk[ENDCOLOR], thanks to unique agricultural techniques turned [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION]; +1[ICON_RESEARCH]) into rich soil. Use its power to continue developement of your huge city (+10%[ICON_FOOD], +5%[ICON_PRODUCTION]/New [ICON_CITIZEN]).'
 WHERE Tag = 'TXT_KEY_WONDER_KUK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -94,7 +94,7 @@ VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
 			('TXT_KEY_WONDER_MAJORVILLE_HELP',		'+1 [ICON_PEACE] Faith from Tundra tiles worked by this City. All Camps in the Empire receive +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]All [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.');
 			
 UPDATE Language_en_US
-SET Text = 'This [COLOR_YIELD_FOOD]Medicine Wheel[ENDCOLOR] strongly supports developement of Tundra tiles in the City by an early [ICON_PEACE] Faith generation. Additionally build as many Camps as possible to increase [ICON_FOOD] Growth and and claim all [ICON_RES_BISON] [COLOR_CYAN]Bisons[ENDCOLOR] to boost your [ICON_CULTURE] Culture as well.'
+SET Text = 'This [COLOR_YIELD_FOOD]Medicine Wheel[ENDCOLOR] strongly supports developement of [COLOR_CITY_BLUE]Tundra[ENDCOLOR] (+1[ICON_PEACE]). Additionally build as many [COLOR_SELECTED_TEXT]Camps[ENDCOLOR] (+1[ICON_FOOD][ICON_FOOD]) as possible to increase your growth and and claim all [COLOR_CYAN]Bisons[ENDCOLOR] (+1[ICON_CULTURE]/[ICON_RES_BISON][ICON_RES_BISON]) to boost your culture output as well.'
 WHERE Tag = 'TXT_KEY_WONDER_MAJORVILLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -112,7 +112,7 @@ VALUES		('TXT_KEY_BUILDING_MOHENJO_DARO',			'Mohenjo-daro'),
 			('TXT_KEY_WONDER_MOHENJO_DARO_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Well in the City in which it is built. +1 [ICON_FOOD] Food from River tiles worked by this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Mohenjo-daro[ENDCOLOR] focuses on [ICON_FOOD] Food and [ICON_PRODUCTION] Production in the City in which it is built, increases richness of River tiles and additionally develops your [ICON_CULTURE] Culture and [ICON_PEACE] Faith output.'
+SET Text = '[COLOR_YIELD_FOOD]Mohenjo-daro[ENDCOLOR] makes special use from new [COLOR_YIELD_FOOD]Well[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]), increases richness of local [COLOR_CITY_GREEN]River[ENDCOLOR] (+1[ICON_FOOD]) and additionally develops your culture and religion (+2[ICON_CULTURE]; +1[ICON_PEACE]).'
 WHERE Tag = 'TXT_KEY_WONDER_MOHENJO_DARO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -130,7 +130,7 @@ VALUES		('TXT_KEY_BUILDING_SKARA_BRAE',			'Skara Brae'),
 			('TXT_KEY_WONDER_SKARA_BRAE_HELP',		'All Villages in the Empire receive +1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]All [ICON_RES_COW] Cattle: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_SHEEP] Sheep: +1 [ICON_FOOD] Food.[NEWLINE]All [ICON_RES_WHEAT] Wheat: +1 [ICON_FOOD] Food.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Skara Brae[ENDCOLOR] gives major [ICON_FOOD] Food boost to all Cities with basic bonus resources. You can also increase [ICON_PRODUCTION] Production and [ICON_GOLD] Gold generation by building numerous Villages across your Empire.'
+SET Text = '[COLOR_YIELD_FOOD]Skara Brae[ENDCOLOR] gives major developement boost to all cities with basic resources (+1[ICON_FOOD]/[ICON_RES_COW][ICON_RES_COW], [ICON_RES_SHEEP][ICON_RES_SHEEP], [ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_WHEAT][ICON_RES_WHEAT]). Later on you can also create numerous [COLOR_SELECTED_TEXT]Villages[ENDCOLOR] (+1[ICON_PRODUCTION][ICON_PRODUCTION]; +1[ICON_GOLD][ICON_GOLD]) with much more potential than standard ones.'
 WHERE Tag = 'TXT_KEY_WONDER_SKARA_BRAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -149,7 +149,7 @@ VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
 			('TXT_KEY_WONDER_KARNAK_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Monument in the City in which it is built and all Monuments in the Empire receive +1 [ICON_CULTURE] Culture. +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from each Oasis and every 2 Flood Plains worked by this City. +4 [ICON_TOURISM] Tourism with [COLOR_CYAN]Archeology[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Karnak[ENDCOLOR] temples turn rare Oasis and Flood Plains tiles in the City into sacred places and make them more productive. Remember to build a [COLOR_YIELD_FOOD]Monument[ENDCOLOR] in your every City to profit from all its abilities.'
+SET Text = '[COLOR_YIELD_FOOD]Karnak[ENDCOLOR] temples turn rare [COLOR_CITY_GREEN]Oasis[ENDCOLOR] and [COLOR_CITY_GREEN]Flood Plains[ENDCOLOR] (+1[ICON_PRODUCTION]; +1[ICON_PEACE]) into sacred places and make them more productive. Remember to build a [COLOR_YIELD_FOOD]Monument[ENDCOLOR] ([ICON_CULTURE]; [ICON_MOVES]; +1[ICON_CULTURE]) in all your cities to fully profit from its abilities.'
 WHERE Tag = 'TXT_KEY_WONDER_KARNAK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -167,7 +167,7 @@ VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
 			('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains, +1 [ICON_PEACE] Faith from nearby Hills and +1 [ICON_RESEARCH] Science from Camps worked by this City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with [COLOR_CYAN]Flight[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Nazca Lines[ENDCOLOR] hide awesome scientific secrets fully discovered only after researching [COLOR_CYAN]Flight[ENDCOLOR]. Boost your [ICON_FOOD] Growth and [ICON_PEACE] Faith by claiming all Plains and Hills in the City.'
+SET Text = '[COLOR_YIELD_FOOD]Nazca Lines[ENDCOLOR] hide awesome scientific secrets fully discovered only with air reconaissance ([COLOR_CYAN]Flight:[ENDCOLOR] +4[ICON_RESEARCH], +2[ICON_TOURISM]). Boost your growth and religion by claiming all [COLOR_CITY_BLUE]Plains[ENDCOLOR] (+2[ICON_FOOD]) and [COLOR_CITY_BLUE]Hills[ENDCOLOR] (+1[ICON_PEACE]) in the city, and construct [COLOR_SELECTED_TEXT]Camps[ENDCOLOR] (+1[ICON_RESEARCH]) wherever possible.'
 WHERE Tag = 'TXT_KEY_WONDER_NAZCA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -185,7 +185,7 @@ VALUES		('TXT_KEY_BUILDING_WIELICZKA',			'Wieliczka Salt Mine'),
 			('TXT_KEY_WONDER_WIELICZKA_HELP',		'Wonder places 2 new [ICON_RES_SALT] Salt resources inside City range if possible. +5% [ICON_FOOD] Food in all Cities. +1 [ICON_FOOD] Food from Mines worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_SALT] Salt: +1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Wieliczka[ENDCOLOR] reveals hidden underground secret and greatly boosts your [ICON_FOOD] Food generation, supported by more productive and richer newly discovered [ICON_RES_SALT] [COLOR_CYAN]Salt[ENDCOLOR] deposits.'
+SET Text = '[COLOR_YIELD_FOOD]Wieliczka Salt Mine[ENDCOLOR] reveals hidden underground secret and greatly boosts your food generation (+5%[ICON_FOOD][ICON_FOOD]) and [COLOR_SELECTED_TEXT]Mining[ENDCOLOR] (+1[ICON_FOOD][ICON_FOOD]) efficiency, supported by richer recently discovered [COLOR_CYAN]Salt[ENDCOLOR] deposits (+2[ICON_RES_SALT]; +1[ICON_PRODUCTION], +1[ICON_GOLD]/[ICON_RES_SALT]).'
 WHERE Tag = 'TXT_KEY_WONDER_WIELICZKA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -196,7 +196,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement:
 ----------------------------------------------------
 -- Stonehenge
 UPDATE Language_en_US
-SET Text = 'Mysterious [COLOR_YIELD_FOOD]Stonehenge[ENDCOLOR] serves as an improved [COLOR_YIELD_FOOD]Council[ENDCOLOR] and provides instant [ICON_PEACE] Faith boost, almost guaranteeing founding new Religion and improving your early [ICON_RESEARCH] Science output.'
+SET Text = 'Mysterious [COLOR_YIELD_FOOD]Stonehenge[ENDCOLOR] serves as an improved [COLOR_YIELD_FOOD]Council[ENDCOLOR] ([ICON_RESEARCH]), which provides instant faith boost (50[ICON_PEACE]), almost guaranteeing founding new religion and improving your engineering branch (+1[ICON_GREAT_ENGINEER]).'
 WHERE Tag = 'TXT_KEY_BUILDING_STONEHENGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -208,7 +208,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], [COL
 ----------------------------------------------------
 -- Pyramids
 UPDATE Language_en_US
-SET Text = 'Great [COLOR_YIELD_FOOD]Pyramids[ENDCOLOR] are an engineering masterpiece, accelerating the coming of next [ICON_GOLDEN_AGE] Golden Age thanks to the efforts of expended [ICON_GREAT_PEOPLE] Great People. Use recently trained [COLOR_POSITIVE_TEXT]Settler[ENDCOLOR] to found another great and prosperous City.'
+SET Text = 'Great [COLOR_YIELD_FOOD]Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]), accelerating the coming of next golden age thanks to the efforts of prominent people (50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE]). Use recently trained [COLOR_YIELD_GOLD]Settler[ENDCOLOR] to found another great and prosperous city.'
 WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -235,7 +235,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR], [COLOR_
 ----------------------------------------------------
 -- Temple of Artemis
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Temple of Artemis[ENDCOLOR] supports global [ICON_FOOD] Growth, increase usefulness of Forests and supports hiring Specialists in the City. As and addition, this City can spam Archery Units to conquer even more valuable lands.'
+SET Text = '[COLOR_YIELD_FOOD]Temple of Artemis[ENDCOLOR] strongly supports global growth (+10%[ICON_FOOD][ICON_FOOD]), supports [COLOR_YIELD_FOOD]Herbalists[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]) and makes hiring Specialists in the city much easier (-2[ICON_HAPPINESS_3] Urbanization). As and addition, this city can spam ranged units to conquer even more valuable lands (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Ranged[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -247,7 +247,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Desert[ENDCOLOR]
 ----------------------------------------------------
 -- Mausoleum of Halicarnassus
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Mausoleum of Halicarnassus[ENDCOLOR] starts [ICON_HAPPINESS_1] WLTKD and boosts basic yields during this festival. Greatly boosts [ICON_PRODUCTION] Production and [ICON_GOLD] Gold generation from local [COLOR_SELECTED_TEXT]Quarries[ENDCOLOR].'
+SET Text = '[COLOR_YIELD_FOOD]Mausoleum of Halicarnassus[ENDCOLOR] starts new festival with greatly improved effect (20[ICON_HAPPINESS_1] WLTKD turns; +10%[ICON_PRODUCTION], +10%[ICON_GOLD], +10%[ICON_RESEARCH]/[ICON_HAPPINESS_1] WLTKD). Such a progress could be possible thanks to the effort of recenlty constructed [COLOR_YIELD_FOOD]Stone Works[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -259,7 +259,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [C
 ----------------------------------------------------
 -- Statue of Zeus
 UPDATE Language_en_US
-SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] increases your offensive capabilities, especially during City sieges and triples your efforts towards reducing [ICON_FOOD]/[ICON_PRODUCTION] Distress in the City.'
+SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] and local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_WAR]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increase your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]) and triples your efforts towards reducing distress in the city (-1[ICON_HAPPINESS_3] Distress).'
 WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -591,13 +591,13 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_AHU',			'Ahu Tongariki'),
 			('TXT_KEY_WONDER_AHU_QUOTE',		'[NEWLINE]"The metaphor is so obvious. Easter Island isolated in the Pacific Ocean - once the island got into trouble, there was no way they could get free. There was no other people from whom they could get help. In the same way that we on planet Earth, if we ruin our own world, we won''t be able to get help."[NEWLINE] - Jared Diamond[NEWLINE]'),
 			('TXT_KEY_WONDER_AHU_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_AHU_HELP',			'+1 [ICON_PRODUCTION] Production from Forest or Jungle, +1 [ICON_CULTURE] Culture from Quarries and +1 [ICON_PEACE] Faith from Coast tiles worked by this City. +20% [ICON_WORKER] Improvement Construction Rate. Grants 1 copy of unique luxury resource: Tern Egg.'),
+			('TXT_KEY_WONDER_AHU_HELP',			'+10% [ICON_PEACE] in your Empire. +1 [ICON_PRODUCTION] Production from Forest or Jungle, +1 [ICON_CULTURE] Culture from Quarries and +1 [ICON_PEACE] Faith from Coast tiles worked by this City. +20% [ICON_WORKER] Improvement Construction Rate. Grants 1 copy of unique luxury resource: Tern Egg.'),
 			('TXT_KEY_RESOURCE_TERN',			'Tern Egg'),
 			('TXT_KEY_RESOURCE_TERN_TEXT',		'TODO'),
-			('TXT_KEY_RESOURCE_MONOPOLY_TERN',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] +10% [ICON_PEACE] Faith in all owned Cities.');
+			('TXT_KEY_RESOURCE_MONOPOLY_TERN',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] +10% [ICON_PEACE] Faith in all owned Cities (tied to building).');
 			
 UPDATE Language_en_US
-SET Text = 'Monumental platform, [COLOR_YIELD_FOOD]Ahu Tongariki[ENDCOLOR], boosts your production significantly if you have [COLOR_CITY_GREEN]Forest[ENDCOLOR] or [COLOR_CITY_GREEN]Jungle[ENDCOLOR] nearby (+1[ICON_PRODUCTION]) or hire new Workers (+20%[ICON_WORKER]). Cultural influence of all [COLOR_SELECTED_TEXT]Quarries[ENDCOLOR] (+1[ICON_CULTURE][ICON_CULTURE]) on your citizens, supported by new [COLOR_CYAN]Unique Luxury[ENDCOLOR] (+1[ICON_RES_TERN]) will send you in much brighter future.'
+SET Text = 'Monumental platform, [COLOR_YIELD_FOOD]Ahu Tongariki[ENDCOLOR], boosts your production significantly, if you have [COLOR_CITY_GREEN]Forests[ENDCOLOR] or [COLOR_CITY_GREEN]Jungles[ENDCOLOR] nearby (+1[ICON_PRODUCTION]) or hire new Workers (+20%[ICON_WORKER]). Cultural influence of all [COLOR_SELECTED_TEXT]Quarries[ENDCOLOR] (+1[ICON_CULTURE][ICON_CULTURE]) on your citizens, supported by new [COLOR_CYAN]Unique Luxury[ENDCOLOR] (+1[ICON_RES_TERN]; +10%[ICON_PEACE][ICON_PEACE]) will send you in much brighter future.'
 WHERE Tag = 'TXT_KEY_WONDER_AHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -987,7 +987,7 @@ VALUES		('TXT_KEY_BUILDING_PETERHOF',			'Peterhof'),
 			('TXT_KEY_WONDER_PETERHOF_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. Starts 20 turn of [ICON_HAPPINESS_1] WLTKD in this City. +15% [ICON_PRODUCTION] Production, [ICON_GOLD] Gold and [ICON_GOLDEN_AGE] Golden Age Points during [ICON_HAPPINESS_1] WLTKD.');
 			
 UPDATE Language_en_US
-SET Text = 'Palace of [COLOR_YIELD_FOOD]Peterhof[ENDCOLOR] tells your citizens about your will to do everything possible to improve their lives (+6[ICON_GOLDEN_AGE]; 20[ICON_HAPPINESS_1] WLTKD), and they respond you with the same (+15%[ICON_PRODUCTION], +15%[ICON_GOLD], +15%[ICON_GOLDEN_AGE]/[ICON_HAPPINESS_1] WLTKD). Such a prosperity is strong invitation for any kind of nobles planning to cisit your city (+10%[ICON_GREAT_PEOPLE]).'
+SET Text = 'Palace of [COLOR_YIELD_FOOD]Peterhof[ENDCOLOR] tells your citizens about your will to do everything possible to improve their lives (+6[ICON_GOLDEN_AGE]; 20[ICON_HAPPINESS_1] WLTKD turns), and they respond you with the same (+15%[ICON_PRODUCTION], +15%[ICON_GOLD], +15%[ICON_GOLDEN_AGE]/[ICON_HAPPINESS_1] WLTKD). Such a prosperity is strong invitation for any kind of nobles planning to cisit your city (+10%[ICON_GREAT_PEOPLE]).'
 WHERE Tag = 'TXT_KEY_WONDER_PETERHOF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1005,7 +1005,7 @@ VALUES		('TXT_KEY_BUILDING_BAKKEN',			'Bakken'),
 			('TXT_KEY_WONDER_BAKKEN_HELP',		'Starts 10 turn of [ICON_HAPPINESS_1] WLTKD in this City. +33% [ICON_TOURISM] Tourism during [ICON_HAPPINESS_1] WLTKD.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Bakken[ENDCOLOR] provides entertainment on maximum level (+3[ICON_HAPPINESS_1]), greatly increasing your tourism traffic and its profits (10[ICON_HAPPINESS_1] WLTKD; +33%[ICON_TOURISM]/[ICON_HAPPINESS_1] WLTKD).'
+SET Text = '[COLOR_YIELD_FOOD]Bakken[ENDCOLOR] provides entertainment on maximum level (+3[ICON_HAPPINESS_1]), greatly increasing your tourism traffic and its profits (10[ICON_HAPPINESS_1] WLTKD turns; +33%[ICON_TOURISM]/[ICON_HAPPINESS_1] WLTKD).'
 WHERE Tag = 'TXT_KEY_WONDER_BAKKEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
