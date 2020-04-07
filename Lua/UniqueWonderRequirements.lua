@@ -502,10 +502,8 @@ function Initialize()
 		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
 		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 		[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
-		[GameInfo.Buildings.BUILDING_NABAWI.ID] = true,
 		[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 		[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
-		[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = true,
 		[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
 		[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true
 	}
@@ -560,6 +558,10 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 2
+	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENAHDDOU.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
@@ -631,7 +633,7 @@ function Initialize()
 
 	-- IsHappiness
 	tValidIsHappiness = {
-		[GameInfo.Buildings.BUILDING_BAKKEN.ID] = 80
+		[GameInfo.Buildings.BUILDING_BAKKEN.ID] = 70
 	}
 	for id, building in pairs(tValidIsHappiness) do
 		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHapiness)")

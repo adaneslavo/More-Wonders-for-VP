@@ -21,6 +21,13 @@ Currently compatible with 12-20-3.</Description>
     <AssemblyName>MoreWondersForVP</AssemblyName>
     <RootNamespace>MoreWondersForVP</RootNamespace>
     <ModReferences>
+      <Association>
+        <Type>Mod</Type>
+        <Name>Vox Populi's Bare Necessities</Name>
+        <Id>6eab2123-f4cb-401a-a165-55833306c1ae</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
     </ModReferences>
     <ModBlockers>
       <Association xmlns="">
