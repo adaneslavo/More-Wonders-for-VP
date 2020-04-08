@@ -559,7 +559,7 @@ function Initialize()
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 		iRequiredImprovements = 2
 	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENAHDDOU.ID] = {
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 		iRequiredImprovements = 1
 	}
