@@ -4,6 +4,9 @@ print("Loading WonderAbilityDummyBuilding.lua from MWfVP");
 -- Dec 13, 2017: Retrofitted for Vox Populi, Infixo
 -- Jan 14, 2020: Improved, adan_eslavo
 --------------------------------------------------------------
+local eUnitClassCaravan = GameInfoTypes.UNITCLASS_CARAVAN
+local eUnitClassCargo = GameInfoTypes.UNITCLASS_CARGO_SHIP
+
 -- Chevaliers
 local eChevaliers = GameInfoTypes["BUILDING_CHEVALIERS"]
 local eChevaliersDummy = GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"]
@@ -545,7 +548,7 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 		
 		local iUnitClass = pUnit:GetUnitClassType()
 		
-		if iUnitClass ~= GameInfoTypes.UNITCLASS_CARGO_SHIP then return end
+		if iUnitClass ~= eUnitClassCargo then return end
 		
 		local iSeaTradeRoutesWithMajors = 0
 
@@ -582,7 +585,7 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 		
 		local iUnitClass = pUnit:GetUnitClassType()
 		
-		if iUnitClass ~= GameInfoTypes.UNITCLASS_CARGO_SHIP then return end
+		if iUnitClass ~= eUnitClassCargo and iUnitClass ~= eUnitClassCaravan then return end
 		
 		local iActiveTradeRoutes = 0
 

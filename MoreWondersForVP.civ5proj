@@ -3,13 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
     <ProjectGuid>{af6f426c-c21e-41c2-bfb7-20a461bc0cc5}</ProjectGuid>
-    <Name>(build) More Wonders for VP</Name>
+    <Name>(overhaul) More Wonders for VP</Name>
     <Guid>3e151552-1683-4881-b736-8ee89226f599</Guid>
     <ModVersion>1</ModVersion>
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
-Currently compatible with 12-20-3.</Description>
+Currently compatible with 4-12.</Description>
     <Authors>Infixo, adan_eslavo</Authors>
     <SpecialThanks>Infixo, Asterix_Rage, hokath and others in credits file</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
@@ -1060,6 +1060,14 @@ Currently compatible with 12-20-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Art\5.Industrial\Wonder_Slatter_Mill_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\5.Industrial\Wonder_Louvre_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\5.Industrial\Wonder_Monte_Carlo_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1371,6 +1379,10 @@ Currently compatible with 12-20-3.</Description>
     <Content Include="Art\8.Information\VPWE_Taipei101_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\8.Information\Wonder_CERN_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Promotions\PromotionMoreWondersIcons_16.dds">
       <SubType>Lua</SubType>

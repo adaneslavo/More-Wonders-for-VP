@@ -854,9 +854,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	INSERT INTO Building_DomainFreeExperiencesGlobal
 				(BuildingType,						DomainType,		Experience)
-	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_LAND',	2),
-				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_AIR',	2),
-				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_SEA',	2);
+	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_LAND',	3),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_AIR',	3),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_SEA',	3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
@@ -1072,8 +1072,11 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	VALUES		('BUILDING_SHWEDAGON',	'SPECIALIST_ARTIST',	'YIELD_FAITH',		2);
 
 	INSERT INTO Building_ThemingBonuses 
-				(BuildingType,			Description,						Bonus,	MustBeArtifact,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON',	16,		1,				1,				5);
+				(BuildingType,			Description,									Bonus,	MustBeArtifact,	RequiresUniquePlayers,	ConsecutiveEras,	AIPriority)
+	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	5,		1,				0,						0,					5),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',		15,		1,				1,						0,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',	20,		1,				0,						1,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',		25,		1,				1,						1,					7);
 
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1417,18 +1420,27 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				(BuildingType,		BuildingClassType) 
 	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 1, SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,		DomainType,		Experience)
-	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	25),
-				('BUILDING_MARAE',	'DOMAIN_SEA',	25);
+	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	20),
+				('BUILDING_MARAE',	'DOMAIN_SEA',	20);
 
+	INSERT INTO Building_ThemingBonuses 
+				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	5,		1,				5);
+
+	INSERT INTO Building_ThemingYieldBonus 
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MARAE',	'YIELD_CULTURE',	3),
+				('BUILDING_MARAE',	'YIELD_FOOD',		10);
+	
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				1,					10,			2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
-				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				1,					0,			3,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
+	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				0,					10,			2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
+				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			3,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1711,6 +1723,64 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT';
 	
 	-- + IsNoCoast (lua)
+--============================================--
+-- INDUSTRIAL ERA
+--============================================--
+-- NESCHWANSTEIN
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
+-- SLATER MILL
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_Slatter_Mill_splash.dds' WHERE Type = 'BUILDING_SLATER_MILL';
+-- LOUVRE
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Louvre_splash.dds' WHERE Type = 'BUILDING_LOUVRE';
+-- PALACE OF WESTMINSTER
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_BIG_BEN';
+-- EIFFEL TOWER
+	UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_EIFFEL_TOWER';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_EIFFEL_TOWER';
+-- BRANDENBURG GATE
+	UPDATE Buildings SET NumPoliciesNeeded = 15 WHERE Type = 'BUILDING_BRANDENBURG_GATE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_BRANDENBURG_GATE';
+--============================================--
+-- MODERN ERA
+--============================================--
+-- STATUE OF LIBERTY
+	UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
+-- EMPIRE STATE BUILDING
+	UPDATE Buildings SET NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
+-- MOTHERLAND CALLS
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+-- CRISTO REDENTOR
+	UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_CRISTO_REDENTOR';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_CRISTO_REDENTOR';
+-- BROADWAY
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_BROADWAY';
+-- PRORA
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PRORA_RESORT';
+--============================================--
+-- ATOMIC ERA
+--============================================--
+-- BLETCHEY PARK
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+-- PENTAGON
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_PENTAGON';
+--============================================--
+-- INFORMATION ERA
+--============================================--
+-- SYDNEY OPERA HOUSE
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+-- CN TOWER
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CN_TOWER';
+-- HUBBLE SPACE TELESCOPE
+	UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
+-- GREAT FIREWALL
+	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_GREAT_FIREWALL';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_FIREWALL';
+-- CERN
+	UPDATE Buildings SET NumPoliciesNeeded = 29 WHERE Type = 'BUILDING_CERN';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_CERN_splash.dds' WHERE Type = 'BUILDING_CERN';
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--

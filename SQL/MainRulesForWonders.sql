@@ -71,6 +71,7 @@ VALUES		('ALTAMIRA',		'None',		1,			0),		-- Altamira Cave
 			--('MUSEUM_ISLAND',	'None',		1,			0),		-- Museum Island
 			--('BROOKLYN',		'None',		1,			0),		-- Brooklyn Bridge
 			--('MONTE_CARLO',		'None',		1,			0),		-- Monte Carlo Casino
+			----------------------------------------------------------------------------------------
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
