@@ -1,0 +1,6 @@
+<Asset>
+	<Mesh file="Salar.gr2"/>
+	<Texture file="Salar_ground_diff.dds"/>
+	<Texture file="Salar_ground_h.dds"/>
+	<Texture file="kilimanjaro_ground_sref.dds"/>
+</Asset>

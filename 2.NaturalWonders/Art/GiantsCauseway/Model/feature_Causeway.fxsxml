@@ -1,0 +1,5 @@
+<Asset>
+	<Mesh file="Causeway.gr2" source="Max" />
+	<Texture file="Causeway_ground_diff.dds" source="Max" />
+	<Texture file="Causeway_ground_sref.dds" source="Max" />
+</Asset>
