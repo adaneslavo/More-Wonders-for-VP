@@ -70,10 +70,17 @@ VALUES		('ALTAMIRA',		'None',		1,			0,		0),		-- Altamira Cave
 			('SOLOVIETSKY',		'None',		1,			0,		0),		-- Solovietsky Monastery
 			----------------------------------------------------------------------------------------
 			('MUSEUM_ISLAND',	'None',		1,			0,		0),		-- Museum Island
+			--('SIKU_QUANSHU',	'None',		1,			0,		0),		-- Siku Quanshu
 			('BROOKLYN',		'None',		1,			0,		0),		-- Brooklyn Bridge
+			--('SIBERIAN_RAILWAY',	'None',		1,			0,		0),		-- Trans-Siberian Railway
 			('PANAMA_CANAL',	'None',		1,			0,		0),		-- Panama Canal
+			--('ZOCALO',	'None',		1,			0,		0),		-- Zocalo
+			--('KEW_GARDENS',	'None',		1,			0,		0),		-- Kew Gardens
 			('MONTE_CARLO',		'None',		1,			0,		0),		-- Monte Carlo Casino
+			--('RUHR_VALLEY',	'None',		1,			0,		0),		-- Ruhr Valley
 			('DARJEELING',		'None',		1,			0,		0);		-- Darjeeling Himalayan Railway
+			--('BANFF',	'None',		1,			0,		0),		-- Banff Springs Hotel
+			--('ORSZAGHAZ',	'None',		1,			0,		0),		-- Orszaghaz
 			----------------------------------------------------------------------------------------
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
@@ -94,8 +101,8 @@ VALUES		('ALTAMIRA',		'None',		1,			0,		0),		-- Altamira Cave
 --------------------------------------------------------------
 /*
 Two versions of speeches for new wonders!
-0 = Man (default);
-1 = Woman (Default)
+0 = Man;
+1 = Woman (Default);
 */
 
 INSERT INTO COMMUNITY	

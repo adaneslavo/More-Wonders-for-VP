@@ -48,6 +48,13 @@ Special thanks to:
 		- Ait Benhaddou: https://commons.wikimedia.org/wiki/File:Kasbah_Ait_Ben_Haddou.jpg (CC BY-SA 4.0)
 		- Bakken: https://commons.wikimedia.org/wiki/File:Bakken_entry.jpg (CC BY-SA 3.0)
 		- Slatter Mill: https://commons.wikimedia.org/wiki/File:Slater_Mill_-_Wilkinson_Machine_Shop.jpg (CC BY-SA 3.0)
+		- Banff: https://commons.wikimedia.org/wiki/File:Banff_Springs_Hotel_2017.jpg (CC BY-SA 4.0)
+		- Ruhr Valley: https://en.wikipedia.org/wiki/Landschaftspark_Duisburg-Nord#/media/File:LaPaDu_Panorama_2010-10-03.jpg (CC BY-SA 3.0 de)
+		- Kew Gardens: https://en.wikipedia.org/wiki/File:Kew_Gardens_Palm_House,_London_-_July_2009.jpg (CC BY-SA 3.0)
+		- Orszaghaz: https://www.flickr.com/photos/mikelsantamaria/44555177630/ (CC BY-SA 2.0)
+		- Siku Quanshu: https://commons.wikimedia.org/wiki/File:Wenjin_Imperial_Library.JPG (CC BY-SA 3.0)
+		- Zocalo: https://commons.wikimedia.org/wiki/File:Z%C3%B3calo,_Mexico_City_(2105552839).jpg (CC BY-SA 2.0)
+		- Siberian Railway: https://commons.wikimedia.org/wiki/File:The_Trans-Siberian_Railway,_c._1913.jpg (not known)
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);

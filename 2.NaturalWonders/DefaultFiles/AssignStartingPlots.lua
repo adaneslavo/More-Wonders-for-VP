@@ -6261,7 +6261,7 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			-- Now place this wonder and record the placement.
 			plot:SetFeatureType(feature_type_to_place)
 			table.insert(self.placed_natural_wonder, wonder_number);
-			self:PlaceResourceImpact(x, y, 6, math.floor(iH / 8))	-- Natural Wonders layer (ADAN_ESLAVO)
+			self:PlaceResourceImpact(x, y, 6, math.floor(iH / 8))	-- Natural Wonders layer (adan_eslavo)
 			self:PlaceResourceImpact(x, y, 1, 1)					-- Strategic layer
 			self:PlaceResourceImpact(x, y, 2, 1)					-- Luxury layer
 			self:PlaceResourceImpact(x, y, 3, 1)					-- Bonus layer
@@ -6336,7 +6336,7 @@ function AssignStartingPlots:PlaceNaturalWonders()
 	-- Determine how many NWs to attempt to place. Target is regulated per map size.
 	-- The final number cannot exceed the number the map has locations to support.
 	local worldsizes = {
-		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3,
+		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3, --(adan_eslavo)
 		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 6,
 		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 9,
 		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 12,

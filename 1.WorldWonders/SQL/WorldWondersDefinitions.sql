@@ -7,11 +7,11 @@
 --============================================--
 INSERT INTO IconTextureAtlases	
 			(Atlas,								IconSize,	Filename,								IconsPerRow,	IconsPerColumn) 
-VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dds',	'4',			'1'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	64,			'PromotionMoreWondersIcons_64.dds',		'4',			'1'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	45,			'PromotionMoreWondersIcons_45.dds',		'4',			'1'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'4',			'1'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'4',			'1');
+VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dds',	'8',			'2'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	64,			'PromotionMoreWondersIcons_64.dds',		'8',			'2'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	45,			'PromotionMoreWondersIcons_45.dds',		'8',			'2'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'8',			'2'),
+			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'8',			'2');
 --============================================--
 -- HELP
 --============================================--
@@ -1877,7 +1877,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO UnitPromotions 
 				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	FriendlyHealChange,	MovesChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					0,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
+	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					0,				5,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -1984,7 +1984,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	INSERT INTO UnitPromotions 
 				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	HoveringUnit,	CanMoveImpassable,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,				1,					0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
+	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,				1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)

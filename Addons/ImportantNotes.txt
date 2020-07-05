@@ -1,0 +1,5 @@
+-- ImportantNotes
+-- Author: Adam
+-- DateCreated: 6/21/2020 12:31:16 PM
+--------------------------------------------------------------
+"AssignStartingPlots.lua" in this folder is a file for 43-civ version of Vox Populi. If you play such, please copy/paste this file into 2.NaturalWonders/DefaultFiles and substitute existing file.

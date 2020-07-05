@@ -35,6 +35,11 @@ local tValidIsHasCitizens = {}
 
 local bReachedMaxEra
 
+local ePlotOcean = PlotTypes.PLOT_OCEAN
+local ePlotFlat = PlotTypes.PLOT_LAND
+local ePlotHill = PlotTypes.PLOT_HILLS
+local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
+
 -- IsMaxEra
 --[[function IsMaxEra(ePlayer, eCity, eBuilding)
 	if not tValidIsMaxEra[eBuilding] then 
@@ -489,21 +494,24 @@ function IsOnIsthmus(ePlayer, eCity, eBuilding)
 	
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
-	local iTerrainTypeChanges = 0
-	local iPreviousTerrainType = -1
-	local iCurrentTerrainType = -1
+	local iCoastChanges = 0
+	local iPreviousPlotType = -1
+	local iCurrentPlotType = -1
 
 	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 		local pAdjacentPlot = Map.PlotDirection(iCityX, iCityY, dir)
 		
-		iPreviousTerrainType = iCurrentTerrainType
-		iCurrentTerrainType = pAdjacentPlot:GetTerrainType()
-
-		if iPreviousTerrainType ~= -1 and iPreviousTerrainType ~= iCurrentTerrainType then
-			iTerrainTypeChanges = iTerrainTypeChanges + 1
+		iPreviousPlotType = iCurrentPlotType
+		iCurrentPlotType = pAdjacentPlot:GetPlotType()
+		if iCurrentPlotType == ePlotHill or iCurrentPlotType == ePlotMountain then
+			iCurrentPlotType = ePlotFlat
 		end
 
-		if iTerrainTypeChanges >= 3 then return true end		
+		if iPreviousPlotType ~= -1 and iPreviousPlotType ~= iCurrentPlotType then
+			iCoastChanges = iCoastChanges + 1
+		end
+
+		if iCoastChanges >= 3 then return true end		
 	end
 
 	return false
