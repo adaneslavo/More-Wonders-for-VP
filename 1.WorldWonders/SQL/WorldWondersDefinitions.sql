@@ -741,7 +741,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO Building_ThemingBonuses
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 8,		1,				5);
+	VALUES		('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 7,		1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus
 				(BuildingType,		YieldType,					Yield)
@@ -841,7 +841,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,						Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_WARTBURG',	'TXT_KEY_THEMING_BONUS_WARTBURG',	8,		1,				5);
+	VALUES		('BUILDING_WARTBURG',	'TXT_KEY_THEMING_BONUS_WARTBURG',	7,		1,				5);
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,			DomainType,		Experience)
@@ -1106,10 +1106,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,									Bonus,	MustBeArtifact,	RequiresUniquePlayers,	ConsecutiveEras,	AIPriority)
-	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	5,		1,				0,						0,					5),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',		15,		1,				1,						0,					6),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',	20,		1,				0,						1,					6),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',		25,		1,				1,						1,					7);
+	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	12,		1,				0,						0,					5),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',		20,		1,				1,						0,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',	25,		1,				0,						1,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',		30,		1,				1,						1,					7);
 
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1470,7 +1470,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	5,		1,				5);
+	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	7,		1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,		YieldType,			Yield) 
@@ -1624,6 +1624,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PETERHOF';
 	
 	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PETERHOF';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_PETERHOF',	'RESOURCE_IRON');
 	---------------------------------------------------------
 	UPDATE Buildings SET WLTKDTurns = 20, GreatPeopleRateModifier = 10 WHERE Type = 'BUILDING_PETERHOF';
 
@@ -1795,10 +1799,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresAnyButOwner,	AIPriority)
-	VALUES		('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ART',			3,		1,			0,			0,						5),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_OTHERS',		7,		1,			0,			1,						6),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ERAS',			12,		1,			1,			0,						6),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	18,		1,			1,			1,						7);
+	VALUES		('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ART',			8,		1,			0,			0,						5),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_OTHERS',		14,		1,			0,			1,						6),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ERAS',			20,		1,			1,			0,						7),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	25,		1,			1,			1,						8);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,				YieldType,			Yield) 
@@ -1843,6 +1847,59 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	VALUES		('BUILDING_BROOKLYN',	'FLAVOR_GOLD',		10),
 				('BUILDING_BROOKLYN',	'FLAVOR_CULTURE',	10),
 				('BUILDING_BROOKLYN',	'FLAVOR_DIPLOMACY',	60);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TRANS_SIBERIAN RAILWAY (NEW)
+	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,					BuildingClassType) 
+	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');
+
+	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 20, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+
+	INSERT INTO Building_ResourceYieldChanges 
+				(BuildingType,					ResourceType,			YieldType,						Yield) 
+	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_COAL',		'YIELD_GOLDEN_AGE_POINTS',		5),
+				('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_OIL',			'YIELD_GOLDEN_AGE_POINTS',		5),
+				('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_ALUMINUM',	'YIELD_GOLDEN_AGE_POINTS',		5),
+				('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_URANIUM',		'YIELD_GOLDEN_AGE_POINTS',		5);
+	
+	INSERT INTO UnitPromotions 
+				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY_HELP',	'AS2D_IF_LEVELUP',	1,				0,					7,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY');
+
+	INSERT INTO UnitPromotions_Terrains 
+				(PromotionType,					TerrainType,			ExtraMove) 
+	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_TUNDRA',		1),
+				('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_SNOW',			1);
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_GUN'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_MELEE'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_RECON'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_ARCHER'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_MOUNTED'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SIEGE'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_ARMOR'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SETTLER'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_WORKER'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_INQUISITOR'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_MISSIONARY'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_DIPLOMACY'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_CARAVAN');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_SIBERIAN_RAILWAY',	'FLAVOR_MOBILE',		20),
+				('BUILDING_SIBERIAN_RAILWAY',	'FLAVOR_GOLD',			30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SLATER MILL
@@ -1899,6 +1956,71 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	-- + gold_and_range_for_coastal_city_tr
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- ZOCALO (NEW)
+	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RIFLING', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_ZOCALO';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_ZOCALO';
+	
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 1, FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_ZOCALO';
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_CIVIL_SERVANT', SpecialistCount = 1 WHERE Type = 'BUILDING_ZOCALO';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_ZOCALO',	'YIELD_FAITH',		2),
+				('BUILDING_ZOCALO',	'YIELD_TOURISM',	2);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,		BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_ZOCALO',	'BUILDINGCLASS_MONUMENT',	'YIELD_TOURISM',		2);
+
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,		SpecialistType,				YieldType,			Yield) 
+	VALUES		('BUILDING_ZOCALO',	'SPECIALIST_CIVIL_SERVANT',	'YIELD_FAITH',		1);
+	
+	INSERT INTO Building_FreeUnits 
+				(BuildingType,			UnitType,				NumUnits)
+	VALUES		('BUILDING_ZOCALO',		'UNIT_GREAT_DIPLOMAT',	1);
+	
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,		UnitCombatType,			Modifier) 
+	VALUES		('BUILDING_ZOCALO', 'UNITCOMBAT_DIPLOMACY',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_ZOCALO',	'FLAVOR_RELIGION',		20),
+				('BUILDING_ZOCALO',	'FLAVOR_DIPLOMACY',		70),
+				('BUILDING_ZOCALO',	'FLAVOR_CULTURE',		20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- KEW GARDENS (NEW)
+	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_FERTILIZER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_KEW_GARDENS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KEW_GARDENS';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	VALUES		('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'),
+				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
+
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,				ImprovementType,	YieldType,			Yield) 
+	VALUES		('BUILDING_KEW_GARDENS',	'IMPROVEMENT_FARM',	'YIELD_FOOD',		1),
+				('BUILDING_KEW_GARDENS',	'IMPROVEMENT_FARM',	'YIELD_SCIENCE',	1),
+				('BUILDING_KEW_GARDENS',	'IMPROVEMENT_FARM',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,				YieldIn,			YieldOut,			Value) 
+	VALUES		('BUILDING_KEW_GARDENS',	'YIELD_FOOD',		'YIELD_SCIENCE',	10),
+				('BUILDING_KEW_GARDENS',	'YIELD_SCIENCE',	'YIELD_TOURISM',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_KEW_GARDENS',	'FLAVOR_GROWTH',		30),
+				('BUILDING_KEW_GARDENS',	'FLAVOR_SCIENCE',		50),
+				('BUILDING_KEW_GARDENS',	'FLAVOR_CULTURE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- LOUVRE
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_LOUVRE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Louvre_splash.dds' WHERE Type = 'BUILDING_LOUVRE';
@@ -1946,6 +2068,32 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_MONTE_CARLO',	'FLAVOR_CULTURE',	50);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- RUHR VALLEY (NEW)
+	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_RUHR_VALLEY';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUHR_VALLEY';
+	
+	UPDATE Buildings SET River = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
+	---------------------------------------------------------
+	UPDATE Buildings SET CityWorkingChange = 2 WHERE Type = 'BUILDING_RUHR_VALLEY';
+
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,				YieldType,				Yield) 
+	VALUES		('BUILDING_RUHR_VALLEY',	'YIELD_PRODUCTION',		10);
+
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,				ImprovementType,		YieldType,				Yield) 
+	VALUES		('BUILDING_RUHR_VALLEY',	'IMPROVEMENT_MINE',		'YIELD_PRODUCTION',		1),
+				('BUILDING_RUHR_VALLEY',	'IMPROVEMENT_QUARRY',	'YIELD_PRODUCTION',		1);
+	
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,				ResourceType,		NumPlots) 
+	VALUES		('BUILDING_RUHR_VALLEY',	'RESOURCE_COAL',	2);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_RUHR_VALLEY',	'FLAVOR_PRODUCTION',	100);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- EIFFEL TOWER
 	UPDATE Buildings SET NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_EIFFEL_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_EIFFEL_TOWER';
@@ -1991,7 +2139,13 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	VALUES		('PROMOTION_DARJEELING',	'UNITCOMBAT_GUN'),
 				('PROMOTION_DARJEELING',	'UNITCOMBAT_MELEE'),
 				('PROMOTION_DARJEELING',	'UNITCOMBAT_RECON'),
-				('PROMOTION_DARJEELING',	'UNITCOMBAT_ARCHER');	
+				('PROMOTION_DARJEELING',	'UNITCOMBAT_ARCHER');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_DARJEELING',		'FLAVOR_PRODUCTION',	30),
+				('BUILDING_DARJEELING',		'FLAVOR_CULTURE',		50),
+				('BUILDING_DARJEELING',		'FLAVOR_MOBILE',		20);	
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BRANDENBURG GATE
@@ -2152,9 +2306,9 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 263, PolicyType = 'POLICY_HONOR_FI
 UPDATE Buildings SET MutuallyExclusiveGroup = 264, PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_RED_FORT',				'BUILDING_KINKAKU_JI',			'BUILDING_SOLOVIETSKY');
 UPDATE Buildings SET MutuallyExclusiveGroup = 265, PolicyType = 'POLICY_PATRONAGE_FINISHER'		WHERE Type IN ('BUILDING_BIG_BEN', 				'BUILDING_KILWA_KISIWANI',		'BUILDING_OLD_BRIDGE');
 UPDATE Buildings SET MutuallyExclusiveGroup = 266, PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_LOUVRE', 				'BUILDING_MONTE_CARLO',			'BUILDING_MUSEUM_ISLAND');
-UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY'/*, 			'BUILDING_RUHR_VALLEY',			'BUILDING_BANFF'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY', 			'BUILDING_RUHR_VALLEY'/*,			'BUILDING_BANFF'*/);
 UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE', 	'BUILDING_PENTAGON'/*,			'BUILDING_THULE'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK'/*,		'BUILDING_KEW_GARDEN',				'BUILDING_ARECIBO'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDEN'/*,				'BUILDING_ARECIBO'*/);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Falun Mine[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
@@ -2162,14 +2316,14 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Al
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Red Fort[ENDCOLOR], [COLOR_CYAN]Golden Pavilion[ENDCOLOR] and [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Monte Carlo Cassino[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_RED]Ruhr Valley[ENDCOLOR] and [COLOR_RED]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_RED]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Brandenburg Gate[ENDCOLOR] and [COLOR_RED]Thule Air Base[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_RED]Kew Garden[ENDCOLOR] and [COLOR_RED]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Gardens[ENDCOLOR] and [COLOR_RED]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
 --============================================--
 -- TRANSPORTATION WONDERS
 --============================================--
 UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
-('BUILDING_DARJEELING'/*, 'BUILDING_TRANS_SIBERIAN'*/);
+('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY');
 --============================================--
 -- VP FIXES
 --============================================--

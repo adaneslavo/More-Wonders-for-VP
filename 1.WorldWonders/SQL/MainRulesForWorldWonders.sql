@@ -24,63 +24,63 @@ CREATE TABLE MWfVPConfig (
 -- ('NAZCA',    0, 0), -- Brooklyn is DISABLED
 --------------------------------------------------------------
 INSERT INTO MWfVPConfig	
-			(WType,				WDummy,		WActive,	WFake,	WHasSound)
-VALUES		('ALTAMIRA',		'None',		1,			0,		0),		-- Altamira Cave
-			('GGANTIJA',		'None',		1,			0,		0),		-- Ggantija
-			('GOEBEKLI_TEPE',	'None',		1,			0,		0),		-- Goebekli Tepe
-			('KUK',				'None',		1,			0,		0),		-- Kuk Swamp
-			('MAJORVILLE',		'None',		1,			0,		0),		-- Majorville Medicine Wheel
-			('MOHENJO_DARO',	'None',		1,			0,		0),		-- Mohenjo-Daro
-			('SKARA_BRAE',		'None',		1,			0,		0),		-- Skara Brae
+			(WType,					WDummy,		WActive,	WFake,	WHasSound)
+VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
+			('GGANTIJA',			'None',		1,			0,		0),		-- Ggantija
+			('GOEBEKLI_TEPE',		'None',		1,			0,		0),		-- Goebekli Tepe
+			('KUK',					'None',		1,			0,		0),		-- Kuk Swamp
+			('MAJORVILLE',			'None',		1,			0,		0),		-- Majorville Medicine Wheel
+			('MOHENJO_DARO',		'None',		1,			0,		0),		-- Mohenjo-Daro
+			('SKARA_BRAE',			'None',		1,			0,		0),		-- Skara Brae
 			----------------------------------------------------------------------------------------
-			('KARNAK',			'None',		1,			0,		0),		-- Karnak Temple
-			('NAZCA',			'None',		1,			0,		0),		-- Nazca Lines
-			('WIELICZKA',		'None',		1,			0,		0),		-- Wieliczka Salt Mine
+			('KARNAK',				'None',		1,			0,		0),		-- Karnak Temple
+			('NAZCA',				'None',		1,			0,		0),		-- Nazca Lines
+			('WIELICZKA',			'None',		1,			0,		0),		-- Wieliczka Salt Mine
 			----------------------------------------------------------------------------------------
-			('MALWIYA',			'None',		1,			0,		0),		-- Malwiya Minaret (Great Mosque of Samarra)
-			('GATE_OF_SUN',		'None',		1,			0,		0),		-- Gate of the Sun
-			('BAMYAN',			'None',		1,			0,		0),		-- Buddhas of Bamiyan
-			('EL_GHRIBA',		'None',		1,			0,		0),		-- El Ghriba Synagougue
-			('ETCHMIADZIN',		'None',		1,			0,		1),		-- Etchmiadzin Cathedral
-			('CHAND_BAORI',		'None',		1,			0,		0),		-- Chand Baori Well
+			('MALWIYA',				'None',		1,			0,		0),		-- Malwiya Minaret (Great Mosque of Samarra)
+			('GATE_OF_SUN',			'None',		1,			0,		0),		-- Gate of the Sun
+			('BAMYAN',				'None',		1,			0,		0),		-- Buddhas of Bamiyan
+			('EL_GHRIBA',			'None',		1,			0,		0),		-- El Ghriba Synagougue
+			('ETCHMIADZIN',			'None',		1,			0,		1),		-- Etchmiadzin Cathedral
+			('CHAND_BAORI',			'None',		1,			0,		0),		-- Chand Baori Well
 			----------------------------------------------------------------------------------------
-			('NABAWI',			'None',		1,			0,		0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			('LAVAUX',			'None',		1,			0,		0),		-- Lavaux
-			('WARTBURG',		'None',		1,			0,		0),		-- Wartburg Castle
-			('GREAT_ZIMBABWE',	'None',		1,			0,		0),		-- Great Zimbabwe
-			('FALUN',			'None',		1,			0,		0),		-- Falun Mine
-			('AHU',				'None',		1,			0,		0),		-- Ahu Tongariki
-			('DAMASCUS',		'None',		1,			0,		0),		-- Forge of Damascus
-			('SHWEDAGON',		'None',		1,			0,		0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
-			('MICHEL',			'None',		1,			0,		0),		-- Mont Saint Michel
-			('ITSUKUSHIMA',		'None',		1,			0,		0),		-- Itsukushima Shrine
-			('QALHAT',			'None',		1,			0,		0),		-- Qalhat
-			('CHEVALIERS',		'None',		1,			0,		0),		-- Krak des Chevaliers
+			('NABAWI',				'None',		1,			0,		0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
+			('LAVAUX',				'None',		1,			0,		0),		-- Lavaux
+			('WARTBURG',			'None',		1,			0,		0),		-- Wartburg Castle
+			('GREAT_ZIMBABWE',		'None',		1,			0,		0),		-- Great Zimbabwe
+			('FALUN',				'None',		1,			0,		0),		-- Falun Mine
+			('AHU',					'None',		1,			0,		0),		-- Ahu Tongariki
+			('DAMASCUS',			'None',		1,			0,		0),		-- Forge of Damascus
+			('SHWEDAGON',			'None',		1,			0,		0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('MICHEL',				'None',		1,			0,		0),		-- Mont Saint Michel
+			('ITSUKUSHIMA',			'None',		1,			0,		0),		-- Itsukushima Shrine
+			('QALHAT',				'None',		1,			0,		0),		-- Qalhat
+			('CHEVALIERS',			'None',		1,			0,		0),		-- Krak des Chevaliers
 			----------------------------------------------------------------------------------------
-			('BENHADDOU',		'None',		1,			0,		0),		-- Ait Benhaddou
-			('KILWA_KISIWANI',	'None',		1,			0,		0),		-- Kilwa Kisiwani
-			('ST_PETERS',		'None',		1,			0,		0),		-- Papal Basilica of St. Peter in the Vatican
-			('KINKAKU_JI',		'None',		1,			0,		0),		-- Golden Pavilion (Kikaku-Ji)
-			('MARAE',			'None',		1,			0,		0),		-- Marae Arahurahu
-			('OLD_BRIDGE',		'None',		1,			0,		0),		-- Old Bridge in Mostar
-			('MEENAKSHI',		'None',		1,			0,		0),		-- Meenakshi Temple
-			('PETERHOF',		'None',		1,			0,		0),		-- Peterhof Palace
-			('BAKKEN',			'None',		1,			0,		0),		-- Bakken
-			('HOUSE_OF_TRADE',	'None',		1,			0,		0),		-- House of Trade of the Indies (Casa de Contratación)
-			('SOLOVIETSKY',		'None',		1,			0,		0),		-- Solovietsky Monastery
+			('BENHADDOU',			'None',		1,			0,		0),		-- Ait Benhaddou
+			('KILWA_KISIWANI',		'None',		1,			0,		0),		-- Kilwa Kisiwani
+			('ST_PETERS',			'None',		1,			0,		0),		-- Papal Basilica of St. Peter in the Vatican
+			('KINKAKU_JI',			'None',		1,			0,		0),		-- Golden Pavilion (Kikaku-Ji)
+			('MARAE',				'None',		1,			0,		0),		-- Marae Arahurahu
+			('OLD_BRIDGE',			'None',		1,			0,		0),		-- Old Bridge in Mostar
+			('MEENAKSHI',			'None',		1,			0,		0),		-- Meenakshi Temple
+			('PETERHOF',			'None',		1,			0,		0),		-- Peterhof Palace
+			('BAKKEN',				'None',		1,			0,		0),		-- Bakken
+			('HOUSE_OF_TRADE',		'None',		1,			0,		0),		-- House of Trade of the Indies (Casa de Contratación)
+			('SOLOVIETSKY',			'None',		1,			0,		0),		-- Solovietsky Monastery
 			----------------------------------------------------------------------------------------
-			('MUSEUM_ISLAND',	'None',		1,			0,		0),		-- Museum Island
-			--('SIKU_QUANSHU',	'None',		1,			0,		0),		-- Siku Quanshu
-			('BROOKLYN',		'None',		1,			0,		0),		-- Brooklyn Bridge
-			--('SIBERIAN_RAILWAY',	'None',		1,			0,		0),		-- Trans-Siberian Railway
-			('PANAMA_CANAL',	'None',		1,			0,		0),		-- Panama Canal
-			--('ZOCALO',	'None',		1,			0,		0),		-- Zocalo
-			--('KEW_GARDENS',	'None',		1,			0,		0),		-- Kew Gardens
-			('MONTE_CARLO',		'None',		1,			0,		0),		-- Monte Carlo Casino
-			--('RUHR_VALLEY',	'None',		1,			0,		0),		-- Ruhr Valley
-			('DARJEELING',		'None',		1,			0,		0);		-- Darjeeling Himalayan Railway
-			--('BANFF',	'None',		1,			0,		0),		-- Banff Springs Hotel
-			--('ORSZAGHAZ',	'None',		1,			0,		0),		-- Orszaghaz
+			('MUSEUM_ISLAND',		'None',		1,			0,		0),		-- Museum Island
+			--('SIKU_QUANSHU',		'None',		1,			0,		0),		-- Siku Quanshu
+			('BROOKLYN',			'None',		1,			0,		0),		-- Brooklyn Bridge
+			('SIBERIAN_RAILWAY',	'None',		1,			0,		0),		-- Trans-Siberian Railway
+			('PANAMA_CANAL',		'None',		1,			0,		0),		-- Panama Canal
+			('ZOCALO',				'None',		1,			0,		0),		-- Zocalo
+			('KEW_GARDENS',			'None',		1,			0,		0),		-- Kew Gardens
+			('MONTE_CARLO',			'None',		1,			0,		0),		-- Monte Carlo Casino
+			('RUHR_VALLEY',			'None',		1,			0,		0),		-- Ruhr Valley
+			('DARJEELING',			'None',		1,			0,		0);		-- Darjeeling Himalayan Railway
+			--('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
+			--('ORSZAGHAZ',			'None',		1,			0,		0),		-- Orszaghaz
 			----------------------------------------------------------------------------------------
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory
