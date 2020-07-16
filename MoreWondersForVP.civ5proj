@@ -124,6 +124,10 @@ Currently compatible with 4-12.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Great_Work_Holy_Hungary.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>

@@ -1351,6 +1351,44 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_DARJEELING_HELP';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]2 Mountains[ENDCOLOR]; Building: [COLOR_CYAN]Train Station[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_DARJEELING_HELP';
 ----------------------------------------------------
+-- Banff Springs Hotel
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_BANFF',			'Banff Springs Hotel'),
+			('TXT_KEY_WONDER_BANFF_QUOTE',		'[NEWLINE]"A national park is not a playground. It''s a sanctuary for nature and for humans who will accept nature on nature''s own terms."[NEWLINE] - Michael Frome[NEWLINE]'),
+			('TXT_KEY_WONDER_BANFF_PEDIA',		'TODO'),
+			('TXT_KEY_WONDER_BANFF_HELP',		'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from all Merchant Specialists in your Empire. +5 [ICON_GOLD] Gold and +5 [ICON_TOURISM] Tourism from all Mountain tiles worked by this City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Hotel. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Banff Springs Hotel[ENDCOLOR] is a perfect example how to make profits from [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+5[ICON_GOLD], +5[ICON_TOURISM]/[ICON_FLOWER]) using basic tourism infrastructure: [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([ICON_TOURISM]), merchant districts (+1[ICON_GREAT_MERCHANT]; +5[ICON_GOLD], +5[ICON_TOURISM]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) and all kind of entartainment facilities (-1[ICON_HAPPINESS_3] Boredom).'
+WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_BANFF_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR], [COLOR_CYAN]Tundra[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BANFF_HELP';
+----------------------------------------------------
+-- Orszaghaz
+INSERT INTO Language_en_US 
+			(Tag,										Text) 
+VALUES		('TXT_KEY_BUILDING_ORSZAGHAZ',				'Orszaghaz'),
+			('TXT_KEY_WONDER_ORSZAGHAZ_QUOTE',			'[NEWLINE]"With self-government is freedom, and with freedom is justice and patriotism."[NEWLINE] - Lajos Kossuth[NEWLINE]'),
+			('TXT_KEY_WONDER_ORSZAGHAZ_PEDIA',			'TODO'),
+			('TXT_KEY_GREAT_WORK_HOLY_HUNGARY',			'Holy Crown of Hungary'),
+			('TXT_KEY_GREAT_WORK_HOLY_HUNGARY_QUOTE',	'[NEWLINE]You desire that which exceeds my humble powers,but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
+			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'+10% [ICON_GOLDEN_AGE] Golden Age Points. +1 [ICON_INFLUENCE] World Congress Vote, +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each 2 Defensive Pacts. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Votes; +1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/2 DP). You invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new better age (+10%[ICON_GOLDEN_AGE]).'
+WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_ORSZAGHAZ_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Building: [COLOR_CYAN]Constabulary[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ORSZAGHAZ_HELP';		
+----------------------------------------------------
 -- Neuschwanstein
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Neuschwanstein[ENDCOLOR] gives you nice boost to your treasury (+6[ICON_GOLD]; +1[ICON_GREAT_MERCHANT]), culture output (+4[ICON_CULTURE]), and turns your [COLOR_YIELD_FOOD]Castles[ENDCOLOR] (+1[ICON_GOLD], +1[ICON_CULTURE], +1[ICON_HAPPINESS_1]) into most valuable buildings in your cities.'

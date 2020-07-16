@@ -78,9 +78,9 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
 			('KEW_GARDENS',			'None',		1,			0,		0),		-- Kew Gardens
 			('MONTE_CARLO',			'None',		1,			0,		0),		-- Monte Carlo Casino
 			('RUHR_VALLEY',			'None',		1,			0,		0),		-- Ruhr Valley
-			('DARJEELING',			'None',		1,			0,		0);		-- Darjeeling Himalayan Railway
-			--('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
-			--('ORSZAGHAZ',			'None',		1,			0,		0),		-- Orszaghaz
+			('DARJEELING',			'None',		1,			0,		0),		-- Darjeeling Himalayan Railway
+			('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
+			('ORSZAGHAZ',			'None',		1,			0,		0);		-- Orszaghaz
 			----------------------------------------------------------------------------------------
 			
 --('ARECIBO',     1, 0), -- Arecibo Observatory

@@ -2154,6 +2154,71 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_BRANDENBURG_GATE';
 	-- + Citadel/Fort(1) (lua)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- BANFF SPRINGS HOTEL (NEW)
+	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BANFF';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_BANFF';
+	
+	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1, UnculturedHappinessChange = -1 WHERE Type = 'BUILDING_BANFF';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_BANFF',	'YIELD_TOURISM',	5);
+
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_BANFF',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,		SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_GOLD',		1),
+				('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_TOURISM',	1);
+	
+	INSERT INTO Building_TerrainYieldChanges 
+				(BuildingType,		TerrainType,		YieldType,			Yield) 
+	VALUES		('BUILDING_BANFF',	'TERRAIN_MOUNTAIN', 'YIELD_GOLD',		5),
+				('BUILDING_BANFF',	'TERRAIN_MOUNTAIN', 'YIELD_TOURISM',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,			Flavor)
+	VALUES		('BUILDING_BANFF',	'FLAVOR_GOLD',		60),
+				('BUILDING_BANFF',	'FLAVOR_CULTURE',	60),
+				('BUILDING_BANFF',	'FLAVOR_HAPPINESS',	10);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ORSZAGHAZ (NEW)
+	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 15, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ORSZAGHAZ';
+	
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');
+
+	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_HUNGARY' WHERE Type = 'BUILDING_ORSZAGHAZ';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,					Yield)
+	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	4);
+
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	10);
+
+	INSERT INTO GreatWorks
+				(Type,						Description,						GreatWorkClassType,	Audio,							Image,							Quote) 
+	VALUES		('GREAT_WORK_HOLY_HUNGARY',	'TXT_KEY_GREAT_WORK_HOLY_HUNGARY',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Hungary.dds',	'TXT_KEY_GREAT_WORK_HOLY_HUNGARY_QUOTE');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,			Flavor)
+	VALUES		('BUILDING_ORSZAGHAZ',	'FLAVOR_DIPLOMACY',	100),
+				('BUILDING_ORSZAGHAZ',	'FLAVOR_CULTURE',	30);
 --============================================--
 -- MODERN ERA
 --============================================--
@@ -2306,9 +2371,9 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 263, PolicyType = 'POLICY_HONOR_FI
 UPDATE Buildings SET MutuallyExclusiveGroup = 264, PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_RED_FORT',				'BUILDING_KINKAKU_JI',			'BUILDING_SOLOVIETSKY');
 UPDATE Buildings SET MutuallyExclusiveGroup = 265, PolicyType = 'POLICY_PATRONAGE_FINISHER'		WHERE Type IN ('BUILDING_BIG_BEN', 				'BUILDING_KILWA_KISIWANI',		'BUILDING_OLD_BRIDGE');
 UPDATE Buildings SET MutuallyExclusiveGroup = 266, PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_LOUVRE', 				'BUILDING_MONTE_CARLO',			'BUILDING_MUSEUM_ISLAND');
-UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY', 			'BUILDING_RUHR_VALLEY'/*,			'BUILDING_BANFF'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY', 			'BUILDING_RUHR_VALLEY',			'BUILDING_BANFF');
 UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE', 	'BUILDING_PENTAGON'/*,			'BUILDING_THULE'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDEN'/*,				'BUILDING_ARECIBO'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDENS'/*,				'BUILDING_ARECIBO'*/);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Falun Mine[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
@@ -2316,7 +2381,7 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Al
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Red Fort[ENDCOLOR], [COLOR_CYAN]Golden Pavilion[ENDCOLOR] and [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Monte Carlo Cassino[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_RED]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_CYAN]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Brandenburg Gate[ENDCOLOR] and [COLOR_RED]Thule Air Base[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Gardens[ENDCOLOR] and [COLOR_RED]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
 --============================================--
@@ -2324,6 +2389,16 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bl
 --============================================--
 UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 ('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY');
+--============================================--
+-- IDEOLOGY WONDERS
+--============================================--
+-- MutuallyExclusiveGroup indicator works only on the city level, so you cannot build a Wonder in the city where the other exists
+-- but you can build it in another city. To achieve true 'mutually exclusive' situation we need a dummy building that will be placed
+-- in all your cities and block the construction of the 2nd Wonder.
+---------------------------------------------------------
+UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ'/*, 'BUILDING_HOLLYWOOD', 'BUILDING_JFK_SPACE_CENTER'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL', 'BUILDING_SPUTNIK',   'BUILDING_KUMSUSAN'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT'/*, 'BUILDING_SANBO_HONBU', 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
 --============================================--
 -- VP FIXES
 --============================================--
