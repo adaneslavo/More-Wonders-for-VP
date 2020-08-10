@@ -132,11 +132,12 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_KUK';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_KUK';
 	
-	UPDATE Buildings SET Flat = 1, ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_KUK';
+	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_KUK';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,		FeatureType) 
-	VALUES		('BUILDING_KUK',	'FEATURE_MARSH');
+	VALUES		('BUILDING_KUK',	'FEATURE_MARSH'),
+				('BUILDING_KUK',	'FEATURE_JUNGLE');
 	---------------------------------------------------------	
 	UPDATE Buildings SET FoodKept = 10 WHERE Type = 'BUILDING_KUK';
 	
