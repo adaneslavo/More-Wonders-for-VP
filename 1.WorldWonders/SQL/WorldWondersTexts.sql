@@ -1367,7 +1367,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_BANFF_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR], [COLOR_CYAN]Tundra[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BANFF_HELP';
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Mountain[ENDCOLOR], [COLOR_CYAN]Tundra[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BANFF_HELP';
 ----------------------------------------------------
 -- Orszaghaz
 INSERT INTO Language_en_US 
