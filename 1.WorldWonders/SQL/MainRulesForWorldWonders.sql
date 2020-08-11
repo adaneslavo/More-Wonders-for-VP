@@ -82,19 +82,25 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
 			('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
 			('ORSZAGHAZ',			'None',		1,			0,		0);		-- Orszaghaz
 			----------------------------------------------------------------------------------------
-			
+			('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
+			('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
+			('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
+			('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
+			('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
+			('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
+			('CONCORDE',			'None',		1,			0,		0),		-- Concorde
+			('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
+			('RUSHMORE',			'None',		1,			0,		0),		-- Mount Rushmore
+
+
 --('ARECIBO',     1, 0), -- Arecibo Observatory
 --('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
---('HOLLYWOOD',   1, 0), -- Hollywood
 --('JUMEIRAH',    1, 0), -- Palm Jumeirah
 --('MARINASANDS', 1, 1), -- Marina Bay Sands
 --('METEORA',	  1, 1), -- Monastery of the Holy Trinity (Meteora)
 --('MILLAU',      1, 0), -- Millau Viaduct
 --('PETRONAS',    1, 1), -- The Petronas Towers
---('RUSHMORE',    1, 1), -- Mount Rushmore
---('ROCKEFELLER', 1, 0), -- Rockefeller Center
 --('SKYTREE',     1, 1), -- Tokyo Skytree
---('SOVIETS',     1, 0), -- Palace of the Soviets
 --('SPUTNIK',     1, 0), -- Sputnik Program, The
 --('TAIPEI101',   1, 0), -- Taipei 101
 --('WHITESANDS',  1, 0), -- White Sands Missile Range
