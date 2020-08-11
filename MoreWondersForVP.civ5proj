@@ -316,6 +316,10 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -356,23 +360,27 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_128.dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_256.dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_45.dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_64.dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_80.dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
