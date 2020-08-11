@@ -82,15 +82,15 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
 			('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
 			('ORSZAGHAZ',			'None',		1,			0,		0);		-- Orszaghaz
 			----------------------------------------------------------------------------------------
-			('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
-			('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
-			('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
-			('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
-			('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
-			('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
-			('CONCORDE',			'None',		1,			0,		0),		-- Concorde
-			('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
-			('RUSHMORE',			'None',		1,			0,		0),		-- Mount Rushmore
+			--('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
+			--('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
+			--('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
+			--('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
+			--('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
+			--('HOLLYWOOD',			'None',		1,			0,		0);		-- Hollywood
+			--('CONCORDE',			'None',		1,			0,		0),		-- Concorde
+			--('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
+			--('RUSHMORE',			'None',		1,			0,		0);		-- Mount Rushmore
 
 
 --('ARECIBO',     1, 0), -- Arecibo Observatory
