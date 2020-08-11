@@ -320,7 +320,11 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Addons\AssignStartingPlots.lua">
+    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Addons\EvenMoreResources\AssignStartingPlots.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1929,6 +1933,8 @@ Currently compatible with 4-12.</Description>
     <Folder Include="2.NaturalWonders\SQL" />
     <Folder Include="2.NaturalWonders\XML" />
     <Folder Include="Addons" />
+    <Folder Include="Addons\43-civ" />
+    <Folder Include="Addons\EvenMoreResources" />
     <Folder Include="Promotions\" />
     <Folder Include="1.WorldWonders" />
     <Folder Include="1.WorldWonders\Art\0.Neolithic" />
