@@ -296,6 +296,178 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_64 .dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_80 .dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Expedition_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Soviets_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\DefaultFiles\WonderPopup.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1591,78 +1763,6 @@ Currently compatible with 4-12.</Description>
     <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Slatter_Mill_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Hollywood_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Rockefeller_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\VPWE_Soviets_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_128.dds">
       <SubType>Lua</SubType>
