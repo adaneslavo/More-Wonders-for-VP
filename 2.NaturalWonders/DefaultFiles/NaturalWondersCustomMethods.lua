@@ -342,6 +342,8 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Mt. Kailash
 	elseif method_number == 8 then
 		-- reserved: Sri Pada
+	elseif method_number == 9 then
+		-- reserved: Mt. Everest
 	else
 		-- Unidentified Method Number;
 		return false
@@ -496,7 +498,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 	elseif method_number == 5 then
 		-- Giant's Causeway
-
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)

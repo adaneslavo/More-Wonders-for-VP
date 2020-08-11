@@ -18,7 +18,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_SALAR</ResourceType>
-			<Model>feature_Salar.fxsxml</Model>
+			<Model>feature_salar.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -28,7 +28,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_CAUSEWAY</ResourceType>
-			<Model>feature_Causeway.fxsxml</Model>
+			<Model>feature_causeway.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -38,7 +38,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_MT_EVEREST</ResourceType>
-			<Model>feature_Everest.fxsxml</Model>
+			<Model>feature_everest.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 	</ArtDefine_Landmarks>
@@ -158,8 +158,8 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>1</NaturalWonder>
-			<PseudoNaturalWonder>1</PseudoNaturalWonder>
+			<NaturalWonder>true</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
 			<Rough>false</Rough>
@@ -178,8 +178,8 @@
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>1</NaturalWonder>
-			<PseudoNaturalWonder>1</PseudoNaturalWonder>
+			<NaturalWonder>true</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
@@ -197,8 +197,8 @@
 			<SeeThrough>2</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>1</NaturalWonder>
-			<PseudoNaturalWonder>1</PseudoNaturalWonder>
+			<NaturalWonder>true</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
