@@ -138,7 +138,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GEYSER"/>
-			<Set InBorderHappiness="2" Impassable="false" Movement="0" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" TurnDamage="10"/>
+			<Set InBorderHappiness="2" Impassable="false" Movement="1" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" TurnDamage="10"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GIBRALTAR"/>
@@ -194,7 +194,7 @@
 			<Description>TXT_KEY_FEATURE_SALAR_A</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_A</ArtDefineTag>
-			<Movement>0</Movement>
+			<Movement>1</Movement>
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
@@ -213,7 +213,7 @@
 			<Description>TXT_KEY_FEATURE_SALAR_B</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_B</ArtDefineTag>
-			<Movement>0</Movement>
+			<Movement>1</Movement>
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
