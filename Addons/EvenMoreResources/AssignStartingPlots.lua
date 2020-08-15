@@ -6349,22 +6349,27 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				--print("Great Barrier Reef placed... applying impact values to its southeast tile as well.")
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pBarrierPlot = Map.PlotDirection(x, y, i)
-					local iBarrierX = pBarrierPlot:GetX()
-					local iBarrierY = pBarrierPlot:GetY()
-				
-					self:PlaceResourceImpact(iBarrierX, iBarrierY, 1, 1) -- Strategic layer
-					self:PlaceResourceImpact(iBarrierX, iBarrierY, 2, 1) -- Luxury layer
-					self:PlaceResourceImpact(iBarrierX, iBarrierY, 3, 1) -- Bonus layer
-				
-					local iBarrierPlotIndex = iBarrierY * iW + iBarrierX + 1
+					print("assignstartingplots", pBarrierPlot:GetFeatureType(), GameInfoTypes.FEATURE_REEF)
+					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_REEF then	
+						print("inside da function 1")
+						local iBarrierX = pBarrierPlot:GetX()
+						local iBarrierY = pBarrierPlot:GetY()
 					
-					self.playerCollisionData[iBarrierPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						self:PlaceResourceImpact(iBarrierX, iBarrierY, 1, 1) -- Strategic layer
+						self:PlaceResourceImpact(iBarrierX, iBarrierY, 2, 1) -- Luxury layer
+						self:PlaceResourceImpact(iBarrierX, iBarrierY, 3, 1) -- Bonus layer
+					
+						local iBarrierPlotIndex = iBarrierY * iW + iBarrierX + 1
+						
+						self.playerCollisionData[iBarrierPlotIndex] = true -- Record exact plot of wonder in the collision list.
+					end
 				end
-			elseif (self.wonder_list[wonder_number] == "FEATURE_SALAR") then
+			elseif (self.wonder_list[wonder_number] == "FEATURE_SALAR_A") then
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pSalarPlot = Map.PlotDirection(x, y, i)
-									
-					if pSalarPlot:GetPlotType() == PlotTypes.PLOT_LAND and not pSalarPlot:IsAdjacentToShallowWater() and not pSalarPlot:IsRiver() then	
+					print("assignstartingplots", pSalarPlot:GetFeatureType(), GameInfoTypes.FEATURE_SALAR_B)			
+					if pSalarPlot:GetFeatureType() == GameInfoTypes.FEATURE_SALAR_B then	
+						print("inside da function 2")
 						local iSalarX = pSalarPlot:GetX()
 						local iSalarY = pSalarPlot:GetY()
 					

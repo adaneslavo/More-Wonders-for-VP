@@ -32,6 +32,7 @@ local tValidIsReligionFounded = {}
 local tValidIsHappiness = {}
 local tValidIsOnIsthmus = {}
 local tValidIsHasCitizens = {}
+local tValidIsHasCities = {}
 
 local bReachedMaxEra
 
@@ -537,6 +538,25 @@ function IsHasCitizens(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsHasCitizens)
+
+-- checks if player has enough cities (SIKU QANSHU)
+function IsHasCitizens(ePlayer, eCity, eBuilding)
+	if not tValidIsHasCities[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iCities = tValidIsHasCities[eBuilding]
+		
+	if pPlayer:GetNumCities() >= iCities then
+		return true
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasCitizens)
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -750,16 +770,28 @@ function Initialize()
 		eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
 		iRequiredGreatWorks = 4
 	}
+	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = {
+		eGreatWorkType = "GREAT_WORK_SLOT_LITERATURE",
+		iRequiredGreatWorks = 4
+	}
 	for id, building in pairs(tValidIsHasGreatWorks) do
 		dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
 	end
-
+	
 	-- IsHasCitizens
 	tValidIsHasCitizens = {
 		[GameInfo.Buildings.BUILDING_BROOKLYN.ID] = 25
 	}
 	for id, building in pairs(tValidIsHasCitizens) do
 		dprint("...adding (id,building,citizens)", id, GameInfo.Buildings[id].Type, tValidIsHasCitizens[id])
+	end
+
+	-- IsHasCities
+	tValidIsHasCities = {
+		[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = 7
+	}
+	for id, building in pairs(tValidIsHasCities) do
+		dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
 	end
 end
 Initialize()

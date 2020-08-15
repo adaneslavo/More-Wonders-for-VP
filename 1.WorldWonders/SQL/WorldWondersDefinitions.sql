@@ -1817,6 +1817,50 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_MUSEUM_ISLAND',	'FLAVOR_SCIENCE',	10);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- SIKU QUANSHU (NEW)
+	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_SCIENTIFIC_THEORY', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIKU_QUANSHU';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIKU_QUANSHU';
+	
+	-- + GW_of_Literature(4) (lua)
+	-- + Cities(7) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 4, SpecialistType = 'SPECIALIST_WRITER', SpecialistCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP' WHERE Type = 'BUILDING_SIKU_QUANSHU';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,				SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIKU_QUANSHU',	'SPECIALIST_WRITER',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1),
+				('BUILDING_SIKU_QUANSHU',	'YIELD_CULTURE',	1);
+	
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1);
+
+	INSERT INTO Building_ThemingBonuses 
+				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,			0,				5),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			0,			1,				6),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		0,			1,			0,				7),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		0,			1,			1,				8);
+
+	INSERT INTO Building_ThemingYieldBonus 
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_CULTURE',	10),
+				('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,			Flavor)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'FLAVOR_CULTURE',	60),
+				('BUILDING_SIKU_QUANSHU',	'FLAVOR_SCIENCE',	50);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- NESCHWANSTEIN
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
@@ -2163,7 +2207,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1, UnculturedHappinessChange = -1 WHERE Type = 'BUILDING_BANFF';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_BANFF';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield)

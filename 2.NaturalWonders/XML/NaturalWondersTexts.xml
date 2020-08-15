@@ -50,7 +50,7 @@
 		
 		
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_REEF">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD] and +1 [ICON_RESEARCH] to all Fishing Boats</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CRATER">
 			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION] during construction of Spaceship Parts in the Empire</Text>
@@ -59,13 +59,13 @@
 			<Text>[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_ARTIST] in Capital[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_WRITER] in Capital[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN] in Capital</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MESA">
-			<Text>[NEWLINE][ICON_BULLET]+15 XP for Land Units constructed in the Empire</Text>
+			<Text>[NEWLINE][ICON_BULLET]+5 global [ICON_WAR] Military Supply Cap</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
-			<Text>[NEWLINE][ICON_BULLET]-10% [ICON_HAPPINESS_3] Global Needs Modifier</Text>
+			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_RESEARCH][NEWLINE][ICON_BULLET]-10% global [ICON_HAPPINESS_3] Needs Modifier</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_GIBRALTAR">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_DIPLOMAT] League Vote</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_GEYSER">
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_SCIENTIST] in Capital</Text>
@@ -74,7 +74,7 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_POTOSI">
-			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SILVER][NEWLINE][ICON_BULLET]+2 [ICON_INTERNATIONAL_TRADE] Trade Routes</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SILVER][NEWLINE][ICON_BULLET]+1 [ICON_INTERNATIONAL_TRADE] Trade Route</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EL_DORADO">
 			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_GOLD]</Text>
@@ -83,7 +83,7 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_SINAI">
-			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE] from [ICON_GREAT_WORK] Great Works in the Empire[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE] from Holy Sites in the Empire</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all [ICON_GREAT_WORK] Great Works[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all Holy Sites</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_KAILASH">
 			<Text></Text>
@@ -92,22 +92,28 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LAKE_VICTORIA">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]allows establishing [ICON_FOOD] Trade Routes across the Empire</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_KILIMANJARO">
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SOLOMONS_MINES">
-			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_GOLDEN_AGE] from Mines in the Empire</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_GOLDEN_AGE] to all Mines</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR">
-			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SALT]</Text>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_A">
+			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_FOOD] per Tile</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_B">
+			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD] per Tile</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_EVEREST">
-			<Text>[NEWLINE][ICON_BULLET]+10% [ICON_TOURISM] in the Empire</Text>
+			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_TOURISM]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
+			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD]</Text>
 		</Row>
 		
 		
@@ -163,7 +169,10 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_SOLOMONS_MINES">
 			<Text>"With my own eyes have I seen the countless diamonds stored in Solomon’s treasure chamber behind the white Death; but through the treachery of Gagool the witch-finder I might bring naught away, scarcely my life."[NEWLINE] - King Solomon's Mines, page 25[NEWLINE]</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_SALAR">
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_SALAR_A">
+			<Text>"I shivered in those solitudes when I heard the voice of the salt in the desert."[NEWLINE] - Pablo Neruda[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_SALAR_B">
 			<Text>"I shivered in those solitudes when I heard the voice of the salt in the desert."[NEWLINE] - Pablo Neruda[NEWLINE]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_CAUSEWAY">
@@ -171,6 +180,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_MT_EVEREST">
 			<Text>"It is not the mountain we conquer but ourselves."[NEWLINE] - Sir Edmund Hillary[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_RETBA">
+			<Text>"Water, water, everywhere, nor any drop to drink."[NEWLINE] - Samuel Taylor Coleridge[NEWLINE]</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

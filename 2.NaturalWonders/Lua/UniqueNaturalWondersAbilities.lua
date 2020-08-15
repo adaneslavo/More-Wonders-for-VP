@@ -5,7 +5,8 @@ print("Loading UniqueNaturalWondersAbilities.lua from MWfVP");
 -- May 11, 2020: Created, adan_eslavo
 --------------------------------------------------------------
 local g_tNaturalWonder = {
-	GameInfoTypes["FEATURE_SALAR"],
+	GameInfoTypes["FEATURE_SALAR_A"],
+	GameInfoTypes["FEATURE_SALAR_B"],
 	GameInfoTypes["FEATURE_EL_DORADO"],
 	GameInfoTypes["FEATURE_POTOSI"],
 	GameInfoTypes["FEATURE_CRATER"],
@@ -15,16 +16,22 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_FUJI"],
 	GameInfoTypes["FEATURE_MT_SINAI"],
 	GameInfoTypes["FEATURE_GEYSER"],
-	GameInfoTypes["FEATURE_MT_EVEREST"]
+	GameInfoTypes["FEATURE_MT_EVEREST"],
+	GameInfoTypes["FEATURE_REEF"],
+	GameInfoTypes["FEATURE_GIBRALTAR"],
+	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
+	GameInfoTypes["FEATURE_CAUSEWAY"],
+	GameInfoTypes["FEATURE_RETBA"]
 }
 
 local g_tNaturalWonderOwner = {}
-local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false}
+local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
 local g_tNaturalWonderX = {}
 local g_tNaturalWonderY = {}
 
 local g_tNaturalWonderDummy = {
-	GameInfoTypes["BUILDING_SALAR_DUMMY"],
+	GameInfoTypes["BUILDING_SALAR_A_DUMMY"],
+	GameInfoTypes["BUILDING_SALAR_B_DUMMY"],
 	GameInfoTypes["BUILDING_EL_DORADO_DUMMY"],
 	GameInfoTypes["BUILDING_POTOSI_DUMMY"],
 	GameInfoTypes["BUILDING_CRATER_DUMMY"],
@@ -34,11 +41,16 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_FUJI_1_DUMMY"],
 	GameInfoTypes["BUILDING_MT_SINAI_DUMMY"],
 	GameInfoTypes["BUILDING_GEYSER_DUMMY"],
-	GameInfoTypes["BUILDING_MT_EVEREST_DUMMY"]
+	GameInfoTypes["BUILDING_MT_EVEREST_DUMMY"],
+	GameInfoTypes["BUILDING_REEF_DUMMY"],
+	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
+	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
+	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
+	GameInfoTypes["BUILDING_RETBA_DUMMY"]
 }
 
-local g_tNaturalWonderDummy2 = {false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_2_DUMMY"], false, false, false}
-local g_tNaturalWonderDummy3 = {false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_3_DUMMY"], false, false, false}
+local g_tNaturalWonderDummy2 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_2_DUMMY"], false, false, false, false, false, false, false, false}
+local g_tNaturalWonderDummy3 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_3_DUMMY"], false, false, false, false, false, false, false, false}
 
 -- load game and check if they exists
 function CheckIfNaturalWonderExists()

@@ -496,15 +496,47 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Everest\Model\everest.gr2">
+    <Content Include="2.NaturalWonders\Art\BermudaTriangle\sv_Bermuda.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Everest\Model\everest_diff.dds">
+    <Content Include="2.NaturalWonders\Art\EyeOfTheSahara\sv_Sahara.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Everest\Model\everest_sref.dds">
+    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\feature_retba.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\feature_retba.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\retba_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\retba_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\sv_Retba.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountEverest\Model\everest.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountEverest\Model\everest_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountEverest\Model\everest_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountEverest\Model\feature_everest.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -516,27 +548,43 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\giants_causeway.gr2">
+    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\pure_dull_sref.dds">
+    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_ground_sref.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Salar\Model\feature_salar.fxsxml">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Salar\Model\feature_salar.gr2">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Salar\Model\salar_ground_diff.dds">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar_b.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Salar\Model\salar_ground_h.dds">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar_b.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_b_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_b_ground_h.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -560,15 +608,11 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="NaturalWondersFrequency.ods">
+    <Content Include="NaturalWonders.ods">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Everest\Model\feature_everest.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Everest\Model\sv_Everest.dds">
+    <Content Include="2.NaturalWonders\Art\MountEverest\Model\sv_Everest.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -596,7 +640,7 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Salar\Model\sv_Salar.dds">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\sv_Salar.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2025,12 +2069,16 @@ Currently compatible with 4-12.</Description>
     <Folder Include="1.WorldWonders\DefaultFiles" />
     <Folder Include="1.WorldWonders\Sounds" />
     <Folder Include="2.NaturalWonders" />
-    <Folder Include="2.NaturalWonders\Art\Everest" />
-    <Folder Include="2.NaturalWonders\Art\Everest\Model" />
+    <Folder Include="2.NaturalWonders\Art\LakeRetba\Model" />
+    <Folder Include="2.NaturalWonders\Art\MountEverest" />
+    <Folder Include="2.NaturalWonders\Art\MountEverest\Model" />
     <Folder Include="2.NaturalWonders\Art\GiantsCauseway" />
     <Folder Include="2.NaturalWonders\Art\GiantsCauseway\Model" />
-    <Folder Include="2.NaturalWonders\Art\Salar" />
-    <Folder Include="2.NaturalWonders\Art\Salar\Model" />
+    <Folder Include="2.NaturalWonders\Art\LakeRetba" />
+    <Folder Include="2.NaturalWonders\Art\EyeOfTheSahara" />
+    <Folder Include="2.NaturalWonders\Art\BermudaTriangle" />
+    <Folder Include="2.NaturalWonders\Art\SalarDeUyuni" />
+    <Folder Include="2.NaturalWonders\Art\SalarDeUyuni\Model" />
     <Folder Include="2.NaturalWonders\DefaultFiles" />
     <Folder Include="2.NaturalWonders\Art" />
     <Folder Include="2.NaturalWonders\Lua" />

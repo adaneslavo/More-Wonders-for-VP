@@ -17,8 +17,18 @@
 			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
-			<ResourceType>ART_DEF_FEATURE_SALAR</ResourceType>
+			<ResourceType>ART_DEF_FEATURE_SALAR_A</ResourceType>
 			<Model>feature_salar.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.2</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_SALAR_B</ResourceType>
+			<Model>feature_salar_b.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -34,20 +44,35 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.65</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_MT_EVEREST</ResourceType>
 			<Model>feature_everest.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>0.55</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_RETBA</ResourceType>
+			<Model>feature_retba.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
 	</ArtDefine_Landmarks>
 
 	<ArtDefine_LandmarkTypes>
 		<Row>
-			<Type>ART_DEF_FEATURE_SALAR</Type>
+			<Type>ART_DEF_FEATURE_SALAR_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Salar de Uyuni</FriendlyName>
+			<FriendlyName>Salar de Uyuni (Big)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_SALAR_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Salar de Uyuni (Small)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_CAUSEWAY</Type>
@@ -59,11 +84,21 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Mt. Everest</FriendlyName>
 		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_RETBA</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Lake Retba</FriendlyName>
+		</Row>
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
 		<Row>
-			<StrategicViewType>ART_DEF_FEATURE_SALAR</StrategicViewType>
+			<StrategicViewType>ART_DEF_FEATURE_SALAR_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Sahara.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_SALAR_B</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Salar.dds</Asset>
 		</Row>
@@ -76,6 +111,11 @@
 			<StrategicViewType>ART_DEF_FEATURE_MT_EVEREST</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Everest.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_RETBA</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Retba.dds</Asset>
 		</Row>
 	</ArtDefine_StrategicView>
 	
@@ -98,7 +138,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GEYSER"/>
-			<Set InBorderHappiness="2" Impassable="false" Movement="1" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" TurnDamage="10"/>
+			<Set InBorderHappiness="2" Impassable="false" Movement="0" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" TurnDamage="10"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GIBRALTAR"/>
@@ -114,7 +154,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_MESA"/>
-			<Set InBorderHappiness="2" Impassable="false" Movement="3" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="20"/>
+			<Set InBorderHappiness="2" Impassable="false" Movement="3" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="20"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_MT_KAILASH"/>
@@ -150,22 +190,40 @@
 		</Update>
 
 		<Row>
-			<Type>FEATURE_SALAR</Type>
-			<Description>TXT_KEY_FEATURE_SALAR</Description>
+			<Type>FEATURE_SALAR_A</Type>
+			<Description>TXT_KEY_FEATURE_SALAR_A</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
-			<ArtDefineTag>ART_DEF_FEATURE_SALAR</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_FEATURE_SALAR_A</ArtDefineTag>
 			<Movement>0</Movement>
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>true</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
 			<Rough>false</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>0</PortraitIndex>
-			<InBorderHappiness>0</InBorderHappiness>
+			<InBorderHappiness>1</InBorderHappiness>
+			<TurnDamage>20</TurnDamage>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_SALAR_B</Type>
+			<Description>TXT_KEY_FEATURE_SALAR_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_SALAR_B</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>0</PortraitIndex>
+			<InBorderHappiness>1</InBorderHappiness>
 			<TurnDamage>20</TurnDamage>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -178,7 +236,6 @@
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>true</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -194,10 +251,9 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_MT_EVEREST_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_MT_EVEREST</ArtDefineTag>
 			<Movement>5</Movement>
-			<SeeThrough>2</SeeThrough>
+			<SeeThrough>3</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
-			<NaturalWonder>true</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -205,6 +261,24 @@
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>2</PortraitIndex>
 			<InBorderHappiness>2</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_RETBA</Type>
+			<Description>TXT_KEY_FEATURE_RETBA</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_RETBA_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_RETBA</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>3</PortraitIndex>
+			<InBorderHappiness>3</InBorderHappiness>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 	</Features>
@@ -241,13 +315,13 @@
 		<Row>
 			<FeatureType>FEATURE_CRATER</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
-			<Yield>2</Yield>
+			<Yield>3</Yield>
 		</Row>
 		
 		<Row>
 			<FeatureType>FEATURE_EL_DORADO</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<Yield>1</Yield>
+			<Yield>4</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_EL_DORADO</FeatureType>
@@ -258,12 +332,12 @@
 		<Row>
 			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<Yield>4</Yield>
+			<Yield>5</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		
 		<Row>
@@ -276,6 +350,16 @@
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>2</Yield>
 		</Row>
+		<Row>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 		<Row>
 			<FeatureType>FEATURE_GEYSER</FeatureType>
@@ -284,8 +368,18 @@
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
 		</Row>
 		
 		<Row>
@@ -312,12 +406,12 @@
 		<Row>
 			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
-			<Yield>2</Yield>
+			<Yield>3</Yield>
 		</Row>
 		
 		<Row>
@@ -334,7 +428,7 @@
 		<Row>
 			<FeatureType>FEATURE_MESA</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<Yield>2</Yield>
+			<Yield>3</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MESA</FeatureType>
@@ -344,13 +438,13 @@
 		<Row>
 			<FeatureType>FEATURE_MESA</FeatureType>
 			<YieldType>YIELD_GREAT_GENERAL_POINTS</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		
 		<Row>
 			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
+			<Yield>3</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
@@ -366,23 +460,23 @@
 		<Row>
 			<FeatureType>FEATURE_MT_SINAI</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>4</Yield>
+			<Yield>5</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MT_SINAI</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 
 		<Row>
 			<FeatureType>FEATURE_POTOSI</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<Yield>2</Yield>
+			<Yield>3</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_POTOSI</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<Yield>2</Yield>
+			<Yield>4</Yield>
 		</Row>
 		
 		<Row>
@@ -404,12 +498,12 @@
 		<Row>
 			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
@@ -419,7 +513,7 @@
 		<Row>
 			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		
 		<Row>
@@ -431,6 +525,11 @@
 			<FeatureType>FEATURE_SRI_PADA</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_SRI_PADA</FeatureType>
@@ -446,12 +545,17 @@
 		<Row>
 			<FeatureType>FEATURE_ULURU</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>2</Yield>
+			<Yield>4</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_ULURU</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
 		</Row>
 		
 		<Row>
@@ -466,17 +570,32 @@
 		</Row>
 		
 		<Row>
-			<FeatureType>FEATURE_SALAR</FeatureType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_SALAR</FeatureType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_SALAR</FeatureType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>2</Yield>
 		</Row>
@@ -500,10 +619,26 @@
 		<Row>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<Yield>2</Yield>
+			<Yield>4</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>3</Yield>
 		</Row>
@@ -540,13 +675,13 @@
 		<Row>
 			<FeatureType>FEATURE_EL_DORADO</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 
 		<Row>
 			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 
 		<Row>
@@ -560,10 +695,20 @@
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		<Row>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 		<Row>
 			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
 
@@ -580,8 +725,8 @@
 
 		<Row>
 			<FeatureType>FEATURE_MESA</FeatureType>
-			<YieldType>YIELD_FOOD</YieldType>
-			<Yield>1</Yield>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
 		</Row>
 
 		<Row>
@@ -589,10 +734,20 @@
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
-
+		<Row>
+			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		
 		<Row>
 			<FeatureType>FEATURE_MT_SINAI</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MT_SINAI</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		
@@ -601,13 +756,23 @@
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
 		</Row>
-
+		<Row>
+			<FeatureType>FEATURE_POTOSI</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		
 		<Row>
 			<FeatureType>FEATURE_REEF</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
-		
+
+		<Row>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		<Row>
 			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
@@ -619,15 +784,30 @@
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		<Row>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 		<Row>
 			<FeatureType>FEATURE_ULURU</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		<Row>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 		<Row>
-			<FeatureType>FEATURE_SALAR</FeatureType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
@@ -646,21 +826,28 @@
 		<Row>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
 	</Feature_EraYieldChanges>
-
-	<!--<Feature_RiverYieldChanges>
-		<Row>
-			<FeatureType>FEATURE_GEYSER</FeatureType>
-			<YieldType>YIELD_FOOD</YieldType>
-			<Yield>10</Yield>
-		</Row>
-	</Feature_RiverYieldChanges>-->
 			
 	<Language_en_US>
-		<Row Tag="TXT_KEY_FEATURE_SALAR">
-			<Text>Salar de Uyuni</Text>
+		<Row Tag="TXT_KEY_FEATURE_SALAR_A">
+			<Text>Salar de Uyuni (Big)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_SALAR_B">
+			<Text>Salar de Uyuni (Small)</Text>
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_FEATURES_SALAR_TEXT">
@@ -682,6 +869,14 @@
 		<Row Tag="TXT_KEY_CIV5_FEATURES_MT_EVEREST_TEXT">
 			<Text>Mount Everest is the tallest mountain in the world, towering 29,029 feet (8,848 meters) above sea level. The mountain reaches to the stratosphere, causing wind speeds to routinely exceed 100 miles per hour at the summit. The atmospheric pressure at the peak of Mount Everest is roughly one third of the pressure at sea level. In 1953, Tenzing Norgay and Edmund Hillary became the first humans known to have ascended to the summit. However, it is possible that Everest was summited in 1924 when George Mallory and Andrew Irving disappeared into clouds high on the mountain. Tragically, they did not successfully descend the mountain, and whether they reached the peak first is unknown. Mount Everest is named after Sir George Everest, a former Surveyor General of India. Everest himself opposed this name, arguing that there were local names for the mountain which would be better choices.</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_FEATURE_RETBA">
+			<Text>Lake Retba</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_RETBA_TEXT">
+			<Text>TODO</Text>
+		</Row>
 	</Language_en_US>
 
 	<IconTextureAtlases>
@@ -689,35 +884,35 @@
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>256</IconSize>
 			<Filename>More_Natural_Wonders_256.dds</Filename>
-			<IconsPerRow>3</IconsPerRow>
+			<IconsPerRow>4</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>128</IconSize>
 			<Filename>More_Natural_Wonders_128.dds</Filename>
-			<IconsPerRow>3</IconsPerRow>
+			<IconsPerRow>4</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>80</IconSize>
 			<Filename>More_Natural_Wonders_80.dds</Filename>
-			<IconsPerRow>3</IconsPerRow>
+			<IconsPerRow>4</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>64</IconSize>
 			<Filename>More_Natural_Wonders_64.dds</Filename>
-			<IconsPerRow>3</IconsPerRow>
+			<IconsPerRow>4</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>45</IconSize>
 			<Filename>More_Natural_Wonders_45.dds</Filename>
-			<IconsPerRow>3</IconsPerRow>
+			<IconsPerRow>4</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 	</IconTextureAtlases>

@@ -70,7 +70,7 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
 			('SOLOVIETSKY',			'None',		1,			0,		0),		-- Solovietsky Monastery
 			----------------------------------------------------------------------------------------
 			('MUSEUM_ISLAND',		'None',		1,			0,		0),		-- Museum Island
-			--('SIKU_QUANSHU',		'None',		1,			0,		0),		-- Siku Quanshu
+			('SIKU_QUANSHU',		'None',		1,			0,		0),		-- Siku Quanshu
 			('BROOKLYN',			'None',		1,			0,		0),		-- Brooklyn Bridge
 			('SIBERIAN_RAILWAY',	'None',		1,			0,		0),		-- Trans-Siberian Railway
 			('PANAMA_CANAL',		'None',		1,			0,		0),		-- Panama Canal

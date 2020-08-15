@@ -1,5 +1,5 @@
 <Asset>
-	<Mesh file="giants_causeway.gr2" source="Max" />
+	<Mesh file="feature_causeway.gr2" source="Max" />
 	<Texture file="Basalt.dds" source="Max" />
-	<Texture file="pure_dull_sref.dds" source="Max" />
+	<Texture file="causeway_ground_sref.dds" source="Max" />
 </Asset>
