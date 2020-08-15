@@ -24,7 +24,7 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1.2</Scale>
+			<Scale>1.3</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_SALAR_B</ResourceType>
@@ -95,7 +95,7 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_SALAR_A</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Sahara.dds</Asset>
+			<Asset>sv_Salar.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_SALAR_B</StrategicViewType>

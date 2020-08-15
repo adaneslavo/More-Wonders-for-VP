@@ -6134,9 +6134,8 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				--print("Great Barrier Reef placed... applying impact values to its southeast tile as well.")
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pBarrierPlot = Map.PlotDirection(x, y, i)
-					print("assignstartingplots", pBarrierPlot:GetFeatureType(), GameInfoTypes.FEATURE_REEF)
+					
 					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_REEF then	
-						print("inside da function 1")
 						local iBarrierX = pBarrierPlot:GetX()
 						local iBarrierY = pBarrierPlot:GetY()
 					
@@ -6152,9 +6151,8 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			elseif (self.wonder_list[wonder_number] == "FEATURE_SALAR_A") then
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pSalarPlot = Map.PlotDirection(x, y, i)
-					print("assignstartingplots", pSalarPlot:GetFeatureType(), GameInfoTypes.FEATURE_SALAR_B)			
+					
 					if pSalarPlot:GetFeatureType() == GameInfoTypes.FEATURE_SALAR_B then	
-						print("inside da function 2")
 						local iSalarX = pSalarPlot:GetX()
 						local iSalarY = pSalarPlot:GetY()
 					
