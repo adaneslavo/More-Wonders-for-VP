@@ -603,12 +603,12 @@
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
-			<Yield>3</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
