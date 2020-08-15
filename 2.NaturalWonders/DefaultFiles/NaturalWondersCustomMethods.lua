@@ -681,7 +681,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				pAdjacentPlot:SetTerrainType(eTerrainPlains, false, false)
-				if pAdjacentPlot:GetFeatureType() == eFeatureForest or pAdjacentPlot:GetFeatureType() == Feature.JUNGLE then
+				if pAdjacentPlot:GetFeatureType() == eFeatureForest or pAdjacentPlot:GetFeatureType() == FeatureTypes.JUNGLE then
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				end
 			end
