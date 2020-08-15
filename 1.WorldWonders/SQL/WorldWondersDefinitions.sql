@@ -885,9 +885,15 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_GREAT_ZIMBABWE',			'YIELD_CULTURE',			1),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
 	
-	INSERT INTO Building_DomainFreeExperiencesGlobal
-				(BuildingType,						DomainType,		Experience)
-	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY',	'DOMAIN_LAND',	3);
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,			UnitCombatType,			Modifier) 
+	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_MOUNTED',		5),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_SIEGE',		5),
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_RANGED',		5);
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_MELEE',		5);
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_GUN',		5);
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_ARMOR',		5);
+				('BUILDING_GREAT_ZIMBABWE_DUMMY', 'UNITCOMBAT_RECON',		5);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
