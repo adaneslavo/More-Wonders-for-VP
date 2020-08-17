@@ -17,8 +17,7 @@ Special thanks to:
 			- @Pouakai, @jpbar81: ait benhaddou (mod);
 			- @Pouakai, @sukritact, @janboruta: darjeeling (mod);
 			- @artisanix: ggantija, skara brae (both from Neolithic Wonders mod);
-			- @hokath: el ghriba, chand baori, majorville, bamyan, etchmiadzin, wieliczka, lavaux, qalhat, 
-						falun, wartburg, mohenjo-daro;
+			- @hokath: tons of new wonder icons;
 			- @LastSword: great zimbabwe (icon);
 			- @maxf: soloviesky (icon);
 		- @Valery: peterhof palace (splash screen) (16 national wonder mod);
@@ -63,5 +62,6 @@ Special thanks to:
 		- @Barathor, @whoward69: new methods for wonder placement; initial idea how to change them;
 		- @LamilLerran: initial idea and work towards adding new Natural Wonders (Wondrous Nature); art creator; initial coder;
 		- @Iamblicos: incorporation to dll, help with making this work;
+		- @Deliverator23, @Chimpan'G :creators of Terra Mirabilis whose work was an inspiration; borrowed quotes and ideas;
 	- art creators:
 		- Salar de Uyuni: Martin St-Amant https://en.wikipedia.org/wiki/Salar_de_Uyuni#/media/File:Salar_de_Uyuni_D%C3%A9cembre_2007_-_Centre_de_Nulle_Part.jpg (CC BY-SA 3.0)

@@ -115,6 +115,9 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
+			<Text>[NEWLINE][ICON_BULLET]+2[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
+		</Row>
 		
 		
 		
@@ -183,6 +186,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_RETBA">
 			<Text>"Water, water, everywhere, nor any drop to drink."[NEWLINE] - Samuel Taylor Coleridge[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_LUMI_BAY">
+			<Text>"The emission of light from fire, lightning bolts, stars or living beings attracts the attention of any human being. In the case of bioluminescence the light has a strange glow, something magic and mysterious."[NEWLINE] - Cassius Stevani[NEWLINE]</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
