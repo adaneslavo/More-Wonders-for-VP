@@ -20,7 +20,10 @@
 			<Text>[NEWLINE][NEWLINE]Abilities:</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PASSABLE">
-			<Text>[NEWLINE][ICON_BULLET]passable after researching [COLOR_CYAN]{1_Tech}[ENDCOLOR].</Text>
+			<Text>[NEWLINE][ICON_BULLET]passable after researching [COLOR_CYAN]{1_Tech}[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_MOVE_END">
+			<Text>[NEWLINE][ICON_BULLET]entering the tile finishes movement</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_GOLD_FIRST_FIND">
 			<Text>[NEWLINE][ICON_BULLET]first finder: {1_Gold} [ICON_GOLD]</Text>
@@ -45,6 +48,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION">
 			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]nearby[ENDCOLOR] units: {1_Promotion} ({2_Help})</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION">
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to units [COLOR_POSITIVE_TEXT]on the tile[ENDCOLOR]: {1_Promotion} ({2_Help})</Text>
 		</Row>
 		
 		
@@ -114,6 +120,15 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_B">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_C">
+			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
 			<Text>[NEWLINE][ICON_BULLET]+2[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
@@ -186,6 +201,15 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_RETBA">
 			<Text>"Water, water, everywhere, nor any drop to drink."[NEWLINE] - Samuel Taylor Coleridge[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_BERMUDA_A">
+			<Text>"There is, one knows not what sweet mystery about this sea, whose gently awful stirrings seem to speak of some hidden soul beneath... for here, millions of mixed shades and shadows, drowned dreams, somnambulisms, reveries; all that we call lives and souls, lie dreaming, dreaming, still."[NEWLINE] - Herman Melville[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_BERMUDA_B">
+			<Text>"There is, one knows not what sweet mystery about this sea, whose gently awful stirrings seem to speak of some hidden soul beneath... for here, millions of mixed shades and shadows, drowned dreams, somnambulisms, reveries; all that we call lives and souls, lie dreaming, dreaming, still."[NEWLINE] - Herman Melville[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_BERMUDA_C">
+			<Text>"There is, one knows not what sweet mystery about this sea, whose gently awful stirrings seem to speak of some hidden soul beneath... for here, millions of mixed shades and shadows, drowned dreams, somnambulisms, reveries; all that we call lives and souls, lie dreaming, dreaming, still."[NEWLINE] - Herman Melville[NEWLINE]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_LUMI_BAY">
 			<Text>"The emission of light from fire, lightning bolts, stars or living beings attracts the attention of any human being. In the case of bioluminescence the light has a strange glow, something magic and mysterious."[NEWLINE] - Cassius Stevani[NEWLINE]</Text>

@@ -17,6 +17,7 @@
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
 --		* Lake Retba (10):			plants forest around, and must be on solid terrain with coast;
+--		* Bermuda Triangle (11):	???;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -376,6 +377,95 @@ function NWCustomEligibility(x, y, method_number)
 		if not bIsHasSeaTiles or iNumLandTiles ~= 4 then return false end
 
 		return true
+	elseif method_number == 11 then
+		-- Bermuda Triangle
+
+		local pMainPlot = Map.GetPlot(x, y)		
+		
+		if pMainPlot == nil then return false end
+		if pMainPlot:GetFeatureType() ~= eFeatureNo then return false end
+		if pMainPlot:IsWater() == false then return false end
+		if pMainPlot:IsLake() then return false end
+		--print("waterArea",pMainPlot:WaterArea():GetNumTiles())
+		--if pMainPlot:WaterArea():GetNumTiles() < 30 then return false end
+
+		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
+		
+		if pSEPlot == nil then return false end
+		if pSEPlot:GetFeatureType() ~= eFeatureNo then return false end
+		if pSEPlot:IsWater() == false then return false end
+		
+		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
+
+		if pSWPlot == nil then return false end
+		if pSWPlot:GetFeatureType() ~= eFeatureNo then return false end
+		if pSWPlot:IsWater() == false then return false end
+		
+		local iNumLandN, iNumLandSE, iNumLandSW = 0, 0, 0
+		
+		local tDirectionsTop = {
+			DirectionTypes.DIRECTION_NORTHWEST,
+			DirectionTypes.DIRECTION_NORTHEAST,
+			DirectionTypes.DIRECTION_WEST,
+			DirectionTypes.DIRECTION_EAST
+		}
+		local tDirectionsBottomRight = {
+			DirectionTypes.DIRECTION_EAST,
+			DirectionTypes.DIRECTION_SOUTHEAST,
+			DirectionTypes.DIRECTION_SOUTHWEST
+		}
+		local tDirectionsBottomLeft = {
+			DirectionTypes.DIRECTION_SOUTHWEST,
+			DirectionTypes.DIRECTION_WEST
+		}
+
+		for i, direction in ipairs(tDirectionsTop) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			if pAdjacentPlot == nil then return false end
+
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean and i <= 2 then
+				iNumLandN = iNumLandN + 1
+			elseif pAdjacentPlot:GetPlotType() ~= ePlotOcean and i > 2 then
+				return false
+			end
+		end
+
+		local iSEX = pSEPlot:GetX()
+		local iSEY = pSEPlot:GetY()
+
+		for i, direction in ipairs(tDirectionsBottomRight) do
+			local pAdjacentPlot = Map.PlotDirection(iSEX, iSEY, direction)
+
+			if pAdjacentPlot == nil then return false end
+			
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean and i <= 2  then
+				iNumLandSE = iNumLandSE + 1
+			elseif pAdjacentPlot:GetPlotType() ~= ePlotOcean and i > 2 then
+				return false
+			end
+		end
+
+		local iSWX = pSWPlot:GetX()
+		local iSWY = pSWPlot:GetY()
+
+		for i, direction in ipairs(tDirectionsBottomLeft) do
+			local pAdjacentPlot = Map.PlotDirection(iSWX, iSWY, direction)
+
+			if pAdjacentPlot == nil then return false end
+			
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
+				iNumLandSW = iNumLandSW + 1
+			end
+		end
+		print("2",iNumLandN, iNumLandSE, iNumLandSW)
+		if iNumLandN < 1 or iNumLandSE < 1 or iNumLandSW < 1 then return false end
+
+		local iNumLandSum = iNumLandN + iNumLandSE + iNumLandSW
+
+		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
+		print("match!")
+		return true
 	else
 		-- Unidentified Method Number;
 		return false
@@ -639,7 +729,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- Mt. Everest
 		local pPlot = Map.GetPlot(x, y)
 		
-		pPlot:SetPlotType(ePlotMountain, false, false)
+		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainTundra, false, false)
 		
 		local iNumMountains = 0
@@ -686,6 +776,21 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			end
 		end
+	elseif method_number == 11 then
+		-- Bermuda Triangle
+		print("a")
+		local pPlot = Map.GetPlot(x, y)
+		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
+		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
+		print("b")
+		pPlot:SetTerrainType(eTerrainCoast, false, false)
+		pSEPlot:SetTerrainType(eTerrainCoast, false, false)
+		pSWPlot:SetTerrainType(eTerrainCoast, false, false)
+		print("c")
+		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_B)
+		print("d")
+		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
+		print("e")
 	end
 end
 ------------------------------------------------------------------------------

@@ -66,6 +66,10 @@ function OnPopup( popupInfo )
 		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_PASSABLE", L(GameInfo.Technologies[pFeature.PassableTechFeature].Description))
 	end
 
+	if pFeature.Movement >= 10 then
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_MOVE_END")
+	end
+
 	if iFinderGold > 0 then
 		if bFirstFinder then
 			sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_GOLD_FIRST_FIND", iFinderGold)
@@ -102,6 +106,11 @@ function OnPopup( popupInfo )
 	if pFeature.AdjacentUnitFreePromotion then
 		local pPromotion = GameInfo.UnitPromotions[pFeature.AdjacentUnitFreePromotion]
 		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION", L(pPromotion.Description), L(pPromotion.Help))
+	end
+
+	if pFeature.LocationUnitFreePromotion then
+		local pPromotion = GameInfo.UnitPromotions[pFeature.LocationUnitFreePromotion]
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION", L(pPromotion.Description), L(pPromotion.Help))
 	end
 
 	if sExtendedWonderInfo ~= "" then
