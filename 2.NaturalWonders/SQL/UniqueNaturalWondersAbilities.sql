@@ -26,7 +26,8 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		'BUILDING_LAKE_VICTORIA_DUMMY'),
 			('BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'BUILDING_CAUSEWAY_A_DUMMY'),
 			('BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'BUILDING_CAUSEWAY_B_DUMMY'),
-			('BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				'BUILDING_RETBA_DUMMY');
+			('BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				'BUILDING_RETBA_DUMMY'),
+			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',				'BUILDING_DALLOL_DUMMY');
 
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, SpecialistType,			GreatPeopleRateChange,	EmpireNeedsModifierGlobal,	GlobalSpaceProductionModifier,	NumTradeRouteBonus,	ExtraLeagueVotes,	CitySupplyFlatGlobal,	AllowsFoodTradeRoutesGlobal,	GlobalLandmarksTourismPercent)
@@ -49,7 +50,8 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_LAKE_VICTORIA_DUMMY',	'BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						1,								0),
 			('BUILDING_CAUSEWAY_A_DUMMY',			'BUILDINGCLASS_CAUSEWAY_A_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
 			('BUILDING_CAUSEWAY_B_DUMMY',			'BUILDINGCLASS_CAUSEWAY_B_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
-			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
+			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
+			('BUILDING_DALLOL_DUMMY',			'BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -71,11 +73,13 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'Giant''s Causeway'),
 			('TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'Giant''s Causeway'),
 			('TXT_KEY_BUILDING_RETBA_DUMMY',			'Lake Retba');
+			('TXT_KEY_BUILDING_DALLOL_DUMMY',			'Dallol');
 
 INSERT INTO Building_ResourceQuantity
 			(BuildingType,					ResourceType,		Quantity) 
 VALUES		('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',	1),
-			('BUILDING_POTOSI_DUMMY',		'RESOURCE_SILVER',	1);
+			('BUILDING_POTOSI_DUMMY',		'RESOURCE_SILVER',	1),
+			('BUILDING_DALLOL_DUMMY',		'RESOURCE_SYLVITE',	1);
 
 INSERT INTO Building_GreatWorkYieldChanges
 			(BuildingType,				YieldType,					Yield) 
@@ -151,5 +155,32 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPECIAL_PEOPLE'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPACESHIP_PARTS'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_ARCHAEOLOGIST');
+--============================================--
+-- RESOURCES
+--============================================--			
+INSERT INTO Resources 
+			(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 							CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
+VALUES		('RESOURCE_SYLVITE',	null,			null,				'TXT_KEY_RESOURCE_SYLVITE',	'TXT_KEY_RESOURCE_SYLVITE_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE',	null,					0,				2,			2,				'[ICON_RES_SYLVITE]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
+
+INSERT INTO Resource_Flavors 	
+			(ResourceType, 		FlavorType, 			Flavor)
+VALUES		('RESOURCE_SYLVITE',	'FLAVOR_PRODUCTION',		20),
+			('RESOURCE_SYLVITE',	'FLAVOR_CULTURE',		30);
+---------------------------------------------------------
+INSERT INTO ArtDefine_StrategicView
+			(StrategicViewType, 					TileType, 		Asset)
+VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE', 	'Resource', 	'ResourceMoreWondersIcon_256f.dds');
+
+INSERT INTO ArtDefine_LandmarkTypes
+			(Type, 									LandmarkType, 	FriendlyName)
+VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE', 	'Resource', 	'MORE_WONDERS_SYLVITE');
+---------------------------------------------------------
+INSERT INTO IconFontTextures 
+			(IconFontTexture, 							IconFontTextureFile)
+VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'SylviteFontIcon_022');
+
+INSERT INTO IconFontMapping 
+			(IconName, 			IconFontTexture,						IconMapping)
+VALUES		('ICON_RES_SYLVITE', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
 --------------------------------------------------------------
 --------------------------------------------------------------
