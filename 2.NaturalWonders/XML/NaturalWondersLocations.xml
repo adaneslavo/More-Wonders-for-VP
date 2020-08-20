@@ -2781,6 +2781,11 @@
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
+		<Row>
+			<NaturalWonderType>FEATURE_CAUSEWAY_B</NaturalWonderType>
+			<OccurrenceFrequency>1</OccurrenceFrequency>
+			<EligibilityMethodNumber>12</EligibilityMethodNumber>
+		</Row>
 
 		<Row>
 			<!-- Mt. Everest -->
