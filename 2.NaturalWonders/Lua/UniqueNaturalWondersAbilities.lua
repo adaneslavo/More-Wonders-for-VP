@@ -27,6 +27,7 @@ local g_tNaturalWonder = {
 
 local g_tNaturalWonderOwner = {}
 local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
+local g_tNaturalWonderSkip = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0}
 local g_tNaturalWonderX = {}
 local g_tNaturalWonderY = {}
 
@@ -73,6 +74,7 @@ Events.LoadScreenClose.Add(CheckIfNaturalWonderExists)
 
 function SetDummiesForOwnedNaturalWonders(ePlayer)
 	for i, existingFeature in ipairs(g_tNaturalWonderExists) do
+		print("skipping test", i)
 		if existingFeature then
 			local pPlayer = Players[ePlayer]
 			local bHasNaturalWonderInRange = pPlayer:CountCityFeatures(g_tNaturalWonder[i]) >= 1
@@ -90,6 +92,8 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 					if g_tNaturalWonderDummy3[i] then
 						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 1)
 					end
+					
+					i = i + g_tNaturalWonderSkip[i]
 				else
 					pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
 
