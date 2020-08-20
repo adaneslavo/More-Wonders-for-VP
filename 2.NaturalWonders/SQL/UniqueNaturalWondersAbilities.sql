@@ -24,7 +24,8 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_REEF_DUMMY',			'TXT_KEY_BUILDING_REEF_DUMMY',				'BUILDING_REEF_DUMMY'),
 			('BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			'BUILDING_GIBRALTAR_DUMMY'),
 			('BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		'BUILDING_LAKE_VICTORIA_DUMMY'),
-			('BUILDINGCLASS_CAUSEWAY_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_DUMMY',			'BUILDING_CAUSEWAY_DUMMY'),
+			('BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'BUILDING_CAUSEWAY_A_DUMMY'),
+			('BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'BUILDING_CAUSEWAY_B_DUMMY'),
 			('BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				'BUILDING_RETBA_DUMMY');
 
 INSERT INTO Buildings
@@ -46,7 +47,8 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_REEF_DUMMY',				'BUILDINGCLASS_REEF_DUMMY',				'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
 			('BUILDING_GIBRALTAR_DUMMY',		'BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
 			('BUILDING_LAKE_VICTORIA_DUMMY',	'BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						1,								0),
-			('BUILDING_CAUSEWAY_DUMMY',			'BUILDINGCLASS_CAUSEWAY_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
+			('BUILDING_CAUSEWAY_A_DUMMY',			'BUILDINGCLASS_CAUSEWAY_A_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
+			('BUILDING_CAUSEWAY_B_DUMMY',			'BUILDINGCLASS_CAUSEWAY_B_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
 			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
 
 INSERT INTO Language_en_US 
@@ -66,7 +68,8 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_REEF_DUMMY',				'Great Barrier Reef'),
 			('TXT_KEY_BUILDING_GIBRALTAR_DUMMY',		'Rock of Gibraltar'),
 			('TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',	'Lake Victoria'),
-			('TXT_KEY_BUILDING_CAUSEWAY_DUMMY',			'Giant''s Causeway'),
+			('TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'Giant''s Causeway'),
+			('TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'Giant''s Causeway'),
 			('TXT_KEY_BUILDING_RETBA_DUMMY',			'Lake Retba');
 
 INSERT INTO Building_ResourceQuantity
