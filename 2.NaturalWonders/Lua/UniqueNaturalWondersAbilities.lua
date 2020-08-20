@@ -20,12 +20,13 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_REEF"],
 	GameInfoTypes["FEATURE_GIBRALTAR"],
 	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
-	GameInfoTypes["FEATURE_CAUSEWAY"],
+	GameInfoTypes["FEATURE_CAUSEWAY_A"],
+	GameInfoTypes["FEATURE_CAUSEWAY_B"],
 	GameInfoTypes["FEATURE_RETBA"]
 }
 
 local g_tNaturalWonderOwner = {}
-local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
+local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
 local g_tNaturalWonderX = {}
 local g_tNaturalWonderY = {}
 
@@ -46,11 +47,12 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
+	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"]
 }
 
-local g_tNaturalWonderDummy2 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_2_DUMMY"], false, false, false, false, false, false, false, false}
-local g_tNaturalWonderDummy3 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_3_DUMMY"], false, false, false, false, false, false, false, false}
+local g_tNaturalWonderDummy2 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_2_DUMMY"], false, false, false, false, false, false, false, false, false}
+local g_tNaturalWonderDummy3 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_3_DUMMY"], false, false, false, false, false, false, false, false, false}
 
 -- load game and check if they exists
 function CheckIfNaturalWonderExists()
