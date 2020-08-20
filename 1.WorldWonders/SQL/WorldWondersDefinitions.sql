@@ -456,9 +456,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');
+	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');*/
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 
@@ -672,9 +672,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL');
+	VALUES		('BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL');*/
 	---------------------------------------------------------
 	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, GreatPeopleRateModifier = 10, FreeGreatPeople = 1 WHERE Type = 'BUILDING_CHAND_BAORI';
 	
@@ -716,9 +716,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY');
+	VALUES		('BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PROPHET'S MOSQUE (NEW)
@@ -821,9 +821,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				(BuildingType,			FeatureType) 
 	VALUES		('BUILDING_WARTBURG',	'FEATURE_FOREST');
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');
+	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');*/
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
@@ -1080,9 +1080,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');
+	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
@@ -1369,10 +1369,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_GLOBE_THEATER';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
 	VALUES		('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'),
-				('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER');
+				('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ST. PETER'S BASILICA (NEW)
@@ -1459,9 +1459,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');
+	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');*/
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
@@ -1688,9 +1688,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	-- + Founded_Religion (lua)
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD');
+	VALUES		('BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SUMMER PALACE
@@ -1906,9 +1906,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');
+	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');*/
 
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
@@ -1944,7 +1944,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_INQUISITOR'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_MISSIONARY'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_DIPLOMACY'),
-				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_CARAVAN');
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_CARAVAN'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPECIAL_PEOPLE'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPACESHIP_PARTS'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_ARCHAEOLOGIST');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,					FlavorType,				Flavor)
@@ -1960,9 +1963,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SLATER_MILL';
 	-- + Plantation(2) (lua)
 
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL');
+	VALUES		('BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
@@ -2047,10 +2050,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_FERTILIZER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_KEW_GARDENS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KEW_GARDENS';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
 	VALUES		('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'),
-				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');
+				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');*/
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
 
@@ -2160,9 +2163,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_DYNAMITE', NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_DARJEELING';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_DARJEELING';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION');
+	VALUES		('BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION');*/
 
 	-- + Mountains(2) (lua)
 	---------------------------------------------------------
@@ -2246,9 +2249,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
 	
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');
+	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');*/
 
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
@@ -2370,19 +2373,19 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				(BuildingType,		ResourceType) 
 	VALUES		('BUILDING_HUBBLE',	'RESOURCE_ALUMINUM');
 
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_HUBBLE',	'BUILDINGCLASS_OBSERVATORY');
+	VALUES		('BUILDING_HUBBLE',	'BUILDINGCLASS_OBSERVATORY');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT FIREWALL
 	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_GREAT_FIREWALL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_FIREWALL';
 
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
 	VALUES		('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'),
-				('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE');
+				('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CERN
@@ -2393,9 +2396,9 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				(BuildingType,		ResourceType) 
 	VALUES		('BUILDING_CERN',	'RESOURCE_URANIUM');
 
-	INSERT INTO Building_ClassesNeededInCity 
+	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_CERN',	'BUILDINGCLASS_LABORATORY');
+	VALUES		('BUILDING_CERN',	'BUILDINGCLASS_LABORATORY');*/
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
@@ -2451,9 +2454,6 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BR
 UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL', 'BUILDING_SPUTNIK',   'BUILDING_KUMSUSAN'*/);
 UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT'/*, 'BUILDING_SANBO_HONBU', 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
 --============================================--
--- VP FIXES
---============================================--
---============================================--
 -- FREE ART HELP TEXTS
 --============================================--
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Contains a pre-built [ICON_GREAT_WORK] Great Work of Art. ', 'Starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]The Crown Jewels[ENDCOLOR].[NEWLINE][NEWLINE]') WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
@@ -2465,5 +2465,29 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'comes with both a [COLOR_POSITIV
 UPDATE Buildings
 SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1
 WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
+--============================================--
+-- VP FIXES
+--============================================--
+-- additional combat classes for promotions
+INSERT INTO Language_en_US 
+			(Tag,										Text) 
+VALUES		('TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE',		'Great People'),
+			('TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS',		'Space Parts'),
+			('TXT_KEY_UNITCOMBAT_MISSILE',				'Missiles'),
+			('TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST',		'Archaeologists');
+
+INSERT INTO UnitCombatInfos 
+			(Type,							Description) 
+VALUES		('UNITCOMBAT_SPECIAL_PEOPLE',	'TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE'),
+			('UNITCOMBAT_SPACESHIP_PARTS',	'TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS'),
+			('UNITCOMBAT_MISSILE',			'TXT_KEY_UNITCOMBAT_MISSILE'),
+			('UNITCOMBAT_ARCHAEOLOGIST',	'TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST');
+
+UPDATE Units SET CombatClass = 'UNITCOMBAT_ARCHAEOLOGIST'	WHERE Type ='UNIT_ARCHAEOLOGIST';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_SIEGE'			WHERE Type ='UNIT_ASSYRIAN_SIEGE_TOWER';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_SPECIAL_PEOPLE'	WHERE Special ='SPECIALUNIT_PEOPLE';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Special ='SPECIALUNIT_MISSILE';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Type ='UNIT_ATOMIC_BOMB';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_SPACESHIP_PARTS' WHERE DefaultUnitAI ='UNITAI_SPACESHIP_PART';
 --------------------------------------------------------------
 --------------------------------------------------------------

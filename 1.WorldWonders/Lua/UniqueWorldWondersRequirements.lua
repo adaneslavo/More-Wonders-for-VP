@@ -33,6 +33,7 @@ local tValidIsHappiness = {}
 local tValidIsOnIsthmus = {}
 local tValidIsHasCitizens = {}
 local tValidIsHasCities = {}
+local tValidIsHasUniqueBuildingClassReq = {}
 
 local bReachedMaxEra
 
@@ -557,6 +558,37 @@ function IsHasCitizens(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsHasCitizens)
+
+-- temporary FIX for unique buildingclass requirement (ALL)
+function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
+	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iBuildingClass1 = tValidIsHasUniqueBuildingClassReq[eBuilding].iBuildingClass1
+	local iBuildingClass2 = tValidIsHasUniqueBuildingClassReq[eBuilding].iBuildingClass2
+	local pCity = pPlayer:GetCityByID(eCity)
+	
+	for building in GameInfo.Buildings{BuildingClass=iBuildingClass1} do
+		if pCity:IsHasBuilding(building.ID) then
+			if iBuildingClass2 == nil then
+				return true
+			else
+				for building in GameInfo.Buildings{BuildingClass=iBuildingClass2} do
+					if pCity:IsHasBuilding(building.ID) then
+						return true
+					end
+				end
+			end
+		end
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasUniqueBuildingClassReq)
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -792,6 +824,62 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsHasCities) do
 		dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
+	end
+
+	-- IsHasUniqueBuildingClassReq
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_STONE_WORKS"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CHAND_BAORI.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_WELL"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_LIBRARY"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_WARTBURG.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_WRITERS_GUILD"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_FORBIDDEN_PALACE.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_WALLS"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_BATH",
+		iBuildingClass2 = "BUILDINGCLASS_AMPHITHEATER"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MARAE.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_GARDEN"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_ARTISTS_GUILD"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_WINDMILL"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",
+		iBuildingClass2 = "BUILDINGCLASS_GARDEN"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_DARJEELING.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_CONSTABLE"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_HUBBLE.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_OBSERVATORY"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GREAT_FIREWALL.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_POLICE_STATION",
+		iBuildingClass2 = "BUILDINGCLASS_WIRE_SERVICE"
+	}
+	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CERN.ID] = {
+		iBuildingClass1 = "BUILDINGCLASS_LABORATORY"
+	}
+	for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
+		dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
 	end
 end
 Initialize()

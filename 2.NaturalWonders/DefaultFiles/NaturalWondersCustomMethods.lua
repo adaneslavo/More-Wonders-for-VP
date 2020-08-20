@@ -17,7 +17,7 @@
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
 --		* Lake Retba (10):			plants forest around, and must be on solid terrain with coast;
---		* Bermuda Triangle (11):	???;
+--		* Bermuda Triangle (11):	set between 3-4 tiles of land on 3 corners separated by water;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -466,6 +466,9 @@ function NWCustomEligibility(x, y, method_number)
 		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
 		print("match!")
 		return true
+	elseif method_number == 12 then
+		-- for dummy features
+		return false
 	else
 		-- Unidentified Method Number;
 		return false
@@ -778,19 +781,19 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 11 then
 		-- Bermuda Triangle
-		print("a")
+
 		local pPlot = Map.GetPlot(x, y)
 		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
 		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
-		print("b")
+
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 		pSEPlot:SetTerrainType(eTerrainCoast, false, false)
 		pSWPlot:SetTerrainType(eTerrainCoast, false, false)
-		print("c")
+
 		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_B)
-		print("d")
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
-		print("e")
+	elseif method_number == 12 then
+		-- reserved for dummy features
 	end
 end
 ------------------------------------------------------------------------------

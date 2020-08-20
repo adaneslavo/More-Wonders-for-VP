@@ -2633,7 +2633,8 @@
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_SALAR_B</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>1</OccurrenceFrequency>
+			<EligibilityMethodNumber>12</EligibilityMethodNumber>
 		</Row>
 		
 		<Row>
@@ -3217,11 +3218,13 @@
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_BERMUDA_B</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>1</OccurrenceFrequency>
+			<EligibilityMethodNumber>12</EligibilityMethodNumber>
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_BERMUDA_C</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>1</OccurrenceFrequency>
+			<EligibilityMethodNumber>12</EligibilityMethodNumber>
 		</Row>
 
 		<Row>

@@ -6298,6 +6298,31 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						break
 					end
 				end
+			elseif (self.wonder_list[wonder_number] == "FEATURE_BERMUDA_A") then
+				local pBermudaPlotSE = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
+				local pBermudaPlotSW = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
+					
+				local iBermudaX = pBermudaPlotSE:GetX()
+				local iBermudaY = pBermudaPlotSE:GetY()
+				
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 1, 1) -- Strategic layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 2, 1) -- Luxury layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 3, 1) -- Bonus layer
+				
+				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
+					
+				self.playerCollisionData[iBermudaPlotIndex] = true -- Record exact plot of wonder in the collision list.
+				
+				local iBermudaX = pBermudaPlotSW:GetX()
+				local iBermudaY = pBermudaPlotSW:GetY()
+				
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 1, 1) -- Strategic layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 2, 1) -- Luxury layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, 3, 1) -- Bonus layer
+				
+				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
+					
+				self.playerCollisionData[iBermudaPlotIndex] = true -- Record exact plot of wonder in the collision list.
 			end
 			-- MOD.Barathor: End
 			--
