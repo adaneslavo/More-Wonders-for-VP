@@ -378,6 +378,8 @@ function NWCustomEligibility(x, y, method_number)
 
 		return true
 	elseif method_number == 11 then
+		-- reserved for Eye of the Sahara
+	elseif method_number == 12 then
 		-- Bermuda Triangle
 
 		local pMainPlot = Map.GetPlot(x, y)		
@@ -466,8 +468,8 @@ function NWCustomEligibility(x, y, method_number)
 		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
 		print("match!")
 		return true
-	elseif method_number == 12 then
-		-- for dummy features
+	elseif method_number == 13 then
+		-- Dallol
 		return false
 	else
 		-- Unidentified Method Number;
@@ -786,6 +788,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 	elseif method_number == 11 then
+		-- reserved for Eye of the Sahara
+	elseif method_number == 12 then
 		-- Bermuda Triangle
 
 		local pPlot = Map.GetPlot(x, y)
@@ -798,8 +802,14 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_B)
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
-	elseif method_number == 12 then
-		-- reserved for dummy features
+	elseif method_number == 13 then
+		-- Dallol
+		
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			pAdjacentPlot:SetFeatureType(eFeatureNo)
+		end
 	end
 end
 ------------------------------------------------------------------------------
