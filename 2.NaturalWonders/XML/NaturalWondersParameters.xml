@@ -110,6 +110,16 @@
 			<ResourceType>ART_DEF_FEATURE_LUMI_BAY</ResourceType>
 			<Model>feature_lumi_bay.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
+		</Row>		
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_DALLOL</ResourceType>
+			<Model>feature_dallol.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
 		</Row>
 	</ArtDefine_Landmarks>
 
@@ -164,9 +174,24 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Bioluminescent Bay</FriendlyName>
 		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_DALLOL</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Dallol</FriendlyName>
+		</Row>
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_SALAR_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Salar.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_SALAR_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Salar.dds</Asset>
+		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY_A</StrategicViewType>
 			<TileType>Feature</TileType>
@@ -181,6 +206,11 @@
 			<StrategicViewType>ART_DEF_FEATURE_MT_EVEREST</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Mt_Everest.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_RETBA</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Retba.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_BERMUDA_A</StrategicViewType>
@@ -203,19 +233,9 @@
 			<Asset>sv_Lumi_Bay.dds</Asset>
 		</Row>
 		<Row>
-			<StrategicViewType>ART_DEF_FEATURE_SALAR_A</StrategicViewType>
+			<StrategicViewType>ART_DEF_FEATURE_DALLOL</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Salar.dds</Asset>
-		</Row>
-		<Row>
-			<StrategicViewType>ART_DEF_FEATURE_SALAR_B</StrategicViewType>
-			<TileType>Feature</TileType>
-			<Asset>sv_Salar.dds</Asset>
-		</Row>
-		<Row>
-			<StrategicViewType>ART_DEF_FEATURE_RETBA</StrategicViewType>
-			<TileType>Feature</TileType>
-			<Asset>sv_Retba.dds</Asset>
+			<Asset>sv_Dallol.dds</Asset>
 		</Row>
 	</ArtDefine_StrategicView>
 	
@@ -479,6 +499,25 @@
 			<PortraitIndex>6</PortraitIndex>
 			<InBorderHappiness>2</InBorderHappiness>
 			<TurnDamage>5</TurnDamage>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>		
+		<Row>
+			<Type>FEATURE_DALLOL</Type>
+			<Description>TXT_KEY_FEATURE_DALLOL</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_DALLOL_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_DALLOL</ArtDefineTag>
+			<Movement>5</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>7</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<FreePromotionIfOwned>PROMOTION_DALLOL</FreePromotionIfOwned>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 	</Features>
@@ -845,17 +884,17 @@
 		<Row>
 			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
-			<Yield>3</Yield>
-		</Row>
-		<Row>
-			<FeatureType>FEATURE_RETBA</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
-			<Yield>3</Yield>
+			<Yield>4</Yield>
 		</Row>
 
 		<Row>
@@ -918,6 +957,22 @@
 			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>4</Yield>
+		</Row>
+		
+		<Row>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>4</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>2</Yield>
 		</Row>
 	</Feature_YieldChanges>
 
@@ -1158,6 +1213,17 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		
+		<Row>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_EraYieldChanges>
 			
 	<Language_en_US>
@@ -1210,6 +1276,14 @@
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_FEATURES_LUMI_BAY_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_FEATURE_DALLOL">
+			<Text>Dallol</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_DALLOL_TEXT">
 			<Text>TODO</Text>
 		</Row>
 	</Language_en_US>
