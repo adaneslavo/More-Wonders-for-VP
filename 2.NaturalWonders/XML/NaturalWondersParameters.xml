@@ -37,8 +37,18 @@
 			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
-			<ResourceType>ART_DEF_FEATURE_CAUSEWAY</ResourceType>
+			<ResourceType>ART_DEF_FEATURE_CAUSEWAY_A</ResourceType>
 			<Model>feature_causeway.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_CAUSEWAY_B</ResourceType>
+			<Model>feature_causeway_b.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -115,7 +125,12 @@
 			<FriendlyName>Salar de Uyuni (Small)</FriendlyName>
 		</Row>
 		<Row>
-			<Type>ART_DEF_FEATURE_CAUSEWAY</Type>
+			<Type>ART_DEF_FEATURE_CAUSEWAY_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>The Giant's Causeway</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_CAUSEWAY_B</Type>
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>The Giant's Causeway</FriendlyName>
 		</Row>
@@ -153,7 +168,12 @@
 
 	<ArtDefine_StrategicView>
 		<Row>
-			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY</StrategicViewType>
+			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Causeway.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY_B</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Causeway.dds</Asset>
 		</Row>
@@ -308,10 +328,28 @@
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 		<Row>
-			<Type>FEATURE_CAUSEWAY</Type>
+			<Type>FEATURE_CAUSEWAY_A</Type>
 			<Description>TXT_KEY_FEATURE_CAUSEWAY</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT</Civilopedia>
-			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_A</ArtDefineTag>
+			<Movement>5</Movement>
+			<SeeThrough>1</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>1</PortraitIndex>
+			<InBorderHappiness>2</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_CAUSEWAY_B</Type>
+			<Description>TXT_KEY_FEATURE_CAUSEWAY</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_B</ArtDefineTag>
 			<Movement>5</Movement>
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
@@ -765,19 +803,34 @@
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
-			<Yield>2</Yield>
+			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>2</Yield>
+			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
-			<Yield>3</Yield>
+			<Yield>2</Yield>
 		</Row>
-
+		<Row>
+			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		
 		<Row>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
@@ -1037,16 +1090,16 @@
 		</Row>
 
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
-			<YieldType>YIELD_SCIENCE</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
-
+		<Row>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		
 		<Row>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
