@@ -377,7 +377,7 @@
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>5</PortraitIndex>
 			<InBorderHappiness>1</InBorderHappiness>
-			<TurnDamage>10</TurnDamage>
+			<TurnDamage>25</TurnDamage>
 			<LocationUnitFreePromotion>PROMOTION_BERMUDA_TRIANGLE</LocationUnitFreePromotion>
 			<PassableTechFeature>TECH_COMPASS</PassableTechFeature>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
@@ -398,7 +398,7 @@
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>5</PortraitIndex>
 			<InBorderHappiness>1</InBorderHappiness>
-			<TurnDamage>10</TurnDamage>
+			<TurnDamage>25</TurnDamage>
 			<LocationUnitFreePromotion>PROMOTION_BERMUDA_TRIANGLE</LocationUnitFreePromotion>
 			<PassableTechFeature>TECH_COMPASS</PassableTechFeature>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
@@ -419,7 +419,7 @@
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>5</PortraitIndex>
 			<InBorderHappiness>1</InBorderHappiness>
-			<TurnDamage>10</TurnDamage>
+			<TurnDamage>25</TurnDamage>
 			<LocationUnitFreePromotion>PROMOTION_BERMUDA_TRIANGLE</LocationUnitFreePromotion>
 			<PassableTechFeature>TECH_COMPASS</PassableTechFeature>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
