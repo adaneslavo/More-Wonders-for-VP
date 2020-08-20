@@ -46,8 +46,8 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_REEF_DUMMY"],
 	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
-	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
-	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
+	GameInfoTypes["BUILDING_CAUSEWAY_A_DUMMY"],
+	GameInfoTypes["BUILDING_CAUSEWAY_B_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"]
 }
 
