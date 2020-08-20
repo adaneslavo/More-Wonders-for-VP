@@ -6323,6 +6323,24 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
 					
 				self.playerCollisionData[iBermudaPlotIndex] = true -- Record exact plot of wonder in the collision list.
+			elseif (self.wonder_list[wonder_number] == "FEATURE_CAUSEWAY_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pCausewayPlot = Map.PlotDirection(x, y, i)
+					
+					if pCausewayPlot:GetFeatureType() == GameInfoTypes.FEATURE_CAUSEWAY_B then	
+						local iCausewayX = pCausewayPlot:GetX()
+						local iCausewayY = pCausewayPlot:GetY()
+					
+						self:PlaceResourceImpact(iCausewayX, iCausewayY, 1, 1) -- Strategic layer
+						self:PlaceResourceImpact(iCausewayX, iCausewayY, 2, 1) -- Luxury layer
+						self:PlaceResourceImpact(iCausewayX, iCausewayY, 3, 1) -- Bonus layer
+					
+						local iCausewayPlotIndex = iCausewayY * iW + iCausewayX + 1
+						
+						self.playerCollisionData[iCausewayPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
 			end
 			-- MOD.Barathor: End
 			--
