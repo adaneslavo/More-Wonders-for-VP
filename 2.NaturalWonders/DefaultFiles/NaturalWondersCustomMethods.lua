@@ -629,15 +629,21 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 		
+		local tPossibleSpots = {}
+		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotOcean then
-				if pAdjacentPlot:GetTerrainType() ~= eTerrainCoast then
-					pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
-				end
+				pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+			else
+				table.insert(tPossibleSpots, pAdjacentPlot)
 			end
 		end
+		
+		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
+		pChosenPlot:SetPlotType(ePlotFlat, false, false)
+		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_CAUSEWAY_B)
 	elseif method_number == 6 then
 		-- Salar de Uyuni
 		local pPlot = Map.GetPlot(x, y)
