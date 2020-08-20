@@ -116,14 +116,17 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Holy Mountain'),
 			('TXT_KEY_PROMOTION_SOLOMONS_MINES',		'For the King'),
 			('TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'+25% [ICON_WORKER] Work Rate'),	
 			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',		'Lost in Time and Space'),
-			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'-2[ICON_MOVES] Movement Points. [COLOR_NEGATIVE_TEXT]Promotion lasts 3 turns[ENDCOLOR].');			
+			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'-2[ICON_MOVES] Movement Points. [COLOR_NEGATIVE_TEXT]Promotion lasts 3 turns[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_DALLOL',			'Explosive Mixture'),
+			('TXT_KEY_PROMOTION_DALLOL_HELP',	'+10%[ICON_RANGED_STRENGTH]RCS.');
 
 INSERT INTO UnitPromotions 
-			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DiploMissionInfluence,	WorkRateMod,	MovesChange,	ExtraNavalMovement,	PromotionDuration,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					0,			0,						0,				0,				0,					0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
-			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,			10,						0,				0,				0,					0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
-			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,						25,				0,				0,					0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
-			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,						0,				0,				-2,					3,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE');
+			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,	DiploMissionInfluence,	WorkRateMod,	MovesChange,	ExtraNavalMovement,	PromotionDuration,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,						0,				0,				0,					0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
+			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,			10,	10,						0,				0,				0,					0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
+			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,					25,				0,				0,					0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
+			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,					0,				0,				-2,					3,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
+			('PROMOTION_DALLOL',	'TXT_KEY_PROMOTION_DALLOL',	'TXT_KEY_PROMOTION_DALLOL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			10,	0,					0,				0,				0,					0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL');
 
 INSERT INTO UnitPromotions_Terrains
 			(PromotionType,			TerrainType,	DoubleMove)
@@ -154,7 +157,8 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_WORKER'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPECIAL_PEOPLE'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPACESHIP_PARTS'),
-			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_ARCHAEOLOGIST');
+			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_ARCHAEOLOGIST'),
+			('PROMOTION_DALLOL',		'UNITCOMBAT_SIEGE');
 --============================================--
 -- RESOURCES
 --============================================--			
@@ -182,5 +186,12 @@ VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'SylviteFontIcon_022');
 INSERT INTO IconFontMapping 
 			(IconName, 			IconFontTexture,						IconMapping)
 VALUES		('ICON_RES_SYLVITE', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
+---------------------------------------------------------
+INSERT INTO Language_en_US 
+			(Tag,									Text) 
+('TXT_KEY_RESOURCE_SYLVITE',			'Sylvite'),
+			('TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TODO'),
+			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] -1 global [ICON_HAPPINESS_3] Boredom. Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned Siege units (tied to building).');
+			
 --------------------------------------------------------------
 --------------------------------------------------------------
