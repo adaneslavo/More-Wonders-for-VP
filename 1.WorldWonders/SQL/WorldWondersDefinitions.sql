@@ -977,7 +977,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO ArtDefine_LandmarkTypes
 				(Type, 									LandmarkType, 	FriendlyName)
-	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'MORE_WONDERS_TERN');
+	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'Tern Egg');
 	---------------------------------------------------------
 	INSERT INTO IconFontTextures 
 				(IconFontTexture, 							IconFontTextureFile)
@@ -1058,8 +1058,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_DAMASCUS',	'RESOURCE_IRON',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO UnitPromotions 
-				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			20,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)

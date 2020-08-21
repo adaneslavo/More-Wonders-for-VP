@@ -575,6 +575,22 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Dallol\Model\feature_dallol.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Dallol\Model\feature_dallol.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Dallol\Model\dallol_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Dallol\Model\dallol_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Dallol\sv_Dallol.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -776,6 +792,50 @@ Currently compatible with 4-12.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Promotions\PromotionMoreWondersIcons_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\SylviteFontIcon_022.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\SylviteFontIcon_022.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\TernFontIcon_022.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\TernFontIcon_022.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_256f.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourceMoreWondersIcon_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2087,42 +2147,6 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\Resources\FontIcons\TernFontIcon_022.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\FontIcons\TernFontIcon_022.ggxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_256f.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_32.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\Resources\ResourceMoreWondersIcon_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
     <Content Include="1.WorldWonders\Lua\(unused).lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -2183,11 +2207,11 @@ Currently compatible with 4-12.</Description>
     <Folder Include="1.WorldWonders\Art\6.Modern" />
     <Folder Include="1.WorldWonders\Art\7.Atomic" />
     <Folder Include="1.WorldWonders\Art\8.Information" />
-    <Folder Include="1.WorldWonders\Art\Resources" />
-    <Folder Include="1.WorldWonders\Art\Resources\FontIcons" />
     <Folder Include="1.WorldWonders\Lua" />
     <Folder Include="1.WorldWonders\Art" />
     <Folder Include="1.WorldWonders\SQL" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\FontIcons\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>

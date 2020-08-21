@@ -24,10 +24,10 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_REEF_DUMMY',			'TXT_KEY_BUILDING_REEF_DUMMY',				'BUILDING_REEF_DUMMY'),
 			('BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			'BUILDING_GIBRALTAR_DUMMY'),
 			('BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		'BUILDING_LAKE_VICTORIA_DUMMY'),
-			('BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'BUILDING_CAUSEWAY_A_DUMMY'),
-			('BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'BUILDING_CAUSEWAY_B_DUMMY'),
+			('BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',		'BUILDING_CAUSEWAY_A_DUMMY'),
+			('BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',		'BUILDING_CAUSEWAY_B_DUMMY'),
 			('BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				'BUILDING_RETBA_DUMMY'),
-			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',				'BUILDING_DALLOL_DUMMY');
+			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			'BUILDING_DALLOL_DUMMY');
 
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, SpecialistType,			GreatPeopleRateChange,	EmpireNeedsModifierGlobal,	GlobalSpaceProductionModifier,	NumTradeRouteBonus,	ExtraLeagueVotes,	CitySupplyFlatGlobal,	AllowsFoodTradeRoutesGlobal,	GlobalLandmarksTourismPercent)
@@ -48,10 +48,10 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_REEF_DUMMY',				'BUILDINGCLASS_REEF_DUMMY',				'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
 			('BUILDING_GIBRALTAR_DUMMY',		'BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
 			('BUILDING_LAKE_VICTORIA_DUMMY',	'BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						1,								0),
-			('BUILDING_CAUSEWAY_A_DUMMY',			'BUILDINGCLASS_CAUSEWAY_A_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
-			('BUILDING_CAUSEWAY_B_DUMMY',			'BUILDINGCLASS_CAUSEWAY_B_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
+			('BUILDING_CAUSEWAY_A_DUMMY',		'BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
+			('BUILDING_CAUSEWAY_B_DUMMY',		'BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
 			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_DALLOL_DUMMY',			'BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
+			('BUILDING_DALLOL_DUMMY',			'BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -70,8 +70,8 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_REEF_DUMMY',				'Great Barrier Reef'),
 			('TXT_KEY_BUILDING_GIBRALTAR_DUMMY',		'Rock of Gibraltar'),
 			('TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',	'Lake Victoria'),
-			('TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',			'Giant''s Causeway'),
-			('TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',			'Giant''s Causeway'),
+			('TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',		'Giant''s Causeway'),
+			('TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',		'Giant''s Causeway'),
 			('TXT_KEY_BUILDING_RETBA_DUMMY',			'Lake Retba');
 			('TXT_KEY_BUILDING_DALLOL_DUMMY',			'Dallol');
 
@@ -117,16 +117,16 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Holy Mountain'),
 			('TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'+25% [ICON_WORKER] Work Rate'),	
 			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',		'Lost in Time and Space'),
 			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'-2[ICON_MOVES] Movement Points. [COLOR_NEGATIVE_TEXT]Promotion lasts 3 turns[ENDCOLOR].'),
-			('TXT_KEY_PROMOTION_DALLOL',			'Explosive Mixture'),
-			('TXT_KEY_PROMOTION_DALLOL_HELP',	'+10%[ICON_RANGED_STRENGTH]RCS.');
+			('TXT_KEY_PROMOTION_DALLOL',				'Explosive Mixture'),
+			('TXT_KEY_PROMOTION_DALLOL_HELP',			'+10%[ICON_RANGED_STRENGTH]RCS.');
 
 INSERT INTO UnitPromotions 
-			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,	DiploMissionInfluence,	WorkRateMod,	MovesChange,	ExtraNavalMovement,	PromotionDuration,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,						0,				0,				0,					0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
-			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,			10,	10,						0,				0,				0,					0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
-			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,					25,				0,				0,					0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
-			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			0,	0,					0,				0,				-2,					3,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
-			('PROMOTION_DALLOL',	'TXT_KEY_PROMOTION_DALLOL',	'TXT_KEY_PROMOTION_DALLOL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			10,	0,					0,				0,				0,					0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL');
+			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	DiploMissionInfluence,	WorkRateMod,	MovesChange,	ExtraNavalMovement,	PromotionDuration,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					0,						0,						0,				0,				0,					0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
+			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,						10,						0,				0,				0,					0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
+			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,						0,						25,				0,				0,					0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
+			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,						0,						0,				0,				-2,					3,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
+			('PROMOTION_DALLOL',			'TXT_KEY_PROMOTION_DALLOL',				'TXT_KEY_PROMOTION_DALLOL_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,						0,						0,				0,				0,					0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL');
 
 INSERT INTO UnitPromotions_Terrains
 			(PromotionType,			TerrainType,	DoubleMove)
@@ -158,40 +158,39 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPECIAL_PEOPLE'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPACESHIP_PARTS'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_ARCHAEOLOGIST'),
-			('PROMOTION_DALLOL',		'UNITCOMBAT_SIEGE');
+			('PROMOTION_DALLOL',			'UNITCOMBAT_SIEGE');
 --============================================--
 -- RESOURCES
 --============================================--			
 INSERT INTO Resources 
-			(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 							CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
-VALUES		('RESOURCE_SYLVITE',	null,			null,				'TXT_KEY_RESOURCE_SYLVITE',	'TXT_KEY_RESOURCE_SYLVITE_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE',	null,					0,				2,			2,				'[ICON_RES_SYLVITE]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
+			(Type,					TechReveal,		TechCityTrade, 		Description,				Civilopedia, 						Help,									ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 								CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 			PortraitIndex, 	IconAtlas)
+VALUES		('RESOURCE_SYLVITE',	null,			null,				'TXT_KEY_RESOURCE_SYLVITE',	'TXT_KEY_RESOURCE_SYLVITE_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE',	null,					0,				2,			2,				'[ICON_RES_SYLVITE]',	1, 			'RESOURCE_MORE_WONDERS_ATLAS');
 
 INSERT INTO Resource_Flavors 	
-			(ResourceType, 		FlavorType, 			Flavor)
-VALUES		('RESOURCE_SYLVITE',	'FLAVOR_PRODUCTION',		20),
+			(ResourceType, 			FlavorType, 			Flavor)
+VALUES		('RESOURCE_SYLVITE',	'FLAVOR_PRODUCTION',	20),
 			('RESOURCE_SYLVITE',	'FLAVOR_CULTURE',		30);
 ---------------------------------------------------------
 INSERT INTO ArtDefine_StrategicView
-			(StrategicViewType, 					TileType, 		Asset)
+			(StrategicViewType, 						TileType, 		Asset)
 VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE', 	'Resource', 	'ResourceMoreWondersIcon_256f.dds');
 
 INSERT INTO ArtDefine_LandmarkTypes
-			(Type, 									LandmarkType, 	FriendlyName)
-VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE', 	'Resource', 	'MORE_WONDERS_SYLVITE');
+			(Type, 										LandmarkType, 	FriendlyName)
+VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_SYLVITE', 	'Resource', 	'Sylvite');
 ---------------------------------------------------------
 INSERT INTO IconFontTextures 
 			(IconFontTexture, 							IconFontTextureFile)
 VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'SylviteFontIcon_022');
 
 INSERT INTO IconFontMapping 
-			(IconName, 			IconFontTexture,						IconMapping)
+			(IconName, 				IconFontTexture,						IconMapping)
 VALUES		('ICON_RES_SYLVITE', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
 ---------------------------------------------------------
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-('TXT_KEY_RESOURCE_SYLVITE',			'Sylvite'),
+			('TXT_KEY_RESOURCE_SYLVITE',			'Sylvite'),
 			('TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TODO'),
-			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] -1 global [ICON_HAPPINESS_3] Boredom. Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned Siege units (tied to building).');
-			
+			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR]Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned Siege units (tied to building).');	
 --------------------------------------------------------------
 --------------------------------------------------------------
