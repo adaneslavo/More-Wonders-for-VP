@@ -981,11 +981,11 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	---------------------------------------------------------
 	INSERT INTO IconFontTextures 
 				(IconFontTexture, 							IconFontTextureFile)
-	VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'TernFontIcon_022');
+	VALUES		('MORE_WONDERS_FONT_ATLAS', 	'ResourceMoreWondersFontIcon_22');
 
 	INSERT INTO IconFontMapping 
-				(IconName, 			IconFontTexture,						IconMapping)
-	VALUES		('ICON_RES_TERN', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
+				(IconName, 			IconFontTexture,			IconMapping)
+	VALUES		('ICON_RES_TERN', 	'MORE_WONDERS_FONT_ATLAS',	1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FALUN MINE (NEW)

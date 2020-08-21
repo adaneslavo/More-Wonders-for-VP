@@ -22,7 +22,7 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
 	GameInfoTypes["FEATURE_CAUSEWAY_A"],
 	GameInfoTypes["FEATURE_CAUSEWAY_B"],
-	GameInfoTypes["FEATURE_RETBA"]
+	GameInfoTypes["FEATURE_RETBA"],
 	GameInfoTypes["FEATURE_DALLOL"]
 }
 
@@ -50,7 +50,7 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_A_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_B_DUMMY"],
-	GameInfoTypes["BUILDING_RETBA_DUMMY"]
+	GameInfoTypes["BUILDING_RETBA_DUMMY"],
 	GameInfoTypes["BUILDING_DALLOL_DUMMY"]
 }
 

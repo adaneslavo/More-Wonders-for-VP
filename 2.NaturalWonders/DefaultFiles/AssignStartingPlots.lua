@@ -6154,6 +6154,7 @@ function AssignStartingPlots:GenerateNaturalWondersCandidatePlotLists()
 				row_number = row.ID;
 			end
 		end
+		
 		local iFrequency = GameInfo.Natural_Wonder_Placement[row_number].OccurrenceFrequency;
 		
 		--print("-"); print("NW#", iNaturalWonderNumber, "of ID#", row_number, "has OccurrenceFrequency of:", iFrequency);

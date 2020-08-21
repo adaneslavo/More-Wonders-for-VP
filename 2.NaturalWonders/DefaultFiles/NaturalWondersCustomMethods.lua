@@ -17,7 +17,9 @@
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
 --		* Lake Retba (10):			plants forest around, and must be on solid terrain with coast;
---		* Bermuda Triangle (11):	set between 3-4 tiles of land on 3 corners separated by water;
+--		*
+--		* Bermuda Triangle (12):	set between 3-4 tiles of land on 3 corners separated by water;
+--		* Dallol (13):				has only tile changes method; ???
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -469,7 +471,9 @@ function NWCustomEligibility(x, y, method_number)
 		print("match!")
 		return true
 	elseif method_number == 13 then
-		-- Dallol
+		-- reserved for Dallol
+	elseif method_number == 100 then
+		-- dummy
 		return false
 	else
 		-- Unidentified Method Number;

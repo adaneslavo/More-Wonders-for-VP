@@ -22,8 +22,8 @@
 		<Delete NaturalWonderType="FEATURE_SRI_PADA"/>
 		<Delete NaturalWonderType="FEATURE_ULURU"/>
 		
+		<!-- Barringer Crater -->
 		<Row>
-			<!-- Barringer Crater -->
 			<NaturalWonderType>FEATURE_CRATER</NaturalWonderType>
 			<OccurrenceFrequency>15</OccurrenceFrequency>
 			
@@ -167,8 +167,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Mt. Fuji -->
 		<Row>
-			<!-- Mt. Fuji -->
 			<NaturalWonderType>FEATURE_FUJI</NaturalWonderType>
 			<OccurrenceFrequency>30</OccurrenceFrequency>
 
@@ -312,8 +312,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Old Faithful -->
 		<Row>
-			<!-- Old Faithful -->
 			<NaturalWonderType>FEATURE_GEYSER</NaturalWonderType>
 			<OccurrenceFrequency>70</OccurrenceFrequency>
 
@@ -457,8 +457,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Rock of Gibraltar -->
 		<Row>
-			<!-- Rock of Gibraltar -->
 			<NaturalWonderType>FEATURE_GIBRALTAR</NaturalWonderType>
 			<OccurrenceFrequency>5</OccurrenceFrequency>
 
@@ -602,8 +602,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Mt. Kilimanjaro -->
 		<Row>
-			<!-- Mt. Kilimanjaro -->
 			<NaturalWonderType>FEATURE_KILIMANJARO</NaturalWonderType>
 			<OccurrenceFrequency>20</OccurrenceFrequency>
 
@@ -747,8 +747,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Lake Victoria -->
 		<Row>
-			<!-- Lake Victoria -->
 			<NaturalWonderType>FEATURE_LAKE_VICTORIA</NaturalWonderType>
 			<OccurrenceFrequency>40</OccurrenceFrequency>
 
@@ -892,8 +892,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Grand Mesa -->
 		<Row>
-			<!-- Grand Mesa -->
 			<NaturalWonderType>FEATURE_MESA</NaturalWonderType>
 			<OccurrenceFrequency>60</OccurrenceFrequency>
 
@@ -1037,8 +1037,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Mt. Kailash -->
 		<Row>
-			<!-- Mt. Kailash -->
 			<NaturalWonderType>FEATURE_MT_KAILASH</NaturalWonderType>
 			<OccurrenceFrequency>100</OccurrenceFrequency>
 
@@ -1182,8 +1182,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Mt. Sinai -->
 		<Row>
-			<!-- Mt. Sinai -->
 			<NaturalWonderType>FEATURE_MT_SINAI</NaturalWonderType>
 			<OccurrenceFrequency>90</OccurrenceFrequency>
 
@@ -1327,8 +1327,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Cerro de Potosi -->
 		<Row>
-			<!-- Cerro de Potosi -->
 			<NaturalWonderType>FEATURE_POTOSI</NaturalWonderType>
 			<OccurrenceFrequency>30</OccurrenceFrequency>
 
@@ -1472,8 +1472,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Great Barrier Reef -->
 		<Row>
-			<!-- Great Barrier Reef -->
 			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
 			<OccurrenceFrequency>20</OccurrenceFrequency>
 
@@ -1617,8 +1617,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Sri Pada -->
 		<Row>
-			<!-- Sri Pada -->
 			<NaturalWonderType>FEATURE_SRI_PADA</NaturalWonderType>
 			<OccurrenceFrequency>80</OccurrenceFrequency>
 
@@ -1762,8 +1762,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Uluru -->
 		<Row>
-			<!-- Uluru -->
 			<NaturalWonderType>FEATURE_ULURU</NaturalWonderType>
 			<OccurrenceFrequency>25</OccurrenceFrequency>
 
@@ -1907,8 +1907,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Fountain of Youth -->
 		<Row>
-			<!-- Fountain of Youth -->
 			<NaturalWonderType>FEATURE_FOUNTAIN_YOUTH</NaturalWonderType>
 			<OccurrenceFrequency>20</OccurrenceFrequency>
 
@@ -2052,8 +2052,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- King's Solomon Mines -->
 		<Row>
-			<!-- King's Solomon Mines -->
 			<NaturalWonderType>FEATURE_SOLOMONS_MINES</NaturalWonderType>
 			<OccurrenceFrequency>25</OccurrenceFrequency>
 
@@ -2197,8 +2197,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- El Dorado -->
 		<Row>
-			<!-- El Dorado -->
 			<NaturalWonderType>FEATURE_EL_DORADO</NaturalWonderType>
 			<OccurrenceFrequency>10</OccurrenceFrequency>
 
@@ -2342,8 +2342,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Krakatoa -->
 		<Row>
-			<!-- Krakatoa -->
 			<NaturalWonderType>FEATURE_VOLCANO</NaturalWonderType>
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
@@ -2487,8 +2487,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Salar de Uyuni -->
 		<Row>
-			<!-- Salar de Uyuni A -->
 			<NaturalWonderType>FEATURE_SALAR_A</NaturalWonderType>
 			<OccurrenceFrequency>60</OccurrenceFrequency>
 
@@ -2633,12 +2633,13 @@
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_SALAR_B</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>3</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
-		
+
+		<!-- Giant's Causeway -->
 		<Row>
-			<!-- Giant's Causeway -->
-			<NaturalWonderType>FEATURE_CAUSEWAY</NaturalWonderType>
+			<NaturalWonderType>FEATURE_CAUSEWAY_A</NaturalWonderType>
 			<OccurrenceFrequency>100</OccurrenceFrequency>
 
 			<LandBased>false</LandBased>
@@ -2782,11 +2783,12 @@
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_CAUSEWAY_B</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>3</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
 
+		<!-- Mt. Everest -->
 		<Row>
-			<!-- Mt. Everest -->
 			<NaturalWonderType>FEATURE_MT_EVEREST</NaturalWonderType>
 			<OccurrenceFrequency>60</OccurrenceFrequency>
 
@@ -2930,10 +2932,10 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Lake Retba -->
 		<Row>
-			<!-- Lake Retba -->
 			<NaturalWonderType>FEATURE_RETBA</NaturalWonderType>
-			<OccurrenceFrequency>10</OccurrenceFrequency>
+			<OccurrenceFrequency>5</OccurrenceFrequency>
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -3075,8 +3077,8 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
+		<!-- Bermuda Triangle -->
 		<Row>
-			<!-- Bermuda Triangle -->
 			<NaturalWonderType>FEATURE_BERMUDA_A</NaturalWonderType>
 			<OccurrenceFrequency>100</OccurrenceFrequency>
 
@@ -3208,8 +3210,8 @@
 			<AdjacentTilesAvoidAtoll>false</AdjacentTilesAvoidAtoll>
 			<MaximumAllowedAdjacentAtoll>99</MaximumAllowedAdjacentAtoll>
 
-			<EligibilityMethodNumber>11</EligibilityMethodNumber>
-			<TileChangesMethodNumber>11</TileChangesMethodNumber>
+			<EligibilityMethodNumber>12</EligibilityMethodNumber>
+			<TileChangesMethodNumber>12</TileChangesMethodNumber>
 
 			<ChangeCoreTileToMountain>0</ChangeCoreTileToMountain>
 			<ChangeCoreTileToFlatland>0</ChangeCoreTileToFlatland>
@@ -3221,17 +3223,19 @@
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_BERMUDA_B</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>3</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
 		<Row>
 			<NaturalWonderType>FEATURE_BERMUDA_C</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>3</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
 
+		<!-- Bioluminescent Bay -->
 		<Row>
-			<!-- Bioluminescent Bay -->
 			<NaturalWonderType>FEATURE_LUMI_BAY</NaturalWonderType>
-			<OccurrenceFrequency>10</OccurrenceFrequency>
+			<OccurrenceFrequency>5</OccurrenceFrequency>
 
 			<LandBased>false</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -3372,9 +3376,9 @@
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
-		
+
+		<!-- Dallol -->
 		<Row>
-			<!-- Dallol -->
 			<NaturalWonderType>FEATURE_DALLOL</NaturalWonderType>
 			<OccurrenceFrequency>100</OccurrenceFrequency>
 

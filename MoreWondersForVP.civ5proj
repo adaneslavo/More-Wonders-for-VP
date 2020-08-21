@@ -601,19 +601,19 @@ Currently compatible with 4-12.</Description>
     </Content>
     <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_b_ground_diff.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_b_ground_sref.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway_b.fxsxml">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway_b.gr2">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway.dds">
       <SubType>Lua</SubType>
@@ -811,19 +811,11 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\FontIcons\SylviteFontIcon_022.dds">
+    <Content Include="Resources\ResourceMoreWondersFontIcon_22.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\FontIcons\SylviteFontIcon_022.ggxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\FontIcons\TernFontIcon_022.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\FontIcons\TernFontIcon_022.ggxml">
+    <Content Include="Resources\ResourceMoreWondersFontIcon_22.ggxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2227,7 +2219,6 @@ Currently compatible with 4-12.</Description>
     <Folder Include="1.WorldWonders\Art" />
     <Folder Include="1.WorldWonders\SQL" />
     <Folder Include="Resources\" />
-    <Folder Include="Resources\FontIcons\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>

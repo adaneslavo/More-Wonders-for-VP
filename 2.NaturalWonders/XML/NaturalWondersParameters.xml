@@ -58,7 +58,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_MT_EVEREST</ResourceType>
-			<Model>feature_everest.fxsxml</Model>
+			<Model>feature_mt_everest.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -137,12 +137,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_CAUSEWAY_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>The Giant's Causeway</FriendlyName>
+			<FriendlyName>The Giant's Causeway A</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_CAUSEWAY_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>The Giant's Causeway</FriendlyName>
+			<FriendlyName>The Giant's Causeway B</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_MT_EVEREST</Type>
@@ -500,7 +500,7 @@
 			<InBorderHappiness>2</InBorderHappiness>
 			<TurnDamage>5</TurnDamage>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
-		</Row>		
+		</Row>
 		<Row>
 			<Type>FEATURE_DALLOL</Type>
 			<Description>TXT_KEY_FEATURE_DALLOL</Description>
@@ -513,7 +513,7 @@
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
-			<Rough>false</Rough>
+			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>7</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
@@ -840,32 +840,32 @@
 		</Row>
 
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>2</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
-			<FeatureType>FEATURE_CAUSEWAY</FeatureType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>2</Yield>
 		</Row>
@@ -958,7 +958,7 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>4</Yield>
 		</Row>
-		
+
 		<Row>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
@@ -1213,7 +1213,7 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
-		
+
 		<Row>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
