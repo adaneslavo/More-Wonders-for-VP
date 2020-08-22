@@ -569,8 +569,8 @@ function IsHasSpecialists(ePlayer, eCity, eBuilding)
 	
 	if not pPlayer:IsAlive() then return false end
 	
-	local iSpecialist1 = tValidIsHasCitizens[eBuilding].iSpecialist1
-	local iSpecialist2 = tValidIsHasCitizens[eBuilding].iSpecialist2
+	local iSpecialist1 = tValidIsHasSpecialists[eBuilding].iSpecialist1
+	local iSpecialist2 = tValidIsHasSpecialists[eBuilding].iSpecialist2
 	local pCity = pPlayer:GetCityByID(eCity)
 	
 	if pCity:GetSpecialistCount(iSpecialist1) >= 1 or pCity:GetSpecialistCount(iSpecialist2) >= 1 then
