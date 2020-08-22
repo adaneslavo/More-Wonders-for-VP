@@ -33,6 +33,7 @@ local tValidIsHappiness = {}
 local tValidIsOnIsthmus = {}
 local tValidIsHasCitizens = {}
 local tValidIsHasCities = {}
+local tValidIsHasSpecialist = {}
 local tValidIsHasUniqueBuildingClassReq = {}
 
 local bReachedMaxEra
@@ -559,6 +560,27 @@ function IsHasCitizens(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasCitizens)
 
+-- checks if city has enough specialists OR (STATUE OF LIBERTY)
+function IsHasSpecialists(ePlayer, eCity, eBuilding)
+	if not tValidIsHasSpecialists[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iSpecialist1 = tValidIsHasCitizens[eBuilding].iSpecialist1
+	local iSpecialist2 = tValidIsHasCitizens[eBuilding].iSpecialist2
+	local pCity = pPlayer:GetCityByID(eCity)
+	
+	if pCity:GetSpecialistCount(iSpecialist1) >= 1 or pCity:GetSpecialistCount(iSpecialist2) >= 1 then
+		return true
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasSpecialists)
+
 -- temporary FIX for unique buildingclass requirement (ALL)
 function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
@@ -766,7 +788,7 @@ function Initialize()
 		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
 		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
 		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
-		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 4
+		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 1
 	}
 	for id, building in pairs(tValidIsHasCsAllies) do
 		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
@@ -880,6 +902,15 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
 		dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
+	end
+
+	-- IsHasSpecialist
+	tValidIsHasSpecialist[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
+		iSpecialist1 = GameInfo.Specialists.SPECIALIST_ENGINEER.ID,
+		iSpecialist2 = GameInfo.Specialists.SPECIALIST_ARTIST.ID
+	}
+	for id, building in pairs(tValidIsHasSpecialist) do
+		dprint("...adding (id,building,specialist1,specialist2)", id, GameInfo.Buildings[id].Type, building.iSpecialist1, building.iSpecialist2)
 	end
 end
 Initialize()
