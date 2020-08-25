@@ -13,6 +13,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'8',			'2'),
 			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'8',			'2');
 --============================================--
+-- CUSTOM MOD OPTIONS
+--============================================--
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
+--============================================--
 -- HELP
 --============================================--
 -- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is Sea, MinAreaSize=1 is Lake)
@@ -2185,8 +2189,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_TOURISM',	1);
 	
 	INSERT INTO UnitPromotions 
-				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	HoveringUnit,	CanMoveImpassable,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,				1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
+				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)

@@ -127,22 +127,22 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_SALAR_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Salar de Uyuni (Big)</FriendlyName>
+			<FriendlyName>Salar de Uyuni (B)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_SALAR_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Salar de Uyuni (Small)</FriendlyName>
+			<FriendlyName>Salar de Uyuni (S)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_CAUSEWAY_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>The Giant's Causeway A</FriendlyName>
+			<FriendlyName>The Giant's Causeway (S)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_CAUSEWAY_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>The Giant's Causeway B</FriendlyName>
+			<FriendlyName>The Giant's Causeway (L)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_MT_EVEREST</Type>
@@ -349,7 +349,7 @@
 		</Row>
 		<Row>
 			<Type>FEATURE_CAUSEWAY_A</Type>
-			<Description>TXT_KEY_FEATURE_CAUSEWAY</Description>
+			<Description>TXT_KEY_FEATURE_CAUSEWAY_A</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_A</ArtDefineTag>
 			<Movement>5</Movement>
@@ -367,7 +367,7 @@
 		</Row>
 		<Row>
 			<Type>FEATURE_CAUSEWAY_B</Type>
-			<Description>TXT_KEY_FEATURE_CAUSEWAY</Description>
+			<Description>TXT_KEY_FEATURE_CAUSEWAY_B</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_B</ArtDefineTag>
 			<Movement>5</Movement>
@@ -1228,19 +1228,23 @@
 			
 	<Language_en_US>
 		<Row Tag="TXT_KEY_FEATURE_SALAR_A">
-			<Text>Salar de Uyuni (Big)</Text>
+			<Text>Salar de Uyuni (big)</Text>
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_FEATURE_SALAR_B">
-			<Text>Salar de Uyuni (Small)</Text>
+			<Text>Salar de Uyuni (small)</Text>
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_FEATURES_SALAR_TEXT">
 			<Text>Salar de Uyuni is the largest salt flat in the world. When wet, its surface becomes a massive mirror, which is famously beautiful. Several species of flamingo use Salar de Uyuni as their breeding ground. Salar de Uyuni is particularly rich in lithium salt, and contains over half of the world's lithium reserves. Its large, flat surface is excellent for calibrating distance measurements in satellites. Satellites have been able to measure distances from points on the earth accurate to within an inch when calibrated against the surface of Salar de Uyuni.</Text>
 		</Row>
 
-		<Row Tag="TXT_KEY_FEATURE_CAUSEWAY">
-			<Text>The Giant's Causeway</Text>
+		<Row Tag="TXT_KEY_FEATURE_CAUSEWAY_A">
+			<Text>The Giant's Causeway (sea)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_CAUSEWAY_B">
+			<Text>The Giant's Causeway (land)</Text>
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT">

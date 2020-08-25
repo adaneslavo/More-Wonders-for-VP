@@ -33,7 +33,7 @@ local tValidIsHappiness = {}
 local tValidIsOnIsthmus = {}
 local tValidIsHasCitizens = {}
 local tValidIsHasCities = {}
-local tValidIsHasSpecialist = {}
+local tValidIsHasSpecialists = {}
 local tValidIsHasUniqueBuildingClassReq = {}
 
 local bReachedMaxEra
@@ -150,7 +150,7 @@ function IsNoCoast(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsNoCoast)
 
--- looks for 2 MOUNTAINS in city range (MACHU PICCHU, BUDDHAS OF BAMYAN)
+-- looks for 2 MOUNTAINS in city range (MACHU PICCHU, BUDDHAS OF BAMYAN, DARJEELING)
 function IsHasMountains(ePlayer, eCity, eBuilding)
 	if not tValidIsHasMountains[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -905,11 +905,11 @@ function Initialize()
 	end
 
 	-- IsHasSpecialist
-	tValidIsHasSpecialist[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
+	tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
 		iSpecialist1 = GameInfo.Specialists.SPECIALIST_ENGINEER.ID,
 		iSpecialist2 = GameInfo.Specialists.SPECIALIST_ARTIST.ID
 	}
-	for id, building in pairs(tValidIsHasSpecialist) do
+	for id, building in pairs(tValidIsHasSpecialists) do
 		dprint("...adding (id,building,specialist1,specialist2)", id, GameInfo.Buildings[id].Type, building.iSpecialist1, building.iSpecialist2)
 	end
 end

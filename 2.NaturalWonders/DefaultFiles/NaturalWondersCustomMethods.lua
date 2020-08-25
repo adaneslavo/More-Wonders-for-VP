@@ -16,10 +16,10 @@
 --		* Mt. Kailash (7):			has only tile changes method; adds mountains; changes adjacent to tundra;
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
---		* Lake Retba (10):			plants forest around, and must be on solid terrain with coast;
+--		* Lake Retba (10):			must be on solid terrain with coast;
 --		*
 --		* Bermuda Triangle (12):	set between 3-4 tiles of land on 3 corners separated by water;
---		* Dallol (13):				has only tile changes method; ???
+--		* Dallol (13):				has only tile changes method; all tiles around are clered from features;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -492,6 +492,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eTerrainDesert = TerrainTypes.TERRAIN_DESERT
 	local eTerrainTundra = TerrainTypes.TERRAIN_TUNDRA
 	local eTerrainSnow = TerrainTypes.TERRAIN_SNOW
+	local eTerrainMountain = TerrainTypes.TERRAIN_MOUNTAIN
 	local eFeatureNo = FeatureTypes.NO_FEATURE
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 
@@ -745,7 +746,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
-		pPlot:SetTerrainType(eTerrainTundra, false, false)
+		pPlot:SetTerrainType(eTerrainMountain, false, false)
 		
 		local iNumMountains = 0
 
