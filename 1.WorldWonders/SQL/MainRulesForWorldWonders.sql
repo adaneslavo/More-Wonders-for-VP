@@ -273,8 +273,8 @@ SELECT		'BUILDINGCLASS_'||WType,	'TXT_KEY_BUILDING_'||WType, 'BUILDING_'||WType
 FROM MWfVPConfig WHERE WActive = 2;
 
 INSERT INTO Buildings
-			(Type,               BuildingClass,           Description,					PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb)
-SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType,	NULL,       -1,   -1,        -1,              1,          0
+			(Type,               BuildingClass,           Description,					PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
+SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType,	NULL,       -1,   -1,        -1,              1,          0,			1
 FROM MWfVPConfig WHERE WActive = 2;
 
 INSERT INTO Language_en_US 

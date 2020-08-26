@@ -13,6 +13,10 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'8',			'2'),
 			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'8',			'2');
 --============================================--
+-- CUSTOM MOD OPTIONS
+--============================================--
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
+--============================================--
 -- HELP
 --============================================--
 -- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is Sea, MinAreaSize=1 is Lake)
@@ -353,6 +357,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WIELICZKA';
 	-- + Mine(2) lua
+	-- + PlaceForResource lua
 	---------------------------------------------------------	
 	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_WIELICZKA';
 
@@ -770,7 +775,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_LAVAUX';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_LAVAUX';
 	
-	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_LAVAUX';
+	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX';
+	-- + PlaceForResource lua
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
 	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_LAVAUX';
@@ -964,12 +970,12 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	---------------------------------------------------------
 	INSERT INTO IconTextureAtlases 
 				(Atlas, 							IconSize, 	Filename, 								IconsPerRow, 	IconsPerColumn)
-	VALUES		('RESOURCE_MORE_WONDERS_ATLAS', 	256, 		'ResourceMoreWondersIcon_256.dds',		1, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	128, 		'ResourceMoreWondersIcon_128.dds',		1, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	80, 		'ResourceMoreWondersIcon_80.dds',		1, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	64, 		'ResourceMoreWondersIcon_64.dds',		1, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	45, 		'ResourceMoreWondersIcon_45.dds',		1, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	32, 		'ResourceMoreWondersIcon_32.dds',		1,				1);	
+	VALUES		('RESOURCE_MORE_WONDERS_ATLAS', 	256, 		'ResourceMoreWondersIcon_256.dds',		2, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	128, 		'ResourceMoreWondersIcon_128.dds',		2, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	80, 		'ResourceMoreWondersIcon_80.dds',		2, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	64, 		'ResourceMoreWondersIcon_64.dds',		2, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	45, 		'ResourceMoreWondersIcon_45.dds',		2, 				1),
+				('RESOURCE_MORE_WONDERS_ATLAS', 	32, 		'ResourceMoreWondersIcon_32.dds',		2,				1);	
 	---------------------------------------------------------
 	INSERT INTO ArtDefine_StrategicView
 				(StrategicViewType, 					TileType, 		Asset)
@@ -977,15 +983,15 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 
 	INSERT INTO ArtDefine_LandmarkTypes
 				(Type, 									LandmarkType, 	FriendlyName)
-	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'MORE_WONDERS_TERN');
+	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'Tern Egg');
 	---------------------------------------------------------
 	INSERT INTO IconFontTextures 
 				(IconFontTexture, 							IconFontTextureFile)
-	VALUES		('RESOURCE_MORE_WONDERS_TEXTURE_ATLAS', 	'TernFontIcon_022');
+	VALUES		('MORE_WONDERS_FONT_ATLAS', 	'ResourceMoreWondersFontIcon_22');
 
 	INSERT INTO IconFontMapping 
-				(IconName, 			IconFontTexture,						IconMapping)
-	VALUES		('ICON_RES_TERN', 	'RESOURCE_MORE_WONDERS_TEXTURE_ATLAS',	1);
+				(IconName, 			IconFontTexture,			IconMapping)
+	VALUES		('ICON_RES_TERN', 	'MORE_WONDERS_FONT_ATLAS',	1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FALUN MINE (NEW)
@@ -1058,8 +1064,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_DAMASCUS',	'RESOURCE_IRON',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO UnitPromotions 
-				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			20,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1697,7 +1703,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SUMMER_PALACE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_SUMMER_PALACE';
 	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 1, Hill = 1 WHERE Type = 'BUILDING_SUMMER_PALACE';
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, Hill = 1 WHERE Type = 'BUILDING_SUMMER_PALACE';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -2126,7 +2132,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_RUHR_VALLEY';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUHR_VALLEY';
 	
-	UPDATE Buildings SET River = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
+	-- + PlaceForResource lua
 	---------------------------------------------------------
 	UPDATE Buildings SET CityWorkingChange = 2 WHERE Type = 'BUILDING_RUHR_VALLEY';
 
@@ -2185,8 +2192,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 				('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_TOURISM',	1);
 	
 	INSERT INTO UnitPromotions 
-				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	HoveringUnit,	CanMoveImpassable,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,				1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
+				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -2281,7 +2288,7 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
 
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
-	-- + CS_Ally(4) (lua)
+	-- + Specialists(5) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EMPIRE STATE BUILDING

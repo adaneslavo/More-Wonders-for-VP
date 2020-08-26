@@ -16,8 +16,10 @@
 --		* Mt. Kailash (7):			has only tile changes method; adds mountains; changes adjacent to tundra;
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
---		* Lake Retba (10):			plants forest around, and must be on solid terrain with coast;
---		* Bermuda Triangle (11):	set between 3-4 tiles of land on 3 corners separated by water;
+--		* Lake Retba (10):			must be on solid terrain with coast;
+--		*
+--		* Bermuda Triangle (12):	set between 3-4 tiles of land on 3 corners separated by water;
+--		* Dallol (13):				has only tile changes method; all tiles around are clered from features;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -378,6 +380,8 @@ function NWCustomEligibility(x, y, method_number)
 
 		return true
 	elseif method_number == 11 then
+		-- reserved for Eye of the Sahara
+	elseif method_number == 12 then
 		-- Bermuda Triangle
 
 		local pMainPlot = Map.GetPlot(x, y)		
@@ -466,8 +470,10 @@ function NWCustomEligibility(x, y, method_number)
 		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
 		print("match!")
 		return true
-	elseif method_number == 12 then
-		-- for dummy features
+	elseif method_number == 13 then
+		-- reserved for Dallol
+	elseif method_number == 100 then
+		-- dummy
 		return false
 	else
 		-- Unidentified Method Number;
@@ -486,6 +492,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eTerrainDesert = TerrainTypes.TERRAIN_DESERT
 	local eTerrainTundra = TerrainTypes.TERRAIN_TUNDRA
 	local eTerrainSnow = TerrainTypes.TERRAIN_SNOW
+	local eTerrainMountain = TerrainTypes.TERRAIN_MOUNTAIN
 	local eFeatureNo = FeatureTypes.NO_FEATURE
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 
@@ -629,15 +636,21 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 		
+		local tPossibleSpots = {}
+		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotOcean then
-				if pAdjacentPlot:GetTerrainType() ~= eTerrainCoast then
-					pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
-				end
+				pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+			else
+				table.insert(tPossibleSpots, pAdjacentPlot)
 			end
 		end
+		
+		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
+		pChosenPlot:SetPlotType(ePlotFlat, false, false)
+		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_CAUSEWAY_B)
 	elseif method_number == 6 then
 		-- Salar de Uyuni
 		local pPlot = Map.GetPlot(x, y)
@@ -733,7 +746,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
-		pPlot:SetTerrainType(eTerrainTundra, false, false)
+		pPlot:SetTerrainType(eTerrainMountain, false, false)
 		
 		local iNumMountains = 0
 
@@ -780,6 +793,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 	elseif method_number == 11 then
+		-- reserved for Eye of the Sahara
+	elseif method_number == 12 then
 		-- Bermuda Triangle
 
 		local pPlot = Map.GetPlot(x, y)
@@ -792,8 +807,14 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_B)
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
-	elseif method_number == 12 then
-		-- reserved for dummy features
+	elseif method_number == 13 then
+		-- Dallol
+		
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			pAdjacentPlot:SetFeatureType(eFeatureNo)
+		end
 	end
 end
 ------------------------------------------------------------------------------

@@ -112,7 +112,10 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_B">
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD] per Tile</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY">
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_A">
+			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM] from Landmarks</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_B">
 			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM] from Landmarks</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_EVEREST">
@@ -132,6 +135,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
 			<Text>[NEWLINE][ICON_BULLET]+2[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
+			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SYLVITE][NEWLINE][ICON_BULLET]-1 global [ICON_HAPPINESS_3] Boredom</Text>
 		</Row>
 		
 		
@@ -193,7 +199,10 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_SALAR_B">
 			<Text>"I shivered in those solitudes when I heard the voice of the salt in the desert."[NEWLINE] - Pablo Neruda[NEWLINE]</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_CAUSEWAY">
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_CAUSEWAY_A">
+			<Text>"The remains of some mighty fabric, hurled into desolation by a tremendous earthquake, or some other equally terrible convulsion of nature."[NEWLINE] - Philip Dixon Hardy[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_CAUSEWAY_B">
 			<Text>"The remains of some mighty fabric, hurled into desolation by a tremendous earthquake, or some other equally terrible convulsion of nature."[NEWLINE] - Philip Dixon Hardy[NEWLINE]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_MT_EVEREST">
@@ -213,6 +222,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_LUMI_BAY">
 			<Text>"The emission of light from fire, lightning bolts, stars or living beings attracts the attention of any human being. In the case of bioluminescence the light has a strange glow, something magic and mysterious."[NEWLINE] - Cassius Stevani[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_DALLOL">
+			<Text>"There is hell, there is darkness, there is the sulfurous pit— burning, scalding, stench, consumption!"[NEWLINE] - William Shakespeare[NEWLINE]</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

@@ -33,7 +33,9 @@ local tValidIsHappiness = {}
 local tValidIsOnIsthmus = {}
 local tValidIsHasCitizens = {}
 local tValidIsHasCities = {}
-local tValidIsHasUniqueBuildingClassReq = {}
+local tValidIsHasSpecialists = {}
+local tValidIsHasPlotsForResources = {}
+local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
 
 local bReachedMaxEra
 
@@ -149,7 +151,7 @@ function IsNoCoast(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsNoCoast)
 
--- looks for 2 MOUNTAINS in city range (MACHU PICCHU, BUDDHAS OF BAMYAN)
+-- looks for 2 MOUNTAINS in city range (MACHU PICCHU, BUDDHAS OF BAMYAN, DARJEELING)
 function IsHasMountains(ePlayer, eCity, eBuilding)
 	if not tValidIsHasMountains[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -559,6 +561,61 @@ function IsHasCitizens(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasCitizens)
 
+-- checks if city has enough specialists (STATUE OF LIBERTY)
+function IsHasSpecialists(ePlayer, eCity, eBuilding)
+	if not tValidIsHasSpecialists[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local iRequiredSpecialists = tValidIsHasSpecialists[eBuilding]
+	local pCity = pPlayer:GetCityByID(eCity)
+	local iSpecialistsCount = 0
+	
+	for specialist in GameInfo.Specialists() do
+		local eSpecialist = specialist.ID
+		
+		if eSpecialist ~= 0 then
+			iSpecialistsCount = iSpecialistsCount + pCity:GetSpecialistCount(eSpecialist)
+			
+			if iSpecialistsCount >= iRequiredSpecialists then
+				return true
+			end
+		end
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasSpecialists)
+
+-- checks if city has place for resources (WIELICZKA, LAVAUX, RUHR)
+function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
+	if not tValidIsHasPlotsForResources[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local eCheckedResource = tValidIsHasPlotsForResources[eBuilding]
+	local pCity = pPlayer:GetCityByID(eCity)
+	
+	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
+		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
+				
+		if pSpecificPlot then
+			if pSpecificPlot:CanHaveResource(eCheckedResource, false) and pSpecificPlot:GetNumResource() == 0 then
+				return true
+			end
+		end
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasPlotsForResources)
+
 -- temporary FIX for unique buildingclass requirement (ALL)
 function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
@@ -765,8 +822,7 @@ function Initialize()
 	tValidIsHasCsAllies = {
 		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
 		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
-		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
-		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 4
+		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3
 	}
 	for id, building in pairs(tValidIsHasCsAllies) do
 		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
@@ -880,6 +936,24 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
 		dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
+	end
+
+	-- IsHasSpecialist
+	tValidIsHasSpecialists = {
+		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 5
+	}
+	for id, building in pairs(tValidIsHasSpecialists) do
+		dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, tValidIsHasSpecialists[id])
+	end
+
+	-- IsHasPlotsForResources
+	tValidIsHasPlotsForResources = {
+		[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
+		[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
+		[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
+	}
+	for id, building in pairs(tValidIsHasPlotsForResources) do
+		dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
 	end
 end
 Initialize()

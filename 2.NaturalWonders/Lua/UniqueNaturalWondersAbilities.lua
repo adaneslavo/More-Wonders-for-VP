@@ -20,12 +20,25 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_REEF"],
 	GameInfoTypes["FEATURE_GIBRALTAR"],
 	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
-	GameInfoTypes["FEATURE_CAUSEWAY"],
-	GameInfoTypes["FEATURE_RETBA"]
+	GameInfoTypes["FEATURE_CAUSEWAY_A"],
+	GameInfoTypes["FEATURE_CAUSEWAY_B"],
+	GameInfoTypes["FEATURE_RETBA"],
+	GameInfoTypes["FEATURE_DALLOL"]
 }
+local iWonderWithDummies = 19
 
 local g_tNaturalWonderOwner = {}
-local g_tNaturalWonderExists = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
+local g_tNaturalWonderExists = {}
+	for i = 1, iWonderWithDummies do
+		g_tNaturalWonderExists[i] = false
+	end
+
+local g_tNaturalWonderSkip = {}
+	for i = 1, iWonderWithDummies do
+		g_tNaturalWonderSkip[i] = false
+	end
+	g_tNaturalWonderSkip[16] = true
+
 local g_tNaturalWonderX = {}
 local g_tNaturalWonderY = {}
 
@@ -46,11 +59,22 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
-	GameInfoTypes["BUILDING_RETBA_DUMMY"]
+	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
+	GameInfoTypes["BUILDING_RETBA_DUMMY"],
+	GameInfoTypes["BUILDING_DALLOL_DUMMY"]
 }
 
-local g_tNaturalWonderDummy2 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_2_DUMMY"], false, false, false, false, false, false, false, false}
-local g_tNaturalWonderDummy3 = {false, false, false, false, false, false, false, false, GameInfoTypes["BUILDING_FUJI_3_DUMMY"], false, false, false, false, false, false, false, false}
+local g_tNaturalWonderDummy2 = {}
+	for i = 1, iWonderWithDummies do
+		g_tNaturalWonderDummy2[i] = false
+	end
+	g_tNaturalWonderDummy2[9] = GameInfoTypes["BUILDING_FUJI_2_DUMMY"]
+
+local g_tNaturalWonderDummy3 = {}
+	for i = 1, iWonderWithDummies do
+		g_tNaturalWonderDummy3[i] = false
+	end
+	g_tNaturalWonderDummy3[9] = GameInfoTypes["BUILDING_FUJI_3_DUMMY"]
 
 -- load game and check if they exists
 function CheckIfNaturalWonderExists()
@@ -70,6 +94,8 @@ end
 Events.LoadScreenClose.Add(CheckIfNaturalWonderExists)
 
 function SetDummiesForOwnedNaturalWonders(ePlayer)
+	local bSkip = false
+
 	for i, existingFeature in ipairs(g_tNaturalWonderExists) do
 		if existingFeature then
 			local pPlayer = Players[ePlayer]
@@ -88,16 +114,26 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 					if g_tNaturalWonderDummy3[i] then
 						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 1)
 					end
+					
+					bSkip = g_tNaturalWonderSkip[i]
 				else
-					pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
+					if not bSkip then
+						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
 
-					if g_tNaturalWonderDummy2[i] then
-						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
-					end
+						if g_tNaturalWonderDummy2[i] then
+							pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
+						end
 
-					if g_tNaturalWonderDummy3[i] then
-						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
+						if g_tNaturalWonderDummy3[i] then
+							pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
+						end
+					else
+						bSkip = g_tNaturalWonderSkip[i]
 					end
+				end
+			else
+				if bSkip then
+					bSkip = g_tNaturalWonderSkip[i]
 				end
 			end
 		end

@@ -1,5 +1,0 @@
-<Asset>
-	<Mesh file="everest.gr2" source="Max" />
-	<Texture file="everest_diff.dds" source="Max" />
-	<Texture file="everest_sref.dds" source="Max" />
-</Asset>
