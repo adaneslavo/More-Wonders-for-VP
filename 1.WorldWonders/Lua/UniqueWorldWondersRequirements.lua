@@ -573,13 +573,13 @@ function IsHasSpecialists(ePlayer, eCity, eBuilding)
 	local iRequiredSpecialists = tValidIsHasSpecialists[eBuilding]
 	local pCity = pPlayer:GetCityByID(eCity)
 	local iSpecialistsCount = 0
-	print("specialists", iSpecialistsCount, iRequiredSpecialists, pCity:GetName())
+	
 	for specialist in GameInfo.Specialists() do
 		local eSpecialist = specialist.ID
 		
 		if eSpecialist ~= 0 then
 			iSpecialistsCount = iSpecialistsCount + pCity:GetSpecialistCount(eSpecialist)
-			print("specialists", eSpecialist, iSpecialistsCount)
+			
 			if iSpecialistsCount >= iRequiredSpecialists then
 				return true
 			end
@@ -602,13 +602,10 @@ function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
 	local eCheckedResource = tValidIsHasPlotsForResources[eBuilding]
 	local pCity = pPlayer:GetCityByID(eCity)
 	
-	print("resources", pCity:GetName(), eCheckedResource)
-	
 	for cityPlot = 1, pCity:GetNumCityPlots() - 1, 1 do
 		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
 				
 		if pSpecificPlot then
-			print("resources", pSpecificPlot:CanHaveResource(eCheckedResource, false), pSpecificPlot:GetNumResource())
 			if pSpecificPlot:CanHaveResource(eCheckedResource, false) and pSpecificPlot:GetNumResource() == 0 then
 				return true
 			end
