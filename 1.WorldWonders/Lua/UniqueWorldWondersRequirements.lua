@@ -896,7 +896,8 @@ function Initialize()
 		iBuildingClass1 = "BUILDINGCLASS_WRITERS_GUILD"
 	}
 	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_FORBIDDEN_PALACE.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_WALLS"
+		iBuildingClass1 = "BUILDINGCLASS_WALLS",
+		iBuildingClass2 = "BUILDINGCLASS_PALACE"		
 	}
 	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
 		iBuildingClass1 = "BUILDINGCLASS_BATH",

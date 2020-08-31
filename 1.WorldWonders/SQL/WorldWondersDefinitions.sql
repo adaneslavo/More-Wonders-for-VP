@@ -1088,7 +1088,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	/*INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');*/
+	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS'),
+				('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE');*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
