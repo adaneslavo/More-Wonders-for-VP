@@ -505,6 +505,10 @@ function IsOnIsthmus(ePlayer, eCity, eBuilding)
 	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 		local pAdjacentPlot = Map.PlotDirection(iCityX, iCityY, dir)
 		
+		if pAdjacentPlot:IsLake() then
+			return false
+		end
+
 		iPreviousPlotType = iCurrentPlotType
 		iCurrentPlotType = pAdjacentPlot:GetPlotType()
 		if iCurrentPlotType == ePlotHill or iCurrentPlotType == ePlotMountain then
