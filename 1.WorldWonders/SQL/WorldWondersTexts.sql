@@ -1340,7 +1340,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Artistry Finisher[ENDC
 INSERT INTO Language_en_US 
 			(Tag,									Text)
 VALUES		('TXT_KEY_BUILDING_RUHR_VALLEY',		'Ruhr Valley'),
-			('TXT_KEY_WONDER_RUHR_VALLEY_QUOTE',	'[NEWLINE]"The industrial heart of Germany practically stopped beating. Hardly anyone worked, hardly anything ran. The population of the Ruhr area... had to be supported by the rest of the country."[NEWLINE] - Adam Fergusson[NEWLINE]'),
+			('TXT_KEY_WONDER_RUHR_VALLEY_QUOTE',	'[NEWLINE]"Art without engineering is dreaming. Engineering without art is calculating."[NEWLINE] - Steven Roberts[NEWLINE]'),
 			('TXT_KEY_WONDER_RUHR_VALLEY_PEDIA',	'TODO'),
 			('TXT_KEY_WONDER_RUHR_VALLEY_HELP',		'Wonder places 2 new [ICON_RES_COAL] Coal resources inside City range if possible. +10% [ICON_PRODUCTION] Production in your Empire. +1 [ICON_PRODUCTION] Production from Mines and Quarries in your Empire. +2 Working Range of this City.');
 			
@@ -1398,8 +1398,8 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ORSZAGHAZ',				'Orszaghaz'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_QUOTE',			'[NEWLINE]"With self-government is freedom, and with freedom is justice and patriotism."[NEWLINE] - Lajos Kossuth[NEWLINE]'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_PEDIA',			'TODO'),
-			('TXT_KEY_GREAT_WORK_HOLY_HUNGARY',			'Holy Crown of Hungary'),
-			('TXT_KEY_GREAT_WORK_HOLY_HUNGARY_QUOTE',	'[NEWLINE]You desire that which exceeds my humble powers,but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
+			('TXT_KEY_GREAT_WORK_HOLY_CROWN',			'Holy Crown of Hungary'),
+			('TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE',		'[NEWLINE]You desire that which exceeds my humble powers, but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'+10% [ICON_GOLDEN_AGE] Golden Age Points. +1 [ICON_INFLUENCE] World Congress Vote, +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each 2 Defensive Pacts. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
 			
 UPDATE Language_en_US

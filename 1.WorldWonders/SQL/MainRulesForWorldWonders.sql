@@ -25,62 +25,62 @@ CREATE TABLE MWfVPConfig (
 --------------------------------------------------------------
 INSERT INTO MWfVPConfig	
 			(WType,					WDummy,		WActive,	WFake,	WHasSound)
-VALUES		('ALTAMIRA',			'None',		1,			0,		0),		-- Altamira Cave
-			('GGANTIJA',			'None',		1,			0,		0),		-- Ggantija
-			('GOEBEKLI_TEPE',		'None',		1,			0,		0),		-- Goebekli Tepe
-			('KUK',					'None',		1,			0,		0),		-- Kuk Swamp
-			('MAJORVILLE',			'None',		1,			0,		0),		-- Majorville Medicine Wheel
-			('MOHENJO_DARO',		'None',		1,			0,		0),		-- Mohenjo-Daro
-			('SKARA_BRAE',			'None',		1,			0,		0),		-- Skara Brae
+VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
+			('GGANTIJA',			'None',		1,			0,		1),		-- Ggantija
+			('GOEBEKLI_TEPE',		'None',		1,			0,		1),		-- Goebekli Tepe
+			('KUK',					'None',		1,			0,		1),		-- Kuk Swamp
+			('MAJORVILLE',			'None',		1,			0,		1),		-- Majorville Medicine Wheel
+			('MOHENJO_DARO',		'None',		1,			0,		1),		-- Mohenjo-Daro
+			('SKARA_BRAE',			'None',		1,			0,		1),		-- Skara Brae
 			----------------------------------------------------------------------------------------
-			('KARNAK',				'None',		1,			0,		0),		-- Karnak Temple
-			('NAZCA',				'None',		1,			0,		0),		-- Nazca Lines
-			('WIELICZKA',			'None',		1,			0,		0),		-- Wieliczka Salt Mine
+			('KARNAK',				'None',		1,			0,		1),		-- Karnak Temple
+			('NAZCA',				'None',		1,			0,		1),		-- Nazca Lines
+			('WIELICZKA',			'None',		1,			0,		1),		-- Wieliczka Salt Mine
 			----------------------------------------------------------------------------------------
-			('MALWIYA',				'None',		1,			0,		0),		-- Malwiya Minaret (Great Mosque of Samarra)
-			('GATE_OF_SUN',			'None',		1,			0,		0),		-- Gate of the Sun
-			('BAMYAN',				'None',		1,			0,		0),		-- Buddhas of Bamiyan
-			('EL_GHRIBA',			'None',		1,			0,		0),		-- El Ghriba Synagougue
+			('MALWIYA',				'None',		1,			0,		1),		-- Malwiya Minaret (Great Mosque of Samarra)
+			('GATE_OF_SUN',			'None',		1,			0,		1),		-- Gate of the Sun
+			('BAMYAN',				'None',		1,			0,		1),		-- Buddhas of Bamiyan
+			('EL_GHRIBA',			'None',		1,			0,		1),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',			'None',		1,			0,		1),		-- Etchmiadzin Cathedral
-			('CHAND_BAORI',			'None',		1,			0,		0),		-- Chand Baori Well
+			('CHAND_BAORI',			'None',		1,			0,		1),		-- Chand Baori Well
 			----------------------------------------------------------------------------------------
-			('NABAWI',				'None',		1,			0,		0),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			('LAVAUX',				'None',		1,			0,		0),		-- Lavaux
-			('WARTBURG',			'None',		1,			0,		0),		-- Wartburg Castle
-			('GREAT_ZIMBABWE',		'None',		1,			0,		0),		-- Great Zimbabwe
-			('FALUN',				'None',		1,			0,		0),		-- Falun Mine
-			('AHU',					'None',		1,			0,		0),		-- Ahu Tongariki
-			('DAMASCUS',			'None',		1,			0,		0),		-- Forge of Damascus
-			('SHWEDAGON',			'None',		1,			0,		0),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
-			('MICHEL',				'None',		1,			0,		0),		-- Mont Saint Michel
-			('ITSUKUSHIMA',			'None',		1,			0,		0),		-- Itsukushima Shrine
-			('QALHAT',				'None',		1,			0,		0),		-- Qalhat
-			('CHEVALIERS',			'None',		1,			0,		0),		-- Krak des Chevaliers
+			('NABAWI',				'None',		1,			0,		1),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
+			('LAVAUX',				'None',		1,			0,		1),		-- Lavaux
+			('WARTBURG',			'None',		1,			0,		1),		-- Wartburg Castle
+			('GREAT_ZIMBABWE',		'None',		1,			0,		1),		-- Great Zimbabwe
+			('FALUN',				'None',		1,			0,		1),		-- Falun Mine
+			('AHU',					'None',		1,			0,		1),		-- Ahu Tongariki
+			('DAMASCUS',			'None',		1,			0,		1),		-- Forge of Damascus
+			('SHWEDAGON',			'None',		1,			0,		1),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('MICHEL',				'None',		1,			0,		1),		-- Mont Saint Michel
+			('ITSUKUSHIMA',			'None',		1,			0,		1),		-- Itsukushima Shrine
+			('QALHAT',				'None',		1,			0,		1),		-- Qalhat
+			('CHEVALIERS',			'None',		1,			0,		1),		-- Krak des Chevaliers
 			----------------------------------------------------------------------------------------
-			('BENHADDOU',			'None',		1,			0,		0),		-- Ait Benhaddou
-			('KILWA_KISIWANI',		'None',		1,			0,		0),		-- Kilwa Kisiwani
-			('ST_PETERS',			'None',		1,			0,		0),		-- Papal Basilica of St. Peter in the Vatican
-			('KINKAKU_JI',			'None',		1,			0,		0),		-- Golden Pavilion (Kikaku-Ji)
-			('MARAE',				'None',		1,			0,		0),		-- Marae Arahurahu
-			('OLD_BRIDGE',			'None',		1,			0,		0),		-- Old Bridge in Mostar
-			('MEENAKSHI',			'None',		1,			0,		0),		-- Meenakshi Temple
-			('PETERHOF',			'None',		1,			0,		0),		-- Peterhof Palace
-			('BAKKEN',				'None',		1,			0,		0),		-- Bakken
-			('HOUSE_OF_TRADE',		'None',		1,			0,		0),		-- House of Trade of the Indies (Casa de Contratación)
-			('SOLOVIETSKY',			'None',		1,			0,		0),		-- Solovietsky Monastery
+			('BENHADDOU',			'None',		1,			0,		1),		-- Ait Benhaddou
+			('KILWA_KISIWANI',		'None',		1,			0,		1),		-- Kilwa Kisiwani
+			('ST_PETERS',			'None',		1,			0,		1),		-- Papal Basilica of St. Peter in the Vatican
+			('KINKAKU_JI',			'None',		1,			0,		1),		-- Golden Pavilion (Kikaku-Ji)
+			('MARAE',				'None',		1,			0,		1),		-- Marae Arahurahu
+			('OLD_BRIDGE',			'None',		1,			0,		1),		-- Old Bridge in Mostar
+			('MEENAKSHI',			'None',		1,			0,		1),		-- Meenakshi Temple
+			('PETERHOF',			'None',		1,			0,		1),		-- Peterhof Palace
+			('BAKKEN',				'None',		1,			0,		1),		-- Bakken
+			('HOUSE_OF_TRADE',		'None',		1,			0,		1),		-- House of Trade of the Indies (Casa de Contratación)
+			('SOLOVIETSKY',			'None',		1,			0,		1),		-- Solovietsky Monastery
 			----------------------------------------------------------------------------------------
-			('MUSEUM_ISLAND',		'None',		1,			0,		0),		-- Museum Island
-			('SIKU_QUANSHU',		'None',		1,			0,		0),		-- Siku Quanshu
-			('BROOKLYN',			'None',		1,			0,		0),		-- Brooklyn Bridge
-			('SIBERIAN_RAILWAY',	'None',		1,			0,		0),		-- Trans-Siberian Railway
-			('PANAMA_CANAL',		'None',		1,			0,		0),		-- Panama Canal
-			('ZOCALO',				'None',		1,			0,		0),		-- Zocalo
-			('KEW_GARDENS',			'None',		1,			0,		0),		-- Kew Gardens
-			('MONTE_CARLO',			'None',		1,			0,		0),		-- Monte Carlo Casino
-			('RUHR_VALLEY',			'None',		1,			0,		0),		-- Ruhr Valley
-			('DARJEELING',			'None',		1,			0,		0),		-- Darjeeling Himalayan Railway
-			('BANFF',				'None',		1,			0,		0),		-- Banff Springs Hotel
-			('ORSZAGHAZ',			'None',		1,			0,		0);		-- Orszaghaz
+			('MUSEUM_ISLAND',		'None',		1,			0,		1),		-- Museum Island
+			('SIKU_QUANSHU',		'None',		1,			0,		1),		-- Siku Quanshu
+			('BROOKLYN',			'None',		1,			0,		1),		-- Brooklyn Bridge
+			('SIBERIAN_RAILWAY',	'None',		1,			0,		1),		-- Trans-Siberian Railway
+			('PANAMA_CANAL',		'None',		1,			0,		1),		-- Panama Canal
+			('ZOCALO',				'None',		1,			0,		1),		-- Zocalo
+			('KEW_GARDENS',			'None',		1,			0,		1),		-- Kew Gardens
+			('MONTE_CARLO',			'None',		1,			0,		1),		-- Monte Carlo Casino
+			('RUHR_VALLEY',			'None',		1,			0,		1),		-- Ruhr Valley
+			('DARJEELING',			'None',		1,			0,		1),		-- Darjeeling Himalayan Railway
+			('BANFF',				'None',		1,			0,		1),		-- Banff Springs Hotel
+			('ORSZAGHAZ',			'None',		1,			0,		1);		-- Orszaghaz
 			----------------------------------------------------------------------------------------
 			--('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
 			--('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
@@ -113,7 +113,7 @@ Two versions of speeches for new wonders!
 
 INSERT INTO COMMUNITY	
 		(Type,			Value)
-VALUES	('MW-SPEECH', 	1);
+VALUES	('MW-SPEECH', 	0);
 --============================================--
 -- WONDERS INITIAL CONFIGURATION
 --============================================--
@@ -183,10 +183,10 @@ INSERT INTO Audio_Sounds
 SELECT		'SND_WONDER_SPEECH_'||WType||'_WOMAN',		'wonder_'||WType||'_woman',		'DynamicResident'
 FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
 
-/*INSERT INTO Audio_Sounds 
+INSERT INTO Audio_Sounds 
 			(SoundID, 										Filename, 								LoadType)
 VALUES		('SND_WONDER_SPEECH_MENIN_GATE_MAN', 			'wonder_menin_gate_man', 				'DynamicResident'),
-			('SND_WONDER_SPEECH_MENIN_GATE_WOMAN',			'wonder_menin_gate_woman', 				'DynamicResident'),
+			('SND_WONDER_SPEECH_MENIN_GATE_WOMAN',			'wonder_menin_gate_woman', 				'DynamicResident')/*,
 			('SND_WONDER_SPEECH_MOTHERLAND_MAN', 			'wonder_motherland_man', 				'DynamicResident'),
 			('SND_WONDER_SPEECH_MOTHERLAND_WOMAN',			'wonder_motherland_woman', 				'DynamicResident'),
 			('SND_WONDER_SPEECH_BLETCHEY_MAN', 				'wonder_bletchey_man', 					'DynamicResident'),
@@ -206,7 +206,16 @@ VALUES		('SND_WONDER_SPEECH_MENIN_GATE_MAN', 			'wonder_menin_gate_man', 				'Dy
 			('SND_WONDER_SPEECH_SLATTER_MILL_MAN', 			'wonder_slatter_mill_man', 				'DynamicResident'),
 			('SND_WONDER_SPEECH_SLATTER_MILL_WOMAN',		'wonder_slatter_mill_woman', 			'DynamicResident'),
 			('SND_WONDER_SPEECH_SUMMER_PALACE_MAN', 		'wonder_summer_palace_man', 			'DynamicResident'),
-			('SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',		'wonder_summer_palace_woman', 			'DynamicResident');*/
+			('SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',		'wonder_summer_palace_woman', 			'DynamicResident')*/;
+
+INSERT INTO Audio_Sounds 
+			(SoundID, 											Filename, 							LoadType)
+VALUES		('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'art_ark_of_the_covenant_man', 		'DynamicResident'),
+			('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'art_ark_of_the_covenant_woman',	'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_LANCE_MAN', 				'art_holy_lance_man', 				'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_LANCE_WOMAN', 				'art_holy_lance_woman',				'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_CROWN_MAN', 				'art_holy_crown_man', 				'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_CROWN_WOMAN', 				'art_holy_crown_woman',				'DynamicResident');
 --------------------------------------------------------------
 -- Audio_2DSounds
 INSERT INTO Audio_2DSounds 
@@ -219,37 +228,148 @@ INSERT INTO Audio_2DSounds
 SELECT		'AS2D_WONDER_SPEECH_'||WType||'_WOMAN',		'SND_WONDER_SPEECH_'||WType||'_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0
 FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
 
-/*INSERT INTO Audio_Sounds 
+INSERT INTO Audio_2DSounds 
 			(ScriptID, 										SoundID, 									SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
 VALUES		('AS2D_WONDER_SPEECH_MENIN_GATE_MAN', 			'SND_WONDER_SPEECH_MENIN_GATE_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_MENIN_GATE_MAN', 			'SND_WONDER_SPEECH_MENIN_GATE_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_MENIN_GATE_WOMAN', 		'SND_WONDER_SPEECH_MENIN_GATE_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0)/*,
 			('AS2D_WONDER_SPEECH_MOTHERLAND_MAN', 			'SND_WONDER_SPEECH_MOTHERLAND_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_MOTHERLAND_MAN', 			'SND_WONDER_SPEECH_MOTHERLAND_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_MOTHERLAND_WOMAN', 		'SND_WONDER_SPEECH_MOTHERLAND_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_BLETCHEY_MAN', 			'SND_WONDER_SPEECH_BLETCHEY_MAN', 			'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_BLETCHEY_MAN', 			'SND_WONDER_SPEECH_BLETCHEY_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_BLETCHEY_WOMAN', 			'SND_WONDER_SPEECH_BLETCHEY_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_CERN_MAN', 				'SND_WONDER_SPEECH_CERN_MAN', 				'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_CERN_MAN', 				'SND_WONDER_SPEECH_CERN_WOMAN',				'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_CERN_WOMAN', 				'SND_WONDER_SPEECH_CERN_WOMAN',				'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_CRYSTAL_PALACE_MAN', 		'SND_WONDER_SPEECH_CRYSTAL_PALACE_MAN', 	'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_CRYSTAL_PALACE_MAN', 		'SND_WONDER_SPEECH_CRYSTAL_PALACE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_CRYSTAL_PALACE_WOMAN', 	'SND_WONDER_SPEECH_CRYSTAL_PALACE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_EMPIRE_STATE_MAN', 		'SND_WONDER_SPEECH_EMPIRE_STATE_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_EMPIRE_STATE_MAN', 		'SND_WONDER_SPEECH_EMPIRE_STATE_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_EMPIRE_STATE_WOMAN', 		'SND_WONDER_SPEECH_EMPIRE_STATE_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_FORUM_MAN', 				'SND_WONDER_SPEECH_FORUM_MAN', 				'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_FORUM_MAN', 				'SND_WONDER_SPEECH_FORUM_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_FORUM_WOMAN', 				'SND_WONDER_SPEECH_FORUM_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_GRAND_CANAL_MAN', 			'SND_WONDER_SPEECH_GRAND_CANAL_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_GRAND_CANAL_MAN', 			'SND_WONDER_SPEECH_GRAND_CANAL_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_GRAND_CANAL_WOMAN', 		'SND_WONDER_SPEECH_GRAND_CANAL_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_OLYMPIC_VILLAGE_MAN', 		'SND_WONDER_SPEECH_OLYMPIC_VILLAGE_MAN', 	'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_OLYMPIC_VILLAGE_MAN', 		'SND_WONDER_SPEECH_OLYMPIC_VILLAGE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_OLYMPIC_VILLAGE_WOMAN', 	'SND_WONDER_SPEECH_OLYMPIC_VILLAGE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_SLATTER_MILL_MAN', 		'SND_WONDER_SPEECH_SLATTER_MILL_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_SLATTER_MILL_MAN', 		'SND_WONDER_SPEECH_SLATTER_MILL_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_SLATTER_MILL_WOMAN', 		'SND_WONDER_SPEECH_SLATTER_MILL_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
 			('AS2D_WONDER_SPEECH_SUMMER_PALACE_MAN', 		'SND_WONDER_SPEECH_SUMMER_PALACE_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_SUMMER_PALACE_MAN', 		'SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0);*/
+			('AS2D_WONDER_SPEECH_SUMMER_PALACE_WOMAN', 		'SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0)*/;
+
+INSERT INTO Audio_2DSounds 
+			(ScriptID, 											SoundID, 										SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
+VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 	'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_LANCE_MAN', 				'SND_WONDER_SPEECH_HOLY_LANCE_MAN', 			'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_LANCE_WOMAN', 			'SND_WONDER_SPEECH_HOLY_LANCE_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_CROWN_MAN', 				'SND_WONDER_SPEECH_HOLY_CROWN_MAN', 			'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN', 			'SND_WONDER_SPEECH_HOLY_CROWN_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0);
 ------------------------------
 -- Buildings (Quotes)
-	-- Man	
+	-- Man
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_AHU_MAN'					WHERE Type = 'BUILDING_AHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ALTAMIRA_MAN'				WHERE Type = 'BUILDING_ALTAMIRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BAKKEN_MAN'				WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BAMYAN_MAN'				WHERE Type = 'BUILDING_BAMYAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BANFF_MAN'					WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BENHADDOU_MAN'				WHERE Type = 'BUILDING_BENHADDOU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BROOKLYN_MAN'				WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_CHAND_BAORI_MAN'			WHERE Type = 'BUILDING_CHAND_BAORI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_CHEVALIERS_MAN'			WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_DAMASCUS_MAN'				WHERE Type = 'BUILDING_DAMASCUS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_DARJEELING_MAN'			WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_EL_GHRIBA_MAN'				WHERE Type = 'BUILDING_EL_GHRIBA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
 	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ETCHMIADZIN_MAN'			WHERE Type = 'BUILDING_ETCHMIADZIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_FALUN_MAN'					WHERE Type = 'BUILDING_FALUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GATE_OF_SUN_MAN'			WHERE Type = 'BUILDING_GATE_OF_SUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GGANTIJA_MAN'				WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GOEBEKLI_TEPE_MAN'			WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GREAT_ZIMBABWE_MAN'		WHERE Type = 'BUILDING_GREAT_ZIMBABWE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_HOUSE_OF_TRADE_MAN'		WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ITSUKUSHIMA_MAN'			WHERE Type = 'BUILDING_ITSUKUSHIMA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KARNAK_MAN'				WHERE Type = 'BUILDING_KARNAK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KEW_GARDENS_MAN'			WHERE Type = 'BUILDING_KEW_GARDENS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KILWA_KISIWANI_MAN'		WHERE Type = 'BUILDING_KILWA_KISIWANI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KINKAKU_JI_MAN'			WHERE Type = 'BUILDING_KINKAKU_JI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KUK_MAN'					WHERE Type = 'BUILDING_KUK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_LAVAUX_MAN'				WHERE Type = 'BUILDING_LAVAUX' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MAJORVILLE_MAN'			WHERE Type = 'BUILDING_MAJORVILLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MALWIYA_MAN'				WHERE Type = 'BUILDING_MALWIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MARAE_MAN'					WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MEENAKSHI_MAN'				WHERE Type = 'BUILDING_MEENAKSHI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MICHEL_MAN'				WHERE Type = 'BUILDING_MICHEL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MOHENJO_DARO_MAN'			WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MONTE_CARLO_MAN'			WHERE Type = 'BUILDING_MONTE_CARLO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MUSEUM_ISLAND_MAN'			WHERE Type = 'BUILDING_MUSEUM_ISLAND' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_NABAWI_MAN'				WHERE Type = 'BUILDING_NABAWI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_NAZCA_MAN'					WHERE Type = 'BUILDING_NAZCA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_OLD_BRIDGE_MAN'			WHERE Type = 'BUILDING_OLD_BRIDGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ORSZAGHAZ_MAN'				WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_PANAMA_CANAL_MAN'			WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_PETERHOF_MAN'				WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_QALHAT_MAN'				WHERE Type = 'BUILDING_QALHAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_RUHR_VALLEY_MAN'			WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SHWEDAGON_MAN'				WHERE Type = 'BUILDING_SHWEDAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SIBERIAN_RAILWAY_MAN'		WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SIKU_QUANSHU_MAN'			WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SKARA_BRAE_MAN'			WHERE Type = 'BUILDING_SKARA_BRAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SOLOVIETSKY_MAN'			WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ST_PETERS_MAN'				WHERE Type = 'BUILDING_ST_PETERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_WARTBURG_MAN'				WHERE Type = 'BUILDING_WARTBURG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_WIELICZKA_MAN'				WHERE Type = 'BUILDING_WIELICZKA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ZOCALO_MAN'				WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MENIN_GATE_MAN'			WHERE Type = 'BUILDING_MENIN_GATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 0);
 	------------------------------
 	-- Woman
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_AHU_WOMAN'					WHERE Type = 'BUILDING_AHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ALTAMIRA_WOMAN'			WHERE Type = 'BUILDING_ALTAMIRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BAKKEN_WOMAN'				WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BAMYAN_WOMAN'				WHERE Type = 'BUILDING_BAMYAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BANFF_WOMAN'				WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BENHADDOU_WOMAN'			WHERE Type = 'BUILDING_BENHADDOU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_BROOKLYN_WOMAN'			WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_CHAND_BAORI_WOMAN'			WHERE Type = 'BUILDING_CHAND_BAORI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_CHEVALIERS_WOMAN'			WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_DAMASCUS_WOMAN'			WHERE Type = 'BUILDING_DAMASCUS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_DARJEELING_WOMAN'			WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_EL_GHRIBA_WOMAN'			WHERE Type = 'BUILDING_EL_GHRIBA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
 	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ETCHMIADZIN_WOMAN'			WHERE Type = 'BUILDING_ETCHMIADZIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_FALUN_WOMAN'				WHERE Type = 'BUILDING_FALUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GATE_OF_SUN_WOMAN'			WHERE Type = 'BUILDING_GATE_OF_SUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GGANTIJA_WOMAN'			WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GOEBEKLI_TEPE_WOMAN'		WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_GREAT_ZIMBABWE_WOMAN'		WHERE Type = 'BUILDING_GREAT_ZIMBABWE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_HOUSE_OF_TRADE_WOMAN'		WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ITSUKUSHIMA_WOMAN'			WHERE Type = 'BUILDING_ITSUKUSHIMA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KARNAK_WOMAN'				WHERE Type = 'BUILDING_KARNAK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KEW_GARDENS_WOMAN'			WHERE Type = 'BUILDING_KEW_GARDENS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KILWA_KISIWANI_WOMAN'		WHERE Type = 'BUILDING_KILWA_KISIWANI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KINKAKU_JI_WOMAN'			WHERE Type = 'BUILDING_KINKAKU_JI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_KUK_WOMAN'					WHERE Type = 'BUILDING_KUK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_LAVAUX_WOMAN'				WHERE Type = 'BUILDING_LAVAUX' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MAJORVILLE_WOMAN'			WHERE Type = 'BUILDING_MAJORVILLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MALWIYA_WOMAN'				WHERE Type = 'BUILDING_MALWIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MARAE_WOMAN'				WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MEENAKSHI_WOMAN'			WHERE Type = 'BUILDING_MEENAKSHI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MICHEL_WOMAN'				WHERE Type = 'BUILDING_MICHEL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MOHENJO_DARO_WOMAN'		WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MONTE_CARLO_WOMAN'			WHERE Type = 'BUILDING_MONTE_CARLO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MUSEUM_ISLAND_WOMAN'		WHERE Type = 'BUILDING_MUSEUM_ISLAND' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_NABAWI_WOMAN'				WHERE Type = 'BUILDING_NABAWI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_NAZCA_WOMAN'				WHERE Type = 'BUILDING_NAZCA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_OLD_BRIDGE_WOMAN'			WHERE Type = 'BUILDING_OLD_BRIDGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ORSZAGHAZ_WOMAN'			WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_PANAMA_CANAL_WOMAN'		WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_PETERHOF_WOMAN'			WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_QALHAT_WOMAN'				WHERE Type = 'BUILDING_QALHAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_RUHR_VALLEY_WOMAN'			WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SHWEDAGON_WOMAN'			WHERE Type = 'BUILDING_SHWEDAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SIBERIAN_RAILWAY_WOMAN'	WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SIKU_QUANSHU_WOMAN'		WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SKARA_BRAE_WOMAN'			WHERE Type = 'BUILDING_SKARA_BRAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_SOLOVIETSKY_WOMAN'			WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ST_PETERS_WOMAN'			WHERE Type = 'BUILDING_ST_PETERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_WARTBURG_WOMAN'			WHERE Type = 'BUILDING_WARTBURG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_WIELICZKA_WOMAN'			WHERE Type = 'BUILDING_WIELICZKA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_ZOCALO_WOMAN'				WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
+	UPDATE Buildings SET WonderSplashAudio = 'AS2D_WONDER_SPEECH_MENIN_GATE_WOMAN'			WHERE Type = 'BUILDING_MENIN_GATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value= 1);
 --============================================--
 -- DUMMY BUILDINGS
 -- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
