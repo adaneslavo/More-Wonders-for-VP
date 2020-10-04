@@ -6,67 +6,56 @@ print("Loading DummyBuildingsForWonders.lua from MWfVP")
 --------------------------------------------------------------
 local eUnitClassCaravan = GameInfoTypes.UNITCLASS_CARAVAN
 local eUnitClassCargo = GameInfoTypes.UNITCLASS_CARGO_SHIP
-
--- Chevaliers
-local eChevaliers = GameInfoTypes["BUILDING_CHEVALIERS"]
-local eChevaliersDummy = GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"]
-local bHasChevaliers = false
-local eChevaliersOwner
-
--- Itsukushima
-local eItsukushima = GameInfoTypes["BUILDING_ITSUKUSHIMA"]
-local eItsukushimaDummy = GameInfoTypes["BUILDING_ITSUKUSHIMA_DUMMY"]
-local bHasItsukushima = false
-local eItsukushimaOwner
-
--- Qalhat
-local eQalhat = GameInfoTypes["BUILDING_QALHAT"]
-local eQalhatDummy = GameInfoTypes["BUILDING_QALHAT_DUMMY"]
-local bHasQalhat = false
-local eQalhatOwner
-
--- Gate of the Sun
-local eSunGate = GameInfoTypes["BUILDING_GATE_OF_SUN"]
-local eSunGateDummy = GameInfoTypes["BUILDING_GATE_OF_SUN_DUMMY"]
 local eClassWalls = "BUILDINGCLASS_WALLS"
-local bHasSunGate = false
-local eSunGateOwner
 
--- Great Zimbabwe
-local eZimbabwe = GameInfoTypes["BUILDING_GREAT_ZIMBABWE"]
-local eZimbabweDummy = GameInfoTypes["BUILDING_GREAT_ZIMBABWE_DUMMY"]
-local bHasZimbabwe = false
-local eZimbabweOwner
+local g_tWorldWonder = {
+	GameInfoTypes["BUILDING_CHEVALIERS"],
+	GameInfoTypes["BUILDING_ITSUKUSHIMA"],
+	GameInfoTypes["BUILDING_QALHAT"],
+	GameInfoTypes["BUILDING_GATE_OF_SUN"],
+	GameInfoTypes["BUILDING_GREAT_ZIMBABWE"],
+	GameInfoTypes["BUILDING_KILWA_KISIWANI"],
+	GameInfoTypes["BUILDING_MARAE"],
+	GameInfoTypes["BUILDING_KUK"],
+	GameInfoTypes["BUILDING_ST_PETERS"],
+	GameInfoTypes["BUILDING_PANAMA_CANAL"],
+	GameInfoTypes["BUILDING_JUMEIRAH"]
+}
 
--- Kilwa Kisiwani
-local eKilwa = GameInfoTypes["BUILDING_KILWA_KISIWANI"]
-local eKilwaDummy = GameInfoTypes["BUILDING_KILWA_KISIWANI_DUMMY"]
-local bHasKilwa = false
-local eKilwaOwner
+local g_tWorldWonderDummy = {
+	GameInfoTypes["BUILDING_CHEVALIERS_DUMMY"],
+	GameInfoTypes["BUILDING_ITSUKUSHIMA_DUMMY"],
+	GameInfoTypes["BUILDING_QALHAT_DUMMY"],
+	GameInfoTypes["BUILDING_GATE_OF_SUN_DUMMY"],
+	GameInfoTypes["BUILDING_GREAT_ZIMBABWE_DUMMY"],
+	GameInfoTypes["BUILDING_KILWA_KISIWANI_DUMMY"],
+	GameInfoTypes["BUILDING_MARAE_DUMMY"],
+	GameInfoTypes["BUILDING_KUK_DUMMY"],
+	GameInfoTypes["BUILDING_ST_PETERS_DUMMY"],
+	GameInfoTypes["BUILDING_PANAMA_CANAL_DUMMY"],
+	GameInfoTypes["BUILDING_JUMEIRAH_DUMMY"]
+}
 
--- Marae Arahurahu
-local eMarae = GameInfoTypes["BUILDING_MARAE"]
-local eMaraeDummy = GameInfoTypes["BUILDING_MARAE_DUMMY"]
-local bHasMarae = false
-local eMaraeOwner
+local g_iWonderWithDummies = 11
 
--- Kuk Swamp
-local eKuk = GameInfoTypes["BUILDING_KUK"]
-local eKukDummy = GameInfoTypes["BUILDING_KUK_DUMMY"]
-local bHasKuk = false
-local eKukOwner
+local g_tWorldWonderExists = {}
+	for i = 1, g_iWonderWithDummies do
+		g_tWorldWonderExists[i] = false
+	end
 
--- St. Peter's Basilica
-local eStPeters = GameInfoTypes["BUILDING_ST_PETERS"]
-local eStPetersDummy = GameInfoTypes["BUILDING_ST_PETERS_DUMMY"]
-local bHasStPeters = false
-local eStPetersOwner
+local g_tWorldWonderOwner = {}
 
--- Panama Canal
-local ePanamaCanal = GameInfoTypes["BUILDING_PANAMA_CANAL"]
-local ePanamaCanalDummy = GameInfoTypes["BUILDING_PANAMA_CANAL_DUMMY"]
-local bHasPanamaCanal = false
-local ePanamaCanalOwner
+-- Chevaliers (1)
+-- Itsukushima (2)
+-- Qalhat (3)
+-- Gate of the Sun (4)
+-- Great Zimbabwe (5)
+-- Kilwa Kisiwani (6)
+-- Marae Arahurahu (7)
+-- Kuk Swamp (8)
+-- St. Peter's Basilica (9)
+-- Panama Canal (10)
+-- Palm Jumeirah (11)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -75,54 +64,11 @@ function WasWonderAlreadyBuilt()
 	
 		if pPlayer:IsEverAlive() then
 			for city in pPlayer:Cities() do
-				if city:IsHasBuilding(eChevaliers) then
-					bHasChevaliers = true
-					eChevaliersOwner = i
-				end
-
-				if city:IsHasBuilding(eItsukushima) then
-					bHasItsukushima = true
-					eItsukushimaOwner = i
-				end
-
-				if city:IsHasBuilding(eQalhat) then
-					bHasQalhat = true
-					eQalhatOwner = i
-				end
-
-				if city:IsHasBuilding(eSunGate) then
-					bHasSunGate = true
-					eSunGateOwner = i
-				end
-
-				if city:IsHasBuilding(eZimbabwe) then
-					bHasZimbabwe = true
-					eZimbabweOwner = i
-				end
-
-				if city:IsHasBuilding(eKilwa) then
-					bHasKilwa = true
-					eKilwaOwner = i
-				end
-
-				if city:IsHasBuilding(eMarae) then
-					bHasMarae = true
-					eMaraeOwner = i
-				end
-
-				if city:IsHasBuilding(eKuk) then
-					bHasKuk = true
-					eKukOwner = i
-				end
-
-				if city:IsHasBuilding(eStPeters) then
-					bStPetersKuk = true
-					eStPetersOwner = i
-				end
-
-				if city:IsHasBuilding(ePanamaCanal) then
-					bHasPanamaCanal = true
-					ePanamaCanalOwner = i
+				for j, building in ipairs(g_tWorldWonder) do
+					if city:IsHasBuilding(g_tWorldWonder[j]) then
+						g_tWorldWonderExists[j] = true
+						g_tWorldWonderOwner[j] = i
+					end
 				end
 			end
 		end
@@ -132,40 +78,40 @@ Events.LoadScreenClose.Add(WasWonderAlreadyBuilt)
 
 -- check if wonder was built
 function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith) 
-	if not bHasChevaliers then	
-		if eBuilding == eChevaliers then
-			bHasChevaliers = true
-			eChevaliersOwner = ePlayer
+	if not g_tWorldWonderExists[1] then	
+		if eBuilding == g_tWorldWonder[1] then
+			g_tWorldWonderExists[1] = true
+			g_tWorldWonderOwner[1] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
-				if not city:IsCoastal(10) and not city:IsHasBuilding(eChevaliers) then
-					city:SetNumRealBuilding(eChevaliersDummy, 1)
+				if not city:IsCoastal(10) and not city:IsHasBuilding(g_tWorldWonder[1]) then
+					city:SetNumRealBuilding(g_tWorldWonderDummy[1], 1)
 				end
 			end
 		end
 	end
 
-	if not bHasItsukushima then	
-		if eBuilding == eItsukushima then
-			bHasItsukushima = true
-			eItsukushimaOwner = ePlayer
+	if not g_tWorldWonderExists[2] then	
+		if eBuilding == g_tWorldWonder[2] then
+			g_tWorldWonderExists[2] = true
+			g_tWorldWonderOwner[2] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(eItsukushimaDummy, 1)
+					city:SetNumRealBuilding(g_tWorldWonderDummy[2], 1)
 				end
 			end
 		end
 	end
 
-	if not bHasQalhat then
-		if eBuilding == eQalhat then
-			bHasQalhat = true
-			eQalhatOwner = ePlayer
+	if not g_tWorldWonderExists[3] then
+		if eBuilding == g_tWorldWonder[3] then
+			g_tWorldWonderExists[3] = true
+			g_tWorldWonderOwner[3] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 			local pCity = pPlayer:GetCityByID(eCity)
@@ -184,7 +130,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 				end
 			end
 
-			pCity:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[3], iSeaTradeRoutesWithMajors)
 			
 			--[[		
 			Domain - DomainTypes.DOMAIN_LAND or DomainTypes.DOMAIN_SEA (int)
@@ -213,38 +159,38 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
-	if not bHasSunGate then	
-		if eBuilding == eSunGate then
-			bHasSunGate = true
-			eSunGateOwner = ePlayer
+	if not g_tWorldWonderExists[4] then	
+		if eBuilding == g_tWorldWonder[4] then
+			g_tWorldWonderExists[4] = true
+			g_tWorldWonderOwner[4] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
 				for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
 					if city:IsHasBuilding(building.Type) then
-						city:SetNumRealBuilding(eSunGateDummy, 1)
+						city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 						break
 					end
 				end
 			end
-		end
-	else
-		for building in GameInfo.Buildings{BuildingClass=eClassWalls} do
-			if eBuilding == building.ID then
-				local pPlayer = Players[ePlayer]
-				local pCity = pPlayer:GetCityByID(eCity)
+		else
+			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do
+				if eBuilding == building.ID then
+					local pPlayer = Players[ePlayer]
+					local pCity = pPlayer:GetCityByID(eCity)
 
-				pCity:SetNumRealBuilding(eSunGateDummy, 1)
-				break
+					pCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
+					break
+				end
 			end
 		end
 	end
 
-	if not bHasZimbabwe then
-		if eBuilding == eZimbabwe then
-			bHasZimbabwe = true
-			eZimbabweOwner = ePlayer
+	if not g_tWorldWonderExists[5] then
+		if eBuilding == g_tWorldWonder[5] then
+			g_tWorldWonderExists[5] = true
+			g_tWorldWonderOwner[5] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 			local pCity = pPlayer:GetCityByID(eCity)
@@ -260,70 +206,83 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 				end
 			end
 
-			pCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[5], iActiveTradeRoutes)
 		end
 	end
 
-	if not bHasKilwa then	
-		if eBuilding == eKilwa then
-			bHasKilwa = true
-			eKilwaOwner = ePlayer
+	if not g_tWorldWonderExists[6] then	
+		if eBuilding == g_tWorldWonder[6] then
+			g_tWorldWonderExists[6] = true
+			g_tWorldWonderOwner[6] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 			local pCity = pPlayer:GetCityByID(eCity)
 
-			pCity:SetNumRealBuilding(eKilwaDummy, 1)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[6], 1)
 		end
 	end
 
-	if not bHasMarae then	
-		if eBuilding == eMarae then
-			bHasMarae = true
-			eMaraeOwner = ePlayer
+	if not g_tWorldWonderExists[7] then	
+		if eBuilding == g_tWorldWonder[7] then
+			g_tWorldWonderExists[7] = true
+			g_tWorldWonderOwner[7] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 			local pCity = pPlayer:GetCityByID(eCity)
 
-			pCity:SetNumRealBuilding(eMaraeDummy, 1)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[7], 1)
 		end
 	end
 
-	if not bHasKuk then	
-		if eBuilding == eKuk then
-			bHasKuk = true
-			eKukOwner = ePlayer
+	if not g_tWorldWonderExists[8] then	
+		if eBuilding == g_tWorldWonder[8] then
+			g_tWorldWonderExists[8] = true
+			g_tWorldWonderOwner[8] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
-				city:SetNumRealBuilding(eKukDummy, 1)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[8], 1)
 			end
 		end
 	end
 
-	if not bHasStPeters then	
-		if eBuilding == eStPeters then
-			bHasStPeters = true
-			eStPetersOwner = ePlayer
+	if not g_tWorldWonderExists[9] then	
+		if eBuilding == g_tWorldWonder[9] then
+			g_tWorldWonderExists[9] = true
+			g_tWorldWonderOwner[9] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 			local pCity = pPlayer:GetCityByID(eCity)
 
-			pCity:SetNumRealBuilding(eStPetersDummy, 1)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[9], 1)
 		end
 	end
 
-	if not bHasPanamaCanal then	
-		if eBuilding == ePanamaCanal then
-			bHasPanamaCanal = true
-			ePanamaCanalOwner = ePlayer
+	if not g_tWorldWonderExists[10] then	
+		if eBuilding == g_tWorldWonder[10] then
+			g_tWorldWonderExists[10] = true
+			g_tWorldWonderOwner[10] = ePlayer
 			
 			local pPlayer = Players[ePlayer]
 		
 			for city in pPlayer:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(ePanamaCanalDummy, 1)
+					city:SetNumRealBuilding(g_tWorldWonderDummy[10], 1)
 				end
+			end
+		end
+	end
+
+	if not g_tWorldWonderExists[11] then	
+		if eBuilding == g_tWorldWonder[11] then
+			g_tWorldWonderExists[11] = true
+			g_tWorldWonderOwner[11] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			for city in pPlayer:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[11], 1)
 			end
 		end
 	end
@@ -332,68 +291,68 @@ GameEvents.CityConstructed.Add(IsWonderConstructed)
 
 -- check if wonder conquered by another player
 function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iPop, bConquest)
-	if bHasChevaliers then	
+	if g_tWorldWonderExists[1] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eChevaliers) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[1]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(eChevaliersDummy, 0)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[1], 0)
 			end
 			
 			local pNewOwner = Players[eNewOwner]
-			eChevaliersOwner = eNewOwner
+			g_tWorldWonderOwner[1] = eNewOwner
 			
 			for city in pNewOwner:Cities() do
-				if not city:IsCoastal(10) and not city:IsHasBuilding(eChevaliers) then
-					city:SetNumRealBuilding(eChevaliersDummy, 1)
+				if not city:IsCoastal(10) and not city:IsHasBuilding(g_tWorldWonder[1]) then
+					city:SetNumRealBuilding(g_tWorldWonderDummy[1], 1)
 				end
 			end		
 		else
-			if eNewOwner == eChevaliersOwner and not pConqCity:IsCoastal(10) then
-				pConqCity:SetNumRealBuilding(eChevaliersDummy, 1)
-			elseif eNewOwner ~= eChevaliersOwner then
-				pConqCity:SetNumRealBuilding(eChevaliersDummy, 0)
+			if eNewOwner == g_tWorldWonderOwner[1] and not pConqCity:IsCoastal(10) then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[1], 1)
+			elseif eNewOwner ~= g_tWorldWonderOwner[1] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[1], 0)
 			end
 		end
 	end
 	
-	if bHasItsukushima then	
+	if g_tWorldWonderExists[2] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eItsukushima) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[2]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(eItsukushimaDummy, 0)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[2], 0)
 			end
 			
 			local pNewOwner = Players[eNewOwner]
-			eItsukushimaOwner = eNewOwner
+			g_tWorldWonderOwner[2] = eNewOwner
 			
 			for city in pNewOwner:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(eItsukushimaDummy, 1)
+					city:SetNumRealBuilding(g_tWorldWonderDummy[2], 1)
 				end
 			end		
 		else
-			if eNewOwner == eItsukushimaOwner and pConqCity:IsCoastal(10) then
-				pConqCity:SetNumRealBuilding(eItsukushimaDummy, 1)
-			elseif eNewOwner ~= eItsukushimaOwner then
-				pConqCity:SetNumRealBuilding(eItsukushimaDummy, 0)
+			if eNewOwner == g_tWorldWonderOwner[2] and pConqCity:IsCoastal(10) then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[2], 1)
+			elseif eNewOwner ~= g_tWorldWonderOwner[2] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[2], 0)
 			end
 		end
 	end
 
-	if bHasQalhat then	
+	if g_tWorldWonderExists[3] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eQalhat) then
-			eQalhatOwner = eNewOwner
+		if pConqCity:IsHasBuilding(g_tWorldWonder[3]) then
+			g_tWorldWonderOwner[3] = eNewOwner
 			local iSeaTradeRoutesWithMajors = 0
 			
 			for _, player in ipairs(Players) do
@@ -409,51 +368,51 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 				end
 			end
 
-			pConqCity:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors)
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[3], iSeaTradeRoutesWithMajors)
 		end
 	end
 
-	if bHasSunGate then	
+	if g_tWorldWonderExists[4] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eSunGate) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[4]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(eSunGateDummy, 0)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[4], 0)
 			end
 			
 			local pNewOwner = Players[eNewOwner]
-			eSunGateOwner = eNewOwner
+			g_tWorldWonderOwner[4] = eNewOwner
 			
 			for city in pNewOwner:Cities() do
 				for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
 					if city:IsHasBuilding(building.Type) then
-						city:SetNumRealBuilding(eSunGateDummy, 1)
+						city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 						break
 					end
 				end
 			end		
 		else
 			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-				if eNewOwner == eSunGateOwner and pConqCity:IsHasBuilding(building.Type) then
-					pConqCity:SetNumRealBuilding(eSunGateDummy, 1)
+				if eNewOwner == g_tWorldWonderOwner[4] and pConqCity:IsHasBuilding(building.Type) then
+					pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 					break
-				elseif eNewOwner ~= eSunGateOwner then
-					pConqCity:SetNumRealBuilding(eSunGateDummy, 0)
+				elseif eNewOwner ~= g_tWorldWonderOwner[4] then
+					pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 0)
 					break
 				end
 			end
 		end
 	end
 
-	if bHasZimbabwe then	
+	if g_tWorldWonderExists[5] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eZimbabwe) then
-			eZimbabweOwner = eNewOwner
+		if pConqCity:IsHasBuilding(g_tWorldWonder[5]) then
+			g_tWorldWonderOwner[5] = eNewOwner
 			local iActiveTradeRoutes = 0
 			
 			for _, player in ipairs(Players) do
@@ -466,93 +425,119 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 				end
 			end
 
-			pConqCity:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes)
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[5], iActiveTradeRoutes)
 		end
 	end
 
-	if bHasKilwa then	
+	if g_tWorldWonderExists[6] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eKilwa) then
-			eKilwaOwner = eNewOwner
+		if pConqCity:IsHasBuilding(g_tWorldWonder[6]) then
+			g_tWorldWonderOwner[6] = eNewOwner
 			
-			pConqCity:SetNumRealBuilding(eKilwaDummy, 1)
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[6], 1)
 		end
 	end
 
-	if bHasMarae then	
+	if g_tWorldWonderExists[7] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eMarae) then
-			eMaraeOwner = eNewOwner
+		if pConqCity:IsHasBuilding(g_tWorldWonder[7]) then
+			g_tWorldWonderOwner[7] = eNewOwner
 			
-			pConqCity:SetNumRealBuilding(eMaraeDummy, 1)
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[7], 1)
 		end
 	end
 
-	if bHasKuk then	
+	if g_tWorldWonderExists[8] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eKuk) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[8]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(eKukDummy, 0)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[8], 0)
 			end
 			
 			local pNewOwner = Players[eNewOwner]
-			eKukOwner = eNewOwner
+			g_tWorldWonderOwner[8] = eNewOwner
 			
 			for city in pNewOwner:Cities() do
-				city:SetNumRealBuilding(eKukDummy, 1)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[8], 1)
 			end		
 		else
-			if eNewOwner == eKukOwner then
-				pConqCity:SetNumRealBuilding(eKukDummy, 1)
+			if eNewOwner == g_tWorldWonderOwner[8] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[8], 1)
 			else
-				pConqCity:SetNumRealBuilding(eKukDummy, 0)
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[8], 0)
 			end
 		end
 	end
 
-	if bHasStPeters then	
+	if g_tWorldWonderExists[9] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(eStPeters) then
-			eStPetersOwner = eNewOwner
+		if pConqCity:IsHasBuilding(g_tWorldWonder[9]) then
+			g_tWorldWonderOwner[9] = eNewOwner
 			
-			pConqCity:SetNumRealBuilding(eStPetersDummy, 1)
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[9], 1)
 		end
 	end
 
-	if bHasPanamaCanal then	
+	if g_tWorldWonderExists[10] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(ePanamaCanal) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[10]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
-				city:SetNumRealBuilding(ePanamaCanalDummy, 0)
+				city:SetNumRealBuilding(g_tWorldWonderDummy[10], 0)
 			end
 			
 			local pNewOwner = Players[eNewOwner]
-			ePanamaCanalOwner = eNewOwner
+			g_tWorldWonderOwner[10] = eNewOwner
 			
 			for city in pNewOwner:Cities() do
 				if city:IsCoastal(10) then
-					city:SetNumRealBuilding(ePanamaCanalDummy, 1)
+					city:SetNumRealBuilding(g_tWorldWonderDummy[10], 1)
 				end
 			end		
 		else
-			if eNewOwner == ePanamaCanalOwner and pConqCity:IsCoastal(10) then
-				pConqCity:SetNumRealBuilding(ePanamaCanalDummy, 1)
-			elseif eNewOwner ~= ePanamaCanalOwner then
-				pConqCity:SetNumRealBuilding(ePanamaCanalDummy, 0)
+			if eNewOwner == g_tWorldWonderOwner[10] and pConqCity:IsCoastal(10) then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[10], 1)
+			elseif eNewOwner ~= g_tWorldWonderOwner[10] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[10], 0)
+			end
+		end
+	end
+
+	if g_tWorldWonderExists[11] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[11]) then
+			local pOldOwner = Players[eOldOwner]
+			
+			for city in pOldOwner:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[11], 0)
+			end
+			
+			local pNewOwner = Players[eNewOwner]
+			g_tWorldWonderOwner[11] = eNewOwner
+			
+			for city in pNewOwner:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[11], 1)
+			end		
+		else
+			if eNewOwner == g_tWorldWonderOwner[11] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[11], 1)
+			else
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[11], 0)
 			end
 		end
 	end
@@ -561,59 +546,68 @@ GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
 -- check if new city has effects
 function BuildDummyInNewCity(ePlayer, iX, iY)
-	if bHasChevaliers then
-		if ePlayer == eChevaliersOwner then
+	if g_tWorldWonderExists[1] then
+		if ePlayer == g_tWorldWonderOwner[1] then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			if not pCity:IsCoastal(10) then
-				pCity:SetNumRealBuilding(eChevaliersDummy, 1)
+				pCity:SetNumRealBuilding(g_tWorldWonderDummy[1], 1)
 			end
 		end
 	end
 
-	if bHasItsukushima then
-		if ePlayer == eItsukushimaOwner then
+	if g_tWorldWonderExists[2] then
+		if ePlayer == g_tWorldWonderOwner[2] then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			if pCity:IsCoastal(10) then
-				pCity:SetNumRealBuilding(eItsukushimaDummy, 1)
+				pCity:SetNumRealBuilding(g_tWorldWonderDummy[2], 1)
 			end
 		end
 	end
 
-	if bHasSunGate then
-		if ePlayer == eSunGateOwner then
+	if g_tWorldWonderExists[4] then
+		if ePlayer == g_tWorldWonderOwner[4] then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
 				if pCity:IsHasBuilding(building.Type) then
-					pCity:SetNumRealBuilding(eSunGateDummy, 1)
+					pCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 					break
 				end
 			end
 		end
 	end
 
-	if bHasKuk then
-		if ePlayer == eKukOwner then
+	if g_tWorldWonderExists[8] then
+		if ePlayer == g_tWorldWonderOwner[8] then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
-			pCity:SetNumRealBuilding(eKukDummy, 1)
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[8], 1)
 		end
 	end
 
-	if bHasPanamaCanal then
-		if ePlayer == ePanamaCanalOwner then
+	if g_tWorldWonderExists[10] then
+		if ePlayer == g_tWorldWonderOwner[10] then
 			local pPlot = Map.GetPlot(iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			if pCity:IsCoastal(10) then
-				pCity:SetNumRealBuilding(ePanamaCanalDummy, 1)
+				pCity:SetNumRealBuilding(g_tWorldWonderDummy[10], 1)
 			end
+		end
+	end
+
+	if g_tWorldWonderExists[11] then
+		if ePlayer == g_tWorldWonderOwner[11] then
+			local pPlot = Map.GetPlot(iX, iY)
+			local pCity = pPlot:GetWorkingCity()
+			
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[11], 1)
 		end
 	end
 end
@@ -621,8 +615,8 @@ GameEvents.PlayerCityFounded.Add(BuildDummyInNewCity)
 
 -- check if unit action changed
 function SetDummiesOnUnitActionChange(ePlayer, iUnit)
-	if bHasQalhat then
-		if ePlayer == eQalhatOwner then
+	if g_tWorldWonderExists[3] then
+		if ePlayer == g_tWorldWonderOwner[3] then
 			local pPlayer = Players[ePlayer]
 			local pUnit = pPlayer:GetUnitByID(iUnit)
 		
@@ -637,7 +631,7 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 			for _, player in ipairs(Players) do
 				if player:IsAlive() then
 					for city in player:Cities() do
-						if city:IsHasBuilding(eQalhat) then
+						if city:IsHasBuilding(g_tWorldWonder[3]) then
 							for _, trader in ipairs(Players) do
 								if not trader:IsEverAlive() then break end
 						
@@ -651,7 +645,7 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 								end
 							end
 
-							city:SetNumRealBuilding(eQalhatDummy, iSeaTradeRoutesWithMajors)
+							city:SetNumRealBuilding(g_tWorldWonderDummy[3], iSeaTradeRoutesWithMajors)
 							return
 						end
 					end
@@ -660,41 +654,33 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 		end
 	end
 
-	if bHasZimbabwe then
-		if ePlayer == eZimbabweOwner then
+	if g_tWorldWonderExists[5] then
+		if ePlayer == g_tWorldWonderOwner[5] then
 			local pPlayer = Players[ePlayer]
 			local pUnit = pPlayer:GetUnitByID(iUnit)
 			if pUnit == nil then return end 	
 		
 			local iUnitClass = pUnit:GetUnitClassType()
-			print("Unit action just changed")
+			
 			if iUnitClass ~= eUnitClassCargo and iUnitClass ~= eUnitClassCaravan then return end
-			print("Zimbabwe - trade unit action changed")
+			
 			local iActiveTradeRoutes = 0
 
 			for _, player in ipairs(Players) do
-				print("Zimbabwe - player: ", player:GetName())
 				if player:IsAlive() then
-					print("Zimbabwe - player is alive")
 					for city in player:Cities() do
-						print("Zimbabwe - city: ", city:GetName())
-						if city:IsHasBuilding(eZimbabwe) then
-							print("Zimbabwe - city has Zimbabwe")
+						if city:IsHasBuilding(g_tWorldWonder[5]) then
 							for _, trader in ipairs(Players) do
 								if not trader:IsEverAlive() then break end
-								print("Zimbabwe - trader is alive")
+								
 								for _, tradeRoute in ipairs(trader:GetTradeRoutes()) do
-									print("Zimbabwe - tr id", tradeRoute.FromID, tradeRoute.ToID, tradeRoute.TurnsLeft)
 									if tradeRoute.FromID == ePlayer then
-										print("Zimbabwe - tr analyse", tradeRoute.FromID)									
 										iActiveTradeRoutes = iActiveTradeRoutes + 1
-										print("Zimbabwe - tr analyse", iActiveTradeRoutes)
 									end
 								end
 							end
 
-							city:SetNumRealBuilding(eZimbabweDummy, iActiveTradeRoutes)
-							print("Zimbabwe - found", iActiveTradeRoutes, "active trade routes and set those dummies in", city:GetName())
+							city:SetNumRealBuilding(g_tWorldWonderDummy[5], iActiveTradeRoutes)
 							return
 						end
 					end

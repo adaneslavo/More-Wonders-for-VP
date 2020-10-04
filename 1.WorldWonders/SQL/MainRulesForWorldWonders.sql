@@ -2,6 +2,16 @@
 -- Automatic changes applied to all new Wonders
 -- Dec 9, 2017: Created, Infixo
 -- Jan 6, 2020: Improved, adan_eslavo
+--------------------------------------------------------------
+/*
+Two versions of new quote recordings for wonders!
+0 = Man;
+1 = Woman (Default);
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,			Value)
+VALUES	('MW-SPEECH', 	0);
 --============================================--
 -- Table with new Wonder Types
 --============================================--
@@ -10,7 +20,7 @@ CREATE TABLE MWfVPConfig (
 	WDummy			TEXT			NOT NULL,		-- Name for dummy buildings
 	WActive			INTEGER			NOT NULL,		-- 1 = Wonder active / 0 = Wonder not active
 	WFake			INTEGER			NOT NULL,		-- 1 = Fake texts / 0 = Real texts
-	WHasSound		INTEGER			NOT NULL,		-- 1 = HasSound / 0 = Not
+	WHasSound		INTEGER			NOT NULL,		-- 1 = Quote recording / 0 = No recording
 	PRIMARY KEY (WType)
 );
 --============================================--
@@ -18,10 +28,11 @@ CREATE TABLE MWfVPConfig (
 --============================================--
 -- Use below table to DISABLE a specific Wonder
 -- Change the 1st number to 0 (ZERO) to disable.
--- DO NOT CHANGE 2ND NUMBER!
+-- DO NOT CHANGE ANY OTHER NUMBER!
 -- Example:
--- ('NAZCA',    1, 0), -- Brooklyn is ENABLED
--- ('NAZCA',    0, 0), -- Brooklyn is DISABLED
+-- (WType,		WDummy,	WActive,	WFake,	WHasSound)
+-- ('NAZCA',	'None'	1,			0,		1),			-- Nazca is ENABLED
+-- ('NAZCA',	'None'	0,			0,		1),			-- Nazca is DISABLED
 --------------------------------------------------------------
 INSERT INTO MWfVPConfig	
 			(WType,					WDummy,		WActive,	WFake,	WHasSound)
@@ -80,40 +91,41 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('RUHR_VALLEY',			'None',		1,			0,		1),		-- Ruhr Valley
 			('DARJEELING',			'None',		1,			0,		1),		-- Darjeeling Himalayan Railway
 			('BANFF',				'None',		1,			0,		1),		-- Banff Springs Hotel
-			('ORSZAGHAZ',			'None',		1,			0,		1);		-- Orszaghaz
+			('ORSZAGHAZ',			'None',		1,			0,		1),		-- Orszaghaz
 			----------------------------------------------------------------------------------------
 			--('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
 			--('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
 			--('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
 			--('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
 			--('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
-			--('HOLLYWOOD',			'None',		1,			0,		0);		-- Hollywood
+			--('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
 			--('CONCORDE',			'None',		1,			0,		0),		-- Concorde
 			--('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
-			--('RUSHMORE',			'None',		1,			0,		0);		-- Mount Rushmore
-
-
---('ARECIBO',     1, 0), -- Arecibo Observatory
---('ANITKABIR',   1, 0), -- Anitkabir Mausoleum
---('JUMEIRAH',    1, 0), -- Palm Jumeirah
---('MARINASANDS', 1, 1), -- Marina Bay Sands
---('METEORA',	  1, 1), -- Monastery of the Holy Trinity (Meteora)
---('MILLAU',      1, 0), -- Millau Viaduct
---('PETRONAS',    1, 1), -- The Petronas Towers
---('SKYTREE',     1, 1), -- Tokyo Skytree
---('SPUTNIK',     1, 0), -- Sputnik Program, The
---('TAIPEI101',   1, 0), -- Taipei 101
---('WHITESANDS',  1, 0), -- White Sands Missile Range
---------------------------------------------------------------
-/*
-Two versions of speeches for new wonders!
-0 = Man;
-1 = Woman (Default);
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,			Value)
-VALUES	('MW-SPEECH', 	0);
+			--('RUSHMORE',			'None',		1,			0,		0),		-- Mount Rushmore
+			----------------------------------------------------------------------------------------
+			--('GREAT_HALL',			'None',		1,			0,		0),		-- Great Hall of China
+			--('HABITAT',				'None',		1,			0,		0),		-- Habitat 67
+			--('MARACANA',			'None',		1,			0,		0),		-- Estadio do Maracana
+			--('VOSTOK',				'None',		1,			0,		0),		-- Vostok Station
+			--('NUCLEAR_FACILITY',	'None',		1,			0,		0),		-- Tehran Nuclear Research Facility
+			--('JFK',					'None',		1,			0,		0),		-- JFK Space Center
+			--('SPUTNIK',				'None',		1,			0,		0),		-- Sputnik Program
+			--('ANITKABIR',			'None',		1,			0,		0),		-- Anitkabir Mausoleum
+			--('THULE',				'None',		1,			0,		0),		-- Thule Airbase
+			--('MILLAU',				'None',		1,			0,		0),		-- Millau Viaduct
+			('WHITE_SANDS',			'None',		1,			0,		0),		-- White Sands Missile Range
+			--('KUMSUSAN',			'None',		1,			0,		0),		-- Kumsusan Palace
+			--('ARECIBO',				'None',		1,			0,		0),		-- Arecibo Observatory
+			----------------------------------------------------------------------------------------
+			--('NORTHERN_LIGHT',		'None',		1,			0,		0),		-- Northern Light Cathedral
+			--('SEED_VAULT',			'None',		1,			0,		0),		-- Svalbard Global Seed Vault
+			('JUMEIRAH',			'None',		1,			0,		0),		-- Palm Jumeirah
+			('TAIPEI',				'None',		1,			0,		0);		-- Taipei 101
+			--('PETRONAS',			'None',		1,			0,		0);		-- Petronas Towers
+			--('SKYTREE',				'None',		1,			0,		0);		-- Skytree
+			--('MARINA_BAY_SANDS',	'None',		1,			0,		0);		-- Marina Bay Sands
+			--('ICE_HOTEL',			'None',		1,			0,		0);		-- Ice Hotel
+			--('ONKALO',				'None',		1,			0,		0);		-- Onkalo Nuclear Waste Repository
 --============================================--
 -- WONDERS INITIAL CONFIGURATION
 --============================================--
@@ -385,7 +397,8 @@ VALUES		('KUK_DUMMY',					'Kuk',						2,			0,		0),
 			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',			2,			0,		0),
 			('MARAE_DUMMY',					'Marae Arahurahu',			2,			0,		0),
 			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',	2,			0,		0),
-			('PANAMA_CANAL_DUMMY',			'Panama Canal',				2,			0,		0);
+			('PANAMA_CANAL_DUMMY',			'Panama Canal',				2,			0,		0),
+			('JUMEIRAH_DUMMY',				'Palm Jumeirah',			2,			0,		0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

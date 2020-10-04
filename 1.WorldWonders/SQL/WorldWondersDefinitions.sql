@@ -1953,7 +1953,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_DIPLOMACY'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_CARAVAN'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPECIAL_PEOPLE'),
-				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPACESHIP_PARTS'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPACESHIP_PART'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_ARCHAEOLOGIST');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
@@ -2344,26 +2344,122 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --============================================--
 -- ATOMIC ERA
 --============================================--
--- BLETCHEY PARK
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
-
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
-	-- + IsNoCoast (lua)
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
 -- PENTAGON
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_PENTAGON';
 
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PENTAGON';
 	-- + Citadel/Fort(1) (lua)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- WHITE SANDS MISSILE RANGE (NEW)
+	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_WHITE_SANDS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_WHITE_SANDS';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_WHITE_SANDS', SpecialistType = 'SPECIALIST_SCIENTIST', SpaceProductionModifier = 50 WHERE Type = 'BUILDING_WHITE_SANDS';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,							Yield)
+	VALUES		('BUILDING_WHITE_SANDS',	'YIELD_SCIENCE',				3),
+				('BUILDING_WHITE_SANDS',	'YIELD_GREAT_GENERAL_POINTS',	1);
+
+	INSERT INTO Building_FreeUnits
+				(BuildingType,				UnitType,				NumUnits)
+	VALUES		('BUILDING_WHITE_SANDS',	'UNIT_GUIDED_MISSILE',	3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,				UnitCombatType,			Modifier)
+	VALUES		('BUILDING_WHITE_SANDS',	'UNITCOMBAT_MISSILE',	50);
+
+	INSERT INTO UnitPromotions 
+				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					2,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,				UnitCombatType)
+	VALUES		('PROMOTION_WHITE_SANDS',	'UNITCOMBAT_MISSILE');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_WHITE_SANDS',	'FLAVOR_SPACESHIP',		50),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_PRODUCTION',	40),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_OFFENSE',		40),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_SCIENCE',		10),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_AIR',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- BLETCHEY PARK
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+	-- + IsNoCoast (lua)
 --============================================--
 -- INFORMATION ERA
 --============================================--
--- SYDNEY OPERA HOUSE
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+-- PALM JUMEIRAH (NEW)
+	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_JUMEIRAH';
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_JUMEIRAH',	'YIELD_GOLD',		2),
+				('BUILDING_JUMEIRAH',	'YIELD_TOURISM',	5);
 
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-	-- + GW_of_Music(3) (lua)
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,			TerrainType,			YieldType,				Yield) 
+	VALUES		('BUILDING_JUMEIRAH',	'TERRAIN_DESERT',		'YIELD_PRODUCTION',		3);
+	
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,				FeatureType,		YieldType,				Yield) 
+	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		6);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_JUMEIRAH',	'RESOURCE_OIL',		'YIELD_GOLD',		6);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,			YieldIn,			YieldOut,			Value) 
+	VALUES		('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_GOLD',		15),
+				('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_TOURISM',	25);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_JUMEIRAH',	'FLAVOR_PRODUCTION',	30),
+				('BUILDING_JUMEIRAH',	'FLAVOR_GOLD',			60),
+				('BUILDING_JUMEIRAH',	'FLAVOR_CULTURE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TAIPEI (NEW)
+	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_ADVANCED_BALLISTICS', NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_TAIPEI';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAIPEI';
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1, MinorFriendshipChange = 50 WHERE Type = 'BUILDING_TAIPEI';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_TAIPEI',	'YIELD_SCIENCE',	1),
+				('BUILDING_TAIPEI',	'YIELD_GOLD',		4),
+				('BUILDING_TAIPEI',	'YIELD_CULTURE',	1),
+				('BUILDING_TAIPEI',	'YIELD_TOURISM',	2);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,		SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_TAIPEI',	'SPECIALIST_ENGINEER',	'YIELD_SCIENCE',	1);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,		BuildingClassType,				YieldType,		YieldChange) 
+	VALUES		('BUILDING_TAIPEI',	'BUILDINGCLASS_BANK',			'YIELD_GOLD',	2),
+				('BUILDING_TAIPEI',	'BUILDINGCLASS_STOCK_EXCHANGE',	'YIELD_GOLD',	2);
+	
+	INSERT INTO Building_ImprovementYieldChanges
+				(BuildingType,		ImprovementType,				YieldType,			Yield) 
+	VALUES		('BUILDING_TAIPEI',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_GOLD',		3),
+				('BUILDING_TAIPEI',	'IMPROVEMENT_TRADING_POST',		'YIELD_GOLD',		3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_TAIPEI',	'FLAVOR_SCIENCE',		10),
+				('BUILDING_TAIPEI',	'FLAVOR_GOLD',			70),
+				('BUILDING_TAIPEI',	'FLAVOR_DIPLOMACY',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CN TOWER
@@ -2373,9 +2469,19 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	-- + Happinesst(80) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- SYDNEY OPERA HOUSE
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET PrereqTech = 'TECH_TELECOM' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	-- + GW_of_Music(3) (lua)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- HUBBLE SPACE TELESCOPE
-	UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_HUBBLE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET PrereqTech = 'TECH_LASERS' WHERE Type = 'BUILDING_HUBBLE';
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
@@ -2491,14 +2597,14 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
 VALUES		('TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE',		'Great People'),
-			('TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS',		'Space Parts'),
+			('TXT_KEY_UNITCOMBAT_SPACESHIP_PART',		'Space Parts'),
 			('TXT_KEY_UNITCOMBAT_MISSILE',				'Missiles'),
 			('TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST',		'Archaeologists');
 
 INSERT INTO UnitCombatInfos 
 			(Type,							Description) 
 VALUES		('UNITCOMBAT_SPECIAL_PEOPLE',	'TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE'),
-			('UNITCOMBAT_SPACESHIP_PARTS',	'TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS'),
+			('UNITCOMBAT_SPACESHIP_PART',	'TXT_KEY_UNITCOMBAT_SPACESHIP_PART'),
 			('UNITCOMBAT_MISSILE',			'TXT_KEY_UNITCOMBAT_MISSILE'),
 			('UNITCOMBAT_ARCHAEOLOGIST',	'TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST');
 
@@ -2507,6 +2613,6 @@ UPDATE Units SET CombatClass = 'UNITCOMBAT_SIEGE'			WHERE Type ='UNIT_ASSYRIAN_S
 UPDATE Units SET CombatClass = 'UNITCOMBAT_SPECIAL_PEOPLE'	WHERE Special ='SPECIALUNIT_PEOPLE';
 UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Special ='SPECIALUNIT_MISSILE';
 UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Type ='UNIT_ATOMIC_BOMB';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_SPACESHIP_PARTS' WHERE DefaultUnitAI ='UNITAI_SPACESHIP_PART';
+UPDATE Units SET CombatClass = 'UNITCOMBAT_SPACESHIP_PART' WHERE DefaultUnitAI ='UNITAI_SPACESHIP_PART';
 --------------------------------------------------------------
 --------------------------------------------------------------

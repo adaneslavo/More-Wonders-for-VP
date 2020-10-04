@@ -25,16 +25,16 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_RETBA"],
 	GameInfoTypes["FEATURE_DALLOL"]
 }
-local iWonderWithDummies = 19
+local g_iWonderWithDummies = 19
 
 local g_tNaturalWonderOwner = {}
 local g_tNaturalWonderExists = {}
-	for i = 1, iWonderWithDummies do
+	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderExists[i] = false
 	end
 
 local g_tNaturalWonderSkip = {}
-	for i = 1, iWonderWithDummies do
+	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderSkip[i] = false
 	end
 	g_tNaturalWonderSkip[16] = true
@@ -65,13 +65,13 @@ local g_tNaturalWonderDummy = {
 }
 
 local g_tNaturalWonderDummy2 = {}
-	for i = 1, iWonderWithDummies do
+	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummy2[i] = false
 	end
 	g_tNaturalWonderDummy2[9] = GameInfoTypes["BUILDING_FUJI_2_DUMMY"]
 
 local g_tNaturalWonderDummy3 = {}
-	for i = 1, iWonderWithDummies do
+	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummy3[i] = false
 	end
 	g_tNaturalWonderDummy3[9] = GameInfoTypes["BUILDING_FUJI_3_DUMMY"]

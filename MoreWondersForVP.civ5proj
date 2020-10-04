@@ -1275,7 +1275,7 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="WorldWondersDistribution.ods">
+    <Content Include="WorldWonders.ods">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -2387,201 +2387,177 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Anitkabir_splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Anitkabir_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Arecibo_splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Arecibo_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Millau_splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Millau_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Sputnik_splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Sputnik_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_WhiteSands_Splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_White_Sands_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_128.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_256.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_45.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_64.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_80.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\VPWE_Willis_splash.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Jumeirah_Splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_128.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_256.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_45.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_64.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_80.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Jumeirah_Splash.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Taipei_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\VPWE_Taipei101_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\8.Information\Wonder_CERN_splash.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Lua\(unused).lua">
       <SubType>Lua</SubType>
