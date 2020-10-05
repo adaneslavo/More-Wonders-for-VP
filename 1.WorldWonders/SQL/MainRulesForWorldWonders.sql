@@ -112,10 +112,10 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			--('SPUTNIK',				'None',		1,			0,		0),		-- Sputnik Program
 			--('ANITKABIR',			'None',		1,			0,		0),		-- Anitkabir Mausoleum
 			--('THULE',				'None',		1,			0,		0),		-- Thule Airbase
-			--('MILLAU',				'None',		1,			0,		0),		-- Millau Viaduct
 			('WHITE_SANDS',			'None',		1,			0,		0),		-- White Sands Missile Range
+			('MILLAU',				'None',		1,			0,		0),		-- Millau Viaduct
 			--('KUMSUSAN',			'None',		1,			0,		0),		-- Kumsusan Palace
-			--('ARECIBO',				'None',		1,			0,		0),		-- Arecibo Observatory
+			('ARECIBO',				'None',		1,			0,		0),		-- Arecibo Observatory
 			----------------------------------------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0,		0),		-- Northern Light Cathedral
 			--('SEED_VAULT',			'None',		1,			0,		0),		-- Svalbard Global Seed Vault
@@ -398,6 +398,7 @@ VALUES		('KUK_DUMMY',					'Kuk',						2,			0,		0),
 			('MARAE_DUMMY',					'Marae Arahurahu',			2,			0,		0),
 			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',	2,			0,		0),
 			('PANAMA_CANAL_DUMMY',			'Panama Canal',				2,			0,		0),
+			('ARECIBO_DUMMY',				'Arecibo Observatory',		2,			0,		0),
 			('JUMEIRAH_DUMMY',				'Palm Jumeirah',			2,			0,		0);
 
 INSERT INTO BuildingClasses 

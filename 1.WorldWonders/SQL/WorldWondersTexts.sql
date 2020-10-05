@@ -1579,12 +1579,12 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_WHITE_SANDS',		'White Sands Missile Range'),
 			('TXT_KEY_WONDER_WHITE_SANDS_QUOTE',	'[NEWLINE]"What is pride? A rocket that emulates the stars."[NEWLINE] - William Wordsworth[NEWLINE]'),
 			('TXT_KEY_WONDER_WHITE_SANDS_PEDIA',	'The White Sands Missile Range is US largest military installation at almost 8300 square kilometres (3200 square miles) of New Mexico desert. The area was first designated a military site in 1941, when the Alamogordo Army Airfield was established. This site was used for the first Atomic bomb test (The Trinity test) in July 1945, by which time it had been renamed White Sands proving ground.[NEWLINE][NEWLINE]  Since then, the site has been heavily involved in experimental projects and test firings of both militaristic and exploratory projects, including captured V-2 ballistic missiles, the Apollo escape system and as a landing strip for the early Space Shuttle tests. It has been designated a National Historic Site for its role in Space Race testing, and continues to have frequent missile tests.'),
-			('TXT_KEY_WONDER_WHITE_SANDS_HELP',		'Grants 3 free [COLOR_POSITIVE_TEXT]Guided Missiles[ENDCOLOR]. +50% [ICON_PRODUCTION] Production in this City when building Spaceship Parts or Missiles. Missile units get [COLOR_POSITIVE_TEXT]White Sands Facility[ENDCOLOR] promotion which extends +2 [ICON_RANGE_STRENGTH] Operational Range.'),
+			('TXT_KEY_WONDER_WHITE_SANDS_HELP',		'Grants 3 free [COLOR_POSITIVE_TEXT]Guided Missiles[ENDCOLOR]. +35% [ICON_PRODUCTION] Production in this City when building Spaceship Parts or Missiles. Missile units get [COLOR_POSITIVE_TEXT]White Sands Facility[ENDCOLOR] promotion which extends +2 [ICON_RANGE_STRENGTH] Operational Range.'),
 			('TXT_KEY_PROMOTION_WHITE_SANDS',		'White Sands Facility'),
 			('TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'+2 [ICON_SWAP] Range.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]). New technologies made the rocket production easy and cheap (+50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missiles[ENDCOLOR], [COLOR_YIELD_GOLD]Spaceship Parts[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]). Using latest technologies rockets are cheap and easy to manufacture (+35%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missiles[ENDCOLOR], [COLOR_YIELD_GOLD]Spaceship Parts[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_WHITE_SANDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1592,6 +1592,42 @@ SELECT 'TXT_KEY_WONDER_WHITE_SANDS_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_WHITE_SANDS_HELP';
 				
 UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WHITE_SANDS_HELP';
+----------------------------------------------------
+-- Millau Viaduct
+INSERT INTO Language_en_US 
+			(Tag,							Text)
+VALUES		('TXT_KEY_BUILDING_MILLAU',		'Millau Viaduct'),
+			('TXT_KEY_WONDER_MILLAU_QUOTE',	'[NEWLINE]"Above the cloud with its shadow is the star with its light. Above all things reverence thyself."[NEWLINE] - Pythagoras[NEWLINE]'),
+			('TXT_KEY_WONDER_MILLAU_PEDIA',	'The Millau Viaduct is a cable stayed suspension bridge located in the South of France, spanning the Tarn River valley in Millau. It has a length of 2,460 metres and is the tallest bridge in the world, the highest point being 343 metres from the base. The Viaduct is part of a highway from Paris to Montpiller, in southern France. It is also the tallest structure in France, with the P2 Pillar being taller than the Eifel Tower. The route for the highway was chosen in 1989, with construction beginning in 2001 and taking 5 years.'),
+			('TXT_KEY_WONDER_MILLAU_HELP',	'+10% [ICON_TOURISM] Tourism in your Empire. Converts 10% of [ICON_PRODUCTION] Production into [ICON_TOURISM] Tourism. 2 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Millau Viaduct[ENDCOLOR] connects two sides of valley very difficult to pass without such construction, making life of local and more distant citizens (-3[ICON_HAPPINESS_3] Urbanization; +1[ICON_HAPPINESS_1]) or tourists (+10%[ICON_TOURISM][ICON_TOURISM]; 10%[ICON_PRODUCTION] into [ICON_TOURISM]) much easier. It also serves as a new shorter way of transporting goods in your country (Sea [ICON_INTERNATIONAL_TRADE]: +100%[ICON_SWAP]).'
+WHERE Tag = 'TXT_KEY_WONDER_MILLAU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_MILLAU_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MILLAU_HELP';
+				
+UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MILLAU_HELP';
+----------------------------------------------------
+-- Arecibo Observatory
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_ARECIBO',		'Arecibo Observatory'),
+			('TXT_KEY_WONDER_ARECIBO_QUOTE',	'[NEWLINE]"The surface of the Earth is the shore of the cosmic ocean. From it we have learned most of what we know. Recently, we have waded a little out to sea, enough to dampen our toes or, at most, wet our ankles. The water seems inviting. The ocean calls."[NEWLINE] - Carl Sagan[NEWLINE]'),
+			('TXT_KEY_WONDER_ARECIBO_PEDIA',	'The Arecibo Observatory is the world''s largest Radio Telescope, at 305 metres (1000 feet) in width. It was constructed in 1963 in a naturally-formed sinkhole near Arecibo, Puerto Rico. It consists of the dish, which is on the ground, and a large reciever suspended above the dish by three towers which vary in height due to ground elevation.[NEWLINE][NEWLINE]  Since its construction in 1963, the observatory has been used for a variety of different purposes. Originally designed to study Earth''s Ionosphere (The layer of Earth''s atmosphere above 85 kilometres where solar radiation still affects the atmosphere. Auroras form in this layer), the Arecibo Observatory has since made a variety of discoveries and been used for several research projects. In 1990, the telescope was used to discover the first ever known Exo-planets (Planets existing outside our own Solar System). It was also used to discover Neutron stars (stars that half half a million times more mass than Earth in an area equivalent to the size of Brooklyn, New York). It has also been used for countless other astronomical discoveries.[NEWLINE][NEWLINE]  In 1974, the Observatory sent a message of binary characters, consisting of the numbers 1 to 10, DNA makeup, the solar system and more information, towards a star cluster known as globular cluser M13, around 25,000 light years away, in the hope of contacting intelligent life.'),
+			('TXT_KEY_WONDER_ARECIBO_HELP',		'+2 Scientist slots. +1 [ICON_RESERCH] Science from all Mountain tiles in your Empire. +2 [ICON_RESERCH] Science from all Scientist Specialists in your Empire. +3 [ICON_RESERCH] Science from Observatories in your Empire. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Arecibo Observatory[ENDCOLOR], scientific milestone, built on [COLOR_CITY_BLUE]Mountain[ENDCOLOR] (+3[ICON_RESEARCH]/[ICON_FLOWER][ICON_FLOWER]) and hiring specialists (+2 slots for [ICON_GREAT_SCIENTIST]; +2[ICON_RESEARCH]/[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]) to boost science in many knowledge domains (+2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Observatory[ENDCOLOR]). This can be a solution to unify scientists from all over the world (+1[ICON_DIPLOMAT] League Vote).'
+WHERE Tag = 'TXT_KEY_WONDER_ARECIBO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_ARECIBO_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ARECIBO_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ARECIBO_HELP';
 ----------------------------------------------------
 -- Pentagon
 UPDATE Language_en_US
