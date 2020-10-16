@@ -93,9 +93,9 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('BANFF',				'None',		1,			0,		1),		-- Banff Springs Hotel
 			('ORSZAGHAZ',			'None',		1,			0,		1),		-- Orszaghaz
 			----------------------------------------------------------------------------------------
-			--('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
-			--('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
-			--('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
+			('POLAR_EXPEDITION',	'None',		1,			0,		0),		-- First Polar Expedition
+			('AKIHABARA',			'None',		1,			0,		0),		-- Akihabara Trade Center
+			('ROCKEFELLER',			'None',		1,			0,		0),		-- Rockefeller Center
 			--('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
 			--('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
 			--('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
@@ -398,6 +398,7 @@ VALUES		('KUK_DUMMY',					'Kuk',						2,			0,		0),
 			('MARAE_DUMMY',					'Marae Arahurahu',			2,			0,		0),
 			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',	2,			0,		0),
 			('PANAMA_CANAL_DUMMY',			'Panama Canal',				2,			0,		0),
+			('ROCKEFELLER_DUMMY',			'Rockefeller Center',		2,			0,		0),
 			('ARECIBO_DUMMY',				'Arecibo Observatory',		2,			0,		0),
 			('JUMEIRAH_DUMMY',				'Palm Jumeirah',			2,			0,		0);
 

@@ -2292,6 +2292,34 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	-- + Specialists(5) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- POLAR EXPEDITION (NEW)
+	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_BIOLOGY', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,					Yield)
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'YIELD_SCIENCE',			6),
+				('BUILDING_POLAR_EXPEDITION',	'YIELD_GOLDEN_AGE_POINTS',	2);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,					SpecialistType,			YieldType,					Yield) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'SPECIALIST_SCIENTIST',	'YIELD_SCIENCE',			1),
+				('BUILDING_POLAR_EXPEDITION',	'SPECIALIST_SCIENTIST',	'YIELD_GOLDEN_AGE_POINTS',	1);
+	
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,					TerrainType,		YieldType,				Yield) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'TERRAIN_SNOW',		'YIELD_SCIENCE',		2);
+
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,					ResourceType,		NumPlots) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'RESOURCE_OIL',		3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_POLAR_EXPEDITION',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- EMPIRE STATE BUILDING
 	UPDATE Buildings SET NumPoliciesNeeded = 18, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
@@ -2301,6 +2329,60 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,						ResourceType) 
 	VALUES		('BUILDING_EMPIRE_STATE_BUILDING',	'RESOURCE_ALUMINUM');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- AKIHABARA ELECTRIC TOWN (NEW)
+	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_ELECTRICITY', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_AKIHABARA';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_AKIHABARA';
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_MERCHANT', SpecialistCount = 2 WHERE Type = 'BUILDING_AKIHABARA';
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_AKIHABARA',	'SPECIALIST_MERCHANT',	'YIELD_PRODUCTION',	2);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_PRODUCTION',	1),
+				('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_GOLD',		2),
+				('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,			ImprovementType,				YieldType,			Yield) 
+	VALUES		('BUILDING_AKIHABARA',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_PRODUCTION',	1),
+				('BUILDING_AKIHABARA',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_GOLD',		1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_AKIHABARA',	'FLAVOR_GOLD',			50),
+				('BUILDING_AKIHABARA',	'FLAVOR_PRODUCTION',	60),
+				('BUILDING_AKIHABARA',	'FLAVOR_CULTURE',		20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ROCKEFELLER CENTER (NEW)
+	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_CORPORATIONS', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_ROCKEFELLER';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_ROCKEFELLER';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_LABORATORY' WHERE Type = 'BUILDING_ROCKEFELLER';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		10),
+				('BUILDING_ROCKEFELLER',		'YIELD_CULTURE',	2),
+				('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_GOLD',		3);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,				BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_ROCKEFELLER',	'BUILDINGCLASS_HOSPITAL',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_YieldFromPurchase
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_ROCKEFELLER',	'YIELD_CULTURE',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ROCKEFELLER',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_ROCKEFELLER',	'FLAVOR_DIPLOMACY',		20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MOTHERLAND CALLS
@@ -2353,9 +2435,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WHITE SANDS MISSILE RANGE (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_WHITE_SANDS';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_WHITE_SANDS';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_WHITE_SANDS';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_WHITE_SANDS', SpecialistType = 'SPECIALIST_SCIENTIST', SpaceProductionModifier = 35 WHERE Type = 'BUILDING_WHITE_SANDS';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_WHITE_SANDS', SpaceProductionModifier = 35 WHERE Type = 'BUILDING_WHITE_SANDS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,							Yield)
@@ -2396,7 +2478,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MILLAU VIADUCT (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_COMPUTERS', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_MILLAU';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MILLAU';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MILLAU';
 	---------------------------------------------------------
 	UPDATE Buildings SET Happiness = 1, TradeRouteLandDistanceModifier = 100, NoUnhappfromXSpecialists = 2 WHERE Type = 'BUILDING_MILLAU';
 
@@ -2422,7 +2504,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ARECIBO OBSERVATORY (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_RADAR', NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_ARECIBO';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ARECIBO';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_ARECIBO';
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 2 WHERE Type = 'BUILDING_ARECIBO';
 	
@@ -2451,7 +2533,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --============================================--
 -- PALM JUMEIRAH (NEW)
 	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_JUMEIRAH';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_JUMEIRAH';
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2484,7 +2566,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TAIPEI (NEW)
 	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_ADVANCED_BALLISTICS', NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_TAIPEI';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAIPEI';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_TAIPEI';
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, MinorFriendshipChange = 50 WHERE Type = 'BUILDING_TAIPEI';
 	

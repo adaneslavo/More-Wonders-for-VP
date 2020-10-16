@@ -35,6 +35,7 @@ local tValidIsHasCitizens = {}
 local tValidIsHasCities = {}
 local tValidIsHasSpecialists = {}
 local tValidIsHasPlotsForResources = {}
+local tValidIsHasResearchAgreements = {}
 local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
 
 local bReachedMaxEra
@@ -620,6 +621,31 @@ function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasPlotsForResources)
 
+-- checks if player has research agreements (HUBBLE)
+function IsHasResearchAgreements(ePlayer, eCity, eBuilding)
+	if not tValidIsHasResearchAgreements[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+	print("Hubble")
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local pTeam = Teams[pPlayer:GetTeam()]
+
+	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+		local pTargetPlayer = Players[i]
+				
+		if not pTargetPlayer:IsEverAlive() then break end
+		print("player", i, pTeam:IsHasResearchAgreement(pTargetPlayer:GetTeam()))
+		if pTeam:IsHasResearchAgreement(pTargetPlayer:GetTeam()) then
+			return true
+		end
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasResearchAgreements)
+
 -- temporary FIX for unique buildingclass requirement (ALL)
 function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
@@ -929,9 +955,6 @@ function Initialize()
 	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = {
 		iBuildingClass1 = "BUILDINGCLASS_CONSTABLE"
 	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_HUBBLE.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_OBSERVATORY"
-	}
 	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GREAT_FIREWALL.ID] = {
 		iBuildingClass1 = "BUILDINGCLASS_POLICE_STATION",
 		iBuildingClass2 = "BUILDINGCLASS_WIRE_SERVICE"
@@ -945,11 +968,19 @@ function Initialize()
 
 	-- IsHasSpecialist
 	tValidIsHasSpecialists = {
-		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 5
+		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 10
 	}
 	for id, building in pairs(tValidIsHasSpecialists) do
 		dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, tValidIsHasSpecialists[id])
 	end
+
+	-- IsHasResearchAgreement
+	tValidIsHasResearchAgreements = {
+		[GameInfo.Buildings.BUILDING_HUBBLE.ID] = true
+	}
+	for id, building in pairs(tValidIsHasResearchAgreements) do
+		dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
+	end	
 
 	-- IsHasPlotsForResources
 	tValidIsHasPlotsForResources = {
