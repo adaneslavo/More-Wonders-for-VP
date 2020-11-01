@@ -1656,7 +1656,7 @@ VALUES		('TXT_KEY_BUILDING_MILLAU',		'Millau Viaduct'),
 			('TXT_KEY_WONDER_MILLAU_HELP',	'+10% [ICON_TOURISM] Tourism in your Empire. Converts 10% of [ICON_PRODUCTION] Production into [ICON_TOURISM] Tourism. 2 Specialists in the City no longer generates [ICON_HAPPINESS_3] Unhappiness from Urbanization. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Millau Viaduct[ENDCOLOR] connects two sides of valley very difficult to pass without such construction, making life of local and more distant citizens (-3[ICON_HAPPINESS_3] Urbanization; +1[ICON_HAPPINESS_1]) or tourists (+10%[ICON_TOURISM][ICON_TOURISM]; 10%[ICON_PRODUCTION] into [ICON_TOURISM]) much easier. It also serves as a new shorter way of transporting goods in your country (Sea [ICON_INTERNATIONAL_TRADE]: +100%[ICON_SWAP]).'
+SET Text = '[COLOR_YIELD_FOOD]Millau Viaduct[ENDCOLOR] connects two sides of valley very difficult to pass without such construction, making life of local and more distant citizens (-3[ICON_HAPPINESS_3] Urbanization; +1[ICON_HAPPINESS_1]) or tourists (+10%[ICON_TOURISM][ICON_TOURISM]; 10%[ICON_PRODUCTION] into [ICON_TOURISM]) much easier. It also serves as a new shorter way of transporting goods in your country (Land [ICON_INTERNATIONAL_TRADE]: +100%[ICON_SWAP]).'
 WHERE Tag = 'TXT_KEY_WONDER_MILLAU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
