@@ -23,9 +23,10 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_CAUSEWAY_A"],
 	GameInfoTypes["FEATURE_CAUSEWAY_B"],
 	GameInfoTypes["FEATURE_RETBA"],
+	GameInfoTypes["FEATURE_LUMI_BAY"],
 	GameInfoTypes["FEATURE_DALLOL"]
 }
-local g_iWonderWithDummies = 19
+local g_iWonderWithDummies = 20
 
 local g_tNaturalWonderOwner = {}
 local g_tNaturalWonderExists = {}
@@ -61,6 +62,7 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"],
+	GameInfoTypes["BUILDING_LUMI_BAY_DUMMY"],
 	GameInfoTypes["BUILDING_DALLOL_DUMMY"]
 }
 
