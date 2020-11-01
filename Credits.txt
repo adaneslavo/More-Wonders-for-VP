@@ -56,6 +56,9 @@ Special thanks to:
 		- Trans-Siberian Railway: https://commons.wikimedia.org/wiki/File:The_Trans-Siberian_Railway,_c._1913.jpg (not known)
 		- Holy Crown of Hungary: https://pl.m.wikipedia.org/wiki/Plik:Crown,_Sword_and_Globus_Cruciger_of_Hungary.jpg (CC BY-SA 3.0)
 		- Lake Retba: https://commons.wikimedia.org/wiki/File:Lac_Retba.jpg (CC BY-SA 4.0)
+		- Millau Viaduct: https://commons.wikimedia.org/wiki/File:Viaduc_Millau_P1010248mod.jpg (CC BY-SA 4.0)
+		- Arecibo: https://upload.wikimedia.org/wikipedia/commons/1/1c/Arecibo_radio_telescope_observatory_Puerto_Rico_-_panoramio_%2811%29.jpg (CC BY 3.0)
+		- Rockefeller: https://en.wikipedia.org/wiki/Radio_City_Music_Hall#/media/File:Radio_City_Music_Hall_Panorama.jpg (CC BY-SA 3.0)
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);
