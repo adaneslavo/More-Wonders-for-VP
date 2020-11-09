@@ -387,20 +387,21 @@ VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_
 -- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
 --============================================--
 INSERT INTO MWfVPConfig 
-			(WType,							WDummy,						WActive,	WFake,	WHasSound)
-VALUES		('KUK_DUMMY',					'Kuk',						2,			0,		0),
-			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',			2,			0,		0),
-			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',			2,			0,		0),
-			('ITSUKUSHIMA_DUMMY',			'Itsukushima Shrine',		2,			0,		0),
-			('QALHAT_DUMMY',				'Qalhat',					2,			0,		0),
-			('CHEVALIERS_DUMMY',			'Krak des Chevaliers',		2,			0,		0),
-			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',			2,			0,		0),
-			('MARAE_DUMMY',					'Marae Arahurahu',			2,			0,		0),
-			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',	2,			0,		0),
-			('PANAMA_CANAL_DUMMY',			'Panama Canal',				2,			0,		0),
-			('ROCKEFELLER_DUMMY',			'Rockefeller Center',		2,			0,		0),
-			('ARECIBO_DUMMY',				'Arecibo Observatory',		2,			0,		0),
-			('JUMEIRAH_DUMMY',				'Palm Jumeirah',			2,			0,		0);
+			(WType,							WDummy,									WActive,	WFake,	WHasSound)
+VALUES		('KUK_DUMMY',					'Kuk',									2,			0,		0),
+			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',						2,			0,		0),
+			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',						2,			0,		0),
+			('ITSUKUSHIMA_DUMMY',			'Itsukushima Shrine',					2,			0,		0),
+			('QALHAT_DUMMY',				'Qalhat',								2,			0,		0),
+			('CHEVALIERS_DUMMY',			'Krak des Chevaliers',					2,			0,		0),
+			('KILWA_KISIWANI_DUMMY',		'Kilwa Kisiwani',						2,			0,		0),
+			('MARAE_DUMMY',					'Marae Arahurahu',						2,			0,		0),
+			('ST_PETERS_DUMMY',				'St. Peter''s Basilica',				2,			0,		0),
+			('PANAMA_CANAL_DUMMY',			'Panama Canal',							2,			0,		0),
+			('ROCKEFELLER_DUMMY',			'Rockefeller Center',					2,			0,		0),
+			('ARECIBO_DUMMY',				'Arecibo Observatory',					2,			0,		0),
+			('JUMEIRAH_DUMMY',				'Palm Jumeirah',						2,			0,		0),
+			('DARJEELING_DUMMY',			'Darjeeling Himalayan Railway',			2,			0,		0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

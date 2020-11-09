@@ -21,7 +21,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_PANAMA_CANAL"],
 	GameInfoTypes["BUILDING_JUMEIRAH"],
 	GameInfoTypes["BUILDING_ARECIBO"],
-	GameInfoTypes["BUILDING_ROCKEFELLER"]
+	GameInfoTypes["BUILDING_ROCKEFELLER"],
+	GameInfoTypes["BUILDING_DARJEELING"]
 }
 
 local g_tWorldWonderDummy = {
@@ -37,10 +38,11 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_PANAMA_CANAL_DUMMY"],
 	GameInfoTypes["BUILDING_JUMEIRAH_DUMMY"],
 	GameInfoTypes["BUILDING_ARECIBO_DUMMY"],
-	GameInfoTypes["BUILDING_ROCKEFELLER_DUMMY"]
+	GameInfoTypes["BUILDING_ROCKEFELLER_DUMMY"],
+	GameInfoTypes["BUILDING_DARJEELING_DUMMY"]
 }
 
-local g_iWonderWithDummies = 13
+local g_iWonderWithDummies = 14
 
 local g_tWorldWonderExists = {}
 	for i = 1, g_iWonderWithDummies do
@@ -62,6 +64,7 @@ local g_tWorldWonderOwner = {}
 -- Palm Jumeirah (11)
 -- Arecibo Observatory (12)
 -- Rockefeller Center (13)
+-- Darjeeling Himalayan Railway (14)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -315,6 +318,19 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		
 			for city in pPlayer:Cities() do
 				city:SetNumRealBuilding(g_tWorldWonderDummy[13], 1)
+			end
+		end
+	end
+	
+	if not g_tWorldWonderExists[14] then	
+		if eBuilding == g_tWorldWonder[14] then
+			g_tWorldWonderExists[14] = true
+			g_tWorldWonderOwner[14] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			for city in pPlayer:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[14], 1)
 			end
 		end
 	end
@@ -625,6 +641,32 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end
 		end
 	end
+
+	if g_tWorldWonderExists[14] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[14]) then
+			local pOldOwner = Players[eOldOwner]
+			
+			for city in pOldOwner:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[14], 0)
+			end
+			
+			local pNewOwner = Players[eNewOwner]
+			g_tWorldWonderOwner[14] = eNewOwner
+			
+			for city in pNewOwner:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[14], 1)
+			end		
+		else
+			if eNewOwner == g_tWorldWonderOwner[14] then
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[14], 1)
+			else
+				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[14], 0)
+			end
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -694,7 +736,6 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			pCity:SetNumRealBuilding(g_tWorldWonderDummy[11], 1)
 		end
 	end
-	
 
 	if g_tWorldWonderExists[12] then
 		if ePlayer == g_tWorldWonderOwner[12] then
@@ -704,7 +745,6 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			pCity:SetNumRealBuilding(g_tWorldWonderDummy[12], 1)
 		end
 	end
-	
 
 	if g_tWorldWonderExists[13] then
 		if ePlayer == g_tWorldWonderOwner[13] then
@@ -712,6 +752,15 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			pCity:SetNumRealBuilding(g_tWorldWonderDummy[13], 1)
+		end
+	end
+
+	if g_tWorldWonderExists[14] then
+		if ePlayer == g_tWorldWonderOwner[14] then
+			local pPlot = Map.GetPlot(iX, iY)
+			local pCity = pPlot:GetWorkingCity()
+			
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[14], 1)
 		end
 	end
 end

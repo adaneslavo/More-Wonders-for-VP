@@ -120,10 +120,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,				ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_PlotYieldChanges 
-				(BuildingType,				PlotType,			YieldType,			Yield) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'PLOT_MOUNTAIN',	'YIELD_FAITH',		1),
-				('BUILDING_GOEBEKLI_TEPE',	'PLOT_MOUNTAIN',	'YIELD_SCIENCE',	1);
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_FAITH',		100),
+				('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor) 
@@ -549,9 +549,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
 				('BUILDING_GATE_OF_SUN',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_PlotYieldChanges 
-				(BuildingType,				PlotType,			YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'PLOT_MOUNTAIN',	'YIELD_CULTURE',	1);
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100);
 
 	INSERT INTO Building_LakePlotYieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -2184,13 +2184,13 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_DARJEELING',	'YIELD_PRODUCTION',	2),
 				('BUILDING_DARJEELING',	'YIELD_CULTURE',	1),
 				('BUILDING_DARJEELING',	'YIELD_TOURISM',	3);
-	
-	INSERT INTO Building_PlotYieldChanges 
-				(BuildingType,			PlotType,			YieldType,			Yield) 
-	VALUES		('BUILDING_DARJEELING',	'PLOT_MOUNTAIN',	'YIELD_FOOD',		1),
-				('BUILDING_DARJEELING',	'PLOT_MOUNTAIN',	'YIELD_PRODUCTION',	1),
-				('BUILDING_DARJEELING',	'PLOT_MOUNTAIN',	'YIELD_CULTURE',	1),
-				('BUILDING_DARJEELING',	'PLOT_MOUNTAIN',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,					TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_FOOD',		100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	100);
 
 	INSERT INTO UnitPromotions 
 				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
@@ -2238,11 +2238,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,		SpecialistType,			YieldType,			Yield) 
 	VALUES		('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_GOLD',		1),
 				('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_TOURISM',	1);
-	
-	INSERT INTO Building_PlotYieldChanges 
-				(BuildingType,		PlotType,			YieldType,			Yield) 
-	VALUES		('BUILDING_BANFF',	'PLOT_MOUNTAIN',	'YIELD_GOLD',		5),
-				('BUILDING_BANFF',	'PLOT_MOUNTAIN',	'YIELD_TOURISM',	5);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,		TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_BANFF',	'TERRAIN_MOUNTAIN',		'YIELD_GOLD',		500),
+				('BUILDING_BANFF',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	500);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,			Flavor)
@@ -2263,7 +2263,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET FreePolicies = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield)
@@ -2519,10 +2519,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
 	VALUES		('BUILDING_ARECIBO',	'BUILDINGCLASS_OBSERVATORY',	'YIELD_SCIENCE',	3);
-	
-	INSERT INTO Building_PlotYieldChanges 
-				(BuildingType,				PlotType,			YieldType,			Yield) 
-	VALUES		('BUILDING_ARECIBO_DUMMY',	'PLOT_MOUNTAIN',	'YIELD_SCIENCE',	1);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_ARECIBO_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
