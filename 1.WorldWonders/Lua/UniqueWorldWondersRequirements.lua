@@ -769,6 +769,7 @@ function Initialize()
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
+		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
 		iRequiredImprovements = 1
 	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
@@ -992,6 +993,7 @@ function Initialize()
 		dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
 	end
 end
+
 Initialize()
 --------------------------------------------------------------
 --------------------------------------------------------------

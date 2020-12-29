@@ -45,6 +45,21 @@ function OnPopup( popupInfo )
 		end
 	end
 
+	for row in GameInfo.Plot_AdjacentFeatureYieldChanges(sFeatureCondition) do
+		if row.Yield > 0 or row.Yield < 0 then
+			sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_ADJACENT")
+			break
+		end
+	end
+	for row in GameInfo.Plot_AdjacentFeatureYieldChanges(sFeatureCondition) do
+		if row.Yield > 0 then
+			sYield = sYield .. " +" .. tostring(row.Yield) .. " " .. GameInfo.Yields[row.YieldType].IconString .. " (" .. L(GameInfo.Plots[row.PlotType].Description) .. ")"
+		end
+		if row.Yield < 0 then
+			sYield = sYield .. " [COLOR_NEGATIVE_TEXT]" .. tostring(row.Yield) .. "[ENDCOLOR] " .. GameInfo.Yields[row.YieldType].IconString .. " (" .. L(GameInfo.Plots[row.PlotType].Description) .. ")"
+		end
+	end
+
 	--[[for row in GameInfo.Feature_RiverYieldChanges(sFeatureCondition) do
 	    if row.Yield > 0 then
 			if sYield ~= "" then

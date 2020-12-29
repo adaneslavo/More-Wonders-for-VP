@@ -179,7 +179,7 @@ VALUES		('BUILDING_SOLOMONS_MINES_DUMMY',	'IMPROVEMENT_MINE',				'YIELD_GOLDEN_A
 
 INSERT INTO Building_ResourceYieldChangesGlobal
 			(BuildingType,				ResourceType,		YieldType,			Yield) 
-VALUES		('BUILDING_LUMI_BAY_DUMMY',	'RESOURCE_FISH',	'YIELD_FOOD',		1);
+VALUES		('BUILDING_LUMI_BAY_DUMMY',	'RESOURCE_FISH',	'YIELD_SCIENCE',	1);
 
 INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,			ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_REEF_DUMMY',	Type,			'YIELD_SCIENCE',	1

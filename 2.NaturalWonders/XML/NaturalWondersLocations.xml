@@ -1467,7 +1467,7 @@
 			<ChangeCoreTileToFlatland>0</ChangeCoreTileToFlatland>
 
 			<ChangeCoreTileTerrainToGrass>0</ChangeCoreTileTerrainToGrass>
-			<ChangeCoreTileTerrainToPlains>1</ChangeCoreTileTerrainToPlains>
+			<ChangeCoreTileTerrainToPlains>0</ChangeCoreTileTerrainToPlains>
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>

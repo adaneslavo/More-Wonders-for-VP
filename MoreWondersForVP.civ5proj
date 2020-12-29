@@ -459,6 +459,10 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -476,6 +480,10 @@ Currently compatible with 4-12.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1139,15 +1147,11 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Addons\43-civ-6-19\AssignStartingPlots.lua">
+    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Addons\EvenMoreResources5\AssignStartingPlots.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Addons\ImportantNotes.txt">
+    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1180,10 +1184,6 @@ Currently compatible with 4-12.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2606,8 +2606,7 @@ Currently compatible with 4-12.</Description>
     <Folder Include="2.NaturalWonders\SQL" />
     <Folder Include="2.NaturalWonders\XML" />
     <Folder Include="Addons" />
-    <Folder Include="Addons\43-civ-6-19" />
-    <Folder Include="Addons\EvenMoreResources5" />
+    <Folder Include="Addons\43-civ" />
     <Folder Include="Promotions\" />
     <Folder Include="1.WorldWonders" />
     <Folder Include="1.WorldWonders\Art\0.Neolithic" />

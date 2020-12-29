@@ -16,6 +16,8 @@ VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dd
 -- CUSTOM MOD OPTIONS
 --============================================--
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_UPGRADES';
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- HELP
 --============================================--
@@ -138,7 +140,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_KUK';
 	
-	INSERT INTO Building_LocalFeatureOrs 
+	INSERT INTO Building_LocalFeatureAnds 
 				(BuildingType,		FeatureType) 
 	VALUES		('BUILDING_KUK',	'FEATURE_MARSH'),
 				('BUILDING_KUK',	'FEATURE_JUNGLE');
@@ -852,7 +854,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,			DomainType,		Experience)
-	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	15);
+	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	10);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,					Yield) 
@@ -1047,12 +1049,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_DAMASCUS',	'RESOURCE_IRON');
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_FORGE', FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION',	2),
-				('BUILDING_DAMASCUS',	'YIELD_SCIENCE',	2);
+	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION',	3),
+				('BUILDING_DAMASCUS',	'YIELD_SCIENCE',	3);
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,			YieldType,			Yield)
@@ -1103,16 +1105,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	UPDATE Buildings SET Hill = 1, FreshWater = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 	---------------------------------------------------------
-	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_HIDDEN_ARTIFACTS', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_SHWEDAGON';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_SHWEDAGON',	'YIELD_GOLD',		2),
 				('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	2);
-	
-	INSERT INTO Building_FreeUnits 
-				(BuildingType,			UnitType,				NumUnits) 
-	VALUES		('BUILDING_SHWEDAGON',	'UNIT_ARCHAEOLOGIST',	1);
 	
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
@@ -1135,6 +1133,14 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		3),
 				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		3),
 				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	3);
+	
+	INSERT INTO UnitPromotions 
+				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,				1,					0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'UNITCOMBAT_ARCHAEOLOGIST');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1274,12 +1280,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	-- + IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
-	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',					1),
+	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',					2),
 				('BUILDING_CHEVALIERS',			'YIELD_FAITH',					1),
 				('BUILDING_CHEVALIERS',			'YIELD_GREAT_GENERAL_POINTS',	1),
 				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',					1);
@@ -1934,8 +1940,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO UnitPromotions_Terrains 
 				(PromotionType,					TerrainType,			ExtraMove) 
-	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_TUNDRA',		1),
-				('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_SNOW',			1);
+	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_TUNDRA',		-1),
+				('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_SNOW',			-1);
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2423,6 +2429,103 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,				FeatureType) 
 	VALUES		('BUILDING_PRORA_RESORT',	'FEATURE_FOREST'),
 				('BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE');
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SANBO HONBU (NEW)
+	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_SANBO';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SANBO';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, FreePromotion = 'PROMOTION_SANBO_LAND' WHERE Type = 'BUILDING_SANBO';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_AIR' WHERE Type = 'BUILDING_SANBO_2_DUMMY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,						Yield)
+	VALUES		('BUILDING_SANBO',		'YIELD_GREAT_GENERAL_POINTS',	2),
+				('BUILDING_SANBO',		'YIELD_GREAT_ADMIRAL_POINTS',	3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,		UnitCombatType,				Modifier) 
+	VALUES		('BUILDING_SANBO',	'UNITCOMBAT_NAVALMELEE',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_NAVALRANGED',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_SUBMARINE',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_CARRIER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MOUNTED',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_SIEGE',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_ARCHER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MELEE',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_GUN',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_ARMOR',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_RECON',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_HELICOPTER',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_FIGHTER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_BOMBER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MISSILE',		30);
+	
+	INSERT INTO UnitPromotions 
+				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	FlankAttackModifier,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		15,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						25,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_SANBO_LAND',		'UNITCOMBAT_RECON'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_ARMOR'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_GUN'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_MELEE'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_ARCHER'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_SIEGE'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_MOUNTED'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_CARRIER'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_SUBMARINE'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_NAVALRANGED'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_NAVALMELEE'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_HELICOPTER'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_FIGHTER'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_BOMBER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_HELICOPTER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_FIGHTER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_BOMBER');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,					Flavor)
+	VALUES		('BUILDING_SANBO',	'FLAVOR_AIR',				20),
+				('BUILDING_SANBO',	'FLAVOR_EXPANSION',			10),
+				('BUILDING_SANBO',	'FLAVOR_MILITARY_TRAINING',	60),
+				('BUILDING_SANBO',	'FLAVOR_NAVAL',				20),
+				('BUILDING_SANBO',	'FLAVOR_OFFENSE',			50),
+				('BUILDING_SANBO',	'FLAVOR_PRODUCTION',		30),
+				('BUILDING_SANBO',	'FLAVOR_RANGED',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MOUNT RUSHMORE (NEW)
+	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_RUSHMORE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUSHMORE';
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_RUSHMORE',	'YIELD_TOURISM',	3);
+		
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_RUSHMORE',	'YIELD_CULTURE',	1),
+				('BUILDING_RUSHMORE',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,			TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
+				('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
+				('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	200);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_RUSHMORE',	'FLAVOR_CULTURE',		70),
+				('BUILDING_RUSHMORE',	'FLAVOR_PRODUCTION',	20),
+				('BUILDING_RUSHMORE',	'FLAVOR_DIPLOMACY',		10);
 --============================================--
 -- ATOMIC ERA
 --============================================--
@@ -2702,7 +2805,7 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 ---------------------------------------------------------
 UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ'/*, 'BUILDING_HOLLYWOOD', 'BUILDING_JFK_SPACE_CENTER'*/);
 UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL', 'BUILDING_SPUTNIK',   'BUILDING_KUMSUSAN'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT'/*, 'BUILDING_SANBO_HONBU', 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
 --============================================--
 -- FREE ART HELP TEXTS
 --============================================--

@@ -5,8 +5,8 @@
 --------------------------------------------------------------
 /*
 Two versions of new quote recordings for wonders!
-0 = Man;
-1 = Woman (Default);
+0 = Man (Default);
+1 = Woman;
 */
 
 INSERT INTO COMMUNITY	
@@ -100,8 +100,8 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			--('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
 			--('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
 			--('CONCORDE',			'None',		1,			0,		0),		-- Concorde
-			--('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
-			--('RUSHMORE',			'None',		1,			0,		0),		-- Mount Rushmore
+			('SANBO',				'None',		1,			0,		0),		-- Sanbo Honbu
+			('RUSHMORE',			'None',		1,			0,		0),		-- Mount Rushmore
 			----------------------------------------------------------------------------------------
 			--('GREAT_HALL',			'None',		1,			0,		0),		-- Great Hall of China
 			--('HABITAT',				'None',		1,			0,		0),		-- Habitat 67
@@ -401,7 +401,9 @@ VALUES		('KUK_DUMMY',					'Kuk',									2,			0,		0),
 			('ROCKEFELLER_DUMMY',			'Rockefeller Center',					2,			0,		0),
 			('ARECIBO_DUMMY',				'Arecibo Observatory',					2,			0,		0),
 			('JUMEIRAH_DUMMY',				'Palm Jumeirah',						2,			0,		0),
-			('DARJEELING_DUMMY',			'Darjeeling Himalayan Railway',			2,			0,		0);
+			('DARJEELING_DUMMY',			'Darjeeling Himalayan Railway',			2,			0,		0),
+			('SANBO_DUMMY',					'Sanbo Honbu',							2,			0,		0),
+			('SANBO_2_DUMMY',				'Sanbo Honbu',							2,			0,		0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

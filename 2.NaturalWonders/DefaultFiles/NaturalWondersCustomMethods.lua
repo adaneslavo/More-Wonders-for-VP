@@ -462,13 +462,13 @@ function NWCustomEligibility(x, y, method_number)
 				iNumLandSW = iNumLandSW + 1
 			end
 		end
-		print("2",iNumLandN, iNumLandSE, iNumLandSW)
+		
 		if iNumLandN < 1 or iNumLandSE < 1 or iNumLandSW < 1 then return false end
 
 		local iNumLandSum = iNumLandN + iNumLandSE + iNumLandSW
 
 		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
-		print("match!")
+		
 		return true
 	elseif method_number == 13 then
 		-- reserved for Dallol

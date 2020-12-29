@@ -22,7 +22,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_JUMEIRAH"],
 	GameInfoTypes["BUILDING_ARECIBO"],
 	GameInfoTypes["BUILDING_ROCKEFELLER"],
-	GameInfoTypes["BUILDING_DARJEELING"]
+	GameInfoTypes["BUILDING_DARJEELING"],
+	GameInfoTypes["BUILDING_SANBO"]
 }
 
 local g_tWorldWonderDummy = {
@@ -39,10 +40,17 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_JUMEIRAH_DUMMY"],
 	GameInfoTypes["BUILDING_ARECIBO_DUMMY"],
 	GameInfoTypes["BUILDING_ROCKEFELLER_DUMMY"],
-	GameInfoTypes["BUILDING_DARJEELING_DUMMY"]
+	GameInfoTypes["BUILDING_DARJEELING_DUMMY"],
+	GameInfoTypes["BUILDING_SANBO_DUMMY"]
 }
 
-local g_iWonderWithDummies = 14
+local g_iWonderWithDummies = 15
+
+local g_tWorldWonderDummy2 = {}
+	for i = 1, g_iWonderWithDummies do
+		g_tWorldWonderDummy2[i] = false
+	end
+	g_tWorldWonderDummy2[15] = GameInfoTypes["BUILDING_SANBO_2_DUMMY"]
 
 local g_tWorldWonderExists = {}
 	for i = 1, g_iWonderWithDummies do
@@ -65,6 +73,7 @@ local g_tWorldWonderOwner = {}
 -- Arecibo Observatory (12)
 -- Rockefeller Center (13)
 -- Darjeeling Himalayan Railway (14)
+-- Sanbo Honbu (15)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -331,6 +340,22 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		
 			for city in pPlayer:Cities() do
 				city:SetNumRealBuilding(g_tWorldWonderDummy[14], 1)
+			end
+		end
+	end
+
+	if not g_tWorldWonderExists[15] then	
+		if eBuilding == g_tWorldWonder[15] then
+			g_tWorldWonderExists[15] = true
+			g_tWorldWonderOwner[15] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[15], 1)
+
+			if g_tWorldWonderDummy2[15] then
+				pCity:SetNumRealBuilding(g_tWorldWonderDummy2[15], 1)
 			end
 		end
 	end
@@ -667,6 +692,17 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end
 		end
 	end
+
+	if g_tWorldWonderExists[15] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[15]) then
+			g_tWorldWonderOwner[15] = eNewOwner
+			
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[15], 1)
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -843,6 +879,33 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 	end
 end
 Events.UnitActionChanged.Add(SetDummiesOnUnitActionChange)
+
+-- checks for promotion (SANBO)
+function SetPromotionOnTurn(ePlayer)
+	if g_tWorldWonderExists[15] then
+		if ePlayer == g_tWorldWonderOwner[15] then
+			local pPlayer = Players[ePlayer]
+			
+			for unit in pPlayer:Units() do
+				--if unit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR) then
+				if unit.CombatClass == UNITCOMBAT_FIGHTER or unit.CombatClass == UNITCOMBAT_BOMBER then
+					local iUnitHP = unit:GetCurrHitPoints()
+					local iUnitMaxHP = unit:GetMaxHitPoints()
+					local fHPPercentage = 100 * iUnitHP / iUnitMaxHP
+					
+					if fHPPercentage <= 20 then
+						unit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, true)
+						unit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, false)
+					else
+						unit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, true)
+						unit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, false)
+					end
+				end
+			end
+		end
+	end
+end
+GameEvents.PlayerDoTurn.Add(SetPromotionOnTurn)
 --------------------------------------------------------------
 --------------------------------------------------------------
 print("Loaded DummyBuildingsForWonders.lua from MWfVP")
