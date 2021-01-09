@@ -698,7 +698,7 @@ function Initialize()
 	end
 
 	-- IsNoCoast
-	tValidIsNoCoast = {
+	--[[tValidIsNoCoast = {
 		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
@@ -717,7 +717,7 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsNoCoast) do
 		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
-	end
+	end--]]
 
 	-- IsHasMountains
 	tValidIsHasMountains = {
@@ -914,7 +914,7 @@ function Initialize()
 	end
 
 	-- IsHasUniqueBuildingClassReq
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
+	--[[tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
 		iBuildingClass1 = "BUILDINGCLASS_STONE_WORKS"
 	}
 	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CHAND_BAORI.ID] = {
@@ -965,7 +965,7 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
 		dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
-	end
+	end--]]
 
 	-- IsHasSpecialist
 	tValidIsHasSpecialists = {

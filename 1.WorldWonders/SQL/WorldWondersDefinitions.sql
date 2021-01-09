@@ -109,8 +109,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	
-	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1, IsNoCoast = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
@@ -172,8 +171,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MAJORVILLE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
 	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -204,8 +202,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
-	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
-	-- +IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
@@ -310,8 +307,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
 	
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
-	-- +IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA LINES (NEW)
@@ -442,8 +438,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	
-	UPDATE Buildings SET Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
@@ -463,9 +458,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');*/
+	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 
@@ -495,8 +490,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	
-	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- + Mine/Quarry(1) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -620,8 +614,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
 
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -679,9 +672,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL');*/
+	VALUES		('BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL');
 	---------------------------------------------------------
 	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, GreatPeopleRateModifier = 10, FreeGreatPeople = 1 WHERE Type = 'BUILDING_CHAND_BAORI';
 	
@@ -723,9 +716,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY');*/
+	VALUES		('BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PROPHET'S MOSQUE (NEW)
@@ -829,9 +822,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,			FeatureType) 
 	VALUES		('BUILDING_WARTBURG',	'FEATURE_FOREST');
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');*/
+	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
@@ -881,7 +874,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	-- + Mine/Camp(3) (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
@@ -1088,10 +1081,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
 	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS'),
-				('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE');*/
+				('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CATHEDRAL OF ST. BASIL
@@ -1277,8 +1270,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
-	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
@@ -1382,10 +1374,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_GLOBE_THEATER';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
 	VALUES		('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'),
-				('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER');*/
+				('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ST. PETER'S BASILICA (NEW)
@@ -1472,9 +1464,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');*/
+	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
@@ -1627,8 +1619,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashImage = 'Wonder_Taj_Mahal_splash.dds' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	
-	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- UFFIZI
@@ -1701,9 +1692,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	-- + Founded_Religion (lua)
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD');*/
+	VALUES		('BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SUMMER PALACE
@@ -1790,8 +1781,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_RED_FORT';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_RED_FORT';
 	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, River = 1 WHERE Type = 'BUILDING_RED_FORT';
 --============================================--
 -- INDUSTRIAL ERA
 --============================================--
@@ -1917,13 +1907,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');*/
-
-	-- + IsNoCoast (lua)
+	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 20, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 
@@ -1976,9 +1964,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SLATER_MILL';
 	-- + Plantation(2) (lua)
 
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL');*/
+	VALUES		('BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
@@ -2063,10 +2051,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_FERTILIZER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_KEW_GARDENS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KEW_GARDENS';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
 	VALUES		('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'),
-				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');*/
+				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
 
@@ -2177,9 +2165,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_DYNAMITE', NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_DARJEELING';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_DARJEELING';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION');*/
+	VALUES		('BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION');
 
 	-- + Mountains(2) (lua)
 	---------------------------------------------------------
@@ -2261,13 +2249,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 15, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ORSZAGHAZ';
 	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET IsNoCoast = 1, River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');*/
-
-	-- + IsNoCoast (lua)
+	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
@@ -2395,8 +2381,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 
-	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CRISTO REDENTOR
@@ -2575,8 +2560,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- BLETCHEY PARK
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
-	-- + IsNoCoast (lua)
+	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MILLAU VIADUCT (NEW)
@@ -2725,20 +2709,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
 	VALUES		('BUILDING_HUBBLE',	'RESOURCE_ALUMINUM');
-
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_HUBBLE',	'BUILDINGCLASS_OBSERVATORY');*/
+	-- + Research Agreement(1) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT FIREWALL
 	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_GREAT_FIREWALL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_FIREWALL';
 
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
 	VALUES		('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'),
-				('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE');*/
+				('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CERN
@@ -2749,9 +2730,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,		ResourceType) 
 	VALUES		('BUILDING_CERN',	'RESOURCE_URANIUM');
 
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_CERN',	'BUILDINGCLASS_LABORATORY');*/
+	VALUES		('BUILDING_CERN',	'BUILDINGCLASS_LABORATORY');
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--

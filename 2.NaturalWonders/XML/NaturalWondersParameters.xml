@@ -1232,6 +1232,7 @@
 			<FeatureType>FEATURE_VOLCANO</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		
 		<Row>
@@ -1239,18 +1240,21 @@
 			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		
 		<Row>
@@ -1258,24 +1262,28 @@
 			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_LAND</PlotType>
 			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		
 		<Row>
@@ -1283,18 +1291,21 @@
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 
 		<Row>
@@ -1302,24 +1313,28 @@
 			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_LAND</PlotType>
 			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_RETBA</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		
 		<Row>
@@ -1327,24 +1342,28 @@
 			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_LAND</PlotType>
 			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		
 		<Row>
@@ -1352,36 +1371,42 @@
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_LAND</PlotType>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_HILLS</PlotType>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		<Row>
 			<PlotType>PLOT_MOUNTAIN</PlotType>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 	</Plot_AdjacentFeatureYieldChanges>
 	
