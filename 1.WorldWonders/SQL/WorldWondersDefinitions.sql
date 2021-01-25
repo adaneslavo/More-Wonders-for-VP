@@ -1129,7 +1129,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO UnitPromotions 
 				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,				1,					0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,				1,					11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2281,12 +2281,14 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
 
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
-	-- + Specialists(5) (lua)
+	-- + Specialists(10) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- POLAR EXPEDITION (NEW)
 	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_BIOLOGY', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+
+	UPDATE Buildings SET IsNoWater = 1, IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,					Yield)
@@ -2326,6 +2328,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- AKIHABARA ELECTRIC TOWN (NEW)
 	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_ELECTRICITY', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_AKIHABARA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_AKIHABARA';
+
+	-- + Town(1) (lua)
+	-- + Merchants(3) (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_MERCHANT', SpecialistCount = 2 WHERE Type = 'BUILDING_AKIHABARA';
 	
@@ -2354,6 +2359,14 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- ROCKEFELLER CENTER (NEW)
 	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_CORPORATIONS', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_ROCKEFELLER';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_ROCKEFELLER';
+
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	VALUES		('BUILDING_ROCKEFELLER',	'BUILDINGCLASS_OPERA_HOUSE');
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_ROCKEFELLER',	'RESOURCE_OIL');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_LABORATORY' WHERE Type = 'BUILDING_ROCKEFELLER';
 	
@@ -2419,6 +2432,13 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- SANBO HONBU (NEW)
 	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_SANBO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SANBO';
+
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SANBO';
+
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	VALUES		('BUILDING_SANBO',	'BUILDINGCLASS_ARSENAL'),
+				('BUILDING_SANBO',	'BUILDINGCLASS_MILITARY_ACADEMY');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, FreePromotion = 'PROMOTION_SANBO_LAND' WHERE Type = 'BUILDING_SANBO';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
@@ -2449,10 +2469,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO UnitPromotions 
 				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	FlankAttackModifier,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
-				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		15,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
-				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
-				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						25,						1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		15,						0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						25,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2488,6 +2508,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- MOUNT RUSHMORE (NEW)
 	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_RUSHMORE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUSHMORE';
+
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUSHMORE';
+
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	VALUES		('BUILDING_RUSHMORE',	'FEATURE_FOREST');
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
 	
@@ -2524,6 +2550,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- WHITE SANDS MISSILE RANGE (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_WHITE_SANDS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_WHITE_SANDS';
+
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_WHITE_SANDS';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_WHITE_SANDS',	'RESOURCE_URANIUM');
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_WHITE_SANDS', SpaceProductionModifier = 35 WHERE Type = 'BUILDING_WHITE_SANDS';
 
@@ -2566,6 +2598,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- MILLAU VIADUCT (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_COMPUTERS', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_MILLAU';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MILLAU';
+
+	UPDATE Buildings SET Hill = 1, IsNoCoast = 1 WHERE Type = 'BUILDING_MILLAU';
 	---------------------------------------------------------
 	UPDATE Buildings SET Happiness = 1, TradeRouteLandDistanceModifier = 100, NoUnhappfromXSpecialists = 2 WHERE Type = 'BUILDING_MILLAU';
 
@@ -2592,6 +2626,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- ARECIBO OBSERVATORY (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_RADAR', NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_ARECIBO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_ARECIBO';
+
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ARECIBO';
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 2 WHERE Type = 'BUILDING_ARECIBO';
 	
@@ -2621,6 +2657,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- PALM JUMEIRAH (NEW)
 	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_JUMEIRAH';
+
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_JUMEIRAH';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_JUMEIRAH',	'RESOURCE_OIL');
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2654,6 +2696,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- TAIPEI (NEW)
 	UPDATE Buildings SET Cost = 2300, PrereqTech = 'TECH_ADVANCED_BALLISTICS', NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_TAIPEI';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_TAIPEI';
+
+	-- + Village(1) (lua)
+	-- + CS_Ally(3) (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, MinorFriendshipChange = 50 WHERE Type = 'BUILDING_TAIPEI';
 	

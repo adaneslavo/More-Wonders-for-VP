@@ -575,14 +575,16 @@ function IsHasSpecialists(ePlayer, eCity, eBuilding)
 	
 	if not pPlayer:IsAlive() then return false end
 	
-	local iRequiredSpecialists = tValidIsHasSpecialists[eBuilding]
+	local iRequiredSpecialists = tValidIsHasSpecialists[eBuilding].iRequiredSpecialists
+	local eRequiredSpecialistType =	tValidIsHasSpecialists[eBuilding].eSpecialistType
 	local pCity = pPlayer:GetCityByID(eCity)
 	local iSpecialistsCount = 0
 	
 	for specialist in GameInfo.Specialists() do
 		local eSpecialist = specialist.ID
+		local eSpecialistType = specialist.Type
 		
-		if eSpecialist ~= 0 then
+		if eSpecialist ~= 0 and (eSpecialistType == eRequiredSpecialistType or eRequiredSpecialistType == "NONE") then
 			iSpecialistsCount = iSpecialistsCount + pCity:GetSpecialistCount(eSpecialist)
 			
 			if iSpecialistsCount >= iRequiredSpecialists then
@@ -625,7 +627,7 @@ GameEvents.CityCanConstruct.Add(IsHasPlotsForResources)
 function IsHasResearchAgreements(ePlayer, eCity, eBuilding)
 	if not tValidIsHasResearchAgreements[eBuilding] then return true end
 	if bReachedMaxEra then return false end
-	print("Hubble")
+	
 	local pPlayer = Players[ePlayer]
 	
 	if not pPlayer:IsAlive() then return false end
@@ -636,7 +638,7 @@ function IsHasResearchAgreements(ePlayer, eCity, eBuilding)
 		local pTargetPlayer = Players[i]
 				
 		if not pTargetPlayer:IsEverAlive() then break end
-		print("player", i, pTeam:IsHasResearchAgreement(pTargetPlayer:GetTeam()))
+		
 		if pTeam:IsHasResearchAgreement(pTargetPlayer:GetTeam()) then
 			return true
 		end
@@ -647,7 +649,7 @@ end
 GameEvents.CityCanConstruct.Add(IsHasResearchAgreements)
 
 -- temporary FIX for unique buildingclass requirement (ALL)
-function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
+--[[function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
 	if bReachedMaxEra then return false end
 
@@ -675,7 +677,7 @@ function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	
 	return false
 end
-GameEvents.CityCanConstruct.Add(IsHasUniqueBuildingClassReq)
+GameEvents.CityCanConstruct.Add(IsHasUniqueBuildingClassReq)--]]
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -821,6 +823,22 @@ function Initialize()
 		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
 		iRequiredImprovements = 1
 	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CUSTOMS_HOUSE,
+		iRequiredImprovements = 1
+	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+		iRequiredImprovements = 1
+	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
+		iRequiredImprovements = 1
+	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+		iRequiredImprovements = 1
+	}
 	for id, building in pairs(tValidIsHasImprovement) do
 		dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 	end
@@ -853,7 +871,8 @@ function Initialize()
 	tValidIsHasCsAllies = {
 		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
 		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
-		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3
+		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
+		[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
 	}
 	for id, building in pairs(tValidIsHasCsAllies) do
 		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
@@ -968,11 +987,16 @@ function Initialize()
 	end--]]
 
 	-- IsHasSpecialist
-	tValidIsHasSpecialists = {
-		[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = 10
+	tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
+		eSpecialistType = "NONE",
+		iRequiredSpecialists = 10
+	}
+	tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
+		eSpecialistType = "SPECIALIST_MERCHANT",
+		iRequiredSpecialists = 3
 	}
 	for id, building in pairs(tValidIsHasSpecialists) do
-		dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, tValidIsHasSpecialists[id])
+		dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, building.eSpecialistType, building.iRequiredSpecialists)
 	end
 
 	-- IsHasResearchAgreement
