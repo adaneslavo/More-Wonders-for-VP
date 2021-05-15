@@ -847,7 +847,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,			DomainType,		Experience)
-	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	10);
+	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	5);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,					Yield) 
@@ -1060,7 +1060,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			20,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					10,			10,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1477,8 +1477,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,		DomainType,		Experience)
-	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	20),
-				('BUILDING_MARAE',	'DOMAIN_SEA',	20);
+	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	15),
+				('BUILDING_MARAE',	'DOMAIN_SEA',	15);
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
