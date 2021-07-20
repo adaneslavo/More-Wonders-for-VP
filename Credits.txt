@@ -41,7 +41,7 @@ Special thanks to:
 		- Falun Mine: https://commons.wikimedia.org/wiki/File:Falun_Copper_Mine_14.jpg (CC BY-SA 3.0)
 		- Ahu Tongariki https://commons.wikimedia.org/wiki/File:Ahu-Tongariki-and-Traveling-Moai.jpg (CC BY-SA 3.0)
 		- Kilwa Kisiwani: https://commons.wikimedia.org/wiki/File:Ruins_of_Kilwa_Kisiwani_and_Ruins_of_Songo_Mnara-108277.jpg (CC BY-SA 3.0)
-		- Solovietsky Monastery: https://en.wikipedia.org/wiki/Solovki_prison_camp#/media/File:%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%BE-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D1%85_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%BE%D0%B2.jpg (CC BY-SA 3.0)
+		- Solovietsky Monastery:  https://en.wikipedia.org/wiki/Solovki_prison_camp#/media/File:%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%BE-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D1%85_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%BE%D0%B2.jpg (CC BY-SA 3.0)
 		- Meenakshi Temple: https://en.wikipedia.org/wiki/Meenakshi_Temple#/media/File:Meenakshi_Amman_West_Tower.jpg (CC BY-SA 4.0)
 		- Marae Arahurahu: https://commons.wikimedia.org/wiki/File:Tahitimarae2.jpg (CC BY-SA 3.0)
 		- Ait Benhaddou: https://commons.wikimedia.org/wiki/File:Kasbah_Ait_Ben_Haddou.jpg (CC BY-SA 4.0)
@@ -59,6 +59,9 @@ Special thanks to:
 		- Millau Viaduct: https://commons.wikimedia.org/wiki/File:Viaduc_Millau_P1010248mod.jpg (CC BY-SA 4.0)
 		- Arecibo: https://upload.wikimedia.org/wikipedia/commons/1/1c/Arecibo_radio_telescope_observatory_Puerto_Rico_-_panoramio_%2811%29.jpg (CC BY 3.0)
 		- Rockefeller: https://en.wikipedia.org/wiki/Radio_City_Music_Hall#/media/File:Radio_City_Music_Hall_Panorama.jpg (CC BY-SA 3.0)
+		
+		- Autobahn: https://i1.wp.com/smp.edu.pl/wp-content/uploads/2016/11/nrg.tpt_.autobahn.1934.GRM-CIV347.jpg
+		- Sputnik: https://commons.wikimedia.org/wiki/File:Sputnik_1_Exploded_View_3F9A6199_(36924864550).jpg (CC BY 1.0)
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);

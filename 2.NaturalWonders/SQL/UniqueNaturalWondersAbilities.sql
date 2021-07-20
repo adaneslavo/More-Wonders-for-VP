@@ -62,8 +62,8 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
 VALUES		('TXT_KEY_RESOURCE_SYLVITE',			'Sylvite'),
-			('TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TODO'),
-			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR]Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned Siege units (tied to building).');	
+			('TXT_KEY_RESOURCE_SYLVITE_TEXT',		'2[ICON_PRODUCTION][NEWLINE][NEWLINE]TODO'),
+			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned [COLOR:255:230:85:255]Siege[ENDCOLOR] units (tied to dummy building). -5% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom.');	
 ---------------------------------------------------------
 INSERT INTO Resources 
 			(Type,					TechReveal,		TechCityTrade, 		Description,				Civilopedia, 						Help,									ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 								CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 			PortraitIndex, 	IconAtlas)

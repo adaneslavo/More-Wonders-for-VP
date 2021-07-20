@@ -700,7 +700,7 @@ function Initialize()
 	end
 
 	-- IsNoCoast
-	--[[tValidIsNoCoast = {
+	tValidIsNoCoast = {
 		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
 		[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
@@ -719,7 +719,7 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsNoCoast) do
 		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
-	end--]]
+	end
 
 	-- IsHasMountains
 	tValidIsHasMountains = {
@@ -827,6 +827,10 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CUSTOMS_HOUSE,
 		iRequiredImprovements = 1
 	}
+	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AUTOBAHN.ID] = {
+		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MANUFACTORY,
+		iRequiredImprovements = 1
+	}
 	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 		iRequiredImprovements = 1
@@ -926,7 +930,8 @@ function Initialize()
 
 	-- IsHasCities
 	tValidIsHasCities = {
-		[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = 7
+		[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = 7,
+		[GameInfo.Buildings.BUILDING_INTERSTATE.ID] = 8
 	}
 	for id, building in pairs(tValidIsHasCities) do
 		dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])

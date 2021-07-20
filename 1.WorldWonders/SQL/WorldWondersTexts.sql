@@ -434,7 +434,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR];
 ----------------------------------------------------
 -- Terracota Army
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] allows for creation incredible army (+5[ICON_SILVER_FIST]) and increases improvement construction speed (+25%[ICON_WORKER]) to create well-developed cities. Make sure to kill all your enemies (15[ICON_CULTURE]/Kill)!.'
+SET Text = '[COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] allows for creation incredible army (+5[ICON_SILVER_FIST]) and increases improvement construction speed (+25%[ICON_WORKER]) to create well-developed cities. Make sure to kill all your enemies (10[ICON_CULTURE]/Kill)!'
 WHERE Tag = 'TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1457,7 +1457,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Artistry Finisher[ENDC
 ----------------------------------------------------
 -- Palace of Westminster
 UPDATE Language_en_US
-SET Text = 'Influential [COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] brings additional seats for your world congress delegtes (+2[ICON_DIPLOMAT] League Vote/8 [ICON_CITY_STATE] in game). Additionally it increases your wealth by inviting merchants ([COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]) and reducing your people''s needs (-1[ICON_HAPPINESS_3] Poverty).'
+SET Text = 'Influential [COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] brings additional seats for your world congress delegtes (+2[ICON_DIPLOMAT] League Votes). Additionally it increases your wealth by inviting merchants ([COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]) and reducing your people''s needs (-1[ICON_HAPPINESS_3] Poverty).'
 WHERE Tag = 'TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Statecraft[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
@@ -1548,21 +1548,75 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ROCKEFELLER_HELP';
 				
 UPDATE Language_en_US SET Text = 'Resource: [COLOR_CYAN]Oil[ENDCOLOR]; Buidling: [COLOR_CYAN]Opera House[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ROCKEFELLER_HELP';
 ----------------------------------------------------
+-- Autobahn
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_AUTOBAHN',		'Autobahn'),
+			('TXT_KEY_WONDER_AUTOBAHN_QUOTE',	'[NEWLINE]"A car for the people, an affordable Volkswagen, would bring great joy to the masses and the problems of building such a car must be faced with courage."[NEWLINE] - Adolf Hitler[NEWLINE]'),
+			('TXT_KEY_WONDER_AUTOBAHN_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_AUTOBAHN_HELP',	'+10% [ICON_GOLDEN_AGE] Golden Age Points in your Empire. +10% [ICON_WORKER] Improvement Construction Rate. +15% [ICON_GOLD] Gold from City Connections. +10 [ICON_STRENGTH] City Defense in all Cities in your Empire.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Autobahn[ENDCOLOR] allows better troops'' maneuvering increasing your defensive capabilities (+10[ICON_STRENGTH][ICON_STRENGTH]) and pushing you toward the golden age (+5[ICON_GOLDEN_AGE]; +10%[ICON_GOLDEN_AGE][ICON_GOLDEN_AGE]). It also boosts flow of your products (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED]) and increases overall productivity (+10%[ICON_WORKER] Worker Rate)'
+WHERE Tag = 'TXT_KEY_WONDER_AUTOBAHN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_AUTOBAHN_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_AUTOBAHN_HELP';
+				
+UPDATE Language_en_US SET Text = 'Improvement: [COLOR_CYAN]Manufactory[ENDCOLOR]; Resource: [COLOR_CYAN]Oil[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_AUTOBAHN_HELP';
+----------------------------------------------------
+-- Interstate Highway System
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_INTERSTATE',		'Interstate Highway System'),
+			('TXT_KEY_WONDER_INTERSTATE_QUOTE',	'[NEWLINE]"I see an America where a mighty network of highways spreads across our country."[NEWLINE] - Dwight D. Eisenhower[NEWLINE]'),
+			('TXT_KEY_WONDER_INTERSTATE_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_INTERSTATE_HELP',	'+1 [ICON_CITIZEN] Population in all Cities in your Empire. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 5% in all Cities. +10% [ICON_PRODUCTION] Production in your Empire. +15% [ICON_GOLD] Gold from City Connections.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Interstate Highway System[ENDCOLOR] connects all corners of your country, which develops even the most neglected areas (+1[ICON_CITIZEN]; -5%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Needs). It increases your gold income (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED]) and production capabilities (+10%[ICON_PRODUCTION][ICON_PRODUCTION]).'
+WHERE Tag = 'TXT_KEY_WONDER_INTERSTATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_INTERSTATE_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_INTERSTATE_HELP';
+				
+UPDATE Language_en_US SET Text = 'Resource: [COLOR_CYAN]Oil[ENDCOLOR]; City: [COLOR_CYAN]30 Citizens[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_INTERSTATE_HELP';
+----------------------------------------------------
+-- Hollywood
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_HOLLYWOOD',		'Hollywood'),
+			('TXT_KEY_WONDER_HOLLYWOOD_QUOTE',	'[NEWLINE]"Hollywood is a place where they''ll pay you a thousand dollars for a kiss and fifty cents for your soul. I know, because I turned down the first offer often enough and held out for the fifty cents."[NEWLINE] - Marilyn Monroe[NEWLINE]'),
+			('TXT_KEY_WONDER_HOLLYWOOD_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_HOLLYWOOD_HELP',	'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Hollywood[ENDCOLOR].'
+WHERE Tag = 'TXT_KEY_WONDER_HOLLYWOOD_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_HOLLYWOOD_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HOLLYWOOD_HELP';
+				
+UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_HOLLYWOOD_HELP';
+----------------------------------------------------
 -- Sanbo Honbu
 INSERT INTO Language_en_US 
 			(Tag,										Text)
 VALUES		('TXT_KEY_BUILDING_SANBO',					'Sanbo Honbu'),
 			('TXT_KEY_WONDER_SANBO_QUOTE',				'[NEWLINE]"Unite your total strength, to be devoted to construction for the future. Cultivate the ways of rectitude, foster nobility of spirit, and work with resolution - so that you may enhance the innate glory of the Imperial State and keep pace with the progress of the world."[NEWLINE] - Hirohito[NEWLINE]'),
 			('TXT_KEY_WONDER_SANBO_PEDIA',				'TODO'),
-			('TXT_KEY_WONDER_SANBO_HELP',				'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. All Miltary Land Units in the Empire get [COLOR_POSITIVE_TEXT]Imperial Army[ENDCOLOR] promotion, all Military Naval Units in the Empire get [COLOR_POSITIVE_TEXT]Fleet of the Sun[ENDCOLOR] promotion and all Military Air Units in the Empire get [COLOR_POSITIVE_TEXT]Kamikaze[ENDCOLOR] promotion. +30% [ICON_PRODUCTION] Production towards Military Units.'),
+			('TXT_KEY_WONDER_SANBO_HELP',				'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. All Miltary Land Units in the Empire get [COLOR_POSITIVE_TEXT]Imperial Army[ENDCOLOR] promotion, all Military Naval Melee Units in the Empire get [COLOR_POSITIVE_TEXT]Fleet of the Sun[ENDCOLOR] promotion and all Military Air Units in the Empire get [COLOR_POSITIVE_TEXT]Kamikaze[ENDCOLOR] promotion. +30% [ICON_PRODUCTION] Production towards Military Units.'),
 			('TXT_KEY_PROMOTION_SANBO_LAND',			'Imperial Army'),
 			('TXT_KEY_PROMOTION_SANBO_LAND_HELP',		'Bonus[ICON_MOVES]Movement Point[COLOR:255:230:85:255] after crossing Rivers[ENDCOLOR]. +10%[ICON_STRENGTH]CS/[ICON_RANGE_STRENGTH]RCS [COLOR:255:230:85:255]in Rough Terrain[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_SEA',				'Fleet of the Sun'),
-			('TXT_KEY_PROMOTION_SANBO_SEA_HELP',		'+10%[ICON_STRENGTH]CS/[ICON_RANGE_STRENGTH]RCS [COLOR:255:230:85:255]on Flanking[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_SANBO_SEA_HELP',		'Unit deals Damage [COLOR:255:230:85:255]to attackng Air Unit[ENDCOLOR]. Requires [ICON_RESEARCH]Flight (excluding Submarines). +10%[ICON_STRENGTH]CS if unit [COLOR:255:230:85:255]is adjacent to another Friendly Unit[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_AIR',				'Kamikaze'),
-			('TXT_KEY_PROMOTION_SANBO_AIR_HELP',		'+25%[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]has 20% of its maximum HP or less[ENDCOLOR] [COLOR_GREY](inactive)[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_SANBO_AIR_HELP',		'+30%[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]has 20% of its maximum HP or less[ENDCOLOR] [COLOR_GREY](inactive)[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',		'Kamikaze: For the Emperor!'),
-			('TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',	'+25%[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]has 20% of its maximum HP or less[ENDCOLOR] [COLOR_POSITIVE_TEXT](active)[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',	'+30%[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]has 20% of its maximum HP or less[ENDCOLOR] [COLOR_POSITIVE_TEXT](active)[ENDCOLOR].');
 
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Sanbo Honbu[ENDCOLOR] strengthen all military branches of your army: land ([COLOR_WATER_TEXT]Imperial Army[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Land[ENDCOLOR]), naval ([COLOR_WATER_TEXT]Fleet of the Sun[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]) and air ([COLOR_WATER_TEXT]Kamikaze[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Air[ENDCOLOR]). It also speeds up build time of troops (+30%[ICON_PRODUCTION]/Miltary) and improve your internal power ([COLOR_MAGENTA]free Policy[ENDCOLOR]). As an cherry on top you can gain generals and admirals much quicker (+2[ICON_GREAT_GENERAL]; +3[ICON_GREAT_ADMIRAL]).'
@@ -1673,6 +1727,42 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PRORA_RESORT_HELP';
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Forest/Jungle[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PRORA_RESORT_HELP';
 ----------------------------------------------------
 ----------------------------------------------------
+-- Sputnik
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_SPUTNIK',		'Sputnik'),
+			('TXT_KEY_WONDER_SPUTNIK_QUOTE',	'[NEWLINE]"Listen now for the sound that forevermore separates the old from the new. [Introducing the beep-beep chirp transmitted by the Sputnik satellite.]"[NEWLINE] - NBC Radio[NEWLINE]'),
+			('TXT_KEY_WONDER_SPUTNIK_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_SPUTNIK_HELP',		'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Sputnik[ENDCOLOR].'
+WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_SPUTNIK_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP';
+				
+UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP';
+----------------------------------------------------
+-- Anitkabir
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_ANITKABIR',		'Anitkabir'),
+			('TXT_KEY_WONDER_ANITKABIR_QUOTE',	'[NEWLINE]"Peace at home, Peace in the world."[NEWLINE] - Mustafa Kemal Atatürk[NEWLINE]'),
+			('TXT_KEY_WONDER_ANITKABIR_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_ANITKABIR_HELP',	'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Anitkabir[ENDCOLOR].'
+WHERE Tag = 'TXT_KEY_WONDER_ANITKABIR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_ANITKABIR_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ANITKABIR_HELP';
+				
+UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ANITKABIR_HELP';
+----------------------------------------------------
 -- White Sands Missile Range
 INSERT INTO Language_en_US 
 			(Tag,									Text)
@@ -1745,7 +1835,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[E
 ----------------------------------------------------
 -- Bletchey Park
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Bletchey Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+2[ICON_SPY]; [ICON_SPY][ICON_SPY] level up; -15% Enemy [ICON_SPY][ICON_SPY] Effectiveness; [ICON_SPY][ICON_SPY] are immune to failure; higher chance to: Steal [ICON_RESEARCH], Disrupt [ICON_PRODUCTION]). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([ICON_RESEARCH]; [ICON_GREAT_SCIENTIST]; [ICON_HAPPINESS_3]) is constructed to increase your knowledge.'
+SET Text = '[COLOR_YIELD_FOOD]Bletchey Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+2[ICON_SPY]; [ICON_SPY][ICON_SPY] level up; -15% Enemy [ICON_SPY][ICON_SPY] Effectiveness). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([ICON_RESEARCH]; [ICON_GREAT_SCIENTIST]; [ICON_HAPPINESS_3]) is constructed to increase your knowledge.'
 WHERE Tag = 'TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Rationalism[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
@@ -1834,7 +1924,7 @@ UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Police Station, Wire Ser
 ----------------------------------------------------
 -- Hubble Space Telescope
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_RESEARCH]). This huge leap towards space can be an inspiration for further developement (2 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_RESEARCH]). This huge leap towards space can be an inspiration for further developement (1 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 

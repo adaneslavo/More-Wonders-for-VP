@@ -109,7 +109,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	
-	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1, IsNoCoast = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
+	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
@@ -171,7 +171,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MAJORVILLE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
 	
-	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -202,7 +202,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
-	UPDATE Buildings SET IsNoCoast = 1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
@@ -307,7 +307,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
 	
-	UPDATE Buildings SET IsNoCoast = 1, Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA LINES (NEW)
@@ -438,7 +438,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	
-	UPDATE Buildings SET IsNoCoast = 1, Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
@@ -490,7 +490,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	
-	UPDATE Buildings SET IsNoCoast = 1, IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
+	UPDATE Buildings SET /*IsNoCoast = 1, */IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	-- + Mine/Quarry(1) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -614,7 +614,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
 
-	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -874,7 +874,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	
-	UPDATE Buildings SET IsNoCoast = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	--UPDATE Buildings SET IsNoCoast = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	-- + Mine/Camp(3) (lua)
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
@@ -1270,7 +1270,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
 	
-	UPDATE Buildings SET IsNoCoast = 1, Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
@@ -1619,7 +1619,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashImage = 'Wonder_Taj_Mahal_splash.dds' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	
-	UPDATE Buildings SET IsNoCoast = 1, Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- UFFIZI
@@ -1781,7 +1781,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_RED_FORT';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_RED_FORT';
 	
-	UPDATE Buildings SET IsNoCoast = 1, River = 1 WHERE Type = 'BUILDING_RED_FORT';
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1 WHERE Type = 'BUILDING_RED_FORT';
 --============================================--
 -- INDUSTRIAL ERA
 --============================================--
@@ -1907,7 +1907,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	
-	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
@@ -2249,7 +2249,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 15, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ORSZAGHAZ';
 	
-	UPDATE Buildings SET IsNoCoast = 1, River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
@@ -2288,7 +2288,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_BIOLOGY', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 
-	UPDATE Buildings SET IsNoWater = 1, IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	UPDATE Buildings SET IsNoWater = 1, /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,					Yield)
@@ -2390,11 +2390,102 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_ROCKEFELLER',	'FLAVOR_DIPLOMACY',		20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- AUTOBAHN (NEW)
+	UPDATE Buildings SET Cost = 1600, PrereqTech = 'TECH_COMBUSTION', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_AUTOBAHN';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_AUTOBAHN';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_AUTOBAHN',	'RESOURCE_OIL');
+	---------------------------------------------------------
+	UPDATE Buildings SET WorkerSpeedModifier = 10, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
+	UPDATE Buildings SET Defense = 1000 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,					Yield)
+	VALUES		('BUILDING_AUTOBAHN',		'YIELD_PRODUCTION',			2),
+				('BUILDING_AUTOBAHN',		'YIELD_GOLDEN_AGE_POINTS',	5);
+	
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_AUTOBAHN',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_AUTOBAHN',	'FLAVOR_CITY_DEFENSE',	30),
+				('BUILDING_AUTOBAHN',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_AUTOBAHN',	'FLAVOR_GOLD',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- INTERSTATE HIGHWAY SYSTEM (NEW)
+	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_PLASTIC', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_INTERSTATE';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_INTERSTATE';
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_INTERSTATE',	'RESOURCE_OIL');
+	---------------------------------------------------------
+	UPDATE Buildings SET EmpireNeedsModifierGlobal = -5, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_INTERSTATE';
+	UPDATE Buildings SET PopulationChange = 1 WHERE Type = 'BUILDING_INTERSTATE_DUMMY';
+	
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_INTERSTATE',	'YIELD_PRODUCTION',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_INTERSTATE',	'FLAVOR_PRODUCTION',	100),
+				('BUILDING_INTERSTATE',	'FLAVOR_GROWTH',		20),
+				('BUILDING_INTERSTATE',	'FLAVOR_GOLD',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HOLLYWOOD (NEW)
+	UPDATE Buildings SET Cost = 1700, PrereqTech = 'TECH_RADIO', NumPoliciesNeeded = 21 WHERE Type = 'BUILDING_HOLLYWOOD';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_HOLLYWOOD';
+	
+	/*INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	VALUES		('BUILDING_HOLLYWOOD',	'RESOURCE_OIL');*/
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_HOLLYWOOD';
+	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	5);
+
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,					YieldType,			YieldChange) 
+	VALUES		('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_GOLD',		1),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_CULTURE',	1),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_GOLD',		3),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_CULTURE',	3),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_GOLD',		3),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_CULTURE',	3),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_GOLD',		3),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_CULTURE',	3);
+
+	INSERT INTO Building_SpecificGreatPersonRateModifier 
+				(BuildingType,			SpecialistType,			Modifier)
+	VALUES		('BUILDING_HOLLYWOOD',	'SPECIALIST_WRITER',	5),
+				('BUILDING_HOLLYWOOD',	'SPECIALIST_ARTIST',	5),
+				('BUILDING_HOLLYWOOD',	'SPECIALIST_MUSICIAN',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_HOLLYWOOD',	'FLAVOR_CULTURE',		120),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_GOLD',			40),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_HAPPINESS',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- MOTHERLAND CALLS
 	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 
-	UPDATE Buildings SET IsNoCoast = 1, Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CRISTO REDENTOR
@@ -2468,11 +2559,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_SANBO',	'UNITCOMBAT_MISSILE',		30);
 	
 	INSERT INTO UnitPromotions 
-				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	FlankAttackModifier,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
-				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		15,						0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
-				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
-				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						25,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	LandAirDefenseBonus,	AdjacentMod,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,				0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		10,						10,				0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,				0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,				30,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2540,11 +2631,71 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- ATOMIC ERA
 --============================================--
+-- SPUTNIK (NEW)
+	UPDATE Buildings SET Cost = 1900, PrereqTech = 'TECH_ROCKETRY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_SPUTNIK';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SPUTNIK';
+
+	/*UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_SPUTNIK';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_SPUTNIK',	'RESOURCE_URANIUM');*/
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, GoldenAge = 1 WHERE Type = 'BUILDING_SPUTNIK';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,						Yield)
+	VALUES		('BUILDING_SPUTNIK',	'YIELD_SCIENCE',				5),
+				('BUILDING_SPUTNIK',	'YIELD_GOLDEN_AGE_POINTS',		3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,			UnitCombatType,					Modifier)
+	VALUES		('BUILDING_SPUTNIK',	'UNITCOMBAT_SPACESHIP_PART',	20);
+
+	INSERT INTO Building_SpecificGreatPersonRateModifier 
+				(BuildingType,			SpecialistType,			Modifier)
+	VALUES		('BUILDING_SPUTNIK',	'SPECIALIST_ENGINEER',	33),
+				('BUILDING_SPUTNIK',	'SPECIALIST_SCIENTIST',	25);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_SPUTNIK',	'FLAVOR_SPACESHIP',		50),
+				('BUILDING_SPUTNIK',	'FLAVOR_PRODUCTION',	70),
+				('BUILDING_SPUTNIK',	'FLAVOR_SCIENCE',		50);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- PENTAGON
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_PENTAGON';
 
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PENTAGON';
 	-- + Citadel/Fort(1) (lua)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ANITKABIR (NEW)
+	UPDATE Buildings SET Cost = 1900, PrereqTech = 'TECH_COMBINED_ARMS', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_ANITKABIR';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANITKABIR';
+
+	/*UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_ANITKABIR';
+
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,				ResourceType) 
+	VALUES		('BUILDING_ANITKABIR',	'RESOURCE_URANIUM');*/
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,					Yield)
+	VALUES		('BUILDING_ANITKABIR',	'YIELD_CULTURE',			5),
+				('BUILDING_ANITKABIR',	'YIELD_GOLDEN_AGE_POINTS',	4);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,			UnitCombatType,				Modifier)
+	VALUES		('BUILDING_ANITKABIR',	'UNITCOMBAT_DIPLOMACY',		50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ANITKABIR',	'FLAVOR_DIPLOMACY',		120),
+				('BUILDING_ANITKABIR',	'FLAVOR_CULTURE',		50);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WHITE SANDS MISSILE RANGE (NEW)
@@ -2592,14 +2743,14 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 -- BLETCHEY PARK
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 
-	UPDATE Buildings SET IsNoCoast = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MILLAU VIADUCT (NEW)
 	UPDATE Buildings SET Cost = 2150, PrereqTech = 'TECH_COMPUTERS', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_MILLAU';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MILLAU';
 
-	UPDATE Buildings SET Hill = 1, IsNoCoast = 1 WHERE Type = 'BUILDING_MILLAU';
+	UPDATE Buildings SET Hill = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MILLAU';
 	---------------------------------------------------------
 	UPDATE Buildings SET Happiness = 1, TradeRouteLandDistanceModifier = 100, NoUnhappfromXSpecialists = 2 WHERE Type = 'BUILDING_MILLAU';
 
@@ -2821,7 +2972,7 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bl
 -- TRANSPORTATION WONDERS
 --============================================--
 UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
-('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY');
+('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY', 'BUILDING_AUTOBAHN', 'BUILDING_INTERSTATE');
 --============================================--
 -- IDEOLOGY WONDERS
 --============================================--
@@ -2829,9 +2980,9 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 -- but you can build it in another city. To achieve true 'mutually exclusive' situation we need a dummy building that will be placed
 -- in all your cities and block the construction of the 2nd Wonder.
 ---------------------------------------------------------
-UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ'/*, 'BUILDING_HOLLYWOOD', 'BUILDING_JFK_SPACE_CENTER'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL', 'BUILDING_SPUTNIK',   'BUILDING_KUMSUSAN'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD'/*, 'BUILDING_JFK_SPACE_CENTER'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK'/*,   'BUILDING_KUMSUSAN'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
 --============================================--
 -- FREE ART HELP TEXTS
 --============================================--
