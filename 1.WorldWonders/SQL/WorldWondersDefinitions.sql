@@ -1804,8 +1804,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'BUILDINGCLASS_MUSEUM',	'YIELD_TOURISM',	2);
 
 	INSERT INTO Building_SpecificGreatPersonRateModifier 
-				(BuildingType,				SpecialistType,			Modifier)
-	VALUES		('BUILDING_MUSEUM_ISLAND',	'SPECIALIST_ARTIST',	50);
+				(BuildingType,						SpecialistType,			Modifier)
+	VALUES		('BUILDING_MUSEUM_ISLAND_DUMMY',	'SPECIALIST_ARTIST',	50);
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresAnyButOwner,	AIPriority)

@@ -122,10 +122,15 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('JUMEIRAH',			'None',		1,			0,		1),		-- Palm Jumeirah
 			('TAIPEI',				'None',		1,			0,		1);		-- Taipei 101
 			--('PETRONAS',			'None',		1,			0,		0);		-- Petronas Towers
-			--('SKYTREE',				'None',		1,			0,		0);		-- Skytree
-			--('MARINA_BAY_SANDS',	'None',		1,			0,		0);		-- Marina Bay Sands
-			--('ICE_HOTEL',			'None',		1,			0,		0);		-- Ice Hotel
-			--('ONKALO',				'None',		1,			0,		0);		-- Onkalo Nuclear Waste Repository
+			----------------------------------------------------------------------------------------
+			--('CURIOSTY',			'None',		1,			0,		0),		-- Curiosity Rover
+			--('SKYTREE',				'None',		1,			0,		0),		-- Skytree
+			--('ICE_HOTEL',			'None',		1,			0,		0),		-- Ice Hotel
+			----------------------------------------------------------------------------------------
+			--('MARINA_BAY_SANDS',	'None',		1,			0,		0),		-- Marina Bay Sands
+			--('ONKALO',				'None',		1,			0,		0),		-- Onkalo Nuclear Waste Repository
+			--('ITER',				'None',		1,			0,		0),		-- ITER
+			--('HUMANKIND',			'None',		1,			0,		0);		-- Museum of Humankind
 --============================================--
 -- WONDERS INITIAL CONFIGURATION
 --============================================--
@@ -447,7 +452,8 @@ VALUES		('KUK_DUMMY',					'Kuk',									2,			0,		0),
 			('SANBO_DUMMY',					'Sanbo Honbu',							2,			0,		0),
 			('SANBO_2_DUMMY',				'Sanbo Honbu',							2,			0,		0),
 			('AUTOBAHN_DUMMY',				'Autobahn',								2,			0,		0),
-			('INTERSTATE_DUMMY',			'Interstate',							2,			0,		0);
+			('INTERSTATE_DUMMY',			'Interstate',							2,			0,		0),
+			('MUSEUM_ISLAND_DUMMY',			'Museum Island',						2,			0,		0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

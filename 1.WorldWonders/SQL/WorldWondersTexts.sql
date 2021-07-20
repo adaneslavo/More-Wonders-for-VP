@@ -555,7 +555,7 @@ VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
 			('TXT_KEY_WONDER_WARTBURG_PEDIA',			'Wartburg Castle was built in 1067 by Ludwig der Springer to secure his traditional territories. From 1172 to 1211, it was an important princely court in the Holy Roman Empire and a support for poets, thus becoming the setting of the legendary Sangerkrieg. Following his excommunication, Martin Luther stayed at Wartburg when he translated the New Testament from ancient Greek into German.[NEWLINE]For centuries, Wartburg has been a place of pilgrimage for its significance in German and Christian history. In the modern day, Wartburg remains a popular tourist attraction. It often stages the opera Tannhauser. While the castle still contains original structures from the 12th through 15th centuries, much of the interior dates back only to the 19th century, transformed under communist rule in the time of the GDR.'),
 			('TXT_KEY_THEMING_BONUS_WARTBURG',			'Literature that inspired whole nations'),
 			('TXT_KEY_THEMING_BONUS_WARTBURG_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with literature created by you.'),
-			('TXT_KEY_WONDER_WARTBURG_HELP',			'+30% generation of [ICON_GREAT_WRITER] Great Writers in Empire. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 5 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.');
+			('TXT_KEY_WONDER_WARTBURG_HELP',			'+30% generation of [ICON_GREAT_WRITER] Great Writers in this City. Has 3 slots for [ICON_GREAT_WORK] Great Works of Literature. +3 [ICON_CULTURE] Culture and +3 [ICON_PEACE] Faith and 3 [ICON_GOLDEN_AGE] Golden Age Points if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 5 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land units trained in this City. All Writer''s Guilds in the Empire receive +1 [ICON_PEACE] Faith.');
 			
 UPDATE Language_en_US
 SET Text = 'With [COLOR_YIELD_FOOD]Wartburg[ENDCOLOR] you will become king of literature (+2[ICON_GREAT_WRITER]; +30%[ICON_GREAT_WRITER]), which can be stored on your new shelves (+3[ICON_GREAT_WORK] if themed:[ICON_CULTURE], [ICON_PEACE], [ICON_GOLDEN_AGE]). Increase your faith output by constructing [COLOR_YIELD_FOOD]Writer''s Guilds[ENDCOLOR] (+1[ICON_PEACE][ICON_PEACE]) in your empire and raise up experience of your units using your city collection (+5 XP/[ICON_GREAT_WORK] inside/[COLOR_YIELD_GOLD]Land[ENDCOLOR]).'
@@ -1194,7 +1194,7 @@ VALUES		('TXT_KEY_BUILDING_MUSEUM_ISLAND',					'Museum Island'),
 			('TXT_KEY_WONDER_MUSEUM_ISLAND_HELP',				'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Museum. +50% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_TOURISM] Tourism to all Museums. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +5 [ICON_RESEARCH] Science, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (+4[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_GREAT_ARTIST]; [ICON_GOLD]) (+2[ICON_TOURISM]).'
+SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (+4[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_GREAT_ARTIST]; [ICON_GOLD]) (+2[ICON_TOURISM]).'
 WHERE Tag = 'TXT_KEY_WONDER_MUSEUM_ISLAND_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1500,7 +1500,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_POLAR_EXPEDITION',		'Polar Expedition'),
 			('TXT_KEY_WONDER_POLAR_EXPEDITION_QUOTE',	'[NEWLINE]"Adventure is just bad planning."[NEWLINE] - Roald Amundsen[NEWLINE]'),
 			('TXT_KEY_WONDER_POLAR_EXPEDITION_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_POLAR_EXPEDITION_HELP',	'Wonder places 3 new [ICON_RES_OIL] Oil resources inside City range if possible. +2 [ICON_RESERCH] Science from all Snow tiles worked by the City. +1 [ICON_RESERCH] Science and +1 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist Specialists in your Empire.');
+			('TXT_KEY_WONDER_POLAR_EXPEDITION_HELP',	'Wonder places 3 new [ICON_RES_OIL] Oil resources inside City range if possible. +2 [ICON_RESEARCH] Science from all Snow tiles worked by the City. +1 [ICON_RESEARCH] Science and +1 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist Specialists in your Empire.');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Polar Expedition[ENDCOLOR] vastly explores unvisited [COLOR_CITY_BLUE]Snow[ENDCOLOR] areas (+2[ICON_RESEARCH]/[ICON_FLOWER]) and looks for new underground [COLOR_GREY]Oil[ENDCOLOR] deposits (+3[ICON_RES_OIL]) hidden by white cover. New research facilities created there will surely expand our knowledge about Earth and its history (+1[ICON_RESEARCH], +1[ICON_GOLDEN_AGE]/[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]).'
@@ -1536,7 +1536,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ROCKEFELLER',		'Rockefeller Center'),
 			('TXT_KEY_WONDER_ROCKEFELLER_QUOTE',	'[NEWLINE]"A friendship founded on business is better than a business founded on friendship."[NEWLINE] - John D. Rockefeller[NEWLINE]'),
 			('TXT_KEY_WONDER_ROCKEFELLER_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_ROCKEFELLER_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Research Lab in the City in which it is built. +2 [ICON_RESERCH] Science from all Hospitals in your Empire. +2 [ICON_RESERCH] Science from all Scientist Specialists in your Empire. +3 [ICON_GOLD] Gold to all your Cities in Empire. Receive 10 [ICON_CULTURE] Culture from each [ICON_GOLD] Gold Purchase.');
+			('TXT_KEY_WONDER_ROCKEFELLER_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Research Lab in the City in which it is built. +2 [ICON_RESEARCH] Science from all Hospitals in your Empire. +2 [ICON_RESEARCH] Science from all Scientist Specialists in your Empire. +3 [ICON_GOLD] Gold to all your Cities in Empire. Receive 10 [ICON_CULTURE] Culture from each [ICON_GOLD] Gold Purchase.');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Rockefeller Center[ENDCOLOR] strongly supports many different branches of your country: economy (+3[ICON_GOLD]/City), culture (10[ICON_CULTURE]/[ICON_GOLD] Purchase) and research (+2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Hospitals[ENDCOLOR]). Huge breakthroughs will be only matter of time thanks to new [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] ([ICON_RESEARCH]) working in this complex.'
@@ -1590,10 +1590,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_HOLLYWOOD',		'Hollywood'),
 			('TXT_KEY_WONDER_HOLLYWOOD_QUOTE',	'[NEWLINE]"Hollywood is a place where they''ll pay you a thousand dollars for a kiss and fifty cents for your soul. I know, because I turned down the first offer often enough and held out for the fifty cents."[NEWLINE] - Marilyn Monroe[NEWLINE]'),
 			('TXT_KEY_WONDER_HOLLYWOOD_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_HOLLYWOOD_HELP',	'TODO');
+			('TXT_KEY_WONDER_HOLLYWOOD_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy.  +5% generation of [ICON_GREAT_ARTIST] Great Artists, [ICON_GREAT_WRITER] Great Writers and [ICON_GREAT_MUSICIAN] Great Musicians in this City. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in this City and -5% [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in the Empire. +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from all Broadcast Towers and +3 [ICON_GOLD] Gold and +3 [ICON_CULTURE] Culture from all Guilds in your Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hollywood[ENDCOLOR].'
+SET Text = 'If you want to make your empire happier, built [COLOR_YIELD_FOOD]Hollywood[ENDCOLOR] (-1[ICON_HAPPINESS_3] Boredom; -5%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom). It will be a cultural center of your country (+5[ICON_TOURISM]; +5%[ICON_GREAT_ARTIST]; +5%[ICON_GREAT_WRITER]; +5%[ICON_GREAT_MUSICIAN]; [COLOR_MAGENTA]free Policy[ENDCOLOR]), that also make profits for you (+1[ICON_GOLD], +1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Broadcast Towers[ENDCOLOR]; +3[ICON_GOLD], +3[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Guilds[ENDCOLOR])!'
 WHERE Tag = 'TXT_KEY_WONDER_HOLLYWOOD_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1733,10 +1733,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_SPUTNIK',		'Sputnik'),
 			('TXT_KEY_WONDER_SPUTNIK_QUOTE',	'[NEWLINE]"Listen now for the sound that forevermore separates the old from the new. [Introducing the beep-beep chirp transmitted by the Sputnik satellite.]"[NEWLINE] - NBC Radio[NEWLINE]'),
 			('TXT_KEY_WONDER_SPUTNIK_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_SPUTNIK_HELP',		'TODO');
+			('TXT_KEY_WONDER_SPUTNIK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +20% [ICON_PRODUCTION] Production towards Spaceship Parts. Starts [ICON_GOLDEN_AGE] Golden Age. +33% generation of [ICON_GREAT_ENGINEER] Great Engineers and +25% generation of [ICON_GREAT_SCIENTIST] Great Scientists in this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Sputnik[ENDCOLOR].'
+SET Text = '[COLOR_YIELD_FOOD]Sputnik[ENDCOLOR] is a milestone on your way to the space (+20%[ICON_PRODUCION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]; starts [ICON_GOLDEN_AGE]). Many different specialities in your empire will benefit from the discoveries made by this satellite (+33%[ICON_GREAT_ENGINEER]; +25%[ICON_GREAT_SCIENTIST]), not to mention about your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1751,10 +1751,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ANITKABIR',		'Anitkabir'),
 			('TXT_KEY_WONDER_ANITKABIR_QUOTE',	'[NEWLINE]"Peace at home, Peace in the world."[NEWLINE] - Mustafa Kemal Atatürk[NEWLINE]'),
 			('TXT_KEY_WONDER_ANITKABIR_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_ANITKABIR_HELP',	'TODO');
+			('TXT_KEY_WONDER_ANITKABIR_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +1 [ICON_INFLUENCE] World Congress Vote and +1 [ICON_INFLUENCE] World Congress Vote for each controlled Enemy Capital. +50% [ICON_PRODUCTION] Production towards Diplomatic units.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Anitkabir[ENDCOLOR].'
+SET Text = '[COLOR_YIELD_FOOD]Anitkabir[ENDCOLOR] fullfils a dream about world at peace. It makes diplomatic contacts much easier (+50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]) and negotiations in World Congress more favourable to your side (+1[ICON_DIPLOMAT] League Vote; +1[ICON_DIPLOMAT] League Vote/controlled Enemy Capital). People will love you and your politics ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_ANITKABIR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1807,7 +1807,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ARECIBO',		'Arecibo Observatory'),
 			('TXT_KEY_WONDER_ARECIBO_QUOTE',	'[NEWLINE]"The surface of the Earth is the shore of the cosmic ocean. From it we have learned most of what we know. Recently, we have waded a little out to sea, enough to dampen our toes or, at most, wet our ankles. The water seems inviting. The ocean calls."[NEWLINE] - Carl Sagan[NEWLINE]'),
 			('TXT_KEY_WONDER_ARECIBO_PEDIA',	'The Arecibo Observatory is the world''s largest Radio Telescope, at 305 metres (1000 feet) in width. It was constructed in 1963 in a naturally-formed sinkhole near Arecibo, Puerto Rico. It consists of the dish, which is on the ground, and a large reciever suspended above the dish by three towers which vary in height due to ground elevation.[NEWLINE][NEWLINE]  Since its construction in 1963, the observatory has been used for a variety of different purposes. Originally designed to study Earth''s Ionosphere (The layer of Earth''s atmosphere above 85 kilometres where solar radiation still affects the atmosphere. Auroras form in this layer), the Arecibo Observatory has since made a variety of discoveries and been used for several research projects. In 1990, the telescope was used to discover the first ever known Exo-planets (Planets existing outside our own Solar System). It was also used to discover Neutron stars (stars that half half a million times more mass than Earth in an area equivalent to the size of Brooklyn, New York). It has also been used for countless other astronomical discoveries.[NEWLINE][NEWLINE]  In 1974, the Observatory sent a message of binary characters, consisting of the numbers 1 to 10, DNA makeup, the solar system and more information, towards a star cluster known as globular cluser M13, around 25,000 light years away, in the hope of contacting intelligent life.'),
-			('TXT_KEY_WONDER_ARECIBO_HELP',		'+2 Scientist slots. +1 [ICON_RESERCH] Science from all Mountain tiles in your Empire. +2 [ICON_RESERCH] Science from all Scientist Specialists in your Empire. +3 [ICON_RESERCH] Science from Observatories in your Empire. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.');
+			('TXT_KEY_WONDER_ARECIBO_HELP',		'+2 Scientist slots. +1 [ICON_RESEARCH] Science from all Mountain tiles in your Empire. +2 [ICON_RESEARCH] Science from all Scientist Specialists in your Empire. +3 [ICON_RESEARCH] Science from Observatories in your Empire. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Arecibo Observatory[ENDCOLOR], scientific milestone, built on [COLOR_CITY_BLUE]Mountain[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_FLOWER][ICON_FLOWER] to corresponding City) and hiring specialists (+2 slots for [ICON_GREAT_SCIENTIST]; +2[ICON_RESEARCH]/[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]) to boost science in many knowledge domains (+3[ICON_GOLD]/all [COLOR_YIELD_FOOD]Observatories[ENDCOLOR]). This can be a solution to unify scientists from all over the world (+1[ICON_DIPLOMAT] League Vote).'
