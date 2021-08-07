@@ -12,6 +12,21 @@ Two versions of new quote recordings for wonders!
 INSERT INTO COMMUNITY	
 		(Type,			Value)
 VALUES	('MW-SPEECH', 	0);
+--------------------------------------------------------------
+/*
+EE compatibility patch!
+0 = Disabled disregarding if its detects EE by Infixo and Padre.
+1 = Enabled if it detects the EE by Infixo and Padre.
+2 = Disabled until it detects something! (Default)
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,			Value)
+VALUES	('MW-EE', 		2);
+
+UPDATE COMMUNITY
+SET Value = '1'
+WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM UnitPromotions WHERE Type='PROMOTION_2HANDER') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 0);
 --============================================--
 -- Table with new Wonder Types
 --============================================--
@@ -43,18 +58,18 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('MAJORVILLE',			'None',		1,			0,		1),		-- Majorville Medicine Wheel
 			('MOHENJO_DARO',		'None',		1,			0,		1),		-- Mohenjo-Daro
 			('SKARA_BRAE',			'None',		1,			0,		1),		-- Skara Brae
-			----------------------------------------------------------------------------------------
+			-------------------ANCIENT--------------------------------------------------------------
 			('KARNAK',				'None',		1,			0,		1),		-- Karnak Temple
 			('NAZCA',				'None',		1,			0,		1),		-- Nazca Lines
 			('WIELICZKA',			'None',		1,			0,		1),		-- Wieliczka Salt Mine
-			----------------------------------------------------------------------------------------
+			-------------------CLASSICAL------------------------------------------------------------
 			('MALWIYA',				'None',		1,			0,		1),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',			'None',		1,			0,		1),		-- Gate of the Sun
 			('BAMYAN',				'None',		1,			0,		1),		-- Buddhas of Bamiyan
 			('EL_GHRIBA',			'None',		1,			0,		1),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',			'None',		1,			0,		1),		-- Etchmiadzin Cathedral
 			('CHAND_BAORI',			'None',		1,			0,		1),		-- Chand Baori Well
-			----------------------------------------------------------------------------------------
+			-------------------MEDIEVAL-------------------------------------------------------------
 			('NABAWI',				'None',		1,			0,		1),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
 			('LAVAUX',				'None',		1,			0,		1),		-- Lavaux
 			('WARTBURG',			'None',		1,			0,		1),		-- Wartburg Castle
@@ -67,7 +82,7 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('ITSUKUSHIMA',			'None',		1,			0,		1),		-- Itsukushima Shrine
 			('QALHAT',				'None',		1,			0,		1),		-- Qalhat
 			('CHEVALIERS',			'None',		1,			0,		1),		-- Krak des Chevaliers
-			----------------------------------------------------------------------------------------
+			-------------------RENAISSANCE----------------------------------------------------------
 			('BENHADDOU',			'None',		1,			0,		1),		-- Ait Benhaddou
 			('KILWA_KISIWANI',		'None',		1,			0,		1),		-- Kilwa Kisiwani
 			('ST_PETERS',			'None',		1,			0,		1),		-- Papal Basilica of St. Peter in the Vatican
@@ -79,7 +94,9 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('BAKKEN',				'None',		1,			0,		1),		-- Bakken
 			('HOUSE_OF_TRADE',		'None',		1,			0,		1),		-- House of Trade of the Indies (Casa de Contratación)
 			('SOLOVIETSKY',			'None',		1,			0,		1),		-- Solovietsky Monastery
-			----------------------------------------------------------------------------------------
+			-------------------ENLIGHTMENT----------------------------------------------------------
+			--('BOLSHOI',				'None',		1,			0,		1),		-- Bolshoi Theater
+			-------------------INDUSTRIAL-----------------------------------------------------------
 			('MUSEUM_ISLAND',		'None',		1,			0,		1),		-- Museum Island
 			('SIKU_QUANSHU',		'None',		1,			0,		1),		-- Siku Quanshu
 			('BROOKLYN',			'None',		1,			0,		1),		-- Brooklyn Bridge
@@ -92,17 +109,17 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('DARJEELING',			'None',		1,			0,		1),		-- Darjeeling Himalayan Railway
 			('BANFF',				'None',		1,			0,		1),		-- Banff Springs Hotel
 			('ORSZAGHAZ',			'None',		1,			0,		1),		-- Orszaghaz
-			----------------------------------------------------------------------------------------
+			-------------------MODERN---------------------------------------------------------------
 			('POLAR_EXPEDITION',	'None',		1,			0,		1),		-- First Polar Expedition
 			('AKIHABARA',			'None',		1,			0,		1),		-- Akihabara Trade Center
 			('ROCKEFELLER',			'None',		1,			0,		1),		-- Rockefeller Center
 			('AUTOBAHN',			'None',		1,			0,		0),		-- Autobahn
 			('INTERSTATE',			'None',		1,			0,		0),		-- Highway Interstate System
 			('HOLLYWOOD',			'None',		1,			0,		0),		-- Hollywood
-			--('CONCORDE',			'None',		1,			0,		0),		-- Concorde
+			('CONCORDE',			'None',		1,			0,		0),		-- Concorde
 			('SANBO',				'None',		1,			0,		1),		-- Sanbo Honbu
 			('RUSHMORE',			'None',		1,			0,		1),		-- Mount Rushmore
-			----------------------------------------------------------------------------------------
+			-------------------ATOMIC---------------------------------------------------------------
 			--('GREAT_HALL',			'None',		1,			0,		0),		-- Great Hall of China
 			--('HABITAT',				'None',		1,			0,		0),		-- Habitat 67
 			--('MARACANA',			'None',		1,			0,		0),		-- Estadio do Maracana
@@ -116,17 +133,17 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('MILLAU',				'None',		1,			0,		1),		-- Millau Viaduct
 			--('KUMSUSAN',			'None',		1,			0,		0),		-- Kumsusan Palace
 			('ARECIBO',				'None',		1,			0,		1),		-- Arecibo Observatory
-			----------------------------------------------------------------------------------------
+			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0,		0),		-- Northern Light Cathedral
 			--('SEED_VAULT',			'None',		1,			0,		0),		-- Svalbard Global Seed Vault
 			('JUMEIRAH',			'None',		1,			0,		1),		-- Palm Jumeirah
 			('TAIPEI',				'None',		1,			0,		1);		-- Taipei 101
 			--('PETRONAS',			'None',		1,			0,		0);		-- Petronas Towers
-			----------------------------------------------------------------------------------------
+			-------------------INFORMATION-B--------------------------------------------------------
 			--('CURIOSTY',			'None',		1,			0,		0),		-- Curiosity Rover
 			--('SKYTREE',				'None',		1,			0,		0),		-- Skytree
 			--('ICE_HOTEL',			'None',		1,			0,		0),		-- Ice Hotel
-			----------------------------------------------------------------------------------------
+			-------------------INFORMATION-C--------------------------------------------------------
 			--('MARINA_BAY_SANDS',	'None',		1,			0,		0),		-- Marina Bay Sands
 			--('ONKALO',				'None',		1,			0,		0),		-- Onkalo Nuclear Waste Repository
 			--('ITER',				'None',		1,			0,		0),		-- ITER

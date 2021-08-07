@@ -5835,7 +5835,7 @@ function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
 	
 	-- Check the location is a decent city site, otherwise the wonderID is pointless
 	local plot = Map.GetPlot(x, y);
-	if self:Plot_GetFertilityInRange(plot, 3) < 28 then
+	if self:Plot_GetFertilityInRange(plot, 3) < 15 then -- adan_eslavo (was 28)
 		return false
 	end
 	return true
@@ -6458,7 +6458,7 @@ function AssignStartingPlots:GenerateNaturalWondersCandidatePlotLists()
 	self.wonder_list = table.fill(-1, self.iNumNW);
 	local next_wonder_number = 1;
 	for row in GameInfo.Features() do
-		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then --adan_eslavo
+		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then -- adan_eslavo
 			self.wonder_list[next_wonder_number] = row.Type;
 			next_wonder_number = next_wonder_number + 1;
 		end
@@ -6523,7 +6523,7 @@ function AssignStartingPlots:GenerateNaturalWondersCandidatePlotLists()
 		end
 	end
 	
-	--[[ Debug printout of natural wonder candidate plot lists
+	--Debug printout of natural wonder candidate plot lists
 	print("-"); print("-"); print("--- Number of Candidate Plots on the map for Natural Wonders ---"); print("-");
 	for loop = 1, self.iNumNW do
 		print("-", iCanBeWonder[loop], "candidates for", self.wonder_list[loop]);
@@ -6639,7 +6639,7 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			-- Now place this wonder and record the placement.
 			plot:SetFeatureType(feature_type_to_place)
 			table.insert(self.placed_natural_wonder, wonder_number);
-			self:PlaceResourceImpact(x, y, 6, math.floor(iH / 8))	-- Natural Wonders layer (adan_eslavo)
+			self:PlaceResourceImpact(x, y, 6, math.floor(iH / 8))	-- Natural Wonders layer -- adan_eslavo (was 5)
 			self:PlaceResourceImpact(x, y, 1, 1)					-- Strategic layer
 			self:PlaceResourceImpact(x, y, 2, 1)					-- Luxury layer
 			self:PlaceResourceImpact(x, y, 3, 1)					-- Bonus layer
@@ -6750,6 +6750,7 @@ function AssignStartingPlots:PlaceNaturalWonders()
 		return
 	end
 	
+	
 	--[[Debug printout
 	print("-"); print("--- Readout of NW Assignment Priority ---");
 	for print_loop, order in ipairs(NW_eligibility_order) do
@@ -6761,7 +6762,7 @@ function AssignStartingPlots:PlaceNaturalWonders()
 	-- Determine how many NWs to attempt to place. Target is regulated per map size.
 	-- The final number cannot exceed the number the map has locations to support.
 	local worldsizes = {
-		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3, --(adan_eslavo)
+		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3, -- adan_eslavo
 		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 6,
 		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 9,
 		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 12,
@@ -6778,8 +6779,9 @@ function AssignStartingPlots:PlaceNaturalWonders()
 			table.insert(fallback_NWs, NW);
 		end
 	end
-	--[[
-	print("-");
+	
+	
+	--print("-");
 	for loop, NW in ipairs(selected_NWs) do
 		print("Natural Wonder #", NW, "has been selected for placement.");
 	end
@@ -6787,8 +6789,8 @@ function AssignStartingPlots:PlaceNaturalWonders()
 	for loop, NW in ipairs(fallback_NWs) do
 		print("Natural Wonder #", NW, "has been selected as fallback.");
 	end
-	print("-");
-	]]--
+	print("-");--]]
+	
 	
 	print("--- Placing Natural Wonders! ---");
 	-- Place the NWs

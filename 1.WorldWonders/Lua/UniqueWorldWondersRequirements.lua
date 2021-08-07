@@ -843,6 +843,21 @@ function Initialize()
 		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 		iRequiredImprovements = 1
 	}
+	-- EE compatibility
+	if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_TORRE.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FORT,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_SMITHSONIAN.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
+			iRequiredImprovements = 1
+		}
+	end
 	for id, building in pairs(tValidIsHasImprovement) do
 		dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 	end

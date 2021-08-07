@@ -1231,7 +1231,14 @@
 			<PlotType>PLOT_OCEAN</PlotType>
 			<FeatureType>FEATURE_VOLCANO</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
-			<Yield>-1</Yield>
+			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
 			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 		

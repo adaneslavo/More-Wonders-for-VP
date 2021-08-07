@@ -35,6 +35,13 @@ Currently compatible with 7-1-3.</Description>
         <MinVersion>0</MinVersion>
         <MaxVersion>999</MaxVersion>
       </Association>
+      <Association>
+        <Type>Mod</Type>
+        <Name>Enlightment Era for VP</Name>
+        <Id>87b2deae-83cb-9b88-9017-79e741d3739c</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
     </ModReferences>
     <ModBlockers>
       <Association xmlns="">
@@ -368,11 +375,15 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_64 .dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_80 .dds">
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

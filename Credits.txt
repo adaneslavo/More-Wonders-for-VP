@@ -62,6 +62,7 @@ Special thanks to:
 		
 		- Autobahn: https://i1.wp.com/smp.edu.pl/wp-content/uploads/2016/11/nrg.tpt_.autobahn.1934.GRM-CIV347.jpg
 		- Sputnik: https://commons.wikimedia.org/wiki/File:Sputnik_1_Exploded_View_3F9A6199_(36924864550).jpg (CC BY 1.0)
+		- Concorde: https://commons.wikimedia.org/wiki/File:Concorde_1_94-9-5_kix_(cropped).jpg (CC BY-SA 3.0)
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);
