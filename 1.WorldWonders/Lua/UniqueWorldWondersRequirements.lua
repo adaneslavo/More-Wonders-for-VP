@@ -36,7 +36,8 @@ local tValidIsHasCities = {}
 local tValidIsHasSpecialists = {}
 local tValidIsHasPlotsForResources = {}
 local tValidIsHasResearchAgreements = {}
-local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
+local tValidIsAtPolar = {}
+--local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
 
 local bReachedMaxEra
 
@@ -648,6 +649,35 @@ function IsHasResearchAgreements(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasResearchAgreements)
 
+-- checks if city is near pole (POLAR EXPEDITION)
+function IsAtPolar(ePlayer, eCity, eBuilding)
+	if not tValidIsAtPolar[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local pCity = pPlayer:GetCityByID(eCity)
+	local iCityY = pCity:GetY()
+	local iW, iH = Map.GetGridSize()
+
+	if (iCityY >= (iH/2)) then	
+		-- Upper half of map;
+		if (math.abs((iH/2) - iCityY)/(iH/2)) > 0.7 then
+			return true
+		end
+	else
+		-- Lower half of map;
+		if (math.abs((iH/2) - (iCityY + 1))/(iH/2)) > 0.7 then
+			return true
+		end
+	end
+	
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsAtPolar)
+
 -- temporary FIX for unique buildingclass requirement (ALL)
 --[[function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
 	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
@@ -1025,6 +1055,14 @@ function Initialize()
 	}
 	for id, building in pairs(tValidIsHasResearchAgreements) do
 		dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
+	end	
+
+	-- IsAtPolar
+	tValidIsAtPolar = {
+		[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = true
+	}
+	for id, building in pairs(tValidIsAtPolar) do
+		dprint("...adding (id,building,polar)", id, GameInfo.Buildings[id].Type, tValidIsAtPolar[id])
 	end	
 
 	-- IsHasPlotsForResources

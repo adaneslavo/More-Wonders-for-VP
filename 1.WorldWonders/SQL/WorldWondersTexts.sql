@@ -657,10 +657,10 @@ VALUES		('TXT_KEY_BUILDING_SHWEDAGON',					'Golden Dagon Pagoda'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with Artifacts created by different Players in consecutive Eras.'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',			'Hidden Artifacts'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',		'+10% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter Enemy Territory without Open Borders Agreement[ENDCOLOR].'),
-			('TXT_KEY_WONDER_SHWEDAGON_HELP',				'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Archaeologist. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
+			('TXT_KEY_WONDER_SHWEDAGON_HELP',				'All Archaeologist Units in the Empire get [COLOR_POSITIVE_TEXT]Hidden Artifacts[ENDCOLOR] promotion. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry. Religious and more frequent artists in this city (+2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), more valuable great works of your empire (+1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and much more space for new art (+4[ICON_GREAT_WORK] if themed:[ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]) will make your city shine! Make sure to use your new forces to find hidden artifacts ([COLOR_YIELD_GOLD]free Archaeologist[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry. Religious and more frequent artists in this city (+2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), more valuable great works of your empire (+1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and much more space for new art (+4[ICON_GREAT_WORK] if themed:[ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]) will make your city shine! Make sure to use your new forces to find hidden artifacts ([COLOR_WATER_TEXT]Hidden Artifacts[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1167,7 +1167,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [CO
 ----------------------------------------------------
 -- Red Fort
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Red Fort[ENDCOLOR] is an ideal choice for a militaristic leader. Increased global army limit (+5%[ICON_SILVER_FIST][ICON_SILVER_FIST]), upgraded city''s offensive and defensive capabilities (+10%[ICON_RANGE_STRENGTH]; +1[ICON_SWAP]; +30[ICON_STRENGTH]; +100 HP), brand new [COLOR_YIELD_FOOD]Arsenal[ENDCOLOR] ([ICON_STRENGTH]; [ICON_RANGE_STRENGTH]; [ICON_SILVER_FIST]; [ICON_SPY]; [ICON_HAPPINESS_3]) as well as support of engineers ([COLOR_YIELD_GOLD]free [ICON_GREAT_ENGINEER][ENDCOLOR]) and scientists (+1[ICON_GREAT_SCIENTIST]) will make from you unquestionnable lider of the world.'
+SET Text = '[COLOR_YIELD_FOOD]Red Fort[ENDCOLOR] is an ideal choice for a militaristic leader. Increased global army limit (+5%[ICON_SILVER_FIST][ICON_SILVER_FIST]), upgraded city''s offensive and defensive capabilities (+10%[ICON_RANGE_STRENGTH]; +1[ICON_SWAP]; +30[ICON_STRENGTH]; +100 HP), brand new [COLOR_YIELD_FOOD]Arsenal[ENDCOLOR] ([ICON_STRENGTH]; [ICON_RANGE_STRENGTH]; [ICON_SILVER_FIST]; [ICON_SPY]; [ICON_HAPPINESS_3]) as well as support of engineers ([COLOR_YIELD_GOLD]free [ICON_GREAT_ENGINEER][ENDCOLOR]) and scientists (+1[ICON_GREAT_SCIENTIST]) will make from you unquestionable leader of the world.'
 WHERE Tag = 'TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Fealty[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
@@ -1510,7 +1510,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_POLAR_EXPEDITION_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_POLAR_EXPEDITION_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP';
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; City: [COLOR_CYAN]Near Pole[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP';
 ----------------------------------------------------
 -- Akihabara Electric Town
 INSERT INTO Language_en_US 
@@ -1792,7 +1792,7 @@ VALUES		('TXT_KEY_BUILDING_WHITE_SANDS',		'White Sands Missile Range'),
 			('TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'+2 [ICON_SWAP] Range.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]). Using latest technologies rockets are cheap and easy to manufacture (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missiles[ENDCOLOR]; +10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Parts[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]/[COLOR_YIELD_GOLD]Missile[ENDCOLOR]). Using latest technologies rockets are cheap and easy to manufacture (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missiles[ENDCOLOR]; +10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Parts[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_WHITE_SANDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

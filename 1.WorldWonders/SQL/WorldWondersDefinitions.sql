@@ -2307,7 +2307,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_BIOLOGY', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
 
-	UPDATE Buildings SET IsNoWater = 1, /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	UPDATE Buildings SET /*IsNoWater = 1, IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	-- + IsAtPolar (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,					Yield)
@@ -3115,7 +3116,7 @@ UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_EE_KRONBO
 UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
-
+--------------------------------------------------------------------------------------------------------------------------------------------
 UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EE_TOPKAPI';
 UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1 WHERE Type = 'BUILDING_EE_VERSAILLES';
 UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW';

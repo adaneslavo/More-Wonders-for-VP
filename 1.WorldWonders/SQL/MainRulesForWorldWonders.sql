@@ -94,7 +94,7 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 			('BAKKEN',				'None',		1,			0,		1),		-- Bakken
 			('HOUSE_OF_TRADE',		'None',		1,			0,		1),		-- House of Trade of the Indies (Casa de Contratación)
 			('SOLOVIETSKY',			'None',		1,			0,		1),		-- Solovietsky Monastery
-			-------------------ENLIGHTMENT----------------------------------------------------------
+			-------------------ENLIGHTENMENT----------------------------------------------------------
 			--('BOLSHOI',				'None',		1,			0,		1),		-- Bolshoi Theater
 			-------------------INDUSTRIAL-----------------------------------------------------------
 			('MUSEUM_ISLAND',		'None',		1,			0,		1),		-- Museum Island
