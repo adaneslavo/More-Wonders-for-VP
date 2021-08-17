@@ -1235,12 +1235,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,		ResourceType) 
 	VALUES		('BUILDING_QALHAT',	'RESOURCE_HORSE');
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100, TradeRouteSeaDistanceModifier = 100 WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100 WHERE Type = 'BUILDING_QALHAT';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3),
-				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	2);
+				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	3);
 
 	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,		ResourceType,		YieldType,		Yield) 
@@ -3124,11 +3124,16 @@ UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1, NearbyTerrainRequir
 UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EE_KRONBORG';
 UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1 WHERE Type = 'BUILDING_EE_FASIL_GHEBBI';
 UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_EE_SMITHSONIAN';
-
+--------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Building_ClassesNeededInCity 
 			(BuildingType,				BuildingClassType) 
-VALUES		('BUILDING_EE_TOPKAPI',		'BUILDINGCLASS_EE_MANOR'),
-			('BUILDING_EE_KRONBORG',	'BUILDINGCLASS_HARBOR');
+SELECT		'BUILDING_EE_TOPKAPI',		'BUILDINGCLASS_EE_MANOR'
+WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
+			
+INSERT INTO Building_ClassesNeededInCity 
+			(BuildingType,				BuildingClassType) 
+SELECT		'BUILDING_EE_KRONBORG',		'BUILDINGCLASS_HARBOR'
+WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
