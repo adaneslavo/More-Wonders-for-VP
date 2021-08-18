@@ -89,7 +89,7 @@ function NWCustomEligibility(x, y, method_number)
 			end
 		else
 			-- Lower half of map;
-			if (math.abs((iH/2) - (y + 1))/(iH/2)) > 0.8 then
+			if (math.abs((iH/2) - y + 1)/(iH/2)) > 0.8 then
 				return false
 			end
 		end 

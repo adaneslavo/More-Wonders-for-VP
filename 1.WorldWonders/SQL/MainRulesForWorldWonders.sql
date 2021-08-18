@@ -43,6 +43,12 @@ UPDATE COMMUNITY
 SET Value = '1'
 WHERE Type = 'MW-UCS' AND EXISTS (SELECT * FROM MinorCivilizations WHERE Type='MINOR_CIV_HONDURAS') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-UCS' AND Value= 0);
 --============================================--
+-- CUSTOM_MOD_OPTIONS
+--============================================--
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT';
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_RESULT';
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_ENDED';
+--============================================--
 -- Table with new Wonder Types
 --============================================--
 CREATE TABLE MWfVPConfig (

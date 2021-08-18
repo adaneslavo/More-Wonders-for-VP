@@ -999,14 +999,60 @@ end
 Events.UnitActionChanged.Add(SetDummiesOnUnitActionChange)
 
 -- checks for promotion (SANBO)
+function SetPromotionsOnCombatEnd(eAttackingPlayer, eAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, eDefendingPlayer, eDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, eInterceptingPlayer, eInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
+	if g_tWorldWonderExists[15] then
+		if eAttackingPlayer == g_tWorldWonderOwner[15] then
+			local pAttackingPlayer = Players[eAttackingPlayer]
+
+			if pAttackingPlayer ~= nil then				
+				local pAttackingUnit = pAttackingPlayer:GetUnitByID(eAttackingUnit)
+
+				if pAttackingUnit ~= nil and pAttackingUnit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR) or pAttackingUnit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT) then
+					local iUnitHP = pAttackingUnit:GetCurrHitPoints()
+					local iUnitMaxHP = pAttackingUnit:GetMaxHitPoints()
+					local fHPPercentage = 100 * iUnitHP / iUnitMaxHP
+					
+					if fHPPercentage <= 20 then
+						pAttackingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, true)
+						pAttackingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, false)
+					else
+						pAttackingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, true)
+						pAttackingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, false)
+					end
+				end
+			end
+		elseif eDefendingPlayer == g_tWorldWonderOwner[15] then
+			local pDefendingPlayer = Players[eDefendingPlayer]
+
+			if pDefendingPlayer ~= nil then
+				local pDefendingUnit = pDefendingPlayer:GetUnitByID(eDefendingUnit)
+
+				if pDefendingUnit ~= nil and pDefendingUnit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR) or pDefendingUnit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT) then
+					local iUnitHP = pDefendingUnit:GetCurrHitPoints()
+					local iUnitMaxHP = pDefendingUnit:GetMaxHitPoints()
+					local fHPPercentage = 100 * iUnitHP / iUnitMaxHP
+					
+					if fHPPercentage <= 20 then
+						pDefendingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, true)
+						pDefendingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, false)
+					else
+						pDefendingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR, true)
+						pDefendingUnit:SetHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT, false)
+					end
+				end
+			end
+		end
+	end
+end
+GameEvents.CombatEnded.Add(SetPromotionsOnCombatEnd)
+
 function SetPromotionOnTurn(ePlayer)
 	if g_tWorldWonderExists[15] then
 		if ePlayer == g_tWorldWonderOwner[15] then
 			local pPlayer = Players[ePlayer]
 			
 			for unit in pPlayer:Units() do
-				if unit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR) then
-				--if unit.CombatClass == UNITCOMBAT_FIGHTER or unit.CombatClass == UNITCOMBAT_BOMBER then
+				if unit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR) or unit:IsHasPromotion(GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT) then
 					local iUnitHP = unit:GetCurrHitPoints()
 					local iUnitMaxHP = unit:GetMaxHitPoints()
 					local fHPPercentage = 100 * iUnitHP / iUnitMaxHP

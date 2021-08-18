@@ -661,19 +661,19 @@ function IsAtPolar(ePlayer, eCity, eBuilding)
 	local pCity = pPlayer:GetCityByID(eCity)
 	local iCityY = pCity:GetY()
 	local iW, iH = Map.GetGridSize()
-
+	
 	if (iCityY >= (iH/2)) then	
 		-- Upper half of map;
-		if (math.abs((iH/2) - iCityY)/(iH/2)) > 0.7 then
+		if (math.abs((iH/2) - iCityY)/(iH/2)) > 0.6 then
 			return true
 		end
 	else
 		-- Lower half of map;
-		if (math.abs((iH/2) - (iCityY + 1))/(iH/2)) > 0.7 then
+		if (math.abs((iH/2) - iCityY + 1)/(iH/2)) > 0.6 then
 			return true
 		end
 	end
-	
+
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsAtPolar)
