@@ -115,17 +115,17 @@ function OnPopup( popupInfo )
 
 	if pFeature.FreePromotionIfOwned then
 		local pPromotion = GameInfo.UnitPromotions[pFeature.FreePromotionIfOwned]
-		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_FREE_PROMOTION", L(pPromotion.Description), L(pPromotion.Help))
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_FREE_PROMOTION", "TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_" .. pPromotion.Type, L(pPromotion.Description), L(pPromotion.Help))
 	end
 	
 	if pFeature.AdjacentUnitFreePromotion then
 		local pPromotion = GameInfo.UnitPromotions[pFeature.AdjacentUnitFreePromotion]
-		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION", L(pPromotion.Description), L(pPromotion.Help))
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION", "TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_" .. pPromotion.Type, L(pPromotion.Description), L(pPromotion.Help))
 	end
 
 	if pFeature.LocationUnitFreePromotion then
 		local pPromotion = GameInfo.UnitPromotions[pFeature.LocationUnitFreePromotion]
-		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION", L(pPromotion.Description), L(pPromotion.Help))
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION", "TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_" .. pPromotion.Type, L(pPromotion.Description), L(pPromotion.Help))
 	end
 
 	if sExtendedWonderInfo ~= "" then

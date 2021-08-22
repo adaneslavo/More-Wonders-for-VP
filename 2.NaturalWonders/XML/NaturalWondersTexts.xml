@@ -47,14 +47,41 @@
 			<Text>[NEWLINE][ICON_BULLET]is a source of [COLOR_POSITIVE_TEXT]Fresh Water[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_FREE_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]new[ENDCOLOR] units: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]new[ENDCOLOR] {1_Unit_types} units: {2_Promotion} ({3_Help})</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]nearby[ENDCOLOR] units: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]nearby[ENDCOLOR] {1_Unit_types} units: {2_Promotion} ({3_Help})</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to units [COLOR_POSITIVE_TEXT]on the tile[ENDCOLOR]: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to {1_Unit_types} units [COLOR_POSITIVE_TEXT]on the tile[ENDCOLOR]: {2_Promotion} ({3_Help})</Text>
 		</Row>
+
+
+		<!-- Unit types elligible for promotions (for text purpose) -->
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_EVERLASTING_YOUTH"> <!-- Fountain of Youth -->
+			<Text>[COLOR_YIELD_GOLD]Melee Military[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_SACRED_STEPS"> <!-- Sri Pada -->
+			<Text>[COLOR_YIELD_GOLD]Civilian[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_KAILASH">
+			<Text>[COLOR_YIELD_GOLD]Missionary[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_ULURU">
+			<Text>[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_ALTITUDE_TRAINING"> <!-- Kilimanjaro -->
+			<Text>[COLOR_YIELD_GOLD]Land Military[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_SOLOMONS_MINES">
+			<Text>[COLOR_YIELD_GOLD]Worker[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_BERMUDA_TRIANGLE">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_DALLOL">
+			<Text>[COLOR_YIELD_GOLD]Siege[ENDCOLOR]</Text>
+		</Row>		
 		
 		
 		
@@ -128,13 +155,13 @@
 			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
-			<Text> ([COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR])</Text>
+			<Text> - [COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_B">
-			<Text> ([COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR])</Text>
+			<Text> - [COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_C">
-			<Text> ([COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR])</Text>
+			<Text> - [COLOR_NEGATIVE_TEXT]stops unit on its tile[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
 			<Text>[NEWLINE][ICON_BULLET]+1[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>

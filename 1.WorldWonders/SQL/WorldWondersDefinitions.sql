@@ -1925,7 +1925,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,					BuildingClassType) 
 	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 20, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 25, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,					ResourceType,			YieldType,						Yield) 
@@ -2428,8 +2428,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,			ResourceType) 
 	VALUES		('BUILDING_AUTOBAHN',	'RESOURCE_OIL');
 	---------------------------------------------------------
-	UPDATE Buildings SET WorkerSpeedModifier = 10, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
-	UPDATE Buildings SET Defense = 1000 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
+	UPDATE Buildings SET WorkerSpeedModifier = 30, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
+	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,					Yield)
