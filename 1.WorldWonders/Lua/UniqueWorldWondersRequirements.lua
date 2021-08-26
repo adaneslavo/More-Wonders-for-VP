@@ -46,6 +46,27 @@ local ePlotFlat = PlotTypes.PLOT_LAND
 local ePlotHill = PlotTypes.PLOT_HILLS
 local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 
+local IsRestrictionEra = false
+local IsRestrictionStandard = false
+
+for option in GameInfo.COMMUNITY{Type="MW-RESTRICTIONS"} do
+	print("RestrictionsFound")
+	if option.Value == 1 then
+		IsRestrictionEra = true
+		print("RestrictionsSet")
+		break
+	end
+end
+
+for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
+	print("MaxEraFound")
+	if option.Value == 1 then
+		IsRestrictionEra = true
+		print("MaxEraSet")
+		break
+	end
+end
+
 -- IsMaxEra
 --[[function IsMaxEra(ePlayer, eCity, eBuilding)
 	if not tValidIsMaxEra[eBuilding] then 

@@ -1402,10 +1402,10 @@ VALUES		('TXT_KEY_BUILDING_ORSZAGHAZ',				'Orszaghaz'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_PEDIA',			'TODO'),
 			('TXT_KEY_GREAT_WORK_HOLY_CROWN',			'Holy Crown of Hungary'),
 			('TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE',		'[NEWLINE]You desire that which exceeds my humble powers, but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
-			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +10% [ICON_GOLDEN_AGE] Golden Age Points. +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each 2 Defensive Pacts. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
+			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +10% [ICON_GOLDEN_AGE] Golden Age Points. +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each Defensive Pact. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/2 DP) and also huge leap towards better future of your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]). You also invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new age (+10%[ICON_GOLDEN_AGE]).'
+SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/DP) and also huge leap towards better future of your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]). You also invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new age (+10%[ICON_GOLDEN_AGE]).'
 WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

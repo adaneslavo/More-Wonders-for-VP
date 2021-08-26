@@ -14,6 +14,26 @@ INSERT INTO COMMUNITY
 VALUES	('MW-SPEECH', 	0);
 --------------------------------------------------------------
 /*
+World Wonder's restrictions!
+0 = No restrictions for building World Wonders;
+1 = New restrictions added (Default);
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,					Value)
+VALUES	('MW-RESTRICTIONS', 	0);
+--------------------------------------------------------------
+/*
+Maximum Era restriction!
+0 = No restriction regarding Eras;
+1 = You cannot build World Wonders from 2 Eras behind and further (Default);
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,					Value)
+VALUES	('MW-MAX-ERA', 			0);
+--------------------------------------------------------------
+/*
 EE compatibility patch!
 0 = Disabled disregarding if its detects EE by Infixo and Padre.
 1 = Enabled if it detects the EE by Infixo and Padre.
