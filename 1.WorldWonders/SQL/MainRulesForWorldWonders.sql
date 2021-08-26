@@ -21,7 +21,7 @@ World Wonder's restrictions!
 
 INSERT INTO COMMUNITY	
 		(Type,					Value)
-VALUES	('MW-RESTRICTIONS', 	0);
+VALUES	('MW-RESTRICTIONS', 	1);
 --------------------------------------------------------------
 /*
 Maximum Era restriction!
@@ -31,7 +31,7 @@ Maximum Era restriction!
 
 INSERT INTO COMMUNITY	
 		(Type,					Value)
-VALUES	('MW-MAX-ERA', 			0);
+VALUES	('MW-MAX-ERA', 			1);
 --------------------------------------------------------------
 /*
 EE compatibility patch!
@@ -193,13 +193,13 @@ VALUES		('ALTAMIRA',			'None',		1,			0,		1),		-- Altamira Cave
 -- WONDERS INITIAL CONFIGURATION
 --============================================--
 -- This will disable by default all Wonders not yet programmed
-UPDATE MWfVPConfig SET WActive = 0 WHERE WFake = 1;
+--UPDATE MWfVPConfig SET WActive = 0 WHERE WFake = 1;
 --------------------------------------------------------------
 -- BuildingClasses
 INSERT INTO BuildingClasses 
 			(Type,						Description,					DefaultBuilding,	MaxGlobalInstances)
 SELECT		'BUILDINGCLASS_'||WType,	'TXT_KEY_BUILDING_'||WType,		'BUILDING_'||WType, 1
-FROM MWfVPConfig WHERE WActive = 1;
+FROM MWfVPConfig; --WHERE WActive = 1;
 --------------------------------------------------------------
 -- Buildings
 -- MinAreaSize - change to 10 for Coastal Wonders!
@@ -208,7 +208,7 @@ FROM MWfVPConfig WHERE WActive = 1;
 INSERT INTO Buildings
 			(Type,               BuildingClass,           Description,                Civilopedia,                        Help,								Quote,								ThemingBonusHelp, Cost, FaithCost, NukeImmune, HurryCostModifier, MinAreaSize, ConquestProb, IconAtlas,						 PortraitIndex, WonderSplashImage,				WonderSplashAnchor)
 SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_WONDER_'||WType||'_PEDIA', 'TXT_KEY_WONDER_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_MORE_WONDERS_'||WType,	0,             'Wonder_'||WType||'_splash.dds', 'R,T'
-FROM MWfVPConfig WHERE WActive = 1;
+FROM MWfVPConfig; --WHERE WActive = 1;
 --------------------------------------------------------------
 -- Panama Canal is already in the game
 UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 25, WonderSplashImage = 'WonderConceptPanamaCanal.dds' WHERE Type = 'BUILDING_PANAMA_CANAL';
@@ -251,12 +251,12 @@ INSERT INTO Language_en_US (Tag, Text) SELECT 'TXT_KEY_WONDER_'||WType||'_QUOTE'
 INSERT INTO Audio_Sounds 
 			(SoundID, 									Filename, 						LoadType)
 SELECT		'SND_WONDER_SPEECH_'||WType||'_MAN',		'wonder_'||WType||'_man',		'DynamicResident'
-FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
+FROM MWfVPConfig; --WHERE WActive = 1 AND WHasSound = 1;
 
 INSERT INTO Audio_Sounds 
 			(SoundID, 									Filename, 						LoadType)
 SELECT		'SND_WONDER_SPEECH_'||WType||'_WOMAN',		'wonder_'||WType||'_woman',		'DynamicResident'
-FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
+FROM MWfVPConfig; --WHERE WActive = 1 AND WHasSound = 1;
 
 INSERT INTO Audio_Sounds 
 			(SoundID, 										Filename, 								LoadType)
@@ -296,12 +296,12 @@ VALUES		('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'art_ark_of_the_covenant
 INSERT INTO Audio_2DSounds 
 			(ScriptID, 									SoundID, 									SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
 SELECT		'AS2D_WONDER_SPEECH_'||WType||'_MAN',		'SND_WONDER_SPEECH_'||WType||'_MAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0
-FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
+FROM MWfVPConfig; --WHERE WActive = 1 AND WHasSound = 1;
 
 INSERT INTO Audio_2DSounds 
 			(ScriptID, 									SoundID, 									SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
 SELECT		'AS2D_WONDER_SPEECH_'||WType||'_WOMAN',		'SND_WONDER_SPEECH_'||WType||'_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0
-FROM MWfVPConfig WHERE WActive = 1 AND WHasSound = 1;
+FROM MWfVPConfig; --WHERE WActive = 1 AND WHasSound = 1;
 
 INSERT INTO Audio_2DSounds 
 			(ScriptID, 										SoundID, 									SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)

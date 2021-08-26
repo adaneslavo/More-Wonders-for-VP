@@ -38,6 +38,7 @@ local tValidIsHasPlotsForResources = {}
 local tValidIsHasResearchAgreements = {}
 local tValidIsAtPolar = {}
 --local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
+local tValidIsBlocked = {}
 
 local bReachedMaxEra
 
@@ -49,78 +50,76 @@ local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 local IsRestrictionEra = false
 local IsRestrictionStandard = false
 
-for option in GameInfo.COMMUNITY{Type="MW-RESTRICTIONS"} do
-	print("RestrictionsFound")
+for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
 	if option.Value == 1 then
 		IsRestrictionEra = true
-		print("RestrictionsSet")
 		break
 	end
 end
 
-for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
-	print("MaxEraFound")
+for option in GameInfo.COMMUNITY{Type="MW-RESTRICTIONS"} do
 	if option.Value == 1 then
 		IsRestrictionEra = true
-		print("MaxEraSet")
 		break
 	end
 end
 
 -- IsMaxEra
---[[function IsMaxEra(ePlayer, eCity, eBuilding)
-	if not tValidIsMaxEra[eBuilding] then 
-		bReachedMaxEra = false 
-		return true
-	end
+if IsRestrictionEra then
+	function IsMaxEra(ePlayer, eCity, eBuilding)
+		if not tValidIsMaxEra[eBuilding] then 
+			bReachedMaxEra = false 
+			return true
+		end
 	
-	local pPlayer = Players[ePlayer]
+		local pPlayer = Players[ePlayer]
 	
-	if not pPlayer:IsAlive() then return false end
+		if not pPlayer:IsAlive() then return false end
 
-	local pTeam = Teams[pPlayer:GetTeam()]
-	local eCurrentEra = pTeam:GetCurrentEra()
-	local eMaxStartEra = tValidIsMaxEra[eBuilding]
-	local pCity = pPlayer:GetCityByID(eCity)
-	local iReturnProduction = pCity:GetBuildingProduction(eBuilding)
+		local pTeam = Teams[pPlayer:GetTeam()]
+		local eCurrentEra = pTeam:GetCurrentEra()
+		local eMaxStartEra = tValidIsMaxEra[eBuilding]
+		local pCity = pPlayer:GetCityByID(eCity)
+		local iReturnProduction = pCity:GetBuildingProduction(eBuilding)
 		
-	if eCurrentEra <= eMaxStartEra then 
-		bReachedMaxEra = false
-		return true 
-	end
+		if eCurrentEra <= eMaxStartEra then 
+			bReachedMaxEra = false
+			return true 
+		end
 
-	bReachedMaxEra = true
+		bReachedMaxEra = true
 
-	if pPlayer:IsHuman() and pPlayer:IsTurnActive() and iReturnProduction > 0 then
-		for building in GameInfo.Buildings() do
-			if building.ID == eBuilding then
-				local sWonderName = Locale.ConvertTextKey(building.Description)
+		if pPlayer:IsHuman() and pPlayer:IsTurnActive() and iReturnProduction > 0 then
+			for building in GameInfo.Buildings() do
+				if building.ID == eBuilding then
+					local sWonderName = Locale.ConvertTextKey(building.Description)
 					
-				for era in GameInfo.Eras() do
-					if era.ID == eCurrentEra then
-						local sEraName = Locale.ConvertTextKey(era.Description)
-						local sCityName = pCity:GetName()
-						local iCultureReturn = math.ceil(0.33 * iReturnProduction)
+					for era in GameInfo.Eras() do
+						if era.ID == eCurrentEra then
+							local sEraName = Locale.ConvertTextKey(era.Description)
+							local sCityName = pCity:GetName()
+							local iCultureReturn = math.ceil(0.33 * iReturnProduction)
 
-						pPlayer:AddNotification(NotificationTypes.NOTIFICATION_WONDER_BEATEN, 
-							'It is too late for building [COLOR_CYAN]' .. sWonderName .. '[ENDCOLOR] Wonder in [COLOR_CYAN]' .. sCityName .. '[ENDCOLOR], because Player has just entered [COLOR_CYAN]' .. sEraName .. '[ENDCOLOR]. Player will receive ' .. iCultureReturn .. '[ICON_CULTURE] Culture in return.', -- use TXT_KEY_ here
-							'[COLOR_CYAN]' .. sWonderName .. '[ENDCOLOR] cannot be built anymore',
-							pCity:GetX(), pCity:GetY(), building.ID)
+							pPlayer:AddNotification(NotificationTypes.NOTIFICATION_WONDER_BEATEN, 
+								'It is too late for building [COLOR_CYAN]' .. sWonderName .. '[ENDCOLOR] Wonder in [COLOR_CYAN]' .. sCityName .. '[ENDCOLOR], because Player has just entered [COLOR_CYAN]' .. sEraName .. '[ENDCOLOR]. Player will receive ' .. iCultureReturn .. '[ICON_CULTURE] Culture in return.', -- use TXT_KEY_ here
+								'[COLOR_CYAN]' .. sWonderName .. '[ENDCOLOR] cannot be built anymore',
+								pCity:GetX(), pCity:GetY(), building.ID)
 						
-						pPlayer:ChangeJONSCulture(iCultureReturn)
-						pCity:SetBuildingProduction(eBuilding, 0)
-						break
+							pPlayer:ChangeJONSCulture(iCultureReturn)
+							pCity:SetBuildingProduction(eBuilding, 0)
+							break
+						end
 					end
-				end
 
-				break
+					break
+				end
 			end
 		end
-	end
 		
-	return false
+		return false
+	end
+	GameEvents.CityCanConstruct.Add(IsMaxEra)
 end
-GameEvents.CityCanConstruct.Add(IsMaxEra)--]]
 
 -- checks if city is between River and Sea and adds this condition (normally it would be treated like city with Lake)
 -- Sea and Lake		=	FreshWater == true, 	Water>=1 == true			true
@@ -698,6 +697,20 @@ function IsAtPolar(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsAtPolar)
+
+-- blocking WWs with WActive = 0
+function IsBlocked(ePlayer, eCity, eBuilding)
+	for wonder in GameInfo.MWfVPConfig{WActive=0} do
+		local sName = "BUILDING_" .. wonder.WType
+		
+		if GameInfoTypes[sName] == eBuilding then
+			return false
+		end
+	end
+
+	return true
+end
+GameEvents.CityCanConstruct.Add(IsBlocked)
 
 -- temporary FIX for unique buildingclass requirement (ALL)
 --[[function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
