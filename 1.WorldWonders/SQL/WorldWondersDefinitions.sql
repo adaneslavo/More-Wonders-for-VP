@@ -3209,7 +3209,7 @@ UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN'				WHERE Typ
 -- Warning! They will still be visible in Civilopedia!
 --============================================--
 UPDATE Buildings
-SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1
+SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1, IsDummy = 1
 WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 --============================================--
 -- VP FIXES

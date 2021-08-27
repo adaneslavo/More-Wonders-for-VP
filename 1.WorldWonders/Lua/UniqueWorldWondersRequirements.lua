@@ -38,7 +38,6 @@ local tValidIsHasPlotsForResources = {}
 local tValidIsHasResearchAgreements = {}
 local tValidIsAtPolar = {}
 --local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
-local tValidIsBlocked = {}
 
 local bReachedMaxEra
 
@@ -57,7 +56,7 @@ for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
 	end
 end
 
-for option in GameInfo.COMMUNITY{Type="MW-RESTRICTIONS"} do
+for option in GameInfo.COMMUNITY{Type="MW-REQUIREMENT"} do
 	if option.Value == 1 then
 		IsRequirement = true
 		break
@@ -697,20 +696,6 @@ function IsAtPolar(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsAtPolar)
-
--- blocking WWs with WActive = 0
-function IsBlocked(ePlayer, eCity, eBuilding)
-	for wonder in GameInfo.MWfVPConfig{WActive=0} do
-		local sName = "BUILDING_" .. wonder.WType
-		
-		if GameInfoTypes[sName] == eBuilding then
-			return false
-		end
-	end
-
-	return true
-end
-GameEvents.CityCanConstruct.Add(IsBlocked)
 
 -- temporary FIX for unique buildingclass requirement (ALL)
 --[[function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
