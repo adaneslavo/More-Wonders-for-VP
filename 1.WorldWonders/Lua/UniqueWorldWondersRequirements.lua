@@ -46,25 +46,28 @@ local ePlotFlat = PlotTypes.PLOT_LAND
 local ePlotHill = PlotTypes.PLOT_HILLS
 local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 
-local IsRestrictionEra = false
-local IsRequirement = false --unusued
+local bIsRestrictionEra = false
+local iRequirementType = 0 --unusued
 
 for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
 	if option.Value == 1 then
-		IsRestrictionEra = true
+		bIsRestrictionEra = true
 		break
 	end
 end
 
 for option in GameInfo.COMMUNITY{Type="MW-REQUIREMENT"} do
 	if option.Value == 1 then
-		IsRequirement = true
+		iRequirementType = 1
+		break
+	elseif option.Value == 2 then
+		iRequirementType = 2
 		break
 	end
 end
 
 -- IsMaxEra
-if IsRestrictionEra then
+if bIsRestrictionEra then
 	function IsMaxEra(ePlayer, eCity, eBuilding)
 		if not tValidIsMaxEra[eBuilding] then 
 			bReachedMaxEra = false 
@@ -747,185 +750,6 @@ function Initialize()
 			tValidIsNearLake[building.ID] = true
 		end
 	end
-
-	-- IsNoCoast
-	tValidIsNoCoast = {
-		[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
-		[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
-		[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
-		[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = true,
-		[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
-		[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
-		[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
-		[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
-		[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
-		[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
-		[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true,
-		[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = true,
-		[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
-		[GameInfo.Buildings.BUILDING_MOTHERLAND_STATUE.ID] = true,
-		[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true
-	}
-	for id, building in pairs(tValidIsNoCoast) do
-		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
-	end
-
-	-- IsHasMountains
-	tValidIsHasMountains = {
-		[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true,
-		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
-		[GameInfo.Buildings.BUILDING_DARJEELING.ID] = true
-	}
-	for id, building in pairs(tValidIsHasMountains) do
-		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHasMountains)")
-	end
-
-	-- IsOneTile
-	tValidIsOneTile = {
-		[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
-	}
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
-		
-	-- IsAtPeace
-	tValidIsAtPeace = {
-		[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
-		[GameInfo.Buildings.BUILDING_OLD_BRIDGE.ID] = true
-	}
-	dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
-
-	-- IsReligionFounded
-	tValidIsReligionFounded = {
-		[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = true
-	}
-	for id, building in pairs(tValidIsReligionFounded) do
-		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
-	end
-
-	-- IsOnIsthmus
-	tValidIsOnIsthmus = {
-		[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
-	}
-	for id, building in pairs(tValidIsOnIsthmus) do
-		dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
-	end
-
-	-- IsHasImprovement
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
-		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
-		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
-		iRequiredImprovements = 3
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-		iRequiredImprovements = 4
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
-		iRequiredImprovements = 2
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LANDMARK,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_PENTAGON.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
-		eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CUSTOMS_HOUSE,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AUTOBAHN.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MANUFACTORY,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
-		iRequiredImprovements = 1
-	}
-	tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
-		eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
-		iRequiredImprovements = 1
-	}
-	-- EE compatibility
-	if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
-			iRequiredImprovements = 1
-		}
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_TORRE.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FORT,
-			iRequiredImprovements = 1
-		}
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_SMITHSONIAN.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
-			iRequiredImprovements = 1
-		}
-	end
-	for id, building in pairs(tValidIsHasImprovement) do
-		dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
-	end
-	
-	-- IsMajorApproach
-	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_STATUE_ZEUS.ID] = {
-		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
-		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
-		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_GUARDED,
-		eRequiredApproach4 = GameInfoTypes.MAJOR_CIV_APPROACH_AFRAID
-	}
-	tValidIsMajorApproach[GameInfo.Buildings.BUILDING_GREAT_WALL.ID] = {
-		eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
-		eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
-		eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_DECEPTIVE
-	}
-	for id, building in pairs(tValidIsMajorApproach) do
-		dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
-	end
 	
 	-- IsProhibitedTerrain
 	for building in GameInfo.Buildings() do
@@ -934,164 +758,398 @@ function Initialize()
 			tValidIsProhibitedTerrain[building.ID] = GameInfo.Terrains[building.ProhibitedCityTerrain].ID
 		end
 	end
+	---------------------------------------------------------
+	-- LIGHT REQUIREMENTS
+	if iRequirementType == 1 then
+		-- IsNoCoast
+		tValidIsNoCoast = {
+			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
+			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
+			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
+			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true
+		}
+		for id, building in pairs(tValidIsNoCoast) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
+		end
+
+		-- IsOneTile
+		tValidIsOneTile = {
+			[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+		}
+		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
+		
+		-- IsOnIsthmus
+		tValidIsOnIsthmus = {
+			[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
+		}
+		for id, building in pairs(tValidIsOnIsthmus) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
+		end
+
+		-- IsHasPlotsForResources
+		tValidIsHasPlotsForResources = {
+			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
+			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
+			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
+		}
+		for id, building in pairs(tValidIsHasPlotsForResources) do
+			dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
+		end
+
+		-- IsHasImprovement
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LANDMARK,
+			iRequiredImprovements = 1
+		}
+		for id, building in pairs(tValidIsHasImprovement) do
+			dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+		end
+	end
+	---------------------------------------------------------
+	-- HARD REQUIREMENTS
+	if iRequirementType == 2 then
+		-- IsNoCoast
+		tValidIsNoCoast = {
+			[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
+			[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
+			[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
+			[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = true,
+			[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
+			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
+			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
+			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
+			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
+			[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
+			[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true,
+			[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = true,
+			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
+			[GameInfo.Buildings.BUILDING_MOTHERLAND_STATUE.ID] = true,
+			[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true,
+			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true
+		}
+		for id, building in pairs(tValidIsNoCoast) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
+		end
+
+		-- IsHasMountains
+		tValidIsHasMountains = {
+			[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true,
+			[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
+			[GameInfo.Buildings.BUILDING_DARJEELING.ID] = true
+		}
+		for id, building in pairs(tValidIsHasMountains) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHasMountains)")
+		end
+
+		-- IsOneTile
+		tValidIsOneTile = {
+			[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+		}
+		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
+		
+		-- IsAtPeace
+		tValidIsAtPeace = {
+			[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
+			[GameInfo.Buildings.BUILDING_OLD_BRIDGE.ID] = true
+		}
+		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
+
+		-- IsReligionFounded
+		tValidIsReligionFounded = {
+			[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = true
+		}
+		for id, building in pairs(tValidIsReligionFounded) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
+		end
+
+		-- IsOnIsthmus
+		tValidIsOnIsthmus = {
+			[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
+		}
+		for id, building in pairs(tValidIsOnIsthmus) do
+			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
+		end
+
+		-- IsHasImprovement
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
+			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
+			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
+			iRequiredImprovements = 3
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
+			iRequiredImprovements = 4
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
+			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LANDMARK,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_PENTAGON.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
+			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CUSTOMS_HOUSE,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
+			iRequiredImprovements = 1
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			iRequiredImprovements = 1
+		}
+		-- EE compatibility
+		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
+			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW.ID] = {
+				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
+				iRequiredImprovements = 1
+			}
+			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_TORRE.ID] = {
+				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FORT,
+				iRequiredImprovements = 1
+			}
+			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_SMITHSONIAN.ID] = {
+				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
+				iRequiredImprovements = 1
+			}
+		end
+		for id, building in pairs(tValidIsHasImprovement) do
+			dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+		end
 	
-	-- IsHasCsAllies
-	tValidIsHasCsAllies = {
-		[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
-		[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
-		[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
-		[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
-	}
-	for id, building in pairs(tValidIsHasCsAllies) do
-		dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
-	end
-
-	-- IsHappiness
-	tValidIsHappiness = {
-		[GameInfo.Buildings.BUILDING_BAKKEN.ID] = 70,
-		[GameInfo.Buildings.BUILDING_CN_TOWER.ID] = 80
-	}
-	for id, building in pairs(tValidIsHappiness) do
-		dprint("...adding (id,building,happiness)", id, GameInfo.Buildings[id].Type, tValidIsHappiness[id])
-	end
+		-- IsMajorApproach
+		tValidIsMajorApproach[GameInfo.Buildings.BUILDING_STATUE_ZEUS.ID] = {
+			eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
+			eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
+			eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_GUARDED,
+			eRequiredApproach4 = GameInfoTypes.MAJOR_CIV_APPROACH_AFRAID
+		}
+		tValidIsMajorApproach[GameInfo.Buildings.BUILDING_GREAT_WALL.ID] = {
+			eRequiredApproach1 = GameInfoTypes.MAJOR_CIV_APPROACH_WAR,
+			eRequiredApproach2 = GameInfoTypes.MAJOR_CIV_APPROACH_HOSTILE,
+			eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_DECEPTIVE
+		}
+		for id, building in pairs(tValidIsMajorApproach) do
+			dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
+		end
 	
-	-- IsHasGreatWorks
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_UFFIZI.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-		iRequiredGreatWorks = 3
-	}
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_MUSEUM_ISLAND.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-		iRequiredGreatWorks = 4
-	}
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-		iRequiredGreatWorks = 4
-	}
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_BROADWAY.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
-		iRequiredGreatWorks = 3
-	}
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SYDNEY_OPERA_HOUSE.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
-		iRequiredGreatWorks = 4
-	}
-	tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = {
-		eGreatWorkType = "GREAT_WORK_SLOT_LITERATURE",
-		iRequiredGreatWorks = 4
-	}
-	for id, building in pairs(tValidIsHasGreatWorks) do
-		dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
-	end
+		-- IsHasCsAllies
+		tValidIsHasCsAllies = {
+			[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
+			[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
+			[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
+			[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
+		}
+		for id, building in pairs(tValidIsHasCsAllies) do
+			dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
+		end
+
+		-- IsHappiness
+		tValidIsHappiness = {
+			[GameInfo.Buildings.BUILDING_BAKKEN.ID] = 70,
+			[GameInfo.Buildings.BUILDING_CN_TOWER.ID] = 80
+		}
+		for id, building in pairs(tValidIsHappiness) do
+			dprint("...adding (id,building,happiness)", id, GameInfo.Buildings[id].Type, tValidIsHappiness[id])
+		end
 	
-	-- IsHasCitizens
-	tValidIsHasCitizens = {
-		[GameInfo.Buildings.BUILDING_BROOKLYN.ID] = 25
-	}
-	for id, building in pairs(tValidIsHasCitizens) do
-		dprint("...adding (id,building,citizens)", id, GameInfo.Buildings[id].Type, tValidIsHasCitizens[id])
-	end
+		-- IsHasGreatWorks
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_UFFIZI.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
+			iRequiredGreatWorks = 3
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_MUSEUM_ISLAND.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
+			iRequiredGreatWorks = 4
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
+			iRequiredGreatWorks = 4
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_BROADWAY.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
+			iRequiredGreatWorks = 3
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SYDNEY_OPERA_HOUSE.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
+			iRequiredGreatWorks = 4
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_LITERATURE",
+			iRequiredGreatWorks = 4
+		}
+		for id, building in pairs(tValidIsHasGreatWorks) do
+			dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
+		end
+	
+		-- IsHasCitizens
+		tValidIsHasCitizens = {
+			[GameInfo.Buildings.BUILDING_BROOKLYN.ID] = 25
+		}
+		for id, building in pairs(tValidIsHasCitizens) do
+			dprint("...adding (id,building,citizens)", id, GameInfo.Buildings[id].Type, tValidIsHasCitizens[id])
+		end
 
-	-- IsHasCities
-	tValidIsHasCities = {
-		[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = 7,
-		[GameInfo.Buildings.BUILDING_INTERSTATE.ID] = 8
-	}
-	for id, building in pairs(tValidIsHasCities) do
-		dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
-	end
+		-- IsHasCities
+		tValidIsHasCities = {
+			[GameInfo.Buildings.BUILDING_SIKU_QUANSHU.ID] = 7,
+			[GameInfo.Buildings.BUILDING_INTERSTATE.ID] = 8
+		}
+		for id, building in pairs(tValidIsHasCities) do
+			dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
+		end
 
-	-- IsHasUniqueBuildingClassReq
-	--[[tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_STONE_WORKS"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CHAND_BAORI.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_WELL"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_LIBRARY"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_WARTBURG.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_WRITERS_GUILD"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_FORBIDDEN_PALACE.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_WALLS",
-		iBuildingClass2 = "BUILDINGCLASS_PALACE"		
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_BATH",
-		iBuildingClass2 = "BUILDINGCLASS_AMPHITHEATER"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MARAE.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_GARDEN"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_ARTISTS_GUILD"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_WINDMILL"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",
-		iBuildingClass2 = "BUILDINGCLASS_GARDEN"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_DARJEELING.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_CONSTABLE"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GREAT_FIREWALL.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_POLICE_STATION",
-		iBuildingClass2 = "BUILDINGCLASS_WIRE_SERVICE"
-	}
-	tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CERN.ID] = {
-		iBuildingClass1 = "BUILDINGCLASS_LABORATORY"
-	}
-	for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
-		dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
-	end--]]
+		-- IsHasUniqueBuildingClassReq
+		--[[tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_STONE_WORKS"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CHAND_BAORI.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_WELL"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_LIBRARY"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_WARTBURG.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_WRITERS_GUILD"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_FORBIDDEN_PALACE.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_WALLS",
+			iBuildingClass2 = "BUILDINGCLASS_PALACE"		
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_BATH",
+			iBuildingClass2 = "BUILDINGCLASS_AMPHITHEATER"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MARAE.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_GARDEN"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_ARTISTS_GUILD"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_WINDMILL"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",
+			iBuildingClass2 = "BUILDINGCLASS_GARDEN"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_DARJEELING.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_CONSTABLE"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GREAT_FIREWALL.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_POLICE_STATION",
+			iBuildingClass2 = "BUILDINGCLASS_WIRE_SERVICE"
+		}
+		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CERN.ID] = {
+			iBuildingClass1 = "BUILDINGCLASS_LABORATORY"
+		}
+		for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
+			dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
+		end--]]
 
-	-- IsHasSpecialist
-	tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
-		eSpecialistType = "NONE",
-		iRequiredSpecialists = 10
-	}
-	tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
-		eSpecialistType = "SPECIALIST_MERCHANT",
-		iRequiredSpecialists = 3
-	}
-	for id, building in pairs(tValidIsHasSpecialists) do
-		dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, building.eSpecialistType, building.iRequiredSpecialists)
-	end
+		-- IsHasSpecialist
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
+			eSpecialistType = "NONE",
+			iRequiredSpecialists = 10
+		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
+			eSpecialistType = "SPECIALIST_MERCHANT",
+			iRequiredSpecialists = 3
+		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_CONCORDE.ID] = {
+			eSpecialistType = "SPECIALIST_ENGINEER",
+			iRequiredSpecialists = 3
+		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_SPUTNIK.ID] = {
+			eSpecialistType = "SPECIALIST_SCIENTIST",
+			iRequiredSpecialists = 3
+		}
+		for id, building in pairs(tValidIsHasSpecialists) do
+			dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, building.eSpecialistType, building.iRequiredSpecialists)
+		end
 
-	-- IsHasResearchAgreement
-	tValidIsHasResearchAgreements = {
-		[GameInfo.Buildings.BUILDING_HUBBLE.ID] = true
-	}
-	for id, building in pairs(tValidIsHasResearchAgreements) do
-		dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
-	end	
+		-- IsHasResearchAgreement
+		tValidIsHasResearchAgreements = {
+			[GameInfo.Buildings.BUILDING_HUBBLE.ID] = true
+		}
+		for id, building in pairs(tValidIsHasResearchAgreements) do
+			dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
+		end	
 
-	-- IsAtPolar
-	tValidIsAtPolar = {
-		[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = true
-	}
-	for id, building in pairs(tValidIsAtPolar) do
-		dprint("...adding (id,building,polar)", id, GameInfo.Buildings[id].Type, tValidIsAtPolar[id])
-	end	
+		-- IsAtPolar
+		tValidIsAtPolar = {
+			[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = true
+		}
+		for id, building in pairs(tValidIsAtPolar) do
+			dprint("...adding (id,building,polar)", id, GameInfo.Buildings[id].Type, tValidIsAtPolar[id])
+		end	
 
-	-- IsHasPlotsForResources
-	tValidIsHasPlotsForResources = {
-		[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
-		[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
-		[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
-	}
-	for id, building in pairs(tValidIsHasPlotsForResources) do
-		dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
+		-- IsHasPlotsForResources
+		tValidIsHasPlotsForResources = {
+			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
+			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
+			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
+		}
+		for id, building in pairs(tValidIsHasPlotsForResources) do
+			dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
+		end
 	end
 end
 

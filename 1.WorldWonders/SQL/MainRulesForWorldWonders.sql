@@ -25,8 +25,9 @@ VALUES	('MW-MAX-ERA', 			1);
 --------------------------------------------------------------
 /*
 World Wonder's restrictions!
-0 = No restrictions for building World Wonders;
-1 = New restrictions added (Default);
+0 = No restrictions for building World Wonders (unused; do not set!);
+1 = Light restrictions added; sort of what you saw in base VP;
+2 = Hard restrictions added (Default);
 */
 
 INSERT INTO COMMUNITY	
@@ -68,6 +69,12 @@ WHERE Type = 'MW-UCS' AND EXISTS (SELECT * FROM MinorCivilizations WHERE Type='M
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_RESULT';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_ENDED';
+--============================================--
+-- DEFINES
+--============================================--
+UPDATE Defines SET Value = 35 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SAME_ERA_COST_MODIFIER'; --original: 25
+UPDATE Defines SET Value = 20 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_PREVIOUS_ERA_COST_MODIFIER'; --original: 15
+UPDATE Defines SET Value = 15 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_EARLIER_ERA_COST_MODIFIER'; --original: 10
 --============================================--
 -- Table with new Wonder Types
 --============================================--
