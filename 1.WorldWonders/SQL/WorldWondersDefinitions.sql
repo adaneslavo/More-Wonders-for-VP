@@ -150,16 +150,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	SELECT		'BUILDING_KUK',		'FEATURE_JUNGLE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------	
-	UPDATE Buildings SET FoodKept = 10 WHERE Type = 'BUILDING_KUK';
+	UPDATE Buildings SET FoodKept = 10, EnhancedYieldTech = 'TECH_STEAM_POWER' WHERE Type = 'BUILDING_KUK';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,		YieldType,			Yield) 
 	VALUES		('BUILDING_KUK',	'YIELD_FOOD',		1),
 				('BUILDING_KUK',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_GrowthExtraYield
-				(BuildingType,		YieldType,				Yield) 
-	VALUES		('BUILDING_KUK',	'YIELD_PRODUCTION',		5);
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_KUK',		'YIELD_PRODUCTION',	3),
+				('BUILDING_KUK_DUMMY',	'YIELD_PRODUCTION',	2);
 	
 	INSERT INTO Building_FeatureYieldChanges 
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
@@ -287,7 +288,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	SELECT		'BUILDING_KARNAK',		'FEATURE_FLOOD_PLAINS'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONUMENT', EnhancedYieldTech = 'TECH_ARCHAEOLOGY', TechEnhancedTourism = 4 WHERE Type = 'BUILDING_KARNAK';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONUMENT' WHERE Type = 'BUILDING_KARNAK';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield) 
@@ -332,7 +333,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Camp(1) (lua) (HARD)
 	---------------------------------------------------------	
-	UPDATE Buildings SET EnhancedYieldTech = 'TECH_FLIGHT', TechEnhancedTourism = 4, SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_NAZCA';
+	UPDATE Buildings SET EnhancedYieldTech = 'TECH_FLIGHT', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_NAZCA';
 	
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,		TerrainType,		YieldType,		Yield) 
@@ -348,7 +349,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_NAZCA', 'YIELD_SCIENCE',		4);
+	VALUES		('BUILDING_NAZCA',	'YIELD_SCIENCE',	4),
+				('BUILDING_NAZCA',	'YIELD_TOURISM',	2);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,			Flavor) 
@@ -1206,11 +1208,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	---------------------------------------------------------
 	-- + OneTileCity (lua) (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY', TechEnhancedTourism = 3 WHERE Type = 'BUILDING_MICHEL';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
-				(BuildingType,		YieldType,		Yield) 
-	VALUES		('BUILDING_MICHEL',	'YIELD_GOLD',	3);
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MICHEL',	'YIELD_TOURISM',	3),
+				('BUILDING_MICHEL',	'YIELD_GOLD',		3);
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
@@ -1375,13 +1378,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_BENHADDOU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	--Village(1) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 1, EnhancedYieldTech = 'TECH_RADIO', TechEnhancedTourism = 4 WHERE Type = 'BUILDING_BENHADDOU';
+	UPDATE Buildings SET NumTradeRouteBonus = 1, EnhancedYieldTech = 'TECH_RADIO' WHERE Type = 'BUILDING_BENHADDOU';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_BENHADDOU',		'YIELD_FOOD',		2),
 				('BUILDING_BENHADDOU',		'YIELD_GOLD',		2),
 				('BUILDING_BENHADDOU',		'YIELD_CULTURE',	2);
+				
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_BENHADDOU',	'YIELD_TOURISM',	4);
 
 	INSERT INTO Building_RiverPlotYieldChanges
 				(BuildingType,			YieldType,		Yield) 
