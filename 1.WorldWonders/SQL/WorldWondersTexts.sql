@@ -350,10 +350,10 @@ VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
 			('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'El Ghriba Synagogue, located on the Tunisian island of Djerba, is the oldest synagogue in Tunisa and the center of the village''s holy life. According to legend, it was constructed with a door and a stone from the destruction of either Solomon''s Temple in 586 BCE or the Second Temple in 70 CE. Thus, it links the local Jewish community to the ancestral heart of Judaism and remains a pilgrimage site into the modern day.'),
 			('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
 			('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God."[NEWLINE] - 1 Chronicles, 28:2[NEWLINE]'),
-			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Receive 50 [ICON_GOLD] Gold from each [ICON_PEACE] Faith Purchase. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR].');
+			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Synagogue in the City in which it is built. Converts 25% of [ICON_PEACE] Faith Purchase into [ICON_GOLD]. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_RESEARCH]) containing artifacts like [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_GREAT_WORK]), which is foundation stone of Jewish history. It can also successfully make all religious expenses profit some gold in return (50[ICON_GOLD]/[ICON_PEACE] Purchase).'
+SET Text = '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_RESEARCH]) containing artifacts like [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_GREAT_WORK]), which is foundation stone of Jewish history. It can also successfully make all religious expenses profit some gold in return (25%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_EL_GHRIBA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -694,7 +694,7 @@ VALUES		('TXT_KEY_BUILDING_SHWEDAGON',					'Golden Dagon Pagoda'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	'Bunch of Relics'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with Artifacts created by different Players in consecutive Eras.'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',			'Hidden Artifacts'),
-			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',		'+10% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter Enemy Territory without Open Borders Agreement[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',		'+20% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter Enemy Territory without Open Borders Agreement[ENDCOLOR].'),
 			('TXT_KEY_WONDER_SHWEDAGON_HELP',				'All Archaeologist Units in the Empire get [COLOR_POSITIVE_TEXT]Hidden Artifacts[ENDCOLOR] promotion. +2 [ICON_PEACE] Faith from Artists. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
@@ -987,11 +987,11 @@ VALUES		('TXT_KEY_BUILDING_MARAE',				'Marae Arahurahu'),
 			('TXT_KEY_WONDER_MARAE_PEDIA',			'TODO'),
 			('TXT_KEY_THEMING_BONUS_MARAE',			'Pre-war pump-up songs'),
 			('TXT_KEY_THEMING_BONUS_MARAE_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Music created by you.'),
-			('TXT_KEY_WONDER_MARAE_HELP',			'Has 2 slot for [ICON_GREAT_WORK] Great Works of Music. +10 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 15 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land and Sea Units trained in this City. All Ranged Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land and Sea Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR].'),
+			('TXT_KEY_WONDER_MARAE_HELP',			'Has 2 slot for [ICON_GREAT_WORK] Great Works of Music. +10 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 15 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land and Sea Units trained in this City. All Ranged Land Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_MARAE',				'Marae'),
 			('TXT_KEY_PROMOTION_MARAE_HELP',		'+10%[ICON_RANGE_STRENGTH]RCS.'),
 			('TXT_KEY_PROMOTION_ARAHURAHU',			'Arahurahu'),
-			('TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'15 [ICON_CULTURE] Culture [COLOR:255:230:85:255]on Kill[ENDCOLOR] and 15 [ICON_PEACE] Faith [COLOR:255:230:85:255]on Death[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'Gain 150% of an Enemy Unit''s [ICON_STRENGTH]CS as a [ICON_CULTURE] Culture [COLOR:255:230:85:255]on Kill[ENDCOLOR] and 150% of your Unit''s [ICON_STRENGTH]CS as [ICON_PEACE] Faith [COLOR:255:230:85:255]on Death[ENDCOLOR].');
 
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Marae Arahurahu[ENDCOLOR] greatly supports your army, especially ranged land units ([COLOR_WATER_TEXT]Marae[ENDCOLOR]/[COLOR_YIELD_GOLD]Ranged Land[ENDCOLOR]), which should be core of your army ever since. Motivated troops are rewarded, regardless the result of the combat ([COLOR_WATER_TEXT]Arahurahu[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Land[ENDCOLOR]). Remember, that great works in the city increase experience gained by your units (+2[ICON_GREAT_WORK] if themed: [ICON_FOOD], [ICON_CULTURE]; +15 XP/[ICON_GREAT_WORK] inside/[COLOR_YIELD_GOLD]Land[ENDCOLOR], [COLOR_YIELD_GOLD]Naval[ENDCOLOR]).'
@@ -1029,10 +1029,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_MEENAKSHI',			'Meenakshi Temple'),
 			('TXT_KEY_WONDER_MEENAKSHI_QUOTE',		'[NEWLINE]"We greet you, Devi Meenakshi, she who shines like a thousand-million suns, adorned with bracelets and garlands... She who is auspicious, she who embodies existence. I always bow to you, whose compassion is an ocean."[NEWLINE] - Adi Shankara[NEWLINE]'),
 			('TXT_KEY_WONDER_MEENAKSHI_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_MEENAKSHI_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mandir in the City in which it is built. Receive 100 [ICON_FOOD] Food from each [ICON_PEACE] Faith Purchase. All [ICON_GREAT_WORK] Great Works in the Empire receive +1 [ICON_FOOD] Food. +1 [ICON_PEACE] Faith from Lake and River tiles worked by this City.');
+			('TXT_KEY_WONDER_MEENAKSHI_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mandir in the City in which it is built. Converts 33% of [ICON_PEACE] Faith Purchase into [ICON_GOLD]. All [ICON_GREAT_WORK] Great Works in the Empire receive +1 [ICON_FOOD] Food. +1 [ICON_PEACE] Faith from Lake and River tiles worked by this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Mandir[ENDCOLOR] ([ICON_FOOD]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_SPY]) praising [COLOR_YIELD_FOOD]Meenakshi[ENDCOLOR] increases faith in your people (+1[ICON_PEACE]/4 [ICON_CITIZEN][ICON_CITIZEN]) amazed by this colorful wonder. Waters of nearby [COLOR_CITY_GREEN]Lakes[ENDCOLOR] and [COLOR_CITY_GREEN]Rivers[ENDCOLOR] (+1[ICON_PEACE]/[ICON_MUSHROOM]) boost your growth, which can be raised even more by investing in religious projects (100[ICON_FOOD]/[ICON_PEACE] Purchase) or devoting to artistry (+1[ICON_FOOD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]).'
+SET Text = '[COLOR_YIELD_FOOD]Mandir[ENDCOLOR] ([ICON_FOOD]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_SPY]) praising [COLOR_YIELD_FOOD]Meenakshi[ENDCOLOR] increases faith in your people (+1[ICON_PEACE]/4 [ICON_CITIZEN][ICON_CITIZEN]) amazed by this colorful wonder. Waters of nearby [COLOR_CITY_GREEN]Lakes[ENDCOLOR] and [COLOR_CITY_GREEN]Rivers[ENDCOLOR] (+1[ICON_PEACE]/[ICON_MUSHROOM]) boost your growth, which can be raised even more by investing in religious projects (33%[ICON_PEACE] Faith Purchase into [ICON_FOOD]) or devoting to artistry (+1[ICON_FOOD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]).'
 WHERE Tag = 'TXT_KEY_WONDER_MEENAKSHI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

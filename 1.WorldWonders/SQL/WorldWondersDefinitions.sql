@@ -1590,11 +1590,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
-	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	15);
+	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	150);
 	
 	INSERT INTO Building_YieldFromDeath
 				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	15);
+	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	150);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1671,7 +1671,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',		25);
 
 	INSERT INTO Building_LakePlotYieldChanges 
-				(BuildingType,			YieldType,			Yield)
+				(BuildingType,			YieldType,		Yield)
 	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',	1);	
 	
 	INSERT INTO Building_RiverPlotYieldChanges
