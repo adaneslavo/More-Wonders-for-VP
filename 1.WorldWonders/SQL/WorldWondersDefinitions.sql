@@ -1594,7 +1594,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldFromDeath
 				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	150);
+	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	10);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2858,10 +2858,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,					FeatureType) 
-	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_FOREST'
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_FOREST'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_JUNGLE'
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_JUNGLE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';

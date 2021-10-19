@@ -531,7 +531,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- Great Barrier Reef
 		-- Totally new method;
 		-- Randomizer chooses one of main 3 directions: E-W, NE-SW, NW-SE;
-		print("Reef 2")
 		local iMainDirectionA = math.random(2) + 1
 		local iMainDirectionB = iMainDirectionA + 3
 		local iAtollDirectionA, iAtollDirectionB
@@ -636,7 +635,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	elseif method_number == 2 then
 		-- Rock of Gibraltar
 		-- MOD: Removed mountain change;
-		print("Gibraltar 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotHill, false, false)
@@ -651,7 +649,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 3 then
 		-- MOD: Krakatoa
-		print("Krakatoa_2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotMountain, false, false)
@@ -665,14 +662,12 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 4 then
 		-- MOD: Lake Victoria
-		print("Victoria 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 	elseif method_number == 5 then
 		-- Giant's Causeway
-		print("Causeway 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)
@@ -695,7 +690,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_CAUSEWAY_B)
 	elseif method_number == 6 then
 		-- Salar de Uyuni
-		print("Salar 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
@@ -745,7 +739,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_SALAR_B)
 	elseif method_number == 7 then
 		-- Mt. Kailash
-		print("Kailash 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotMountain, false, false)
@@ -775,7 +768,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 8 then
 		-- Sri Pada
-		print("Sri Pada 2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotMountain, false, false)
@@ -788,7 +780,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 9 then
 		-- Mt. Everest
-		print("Everest_2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
@@ -822,7 +813,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 10 then
 		-- Lake Retba
-		print("Retba_2")
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
@@ -843,7 +833,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- reserved for Eye of the Sahara
 	elseif method_number == 12 then
 		-- Bermuda Triangle
-		print("Bermuda_2")
 		local pPlot = Map.GetPlot(x, y)
 		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
 		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
@@ -856,7 +845,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
 	elseif method_number == 13 then
 		-- Dallol
-		print("Dallol_2")
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
@@ -864,7 +852,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 14 then
 		-- Bioluminescent Bay
-		print("Biolumi_2")
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			local pAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
