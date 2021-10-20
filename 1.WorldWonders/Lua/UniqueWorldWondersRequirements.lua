@@ -811,9 +811,9 @@ function Initialize()
 		-- IsNoCoast
 		tValidIsNoCoast = {
 			[GameInfo.Buildings.BUILDING_GOEBEKLI_TEPE.ID] = true,
-			[GameInfo.Buildings.BUILDING_MAJORVILLE.ID] = true,
 			[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
 			[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = true,
+			[GameInfo.Buildings.BUILDING_NAZCA.ID] = true,
 			[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
@@ -875,10 +875,6 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
 			iRequiredImprovements = 2
 		}
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_NAZCA.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
-			iRequiredImprovements = 1
-		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
@@ -895,12 +891,12 @@ function Initialize()
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
-			iRequiredImprovements = 1
+			iRequiredImprovements = 2
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
-			iRequiredImprovements = 2
+			iRequiredImprovements = 3
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
