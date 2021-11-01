@@ -427,6 +427,35 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	-- + Camp(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- PLAIN OF JARS (NEW)
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	UPDATE Buildings SET Cost = 185, PrereqTech = 'TECH_CALENDAR',	NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	---------------------------------------------------------
+
+	---------------------------------------------------------	
+	UPDATE Buildings SET TradeRouteLandGoldBonus = 200 WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FOOD',	2),
+				('BUILDING_THONG_HAI_HIN',	'YIELD_GOLD',	2),
+				('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	2);
+	
+	INSERT INTO Building_YieldFromDeath
+				(BuildingType,				YieldType,		Yield)
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	5);
+
+	INSERT INTO Building_YieldFromInternalTR
+				(BuildingType,				YieldType,		Yield)
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	2);
+	---------------------------------------------------------	
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_THONG_HAI_HIN',	'FLAVOR_GROWTH',		20),
+				('BUILDING_THONG_HAI_HIN',	'FLAVOR_RELIGION',		50),
+				('BUILDING_THONG_HAI_HIN',	'FLAVOR_GOLD',			40);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
@@ -698,6 +727,42 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,				FeatureType) 
 	SELECT		'BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SIGIRIYA (NEW)
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SIGIRIYA';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIGIRIYA';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_InstantYield
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		200);
+
+	INSERT INTO Building_ThemingBonuses 
+				(BuildingType,			Description,						Bonus,	MustBeArt,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SIGIRIYA',	'TXT_KEY_THEMING_BONUS_SIGIRIYA',	5,		1,			1,				5);
+
+	INSERT INTO Building_ThemingYieldBonus 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		3),
+				('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor) 
+	VALUES		('BUILDING_SIGIRIYA',	'FLAVOR_GOLD',			30),
+				('BUILDING_SIGIRIYA',	'FLAVOR_CULTURE',		80),
+				('BUILDING_SIGIRIYA',	'FLAVOR_CITY_DEFENSE',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT WALL
@@ -1571,6 +1636,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_MARAE',	'YIELD_CULTURE',	3),
 				('BUILDING_MARAE',	'YIELD_FOOD',		10);
 	
+	INSERT INTO Building_YieldFromDeath
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	10);
+	
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
 	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				0,					10,			2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
@@ -1591,10 +1660,6 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
 	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	150);
-	
-	INSERT INTO Building_YieldFromDeath
-				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	10);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1953,11 +2018,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_ThemingBonuses 
-				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,			0,				5),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			0,			1,				6),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		0,			1,			0,				7),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		0,			1,			1,				8);
+				(BuildingType,				Description,										Bonus,	UniqueEras,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,				5),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			1,				6),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		1,			0,				7),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		1,			1,				8);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,				YieldType,			Yield) 
@@ -2497,8 +2562,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		10),
-				('BUILDING_ROCKEFELLER',		'YIELD_CULTURE',	2),
+	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		5),
 				('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_GOLD',		3);
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
@@ -2507,7 +2571,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldFromPurchase
 				(BuildingType,				YieldType,			Yield) 
-	VALUES		('BUILDING_ROCKEFELLER',	'YIELD_CULTURE',	10);
+	VALUES		('BUILDING_ROCKEFELLER',	'YIELD_CULTURE',	5);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2830,7 +2894,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,						Yield)
-	VALUES		('BUILDING_SPUTNIK',	'YIELD_SCIENCE',				5),
+	VALUES		('BUILDING_SPUTNIK',	'YIELD_SCIENCE',				1),
 				('BUILDING_SPUTNIK',	'YIELD_GOLDEN_AGE_POINTS',		3);
 
 	INSERT INTO Building_UnitCombatProductionModifiers
@@ -2875,8 +2939,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield)
-	VALUES		('BUILDING_ANITKABIR',	'YIELD_CULTURE',			5),
-				('BUILDING_ANITKABIR',	'YIELD_GOLDEN_AGE_POINTS',	4);
+	VALUES		('BUILDING_ANITKABIR',	'YIELD_CULTURE',			2),
+				('BUILDING_ANITKABIR',	'YIELD_GOLDEN_AGE_POINTS',	3);
 
 	INSERT INTO Building_UnitCombatProductionModifiers
 				(BuildingType,			UnitCombatType,				Modifier)
@@ -2974,7 +3038,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_ARECIBO',	'YIELD_SCIENCE',	6);
+	VALUES		('BUILDING_ARECIBO',	'YIELD_SCIENCE',	4);
 	
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
@@ -2995,6 +3059,25 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- INFORMATION ERA
 --============================================--
+-- CN TOWER
+	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_CN_TOWER';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CN_TOWER';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+	-- + Happinesst(80) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SYDNEY OPERA HOUSE
+	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET PrereqTech = 'TECH_TELECOM' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + GW_of_Music(3) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- PALM JUMEIRAH (NEW)
 	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_JUMEIRAH';
@@ -3006,22 +3089,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	SELECT		'BUILDING_JUMEIRAH',	'RESOURCE_OIL'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	INSERT INTO Building_YieldChanges 
-				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_JUMEIRAH',	'YIELD_GOLD',		2),
-				('BUILDING_JUMEIRAH',	'YIELD_TOURISM',	3);
-
 	INSERT INTO Building_TerrainYieldChanges
 				(BuildingType,			TerrainType,			YieldType,				Yield) 
 	VALUES		('BUILDING_JUMEIRAH',	'TERRAIN_DESERT',		'YIELD_PRODUCTION',		3);
 	
 	INSERT INTO Building_FeatureYieldChanges
 				(BuildingType,				FeatureType,		YieldType,				Yield) 
-	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		6);
+	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		7);
 
 	INSERT INTO Building_ResourceYieldChangesGlobal 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
-	VALUES		('BUILDING_JUMEIRAH',	'RESOURCE_OIL',		'YIELD_GOLD',		6);
+	VALUES		('BUILDING_JUMEIRAH',	'RESOURCE_OIL',		'YIELD_GOLD',		4);
 
 	INSERT INTO Building_YieldFromYieldPercent
 				(BuildingType,			YieldIn,			YieldOut,			Value) 
@@ -3042,7 +3120,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	-- + Village(1) (lua) (HARD)
 	-- + CS_Ally(3) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1, MinorFriendshipChange = 50 WHERE Type = 'BUILDING_TAIPEI';
+	UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_TAIPEI';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield)
@@ -3072,36 +3150,33 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_TAIPEI',	'FLAVOR_DIPLOMACY',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- CN TOWER
-	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_CN_TOWER';
-	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CN_TOWER';
+-- CURIOSITY ROVER (NEW)
+	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_ROBOTICS', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_CURIOSITY';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_CURIOSITY';
 	---------------------------------------------------------
-	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
-	-- + Happinesst(80) (lua) (HARD)
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
--- SYDNEY OPERA HOUSE
-	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-	UPDATE Buildings SET PrereqTech = 'TECH_TELECOM' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-	UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+
 	---------------------------------------------------------
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + GW_of_Music(3) (lua) (HARD)
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
--- HUBBLE SPACE TELESCOPE
-	UPDATE Buildings SET Cost = 2950 WHERE Type = 'BUILDING_HUBBLE';
-	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_HUBBLE';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
-	UPDATE Buildings SET PrereqTech = 'TECH_LASERS' WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET MinorFriendshipChange = 50 WHERE Type = 'BUILDING_CURIOSITY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,					Yield)
+	VALUES		('BUILDING_CURIOSITY',			'YIELD_GOLD',				1),
+				('BUILDING_CURIOSITY',			'YIELD_SCIENCE',			3),
+				('BUILDING_CURIOSITY',			'YIELD_GOLDEN_AGE_POINTS',	2),
+				('BUILDING_CURIOSITY_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,					Yield) 
+	VALUES		('BUILDING_CURIOSITY',	'SPECIALIST_ENGINEER',	'YIELD_GOLDEN_AGE_POINTS',	3),
+				('BUILDING_CURIOSITY',	'SPECIALIST_SCIENTIST',	'YIELD_GOLDEN_AGE_POINTS',	3);
+
+	-- + yields_per_research_agreements (lua)
 	---------------------------------------------------------
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_HUBBLE',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + Research Agreement(1) (lua) (HARD)
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_CURIOSITY',	'FLAVOR_SCIENCE',		30),
+				('BUILDING_CURIOSITY',	'FLAVOR_GOLD',			10),
+				('BUILDING_CURIOSITY',	'FLAVOR_HAPPINESS',		70);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT FIREWALL
@@ -3115,6 +3190,50 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2) UNION ALL
 	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GLOBAL POSITIONING SYSTEM (NEW)
+	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_INTERNET', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_GPS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_GPS';
+	---------------------------------------------------------
+
+	---------------------------------------------------------
+	UPDATE Buildings SET Espionage = 1, GlobalEspionageModifier = -20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,				Yield)
+	VALUES		('BUILDING_GPS',	'YIELD_PRODUCTION',		3),
+				('BUILDING_GPS',	'YIELD_GOLD',			2);
+	
+	INSERT INTO Building_YieldFromSpyAttack
+				(BuildingType,		YieldType,						Yield) 
+	VALUES		('BUILDING_GPS',	'YIELD_GREAT_GENERAL_POINTS',	25),
+				('BUILDING_GPS',	'YIELD_GREAT_ADMIRAL_POINTS',	25);
+
+	INSERT INTO Building_YieldFromSpyDefense
+				(BuildingType,		YieldType,				Yield) 
+	VALUES		('BUILDING_GPS',	'YIELD_PRODUCTION',		50),
+				('BUILDING_GPS',	'YIELD_GOLD',			50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_GPS',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_GPS',	'FLAVOR_GOLD',			50),
+				('BUILDING_GPS',	'FLAVOR_OFFENSE',		40),
+				('BUILDING_GPS',	'FLAVOR_DEFENSE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HUBBLE SPACE TELESCOPE
+	UPDATE Buildings SET Cost = 2950 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET PrereqTech = 'TECH_LASERS' WHERE Type = 'BUILDING_HUBBLE';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	SELECT		'BUILDING_HUBBLE',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Research Agreement(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CERN
@@ -3251,13 +3370,13 @@ UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_FASIL_
 UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
-UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EE_TOPKAPI';
-UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1 WHERE Type = 'BUILDING_EE_VERSAILLES';
-UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW';
-UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_EE_TORRE';
-UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_EE_KRONBORG';
-UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1 WHERE Type = 'BUILDING_EE_FASIL_GHEBBI';
-UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_EE_SMITHSONIAN';
+UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10												WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1					WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET River = 1																			WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'	WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10												WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1					WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET River = 1																			WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Building_ClassesNeededInCity 
 			(BuildingType,				BuildingClassType) 

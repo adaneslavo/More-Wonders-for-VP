@@ -20,6 +20,7 @@ Special thanks to:
 			- @hokath: tons of new wonder icons;
 			- @LastSword: great zimbabwe (icon);
 			- @maxf: soloviesky (icon);
+			- @Artisanix (lots of wonder icons and splashes from World Wonders Pack 128 and World Wonders Pack 256);
 		- @Valery: peterhof palace (splash screen) (16 national wonder mod);
 		- @Asterix Rage: new promotion icons designer;
 	- images for new splash screens:
@@ -59,10 +60,12 @@ Special thanks to:
 		- Millau Viaduct: https://commons.wikimedia.org/wiki/File:Viaduc_Millau_P1010248mod.jpg (CC BY-SA 4.0)
 		- Arecibo: https://upload.wikimedia.org/wikipedia/commons/1/1c/Arecibo_radio_telescope_observatory_Puerto_Rico_-_panoramio_%2811%29.jpg (CC BY 3.0)
 		- Rockefeller: https://en.wikipedia.org/wiki/Radio_City_Music_Hall#/media/File:Radio_City_Music_Hall_Panorama.jpg (CC BY-SA 3.0)
-		
 		- Autobahn: https://i1.wp.com/smp.edu.pl/wp-content/uploads/2016/11/nrg.tpt_.autobahn.1934.GRM-CIV347.jpg
 		- Sputnik: https://commons.wikimedia.org/wiki/File:Sputnik_1_Exploded_View_3F9A6199_(36924864550).jpg (CC BY 1.0)
 		- Concorde: https://commons.wikimedia.org/wiki/File:Concorde_1_94-9-5_kix_(cropped).jpg (CC BY-SA 3.0)
+		- Thule: https://commons.wikimedia.org/wiki/File:Thule_air_base_above.jpeg
+		- Vostok: https://argusspectrum.com/vostok_station_antarctica
+		- Kumsusan: https://kkfonline.com/2020/05/05/the-kumsusan-palace-of-the-sun/
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);

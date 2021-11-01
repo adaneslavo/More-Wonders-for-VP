@@ -11,7 +11,7 @@
     <Description>This mod adds more World Wonders for Vox Populi.
 Currently compatible with 7-1-3.</Description>
     <Authors>Infixo, adan_eslavo</Authors>
-    <SpecialThanks>Infixo, Asterix_Rage, hokath and others in credits file</SpecialThanks>
+    <SpecialThanks>Infixo, Asterix_Rage, hokath, Artisanix, Gwennog and others in credits file</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
     <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
@@ -150,6 +150,126 @@ Currently compatible with 7-1-3.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\5.Industrial\Great_Work_Holy_Crown.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -535,6 +655,198 @@ Currently compatible with 7-1-3.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

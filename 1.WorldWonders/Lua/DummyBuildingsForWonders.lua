@@ -26,7 +26,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_SANBO"],
 	GameInfoTypes["BUILDING_AUTOBAHN"],
 	GameInfoTypes["BUILDING_INTERSTATE"],
-	GameInfoTypes["BUILDING_MUSEUM_ISLAND"]
+	GameInfoTypes["BUILDING_MUSEUM_ISLAND"],
+	GameInfoTypes["BUILDING_CURIOSITY"]
 }
 
 local g_tWorldWonderDummy = {
@@ -47,10 +48,11 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_SANBO_DUMMY"],
 	GameInfoTypes["BUILDING_AUTOBAHN_DUMMY"],
 	GameInfoTypes["BUILDING_INTERSTATE_DUMMY"],
-	GameInfoTypes["BUILDING_MUSEUM_ISLAND_DUMMY"]
+	GameInfoTypes["BUILDING_MUSEUM_ISLAND_DUMMY"],
+	GameInfoTypes["BUILDING_CURIOSITY_DUMMY"]
 }
 
-local g_iWonderWithDummies = 18
+local g_iWonderWithDummies = 19
 
 local g_tWorldWonderDummy2 = {}
 	for i = 1, g_iWonderWithDummies do
@@ -83,6 +85,7 @@ local g_tWorldWonderOwner = {}
 -- Autobahn (16)
 -- Interstate (17)
 -- Museum Island (18)
+-- Curiosity Rover (19)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -407,6 +410,34 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			for city in pPlayer:Cities() do
 				city:SetNumRealBuilding(g_tWorldWonderDummy[18], 1)
 			end
+		end
+	end
+
+	if not g_tWorldWonderExists[19] then	
+		if eBuilding == g_tWorldWonder[19] then
+			g_tWorldWonderExists[19] = true
+			g_tWorldWonderOwner[19] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+			local pTeam = Teams[pPlayer:GetTeam()]
+			local iCountResearchAgreements = 0
+			local tCheckedTeams = {}
+
+			for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+				local pTargetPlayer = Players[i]
+
+				if not pTargetPlayer:IsEverAlive() then break end
+				
+				local eTargetTeam = pTargetPlayer:GetTeam()
+
+				if pTeam:IsHasResearchAgreement(eTargetTeam) and not tCheckedTeams[eTargetTeam] then
+					iCountResearchAgreements = iCountResearchAgreements + 1
+					tCheckedTeams[eTargetTeam] = true
+				end
+			end
+
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[19], iCountResearchAgreements)
 		end
 	end
 end
@@ -784,7 +815,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
 		
-		if pConqCity:IsHasBuilding(g_tWorldWonder[16]) then
+		if pConqCity:IsHasBuilding(g_tWorldWonder[18]) then
 			local pOldOwner = Players[eOldOwner]
 			
 			for city in pOldOwner:Cities() do
@@ -803,6 +834,33 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			else
 				pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[18], 0)
 			end
+		end
+	end
+
+	if g_tWorldWonderExists[19] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[19]) then
+			local pPlayer = Players[ePlayer]
+			local pTeam = Teams[pPlayer:GetTeam()]
+			local iCountResearchAgreements = 0
+			local tCheckedTeams = {}
+
+			for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+				local pTargetPlayer = Players[i]
+
+				if not pTargetPlayer:IsEverAlive() then break end
+				
+				local eTargetTeam = pTargetPlayer:GetTeam()
+
+				if pTeam:IsHasResearchAgreement(eTargetTeam) and not tCheckedTeams[eTargetTeam] then
+					iCountResearchAgreements = iCountResearchAgreements + 1
+					tCheckedTeams[eTargetTeam] = true
+				end
+			end
+
+			pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[19], iCountResearchAgreements)
 		end
 	end
 end
@@ -1072,6 +1130,35 @@ function SetPromotionOnTurn(ePlayer)
 	end
 end
 GameEvents.PlayerDoTurn.Add(SetPromotionOnTurn)
+
+-- Curiosity Rover Research Agreements check
+function SetRAOnTurn(ePlayer)
+	if g_tWorldWonderExists[19] then
+		if g_tWorldWonderOwner[19] == ePlayer then		
+			local pPlayer = Players[ePlayer]
+			local pCity = pPlayer:GetCityByID(eCity)
+			local pTeam = Teams[pPlayer:GetTeam()]
+			local iCountResearchAgreements = 0
+			local tCheckedTeams = {}
+
+			for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
+				local pTargetPlayer = Players[i]
+
+				if not pTargetPlayer:IsEverAlive() then break end
+				
+				local eTargetTeam = pTargetPlayer:GetTeam()
+
+				if pTeam:IsHasResearchAgreement(eTargetTeam) and not tCheckedTeams[eTargetTeam] then
+					iCountResearchAgreements = iCountResearchAgreements + 1
+					tCheckedTeams[eTargetTeam] = true
+				end
+			end
+
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy[19], iCountResearchAgreements)
+		end
+	end
+end
+GameEvents.PlayerDoTurn.Add(SetRAOnTurn)
 --------------------------------------------------------------
 --------------------------------------------------------------
 print("Loaded DummyBuildingsForWonders.lua from MWfVP")
