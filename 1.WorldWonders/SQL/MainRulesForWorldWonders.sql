@@ -196,10 +196,10 @@ VALUES		('ALTAMIRA',			'None',		1,			1),		-- Altamira Cave
 			--('JFK',					'None',		1,			0),		-- JFK Space Center
 			('SPUTNIK',				'None',		1,			0),		-- Sputnik Program
 			('ANITKABIR',			'None',		1,			0),		-- Anitkabir Mausoleum
-			--('THULE',				'None',		1,			0),		-- Thule Airbase
+			('THULE',				'None',		1,			0),		-- Thule Airbase
 			('WHITE_SANDS',			'None',		1,			1),		-- White Sands Missile Range
 			('MILLAU',				'None',		1,			1),		-- Millau Viaduct
-			--('KUMSUSAN',			'None',		1,			0),		-- Kumsusan Palace
+			('KUMSUSAN',			'None',		1,			0),		-- Kumsusan Palace
 			('ARECIBO',				'None',		1,			1),		-- Arecibo Observatory
 			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0),		-- Northern Light Cathedral

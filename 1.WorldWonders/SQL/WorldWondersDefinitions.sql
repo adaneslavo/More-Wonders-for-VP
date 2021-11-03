@@ -1181,7 +1181,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					10,			10,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,			10,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1253,7 +1253,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO UnitPromotions 
 				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,				1,					11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					20,				1,					11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2808,10 +2808,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO UnitPromotions 
 				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	LandAirDefenseBonus,	AdjacentMod,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				1,					10,				10,						10,				1,		0,						0,				0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
-				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		10,						10,				0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
-				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,				0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
-				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				1,					0,				0,						0,				0,		0,						0,				30,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,				10,						10,				1,		0,						0,				0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		10,						10,				0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				30,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -2952,6 +2952,46 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_ANITKABIR',	'FLAVOR_CULTURE',		50);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- THULE AIR BASE (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THULE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_THULE';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	UPDATE Buildings SET CitySupplyFlat = 2, AirModifier = 3, FreePromotion = 'PROMOTION_THULE' WHERE Type = 'BUILDING_THULE';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,						Yield)
+	VALUES		('BUILDING_THULE',	'YIELD_SCIENCE',				1),
+				('BUILDING_THULE',	'YIELD_GOLDEN_AGE_POINTS',		1),
+				('BUILDING_THULE',	'YIELD_GREAT_GENERAL_POINTS',	1);
+
+	INSERT INTO Building_DomainFreeExperiences
+				(BuildingType,		DomainType,		Experience)
+	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
+
+	INSERT INTO Building_DomainFreeExperiencesGlobal
+				(BuildingType,		DomainType,		Experience)
+	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
+	
+	INSERT INTO UnitPromotions 
+				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,		UnitCombatType)
+	VALUES		('PROMOTION_THULE',	'UNITCOMBAT_BOMBER'),
+				('PROMOTION_THULE',	'UNITCOMBAT_FIGHTER');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,						Flavor)
+	VALUES		('BUILDING_THULE',	'FLAVOR_OFFENSE',				50),
+				('BUILDING_THULE',	'FLAVOR_DEFENSE',				10),
+				('BUILDING_THULE',	'FLAVOR_MILITARY_TRAINING',		80),
+				('BUILDING_THULE',	'FLAVOR_AIR',					70),
+				('BUILDING_THULE',	'FLAVOR_SCIENCE',				10);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- WHITE SANDS MISSILE RANGE (NEW)
 	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_WHITE_SANDS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_WHITE_SANDS';
@@ -2976,7 +3016,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO UnitPromotions 
 				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					2,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
+	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -3025,6 +3065,33 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_MILLAU',	'FLAVOR_CULTURE',		40),
 				('BUILDING_MILLAU',	'FLAVOR_PRODUCTION',	10),
 				('BUILDING_MILLAU',	'FLAVOR_HAPPINESS',		60);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- KUMSUSAN (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_NUCLEAR_FISSION', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_KUMSUSAN';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KUMSUSAN';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatPeopleRateModifier = 10, FreePolicies = 1 WHERE Type = 'BUILDING_KUMSUSAN';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_KUMSUSAN',	'YIELD_TOURISM',	2);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_KUMSUSAN',	'BUILDINGCLASS_MONUMENT',		'YIELD_CULTURE',	3),
+				('BUILDING_KUMSUSAN',	'BUILDINGCLASS_CONSTABLE',		'YIELD_TOURISM',	2),
+				('BUILDING_KUMSUSAN',	'BUILDINGCLASS_POLICE_STATION',	'YIELD_TOURISM',	2);
+
+	INSERT INTO Building_YieldFromGPExpend
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_KUMSUSAN',	'YIELD_CULTURE',	100);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,			Flavor)
+	VALUES		('BUILDING_KUMSUSAN',	'FLAVOR_CULTURE',	150);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ARECIBO OBSERVATORY (NEW)
@@ -3439,7 +3506,7 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 -- in all your cities and block the construction of the 2nd Wonder.
 ---------------------------------------------------------
 UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD'/*, 'BUILDING_JFK_SPACE_CENTER'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK'/*,   'BUILDING_KUMSUSAN'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_KUMSUSAN');
 UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
 --============================================--
 -- FREE ART HELP TEXTS
