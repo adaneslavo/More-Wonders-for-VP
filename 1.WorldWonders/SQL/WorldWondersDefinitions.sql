@@ -657,7 +657,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		25);
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		15);
 	
 	INSERT INTO GreatWorks
 				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
@@ -1578,7 +1578,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		2),
+	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		3),
 				('BUILDING_KINKAKU_JI',			'YIELD_CULTURE',	2);
 
 	INSERT INTO Building_LakePlotYieldChanges 
@@ -1591,16 +1591,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
 	VALUES		('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_CULTURE',		1),
 				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FAITH',			1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FOOD',			1),
 				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_CULTURE',		1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FAITH',			1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FOOD',			1);
+				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FAITH',			1);
+
+	INSERT INTO Building_RiverPlotYieldChanges
+				(BuildingType,			YieldType,		Yield) 
+	VALUES		('BUILDING_KINKAKU_JI',	'YIELD_FOOD',	1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_KINKAKU_JI',	'FLAVOR_RELIGION',		50),
 				('BUILDING_KINKAKU_JI',	'FLAVOR_CULTURE',		50),
-				('BUILDING_KINKAKU_JI',	'FLAVOR_GROWTH',		30);
+				('BUILDING_KINKAKU_JI',	'FLAVOR_GROWTH',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MARAE ARAHURAHU (NEW)
@@ -1615,12 +1617,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_GREAT_ADMIRAL_POINTS',	2);
+	VALUES		('BUILDING_MARAE',	'YIELD_GREAT_ADMIRAL_POINTS',	1);
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,		DomainType,		Experience)
@@ -1634,7 +1636,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,		YieldType,			Yield) 
 	VALUES		('BUILDING_MARAE',	'YIELD_CULTURE',	3),
-				('BUILDING_MARAE',	'YIELD_FOOD',		10);
+				('BUILDING_MARAE',	'YIELD_FOOD',		8);
 	
 	INSERT INTO Building_YieldFromDeath
 				(BuildingType,		YieldType,		Yield)
@@ -1659,7 +1661,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
-	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	150);
+	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	120);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1728,7 +1730,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_MEENAKSHI',			'YIELD_FOOD',		4),
+	VALUES		('BUILDING_MEENAKSHI',			'YIELD_FOOD',		1),
 				('BUILDING_MEENAKSHI',			'YIELD_CULTURE',	2);
 
 	INSERT INTO Building_YieldChangesPerPopInEmpire
@@ -1745,7 +1747,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,		Yield) 
-	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	33);
+	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	20);
 	
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1753,7 +1755,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_MEENAKSHI',	'FLAVOR_GROWTH',		60),
+	VALUES		('BUILDING_MEENAKSHI',	'FLAVOR_GROWTH',		50),
 				('BUILDING_MEENAKSHI',	'FLAVOR_RELIGION',		60),
 				('BUILDING_MEENAKSHI',	'FLAVOR_CULTURE',		10);
 --------------------------------------------------------------------------------------------------------------------------------------------
