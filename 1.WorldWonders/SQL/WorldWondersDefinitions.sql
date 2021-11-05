@@ -2444,15 +2444,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	SELECT		'BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePolicies = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
-
-	INSERT INTO Building_YieldChanges 
-				(BuildingType,			YieldType,					Yield)
-	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	4);
+	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,			YieldType,					Yield) 
-	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	15);
 
 	INSERT INTO GreatWorks
 				(Type,						Description,						GreatWorkClassType,	Audio,							Image,							Quote) 
@@ -2662,7 +2658,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	5);
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldFromPolicyUnlock
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	75);
 
 	INSERT INTO Building_UnhappinessNeedsFlatReduction
 				(BuildingType,			YieldType,			Yield)
@@ -2672,24 +2672,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,			BuildingClassType,					YieldType,			YieldChange) 
 	VALUES		('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_GOLD',		1),
 				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_CULTURE',	1),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_GOLD',		3),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_CULTURE',	3),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_GOLD',		3),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_CULTURE',	3),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_GOLD',		3),
-				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_CULTURE',	3);
-
-	INSERT INTO Building_SpecificGreatPersonRateModifier 
-				(BuildingType,			SpecialistType,			Modifier)
-	VALUES		('BUILDING_HOLLYWOOD',	'SPECIALIST_WRITER',	5),
-				('BUILDING_HOLLYWOOD',	'SPECIALIST_ARTIST',	5),
-				('BUILDING_HOLLYWOOD',	'SPECIALIST_MUSICIAN',	5);
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_TOURISM',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_TOURISM',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_TOURISM',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_HOLLYWOOD',	'FLAVOR_CULTURE',		120),
-				('BUILDING_HOLLYWOOD',	'FLAVOR_GOLD',			40),
-				('BUILDING_HOLLYWOOD',	'FLAVOR_HAPPINESS',		30);
+	VALUES		('BUILDING_HOLLYWOOD',	'FLAVOR_CULTURE',		100),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_GOLD',			30),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_HAPPINESS',		50);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CONCORDE (NEW)
@@ -2707,20 +2704,16 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	2);
-
-	INSERT INTO Building_GlobalYieldModifiers
-				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	10);
+	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	3);
 
 	INSERT INTO Building_WLTKDYieldMod
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	15);
+	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	25);
 
 	INSERT INTO Building_ResourceYieldChangesGlobal 
 				(BuildingType,			ResourceType,			YieldType,			Yield) 
-	VALUES		('BUILDING_CONCORDE',	'RESOURCE_OIL',			'YIELD_TOURISM',	2),
-				('BUILDING_CONCORDE',	'RESOURCE_ALUMINUM',	'YIELD_TOURISM',	2);
+	VALUES		('BUILDING_CONCORDE',	'RESOURCE_OIL',			'YIELD_TOURISM',	3),
+				('BUILDING_CONCORDE',	'RESOURCE_ALUMINUM',	'YIELD_TOURISM',	3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -3089,7 +3082,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldFromGPExpend
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_KUMSUSAN',	'YIELD_CULTURE',	100);
+	VALUES		('BUILDING_KUMSUSAN',	'YIELD_CULTURE',	50);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,			Flavor)

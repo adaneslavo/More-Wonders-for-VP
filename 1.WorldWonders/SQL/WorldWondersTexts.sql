@@ -1513,10 +1513,10 @@ VALUES		('TXT_KEY_BUILDING_ORSZAGHAZ',				'Orszaghaz'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_PEDIA',			'TODO'),
 			('TXT_KEY_GREAT_WORK_HOLY_CROWN',			'Holy Crown of Hungary'),
 			('TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE',		'[NEWLINE]You desire that which exceeds my humble powers, but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
-			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +10% [ICON_GOLDEN_AGE] Golden Age Points. +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each Defensive Pact. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
+			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +10% [ICON_GOLDEN_AGE] Golden Age Points in your Empire. +1 [ICON_INFLUENCE] World Congress Vote, +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each Defensive Pact. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/DP) and also huge leap towards better future of your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]). You also invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new age (+10%[ICON_GOLDEN_AGE]).'
+SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Vote; +1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/DP) and also huge leap towards better future of your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]). You also invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new age (+15%[ICON_GOLDEN_AGE][ICON_GOLDEN_AGE]).'
 WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1713,10 +1713,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_HOLLYWOOD',		'Hollywood'),
 			('TXT_KEY_WONDER_HOLLYWOOD_QUOTE',	'[NEWLINE]"Hollywood is a place where they''ll pay you a thousand dollars for a kiss and fifty cents for your soul. I know, because I turned down the first offer often enough and held out for the fifty cents."[NEWLINE] - Marilyn Monroe[NEWLINE]'),
 			('TXT_KEY_WONDER_HOLLYWOOD_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_HOLLYWOOD_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy.  +5% generation of [ICON_GREAT_ARTIST] Great Artists, [ICON_GREAT_WRITER] Great Writers and [ICON_GREAT_MUSICIAN] Great Musicians in this City. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in this City and -5% [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in the Empire. +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from all Broadcast Towers and +2 [ICON_GOLD] Gold and +2 [ICON_CULTURE] Culture from all Guilds in your Empire.');
+			('TXT_KEY_WONDER_HOLLYWOOD_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. 75 [ICON_TOURISM] Tourism when you unlock new Policy scaling with Era. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in this City and -5% [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom in the Empire. +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from all Broadcast Towers and +2 [ICON_GOLD] Gold, +2 [ICON_CULTURE] Culture and +2 [ICON_TOURISM] Tourism from all Guilds in your Empire.');
 			
 UPDATE Language_en_US
-SET Text = 'If you want to make your empire happier, built [COLOR_YIELD_FOOD]Hollywood[ENDCOLOR] (-1[ICON_HAPPINESS_3] Boredom; -5%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom). It will be a cultural center of your country (+5[ICON_TOURISM]; +5%[ICON_GREAT_ARTIST]; +5%[ICON_GREAT_WRITER]; +5%[ICON_GREAT_MUSICIAN]; [COLOR_MAGENTA]free Policy[ENDCOLOR]), that also make profits for you (+1[ICON_GOLD], +1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Broadcast Towers[ENDCOLOR]; +2[ICON_GOLD], +2[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Guilds[ENDCOLOR])!'
+SET Text = 'If you want to make your empire happier, built [COLOR_YIELD_FOOD]Hollywood[ENDCOLOR] (-1[ICON_HAPPINESS_3] Boredom; -5%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom). It will be a cultural center of your country (+1[ICON_TOURISM]; 75[ICON_TOURISM]/Policy unlock; [COLOR_MAGENTA]free Policy[ENDCOLOR]), that also make profits for you (+1[ICON_GOLD], +1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Broadcast Towers[ENDCOLOR]; +2[ICON_GOLD], +2[ICON_CULTURE], +2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Guilds[ENDCOLOR])!'
 WHERE Tag = 'TXT_KEY_WONDER_HOLLYWOOD_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1732,10 +1732,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_CONCORDE',		'Concorde'),
 			('TXT_KEY_WONDER_CONCORDE_QUOTE',	'[NEWLINE]"I should go to Paris and jump off of the Eiffel Tower. If I took the Concorde, I could be dead three hours earlier."[NEWLINE] - Woody Allen[NEWLINE]'),
 			('TXT_KEY_WONDER_CONCORDE_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_CONCORDE_HELP',	'Grants 20 [ICON_INFLUENCE] on construction. +15% [ICON_GOLD] Gold from City Connections. +10% [ICON_TOURISM] Tourism in your Empire. +15% [ICON_TOURISM] Tourism during [ICON_HAPPINESS_1] WLTKD.[NEWLINE][NEWLINE]All [ICON_RES_OIL] Oil: +2 [ICON_TOURISM] Tourism.[NEWLINE]All [ICON_RES_ALUMINUM] Aluminum: +2 [ICON_TOURISM] Tourism.');
+			('TXT_KEY_WONDER_CONCORDE_HELP',	'Grants 20 [ICON_INFLUENCE] on construction. +15% [ICON_GOLD] Gold from City Connections. +25% [ICON_TOURISM] Tourism during [ICON_HAPPINESS_1] WLTKD.[NEWLINE][NEWLINE]All [ICON_RES_OIL] Oil: +3 [ICON_TOURISM] Tourism.[NEWLINE]All [ICON_RES_ALUMINUM] Aluminum: +3 [ICON_TOURISM] Tourism.');
 			
 UPDATE Language_en_US
-SET Text = 'Supersonic airliner [COLOR_YIELD_FOOD]Concorde[ENDCOLOR] drastically increases efficiency in passenger flights and boosts tourism income (+2[ICON_TOURISM]; +2[ICON_TOURISM]/[ICON_RES_OIL][ICON_RES_OIL], [ICON_RES_ALUMINUM][ICON_RES_ALUMINUM]; +15%[ICON_TOURISM] during [ICON_HAPPINESS_1]WLTKD; +10%[ICON_TOURISM][ICON_TOURISM]). The world is your oyster (20[ICON_INFLUENCE]/[ICON_CITY_STATE][ICON_CITY_STATE]). Just count the money (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED]).'
+SET Text = 'Supersonic airliner [COLOR_YIELD_FOOD]Concorde[ENDCOLOR] drastically increases efficiency in passenger flights and boosts tourism income (+3[ICON_TOURISM]; +3[ICON_TOURISM]/[ICON_RES_OIL][ICON_RES_OIL], [ICON_RES_ALUMINUM][ICON_RES_ALUMINUM]; +25%[ICON_TOURISM] during [ICON_HAPPINESS_1]WLTKD). The world is your oyster (20[ICON_INFLUENCE]/[ICON_CITY_STATE][ICON_CITY_STATE]). Just count the money (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED]).'
 WHERE Tag = 'TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1983,10 +1983,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_KUMSUSAN',		'Kumsusan Palace of the Sun'),
 			('TXT_KEY_WONDER_KUMSUSAN_QUOTE',	'[NEWLINE]"The oppressed peoples can liberate themselves only through struggle. This is a simple and clear truth confirmed by history."[NEWLINE] - Kim Il-sung[NEWLINE]'),
 			('TXT_KEY_WONDER_KUMSUSAN_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_KUMSUSAN_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +3 [ICON_CULTURE] Culture from all Monuments and +2 [ICON_TOURISM] Tourism from all Police Stations and Constabularies in your Empire. +10% generation of [ICON_GREAT_PEOPLE] Great People in this City. 100 [ICON_CULTURE] Culture on Great Person expending.');
+			('TXT_KEY_WONDER_KUMSUSAN_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +3 [ICON_CULTURE] Culture from all Monuments and +2 [ICON_TOURISM] Tourism from all Police Stations and Constabularies in your Empire. +10% generation of [ICON_GREAT_PEOPLE] Great People in this City. 50 [ICON_CULTURE] Culture on Great Person expending scaling with Era.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Kumsusan[ENDCOLOR] praise your civilization''s leaders like Gods (+3[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]; 100[ICON_CULTURE]/[ICON_GREAT_PEOPLE]; [COLOR_MAGENTA]free Policy[ENDCOLOR]). There''s also much higher chance to have a worthy successor on his place (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). All security services do everything to show people from all over the world the most important parts of your country (+2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Police Stations[ENDCOLOR], [COLOR_YIELD_FOOD]Constabularies[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Kumsusan[ENDCOLOR] praise your civilization''s leaders like Gods (+3[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]; 50[ICON_CULTURE]/[ICON_GREAT_PEOPLE]; [COLOR_MAGENTA]free Policy[ENDCOLOR]). There''s also much higher chance to have a worthy successor on his place (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). All security services do everything to show people from all over the world the most important parts of your country (+2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Police Stations[ENDCOLOR], [COLOR_YIELD_FOOD]Constabularies[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_KUMSUSAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
