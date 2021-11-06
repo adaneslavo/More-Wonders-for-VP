@@ -1878,6 +1878,63 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR];
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PRORA_RESORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 ----------------------------------------------------
+-- Habitat-67
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_HABITAT',		'Habitat-67'),
+			('TXT_KEY_WONDER_HABITAT_QUOTE',	'[NEWLINE]"A house is made of walls and beams; a home is built with love and dreams."[NEWLINE] - Ralph Waldo Emerson[NEWLINE]'),
+			('TXT_KEY_WONDER_HABITAT_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_HABITAT_HELP',		'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Habitat-67[ENDCOLOR]'
+WHERE Tag = 'TXT_KEY_WONDER_HABITAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_HABITAT_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HABITAT_HELP';
+				
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_HABITAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_HABITAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+----------------------------------------------------
+-- Vostok Station
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_VOSTOK',			'Vostok Station'),
+			('TXT_KEY_WONDER_VOSTOK_QUOTE',		'[NEWLINE]"On the barren shore, and on the lofty ice barrier in the background, myriads of grotesque penguins squawked and flapped their fins; while many fat seals were visible on the water, swimming or sprawling across large cakes of slowly drifting ice."[NEWLINE] - H.P. Lovecraft[NEWLINE]'),
+			('TXT_KEY_WONDER_VOSTOK_PEDIA',		'TODO'),
+			('TXT_KEY_WONDER_VOSTOK_HELP',		'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Vostok Station[ENDCOLOR]'
+WHERE Tag = 'TXT_KEY_WONDER_VOSTOK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_VOSTOK_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_VOSTOK_HELP';
+				
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_VOSTOK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_VOSTOK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+----------------------------------------------------
+-- Milestii Mici Winery
+INSERT INTO Language_en_US 
+			(Tag,										Text)
+VALUES		('TXT_KEY_BUILDING_MILESTII_MICI',			'Milestii Mici Winery'),
+			('TXT_KEY_WONDER_MILESTII_MICI_QUOTE',		'[NEWLINE]"It''s quite true I''m not drinking anymore; however, I''m not drinking any less either."[NEWLINE] - W.C. Fields[NEWLINE]'),
+			('TXT_KEY_WONDER_MILESTII_MICI_PEDIA',		'TODO'),
+			('TXT_KEY_WONDER_MILESTII_MICI_HELP',		'TODO');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Milestii Mici Winery[ENDCOLOR]'
+WHERE Tag = 'TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_MILESTII_MICI_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MILESTII_MICI_HELP';
+				
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 -- Sputnik
 INSERT INTO Language_en_US 
 			(Tag,								Text)

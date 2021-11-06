@@ -188,10 +188,10 @@ VALUES		('ALTAMIRA',			'None',		1,			1),		-- Altamira Cave
 			('RUSHMORE',			'None',		1,			1),		-- Mount Rushmore
 			-------------------ATOMIC---------------------------------------------------------------
 			--('GREAT_HALL',			'None',		1,			0),		-- Great Hall of China
-			--('HABITAT',				'None',		1,			0),		-- Habitat 67
+			('HABITAT',				'None',		1,			0),		-- Habitat 67
 			--('MARACANA',			'None',		1,			0),		-- Estadio do Maracana
-			--('VOSTOK',				'None',		1,			0),		-- Vostok Station
-			--('MILESTII_MICI',			'None',		1,			0),		-- Milestii Mici Winery
+			('VOSTOK',				'None',		1,			0),		-- Vostok Station
+			('MILESTII_MICI',		'None',		1,			0),		-- Milestii Mici Winery
 			--('NUCLEAR_FACILITY',	'None',		1,			0),		-- Tehran Nuclear Research Facility
 			--('JFK',					'None',		1,			0),		-- JFK Space Center
 			('SPUTNIK',				'None',		1,			0),		-- Sputnik Program

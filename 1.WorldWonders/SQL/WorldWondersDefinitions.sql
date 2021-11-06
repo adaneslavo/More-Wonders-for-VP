@@ -2875,6 +2875,108 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- ATOMIC ERA
 --============================================--
+-- HABITAT-67 (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_PENICILIN', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_HABITAT';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_HABITAT';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, PopulationChange = 3 WHERE Type = 'BUILDING_HABITAT';
+
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HABITAT',	'SPECIALIST_ENGINEER',	'YIELD_CULTURE',	1);
+	
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_HABITAT',	'YIELD_PRODUCTION',	2);
+
+	INSERT INTO Building_BuildingClassLocalHappiness 
+				(BuildingType,			BuildingClassType,					Happiness)
+	VALUES		('BUILDING_HABITAT',	'BUILDINGCLASS_GARDEN',				1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_HOSPITAL',			1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_MUSEUM',				1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_POLICE_STATION',		1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_HABITAT',	'FLAVOR_CULTURE',		20),
+				('BUILDING_HABITAT',	'FLAVOR_GROWTH',		40),
+				('BUILDING_HABITAT',	'FLAVOR_HAPPINESS',		100);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- VOSTOK STATION (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_VOSTOK';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_VOSTOK';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 3 WHERE Type = 'BUILDING_VOSTOK';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_VOSTOK',		'YIELD_SCIENCE',	1);
+		
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_VOSTOK',		'BUILDINGCLASS_LABORATORY',		'YIELD_SCIENCE',	2),
+				('BUILDING_VOSTOK',		'BUILDINGCLASS_MEDICAL_LAB',	'YIELD_FOOD',		3);
+	
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_VOSTOK',	'YIELD_SCIENCE',	5);	
+	
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,		TerrainType,		YieldType,				Yield) 
+	VALUES		('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_FOOD',			1),
+				('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_PRODUCTION',		1),
+				('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_SCIENCE',		4);
+	--------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_VOSTOK',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_VOSTOK',	'FLAVOR_GROWTH',		40),
+				('BUILDING_VOSTOK',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MILESTII MICI WINERY (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_MILESTII_MICI';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MILESTII_MICI';
+	---------------------------------------------------------
+	
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_MILESTII_MICI',		'YIELD_FOOD',		2),
+				('BUILDING_MILESTII_MICI',		'YIELD_GOLD',		4);
+		
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,				SpecialistType,			YieldType,				Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_FOOD',			1),
+				('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_PRODUCTION',		1);
+	
+	INSERT INTO Building_YieldPerFriend
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',	1),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',	1);
+	
+	INSERT INTO Building_YieldPerAlly
+				(BuildingType,				YieldType,				Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',			2),
+				('BUILDING_MILESTII_MICI',	'YIELD_PRODUCTION',		1),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',			2);
+	
+	INSERT INTO Building_HurryModifiers
+				(BuildingType,					HurryType,			HurryCostModifier)
+	VALUES		('BUILDING_MILESTII_MICI',		'HURRY_GOLD',		-10);		
+	--------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_MILESTII_MICI',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_MILESTII_MICI',	'FLAVOR_GROWTH',		40),
+				('BUILDING_MILESTII_MICI',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- SPUTNIK (NEW)
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ROCKETRY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_SPUTNIK';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SPUTNIK';
@@ -3127,7 +3229,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	---------------------------------------------------------
 	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
-	-- + Happinesst(80) (lua) (HARD)
+	-- + Happiness(80) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SYDNEY OPERA HOUSE
@@ -3352,6 +3454,7 @@ UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_RUSHMORE' AND
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_SANBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_INTERSTATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3404,6 +3507,9 @@ UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (S
 UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_CONCORDE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_BROADWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_PRORA_RESORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_VOSTOK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_MILESTII_MICI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_PENTAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_SPUTNIK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
