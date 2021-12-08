@@ -901,22 +901,23 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Cathedral of St. Basil
-UPDATE Language_en_US SET Text = 'St. Basil''s Cathedral' WHERE Tag ='TXT_KEY_WONDER_KREMLIN';
-
+-- Rila Monastery (former Karlstejn)
 UPDATE Language_en_US
-SET Text = 'Colourful [COLOR_YIELD_FOOD]Cathedral of St. Basil[ENDCOLOR] is a kind of [COLOR_YIELD_FOOD]Order[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_HAPPINESS_3]), which has high base yields (+3[ICON_CULTURE]; +4[ICON_PEACE]) and lowers requirement for reformation (-5%[ICON_RELIGION] Followers). Use it to gain new abilities just before your enemies do the same!'
-WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+SET Text = '[COLOR_YIELD_FOOD]Rila Monastery[ENDCOLOR] takes care of all [COLOR_YIELD_FOOD]Orders[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_HAPPINESS_3]), has high base yields (+3[ICON_CULTURE]; +4[ICON_PEACE]) and lowers requirement for reformation (-5%[ICON_RELIGION] Followers). Use it to gain new abilities just before your enemies do the same!'
+WHERE Tag = 'TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP';
 	
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_KREMLIN_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP';
+SELECT		'TXT_KEY_BUILDING_KARLSTEJN_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_KARLSTEJN_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+
+UPDATE Language_en_US SET Text = 'Rila Monastery' WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN';
+UPDATE Language_en_US SET Text = 'TODO'||Text WHERE Tag ='TXT_KEY_CIV5_BUILDINGS_KARLSTEJN_TEXT';
 ----------------------------------------------------
 -- Notre Dame
 UPDATE Language_en_US
@@ -1819,9 +1820,24 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP';
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Aluminum[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
+-- Kremlin
+UPDATE Language_en_US
+SET Text = 'Monumental [COLOR_YIELD_FOOD]Kremlin[ENDCOLOR] is the greatest effort showing your power. Tanks become the main part of your army (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Armored[ENDCOLOR]) keeping your civilization safe (-1[ICON_HAPPINESS_3] Distress). This will be the sign of your culture ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
+WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
+
+UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP';
+	
+INSERT INTO Language_en_US 
+			(Tag,								Text) 
+SELECT		'TXT_KEY_WONDER_KREMLIN_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_KREMLIN_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KREMLIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 -- Motherland Calls
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Motherland Calls[ENDCOLOR] is a evidence of your will ([COLOR_MAGENTA]free Policy[ENDCOLOR]). It strengthen internal security using [COLOR_YIELD_FOOD]Police Station[ENDCOLOR] ([ICON_SPY]; [ICON_HAPPINESS_3]; [ICON_CULTURE]; [ICON_RESEARCH]) and increase efficiency of your spies (lower enemy chance to: Incite [ICON_REBELION], Cause [ICON_HAPPINESS_3]; higher chance to: Incite [ICON_REBELION], Cause [ICON_HAPPINESS_3], Disrupt [ICON_PRODUCTION]). You''re so kind for your people (-1[ICON_HAPPINESS_3] Distress).'
+SET Text = '[COLOR_YIELD_FOOD]Motherland Calls[ENDCOLOR] strengthen internal security using a [COLOR_YIELD_FOOD]Police Station[ENDCOLOR] ([ICON_SPY]; [ICON_HAPPINESS_3]; [ICON_CULTURE]; [ICON_RESEARCH]) and you will be able to motivate more troops in this city (+100%[ICON_SILVER_FIST]). Maintanence of your city infrastructure is much lower (-10%[ICON_GOLD][ICON_GOLD] Maintenance) and your enemies become less successful in pillaging (Enemies cannot restore HP or gain [ICON_GOLD] from Pillaging).'
 WHERE Tag = 'TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires [COLOR_MAGENTA]Order[ENDCOLOR]. ', '') WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
@@ -1831,8 +1847,8 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Cristo Redentor
 UPDATE Language_en_US
@@ -1979,7 +1995,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_THULE',			'Thule Air Base'),
 			('TXT_KEY_WONDER_THULE_QUOTE',		'[NEWLINE]"A modern, autonomous, and thoroughly trained Air Force in being at all times will not alone be sufficient, but without it, there can be no national security."[NEWLINE] - Henry H. Arnold[NEWLINE]'),
 			('TXT_KEY_WONDER_THULE_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_THULE_HELP',		'+10 XP to all Planes produced in this City and +5 XP to all Planes produced in your Empire. +3 Air slots in this City and +2 [ICON_SILVER_FIST] Militry Supply Cap in your Empire. All Planes get [COLOR_POSITIVE_TEXT]Operational Range[ENDCOLOR] promotion.'),
+			('TXT_KEY_WONDER_THULE_HELP',		'+10 XP to all Planes produced in this City and +5 XP to all Planes produced in your Empire. +3 Air slots in this City and +2 [ICON_SILVER_FIST] Military Supply Cap in your Empire. All Planes get [COLOR_POSITIVE_TEXT]Operational Range[ENDCOLOR] promotion.'),
 			('TXT_KEY_PROMOTION_THULE',			'Operational Range'),
 			('TXT_KEY_PROMOTION_THULE_HELP',	'+5%[ICON_RANGE_STRENGTH]RCS. +2 [ICON_SWAP] Range.');
 			
@@ -2128,10 +2144,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_TAIPEI',			'Taipei 101'),
 			('TXT_KEY_WONDER_TAIPEI_QUOTE',		'[NEWLINE]"Everything is designed. Few things are designed well."[NEWLINE] - Brian Reed[NEWLINE]'),
 			('TXT_KEY_WONDER_TAIPEI_PEDIA',		'Taipei 101 is a financial tower in Taipei, the capital city of Taiwan. It was the tallest building in the world from 2004 to 2010, being surpassed by the Burj Khalifa in Dubai. Across five floors from the 87th to the 91st floors is a large turned mass damper, which stops the tower from suffering damage from amplitudinal waves caused by high winds. The tower is also designed with symbolism in mind. It is not only a large sundial with the shadow it casts, it is composed of 8 segments of 8 floors, eight being a traditional number for good luck. The design also takes into account ancient Chinese Pagoda design.'),
-			('TXT_KEY_WONDER_TAIPEI_HELP',		'+1 [ICON_GOLD] Gold from all Engineer Specialists in your Empire. +2 [ICON_GOLD] Gold from Trade Posts and Towns worked by this City. All Banks and Stock Exchanges in your Empire receive +2 [ICON_GOLD] Gold. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.');
+			('TXT_KEY_WONDER_TAIPEI_HELP',		'+1 [ICON_GOLD] Gold from all Engineer Specialists in your Empire. +2 [ICON_GOLD] Gold from Villages and Towns worked by this City. All Banks and Stock Exchanges in your Empire receive +2 [ICON_GOLD] Gold. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Taipei 101[ENDCOLOR] is a huge challenge for engineers (+1[ICON_RESEARCH]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER]). It serves as a diplomatic point (+1[ICON_DIPLOMAT] League Vote), business center (+2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Banks[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and commercial hub connecting local [COLOR_CITY_BROWN]Trade Posts[ENDCOLOR] and [COLOR_CITY_BROWN]Towns[ENDCOLOR] together (+2[ICON_GOLD]/[ICON_WORKER]).'
+SET Text = '[COLOR_YIELD_FOOD]Taipei 101[ENDCOLOR] is a huge challenge for engineers (+1[ICON_RESEARCH]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER]). It serves as a diplomatic point (+1[ICON_DIPLOMAT] League Vote), business center (+2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Banks[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and commercial hub connecting local [COLOR_CITY_BROWN]Villages[ENDCOLOR] and [COLOR_CITY_BROWN]Towns[ENDCOLOR] together (+2[ICON_GOLD]/[ICON_WORKER]).'
 WHERE Tag = 'TXT_KEY_WONDER_TAIPEI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

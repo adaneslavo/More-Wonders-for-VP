@@ -189,31 +189,33 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
-	if not g_tWorldWonderExists[4] then	
-		if eBuilding == g_tWorldWonder[4] then
-			g_tWorldWonderExists[4] = true
-			g_tWorldWonderOwner[4] = ePlayer
+	if eBuilding == g_tWorldWonder[4] then
+		g_tWorldWonderExists[4] = true
+		g_tWorldWonderOwner[4] = ePlayer
 			
-			local pPlayer = Players[ePlayer]
+		local pPlayer = Players[ePlayer]
 		
-			for city in pPlayer:Cities() do
-				for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-					if city:IsHasBuilding(building.Type) then
-						city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
-						break
-					end
+		for city in pPlayer:Cities() do
+			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
+				if city:IsHasBuilding(building.Type) then
+					city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
+					break
 				end
 			end
-		else
-			if g_tWorldWonderExists[4] and g_tWorldWonderOwner[4] == ePlayer then
-				for building in GameInfo.Buildings{BuildingClass=eClassWalls} do
-					if eBuilding == building.ID then
-						local pPlayer = Players[ePlayer]
-						local pCity = pPlayer:GetCityByID(eCity)
+		end
+	else
+		print(g_tWorldWonderExists[4], g_tWorldWonderOwner[4], ePlayer)
+		if g_tWorldWonderExists[4] and g_tWorldWonderOwner[4] == ePlayer then
+			print(eClassWalls)
+			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do
+				print(eBuilding, building.ID)
+				if eBuilding == building.ID then
+					local pPlayer = Players[ePlayer]
+					local pCity = pPlayer:GetCityByID(eCity)
+					print(pCity:GetName())
 
-						pCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
-						break
-					end
+					pCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
+					break
 				end
 			end
 		end

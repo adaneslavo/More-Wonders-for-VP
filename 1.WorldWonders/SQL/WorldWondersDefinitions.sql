@@ -1210,9 +1210,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- CATHEDRAL OF ST. BASIL
-	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_KREMLIN';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
+-- RILA MONASTERY (FORMER KARLSTEJN)
+	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_KARLSTEJN';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B', WonderSplashImage = 'Wonder_Rila_splash.dds' WHERE Type = 'BUILDING_KARLSTEJN';
+
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 256, 'Wonder_Rila_256.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 128, 'Wonder_Rila_128.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 80,	'Wonder_Rila_80.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 64,	'Wonder_Rila_64.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 45,	'Wonder_Rila_45.dds',	'1', '1');
+
+	UPDATE Buildings SET IconAtlas = 'ATLAS_MORE_WONDERS_RILA', PortraitIndex = 0 WHERE Type = 'BUILDING_KARLSTEJN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW)
@@ -2577,14 +2585,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_ROCKEFELLER',	'FLAVOR_DIPLOMACY',		20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MOTHERLAND CALLS
-	UPDATE Buildings SET Cost = 1550 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	UPDATE Buildings SET NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	---------------------------------------------------------
-	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+-- KREMLIN
+	-- UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_KREMLIN';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KREMLIN';
+	-- UPDATE Buildings SET WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- AUTOBAHN (NEW)
@@ -2727,7 +2731,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET NumPoliciesNeeded = 19, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_CRISTO_REDENTOR';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_CRISTO_REDENTOR';
 	---------------------------------------------------------
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET Flat = 0, Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
@@ -2967,8 +2971,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',			2);
 	
 	INSERT INTO Building_HurryModifiers
-				(BuildingType,					HurryType,			HurryCostModifier)
-	VALUES		('BUILDING_MILESTII_MICI',		'HURRY_GOLD',		-10);		
+				(BuildingType,				HurryType,		HurryCostModifier)
+	VALUES		('BUILDING_MILESTII_MICI',	'HURRY_GOLD',	-10);		
 	--------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor)
@@ -3162,6 +3166,15 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_MILLAU',	'FLAVOR_CULTURE',		40),
 				('BUILDING_MILLAU',	'FLAVOR_PRODUCTION',	10),
 				('BUILDING_MILLAU',	'FLAVOR_HAPPINESS',		60);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MOTHERLAND CALLS
+	UPDATE Buildings SET Cost = 2350 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	UPDATE Buildings SET NumPoliciesNeeded = 24, PrereqTech = 'TECH_NUCLEAR_FISSION' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KUMSUSAN (NEW)
@@ -3446,10 +3459,10 @@ UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_EIFFEL_TOWER'
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_AUTOBAHN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_SANBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_INTERSTATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3495,8 +3508,8 @@ UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_KEW_GARDENS' AND EXISTS 
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_AUTOBAHN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3562,12 +3575,13 @@ WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 -- Hagia Sophia				- Orthodox/Islam	- Early Medieval
 -- Borobudur				- Buddhism			- Early Medieval
 -- Al Masjid an-Nabawi		- Islam				- Early Medieval
--- Cathedral of St. Basil	- Orthodox			- Late Medieval
+-- Rila Monastery			- Orthodox			- Late Medieval
 -- St Peter's Basilica		- Catholic			- Early Renaissance
 -- Meenakshi Temple			- Hindu				- Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
-('BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_BOROBUDUR', 'BUILDING_KREMLIN', 'BUILDING_ST_PETERS', 'BUILDING_MEENAKSHI');
+('BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_BOROBUDUR', 'BUILDING_KARLSTEJN', 'BUILDING_ST_PETERS', 'BUILDING_MEENAKSHI');
+-- *Karlstejn is now Rila Monastery
 --============================================--
 -- POLICY FINISHERS
 --============================================--
@@ -3607,7 +3621,7 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 -- in all your cities and block the construction of the 2nd Wonder.
 ---------------------------------------------------------
 UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD'/*, 'BUILDING_JFK_SPACE_CENTER'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_KUMSUSAN');
+UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_KREMLIN'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_KUMSUSAN');
 UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
 --============================================--
 -- FREE ART HELP TEXTS
