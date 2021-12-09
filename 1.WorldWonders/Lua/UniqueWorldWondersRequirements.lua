@@ -766,7 +766,11 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
-			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true
+			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
+			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
+			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
+			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		}
 		for id, building in pairs(tValidIsNoCoast) do
 			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
@@ -814,7 +818,9 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
 			[GameInfo.Buildings.BUILDING_STONEHENGE.ID] = true,
 			[GameInfo.Buildings.BUILDING_NAZCA.ID] = true,
+			[GameInfo.Buildings.BUILDING_THONG_HAI_HIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
+			[GameInfo.Buildings.BUILDING_SIGIRIYA.ID] = true,			
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
@@ -825,7 +831,11 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
 			[GameInfo.Buildings.BUILDING_MOTHERLAND_STATUE.ID] = true,
 			[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true,
-			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true
+			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true,
+			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
+			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
+			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		}
 		for id, building in pairs(tValidIsNoCoast) do
 			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")

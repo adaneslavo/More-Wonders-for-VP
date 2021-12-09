@@ -431,7 +431,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_THONG_HAI_HIN';
 	UPDATE Buildings SET Cost = 185, PrereqTech = 'TECH_CALENDAR',	NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_THONG_HAI_HIN';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET Flat = 1, /*, IsNoCoast = 1*/ NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
 	UPDATE Buildings SET TradeRouteLandGoldBonus = 200 WHERE Type = 'BUILDING_THONG_HAI_HIN';
 	
@@ -733,7 +734,15 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SIGIRIYA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIGIRIYA';
 	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
 
@@ -2589,6 +2598,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	-- UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_KREMLIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KREMLIN';
 	-- UPDATE Buildings SET WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	-- UPDATE Buildings SET /*IsNoCoast = 1, */ WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- AUTOBAHN (NEW)
@@ -2883,7 +2895,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_PENICILIN', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_HABITAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_HABITAT';
 	---------------------------------------------------------
-	
+	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, PopulationChange = 3 WHERE Type = 'BUILDING_HABITAT';
 
@@ -2913,7 +2925,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_VOSTOK';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_VOSTOK';
 	---------------------------------------------------------
-	
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_VOSTOK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 3 WHERE Type = 'BUILDING_VOSTOK';
 
@@ -2947,7 +2959,12 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_MILESTII_MICI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MILESTII_MICI';
 	---------------------------------------------------------
+	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MILESTII_MICI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_MILESTII_MICI',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
@@ -3057,7 +3074,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THULE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_THULE';
 	---------------------------------------------------------
-	
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_THULE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_THULE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET CitySupplyFlat = 2, AirModifier = 3, FreePromotion = 'PROMOTION_THULE' WHERE Type = 'BUILDING_THULE';
 
@@ -3181,7 +3199,14 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_NUCLEAR_FISSION', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_KUMSUSAN';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KUMSUSAN';
 	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_KUMSUSAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value-1 OR Value=2));
 	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_KUMSUSAN',	'BUILDINGCLASS_POLICE_STATION'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_KUMSUSAN',	'BUILDINGCLASS_BROADCAST_TOWER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatPeopleRateModifier = 10, FreePolicies = 1 WHERE Type = 'BUILDING_KUMSUSAN';
 
@@ -3331,7 +3356,13 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_ROBOTICS', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_CURIOSITY';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_CURIOSITY';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_CURIOSITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CURIOSITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_CURIOSITY',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET MinorFriendshipChange = 50 WHERE Type = 'BUILDING_CURIOSITY';
 	
@@ -3373,7 +3404,15 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_INTERNET', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_GPS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_GPS';
 	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	SELECT		'BUILDING_GPS',		'RESOURCE_URANIUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,		BuildingClassType) 
+	SELECT		'BUILDING_GPS',		'BUILDINGCLASS_BOMB_SHELTER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Espionage = 1, GlobalEspionageModifier = -20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
 	
@@ -3554,13 +3593,21 @@ UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_FASIL_
 UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
-UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10												WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1					WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET River = 1																			WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'	WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10												WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1					WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET River = 1																			WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1/*, IsNoCoast = 1*/	WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'		WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1/*, IsNoCoast = 1*/	WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Flat = 1																				WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Water = 0, MinAreaSize = -1, River = 1													WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Hill = 1																				WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Building_ClassesNeededInCity 
 			(BuildingType,				BuildingClassType) 
