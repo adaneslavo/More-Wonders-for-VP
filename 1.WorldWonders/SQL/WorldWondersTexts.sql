@@ -1901,10 +1901,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_HABITAT',		'Habitat-67'),
 			('TXT_KEY_WONDER_HABITAT_QUOTE',	'[NEWLINE]"A house is made of walls and beams; a home is built with love and dreams."[NEWLINE] - Ralph Waldo Emerson[NEWLINE]'),
 			('TXT_KEY_WONDER_HABITAT_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_HABITAT_HELP',		'TODO');
+			('TXT_KEY_WONDER_HABITAT_HELP',		'Your City gains 3 [ICON_CITIZEN] Population. +1 [ICON_HAPPINESS_1] Happiness from local Garden, Museum, Hospital and Police Station, -3 [ICON_HAPPINESS_3] Unhappiness from Urbanization and -2 [ICON_HAPPINESS_3] Unhappiness from Distress in your City. +1 [ICON_CULTURE] Culture from all Engineer specialists.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Habitat-67[ENDCOLOR]'
+SET Text = '[COLOR_YIELD_FOOD]Habitat-67[ENDCOLOR] fully focuses on turning your city into a paradise. It might become really crowded (+3[ICON_CITIZEN]), but the quality of life improves significantly (-3[ICON_HAPPINESS_3] Urbanization; -1[ICON_HAPPINESS_3] Distress), inhabitants can benefit from better infrastructure (+1[ICON_HAPPINESS_1]/[COLOR_YIELD_FOOD]Garden[ENDCOLOR], [COLOR_YIELD_FOOD]Museum[ENDCOLOR], [COLOR_YIELD_FOOD]Hospital[ENDCOLOR], [COLOR_YIELD_FOOD]Police Station[ENDCOLOR]) and engineers still look for more (+1[ICON_CULTURE]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER]).'
 WHERE Tag = 'TXT_KEY_WONDER_HABITAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1920,10 +1920,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_VOSTOK',			'Vostok Station'),
 			('TXT_KEY_WONDER_VOSTOK_QUOTE',		'[NEWLINE]"On the barren shore, and on the lofty ice barrier in the background, myriads of grotesque penguins squawked and flapped their fins; while many fat seals were visible on the water, swimming or sprawling across large cakes of slowly drifting ice."[NEWLINE] - H.P. Lovecraft[NEWLINE]'),
 			('TXT_KEY_WONDER_VOSTOK_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_VOSTOK_HELP',		'TODO');
+			('TXT_KEY_WONDER_VOSTOK_HELP',		'All Research Labs gain +2 [ICON_RESEARCH] Science and all Medical Labs gain +3 [ICON_FOOD] Food. +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production and +4 [ICON_RESEARCH] Science to Snow tiles worked by this City. +5 [ICON_RESEARCH] Science to all Lake tiles worked by this City. +3 Scientist specialist slots in this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Vostok Station[ENDCOLOR]'
+SET Text = '[COLOR_YIELD_FOOD]Vostok Station[ENDCOLOR], built in the coldest part of the world can perform many unusual researches (+3[ICON_GREAT_SCIENTIST]) related to [COLOR_CITY_BLUE]Snow[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +4[ICON_RESEARCH]/[ICON_FLOWER]) or underground [COLOR_CITY_GREEN]Lakes[ENDCOLOR] (+5[ICON_RESEARCH]/[ICON_MUSHROOM]). All samples are analyzed worldwide in all kind of research facilities (+3[ICON_FOOD]/all [COLOR_YIELD_FOOD]Medical Labs[ENDCOLOR]; +2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_VOSTOK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1939,10 +1939,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_MILESTII_MICI',			'Milestii Mici Winery'),
 			('TXT_KEY_WONDER_MILESTII_MICI_QUOTE',		'[NEWLINE]"It''s quite true I''m not drinking anymore; however, I''m not drinking any less either."[NEWLINE] - W.C. Fields[NEWLINE]'),
 			('TXT_KEY_WONDER_MILESTII_MICI_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_MILESTII_MICI_HELP',		'TODO');
+			('TXT_KEY_WONDER_MILESTII_MICI_HELP',		'-10 [ICON_GOLD] Hurry Cost Modifiers in your Empire. +1 [ICON_FOOD] Food and +1 [ICON_GOLD] Gold per City-State Friend; +2 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production, +2 [ICON_GOLD] Gold per City-State Ally. All Merchant specialists gain +1[ICON_FOOD] and +1[ICON_PRODUCTION].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Milestii Mici Winery[ENDCOLOR]'
+SET Text = '[COLOR_YIELD_FOOD]Milestii Mici Winery[ENDCOLOR] contains the finest wines from all over the Europe, and the world, too (+1[ICON_FOOD], +1[ICON_GOLD]/[ICON_CITY_STATE] Friend; +2[ICON_FOOD], +1[ICON_PRODUCTION], +2[ICON_GOLD]/[ICON_CITY_STATE] Ally). Hired merchants do their best to gather them all in one place (+1[ICON_FOOD], +1[ICON_PRODUCTION]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) and all these traded goods can improve overall prices of new investments (-10[ICON_GOLD][ICON_GOLD] Hurry Cost Modifiers).'
 WHERE Tag = 'TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
