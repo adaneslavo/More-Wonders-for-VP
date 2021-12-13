@@ -164,8 +164,6 @@ function IsNoCoast(ePlayer, eCity, eBuilding)
 	if not pPlayer:IsAlive() then return false end
 
 	local pCity = pPlayer:GetCityByID(eCity)
-	local iCityX = pCity:GetX()
-	local iCityY = pCity:GetY()
 
 	if pCity:IsCoastal(10) then
 		return false
@@ -837,6 +835,13 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
 			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		}
+		-- EE compatibility
+		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
+			tValidIsNoCoast = {
+				[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
+				[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+			}
+		end
 		for id, building in pairs(tValidIsNoCoast) do
 			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end
