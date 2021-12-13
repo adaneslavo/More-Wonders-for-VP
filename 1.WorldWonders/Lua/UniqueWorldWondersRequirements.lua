@@ -831,9 +831,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true,
 			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
-			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
 		}
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
