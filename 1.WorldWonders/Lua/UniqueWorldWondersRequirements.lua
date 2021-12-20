@@ -835,10 +835,8 @@ function Initialize()
 		}
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
-			tValidIsNoCoast = {
-				[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
-				[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
-			}
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		end
 		for id, building in pairs(tValidIsNoCoast) do
 			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
