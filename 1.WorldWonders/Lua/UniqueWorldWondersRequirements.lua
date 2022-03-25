@@ -49,14 +49,14 @@ local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 local bIsRestrictionEra = false
 local iRequirementType = 0 --unusued
 
-for option in GameInfo.COMMUNITY{Type="MW-MAX-ERA"} do
+for option in GameInfo.Community{Type="MW-MAX-ERA"} do
 	if option.Value == 1 then
 		bIsRestrictionEra = true
 		break
 	end
 end
 
-for option in GameInfo.COMMUNITY{Type="MW-REQUIREMENT"} do
+for option in GameInfo.Community{Type="MW-REQUIREMENT"} do
 	if option.Value == 1 then
 		iRequirementType = 1
 		break
