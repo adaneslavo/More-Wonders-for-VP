@@ -3700,14 +3700,14 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 -- VP FIXES
 --============================================--
 -- additional combat classes for promotions
-INSERT INTO Language_en_US 
+INSERT OR REPLACE INTO Language_en_US 
 			(Tag,										Text) 
 VALUES		('TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE',		'Great People'),
 			('TXT_KEY_UNITCOMBAT_SPACESHIP_PART',		'Space Parts'),
 			('TXT_KEY_UNITCOMBAT_MISSILE',				'Missiles'),
 			('TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST',		'Archaeologists');
 
-INSERT INTO UnitCombatInfos 
+INSERT OR REPLACE INTO UnitCombatInfos 
 			(Type,							Description) 
 VALUES		('UNITCOMBAT_SPECIAL_PEOPLE',	'TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE'),
 			('UNITCOMBAT_SPACESHIP_PART',	'TXT_KEY_UNITCOMBAT_SPACESHIP_PART'),
