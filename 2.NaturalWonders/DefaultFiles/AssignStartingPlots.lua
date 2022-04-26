@@ -6722,7 +6722,6 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				end
 			end
 			-- MOD.Barathor: End
-			
 			--
 			--print("- Placed ".. self.wonder_list[wonder_number].. " in Plot", x, y);
 			--
@@ -11269,7 +11268,7 @@ function AssignStartingPlots:PlaceBonusResources()
 
 		resources_to_place = {
 		{self.hardwood_ID, 1, 100, 1, 2} };
-		self:ProcessResourceList(29 * resMultiplier, ImpactLayers.LAYER_BONUS3, self.tundra_flat_forest, resources_to_place)
+		self:ProcessResourceList(29 * resMultiplier, ImpactLayers.LAYER_BONUS, self.tundra_flat_forest, resources_to_place)
 
 		resources_to_place = {
 		{self.lead_ID, 1, 100, 1, 3} };
