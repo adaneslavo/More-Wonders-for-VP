@@ -1008,7 +1008,6 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 				(BuildingType,						YieldType,					Yield)
 	VALUES		('BUILDING_GREAT_ZIMBABWE',			'YIELD_FAITH',				1),
 				('BUILDING_GREAT_ZIMBABWE',			'YIELD_GOLD',				1),
-				('BUILDING_GREAT_ZIMBABWE',			'YIELD_CULTURE',			1),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
 	
 	INSERT INTO Building_UnitCombatProductionModifiers 	
@@ -2379,7 +2378,6 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
 	VALUES		('BUILDING_DARJEELING',	'YIELD_PRODUCTION',	2),
-				('BUILDING_DARJEELING',	'YIELD_CULTURE',	1),
 				('BUILDING_DARJEELING',	'YIELD_TOURISM',	3);
 
 	INSERT INTO Building_YieldPerXTerrainTimes100
@@ -3720,5 +3718,64 @@ UPDATE Units SET CombatClass = 'UNITCOMBAT_SPECIAL_PEOPLE'	WHERE Special ='SPECI
 UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Special ='SPECIALUNIT_MISSILE';
 UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Type ='UNIT_ATOMIC_BOMB';
 UPDATE Units SET CombatClass = 'UNITCOMBAT_SPACESHIP_PART' WHERE DefaultUnitAI ='UNITAI_SPACESHIP_PART';
+---------------------------------------------------------
+-- deletion of unnecessary and annoying +1 Culture from most of base WWs:
+-- deletion with substitution
+-- ==> Production
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TERRACOTTA_ARMY';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_TERRACOTTA_ARMY', 'YIELD_PRODUCTION', 1);
+-- ==> Gold
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FORBIDDEN_PALACE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_FORBIDDEN_PALACE', 'YIELD_GOLD', 1);
+-- ==> Science
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STONEHENGE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STONEHENGE', 'YIELD_SCIENCE', 1);
+-- ==> Golden Age Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PYRAMID';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_PYRAMID', 'YIELD_GOLDEN_AGE_POINTS', 1);
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CHICHEN_ITZA';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 1);
+-- ==> Great General Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STATUE_ZEUS';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STATUE_ZEUS', 'YIELD_GREAT_GENERAL_POINTS', 1);
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_KREMLIN';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_KREMLIN', 'YIELD_GREAT_GENERAL_POINTS', 2);	
+-- ==> Great Admiral Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIGHTHOUSE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_GREAT_LIGHTHOUSE', 'YIELD_GREAT_ADMIRAL_POINTS', 1);
+
+-- just deletion
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MACHU_PICHU';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIBRARY';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_COLOSSUS';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_WALL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HIMEJI_CASTLE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SUMMER_PALACE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SLATER_MILL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BRANDENBURG_GATE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BIG_BEN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PENTAGON';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CN_TOWER';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BLETCHLEY_PARK';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CERN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_FIREWALL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HUBBLE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_INTERNATIONAL_SPACE_STATION';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GRAND_CANAL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CRYSTAL_PALACE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_UN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MOTHERLAND_STATUE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PRORA_RESORT';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TWOKAY_FOODS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TRADER_SIDS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HEXXON_REFINERY_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GIORGIO_ARMEIER_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FIRAXITE_MATERIALS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
 --------------------------------------------------------------
 --------------------------------------------------------------

@@ -1881,7 +1881,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDC
 ----------------------------------------------------
 -- Prora
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Prora[ENDCOLOR] recreation center makes your citizens happier (+1[ICON_HAPPINESS_1]) and pushes them to develop more efiiciently ([COLOR_MAGENTA]free Policy[ENDCOLOR]). Additionally it will protect your future wonder constructions (lower enemy chance to: Sabotage Wonder) and award soldiers devastating enemy lands (25[ICON_CULTURE]/Pillaging).'
+SET Text = '[COLOR_YIELD_FOOD]Prora[ENDCOLOR] recreation center makes your citizens happier (+1[ICON_HAPPINESS_1]; +1[ICON_HAPPINESS_1]/2 [COLOR_MAGENTA]Policies[ENDCOLOR]) and pushes them to develop more efiiciently ([COLOR_MAGENTA]free Policy[ENDCOLOR]). Additionally it will protect your future wonder constructions (lower enemy chance to: Sabotage Wonder) and award soldiers devastating enemy lands (25[ICON_CULTURE]/Pillaging).'
 WHERE Tag = 'TXT_KEY_WONDER_PRORA_RESORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires [COLOR_MAGENTA]Autocracy[ENDCOLOR] and can only be constructed in coastal City. ', '') WHERE Tag ='TXT_KEY_WONDER_PRORA_RESORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 0);
