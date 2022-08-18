@@ -438,9 +438,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,		Yield) 
-	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FOOD',	2),
-				('BUILDING_THONG_HAI_HIN',	'YIELD_GOLD',	2),
-				('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	2);
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_GOLD',	2),
+				('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	3);
 	
 	INSERT INTO Building_YieldFromDeath
 				(BuildingType,				YieldType,		Yield)
@@ -448,7 +447,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_YieldFromInternalTR
 				(BuildingType,				YieldType,		Yield)
-	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	2);
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FOOD',	2);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
@@ -764,8 +763,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		3),
-				('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	1);
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		6),
+				('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor) 
@@ -1262,10 +1261,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	3),
-				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		3),
-				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		3),
-				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	3);
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	5),
+				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		5),
+				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		5),
+				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	5);
 	
 	INSERT INTO UnitPromotions 
 				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
@@ -2765,13 +2764,13 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_PRORA_RESORT';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PRORA_RESORT';
 	---------------------------------------------------------
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PRORA_RESORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,					FeatureType) 
-	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_FOREST'
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_FOREST'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_JUNGLE'
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE'
 	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -3092,8 +3091,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
 	
 	INSERT INTO UnitPromotions 
-				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
+				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					5,						2,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,		UnitCombatType)

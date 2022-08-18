@@ -49,6 +49,13 @@ Currently compatible with 7-1-3.</Description>
         <MinVersion>0</MinVersion>
         <MaxVersion>999</MaxVersion>
       </Association>
+      <Association>
+        <Type>Mod</Type>
+        <Name>New Beliefs Mod</Name>
+        <Id>d600c443-2f04-469a-9475-e857284d5992</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
     </ModReferences>
     <ModBlockers>
       <Association xmlns="">

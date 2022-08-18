@@ -199,10 +199,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_THONG_HAI_HIN',			'Plain of Jars'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_QUOTE',		'[NEWLINE]"As a well-spent day brings happy sleep, so life well used brings happy death."[NEWLINE] - Leonardo da Vinci[NEWLINE]'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'Units generate [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR]. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_GOLD] Gold. All local [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_PEACE] Faith.');
+			('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'Units generate [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR]. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_GOLD] Gold. All local [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_FOOD] Food.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Plain of Jars[ENDCOLOR] lays on the crossroad of multiple trade routes, so it must fulfill many different roles: a storehouse (+2[ICON_FOOD]), a cemetery (+2[ICON_PEACE]; 5[ICON_PEACE]/Death; [ICON_INTERNATIONAL_TRADE]: +2[ICON_PEACE]) and a market (+2[ICON_GOLD]; Land [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]).'
+SET Text = '[COLOR_YIELD_FOOD]Plain of Jars[ENDCOLOR] lays on the crossroad of multiple trade routes, so it must fulfill many different roles: a storehouse ([ICON_INTERNATIONAL_TRADE]: +2[ICON_FOOD]), a cemetery (+3[ICON_PEACE]; 5[ICON_PEACE]/Death) and a market (+2[ICON_GOLD]; Land [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_THONG_HAI_HIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
