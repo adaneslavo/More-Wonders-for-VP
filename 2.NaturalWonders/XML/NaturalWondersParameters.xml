@@ -318,6 +318,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -337,6 +338,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -356,6 +358,7 @@
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -374,6 +377,7 @@
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -392,6 +396,7 @@
 			<SeeThrough>3</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -410,6 +415,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -428,6 +434,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -449,6 +456,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -470,6 +478,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -491,6 +500,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -510,6 +520,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>

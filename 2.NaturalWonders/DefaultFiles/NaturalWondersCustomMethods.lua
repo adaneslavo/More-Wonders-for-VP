@@ -783,7 +783,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
-		pPlot:SetTerrainType(eTerrainMountain, false, false)
+		pPlot:SetTerrainType(eTerrainSnow, false, false)
 		
 		local iNumMountains = 0
 

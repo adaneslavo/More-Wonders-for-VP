@@ -1778,7 +1778,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR];
 INSERT INTO Language_en_US 
 			(Tag,								Text)
 VALUES		('TXT_KEY_BUILDING_RUSHMORE',		'Mount Rushmore'),
-			('TXT_KEY_WONDER_RUSHMORE_QUOTE',	'[NEWLINE]"Guard against the impostures of pretended patriotism." - G. Washington;   "Only lay down true principles, and adhere to them inflexibly." - T. Jefferson;   "The government is us; we are the government, you and I." - T. Roosevelt;   "The dogmas of the quiet past are inadequate to the stormy present." - Abraham Lincoln[NEWLINE]'),
+			('TXT_KEY_WONDER_RUSHMORE_QUOTE',	'[NEWLINE]"Guard against the impostures of pretended patriotism." - G. Washington;   "Only lay down true principles, and adhere to them inflexibly." - T. Jefferson;   "The government is us; we are the government, you and I." - T. Roosevelt;   "The dogmas of the quiet past are inadequate to the stormy present." - A. Lincoln[NEWLINE]'),
 			('TXT_KEY_WONDER_RUSHMORE_PEDIA',	'TODO'),
 			('TXT_KEY_WONDER_RUSHMORE_HELP',	'+1 [ICON_INFLUENCE] World Congress Vote. +1 Artist slot. +1 [ICON_PRODUCTION] Production, +1 [ICON_CULTURE] Culture and +1 [ICON_TOURISM] Tourism from all Mountains inside the City borders. +1 [ICON_CULTURE] Culture and +1 [ICON_TOURISM] Tourism from all Great Works in the Empire.');
 			
