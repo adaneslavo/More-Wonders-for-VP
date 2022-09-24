@@ -70,6 +70,21 @@ Currently compatible with 7-1-3.</Description>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>GlobalSettings.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Promotions/PromotionsDefinitions.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Resources/ResourcesDefinitions.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>1.WorldWonders/SQL/MainRulesForWorldWonders.sql</FileName>
       </Action>
       <Action>
@@ -132,6 +147,18 @@ Currently compatible with 7-1-3.</Description>
         <Name>UniqueNaturalWondersAbilities</Name>
         <Description>Natural Wonders abilities</Description>
         <FileName>2.NaturalWonders/Lua/UniqueNaturalWondersAbilities.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>NaturalWondersOnStrategicMap</Name>
+        <Description>Prints NW icons on SV map</Description>
+        <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>NaturalWondersOnStrategicMapXML</Name>
+        <Description>Prints NW icons on SV map</Description>
+        <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.xml</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -737,27 +764,27 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_128.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_256.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_45.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_64.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_80.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Kumsusan_splash.dds">
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -854,6 +881,26 @@ Currently compatible with 7-1-3.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1585,7 +1632,7 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\EyeOfTheSahara\sv_EyeOfTheSahara.dds">
+    <Content Include="2.NaturalWonders\Art\EyeOfTheSahara\sv_Sahara_Eye.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1605,7 +1652,67 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway.dds">
+    <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway_C.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway_T.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 red.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 2 orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 2 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 purple.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 yellow.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\FX_NEW_REEF.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_1_orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_1_white.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\NEW_REEF.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\NEW_REEF.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1626,6 +1733,10 @@ Currently compatible with 7-1-3.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\LakeRetba\sv_Retba.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Matterhorn\sv_Matterhorn.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1661,7 +1772,99 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\sv_Mt_Everest.dds">
+    <Content Include="2.NaturalWonders\Art\MountEverest\sv_Everest.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Great_Work_Mt_Paektu.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_CLOUDS.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL_2.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\MT_PAEKTU_GRASS.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\MT_PAEKTU_GRASS.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv4.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv5.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv6.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv7.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 4.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu water.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu waterfall base.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\MountPaektu\sv_Paektu.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1697,7 +1900,11 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\sv_Salar.dds">
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\sv_Salar_B.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\sv_Salar_S.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1706,6 +1913,14 @@ Currently compatible with 7-1-3.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\SQL\NaturalWondersTexts.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1718,6 +1933,10 @@ Currently compatible with 7-1-3.</Description>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Credits.txt">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="GlobalSettings.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1777,59 +1996,143 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\PromotionMoreWondersIcons_16.dds">
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_16.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\PromotionMoreWondersIcons_256.dds">
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\PromotionMoreWondersIcons_32.dds">
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\PromotionMoreWondersIcons_45.dds">
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\PromotionMoreWondersIcons_64.dds">
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersFontIcon_22.dds">
+    <Content Include="Promotions\PromotionsDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersFontIcon_22.ggxml">
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_128.dds">
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_256.dds">
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_256f.dds">
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_32.dds">
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_45.dds">
+    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_64.dds">
+    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.ggxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\ResourceMoreWondersIcon_80.dds">
+    <Content Include="Resources\Models\TropicalFish\fish_tropical.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_resource_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_orange_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_purple_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourcesDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Sylvite.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Tern_Egg.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Tropical_Fish.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3146,6 +3449,7 @@ Currently compatible with 7-1-3.</Description>
     <Folder Include="2.NaturalWonders\Art\BioluminescentBay\Model" />
     <Folder Include="2.NaturalWonders\Art\Dallol\Model" />
     <Folder Include="2.NaturalWonders\Art\EyeOfTheSahara\Model" />
+    <Folder Include="2.NaturalWonders\Art\GreatBarrierReef\Model" />
     <Folder Include="2.NaturalWonders\Art\LakeRetba\Model" />
     <Folder Include="2.NaturalWonders\Art\MountEverest" />
     <Folder Include="2.NaturalWonders\Art\MountEverest\Model" />
@@ -3156,11 +3460,17 @@ Currently compatible with 7-1-3.</Description>
     <Folder Include="2.NaturalWonders\Art\BermudaTriangle" />
     <Folder Include="2.NaturalWonders\Art\BioluminescentBay" />
     <Folder Include="2.NaturalWonders\Art\Dallol" />
+    <Folder Include="2.NaturalWonders\Art\MountPaektu" />
+    <Folder Include="2.NaturalWonders\Art\MountPaektu\Model" />
+    <Folder Include="2.NaturalWonders\Art\Matterhorn" />
+    <Folder Include="2.NaturalWonders\Art\GreatBarrierReef" />
+    <Folder Include="2.NaturalWonders\Art\MountPaektu\Model\textures" />
     <Folder Include="2.NaturalWonders\Art\SalarDeUyuni" />
     <Folder Include="2.NaturalWonders\Art\SalarDeUyuni\Model" />
     <Folder Include="2.NaturalWonders\DefaultFiles" />
     <Folder Include="2.NaturalWonders\Art" />
     <Folder Include="2.NaturalWonders\Lua" />
+    <Folder Include="2.NaturalWonders\UI" />
     <Folder Include="2.NaturalWonders\SQL" />
     <Folder Include="2.NaturalWonders\XML" />
     <Folder Include="Addons" />
@@ -3179,7 +3489,13 @@ Currently compatible with 7-1-3.</Description>
     <Folder Include="1.WorldWonders\Lua" />
     <Folder Include="1.WorldWonders\Art" />
     <Folder Include="1.WorldWonders\SQL" />
+    <Folder Include="Promotions\Atlases" />
     <Folder Include="Resources\" />
+    <Folder Include="Resources\Models" />
+    <Folder Include="Resources\Models\TropicalFish" />
+    <Folder Include="Resources\FontIcons" />
+    <Folder Include="Resources\Atlases" />
+    <Folder Include="Resources\sv_icons" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>

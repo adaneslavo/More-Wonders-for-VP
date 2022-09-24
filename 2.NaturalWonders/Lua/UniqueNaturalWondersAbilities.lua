@@ -17,18 +17,23 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_MT_SINAI"],
 	GameInfoTypes["FEATURE_GEYSER"],
 	GameInfoTypes["FEATURE_MT_EVEREST"],
-	GameInfoTypes["FEATURE_REEF"],
+	GameInfoTypes["FEATURE_NEW_REEF"],
 	GameInfoTypes["FEATURE_GIBRALTAR"],
 	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
 	GameInfoTypes["FEATURE_CAUSEWAY_A"],
 	GameInfoTypes["FEATURE_CAUSEWAY_B"],
 	GameInfoTypes["FEATURE_RETBA"],
 	GameInfoTypes["FEATURE_LUMI_BAY"],
-	GameInfoTypes["FEATURE_DALLOL"]
+	GameInfoTypes["FEATURE_DALLOL"],
+	GameInfoTypes["FEATURE_EYE_OF_SAHARA_A"],
+	GameInfoTypes["FEATURE_EYE_OF_SAHARA_B"],
+	GameInfoTypes["FEATURE_EYE_OF_SAHARA_C"],
+	GameInfoTypes["FEATURE_MT_PAEKTU"]
 }
-local g_iWonderWithDummies = 20
 
+local g_iWonderWithDummies = 24
 local g_tNaturalWonderOwner = {}
+
 local g_tNaturalWonderExists = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderExists[i] = false
@@ -38,7 +43,17 @@ local g_tNaturalWonderSkip = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderSkip[i] = false
 	end
+	-- skip is used for multitle wonders, where all tiles give same building; to prevent deleting previously set building skip is used;
 	g_tNaturalWonderSkip[16] = true
+	g_tNaturalWonderSkip[21] = true
+	g_tNaturalWonderSkip[22] = true
+
+local g_tNaturalWonderRegularBuilding = {}
+	for i = 1, g_iWonderWithDummies do
+		g_tNaturalWonderRegularBuilding[i] = false
+	end
+	-- used to place regular building instead of dummy ones;
+	g_tNaturalWonderRegularBuilding[24] = true
 
 local g_tNaturalWonderX = {}
 local g_tNaturalWonderY = {}
@@ -63,7 +78,11 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"],
 	GameInfoTypes["BUILDING_LUMI_BAY_DUMMY"],
-	GameInfoTypes["BUILDING_DALLOL_DUMMY"]
+	GameInfoTypes["BUILDING_DALLOL_DUMMY"],
+	GameInfoTypes["BUILDING_EYE_OF_SAHARA"],
+	GameInfoTypes["BUILDING_EYE_OF_SAHARA"],
+	GameInfoTypes["BUILDING_EYE_OF_SAHARA"],
+	GameInfoTypes["BUILDING_MT_PAEKTU"]
 }
 
 local g_tNaturalWonderDummy2 = {}
@@ -77,6 +96,10 @@ local g_tNaturalWonderDummy3 = {}
 		g_tNaturalWonderDummy3[i] = false
 	end
 	g_tNaturalWonderDummy3[9] = GameInfoTypes["BUILDING_FUJI_3_DUMMY"]
+
+local bMtPaektuBuilt = false
+
+
 
 -- load game and check if they exists
 function CheckIfNaturalWonderExists()
@@ -95,6 +118,18 @@ function CheckIfNaturalWonderExists()
 end
 Events.LoadScreenClose.Add(CheckIfNaturalWonderExists)
 
+function CheckIfBuildingsWereBuilt()
+	for _, player in ipairs(Players) do
+		-- MT. PAEKTU
+		if player:CountNumBuildings(g_tNaturalWonderDummy[24]) == 1 then
+			bMtPaektuBuilt = true
+		end
+	end
+end
+Events.LoadScreenClose.Add(CheckIfBuildingsWereBuilt)
+
+
+
 function SetDummiesForOwnedNaturalWonders(ePlayer)
 	local bSkip = false
 
@@ -104,33 +139,49 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 			local bHasNaturalWonderInRange = pPlayer:CountCityFeatures(g_tNaturalWonder[i]) >= 1
 			
 			if bHasNaturalWonderInRange then
-				g_tNaturalWonderOwner[i] = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetOwner()
-				
-				if g_tNaturalWonderOwner[i] == ePlayer then
-					pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
-
-					if g_tNaturalWonderDummy2[i] then
-						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy2[i], 1)
-					end
-
-					if g_tNaturalWonderDummy3[i] then
-						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 1)
-					end
+				if not g_tNaturalWonderRegularBuilding[i] then
+					g_tNaturalWonderOwner[i] = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetOwner()
+					local pCapital = pPlayer:GetCapitalCity()
 					
-					bSkip = g_tNaturalWonderSkip[i]
-				else
-					if not bSkip then
-						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
+
+					if g_tNaturalWonderOwner[i] == ePlayer then
+						pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
 
 						if g_tNaturalWonderDummy2[i] then
-							pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy2[i], 1)
 						end
 
 						if g_tNaturalWonderDummy3[i] then
-							pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy3[i], 1)
 						end
-					else
+					
 						bSkip = g_tNaturalWonderSkip[i]
+					else
+						if not bSkip then
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
+
+							if g_tNaturalWonderDummy2[i] then
+								pCapital:SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
+							end
+
+							if g_tNaturalWonderDummy3[i] then
+								pCapital:SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
+							end
+						else
+							bSkip = g_tNaturalWonderSkip[i]
+						end
+					end
+				else
+					-- MT. PAEKTU
+					if g_tNaturalWonderDummy[i] == GameInfoTypes["BUILDING_MT_PAEKTU"] then
+						if bMtPaektuBuilt == false then
+							if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[i]) == 0 then
+								local pCity = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetWorkingCity()
+								
+								pCity:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
+								bMtPaektuBuilt = true
+							end
+						end
 					end
 				end
 			else

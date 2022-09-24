@@ -37,13 +37,15 @@ function OnPopup( popupInfo )
 		end
 	end	
 
-	sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_PER_ERA")
+	sYield = sYield .. " " .. L("TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_PER_ERA")
 
 	for row in GameInfo.Feature_EraYieldChanges(sFeatureCondition) do
 	    if row.Yield > 0 then
 			sYield = sYield .. " +" .. tostring(row.Yield) .. " " .. GameInfo.Yields[row.YieldType].IconString
 		end
 	end
+
+	sYield = sYield .. ")"
 
 	for row in GameInfo.Plot_AdjacentFeatureYieldChanges(sFeatureCondition) do
 		if row.Yield > 0 or row.Yield < 0 then

@@ -49,21 +49,15 @@ local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 local bIsRestrictionEra = false
 local iRequirementType = 0 --unusued
 
-for option in GameInfo.Community{Type="MW-MAX-ERA"} do
+for option in GameInfo.Community{Type="MW-SETTING-MAX-ERA"} do
 	if option.Value == 1 then
 		bIsRestrictionEra = true
 		break
 	end
 end
 
-for option in GameInfo.Community{Type="MW-REQUIREMENT"} do
-	if option.Value == 1 then
-		iRequirementType = 1
-		break
-	elseif option.Value == 2 then
-		iRequirementType = 2
-		break
-	end
+for option in GameInfo.Community{Type="MW-SETTING-REQUIREMENT"} do
+	iRequirementType = option.Value
 end
 
 -- IsMaxEra
@@ -734,7 +728,7 @@ function Initialize()
 	for building in GameInfo.Buildings() do
 		if building.MaxStartEra ~= nil and building.WonderSplashImage ~= nil then
 			tValidIsMaxEra[building.ID] = GameInfo.Eras[building.MaxStartEra].ID
-			dprint("...adding (id,building,era_limit)", building.ID, building.Type, building.MaxStartEra)
+			--dprint("...adding (id,building,era_limit)", building.ID, building.Type, building.MaxStartEra)
 		end
 	end
 	
@@ -744,7 +738,7 @@ function Initialize()
 		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
 			local eBuilding = GameInfoTypes[building.Type]
 			
-			dprint("...adding (id,building,requirement)", building.ID, building.Type, "(IsNearLake)")
+			--dprint("...adding (id,building,requirement)", building.ID, building.Type, "(IsNearLake)")
 			tValidIsNearLake[building.ID] = true
 		end
 	end
@@ -752,7 +746,7 @@ function Initialize()
 	-- IsProhibitedTerrain
 	for building in GameInfo.Buildings() do
 		if building.ProhibitedCityTerrain ~= nil then
-			dprint("...adding (id,building,prohibition)", building.ID, building.Type, "(Prohibited: " .. building.ProhibitedCityTerrain .. ")")
+			--dprint("...adding (id,building,prohibition)", building.ID, building.Type, "(Prohibited: " .. building.ProhibitedCityTerrain .. ")")
 			tValidIsProhibitedTerrain[building.ID] = GameInfo.Terrains[building.ProhibitedCityTerrain].ID
 		end
 	end
@@ -771,21 +765,21 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		}
 		for id, building in pairs(tValidIsNoCoast) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end
 
 		-- IsOneTile
 		tValidIsOneTile = {
 			[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
 		}
-		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
+		--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
 		
 		-- IsOnIsthmus
 		tValidIsOnIsthmus = {
 			[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
 		}
 		for id, building in pairs(tValidIsOnIsthmus) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
 		end
 
 		-- IsHasPlotsForResources
@@ -795,7 +789,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
 		}
 		for id, building in pairs(tValidIsHasPlotsForResources) do
-			dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
+			--dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
 		end
 
 		-- IsHasImprovement
@@ -804,7 +798,7 @@ function Initialize()
 			iRequiredImprovements = 1
 		}
 		for id, building in pairs(tValidIsHasImprovement) do
-			dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+			--dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 		end
 	end
 	---------------------------------------------------------
@@ -831,7 +825,8 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true,
 			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
-			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
+			[GameInfo.Buildings.BUILDING_MILLAU.ID] = true
 		}
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
@@ -839,7 +834,7 @@ function Initialize()
 			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
 		end
 		for id, building in pairs(tValidIsNoCoast) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end
 
 		-- IsHasMountains
@@ -849,28 +844,28 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_DARJEELING.ID] = true
 		}
 		for id, building in pairs(tValidIsHasMountains) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHasMountains)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsHasMountains)")
 		end
 
 		-- IsOneTile
 		tValidIsOneTile = {
 			[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
 		}
-		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
+		--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_MICHEL.ID, GameInfo.Buildings.BUILDING_MICHEL.Type, "(IsOneTile)")
 		
 		-- IsAtPeace
 		tValidIsAtPeace = {
 			[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
 			[GameInfo.Buildings.BUILDING_OLD_BRIDGE.ID] = true
 		}
-		dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
+		--dprint("...adding (id,building,requirement)", GameInfo.Buildings.BUILDING_BAMYAN.ID, GameInfo.Buildings.BUILDING_BAMYAN.Type, "(IsAtPeace)")
 
 		-- IsReligionFounded
 		tValidIsReligionFounded = {
 			[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = true
 		}
 		for id, building in pairs(tValidIsReligionFounded) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsReligionFounded)")
 		end
 
 		-- IsOnIsthmus
@@ -878,7 +873,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
 		}
 		for id, building in pairs(tValidIsOnIsthmus) do
-			dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
+			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsOnIsthmus)")
 		end
 
 		-- IsHasImprovement
@@ -962,17 +957,13 @@ function Initialize()
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_TORRE.ID] = {
-				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FORT,
-				iRequiredImprovements = 1
-			}
 			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_SMITHSONIAN.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
 				iRequiredImprovements = 1
 			}
 		end
 		for id, building in pairs(tValidIsHasImprovement) do
-			dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
+			--dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)
 		end
 	
 		-- IsMajorApproach
@@ -988,7 +979,7 @@ function Initialize()
 			eRequiredApproach3 = GameInfoTypes.MAJOR_CIV_APPROACH_DECEPTIVE
 		}
 		for id, building in pairs(tValidIsMajorApproach) do
-			dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
+			--dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
 		end
 	
 		-- IsHasCsAllies
@@ -999,7 +990,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
 		}
 		for id, building in pairs(tValidIsHasCsAllies) do
-			dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
+			--dprint("...adding (id,building,allies)", id, GameInfo.Buildings[id].Type, tValidIsHasCsAllies[id])
 		end
 
 		-- IsHappiness
@@ -1008,7 +999,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_CN_TOWER.ID] = 80
 		}
 		for id, building in pairs(tValidIsHappiness) do
-			dprint("...adding (id,building,happiness)", id, GameInfo.Buildings[id].Type, tValidIsHappiness[id])
+			--dprint("...adding (id,building,happiness)", id, GameInfo.Buildings[id].Type, tValidIsHappiness[id])
 		end
 	
 		-- IsHasGreatWorks
@@ -1037,7 +1028,7 @@ function Initialize()
 			iRequiredGreatWorks = 4
 		}
 		for id, building in pairs(tValidIsHasGreatWorks) do
-			dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
+			--dprint("...adding (id,building,gwtype,count)", id, GameInfo.Buildings[id].Type, building.eGreatWorkType, building.iRequiredGreatWorks)
 		end
 	
 		-- IsHasCitizens
@@ -1045,7 +1036,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_BROOKLYN.ID] = 25
 		}
 		for id, building in pairs(tValidIsHasCitizens) do
-			dprint("...adding (id,building,citizens)", id, GameInfo.Buildings[id].Type, tValidIsHasCitizens[id])
+			--dprint("...adding (id,building,citizens)", id, GameInfo.Buildings[id].Type, tValidIsHasCitizens[id])
 		end
 
 		-- IsHasCities
@@ -1054,7 +1045,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_INTERSTATE.ID] = 8
 		}
 		for id, building in pairs(tValidIsHasCities) do
-			dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
+			--dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
 		end
 
 		-- IsHasUniqueBuildingClassReq
@@ -1129,7 +1120,7 @@ function Initialize()
 			iRequiredSpecialists = 3
 		}
 		for id, building in pairs(tValidIsHasSpecialists) do
-			dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, building.eSpecialistType, building.iRequiredSpecialists)
+			--dprint("...adding (id,building,specialists)", id, GameInfo.Buildings[id].Type, building.eSpecialistType, building.iRequiredSpecialists)
 		end
 
 		-- IsHasResearchAgreement
@@ -1137,7 +1128,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_HUBBLE.ID] = true
 		}
 		for id, building in pairs(tValidIsHasResearchAgreements) do
-			dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
+			--dprint("...adding (id,building,research)", id, GameInfo.Buildings[id].Type, tValidIsHasResearchAgreements[id])
 		end	
 
 		-- IsAtPolar
@@ -1145,7 +1136,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = true
 		}
 		for id, building in pairs(tValidIsAtPolar) do
-			dprint("...adding (id,building,polar)", id, GameInfo.Buildings[id].Type, tValidIsAtPolar[id])
+			--dprint("...adding (id,building,polar)", id, GameInfo.Buildings[id].Type, tValidIsAtPolar[id])
 		end	
 
 		-- IsHasPlotsForResources
@@ -1155,7 +1146,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
 		}
 		for id, building in pairs(tValidIsHasPlotsForResources) do
-			dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
+			--dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
 		end
 	end
 end
