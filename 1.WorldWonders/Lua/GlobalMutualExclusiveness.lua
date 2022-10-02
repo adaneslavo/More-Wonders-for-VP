@@ -58,7 +58,7 @@ function Initialize()
 		local thisBuildingClass = GameInfo.BuildingClasses[building.BuildingClass]
 		
 		if thisBuildingClass.MaxGlobalInstances == 1 and building.IsCorporation == 0 and building.MutuallyExclusiveGroup > 0 then -- exclude Corporations
-			dprint("...adding (id,wonder,group)", building.ID, building.Type, building.MutuallyExclusiveGroup)
+			--dprint("...adding (id,wonder,group)", building.ID, building.Type, building.MutuallyExclusiveGroup)
 			tValidWonders[building.ID] = true
 			tWonderGroups[building.ID] = building.MutuallyExclusiveGroup
 		end

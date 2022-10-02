@@ -7,19 +7,20 @@
 --  THANKS:	  whoward69
 --  MODDER2	  adan_eslavo
 ------------------------------------------------------------------------------
--- MOD: * Great Barrier Reef (1):	3-tile wonder (in-line, any direction); much closer to land; surrounded by coast;
+-- MOD: * Great Barrier Reef (1):	3-tile wonder (in-line, any direction); much closer to land; surrounded by coast and atols;
 --		* Rock of Gibraltar (2):	one land adjacent (preferred flat grass);
 --		* Krakatoa (3):				near islands and smaller landmasses;
 --		* Lake Victoria (4):		looks for a river surrounded by bunch of hills and mountains;
---		* Giant's Causeway (5):		custom method similar to Rock of Gibraltar; prefers tundra;
---		* Salar de Uyuni (6):		has only tile changes method; flattens, clears features and changes adjacent tiles to desert; 2-tiles;
+--		* Giant's Causeway (5):		2-tile wonder; custom method similar to Rock of Gibraltar; prefers tundra;
+--		* Salar de Uyuni (6):		2-tile wonder; has only tile changes method; flattens, clears features and changes adjacent tiles to desert;
 --		* Mt. Kailash (7):			has only tile changes method; adds mountains; changes adjacent to tundra;
 --		* Sri Pada (8):				has only tile changes method; changes adjacent to grass;
 --		* Mt. Everest (9):			has only tile changes method; adds mountains; changes adjacent to tundra or snow;
 --		* Lake Retba (10):			must be on solid terrain with coast;
---		*
---		* Bermuda Triangle (12):	set between 3-4 tiles of land on 3 corners separated by water;
+--		* Eye of the Sahara (11):	3-tile wonder; creates more desert and mountains;
+--		* Bermuda Triangle (12):	3-tile wonder; set between 3-4 tiles of land on 3 corners separated by water;
 --		* Dallol (13):				has only tile changes method; all tiles around are clered from features;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --		* Bioluminescent Bay (14):	surrounded by jungle and grassland;
@@ -31,6 +32,12 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+--		* Bioluminescent Bay (14):	surrounded by jungle and grassland;
+--		* Mt. Paektu (15):			has only tile changes method; changes core tile to flat and tundra, creates 3 new rivers;
+--		* Uluru (16):				has only tile changes method; makes surrounding flat;
+--		* Barringer Crater (17):	has only tile changes method; makes surroundings flat
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -74,6 +81,7 @@ function NWCustomEligibility(x, y, method_number)
 	local eTerrainSnow = TerrainTypes.TERRAIN_SNOW
 	local eFeatureNo = FeatureTypes.NO_FEATURE
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
+	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -87,36 +95,30 @@ function NWCustomEligibility(x, y, method_number)
 	local iW, iH = Map.GetGridSize()
 
 	if method_number == 1 then
-		-- Great Barrier Reef
+		-- GREAT BARRIER REEF
 		-- MOD: Now 3 tile wonder - long shape;
 		-- MOD: Area checked is better to handle all 3 main directions: E-W, NW-SE, NE-SW;
-		-- MOD: All tiles check for any features, nil tiles, lakes;
-		-- MOD: GBR tiles check for land (they must be surrounded by water;
-		-- MOD: Increased land andcoast limits;
-
-		local pMainPlot = Map.GetPlot(x, y)		
 		-- MOD: Latitude to prevent it from spawning in polar regions;
-		-- MOD: I prefer symmetrical latitudes, and my map script is generated in this way, which is why the check is split in two below;
 		if (y >= (iH/2)) then	
 			-- Upper half of map;
-			if (math.abs((iH/2) - y)/(iH/2)) > 0.5 then
+			if (math.abs((iH/2) - y)/(iH/2)) > 0.8 then
 				return false
 			end
 		else
 			-- Lower half of map;
-			if (math.abs((iH/2) - (y + 1))/(iH/2)) > 0.5 then
+			if (math.abs((iH/2) - y + 1)/(iH/2)) > 0.8 then
 				return false
 			end
 		end 
-
-		if pMainPlot == nil then return false end -- MOD: check for no-nil;
-		if pMainPlot:GetFeatureType() ~= eFeatureNo then return false end -- MOD: check for no-feature;
-		if pMainPlot:IsWater() == false then return false end -- MOD: added this to check to make sure core tile is water so it doesn't trigger land check later;
+		
+		local pMainPlot = Map.GetPlot(x, y)		
+		
+		if pMainPlot == nil then return false end
+		if pMainPlot:IsWater() == false then return false end
 		if pMainPlot:IsLake() then return false end
-		if pMainPlot:IsAdjacentToLand() then return false end -- MOD: want to make sure the core tile isn't and no other GBR tile too;
+		if pMainPlot:IsAdjacentToLand() then return false end
 
-		-- MOD: We DO care now, otherwise the adjacent land check may just keep adding the center tile if it's land before it's converted;
-		local iNumLand, iNumCoast = 0, 0 -- MOD: added iNumLand to check for land two tiles from the reef;
+		local iNumLand, iNumCoast = 0, 0
 		
 		local tDirectionsNE = {
 			DirectionTypes.DIRECTION_NORTHEAST,
@@ -155,139 +157,111 @@ function NWCustomEligibility(x, y, method_number)
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
-			if pAdjacentPlot == nil then return false end -- MOD: check for no-nil;
-			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then return false end -- MOD: check for no-feature;
-			if pAdjacentPlot:IsAdjacentToLand() then return false end
+			if pAdjacentPlot == nil then return false end
 			
 			local iX = pAdjacentPlot:GetX()
 			local iY = pAdjacentPlot:GetY()
 				
-			for j, subdirection in ipairs(tSubdirections[i]) do -- MOD: loop for distant plots checks (plots 2 and more tiles off center);
+			for j, subdirection in ipairs(tSubdirections[i]) do
 				local pDistantPlot = Map.PlotDirection(iX, iY, subdirection)
 
 				if pDistantPlot == nil then return false end
-				if pDistantPlot:GetFeatureType() ~= eFeatureNo then return false end
 
 				if pDistantPlot:GetTerrainType() == eTerrainCoast then
 					iNumCoast = iNumCoast + 1
 				end
 
-				if pDistantPlot:IsAdjacentToLand() then	-- MOD: added a check for land;
+				if pDistantPlot:IsAdjacentToLand() then
 					iNumLand = iNumLand + 1
 				end
 
 			end
 		end
-
-		-- if not enough coasts, reject this site;
-		-- MOD: If not enough land nearby, reject this site;
-		-- MOD: I want it tucked more against the land, not just off the tip of a piece of land branching out;
-		-- MOD: Also, 4 doesn't necessarily mean three individual land tiles, since half the time they're double counted. It just ensures it's more than one;
-		if iNumCoast < 4 or iNumLand < 5 then return false end
-
+		
+		if iNumCoast < 7 or iNumLand < 5 then return false end
+		
 		return true
 	elseif method_number == 2 then
-		-- Rock of Gibraltar
-		
+		-- ROCK OF GIBRALTAR
 		local pPlot = Map.GetPlot(x, y)
-		local sFeatureType = pPlot:GetFeatureType()
 		
-		if pPlot:IsWater() == false and AdjacentToSaltWater(x, y) == false then return false end
-		if sFeatureType ~= eFeatureNo then return false end
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		if pPlot:GetFeatureType() ~= eFeatureNo then return false end
+		if pPlot:GetTerrainType() == eTerrainTundra or pPlot:GetTerrainType() == eTerrainSnow then return false end
 
-		if (y >= (iH/2)) then	
-			if (math.abs((iH/2) - y)/(iH/2)) > 0.6 then
-				return false
-			end
-		else
-			if (math.abs((iH/2) - (y + 1))/(iH/2)) > 0.6 then
-				return false
-			end
-		end 
-		
-		local iNumLand, iNumCoast = 0, 0
+		local iNumLand = 0
 
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-			local sPlotType = pAdjacentPlot:GetPlotType()
-			local sFeatureType = pAdjacentPlot:GetFeatureType()
-			local sTerrainType = pAdjacentPlot:GetTerrainType()
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
 			
 			-- MOD: Don't permit small landmasses especially those single-tile islands!
-			-- MOD: Avoid mountains;
-			if sPlotType ~= ePlotOcean then
-				if pAdjacentPlot:Area():GetNumTiles() < 11 
-				or pAdjacentPlot:GetPlotType() == ePlotMountain or pAdjacentPlot:GetPlotType() == ePlotHill
-				or (sTerrainType ~= eTerrainDesert and sTerrainType ~= eTerrainPlains)
-				or sFeatureType ~= eFeatureNo then return false end
-			
+			-- MOD: Avoid mountains
+			if sAdjacentPlotType ~= ePlotOcean then
+				if pAdjacentPlot:Area():GetNumTiles() < 25
+				or sAdjacentPlotType == ePlotMountain or sAdjacentPlotType == ePlotHill
+				or sAdjacentFeatureType ~= eFeatureNo
+				or sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainGrass then return false end
+				
 				iNumLand = iNumLand + 1
-			end
-
-			if sTerrainType == eTerrainCoast and pPlot:IsLake() == false and sFeatureType == eFeatureNo then
-				iNumCoast = iNumCoast + 1
+				
+				if iNumLand > 1 then return false end
 			end
 		end
-		
-		if iNumLand ~= 1 or iNumCoast < 5 then return false end
 
+		if iNumLand ~= 1 then return false end
+		
 		return true
 	elseif method_number == 3 then
-		-- MOD: Krakatoa
-
+		-- KRAKATOA
 		local pMainPlot = Map.GetPlot(x, y)
-		
-		if (y >= (iH/2)) then	
-			if (math.abs((iH/2) - y)/(iH/2)) > 0.5 then
-				return false
-			end
-		else
-			if (math.abs((iH/2) - (y + 1))/(iH/2)) > 0.5 then
-				return false
-			end
-		end 
-
-		local iNumLand, iNumBigIsland = 0, 0
 		
 		if pMainPlot == nil then return false end
 		if pMainPlot:IsWater() == false then return false end
 		if pMainPlot:IsLake() then return false end
-		if pMainPlot:GetFeatureType() ~= eFeatureNo then return false end
-		if pMainPlot:IsAdjacentToLand() then return false end
+		
+		local bBigIsland = false
 		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
 			local iX = pAdjacentPlot:GetX()
 			local iY = pAdjacentPlot:GetY()
 			
-			if pAdjacentPlot == nil then return false end
-			if pAdjacentPlot:IsWater() == false then return false end
 			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then return false end
 
 			for j, subdirection in ipairs(tDirectionTypes) do
 				local pDistantPlot = Map.PlotDirection(iX, iY, subdirection)
-				local sPlotType = pDistantPlot:GetPlotType()
 				
-				if sPlotType ~= ePlotOcean then
-					-- MOD: Don't permit on larger landmasses;
-					if pDistantPlot:Area():GetNumTiles() > iH/2 then return false end
-					-- MOD: Want it near at least one slightly larger island, not just single-tile islands;
-					if pDistantPlot:Area():GetNumTiles() > 3 then
-						iNumBigIsland = iNumBigIsland + 1  
+				if pDistantPlot == nil then return false end
+		
+				local sDistantPlotType = pDistantPlot:GetPlotType()
+				local sDistantAreaNear = pDistantPlot:Area():GetNumTiles()
+				
+				if sDistantPlotType ~= ePlotOcean then
+					if sDistantAreaNear > iH then return false end
+					
+					if sDistantAreaNear >= 5 and sDistantAreaNear <= iH then
+						bBigIsland = true
 					end
-
-					iNumLand = iNumLand + 1
 				end
 			end
 		end
 		
-		-- MOD: Want it tucked more near the land, not just off the tip of a piece of land branching out;
-		if iNumLand < 3 or iNumBigIsland < 1 then return false end
-
+		if not bBigIsland then return false end
+		
 		return true
 	elseif method_number == 4 then
-		-- MOD: Lake Victoria
-
+		-- LAKE VICTORIA
 		local pMainPlot = Map.GetPlot(x, y)
 		
 		if pMainPlot == nil then return false end
@@ -300,6 +274,7 @@ function NWCustomEligibility(x, y, method_number)
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
+			if pAdjacentPlot == nil then return false end
 			if pAdjacentPlot:GetTerrainType() == eTerrainSnow then return false end
 			
 			local sPlotType = pAdjacentPlot:GetPlotType()
@@ -313,37 +288,36 @@ function NWCustomEligibility(x, y, method_number)
 
 		return true
 	elseif method_number == 5 then
-		-- Giant's Causeway
-
+		-- GIANT'S CAUSEWAY
 		local pPlot = Map.GetPlot(x, y)
-		local sFeatureType = pPlot:GetFeatureType()
 		
+		if pPlot == nil then return false end
 		if pPlot:IsWater() == false then return false end
-		if sFeatureType ~= eFeatureNo then return false end
-		
-		local iNumLand, iNumCoast = 0, 0
+		if pPlot:IsLake() then return false end
+
+		local iNumLand = 0
 
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-			local sPlotType = pAdjacentPlot:GetPlotType()
-			local sFeatureType = pAdjacentPlot:GetFeatureType()
-			local sTerrainType = pAdjacentPlot:GetTerrainType()
 			
-			if sPlotType ~= ePlotOcean then
-				if pAdjacentPlot:Area():GetNumTiles() < 5 
-				or pAdjacentPlot:GetPlotType() ~= ePlotHill
-				or sTerrainType ~= eTerrainTundra
-				or sFeatureType ~= eFeatureNo then return false end
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
 			
+			if sAdjacentPlotType ~= ePlotOcean then
+				if pAdjacentPlot:Area():GetNumTiles() < 5 or pAdjacentPlot:Area():GetNumTiles() > 30 
+				or not (sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainPlains)
+				or sAdjacentFeatureType ~= eFeatureNo then return false end
+				
 				iNumLand = iNumLand + 1
-			end
-
-			if sTerrainType == eTerrainCoast and pPlot:IsLake() == false and sFeatureType == eFeatureNo then
-				iNumCoast = iNumCoast + 1
+				
+				if iNumLand > 2 then return false end
 			end
 		end
 		
-		if iNumLand < 1 or iNumLand > 2 or iNumCoast < 3 then return false end
+		if iNumLand < 1 then return false end
 		
 		return true
 	elseif method_number == 6 then
@@ -355,34 +329,45 @@ function NWCustomEligibility(x, y, method_number)
 	elseif method_number == 9 then
 		-- reserved: Mt. Everest
 	elseif method_number == 10 then
-		-- Lake Retba
-
+		-- LAKE RETBA
 		local pMainPlot = Map.GetPlot(x, y)
-
+		
 		if pMainPlot == nil then return false end
 		if not pMainPlot:IsAdjacentToShallowWater() then return false end
 		if pMainPlot:IsRiver() then return false end
-		if pMainPlot:GetTerrainType() ~= eTerrainGrass and pMainPlot:GetTerrainType() ~= eTerrainPlains then return false end
+		if pMainPlot:GetPlotType() ~= ePlotFlat then return false end
+		
+		local pMainTerrainType = pMainPlot:GetTerrainType()
+
+		if pMainTerrainType == eTerrainTundra or pMainTerrainType == eTerrainSnow then return false end
+		
+		local pMainAreaNear = pMainPlot:Area():GetNumTiles()
+
+		if pMainAreaNear < 6 or pMainAreaNear > (3 * iH) then return false end 
 
 		local bIsHasSeaTiles = false
 		local iNumLandTiles = 0
 
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-			local sTerrainType = pAdjacentPlot:GetTerrainType()
-
-			if sTerrainType == eTerrainDesert or sTerrainType == eTerrainTundra or sTerrainType == eTerrainSnow then return false end
-
-			local sPlotType = pAdjacentPlot:GetPlotType()
 			
-			if sPlotType == ePlotMountain then return false end
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
 
-			if sPlotType == ePlotOcean then
+			if sAdjacentTerrainType == eTerrainGrass or sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow then return false end
+
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			
+			if sAdjacentPlotType == ePlotMountain then return false end
+
+			if sAdjacentPlotType == ePlotOcean then
 				if pAdjacentPlot:IsLake() then return false end
+				
 				bIsHasSeaTiles = true
 			end
 
-			if sPlotType ~= ePlotOcean then
+			if sAdjacentPlotType ~= ePlotOcean then
 				iNumLandTiles = iNumLandTiles + 1
 			end
 		end
@@ -391,29 +376,23 @@ function NWCustomEligibility(x, y, method_number)
 
 		return true
 	elseif method_number == 11 then
-		-- reserved for Eye of the Sahara
+		-- reserved: Eye of the Sahara
 	elseif method_number == 12 then
-		-- Bermuda Triangle
-
+		-- BERMUDA TRIANGLE
 		local pMainPlot = Map.GetPlot(x, y)		
 		
 		if pMainPlot == nil then return false end
-		if pMainPlot:GetFeatureType() ~= eFeatureNo then return false end
 		if pMainPlot:IsWater() == false then return false end
 		if pMainPlot:IsLake() then return false end
-		--print("waterArea",pMainPlot:WaterArea():GetNumTiles())
-		--if pMainPlot:WaterArea():GetNumTiles() < 30 then return false end
 
 		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
 		
 		if pSEPlot == nil then return false end
-		if pSEPlot:GetFeatureType() ~= eFeatureNo then return false end
 		if pSEPlot:IsWater() == false then return false end
 		
 		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
 
 		if pSWPlot == nil then return false end
-		if pSWPlot:GetFeatureType() ~= eFeatureNo then return false end
 		if pSWPlot:IsWater() == false then return false end
 		
 		local iNumLandN, iNumLandSE, iNumLandSW = 0, 0, 0
@@ -439,10 +418,8 @@ function NWCustomEligibility(x, y, method_number)
 
 			if pAdjacentPlot == nil then return false end
 
-			if pAdjacentPlot:GetPlotType() ~= ePlotOcean and i <= 2 then
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				iNumLandN = iNumLandN + 1
-			elseif pAdjacentPlot:GetPlotType() ~= ePlotOcean and i > 2 then
-				return false
 			end
 		end
 
@@ -454,10 +431,8 @@ function NWCustomEligibility(x, y, method_number)
 
 			if pAdjacentPlot == nil then return false end
 			
-			if pAdjacentPlot:GetPlotType() ~= ePlotOcean and i <= 2  then
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean  then
 				iNumLandSE = iNumLandSE + 1
-			elseif pAdjacentPlot:GetPlotType() ~= ePlotOcean and i > 2 then
-				return false
 			end
 		end
 
@@ -473,18 +448,21 @@ function NWCustomEligibility(x, y, method_number)
 				iNumLandSW = iNumLandSW + 1
 			end
 		end
-		print("2",iNumLandN, iNumLandSE, iNumLandSW)
+		
 		if iNumLandN < 1 or iNumLandSE < 1 or iNumLandSW < 1 then return false end
 
 		local iNumLandSum = iNumLandN + iNumLandSE + iNumLandSW
-
+		
 		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
-		print("match!")
+		
 		return true
 	elseif method_number == 13 then
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 		-- reserved for Dallol
 =======
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		-- reserved: Dallol
 	elseif method_number == 14 then
 		-- BIOLUMINESCENT BAY
@@ -523,17 +501,20 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Uluru
 	elseif method_number == 17 then
 		-- reserved: Barringer
+<<<<<<< HEAD
 	elseif method_number == 18 then
 		-- reserved: Old Faithful
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	elseif method_number == 100 then
 		-- dummy
 		return false
 	else
-		-- Unidentified Method Number;
+		-- unidentified method number;
 		return false
 	end
 end
@@ -552,6 +533,10 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eTerrainMountain = TerrainTypes.TERRAIN_MOUNTAIN
 	local eFeatureNo = FeatureTypes.NO_FEATURE
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
+	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
+	local eFeatureAtoll = GameInfoTypes.FEATURE_ATOLL
+	local eResourceCoral = GameInfoTypes.RESOURCE_CORAL
+	local eResourceTropicalFish = GameInfoTypes.RESOURCE_TROPICAL_FISH
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -562,16 +547,45 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		DirectionTypes.DIRECTION_NORTHWEST
 	}
 
+	local tDirectionsTop = {
+		DirectionTypes.DIRECTION_NORTHWEST,
+		DirectionTypes.DIRECTION_NORTHEAST,
+		DirectionTypes.DIRECTION_WEST,
+		DirectionTypes.DIRECTION_EAST
+	}
+	local tDirectionsBottomRight = {
+		DirectionTypes.DIRECTION_EAST,
+		DirectionTypes.DIRECTION_SOUTHEAST,
+		DirectionTypes.DIRECTION_SOUTHWEST
+	}
+	local tDirectionsBottomLeft = {
+		DirectionTypes.DIRECTION_SOUTHWEST,
+		DirectionTypes.DIRECTION_WEST
+	}
+	
+	local eDirW = DirectionTypes.DIRECTION_WEST
+	local eDirNE = DirectionTypes.DIRECTION_NORTHEAST
+	local eDirNW = DirectionTypes.DIRECTION_NORTHWEST
+	local eDirE = DirectionTypes.DIRECTION_EAST
+	local eDirSE = DirectionTypes.DIRECTION_SOUTHEAST
+	local eDirSW = DirectionTypes.DIRECTION_SOUTHWEST
+
+	local eFlowN = FlowDirectionTypes.FLOWDIRECTION_NORTH
+	local eFlowNE = FlowDirectionTypes.FLOWDIRECTION_NORTHEAST
+	local eFlowNW = FlowDirectionTypes.FLOWDIRECTION_NORTHWEST
+	local eFlowS = FlowDirectionTypes.FLOWDIRECTION_SOUTH
+	local eFlowSE = FlowDirectionTypes.FLOWDIRECTION_SOUTHEAST
+	local eFlowSW = FlowDirectionTypes.FLOWDIRECTION_SOUTHWEST
+
 	local iW, iH = Map.GetGridSize()
 	
+	print("NWCP", method_number, x, y)
 	if method_number == 1 then
-		-- Great Barrier Reef
+		-- GREAT BARRIER REEF
 		-- Totally new method;
 		-- Randomizer chooses one of main 3 directions: E-W, NE-SW, NW-SE;
-
-		iMainDirectionA = math.random(2) + 1
-		iMainDirectionB = iMainDirectionA + 3
-
+		local iMainDirectionA = math.random(3)
+		local iMainDirectionB = iMainDirectionA + 3
 		local pMainPlot = Map.GetPlot(x, y)
 		
 		if pMainPlot:GetTerrainType() ~= eTerrainCoast then
@@ -618,6 +632,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			tDirectionsNW
 		}
 
+		local tPossibleFeaturesOrResources = {}
+		local iNumFeaturesOrResources = 0
+
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
@@ -625,6 +642,14 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
 			end
 
+			if pAdjacentPlot:GetFeatureType() == eFeatureNo and pAdjacentPlot:GetResourceType() == -1 
+				and i ~= iMainDirectionA and i ~= iMainDirectionB then
+				table.insert(tPossibleFeaturesOrResources, pAdjacentPlot)
+			else
+				iNumFeaturesOrResources = iNumFeaturesOrResources + 1
+			end
+
+			-- setting REEF
 			if i == iMainDirectionA or i == iMainDirectionB then
 				local iX = pAdjacentPlot:GetX()
 				local iY = pAdjacentPlot:GetY()
@@ -636,15 +661,19 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pDistantPlot:SetTerrainType(eTerrainCoast, false, false)
 					end
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 					pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_REEF)
 =======
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 					if pDistantPlot:GetFeatureType() == eFeatureNo and pDistantPlot:GetResourceType() == -1 then
 						table.insert(tPossibleFeaturesOrResources, pDistantPlot)
 					else
 						iNumFeaturesOrResources = iNumFeaturesOrResources + 1
 					end
 
+<<<<<<< HEAD
 					if i == iMainDirectionA then
 						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_B)
 					elseif i == iMainDirectionB then
@@ -654,62 +683,139 @@ function NWCustomPlacement(x, y, row_number, method_number)
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+					pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF)
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 				end
 			end
 		end
 		
+		local pRandomPlot
+		local iRandomNumber
+		
+		iNumFeaturesOrResources = iNumFeaturesOrResources - 2 -- correction factor for GBR plots counted in
+		
+		if #tPossibleFeaturesOrResources > 0 then
+			repeat
+				pRandomPlot = table.remove(tPossibleFeaturesOrResources, math.random(#tPossibleFeaturesOrResources))
+				iRandomNumber = math.random(10)
+				
+				if iRandomNumber == 1 then
+					pRandomPlot:SetPlotType(ePlotFlat, false, false)
+					pRandomPlot:SetTerrainType(eTerrainGrass, false, false)
+					pRandomPlot:SetFeatureType(eFeatureJungle)
+				elseif iRandomNumber >= 2 and iRandomNumber <= 3 then
+					pRandomPlot:SetFeatureType(eFeatureAtoll)
+				elseif iRandomNumber >= 4 and iRandomNumber <= 6 then
+					pRandomPlot:SetResourceType(eResourceCoral, 1)
+				else
+					pRandomPlot:SetResourceType(eResourceTropicalFish, 1)
+				end
+
+				iNumFeaturesOrResources = iNumFeaturesOrResources + 1
+			until(iNumFeaturesOrResources >= 5 or #tPossibleFeaturesOrResources == 0)
+		end
+
 		-- MOD: This second plot of the Reef was missing impact values. This would cause resources to spawn on top of it sometimes.
 		--[[ MOD: I don't know how to get this to work yet within this file.  I can fix it in the main AssignStartingPlots file, but I don't want to include the whole thing in this mod.--]]
 		--[[AssignStartingPlots:PlaceResourceImpact(southeastX, southeastY, 1, 1)		-- Strategic layer
 		AssignStartingPlots:PlaceResourceImpact(southeastX, southeastY, 2, 1)		-- Luxury layer
 		AssignStartingPlots:PlaceResourceImpact(southeastX, southeastY, 3, 1)		-- Bonus layer--]]
 	elseif method_number == 2 then
-		-- Rock of Gibraltar
-		-- MOD: Removed mountain change;
-
+		-- ROCK OF GIBRALTAR
+		-- MOD: Removed Mountain change;
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotHill, false, false)
 		pPlot:SetTerrainType(eTerrainPlains, false, false)
 		
+		-- setting Coast around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotOcean then
-				if pAdjacentPlot:GetTerrainType() ~= eTerrainCoast then
-					pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
-				end
+				pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
 			end
 		end
 	elseif method_number == 3 then
-		-- MOD: Krakatoa
+		-- KRAKATOA
 		local pPlot = Map.GetPlot(x, y)
-		
+		local tAdjacentPlots, tPotentialLand = {}, {}
+
 		pPlot:SetPlotType(ePlotMountain, false, false)
 		pPlot:SetTerrainType(eTerrainGrass, false, false)
-		
+		table.insert(tAdjacentPlots, pPlot)
+
+		-- setting up Coasts around
+		local pAdjacentPlot
+
 		for i, direction in ipairs(tDirectionTypes) do
-			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
-			if pAdjacentPlot:GetPlotType() == ePlotOcean then
-				if pAdjacentPlot:GetTerrainType() ~= eTerrainCoast then
-					pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+			pAdjacentPlot:SetPlotType(ePlotOcean, false, false)
+			pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+			table.insert(tAdjacentPlots, pAdjacentPlot)
+		end
+
+		-- setting up few random islands
+		for i, direction in ipairs(tDirectionTypes) do
+			pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			for i, direction in ipairs(tDirectionTypes) do
+				local pDistantPlot = Map.PlotDirection(pAdjacentPlot:GetX(), pAdjacentPlot:GetY(), direction)
+				local bIsNearKrakatoa = false
+
+				for i, plot in ipairs(tAdjacentPlots) do
+					if plot == pDistantPlot then
+						bIsNearKrakatoa = true
+						break
+					end
+				end
+
+				if not bIsNearKrakatoa then
+					local bIsAlreadyInTable = false
+
+					for i, potentialPlot in ipairs(tPotentialLand) do
+						if potentialPlot == pDistantPlot then
+							bIsAlreadyInTable = true
+							break
+						end
+					end
+
+					if not bIsAlreadyInTable then
+						if not pDistantPlot:IsAdjacentToLand() and pDistantPlot:GetPlotType() == ePlotOcean and pDistantPlot:GetFeatureType() == eFeatureNo and pDistantPlot:GetResourceType() == -1 then
+							table.insert(tPotentialLand, pDistantPlot)
+						end
+					end
 				end
 			end
 		end
+
+		local pChosenPlot
+		local iIslands = 0
+		local iIslandsToPlace = 3
+
+		repeat
+			pChosenPlot = table.remove(tPotentialLand, math.random(#tPotentialLand))
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+			pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
+			
+			iIslands = iIslands + 1
+		until(iIslands >= iIslandsToPlace or #tPotentialLand == 0)
 	elseif method_number == 4 then
-		-- MOD: Lake Victoria
+		-- LAKE VICTORIA
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 	elseif method_number == 5 then
-		-- Giant's Causeway
+		-- GIANT'S CAUSEWAY
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
 		
+		-- finding suitable places for CAUSEWAY
 		local tPossibleSpots = {}
 		
 		for i, direction in ipairs(tDirectionTypes) do
@@ -724,25 +830,34 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
 		pChosenPlot:SetPlotType(ePlotFlat, false, false)
+		pChosenPlot:SetTerrainType(eTerrainTundra, false, false)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_CAUSEWAY_B)
 	elseif method_number == 6 then
-		-- Salar de Uyuni
+		-- SALAR DE UYUNI
 		local pPlot = Map.GetPlot(x, y)
-		
+
 		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 		
+		local iRandomMountain
+
+		-- making Desert and cleaning Features and Hills around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
-				pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+				iRandomMountain = math.random(4)
+				
+				if iRandomMountain ~= 1 then
+					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+				end
 			end	
-			
+
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			pAdjacentPlot:SetFeatureType(eFeatureNo)
 		end
 
+		-- finding suitable places for SALAR
 		local tPossibleSpots = {}
 		local pAdjacentPlot
 
@@ -750,8 +865,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 <<<<<<< Updated upstream
 		for i, direction in ipairs(tDirectionTypes) do
 			pAdjacentPlot = Map.PlotDirection(x, y, direction)
-			
-			if pAdjacentPlot:GetPlotType() == ePlotFlat and not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then	
+
+			--if not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then
+			if not pAdjacentPlot:IsRiver() then	
 				table.insert(tPossibleSpots, pAdjacentPlot)
 =======
 =======
@@ -784,6 +900,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			print("Possible spots for Salar", "iteration #", j, "Spots:", #tPossibleSpots)
 			if #tPossibleSpots > 0 then break end
 		end
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -794,33 +911,45 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
 >>>>>>> Stashed changes
 
+=======
+		print("Possible spots for Salar:", #tPossibleSpots)
+		-- choosing plot for SALAR
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
-			
+
 		local pChosenPlotX = pChosenPlot:GetX()
 		local pChosenPlotY = pChosenPlot:GetY()
 
+		-- cleaning up Hills and Features and setting up Desert
 		for j, subdirection in ipairs(tDirectionTypes) do
 			local pSecondAdjacentPlot = Map.PlotDirection(pChosenPlotX, pChosenPlotY, subdirection)
 			
 			if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
-				pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+				iRandomMountain = math.random(4)
+				
+				if iRandomMountain ~= 1 then
+					pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+				end
 			end	
-			
+
+			pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 			pSecondAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
-					
+	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
 				pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
 			end
 		end				
-				
+
+		pChosenPlot:SetPlotType(ePlotFlat, false, false)	
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_SALAR_B)
 	elseif method_number == 7 then
-		-- Mt. Kailash
+		-- MT. KAILASH
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotMountain, false, false)
 		pPlot:SetTerrainType(eTerrainTundra, false, false)
 		
+		-- making Mountains and Tundra around
 		local iNumMountains = 0
 
 		for i, direction in ipairs(tDirectionTypes) do
@@ -844,24 +973,26 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 	elseif method_number == 8 then
-		-- Sri Pada
+		-- SRI PADA
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotMountain, false, false)
 		pPlot:SetTerrainType(eTerrainGrass, false, false)
 		
+		-- making Grass around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
 			pAdjacentPlot:SetTerrainType(eTerrainGrass, false, false)
 		end
 	elseif method_number == 9 then
-		-- Mt. Everest
+		-- MT. EVEREST
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
-		pPlot:SetTerrainType(eTerrainMountain, false, false)
+		pPlot:SetTerrainType(eTerrainSnow, false, false)
 		
+		-- creating Mountains around
 		local iNumMountains = 0
 
 		for i, direction in ipairs(tDirectionTypes) do
@@ -889,28 +1020,99 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 	elseif method_number == 10 then
-		-- Lake Retba
-
+		-- LAKE RETBA
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainPlains, false, false)
 
+		-- setting up Plains around and cleaning Forests and Jungles
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				pAdjacentPlot:SetTerrainType(eTerrainPlains, false, false)
-				if pAdjacentPlot:GetFeatureType() == eFeatureForest or pAdjacentPlot:GetFeatureType() == FeatureTypes.JUNGLE then
+				
+				if pAdjacentPlot:GetFeatureType() == eFeatureForest or pAdjacentPlot:GetFeatureType() == eFeatureJungle then
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				end
 			end
 		end
 	elseif method_number == 11 then
-		-- reserved for Eye of the Sahara
-	elseif method_number == 12 then
-		-- Bermuda Triangle
+		-- EYE OF THE SAHARA
+		local pPlot = Map.GetPlot(x, y)
+		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
+		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
 
+		pPlot:SetPlotType(ePlotFlat, false, false)
+		pSEPlot:SetPlotType(ePlotFlat, false, false)
+		pSWPlot:SetPlotType(ePlotFlat, false, false)
+		pPlot:SetTerrainType(eTerrainDesert, false, false)
+		pSEPlot:SetTerrainType(eTerrainDesert, false, false)
+		pSWPlot:SetTerrainType(eTerrainDesert, false, false)
+
+		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_EYE_OF_SAHARA_B)
+		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_EYE_OF_SAHARA_C)
+
+		-- setting up additional Mountains around
+		local tPossibleMountains = {}
+		local iNumberMountains = 0
+		local pAdjacentPlot
+
+		for i, direction in ipairs(tDirectionsTop) do
+			pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+				table.insert(tPossibleMountains, pAdjacentPlot)
+			end
+
+			if pAdjacentPlot:GetPlotType() == ePlotMountain then
+				iNumberMountains = iNumberMountains + 1
+			end
+		end
+
+		local iSEX = pSEPlot:GetX()
+		local iSEY = pSEPlot:GetY()
+
+		for i, direction in ipairs(tDirectionsBottomRight) do
+			pAdjacentPlot = Map.PlotDirection(iSEX, iSEY, direction)
+			
+			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+				table.insert(tPossibleMountains, pAdjacentPlot)
+			end
+
+			if pAdjacentPlot:GetPlotType() == ePlotMountain then
+				iNumberMountains = iNumberMountains + 1
+			end
+		end
+
+		local iSWX = pSWPlot:GetX()
+		local iSWY = pSWPlot:GetY()
+
+		for i, direction in ipairs(tDirectionsBottomLeft) do
+			pAdjacentPlot = Map.PlotDirection(iSWX, iSWY, direction)
+			
+			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+				table.insert(tPossibleMountains, pAdjacentPlot)
+			end
+
+			if pAdjacentPlot:GetPlotType() == ePlotMountain then
+				iNumberMountains = iNumberMountains + 1
+			end
+		end
+
+		local pChosenPlot
+
+		repeat
+			if iNumberMountains < 2 then
+				pChosenPlot = table.remove(tPossibleMountains, math.random(#tPossibleMountains))
+				pChosenPlot:SetPlotType(ePlotMountain, false, false)
+
+				iNumberMountains = iNumberMountains + 1
+			end
+		until(iNumberMountains >= 2 or #tPossibleMountains == 0)
+	elseif method_number == 12 then
+		-- BERMUDA TRIANGLE
 		local pPlot = Map.GetPlot(x, y)
 		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
 		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
@@ -922,19 +1124,44 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pSEPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_B)
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_BERMUDA_C)
 	elseif method_number == 13 then
-		-- Dallol
-		
+		-- DALLOL
+		local pPlot = Map.GetPlot(x, y)
+
+		pPlot:SetTerrainType(eTerrainDesert, false, false)
+
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
+			-- cleaning all features around
+			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			pAdjacentPlot:SetFeatureType(eFeatureNo)
 		end
+<<<<<<< HEAD
 	elseif method_number == 18 then
 		-- OLD FAITHFUL
 		local pPlot = Map.GetPlot(x, y)
 		
 <<<<<<< Updated upstream
 =======
+=======
+	elseif method_number == 14 then
+		-- BIOLUMINESCENT BAY
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			local pAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+
+			-- making Grass on all lands around
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
+				pAdjacentPlot:SetTerrainType(eTerrainGrass, false, false)
+			end
+		end
+	elseif method_number == 15 then
+		-- MT. PAEKTU
+		local ePlotOcean = PlotTypes.PLOT_OCEAN
+
+		local pPlot = Map.GetPlot(x, y)
+		
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainTundra, false, false)
 
@@ -1680,12 +1907,15 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			-- setting flat
 			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 		end
+<<<<<<< HEAD
 	elseif method_number == 18 then
 		-- OLD FAITHFUL
 		local pPlot = Map.GetPlot(x, y)
 		
 >>>>>>> Stashed changes
 		pPlot:SetPlotType(ePlotHill, false, false)
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	end
 end
 ------------------------------------------------------------------------------

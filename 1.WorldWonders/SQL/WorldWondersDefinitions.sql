@@ -3,20 +3,6 @@
 -- Dec 9, 2017: Created, Infixo
 -- Jan 6, 2020: Improved, adan_eslavo
 --============================================--
--- Promotion Icons Atlas
---============================================--
-INSERT INTO IconTextureAtlases	
-			(Atlas,								IconSize,	Filename,								IconsPerRow,	IconsPerColumn) 
-VALUES		('PROMOTION_MORE_WONDERS_ATLAS',	256,		'PromotionMoreWondersIcons_256.dds',	'8',			'2'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	64,			'PromotionMoreWondersIcons_64.dds',		'8',			'2'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	45,			'PromotionMoreWondersIcons_45.dds',		'8',			'2'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	32,			'PromotionMoreWondersIcons_32.dds',		'8',			'2'),
-			('PROMOTION_MORE_WONDERS_ATLAS',	16,			'PromotionMoreWondersIcons_16.dds',		'8',			'2');
---============================================--
--- CUSTOM MOD OPTIONS
---============================================--
-UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
---============================================--
 -- HELP
 --============================================--
 -- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is Sea, MinAreaSize=1 is Lake)
@@ -39,14 +25,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- ALTAMIRA CAVE (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_ALTAMIRA';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_ALTAMIRA';
-	
-	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ALTAMIRA';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ALTAMIRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_ALTAMIRA',	'RESOURCE_BISON'),
-				('BUILDING_ALTAMIRA',	'RESOURCE_DEER'),
-				('BUILDING_ALTAMIRA',	'RESOURCE_HORSE');
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_BISON'	
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_DEER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
 	
@@ -77,9 +66,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- GGANTIJA (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
-	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA';
-	-- + Farm(2) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1 OR Value=2);
+	-- + Farm(2) lua (HARD)
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,		Yield)
@@ -106,9 +95,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- GOEBEKLI TEPE (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
-	
-	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
@@ -120,10 +109,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,				ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,				TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN', 'YIELD_FAITH',		1),
-				('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN', 'YIELD_SCIENCE',	1);
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_FAITH',		100),
+				('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor) 
@@ -135,24 +124,27 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- KUK (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_KUK';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_KUK';
+	---------------------------------------------------------
+	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_KUK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
-	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_KUK';
-	
-	INSERT INTO Building_LocalFeatureOrs 
+	INSERT INTO Building_LocalFeatureAnds 
 				(BuildingType,		FeatureType) 
-	VALUES		('BUILDING_KUK',	'FEATURE_MARSH'),
-				('BUILDING_KUK',	'FEATURE_JUNGLE');
+	SELECT		'BUILDING_KUK',		'FEATURE_MARSH'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KUK',		'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------	
-	UPDATE Buildings SET FoodKept = 10 WHERE Type = 'BUILDING_KUK';
+	UPDATE Buildings SET FoodKept = 10, EnhancedYieldTech = 'TECH_STEAM_POWER' WHERE Type = 'BUILDING_KUK';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,		YieldType,			Yield) 
 	VALUES		('BUILDING_KUK',	'YIELD_FOOD',		1),
 				('BUILDING_KUK',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_GrowthExtraYield
-				(BuildingType,		YieldType,				Yield) 
-	VALUES		('BUILDING_KUK',	'YIELD_PRODUCTION',		5);
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_KUK',		'YIELD_PRODUCTION',	3),
+				('BUILDING_KUK_DUMMY',	'YIELD_PRODUCTION',	2);
 	
 	INSERT INTO Building_FeatureYieldChanges 
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
@@ -169,9 +161,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- MAJORVILLE MEDICINE WHEEL (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MAJORVILLE';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MAJORVILLE';
-	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA', Hill = 1 WHERE Type = 'BUILDING_MAJORVILLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_MAJORVILLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -201,9 +193,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- MOHENJO-DARO (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOHENJO_DARO';
-	
-	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO';
-	-- +IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
@@ -227,15 +219,19 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- SKARA BRAE (NEW)
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_SKARA_BRAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SKARA_BRAE';
-	
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SKARA_BRAE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SKARA_BRAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType, ResourceType) 
-	VALUES		('BUILDING_SKARA_BRAE', 'RESOURCE_FISH'),
-				('BUILDING_SKARA_BRAE', 'RESOURCE_COW'),
-				('BUILDING_SKARA_BRAE', 'RESOURCE_WHEAT'),
-				('BUILDING_SKARA_BRAE', 'RESOURCE_SHEEP');
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_FISH'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_COW'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_WHEAT'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_SHEEP'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -253,7 +249,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,			ImprovementType,			YieldType,			Yield) 
 	VALUES		('BUILDING_SKARA_BRAE',	'IMPROVEMENT_TRADING_POST',	'YIELD_PRODUCTION',	1),
 				('BUILDING_SKARA_BRAE',	'IMPROVEMENT_TRADING_POST',	'YIELD_GOLD',		1);
----------------------------------------------------------	
+	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,					Flavor) 
 	VALUES		('BUILDING_SKARA_BRAE', 'FLAVOR_PRODUCTION',		20),
@@ -266,15 +262,17 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- KARNAK (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KARNAK';
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_POTTERY',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_KARNAK';
-	
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_KARNAK';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_KARNAK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	VALUES		('BUILDING_KARNAK',		'FEATURE_OASIS'),
-				('BUILDING_KARNAK',		'FEATURE_FLOOD_PLAINS');
+	SELECT		'BUILDING_KARNAK',		'FEATURE_OASIS'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KARNAK',		'FEATURE_FLOOD_PLAINS'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONUMENT', EnhancedYieldTech = 'TECH_ARCHAEOLOGY', TechEnhancedTourism = 4 WHERE Type = 'BUILDING_KARNAK';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONUMENT' WHERE Type = 'BUILDING_KARNAK';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield) 
@@ -307,19 +305,19 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_STONEHENGE';
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_STONEHENGE';
-	
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_STONEHENGE';
-	-- +IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS', /*IsNoCoast = 1, */Flat = 1 WHERE Type = 'BUILDING_STONEHENGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS', Flat = 1 WHERE Type = 'BUILDING_STONEHENGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NAZCA LINES (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_NAZCA';
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_TRAPPING',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_NAZCA';
-	
-	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA';
-	-- + Camp(1) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, IsNoWater = 1/*, IsNoCoast = 1*/, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_NAZCA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
-	UPDATE Buildings SET EnhancedYieldTech = 'TECH_FLIGHT', TechEnhancedTourism = 4, SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_NAZCA';
+	UPDATE Buildings SET EnhancedYieldTech = 'TECH_FLIGHT', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_NAZCA';
 	
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,		TerrainType,		YieldType,		Yield) 
@@ -335,7 +333,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_NAZCA', 'YIELD_SCIENCE',		4);
+	VALUES		('BUILDING_NAZCA',	'YIELD_SCIENCE',	4),
+				('BUILDING_NAZCA',	'YIELD_TOURISM',	2);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,			Flavor) 
@@ -348,16 +347,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- PYRAMIDS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_PYRAMID';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_PYRAMID';
-	UPDATE Buildings SET River = 1, Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_PYRAMID';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1, Flat = 1, ProhibitedCityTerrain = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_PYRAMID' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_PYRAMID' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WIELICZKA (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_WIELICZKA';
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_WIELICZKA';
-	
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WIELICZKA';
-	-- + Mine(2) lua
-	-- + PlaceForResource lua
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WIELICZKA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Mine(2) lua (HARD)
+	-- + PlaceForResource lua (ALL)
 	---------------------------------------------------------	
 	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_WIELICZKA';
 
@@ -389,81 +390,125 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- PETRA
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_PETRA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_PETRA';
-	
-	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_PETRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TEMPLE OF ARTEMIS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
+	---------------------------------------------------------
+	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
-	UPDATE Buildings SET FreshWater = 1, ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
-	-- + Camp(1) (lua)
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,					FeatureType) 
+	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+
+	-- + Camp(1) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- PLAIN OF JARS (NEW)
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	UPDATE Buildings SET Cost = 185, PrereqTech = 'TECH_CALENDAR',	NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, /*, IsNoCoast = 1*/ NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------	
+	UPDATE Buildings SET TradeRouteLandGoldBonus = 200 WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_GOLD',	2),
+				('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	3);
+	
+	INSERT INTO Building_YieldFromDeath
+				(BuildingType,				YieldType,		Yield)
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FAITH',	5);
+
+	INSERT INTO Building_YieldFromInternalTR
+				(BuildingType,				YieldType,		Yield)
+	VALUES		('BUILDING_THONG_HAI_HIN',	'YIELD_FOOD',	2);
+	---------------------------------------------------------	
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor) 
+	VALUES		('BUILDING_THONG_HAI_HIN',	'FLAVOR_GROWTH',		20),
+				('BUILDING_THONG_HAI_HIN',	'FLAVOR_RELIGION',		50),
+				('BUILDING_THONG_HAI_HIN',	'FLAVOR_GOLD',			40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MAUSOLEUM OF HALICARNASSUS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS';
-	-- + Quarry(1) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1 WHERE Type = 'BUILDING_MAUSOLEUM_HALICARNASSUS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Quarry(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- STATUE OF ZEUS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_STATUE_ZEUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_STATUE_ZEUS';
-	
-	-- + Afraid/Guarded/Hostile/War (lua)
+	---------------------------------------------------------
+	-- + Afraid/Guarded/Hostile/War (lua) (HARD)
 --============================================--
 -- CLASSICAL ERA
 --============================================--
 -- GREAT LIGHTHOUSE
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1, ProhibitedCityTerrain = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_GREAT_LIGHTHOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT LIBRARY
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GREAT_LIBRARY';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_GREAT_LIBRARY';
-	
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_GREAT_LIBRARY';
-	
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_GREAT_LIBRARY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_GREAT_LIBRARY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_GREAT_LIBRARY',	'FEATURE_FOREST'),
-				('BUILDING_GREAT_LIBRARY',	'FEATURE_JUNGLE');
+	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HANGING GARDENS
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_HANGING_GARDEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HANGING_GARDEN';
-	
-	UPDATE Buildings SET Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */Flat = 1, FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_HANGING_GARDEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_FORUM';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T', PrereqTech = 'TECH_WRITING' WHERE Type = 'BUILDING_FORUM';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_FORUM';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_FORUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,		FeatureType) 
-	VALUES		('BUILDING_FORUM',	'FEATURE_MARSH');
+	SELECT		'BUILDING_FORUM',	'FEATURE_MARSH'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_MATHEMATICS', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_MALWIYA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MALWIYA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS');*/
+	SELECT		'BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 
@@ -492,18 +537,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- TERRACOTA ARMY
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	
-	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY';
-	-- + IsNoCoast (lua)
-	-- + Mine/Quarry(1) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_TERRACOTTA_ARMY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	-- + Mine/Quarry(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BUDDHAS OF BAMYAN (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_BAMYAN';
-	
-	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_BAMYAN';
-	-- + Peace (lua)
-	-- + Mountains(2) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_BAMYAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Peace (lua) (HARD)
+	-- + Mountains(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET ReligiousPressureModifier = 100, EnhancedYieldTech = 'TECH_ROCKETRY', DoFToVotes = 1 WHERE Type = 'BUILDING_BAMYAN';
 	
@@ -536,8 +581,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- GATE OF THE SUN (NEW)
 	UPDATE Buildings SET Cost = 200, PrereqTech = 'TECH_CONSTRUCTION', NumPoliciesNeeded = 4, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GATE_OF_SUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GATE_OF_SUN';
-
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GATE_OF_SUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_GATE_OF_SUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	
@@ -550,10 +596,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
 				('BUILDING_GATE_OF_SUN',	'YIELD_SCIENCE',	1);
 
-	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,				TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',	'YIELD_CULTURE',	1);
-	
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100);
+
 	INSERT INTO Building_LakePlotYieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1);	
@@ -577,8 +623,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- PARTHENON
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_PARTHENON';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_PARTHENON';
-	
-	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_PARTHENON';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_PARTHENON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_PARTHENON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EL GHRIBA SYNAGOGUE (NEW)
@@ -595,7 +642,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		25);
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		15);
 	
 	INSERT INTO GreatWorks
 				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
@@ -611,20 +658,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- ORACLE
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ORACLE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_ORACLE';
-	
-	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ORACLE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ORACLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ORACLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ETCHMIADZIN CATHEDRAL (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_PHILOSOPHY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ETCHMIADZIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_ETCHMIADZIN';
-
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_ETCHMIADZIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_ETCHMIADZIN',	'FEATURE_FOREST');
+				(BuildingType,			FeatureType) 
+	SELECT		'BUILDING_ETCHMIADZIN',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_LANCE'  WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
@@ -656,31 +704,79 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- ANGKOR WAT
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANGKOR_WAT';
-	
-	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_ANGKOR_WAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_ANGKOR_WAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE');
+	SELECT		'BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SIGIRIYA (NEW)
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SIGIRIYA';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIGIRIYA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	2);
+
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_InstantYield
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		200);
+
+	INSERT INTO Building_ThemingBonuses 
+				(BuildingType,			Description,						Bonus,	MustBeArt,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SIGIRIYA',	'TXT_KEY_THEMING_BONUS_SIGIRIYA',	5,		1,			1,				5);
+
+	INSERT INTO Building_ThemingYieldBonus 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SIGIRIYA',	'YIELD_GOLD',		6),
+				('BUILDING_SIGIRIYA',	'YIELD_CULTURE',	3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor) 
+	VALUES		('BUILDING_SIGIRIYA',	'FLAVOR_GOLD',			30),
+				('BUILDING_SIGIRIYA',	'FLAVOR_CULTURE',		80),
+				('BUILDING_SIGIRIYA',	'FLAVOR_CITY_DEFENSE',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT WALL
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_GREAT_WALL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_WALL';
-	
-	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL';
-	-- + Deceptive/Hostile/War (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_GREAT_WALL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Deceptive/Hostile/War (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CHAND BAORI (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CHAND_BAORI';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_ENGINEERING', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_CHAND_BAORI';
+	---------------------------------------------------------
+	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_CHAND_BAORI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
-	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CHAND_BAORI';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL');*/
+	SELECT		'BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, GreatPeopleRateModifier = 10, FreeGreatPeople = 1 WHERE Type = 'BUILDING_CHAND_BAORI';
 	
@@ -706,25 +802,28 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- COLOSSUS
 	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_COLOSSUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_COLOSSUS';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_COLOSSUS';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_COLOSSUS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_COLOSSUS',	'RESOURCE_IRON'),
-				('BUILDING_COLOSSUS',	'RESOURCE_COPPER');
+	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_IRON'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_COPPER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
 -- UNIVERSITY OF SANKORE
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY');*/
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,					BuildingClassType) 
+	SELECT		'BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PROPHET'S MOSQUE (NEW)
@@ -775,8 +874,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- LAVAUX (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_LAVAUX';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_LAVAUX';
-	
-	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + PlaceForResource lua
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
@@ -812,25 +911,28 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- ALHAMBRA
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ALHAMBRA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_ALHAMBRA';
-	
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ALHAMBRA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	VALUES		('BUILDING_ALHAMBRA',	'FEATURE_FOREST');
+	SELECT		'BUILDING_ALHAMBRA',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- WARTBURG (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_CHIVALRY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_WARTBURG';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_WARTBURG';
-	
+	---------------------------------------------------------
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	VALUES		('BUILDING_WARTBURG',	'FEATURE_FOREST');
+	SELECT		'BUILDING_WARTBURG',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD');*/
+	SELECT		'BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
@@ -853,7 +955,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,			DomainType,		Experience)
-	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	15);
+	VALUES		('BUILDING_WARTBURG',	'DOMAIN_LAND',	5);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,					Yield) 
@@ -871,17 +973,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- MACHU PICCHU
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MACHU_PICHU';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_MACHU_PICHU';
-	
-	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU';
-	-- + Mountains(2) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 0 WHERE Type = 'BUILDING_MACHU_PICHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_MACHU_PICHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	-- + Mountains(2) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT ZIMBABWE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
-	
-	-- + IsNoCoast (lua)
-	-- + Mine/Camp(3) (lua)
+	---------------------------------------------------------
+	--UPDATE Buildings SET IsNoCoast = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Mine/Camp(3) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 
@@ -889,7 +992,6 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,						YieldType,					Yield)
 	VALUES		('BUILDING_GREAT_ZIMBABWE',			'YIELD_FAITH',				1),
 				('BUILDING_GREAT_ZIMBABWE',			'YIELD_GOLD',				1),
-				('BUILDING_GREAT_ZIMBABWE',			'YIELD_CULTURE',			1),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
 	
 	INSERT INTO Building_UnitCombatProductionModifiers 	
@@ -913,17 +1015,20 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- AHU TONGARIKI (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_PHYSICS', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_AHU';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_AHU';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_AHU';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_AHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,		FeatureType) 
-	VALUES		('BUILDING_AHU',	'FEATURE_FOREST'),
-				('BUILDING_AHU',	'FEATURE_JUNGLE');
+				(BuildingType,	FeatureType) 
+	SELECT		'BUILDING_AHU',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_AHU',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,		ResourceType) 
-	VALUES		('BUILDING_AHU',	'RESOURCE_STONE');
+				(BuildingType,	ResourceType) 
+	SELECT		'BUILDING_AHU',	'RESOURCE_STONE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 20 WHERE Type = 'BUILDING_AHU';
 	
@@ -962,34 +1067,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	---------------------------------------------------------
 	INSERT INTO Resources 
 				(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 							CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
-	VALUES		('RESOURCE_TERN',	null,			null,				'TXT_KEY_RESOURCE_TERN',	'TXT_KEY_RESOURCE_TERN_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_TERN',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_MORE_WONDERS_TERN',	null,					0,				2,			2,				'[ICON_RES_TERN]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
+	VALUES		('RESOURCE_TERN',	null,			null,				'TXT_KEY_RESOURCE_TERN',	'TXT_KEY_RESOURCE_TERN_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_TERN',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_TERN',	null,					0,				2,			2,				'[ICON_RES_TERN]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
 
 	INSERT INTO Resource_Flavors 	
 				(ResourceType, 		FlavorType, 			Flavor)
 	VALUES		('RESOURCE_TERN',	'FLAVOR_GROWTH',		10),
 				('RESOURCE_TERN',	'FLAVOR_RELIGION',		50);
 	---------------------------------------------------------
-	INSERT INTO IconTextureAtlases 
-				(Atlas, 							IconSize, 	Filename, 								IconsPerRow, 	IconsPerColumn)
-	VALUES		('RESOURCE_MORE_WONDERS_ATLAS', 	256, 		'ResourceMoreWondersIcon_256.dds',		2, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	128, 		'ResourceMoreWondersIcon_128.dds',		2, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	80, 		'ResourceMoreWondersIcon_80.dds',		2, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	64, 		'ResourceMoreWondersIcon_64.dds',		2, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	45, 		'ResourceMoreWondersIcon_45.dds',		2, 				1),
-				('RESOURCE_MORE_WONDERS_ATLAS', 	32, 		'ResourceMoreWondersIcon_32.dds',		2,				1);	
-	---------------------------------------------------------
 	INSERT INTO ArtDefine_StrategicView
 				(StrategicViewType, 					TileType, 		Asset)
-	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'ResourceMoreWondersIcon_256f.dds');
+	VALUES 		('ART_DEF_RESOURCE_TERN', 	'Resource', 	'sv_Tern_Egg.dds');
 
 	INSERT INTO ArtDefine_LandmarkTypes
 				(Type, 									LandmarkType, 	FriendlyName)
-	VALUES 		('ART_DEF_RESOURCE_MORE_WONDERS_TERN', 	'Resource', 	'Tern Egg');
+	VALUES 		('ART_DEF_RESOURCE_TERN', 	'Resource', 	'Tern Egg');
 	---------------------------------------------------------
-	INSERT INTO IconFontTextures 
-				(IconFontTexture, 							IconFontTextureFile)
-	VALUES		('MORE_WONDERS_FONT_ATLAS', 	'ResourceMoreWondersFontIcon_22');
-
 	INSERT INTO IconFontMapping 
 				(IconName, 			IconFontTexture,			IconMapping)
 	VALUES		('ICON_RES_TERN', 	'MORE_WONDERS_FONT_ATLAS',	1);
@@ -998,8 +1090,9 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- FALUN MINE (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FALUN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_FALUN';
-	
-	-- + Mine(4) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_FALUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	-- + Mine(4) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_FALUN';
 	
@@ -1040,20 +1133,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- FORGE OF DAMASCUS (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_STEEL', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_DAMASCUS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_DAMASCUS';
-	
-	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_DAMASCUS';
-	-- + LumberMill(1) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_DAMASCUS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + LumberMill(1) (lua) (HARD)
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_DAMASCUS',	'RESOURCE_IRON');
+	SELECT		'BUILDING_DAMASCUS',	'RESOURCE_IRON'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_FORGE', FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 1, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION',	2),
-				('BUILDING_DAMASCUS',	'YIELD_SCIENCE',	2);
+	VALUES		('BUILDING_DAMASCUS',	'YIELD_PRODUCTION',	3),
+				('BUILDING_DAMASCUS',	'YIELD_SCIENCE',	3);
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,			YieldType,			Yield)
@@ -1066,7 +1160,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				1,					20,			20,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,			10,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1084,35 +1178,43 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- FORBIDDEN PALACE
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
-	UPDATE Buildings SET Capital = 1 WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS');*/
+	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- CATHEDRAL OF ST. BASIL
-	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_KREMLIN';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
+-- RILA MONASTERY (FORMER KARLSTEJN)
+	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_KARLSTEJN';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B', WonderSplashImage = 'Wonder_Rila_splash.dds' WHERE Type = 'BUILDING_KARLSTEJN';
+
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 256, 'Wonder_Rila_256.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 128, 'Wonder_Rila_128.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 80,	'Wonder_Rila_80.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 64,	'Wonder_Rila_64.dds',	'1', '1');
+	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 45,	'Wonder_Rila_45.dds',	'1', '1');
+
+	UPDATE Buildings SET IconAtlas = 'ATLAS_MORE_WONDERS_RILA', PortraitIndex = 0 WHERE Type = 'BUILDING_KARLSTEJN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SHWEDAGON';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SHWEDAGON';
-	
-	UPDATE Buildings SET Hill = 1, FreshWater = 1 WHERE Type = 'BUILDING_SHWEDAGON';
 	---------------------------------------------------------
-	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_SHWEDAGON';
+	UPDATE Buildings SET Hill = 1, FreshWater = 1 WHERE Type = 'BUILDING_SHWEDAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_SHWEDAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_HIDDEN_ARTIFACTS', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP', SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_SHWEDAGON';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_SHWEDAGON',	'YIELD_GOLD',		2),
 				('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	2);
-	
-	INSERT INTO Building_FreeUnits 
-				(BuildingType,			UnitType,				NumUnits) 
-	VALUES		('BUILDING_SHWEDAGON',	'UNIT_ARCHAEOLOGIST',	1);
 	
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
@@ -1131,10 +1233,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	3),
-				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		3),
-				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		3),
-				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	3);
+	VALUES		('BUILDING_SHWEDAGON',	'YIELD_CULTURE',	5),
+				('BUILDING_SHWEDAGON',	'YIELD_FAITH',		5),
+				('BUILDING_SHWEDAGON',	'YIELD_GOLD',		5),
+				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	5);
+	
+	INSERT INTO UnitPromotions 
+				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					20,				1,					11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'UNITCOMBAT_ARCHAEOLOGIST');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1147,14 +1257,15 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- MONT SAINT-MICHEL (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MICHEL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
-	
-	-- + OneTileCity (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY', TechEnhancedTourism = 3 WHERE Type = 'BUILDING_MICHEL';
+	-- + OneTileCity (lua) (ALL)
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
-				(BuildingType,		YieldType,		Yield) 
-	VALUES		('BUILDING_MICHEL',	'YIELD_GOLD',	3);
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MICHEL',	'YIELD_TOURISM',	3),
+				('BUILDING_MICHEL',	'YIELD_GOLD',		3);
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
@@ -1177,15 +1288,19 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- ITSUKUSHIMA SHRINE (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ITSUKUSHIMA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_ITSUKUSHIMA';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE');
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
@@ -1229,19 +1344,20 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- QALHAT (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_COMPASS', NumPoliciesNeeded = 8, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_QALHAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_QALHAT';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_QALHAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	VALUES		('BUILDING_QALHAT',	'RESOURCE_HORSE');
+	SELECT		'BUILDING_QALHAT',	'RESOURCE_HORSE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100, TradeRouteSeaDistanceModifier = 100 WHERE Type = 'BUILDING_QALHAT';
+	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100 WHERE Type = 'BUILDING_QALHAT';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3),
-				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	2);
+				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	3);
 
 	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,		ResourceType,		YieldType,		Yield) 
@@ -1264,22 +1380,24 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- NOTRE DAME
 	UPDATE Buildings SET NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
-	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KRAK DES CHEVALIERS (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHEVALIERS';
-	
-	UPDATE Buildings SET Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS';
-	-- + IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 3000, CitySupplyFlat = 1, FoodKept = 10 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1 WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
-	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',					1),
+	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',					2),
 				('BUILDING_CHEVALIERS',			'YIELD_FAITH',					1),
 				('BUILDING_CHEVALIERS',			'YIELD_GREAT_GENERAL_POINTS',	1),
 				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',					1);
@@ -1306,18 +1424,23 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- RENAISSANCE ERA
 --============================================--
 -- AIT BENHADDOU (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_BANKING', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BENHADDOU';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_BANKING', NumPoliciesNeeded = 9, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BENHADDOU';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_BENHADDOU';
-	
-	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_BENHADDOU';
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 1, EnhancedYieldTech = 'TECH_RADIO', TechEnhancedTourism = 4 WHERE Type = 'BUILDING_BENHADDOU';
+	UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_BENHADDOU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	--Village(1) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET NumTradeRouteBonus = 1, EnhancedYieldTech = 'TECH_RADIO' WHERE Type = 'BUILDING_BENHADDOU';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_BENHADDOU',		'YIELD_FOOD',		2),
 				('BUILDING_BENHADDOU',		'YIELD_GOLD',		2),
 				('BUILDING_BENHADDOU',		'YIELD_CULTURE',	2);
+				
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_BENHADDOU',	'YIELD_TOURISM',	4);
 
 	INSERT INTO Building_RiverPlotYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1336,11 +1459,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KILWA KISIWANI (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_BANKING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KILWA_KISIWANI';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_BANKING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KILWA_KISIWANI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_KILWA_KISIWANI';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_KILWA_KISIWANI';
-	-- + Mine/Camp(3) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_KILWA_KISIWANI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Mine/Camp(3) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 2 WHERE Type = 'BUILDING_KILWA_KISIWANI';
 
@@ -1370,20 +1493,23 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				('BUILDING_KILWA_KISIWANI',	'FLAVOR_HAPPINESS',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GLOBE THETER
+-- GLOBE THEATER
+	UPDATE Buildings SET Cost = 700 WHERE Type = 'BUILDING_GLOBE_THEATER';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_GLOBE_THEATER';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GLOBE_THEATER';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_GLOBE_THEATER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_GLOBE_THEATER';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'),
-				('BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER');*/
+	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ST. PETER'S BASILICA (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_ST_PETERS';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_ST_PETERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_ST_PETERS';
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CATHEDRAL', ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_ST_PETERS';
@@ -1410,32 +1536,36 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CHICHEN ITZA
+	UPDATE Buildings SET Cost = 700 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CHICHEN_ITZA';
-	
-	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_CHICHEN_ITZA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_CHICHEN_ITZA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST');
+	SELECT		'BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN PAVILION (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KINKAKU_JI';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_KINKAKU_JI';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KINKAKU_JI';
-	
-	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreshWater = 1 WHERE Type = 'BUILDING_KINKAKU_JI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_KINKAKU_JI',		'FEATURE_FOREST'),
-				('BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE');
+	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		2),
+	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		3),
 				('BUILDING_KINKAKU_JI',			'YIELD_CULTURE',	2);
 
 	INSERT INTO Building_LakePlotYieldChanges 
@@ -1448,39 +1578,43 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
 	VALUES		('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_CULTURE',		1),
 				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FAITH',			1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_FOREST',		'YIELD_FOOD',			1),
 				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_CULTURE',		1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FAITH',			1),
-				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FOOD',			1);
+				('BUILDING_KINKAKU_JI',	'FEATURE_JUNGLE',		'YIELD_FAITH',			1);
+
+	INSERT INTO Building_RiverPlotYieldChanges
+				(BuildingType,			YieldType,		Yield) 
+	VALUES		('BUILDING_KINKAKU_JI',	'YIELD_FOOD',	1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_KINKAKU_JI',	'FLAVOR_RELIGION',		50),
 				('BUILDING_KINKAKU_JI',	'FLAVOR_CULTURE',		50),
-				('BUILDING_KINKAKU_JI',	'FLAVOR_GROWTH',		30);
+				('BUILDING_KINKAKU_JI',	'FLAVOR_GROWTH',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MARAE ARAHURAHU (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MARAE';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_MARAE',	'BUILDINGCLASS_GARDEN');*/
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,		BuildingClassType) 
+	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_GREAT_ADMIRAL_POINTS',	2);
+	VALUES		('BUILDING_MARAE',	'YIELD_GREAT_ADMIRAL_POINTS',	1);
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,		DomainType,		Experience)
-	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	20),
-				('BUILDING_MARAE',	'DOMAIN_SEA',	20);
+	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	15),
+				('BUILDING_MARAE',	'DOMAIN_SEA',	15);
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
@@ -1489,7 +1623,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,		YieldType,			Yield) 
 	VALUES		('BUILDING_MARAE',	'YIELD_CULTURE',	3),
-				('BUILDING_MARAE',	'YIELD_FOOD',		10);
+				('BUILDING_MARAE',	'YIELD_FOOD',		8);
+	
+	INSERT INTO Building_YieldFromDeath
+				(BuildingType,		YieldType,		Yield)
+	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	10);
 	
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
@@ -1510,11 +1648,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
-	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	15);
-	
-	INSERT INTO Building_YieldFromDeath
-				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	15);
+	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	120);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1524,22 +1658,24 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HIMEJI CASTLE
+	UPDATE Buildings SET Cost = 700 WHERE Type = 'BUILDING_HIMEJI_CASTLE';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HIMEJI_CASTLE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_HIMEJI_CASTLE';
-	
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HIMEJI_CASTLE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HIMEJI_CASTLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_HIMEJI_CASTLE',	'FEATURE_FOREST');
+	SELECT		'BUILDING_HIMEJI_CASTLE',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- OLD BRIDGE (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_GUNPOWDER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_OLD_BRIDGE';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_GUNPOWDER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_OLD_BRIDGE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,C' WHERE Type = 'BUILDING_OLD_BRIDGE';
-	
-	UPDATE Buildings SET River = 1, Hill = 1 WHERE Type = 'BUILDING_OLD_BRIDGE';
-	-- + Peace (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1, Hill = 1 WHERE Type = 'BUILDING_OLD_BRIDGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Peace (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET Happiness = 1, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, ExtraLeagueVotes = 2 WHERE Type = 'BUILDING_OLD_BRIDGE';
 
@@ -1560,25 +1696,28 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- LEANING TOWER OF PISA
+	UPDATE Buildings SET Cost = 700 WHERE Type = 'BUILDING_LEANING_TOWER';
 	UPDATE Buildings SET NumPoliciesNeeded = 9, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_LEANING_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_LEANING_TOWER';
-	
-	UPDATE Buildings SET Flat = 1, AnyWater = 1 WHERE Type = 'BUILDING_LEANING_TOWER';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, AnyWater = 1 WHERE Type = 'BUILDING_LEANING_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET AnyWater = 1 WHERE Type = 'BUILDING_LEANING_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_LEANING_TOWER',	'FEATURE_MARSH');
+	SELECT		'BUILDING_LEANING_TOWER',	'FEATURE_MARSH'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MEENAKSHI TEMPLE (NEW)
-	UPDATE Buildings SET Cost = 800, PrereqTech = 'TECH_CHEMISTRY', NumPoliciesNeeded = 9, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MEENAKSHI';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_CHEMISTRY', NumPoliciesNeeded = 9, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MEENAKSHI';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MEENAKSHI';
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MANDIR' WHERE Type = 'BUILDING_MEENAKSHI';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_MEENAKSHI',			'YIELD_FOOD',		4),
+	VALUES		('BUILDING_MEENAKSHI',			'YIELD_FOOD',		1),
 				('BUILDING_MEENAKSHI',			'YIELD_CULTURE',	2);
 
 	INSERT INTO Building_YieldChangesPerPopInEmpire
@@ -1586,7 +1725,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',		25);
 
 	INSERT INTO Building_LakePlotYieldChanges 
-				(BuildingType,			YieldType,			Yield)
+				(BuildingType,			YieldType,		Yield)
 	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',	1);	
 	
 	INSERT INTO Building_RiverPlotYieldChanges
@@ -1595,7 +1734,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,		Yield) 
-	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	33);
+	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	20);
 	
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1603,45 +1742,50 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_MEENAKSHI',	'FLAVOR_GROWTH',		60),
+	VALUES		('BUILDING_MEENAKSHI',	'FLAVOR_GROWTH',		50),
 				('BUILDING_MEENAKSHI',	'FLAVOR_RELIGION',		60),
 				('BUILDING_MEENAKSHI',	'FLAVOR_CULTURE',		10);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PORCELAIN TOWER
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_PORCELAIN_TOWER';
 	UPDATE Buildings SET NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PORCELAIN_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PORCELAIN_TOWER';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PORCELAIN_TOWER';
-	-- + CS_Ally(2) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PORCELAIN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + CS_Ally(2) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TAJ MAHAL
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_TAJ_MAHAL';
 	UPDATE Buildings SET NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	UPDATE Buildings SET WonderSplashImage = 'Wonder_Taj_Mahal_splash.dds' WHERE Type = 'BUILDING_TAJ_MAHAL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_TAJ_MAHAL';
-	
-	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Flat = 1, River = 1 WHERE Type = 'BUILDING_TAJ_MAHAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- UFFIZI
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_UFFIZI';
 	UPDATE Buildings SET NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_UFFIZI';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_UFFIZI';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_UFFIZI';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_UFFIZI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	-- + GW_of_Art(3) (lua)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PETERHOF (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PETERHOF';
+	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PETERHOF';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PETERHOF';
-	
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PETERHOF';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	VALUES		('BUILDING_PETERHOF',	'RESOURCE_IRON');
+	SELECT		'BUILDING_PETERHOF',	'RESOURCE_IRON'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WLTKDTurns = 20, GreatPeopleRateModifier = 10 WHERE Type = 'BUILDING_PETERHOF';
 
@@ -1664,11 +1808,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BAKKEN (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BAKKEN';
+	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_BAKKEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_BAKKEN';
-	
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_BAKKEN';
-	-- + Happinesst(70) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Happiness(70) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET Happiness = 3, WLTKDTurns = 10 WHERE Type = 'BUILDING_BAKKEN';
 
@@ -1690,33 +1834,37 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SISTINE CHAPEL
-	UPDATE Buildings SET NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_SISTINE_CHAPEL';
+	UPDATE Buildings SET NumPoliciesNeeded = 13, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
+	---------------------------------------------------------
+	-- + Founded_Religion (lua) (HARD)
 	
-	-- + Founded_Religion (lua)
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD');*/
+	SELECT		'BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SUMMER PALACE
-	UPDATE Buildings SET NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SUMMER_PALACE';
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_SUMMER_PALACE';
+	UPDATE Buildings SET NumPoliciesNeeded = 13, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SUMMER_PALACE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_SUMMER_PALACE';
-	
-	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, Hill = 1 WHERE Type = 'BUILDING_SUMMER_PALACE';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, Hill = 1 WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_SUMMER_PALACE',	'FEATURE_FOREST');
+	SELECT		'BUILDING_SUMMER_PALACE',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HOUSE OF TRADE OF THE INDIES (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
+	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
-	-- + CSAlly(2) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + CSAlly(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 2, SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_HOUSE_OF_TRADE';
 
@@ -1746,10 +1894,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SOLOVIETSKY MONASTERY (NEW)
-	UPDATE Buildings SET Cost = 900, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SOLOVIETSKY';
+	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_NAVIGATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SOLOVIETSKY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_SOLOVIETSKY';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_SOLOVIETSKY';
 
@@ -1781,20 +1930,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RED FORT
+	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_RED_FORT';
 	UPDATE Buildings SET MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_RED_FORT';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_RED_FORT';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT';
-	-- + IsNoCoast (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --============================================--
 -- INDUSTRIAL ERA
 --============================================--
 -- MUSEUM ISLAND (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_SCIENTIFIC_THEORY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_SCIENTIFIC_THEORY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_MUSEUM_ISLAND';
-	-- + GW_of_Art(4) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_MUSEUM_ISLAND' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + GW_of_Art(4) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MUSEUM', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_HELP' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
 
@@ -1808,8 +1958,8 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'BUILDINGCLASS_MUSEUM',	'YIELD_TOURISM',	2);
 
 	INSERT INTO Building_SpecificGreatPersonRateModifier 
-				(BuildingType,				SpecialistType,			Modifier)
-	VALUES		('BUILDING_MUSEUM_ISLAND',	'SPECIALIST_ARTIST',	50);
+				(BuildingType,					SpecialistType,			Modifier)
+	VALUES		('BUILDING_MUSEUM_ISLAND_DUMMY',	'SPECIALIST_ARTIST',	50);
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresAnyButOwner,	AIPriority)
@@ -1831,11 +1981,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIKU QUANSHU (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_SCIENTIFIC_THEORY', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIKU_QUANSHU';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_SCIENTIFIC_THEORY', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIKU_QUANSHU';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIKU_QUANSHU';
-	
-	-- + GW_of_Literature(4) (lua)
-	-- + Cities(7) (lua)
+	---------------------------------------------------------
+	-- + GW_of_Literature(4) (lua) (HARD)
+	-- + Cities(7) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 4, SpecialistType = 'SPECIALIST_WRITER', SpecialistCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP' WHERE Type = 'BUILDING_SIKU_QUANSHU';
 
@@ -1857,11 +2007,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_ThemingBonuses 
-				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,			0,				5),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			0,			1,				6),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		0,			1,			0,				7),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		0,			1,			1,				8);
+				(BuildingType,				Description,										Bonus,	UniqueEras,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,				5),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			1,				6),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		1,			0,				7),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		1,			1,				8);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,				YieldType,			Yield) 
@@ -1875,18 +2025,21 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NESCHWANSTEIN
+	UPDATE Buildings SET Cost = 1100 WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
+	UPDATE Buildings SET NumPoliciesNeeded = 14 WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
-
-	UPDATE Buildings SET FreshWater = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_NEUSCHWANSTEIN';
+	---------------------------------------------------------
+	UPDATE Buildings SET FreshWater = 1, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BROOKLYN BRIDGE (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_BROOKLYN';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_BROOKLYN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_BROOKLYN';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_BROOKLYN';
-	-- + IsHasCitizens(25)
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + IsHasCitizens(25) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 1, MinorFriendshipChange = 100 WHERE Type = 'BUILDING_BROOKLYN';
 
@@ -1908,18 +2061,18 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- TRANS_SIBERIAN RAILWAY (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
-	
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,					BuildingClassType) 
-	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION');*/
-
-	-- + IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 20, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,					BuildingClassType) 
+	SELECT		'BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 25, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,					ResourceType,			YieldType,						Yield) 
@@ -1933,7 +2086,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY_HELP',	'AS2D_IF_LEVELUP',	1,				0,					7,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY');
 
 	INSERT INTO UnitPromotions_Terrains 
-				(PromotionType,					TerrainType,			ExtraMove) 
+				(PromotionType,					TerrainType,			DoubleMove) 
 	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_TUNDRA',		1),
 				('PROMOTION_SIBERIAN_RAILWAY',	'TERRAIN_SNOW',			1);
 
@@ -1953,7 +2106,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_DIPLOMACY'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_CARAVAN'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPECIAL_PEOPLE'),
-				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPACESHIP_PARTS'),
+				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_SPACESHIP_PART'),
 				('PROMOTION_SIBERIAN_RAILWAY',	'UNITCOMBAT_ARCHAEOLOGIST');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
@@ -1964,22 +2117,25 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SLATER MILL
+	UPDATE Buildings SET Cost = 1100 WHERE Type = 'BUILDING_SLATER_MILL';
+	UPDATE Buildings SET NumPoliciesNeeded = 14 WHERE Type = 'BUILDING_SLATER_MILL';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SLATER_MILL';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_Slatter_Mill_splash.dds' WHERE Type = 'BUILDING_SLATER_MILL';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Plantation(2) (lua) (HARD)
 
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SLATER_MILL';
-	-- + Plantation(2) (lua)
-
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL');*/
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_STEAM_POWER', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_PANAMA_CANAL';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_STEAM_POWER', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_PANAMA_CANAL';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,C' WHERE Type = 'BUILDING_PANAMA_CANAL';
-	
-	-- + IsOnIsthmus (lua)
+	---------------------------------------------------------
+	-- + IsOnIsthmus (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_PANAMA_CANAL' WHERE Type = 'BUILDING_PANAMA_CANAL';
 	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, TradeRouteRecipientBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
@@ -1995,7 +2151,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 
 	INSERT INTO UnitPromotions 
 				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	FriendlyHealChange,	MovesChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					0,				5,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
+	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					1,				5,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -2018,10 +2174,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ZOCALO (NEW)
-	UPDATE Buildings SET Cost = 1000, PrereqTech = 'TECH_RIFLING', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_ZOCALO';
+	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_RIFLING', NumPoliciesNeeded = 13, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_ZOCALO';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_ZOCALO';
-	
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 1, FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_ZOCALO';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 1, FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 1, FreshWater = 1 WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_CIVIL_SERVANT', SpecialistCount = 1 WHERE Type = 'BUILDING_ZOCALO';
 
@@ -2054,13 +2211,15 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KEW GARDENS (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_FERTILIZER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_KEW_GARDENS';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_FERTILIZER', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_KEW_GARDENS';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KEW_GARDENS';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	---------------------------------------------------------
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	VALUES		('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'),
-				('BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN');*/
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
 
@@ -2083,26 +2242,29 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- LOUVRE
+	UPDATE Buildings SET Cost = 1300 WHERE Type = 'BUILDING_LOUVRE';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_LOUVRE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Louvre_splash.dds' WHERE Type = 'BUILDING_LOUVRE';
-
-	-- + Landmark(1) (lua)
-	-- + GW_of_Art(4) (lua)
+	---------------------------------------------------------
+	-- + Landmark(1) (lua) (ALL)
+	-- + GW_of_Art(4) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PALACE OF WESTMINSTER
+	UPDATE Buildings SET Cost = 1300 WHERE Type = 'BUILDING_BIG_BEN';
 	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_BIG_BEN';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_BIG_BEN';
-
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_BIG_BEN';
-	-- + CS_Ally(3) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_BIG_BEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + CS_Ally(3) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MONTE CARLO (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MONTE_CARLO';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MONTE_CARLO';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_MONTE_CARLO';
-	
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_MONTE_CARLO';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyMountainRequired = 1 WHERE Type = 'BUILDING_MONTE_CARLO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_MONTE_CARLO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL' WHERE Type = 'BUILDING_MONTE_CARLO';
 
@@ -2130,11 +2292,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RUHR VALLEY (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_RUHR_VALLEY';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_RUHR_VALLEY';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUHR_VALLEY';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
-	-- + PlaceForResource lua
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + PlaceForResource lua (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET CityWorkingChange = 2 WHERE Type = 'BUILDING_RUHR_VALLEY';
 
@@ -2157,41 +2319,45 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EIFFEL TOWER
+	UPDATE Buildings SET Cost = 1300 WHERE Type = 'BUILDING_EIFFEL_TOWER';
 	UPDATE Buildings SET NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_EIFFEL_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_EIFFEL_TOWER';
-
-	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_EIFFEL_TOWER';
-
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_EIFFEL_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	VALUES		('BUILDING_EIFFEL_TOWER',	'RESOURCE_IRON');
+	SELECT		'BUILDING_EIFFEL_TOWER',	'RESOURCE_IRON'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- DARJEELING HIMALAYAN RAILWAY (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_DYNAMITE', NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_DARJEELING';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_DYNAMITE', NumPoliciesNeeded = 16, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_DARJEELING';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_DARJEELING';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION');*/
+	SELECT		'BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 
-	-- + Mountains(2) (lua)
+	-- + Mountains(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_DARJEELING', CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_DARJEELING';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
 	VALUES		('BUILDING_DARJEELING',	'YIELD_PRODUCTION',	2),
-				('BUILDING_DARJEELING',	'YIELD_CULTURE',	1),
 				('BUILDING_DARJEELING',	'YIELD_TOURISM',	3);
 
-	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,			TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_FOOD',		1),
-				('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_PRODUCTION',	1),
-				('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_CULTURE',	1),
-				('BUILDING_DARJEELING',	'TERRAIN_MOUNTAIN', 'YIELD_TOURISM',	1);
-	
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,					TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_FOOD',		100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	100);
+
 	INSERT INTO UnitPromotions 
 				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
 	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
@@ -2211,18 +2377,20 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BRANDENBURG GATE
+	UPDATE Buildings SET Cost = 1300 WHERE Type = 'BUILDING_BRANDENBURG_GATE';
 	UPDATE Buildings SET NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BRANDENBURG_GATE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_BRANDENBURG_GATE';
-
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_BRANDENBURG_GATE';
-	-- + Citadel/Fort(1) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_BRANDENBURG_GATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Citadel/Fort(1) (lua) (ALL)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BANFF SPRINGS HOTEL (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BANFF';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BANFF';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_BANFF';
-	
-	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_BANFF';
 
@@ -2238,11 +2406,11 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 				(BuildingType,		SpecialistType,			YieldType,			Yield) 
 	VALUES		('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_GOLD',		1),
 				('BUILDING_BANFF',	'SPECIALIST_MERCHANT',	'YIELD_TOURISM',	1);
-	
-	INSERT INTO Building_TerrainYieldChanges 
-				(BuildingType,		TerrainType,		YieldType,			Yield) 
-	VALUES		('BUILDING_BANFF',	'TERRAIN_MOUNTAIN', 'YIELD_GOLD',		5),
-				('BUILDING_BANFF',	'TERRAIN_MOUNTAIN', 'YIELD_TOURISM',	5);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,		TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_BANFF',	'TERRAIN_MOUNTAIN',		'YIELD_GOLD',		500),
+				('BUILDING_BANFF',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	500);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,			Flavor)
@@ -2252,30 +2420,25 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ORSZAGHAZ (NEW)
-	UPDATE Buildings SET Cost = 1250, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 15, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_MILITARY_SCIENCE', NumPoliciesNeeded = 15, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ORSZAGHAZ';
-	
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ';
-	
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,			BuildingClassType) 
-	VALUES		('BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE');*/
-
-	-- + IsNoCoast (lua)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_HUNGARY' WHERE Type = 'BUILDING_ORSZAGHAZ';
-
-	INSERT INTO Building_YieldChanges 
-				(BuildingType,			YieldType,					Yield)
-	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	4);
+	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1 WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,			YieldType,					Yield) 
-	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	VALUES		('BUILDING_ORSZAGHAZ',	'YIELD_GOLDEN_AGE_POINTS',	15);
 
 	INSERT INTO GreatWorks
 				(Type,						Description,						GreatWorkClassType,	Audio,							Image,							Quote) 
-	VALUES		('GREAT_WORK_HOLY_HUNGARY',	'TXT_KEY_GREAT_WORK_HOLY_HUNGARY',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Hungary.dds',	'TXT_KEY_GREAT_WORK_HOLY_HUNGARY_QUOTE');
+	VALUES		('GREAT_WORK_HOLY_CROWN',	'TXT_KEY_GREAT_WORK_HOLY_CROWN',	'GREAT_WORK_ART',	'AS2D_GREAT_ARTIST_ARTWORK',	'Great_Work_Holy_Crown.dds',	'TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE');
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,			Flavor)
@@ -2285,128 +2448,1146 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- MODERN ERA
 --============================================--
 -- STATUE OF LIBERTY
+	UPDATE Buildings SET Cost = 1550 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
 	UPDATE Buildings SET NumPoliciesNeeded = 17, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Specialists(10) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- POLAR EXPEDITION (NEW)
+	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_BIOLOGY', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_POLAR_EXPEDITION';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoWater = 1, IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + IsAtPolar (lua) (HARD)
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,					Yield)
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'YIELD_SCIENCE',			6),
+				('BUILDING_POLAR_EXPEDITION',	'YIELD_GOLDEN_AGE_POINTS',	2);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,					SpecialistType,			YieldType,					Yield) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'SPECIALIST_SCIENTIST',	'YIELD_SCIENCE',			1),
+				('BUILDING_POLAR_EXPEDITION',	'SPECIALIST_SCIENTIST',	'YIELD_GOLDEN_AGE_POINTS',	1);
+	
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,					TerrainType,		YieldType,				Yield) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'TERRAIN_SNOW',		'YIELD_SCIENCE',		2);
 
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
-	-- + Specialists(5) (lua)
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,					ResourceType,		NumPlots) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'RESOURCE_OIL',		3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_POLAR_EXPEDITION',	'FLAVOR_PRODUCTION',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- EMPIRE STATE BUILDING
+	UPDATE Buildings SET Cost = 1550 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
 	UPDATE Buildings SET NumPoliciesNeeded = 18, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
-
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,						ResourceType) 
-	VALUES		('BUILDING_EMPIRE_STATE_BUILDING',	'RESOURCE_ALUMINUM');
+	SELECT		'BUILDING_EMPIRE_STATE_BUILDING',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MOTHERLAND CALLS
-	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+-- AKIHABARA ELECTRIC TOWN (NEW)
+	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_ELECTRICITY', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_AKIHABARA';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_AKIHABARA';
+	---------------------------------------------------------
+	-- + Town(1) (lua) (HARD)
+	-- + Merchants(3) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_MERCHANT', SpecialistCount = 2 WHERE Type = 'BUILDING_AKIHABARA';
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_AKIHABARA',	'SPECIALIST_MERCHANT',	'YIELD_PRODUCTION',	2);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_PRODUCTION',	1),
+				('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_GOLD',		2),
+				('BUILDING_AKIHABARA',	'BUILDINGCLASS_MARKET',		'YIELD_CULTURE',	1);
 
-	UPDATE Buildings SET Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
-	-- + IsNoCoast (lua)
+	INSERT INTO Building_ImprovementYieldChangesGlobal 
+				(BuildingType,			ImprovementType,				YieldType,			Yield) 
+	VALUES		('BUILDING_AKIHABARA',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_PRODUCTION',	1),
+				('BUILDING_AKIHABARA',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_GOLD',		1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_AKIHABARA',	'FLAVOR_GOLD',			50),
+				('BUILDING_AKIHABARA',	'FLAVOR_PRODUCTION',	60),
+				('BUILDING_AKIHABARA',	'FLAVOR_CULTURE',		20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ROCKEFELLER CENTER (NEW)
+	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_CORPORATIONS', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_ROCKEFELLER';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_ROCKEFELLER';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	SELECT		'BUILDING_ROCKEFELLER',	'BUILDINGCLASS_OPERA_HOUSE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_LABORATORY' WHERE Type = 'BUILDING_ROCKEFELLER';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		5),
+				('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_GOLD',		3);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,				BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_ROCKEFELLER',	'BUILDINGCLASS_HOSPITAL',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_YieldFromPurchase
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_ROCKEFELLER',	'YIELD_CULTURE',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ROCKEFELLER',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_ROCKEFELLER',	'FLAVOR_DIPLOMACY',		20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- KREMLIN
+	-- UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_KREMLIN';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_KREMLIN';
+	-- UPDATE Buildings SET WonderSplashImage = 'Wonder_Kremlin_splash.dds' WHERE Type = 'BUILDING_KREMLIN';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- UPDATE Buildings SET /*IsNoCoast = 1, */ WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- AUTOBAHN (NEW)
+	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_COMBUSTION', NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_AUTOBAHN';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_AUTOBAHN';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_AUTOBAHN',	'RESOURCE_OIL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_ARSENAL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_FACTORY'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET WorkerSpeedModifier = 30, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
+	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,					Yield)
+	VALUES		('BUILDING_AUTOBAHN',		'YIELD_PRODUCTION',			2),
+				('BUILDING_AUTOBAHN',		'YIELD_GOLDEN_AGE_POINTS',	5);
+	
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_AUTOBAHN',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_AUTOBAHN',	'FLAVOR_CITY_DEFENSE',	30),
+				('BUILDING_AUTOBAHN',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_AUTOBAHN',	'FLAVOR_GOLD',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- INTERSTATE HIGHWAY SYSTEM (NEW)
+	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_PLASTIC', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_INTERSTATE';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_INTERSTATE';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_INTERSTATE',	'RESOURCE_OIL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+
+	-- + Cities(8) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET EmpireNeedsModifierGlobal = -5, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_INTERSTATE';
+	UPDATE Buildings SET PopulationChange = 1 WHERE Type = 'BUILDING_INTERSTATE_DUMMY';
+	
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_INTERSTATE',	'YIELD_PRODUCTION',	10);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_INTERSTATE',	'FLAVOR_PRODUCTION',	100),
+				('BUILDING_INTERSTATE',	'FLAVOR_GROWTH',		20),
+				('BUILDING_INTERSTATE',	'FLAVOR_GOLD',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HOLLYWOOD (NEW)
+	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_RADIO', NumPoliciesNeeded = 21 WHERE Type = 'BUILDING_HOLLYWOOD';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_HOLLYWOOD';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_HOLLYWOOD';
+	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldFromPolicyUnlock
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	75);
+
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,					YieldType,			YieldChange) 
+	VALUES		('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_GOLD',		1),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_BROADCAST_TOWER',	'YIELD_CULTURE',	1),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_ARTISTS_GUILD',		'YIELD_TOURISM',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_WRITERS_GUILD',		'YIELD_TOURISM',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_GOLD',		2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_CULTURE',	2),
+				('BUILDING_HOLLYWOOD',	'BUILDINGCLASS_MUSICIANS_GUILD',	'YIELD_TOURISM',	2);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_HOLLYWOOD',	'FLAVOR_CULTURE',		100),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_GOLD',			30),
+				('BUILDING_HOLLYWOOD',	'FLAVOR_HAPPINESS',		50);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- CONCORDE (NEW)
+	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_FLIGHT', NumPoliciesNeeded = 21 WHERE Type = 'BUILDING_CONCORDE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_CONCORDE';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_CONCORDE',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+
+	-- + Engineers(3) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET MinorFriendshipChange = 20, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_CONCORDE';
+	
+	INSERT INTO Building_YieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	3);
+
+	INSERT INTO Building_WLTKDYieldMod
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_CONCORDE',	'YIELD_TOURISM',	25);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,			ResourceType,			YieldType,			Yield) 
+	VALUES		('BUILDING_CONCORDE',	'RESOURCE_OIL',			'YIELD_TOURISM',	3),
+				('BUILDING_CONCORDE',	'RESOURCE_ALUMINUM',	'YIELD_TOURISM',	3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_CONCORDE',	'FLAVOR_CULTURE',		120),
+				('BUILDING_CONCORDE',	'FLAVOR_GOLD',			40),
+				('BUILDING_CONCORDE',	'FLAVOR_HAPPINESS',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CRISTO REDENTOR
+	UPDATE Buildings SET Cost = 1800 WHERE Type = 'BUILDING_CRISTO_REDENTOR';
 	UPDATE Buildings SET NumPoliciesNeeded = 19, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_CRISTO_REDENTOR';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_CRISTO_REDENTOR';
-
-	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_CRISTO_REDENTOR';
-
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,					FeatureType) 
-	VALUES		('BUILDING_CRISTO_REDENTOR',	'FEATURE_FOREST'),
-				('BUILDING_CRISTO_REDENTOR',	'FEATURE_JUNGLE');
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
--- BROADWAY
-	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BROADWAY';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_BROADWAY';
-
-	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_BROADWAY';
-	-- + GW_of_Music(2) (lua)
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
--- PRORA
-	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_PRORA_RESORT';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PRORA_RESORT';
-
-	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PRORA_RESORT';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 0, Hill = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	VALUES		('BUILDING_PRORA_RESORT',	'FEATURE_FOREST'),
-				('BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE');
+	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- BROADWAY
+	UPDATE Buildings SET Cost = 1800 WHERE Type = 'BUILDING_BROADWAY';
+	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_BROADWAY';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_BROADWAY';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_BROADWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + GW_of_Music(2) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- PRORA
+	UPDATE Buildings SET Cost = 1800 WHERE Type = 'BUILDING_PRORA_RESORT';
+	UPDATE Buildings SET MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_PRORA_RESORT';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PRORA_RESORT';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PRORA_RESORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,					FeatureType) 
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SANBO HONBU (NEW)
+	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_SANBO';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SANBO';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SANBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,		BuildingClassType) 
+	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_ARSENAL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_MILITARY_ACADEMY'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, FreePromotion = 'PROMOTION_SANBO_LAND' WHERE Type = 'BUILDING_SANBO';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_AIR' WHERE Type = 'BUILDING_SANBO_2_DUMMY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,						Yield)
+	VALUES		('BUILDING_SANBO',		'YIELD_GREAT_GENERAL_POINTS',	2),
+				('BUILDING_SANBO',		'YIELD_GREAT_ADMIRAL_POINTS',	3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers 	
+				(BuildingType,		UnitCombatType,				Modifier) 
+	VALUES		('BUILDING_SANBO',	'UNITCOMBAT_NAVALMELEE',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_NAVALRANGED',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_SUBMARINE',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_CARRIER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MOUNTED',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_SIEGE',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_ARCHER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MELEE',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_GUN',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_ARMOR',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_RECON',			30),
+				('BUILDING_SANBO',	'UNITCOMBAT_HELICOPTER',	30),
+				('BUILDING_SANBO',	'UNITCOMBAT_FIGHTER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_BOMBER',		30),
+				('BUILDING_SANBO',	'UNITCOMBAT_MISSILE',		30);
+	
+	INSERT INTO UnitPromotions 
+				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	LandAirDefenseBonus,	AdjacentMod,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,				10,						10,				1,		0,						0,				0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		10,						10,				0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				30,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_SANBO_LAND',		'UNITCOMBAT_RECON'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_ARMOR'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_GUN'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_MELEE'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_ARCHER'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_SIEGE'),
+				('PROMOTION_SANBO_LAND',		'UNITCOMBAT_MOUNTED'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_CARRIER'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_SUBMARINE'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_NAVALRANGED'),
+				('PROMOTION_SANBO_SEA',			'UNITCOMBAT_NAVALMELEE'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_HELICOPTER'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_FIGHTER'),
+				('PROMOTION_SANBO_AIR',			'UNITCOMBAT_BOMBER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_HELICOPTER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_FIGHTER'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_BOMBER');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,					Flavor)
+	VALUES		('BUILDING_SANBO',	'FLAVOR_AIR',				20),
+				('BUILDING_SANBO',	'FLAVOR_EXPANSION',			10),
+				('BUILDING_SANBO',	'FLAVOR_MILITARY_TRAINING',	60),
+				('BUILDING_SANBO',	'FLAVOR_NAVAL',				20),
+				('BUILDING_SANBO',	'FLAVOR_OFFENSE',			50),
+				('BUILDING_SANBO',	'FLAVOR_PRODUCTION',		30),
+				('BUILDING_SANBO',	'FLAVOR_RANGED',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MOUNT RUSHMORE (NEW)
+	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_RUSHMORE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUSHMORE';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,			FeatureType) 
+	SELECT		'BUILDING_RUSHMORE',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_RUSHMORE',	'YIELD_TOURISM',	3);
+		
+	INSERT INTO Building_GreatWorkYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_RUSHMORE',	'YIELD_CULTURE',	1),
+				('BUILDING_RUSHMORE',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,			TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
+				('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
+				('BUILDING_RUSHMORE',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	200);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_RUSHMORE',	'FLAVOR_CULTURE',		70),
+				('BUILDING_RUSHMORE',	'FLAVOR_PRODUCTION',	20),
+				('BUILDING_RUSHMORE',	'FLAVOR_DIPLOMACY',		10);
 --============================================--
 -- ATOMIC ERA
 --============================================--
--- BLETCHEY PARK
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+-- HABITAT-67 (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_PENICILIN', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_HABITAT';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_HABITAT';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, PopulationChange = 3 WHERE Type = 'BUILDING_HABITAT';
 
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
-	-- + IsNoCoast (lua)
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_HABITAT',	'SPECIALIST_ENGINEER',	'YIELD_CULTURE',	1);
+	
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_HABITAT',	'YIELD_PRODUCTION',	2);
+
+	INSERT INTO Building_BuildingClassLocalHappiness 
+				(BuildingType,			BuildingClassType,					Happiness)
+	VALUES		('BUILDING_HABITAT',	'BUILDINGCLASS_GARDEN',				1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_HOSPITAL',			1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_MUSEUM',				1),
+				('BUILDING_HABITAT',	'BUILDINGCLASS_POLICE_STATION',		1);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_HABITAT',	'FLAVOR_CULTURE',		20),
+				('BUILDING_HABITAT',	'FLAVOR_GROWTH',		40),
+				('BUILDING_HABITAT',	'FLAVOR_HAPPINESS',		100);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- VOSTOK STATION (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_VOSTOK';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_VOSTOK';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_VOSTOK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 3 WHERE Type = 'BUILDING_VOSTOK';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_VOSTOK',		'YIELD_SCIENCE',	1);
+		
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_VOSTOK',		'BUILDINGCLASS_LABORATORY',		'YIELD_SCIENCE',	2),
+				('BUILDING_VOSTOK',		'BUILDINGCLASS_MEDICAL_LAB',	'YIELD_FOOD',		3);
+	
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_VOSTOK',	'YIELD_SCIENCE',	5);	
+	
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,		TerrainType,		YieldType,				Yield) 
+	VALUES		('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_FOOD',			1),
+				('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_PRODUCTION',		1),
+				('BUILDING_VOSTOK',	'TERRAIN_SNOW',		'YIELD_SCIENCE',		4);
+	--------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_VOSTOK',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_VOSTOK',	'FLAVOR_GROWTH',		40),
+				('BUILDING_VOSTOK',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MILESTII MICI WINERY (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_REFRIGERATION', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_MILESTII_MICI';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MILESTII_MICI';
+	---------------------------------------------------------
+	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MILESTII_MICI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_MILESTII_MICI',	'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_MILESTII_MICI',		'YIELD_FOOD',		2),
+				('BUILDING_MILESTII_MICI',		'YIELD_GOLD',		4);
+		
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,				SpecialistType,			YieldType,				Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_FOOD',			1),
+				('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_PRODUCTION',		1);
+	
+	INSERT INTO Building_YieldPerFriend
+				(BuildingType,				YieldType,		Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',	1),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',	1);
+	
+	INSERT INTO Building_YieldPerAlly
+				(BuildingType,				YieldType,				Yield) 
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',			2),
+				('BUILDING_MILESTII_MICI',	'YIELD_PRODUCTION',		1),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',			2);
+	
+	INSERT INTO Building_HurryModifiers
+				(BuildingType,				HurryType,		HurryCostModifier)
+	VALUES		('BUILDING_MILESTII_MICI',	'HURRY_GOLD',	-10);		
+	--------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_MILESTII_MICI',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_MILESTII_MICI',	'FLAVOR_GROWTH',		40),
+				('BUILDING_MILESTII_MICI',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- SPUTNIK (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ROCKETRY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_SPUTNIK';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SPUTNIK';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	SELECT		'BUILDING_SPUTNIK',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Scientists(3) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, GoldenAge = 1 WHERE Type = 'BUILDING_SPUTNIK';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,						Yield)
+	VALUES		('BUILDING_SPUTNIK',	'YIELD_SCIENCE',				1),
+				('BUILDING_SPUTNIK',	'YIELD_GOLDEN_AGE_POINTS',		3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,			UnitCombatType,					Modifier)
+	VALUES		('BUILDING_SPUTNIK',	'UNITCOMBAT_SPACESHIP_PART',	20);
+
+	INSERT INTO Building_SpecificGreatPersonRateModifier 
+				(BuildingType,			SpecialistType,			Modifier)
+	VALUES		('BUILDING_SPUTNIK',	'SPECIALIST_ENGINEER',	33),
+				('BUILDING_SPUTNIK',	'SPECIALIST_SCIENTIST',	25);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_SPUTNIK',	'FLAVOR_SPACESHIP',		50),
+				('BUILDING_SPUTNIK',	'FLAVOR_PRODUCTION',	70),
+				('BUILDING_SPUTNIK',	'FLAVOR_SCIENCE',		50);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PENTAGON
+	UPDATE Buildings SET Cost = 2100 WHERE Type = 'BUILDING_PENTAGON';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_PENTAGON';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PENTAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Citadel/Fort(1) (lua) (ALL)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ANITKABIR (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_COMBINED_ARMS', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_ANITKABIR';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANITKABIR';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1,*/ Hill = 1 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_PENTAGON';
-	-- + Citadel/Fort(1) (lua)
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_FOREST'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_JUNGLE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,					Yield)
+	VALUES		('BUILDING_ANITKABIR',	'YIELD_CULTURE',			2),
+				('BUILDING_ANITKABIR',	'YIELD_GOLDEN_AGE_POINTS',	3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,			UnitCombatType,				Modifier)
+	VALUES		('BUILDING_ANITKABIR',	'UNITCOMBAT_DIPLOMACY',		50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ANITKABIR',	'FLAVOR_DIPLOMACY',		120),
+				('BUILDING_ANITKABIR',	'FLAVOR_CULTURE',		50);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- THULE AIR BASE (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THULE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_THULE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_THULE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_THULE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	UPDATE Buildings SET CitySupplyFlat = 2, AirModifier = 3, FreePromotion = 'PROMOTION_THULE' WHERE Type = 'BUILDING_THULE';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,						Yield)
+	VALUES		('BUILDING_THULE',	'YIELD_SCIENCE',				1),
+				('BUILDING_THULE',	'YIELD_GOLDEN_AGE_POINTS',		1),
+				('BUILDING_THULE',	'YIELD_GREAT_GENERAL_POINTS',	1);
+
+	INSERT INTO Building_DomainFreeExperiences
+				(BuildingType,		DomainType,		Experience)
+	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
+
+	INSERT INTO Building_DomainFreeExperiencesGlobal
+				(BuildingType,		DomainType,		Experience)
+	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
+	
+	INSERT INTO UnitPromotions 
+				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					5,						2,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,		UnitCombatType)
+	VALUES		('PROMOTION_THULE',	'UNITCOMBAT_BOMBER'),
+				('PROMOTION_THULE',	'UNITCOMBAT_FIGHTER');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,						Flavor)
+	VALUES		('BUILDING_THULE',	'FLAVOR_OFFENSE',				50),
+				('BUILDING_THULE',	'FLAVOR_DEFENSE',				10),
+				('BUILDING_THULE',	'FLAVOR_MILITARY_TRAINING',		80),
+				('BUILDING_THULE',	'FLAVOR_AIR',					70),
+				('BUILDING_THULE',	'FLAVOR_SCIENCE',				10);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- WHITE SANDS MISSILE RANGE (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_ELECTRONICS', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_WHITE_SANDS';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_WHITE_SANDS';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT', Flat = 1 WHERE Type = 'BUILDING_WHITE_SANDS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_WHITE_SANDS', SpaceProductionModifier = 35 WHERE Type = 'BUILDING_WHITE_SANDS';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,							Yield)
+	VALUES		('BUILDING_WHITE_SANDS',	'YIELD_SCIENCE',				3),
+				('BUILDING_WHITE_SANDS',	'YIELD_GREAT_GENERAL_POINTS',	1);
+
+	INSERT INTO Building_FreeUnits
+				(BuildingType,				UnitType,				NumUnits)
+	VALUES		('BUILDING_WHITE_SANDS',	'UNIT_GUIDED_MISSILE',	3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,				UnitCombatType,					Modifier)
+	VALUES		('BUILDING_WHITE_SANDS',	'UNITCOMBAT_MISSILE',			33),
+				('BUILDING_WHITE_SANDS',	'UNITCOMBAT_SPACESHIP_PART',	10);
+
+	INSERT INTO UnitPromotions 
+				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,				UnitCombatType)
+	VALUES		('PROMOTION_WHITE_SANDS',	'UNITCOMBAT_MISSILE');
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_WHITE_SANDS',	'FLAVOR_SPACESHIP',		50),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_PRODUCTION',	40),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_OFFENSE',		40),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_SCIENCE',		10),
+				('BUILDING_WHITE_SANDS',	'FLAVOR_AIR',			20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- BLETCHEY PARK
+	UPDATE Buildings SET Cost = 2350 WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_BLETCHLEY_PARK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MILLAU VIADUCT (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_COMPUTERS', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_MILLAU';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MILLAU';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MILLAU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MILLAU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	-- + Village(1) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET Happiness = 1, TradeRouteLandDistanceModifier = 100, NoUnhappfromXSpecialists = 2 WHERE Type = 'BUILDING_MILLAU';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_MILLAU',	'YIELD_PRODUCTION',	1),
+				('BUILDING_MILLAU',	'YIELD_TOURISM',	1);
+
+	INSERT INTO Building_GlobalYieldModifiers
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MILLAU',	'YIELD_TOURISM',	5);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,		YieldIn,			YieldOut,			Value) 
+	VALUES		('BUILDING_MILLAU',	'YIELD_PRODUCTION',	'YIELD_TOURISM',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_MILLAU',	'FLAVOR_CULTURE',		40),
+				('BUILDING_MILLAU',	'FLAVOR_PRODUCTION',	10),
+				('BUILDING_MILLAU',	'FLAVOR_HAPPINESS',		60);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- MOTHERLAND CALLS
+	UPDATE Buildings SET Cost = 2350 WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	UPDATE Buildings SET NumPoliciesNeeded = 24, PrereqTech = 'TECH_NUCLEAR_FISSION' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_MOTHERLAND_STATUE';
+	---------------------------------------------------------
+	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, River = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- REVOLUTIONARY_MUSEUM (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_NUCLEAR_FISSION', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value-1 OR Value=2));
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_POLICE_STATION'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_BROADCAST_TOWER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET GreatPeopleRateModifier = 10, FreePolicies = 1 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_REVOLUTIONARY_MUSEUM',	'YIELD_TOURISM',	2);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_MONUMENT',		'YIELD_CULTURE',	3),
+				('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_CONSTABLE',		'YIELD_TOURISM',	2),
+				('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_POLICE_STATION',	'YIELD_TOURISM',	2);
+
+	INSERT INTO Building_YieldFromGPExpend
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_REVOLUTIONARY_MUSEUM',	'YIELD_CULTURE',	50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,			Flavor)
+	VALUES		('BUILDING_REVOLUTIONARY_MUSEUM',	'FLAVOR_CULTURE',	150);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- ARECIBO OBSERVATORY (NEW)
+	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_RADAR', NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_ARECIBO';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_ARECIBO';
+	---------------------------------------------------------
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ARECIBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Academy(1) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 2 WHERE Type = 'BUILDING_ARECIBO';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_ARECIBO',	'YIELD_SCIENCE',	4);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_ARECIBO',	'SPECIALIST_SCIENTIST',	'YIELD_SCIENCE',	1);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
+	VALUES		('BUILDING_ARECIBO',	'BUILDINGCLASS_OBSERVATORY',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,				TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_ARECIBO_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_ARECIBO',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_ARECIBO',	'FLAVOR_DIPLOMACY',		20);
 --============================================--
 -- INFORMATION ERA
 --============================================--
--- SYDNEY OPERA HOUSE
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
-	-- + GW_of_Music(3) (lua)
---------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------
 -- CN TOWER
+	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_CN_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CN_TOWER';
-
-	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER';
-	-- + Happinesst(80) (lua)
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	-- + Happiness(80) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- HUBBLE SPACE TELESCOPE
-	UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_HUBBLE';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
+-- SYDNEY OPERA HOUSE
+	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET PrereqTech = 'TECH_TELECOM' WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + GW_of_Music(3) (lua) (HARD)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- PALM JUMEIRAH (NEW)
+	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_JUMEIRAH';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_JUMEIRAH' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,		ResourceType) 
-	VALUES		('BUILDING_HUBBLE',	'RESOURCE_ALUMINUM');
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_JUMEIRAH',	'RESOURCE_OIL'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,			TerrainType,			YieldType,				Yield) 
+	VALUES		('BUILDING_JUMEIRAH',	'TERRAIN_DESERT',		'YIELD_PRODUCTION',		3);
+	
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,				FeatureType,		YieldType,				Yield) 
+	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		7);
 
-	/*INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_HUBBLE',	'BUILDINGCLASS_OBSERVATORY');*/
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_JUMEIRAH',	'RESOURCE_OIL',		'YIELD_GOLD',		4);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,			YieldIn,			YieldOut,			Value) 
+	VALUES		('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_GOLD',		10),
+				('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_TOURISM',	15);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_JUMEIRAH',	'FLAVOR_PRODUCTION',	30),
+				('BUILDING_JUMEIRAH',	'FLAVOR_GOLD',			60),
+				('BUILDING_JUMEIRAH',	'FLAVOR_CULTURE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TAIPEI (NEW)
+	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ADVANCED_BALLISTICS', NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_TAIPEI';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_TAIPEI';
+	---------------------------------------------------------
+	-- + Village(1) (lua) (HARD)
+	-- + CS_Ally(3) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_TAIPEI';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_TAIPEI',	'YIELD_SCIENCE',	1),
+				('BUILDING_TAIPEI',	'YIELD_GOLD',		2),
+				('BUILDING_TAIPEI',	'YIELD_CULTURE',	1),
+				('BUILDING_TAIPEI',	'YIELD_TOURISM',	2);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,		SpecialistType,			YieldType,			Yield) 
+	VALUES		('BUILDING_TAIPEI',	'SPECIALIST_ENGINEER',	'YIELD_SCIENCE',	1);
+	
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,		BuildingClassType,				YieldType,		YieldChange) 
+	VALUES		('BUILDING_TAIPEI',	'BUILDINGCLASS_BANK',			'YIELD_GOLD',	2),
+				('BUILDING_TAIPEI',	'BUILDINGCLASS_STOCK_EXCHANGE',	'YIELD_GOLD',	2);
+	
+	INSERT INTO Building_ImprovementYieldChanges
+				(BuildingType,		ImprovementType,				YieldType,			Yield) 
+	VALUES		('BUILDING_TAIPEI',	'IMPROVEMENT_CUSTOMS_HOUSE',	'YIELD_GOLD',		2),
+				('BUILDING_TAIPEI',	'IMPROVEMENT_TRADING_POST',		'YIELD_GOLD',		2);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_TAIPEI',	'FLAVOR_SCIENCE',		10),
+				('BUILDING_TAIPEI',	'FLAVOR_GOLD',			70),
+				('BUILDING_TAIPEI',	'FLAVOR_DIPLOMACY',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- CURIOSITY ROVER (NEW)
+	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_ROBOTICS', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_CURIOSITY';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_CURIOSITY';
+	---------------------------------------------------------
+	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_CURIOSITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_CURIOSITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,			ResourceType) 
+	SELECT		'BUILDING_CURIOSITY',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET MinorFriendshipChange = 50 WHERE Type = 'BUILDING_CURIOSITY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,					Yield)
+	VALUES		('BUILDING_CURIOSITY',			'YIELD_GOLD',				1),
+				('BUILDING_CURIOSITY',			'YIELD_SCIENCE',			3),
+				('BUILDING_CURIOSITY',			'YIELD_GOLDEN_AGE_POINTS',	2),
+				('BUILDING_CURIOSITY_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,			SpecialistType,			YieldType,					Yield) 
+	VALUES		('BUILDING_CURIOSITY',	'SPECIALIST_ENGINEER',	'YIELD_GOLDEN_AGE_POINTS',	3),
+				('BUILDING_CURIOSITY',	'SPECIALIST_SCIENTIST',	'YIELD_GOLDEN_AGE_POINTS',	3);
+
+	-- + yields_per_research_agreements (lua)
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_CURIOSITY',	'FLAVOR_SCIENCE',		30),
+				('BUILDING_CURIOSITY',	'FLAVOR_GOLD',			10),
+				('BUILDING_CURIOSITY',	'FLAVOR_HAPPINESS',		70);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GREAT FIREWALL
+	UPDATE Buildings SET Cost = 2950 WHERE Type = 'BUILDING_GREAT_FIREWALL';
 	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_GREAT_FIREWALL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_GREAT_FIREWALL';
+	---------------------------------------------------------
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- GLOBAL POSITIONING SYSTEM (NEW)
+	UPDATE Buildings SET Cost = 2950, PrereqTech = 'TECH_INTERNET', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_GPS';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_GPS';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	SELECT		'BUILDING_GPS',		'RESOURCE_URANIUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'),
-				('BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE');*/
+	SELECT		'BUILDING_GPS',		'BUILDINGCLASS_BOMB_SHELTER'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+	UPDATE Buildings SET Espionage = 1, GlobalEspionageModifier = -20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,				Yield)
+	VALUES		('BUILDING_GPS',	'YIELD_PRODUCTION',		3),
+				('BUILDING_GPS',	'YIELD_GOLD',			2);
+	
+	INSERT INTO Building_YieldFromSpyAttack
+				(BuildingType,		YieldType,						Yield) 
+	VALUES		('BUILDING_GPS',	'YIELD_GREAT_GENERAL_POINTS',	25),
+				('BUILDING_GPS',	'YIELD_GREAT_ADMIRAL_POINTS',	25);
+
+	INSERT INTO Building_YieldFromSpyDefense
+				(BuildingType,		YieldType,				Yield) 
+	VALUES		('BUILDING_GPS',	'YIELD_PRODUCTION',		50),
+				('BUILDING_GPS',	'YIELD_GOLD',			50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_GPS',	'FLAVOR_PRODUCTION',	50),
+				('BUILDING_GPS',	'FLAVOR_GOLD',			50),
+				('BUILDING_GPS',	'FLAVOR_OFFENSE',		40),
+				('BUILDING_GPS',	'FLAVOR_DEFENSE',		30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- HUBBLE SPACE TELESCOPE
+	UPDATE Buildings SET Cost = 2950 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HUBBLE';
+	UPDATE Buildings SET PrereqTech = 'TECH_LASERS' WHERE Type = 'BUILDING_HUBBLE';
+	---------------------------------------------------------
+	INSERT INTO Building_LocalResourceOrs 
+				(BuildingType,		ResourceType) 
+	SELECT		'BUILDING_HUBBLE',	'RESOURCE_ALUMINUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Research Agreement(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CERN
 	UPDATE Buildings SET NumPoliciesNeeded = 29 WHERE Type = 'BUILDING_CERN';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_CERN_splash.dds' WHERE Type = 'BUILDING_CERN';
-
+	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	VALUES		('BUILDING_CERN',	'RESOURCE_URANIUM');
+	SELECT		'BUILDING_CERN',	'RESOURCE_URANIUM'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
-	/*INSERT INTO Building_ClassesNeededInCity 
+	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	VALUES		('BUILDING_CERN',	'BUILDINGCLASS_LABORATORY');*/
+	SELECT		'BUILDING_CERN',	'BUILDINGCLASS_LABORATORY'
+	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--============================================--
+-- EE Compatibility
+--============================================--
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_HIMEJI_CASTLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_CHICHEN_ITZA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_GLOBE_THEATER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_ST_PETERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 11 WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 11 WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 12 WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 12 WHERE Type = 'BUILDING_SISTINE_CHAPEL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 13 WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 13 WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 13 WHERE Type = 'BUILDING_UFFIZI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 13 WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 13 WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 15 WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 15 WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 15 WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_EIFFEL_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_AUTOBAHN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_SANBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_INTERSTATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_SISTINE_CHAPEL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_TAJ_MAHAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_PORCELAIN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1000 WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1000 WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1000 WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1000 WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1000 WHERE Type = 'BUILDING_UFFIZI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1150 WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1150 WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1150 WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1150 WHERE Type = 'BUILDING_MUSEUM_ISLAND' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_EIFFEL_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_BRANDENBURG_GATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_MONTE_CARLO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_BIG_BEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_LOUVRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_KEW_GARDENS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_AUTOBAHN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_KREMLIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1750 WHERE Type = 'BUILDING_EMPIRE_STATE_BUILDING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_SANBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_INTERSTATE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_CONCORDE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_BROADWAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1950 WHERE Type = 'BUILDING_PRORA_RESORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_VOSTOK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_MILESTII_MICI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_PENTAGON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2200 WHERE Type = 'BUILDING_SPUTNIK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_WHITE_SANDS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_MILLAU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_ARECIBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_BLETCHLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_THULE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_MOTHERLAND_STATUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2400 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_JUMEIRAH' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_TAIPEI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET PrereqTech = 'TECH_EE_SOVEREIGNTY' WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_ACOUSTICS' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_EE_EXPLORATION' WHERE Type = 'BUILDING_BAKKEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_EE_EXPLORATION' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_ECONOMICS' WHERE Type = 'BUILDING_HOUSE_OF_TRADE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_EE_FLINTLOCK' WHERE Type = 'BUILDING_PETERHOF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET PrereqTech = 'TECH_EE_MANUFACTURING' WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_GRASS', IsNoWater = 1/*, IsNoCoast = 1*/	WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT'		WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET Hill = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS', IsNoWater = 1/*, IsNoCoast = 1*/	WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Flat = 1																				WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_WAT_PHRA_KAEW' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Water = 1, MinAreaSize = 10															WHERE Type = 'BUILDING_EE_TORRE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10													WHERE Type = 'BUILDING_EE_KRONBORG' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET Hill = 1																				WHERE Type = 'BUILDING_EE_FASIL_GHEBBI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Building_ClassesNeededInCity 
+			(BuildingType,				BuildingClassType) 
+SELECT		'BUILDING_EE_TOPKAPI',		'BUILDINGCLASS_EE_MANOR'
+WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+			
+INSERT INTO Building_ClassesNeededInCity 
+			(BuildingType,				BuildingClassType) 
+SELECT		'BUILDING_EE_KRONBORG',		'BUILDINGCLASS_HARBOR'
+WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
@@ -2414,12 +3595,13 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 -- Hagia Sophia				- Orthodox/Islam	- Early Medieval
 -- Borobudur				- Buddhism			- Early Medieval
 -- Al Masjid an-Nabawi		- Islam				- Early Medieval
--- Cathedral of St. Basil	- Orthodox			- Late Medieval
+-- Rila Monastery			- Orthodox			- Late Medieval
 -- St Peter's Basilica		- Catholic			- Early Renaissance
 -- Meenakshi Temple			- Hindu				- Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1, MutuallyExclusiveGroup = 260 WHERE Type IN
-('BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_BOROBUDUR', 'BUILDING_KREMLIN', 'BUILDING_ST_PETERS', 'BUILDING_MEENAKSHI');
+('BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_BOROBUDUR', 'BUILDING_KARLSTEJN', 'BUILDING_ST_PETERS', 'BUILDING_MEENAKSHI');
+-- *Karlstejn is now Rila Monastery
 --============================================--
 -- POLICY FINISHERS
 --============================================--
@@ -2434,8 +3616,8 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 264, PolicyType = 'POLICY_PIETY_FI
 UPDATE Buildings SET MutuallyExclusiveGroup = 265, PolicyType = 'POLICY_PATRONAGE_FINISHER'		WHERE Type IN ('BUILDING_BIG_BEN', 				'BUILDING_KILWA_KISIWANI',		'BUILDING_OLD_BRIDGE');
 UPDATE Buildings SET MutuallyExclusiveGroup = 266, PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_LOUVRE', 				'BUILDING_MONTE_CARLO',			'BUILDING_MUSEUM_ISLAND');
 UPDATE Buildings SET MutuallyExclusiveGroup = 267, PolicyType = 'POLICY_COMMERCE_FINISHER' 		WHERE Type IN ('BUILDING_BROADWAY', 			'BUILDING_RUHR_VALLEY',			'BUILDING_BANFF');
-UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE', 	'BUILDING_PENTAGON'/*,			'BUILDING_THULE'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDENS'/*,				'BUILDING_ARECIBO'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 268, PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE', 	'BUILDING_PENTAGON',			'BUILDING_WHITE_SANDS');
+UPDATE Buildings SET MutuallyExclusiveGroup = 269, PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDENS',			'BUILDING_ARECIBO');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Falun Mine[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
@@ -2444,13 +3626,13 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEX
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Monte Carlo Cassino[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_CYAN]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Brandenburg Gate[ENDCOLOR] and [COLOR_RED]Thule Air Base[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Gardens[ENDCOLOR] and [COLOR_RED]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Brandenburg Gate[ENDCOLOR] and [COLOR_RED]White Sands Missile Range[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Gardens[ENDCOLOR] and [COLOR_CYAN]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
 --============================================--
 -- TRANSPORTATION WONDERS
 --============================================--
 UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
-('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY');
+('BUILDING_DARJEELING', 'BUILDING_SIBERIAN_RAILWAY', 'BUILDING_AUTOBAHN', 'BUILDING_INTERSTATE', 'BUILDING_CONCORDE');
 --============================================--
 -- IDEOLOGY WONDERS
 --============================================--
@@ -2458,44 +3640,92 @@ UPDATE Buildings SET MutuallyExclusiveGroup = 270 WHERE Type IN
 -- but you can build it in another city. To achieve true 'mutually exclusive' situation we need a dummy building that will be placed
 -- in all your cities and block the construction of the 2nd Wonder.
 ---------------------------------------------------------
-UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ'/*, 'BUILDING_HOLLYWOOD', 'BUILDING_JFK_SPACE_CENTER'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_MOTHERLAND_STATUE'/*, 'BUILDING_GREAT_HALL', 'BUILDING_SPUTNIK',   'BUILDING_KUMSUSAN'*/);
-UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT'/*, 'BUILDING_SANBO_HONBU', 'BUILDING_TEHRAN_NUCLEAR', 'BUILDING_ANITKABIR'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 271, PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD'/*, 'BUILDING_JFK_SPACE_CENTER'*/);
+UPDATE Buildings SET MutuallyExclusiveGroup = 272, PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_KREMLIN'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_REVOLUTIONARY_MUSEUM');
+UPDATE Buildings SET MutuallyExclusiveGroup = 273, PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
 --============================================--
 -- FREE ART HELP TEXTS
 --============================================--
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Contains a pre-built [ICON_GREAT_WORK] Great Work of Art. ', 'Starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]The Crown Jewels[ENDCOLOR].[NEWLINE][NEWLINE]') WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'comes with both a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_GREAT_WORK] Great Work', 'starts with [COLOR_CULTURE_STORED] [COLOR_MAGENTA]Flood Tablet[ENDCOLOR]') WHERE Tag ='TXT_KEY_BUILDING_ROYAL_LIBRARY_HELP';
 --============================================--
+-- FREE ART QUOTES
+--============================================--
+-- Man
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN'		WHERE Type = 'GREAT_WORK_THE_ARK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=0);
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_LANCE_MAN'				WHERE Type = 'GREAT_WORK_HOLY_LANCE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=0);
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_CROWN_MAN'				WHERE Type = 'GREAT_WORK_HOLY_CROWN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=0);
+-- Woman
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN'	WHERE Type = 'GREAT_WORK_THE_ARK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_LANCE_WOMAN'				WHERE Type = 'GREAT_WORK_HOLY_LANCE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
+UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN'				WHERE Type = 'GREAT_WORK_HOLY_CROWN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
+--============================================--
 -- Hide all INACTIVE Wonders - override any previous settings
 -- Warning! They will still be visible in Civilopedia!
 --============================================--
 UPDATE Buildings
-SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1
+SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1, IsDummy = 1
 WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 --============================================--
 -- VP FIXES
 --============================================--
--- additional combat classes for promotions
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-VALUES		('TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE',		'Great People'),
-			('TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS',		'Space Parts'),
-			('TXT_KEY_UNITCOMBAT_MISSILE',				'Missiles'),
-			('TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST',		'Archaeologists');
+-- deletion of unnecessary and annoying +1 Culture from most of base WWs:
+-- deletion with substitution
+-- ==> Production
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TERRACOTTA_ARMY';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_TERRACOTTA_ARMY', 'YIELD_PRODUCTION', 1);
+-- ==> Gold
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FORBIDDEN_PALACE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_FORBIDDEN_PALACE', 'YIELD_GOLD', 1);
+-- ==> Science
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STONEHENGE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STONEHENGE', 'YIELD_SCIENCE', 1);
+-- ==> Golden Age Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PYRAMID';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_PYRAMID', 'YIELD_GOLDEN_AGE_POINTS', 1);
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CHICHEN_ITZA';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 1);
+-- ==> Great General Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STATUE_ZEUS';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STATUE_ZEUS', 'YIELD_GREAT_GENERAL_POINTS', 1);
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_KREMLIN';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_KREMLIN', 'YIELD_GREAT_GENERAL_POINTS', 2);	
+-- ==> Great Admiral Points
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIGHTHOUSE';
+	INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_GREAT_LIGHTHOUSE', 'YIELD_GREAT_ADMIRAL_POINTS', 1);
 
-INSERT INTO UnitCombatInfos 
-			(Type,							Description) 
-VALUES		('UNITCOMBAT_SPECIAL_PEOPLE',	'TXT_KEY_UNITCOMBAT_SPECIAL_PEOPLE'),
-			('UNITCOMBAT_SPACESHIP_PARTS',	'TXT_KEY_UNITCOMBAT_SPACESHIP_PARTS'),
-			('UNITCOMBAT_MISSILE',			'TXT_KEY_UNITCOMBAT_MISSILE'),
-			('UNITCOMBAT_ARCHAEOLOGIST',	'TXT_KEY_UNITCOMBAT_ARCHAEOLOGIST');
-
-UPDATE Units SET CombatClass = 'UNITCOMBAT_ARCHAEOLOGIST'	WHERE Type ='UNIT_ARCHAEOLOGIST';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_SIEGE'			WHERE Type ='UNIT_ASSYRIAN_SIEGE_TOWER';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_SPECIAL_PEOPLE'	WHERE Special ='SPECIALUNIT_PEOPLE';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Special ='SPECIALUNIT_MISSILE';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_MISSILE'			WHERE Type ='UNIT_ATOMIC_BOMB';
-UPDATE Units SET CombatClass = 'UNITCOMBAT_SPACESHIP_PARTS' WHERE DefaultUnitAI ='UNITAI_SPACESHIP_PART';
+-- just deletion
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MACHU_PICHU';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIBRARY';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_COLOSSUS';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_WALL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HIMEJI_CASTLE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SUMMER_PALACE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SLATER_MILL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BRANDENBURG_GATE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BIG_BEN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PENTAGON';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CN_TOWER';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BLETCHLEY_PARK';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CERN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_FIREWALL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HUBBLE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_INTERNATIONAL_SPACE_STATION';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GRAND_CANAL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CRYSTAL_PALACE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_UN';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MOTHERLAND_STATUE';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PRORA_RESORT';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TWOKAY_FOODS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TRADER_SIDS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HEXXON_REFINERY_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GIORGIO_ARMEIER_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FIRAXITE_MATERIALS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
 --------------------------------------------------------------
 --------------------------------------------------------------

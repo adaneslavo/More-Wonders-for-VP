@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
 	<Language_en_US>
+		
+		
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_TITLE">
 			<Text>You found [COLOR_YIELD_GOLD]{1_Wonder}[ENDCOLOR] and gained [ICON_HAPPINESS_1] from the discovery!</Text>
 		</Row>
@@ -11,7 +13,10 @@
 			<Text>[NEWLINE][NEWLINE]Base yields:</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_PER_ERA">
-			<Text>[NEWLINE]Per era yields: </Text>
+			<Text>(Per Era yields: </Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_ADJACENT">
+			<Text>[NEWLINE]Adjacent Plot yields: </Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_YIELDS_RIVER">
 			<Text>[NEWLINE]River yields: </Text>
@@ -38,7 +43,7 @@
 			<Text>[NEWLINE][ICON_BULLET]damage to units: [COLOR_NEGATIVE_TEXT]-{1_Damage} HP[ENDCOLOR]/Turn</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_OTHER_ABILITIES_HEADER">
-			<Text>[NEWLINE][NEWLINE]Owner abilities (if inside city range):</Text>
+			<Text>[NEWLINE][NEWLINE]Owner abilities (if inside City borders):</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_MAP_ABILITIES_HEADER">
 			<Text>[NEWLINE][NEWLINE]Map abilities (affect map creation):</Text>
@@ -50,22 +55,53 @@
 			<Text>[NEWLINE][ICON_BULLET]is a source of [COLOR_POSITIVE_TEXT]Fresh Water[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_FREE_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]new[ENDCOLOR] units: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]new[ENDCOLOR] {1_Unit_types} units: {2_Promotion} ({3_Help})</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_NEAR_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]nearby[ENDCOLOR] units: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to [COLOR_POSITIVE_TEXT]nearby[ENDCOLOR] {1_Unit_types} units: {2_Promotion} ({3_Help})</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_LOCATION_PROMOTION">
-			<Text>[NEWLINE][ICON_BULLET]promotion granted to units [COLOR_POSITIVE_TEXT]on the tile[ENDCOLOR]: {1_Promotion} ({2_Help})</Text>
+			<Text>[NEWLINE][ICON_BULLET]promotion granted to {1_Unit_types} units [COLOR_POSITIVE_TEXT]on the tile[ENDCOLOR]: {2_Promotion} ({3_Help})</Text>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+
+		<!-- Unit types elligible for promotions (for text purpose) -->
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_EVERLASTING_YOUTH"> <!-- Fountain of Youth -->
+			<Text>[COLOR_YIELD_GOLD]Melee Military[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_SACRED_STEPS"> <!-- Sri Pada -->
+			<Text>[COLOR_YIELD_GOLD]Civilian[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_KAILASH">
+			<Text>[COLOR_YIELD_GOLD]Missionary[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_ULURU">
+			<Text>[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_ALTITUDE_TRAINING"> <!-- Kilimanjaro -->
+			<Text>[COLOR_YIELD_GOLD]Recon[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_SOLOMONS_MINES">
+			<Text>[COLOR_YIELD_GOLD]Worker[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_BERMUDA_TRIANGLE">
+			<Text>[COLOR_YIELD_GOLD]all[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_DALLOL">
+			<Text>[COLOR_YIELD_GOLD]Siege[ENDCOLOR]</Text>
+		</Row>		
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		
 		
 		
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_REEF">
-			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD] to all Fishing Boats[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH] to all Sea luxury resources</Text>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_NEW_REEF">
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD]/all Fishing Boats[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/all Sea luxury resources</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CRATER">
+<<<<<<< HEAD
 			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION] during construction of Spaceship Parts in the Empire</Text>
 =======
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_ULURU">
@@ -108,11 +144,15 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_FUJI">
 			<Text>[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_ARTIST] in Capital[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_WRITER] in Capital[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN] in Capital</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MESA">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+5 global [ICON_WAR] Military Supply Cap</Text>
@@ -131,6 +171,12 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD], +1 [ICON_RESEARCH]/all Scientists[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_SCIENTIST] in Capital</Text>
 >>>>>>> Stashed changes
+=======
+			<Text>[NEWLINE][ICON_BULLET]+1[ICON_WAR][ICON_WAR] Military Supply Cap</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
+			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_RESEARCH][ICON_RESEARCH][NEWLINE][ICON_BULLET]-10% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Needs Modifier</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_GIBRALTAR">
 			<Text>[NEWLINE][ICON_BULLET]+10% [ICON_STRENGTH][ICON_STRENGTH][NEWLINE][ICON_BULLET]+1 [ICON_DIPLOMAT] League Vote</Text>
@@ -151,6 +197,7 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_SINAI">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all [ICON_GREAT_WORK] Great Works[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all Holy Sites</Text>
@@ -160,6 +207,9 @@
 =======
 			<Text>[NEWLINE][ICON_BULLET]grants 50 [ICON_PEACE] every time you gain possesion of this Natural Wonder[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
 >>>>>>> Stashed changes
+=======
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_KAILASH">
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_PEACE]/all Monuments and Temples</Text>
@@ -174,26 +224,31 @@
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_CULTURE]/[ICON_RES_IVORY][ICON_RES_IVORY]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SOLOMONS_MINES">
-			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_GOLDEN_AGE] to all Mines</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_GOLDEN_AGE]/all Mines</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_A">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_FOOD] per Tile</Text>
+=======
+			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_FOOD] (stacking)</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_B">
-			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD] per Tile</Text>
+			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD] (stacking)</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_A">
-			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM] from Landmarks</Text>
+			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM]/all Landmarks</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_B">
-			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM] from Landmarks</Text>
+			<Text>[NEWLINE][ICON_BULLET]+25% global [ICON_TOURISM]/all Landmarks</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_EVEREST">
-			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_TOURISM]</Text>
+			<Text>[NEWLINE][ICON_BULLET]+10% [ICON_TOURISM][ICON_TOURISM]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
+<<<<<<< HEAD
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD]</Text>
 =======
 =======
@@ -218,28 +273,47 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD]</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_B">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_C">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+2[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
+=======
+			<Text>[NEWLINE][ICON_BULLET]+1[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
-			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SYLVITE][NEWLINE][ICON_BULLET]-1 global [ICON_HAPPINESS_3] Boredom</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SYLVITE][NEWLINE][ICON_BULLET]-5% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_PAEKTU">
+			<Text>[NEWLINE][ICON_BULLET]first owner gets unique building in the City nearby: [COLOR_YIELD_FOOD]Altar of the Born under the Mountain[ENDCOLOR] with unique [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR], and other bonuses[NEWLINE][NEWLINE]Map abilities (affect map creation):[NEWLINE][ICON_BULLET]is a source of [COLOR_POSITIVE_TEXT]three new Rivers[ENDCOLOR] on the map</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_A">
+			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+5[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+10 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_B">
+			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+5[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+10 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_C">
+			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+5[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+10 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
 		</Row>
 		
 		
 		
-		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_REEF">
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_NEW_REEF">
 			<Text>"Organisms don't think of CO2 as a poison. Plants and organisms that make shells, coral, think of it as a building block."[NEWLINE] - Janine Benyus[NEWLINE]</Text>
 =======
 =======
@@ -465,10 +539,15 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_DALLOL">
 			<Text>"Welcome to Dallol, Ethiopia, where the air is toxic, the ground spits acid, and there is no fresh water!"[NEWLINE] - National Geographic TV[NEWLINE]</Text>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_MT_PAEKTU">
 			<Text>"We will go on spring days, we will go on winter, Mount Paektu, Paektu, home of my heart."[NEWLINE] - "We will go to Mount Paektu", North Korean anthem[NEWLINE][NEWLINE]"Until the East Sea's waves are dry, Mount Baekdu worn away, God watch o'er our land forever, our Korea manse."[NEWLINE] - "Aegugka", South Korean anthem[NEWLINE]</Text>
+=======
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_MT_PAEKTU">
+			<Text>"We will go on spring days, we will go on winter, Mount Paektu, Paektu, home of my heart."[NEWLINE] - "We will go to Mount Paektu", North Korean anthem[NEWLINE][NEWLINE]"Until the East Sea's waves are dry, Mt. Baekdu worn away, God watch o'er our land forever, our Korea manse."[NEWLINE] - "Aegugka", South Korean anthem[NEWLINE]</Text>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_EYE_OF_SAHARA_A">
 			<Text>"Oddly, it appears not to be the scar of a meteorite but a deeply eroded dome, with a rainbow-inspired color scheme."[NEWLINE] - Chris Hadfield[NEWLINE]</Text>
@@ -479,6 +558,9 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_EYE_OF_SAHARA_C">
 			<Text>"Oddly, it appears not to be the scar of a meteorite but a deeply eroded dome, with a rainbow-inspired color scheme."[NEWLINE] - Chris Hadfield[NEWLINE]</Text>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</Language_en_US>
 </GameData>

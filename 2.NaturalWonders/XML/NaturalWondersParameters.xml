@@ -17,12 +17,16 @@
 			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
 =======
 >>>>>>> Stashed changes
 			<ResourceType>ART_DEF_FEATURE_NEW_REEF_A</ResourceType>
+=======
+			<ResourceType>ART_DEF_FEATURE_NEW_REEF</ResourceType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Model>NEW_REEF.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
@@ -32,6 +36,7 @@
 			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
+<<<<<<< HEAD
 			<ResourceType>ART_DEF_FEATURE_NEW_REEF_B</ResourceType>
 			<Model>NEW_REEF.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
@@ -59,6 +64,8 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<ResourceType>ART_DEF_FEATURE_SALAR_A</ResourceType>
 			<Model>feature_salar.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
@@ -181,6 +188,7 @@
 			<Model>feature_dallol.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -189,6 +197,8 @@
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
@@ -199,9 +209,12 @@
 			<Model>MT_PAEKTU_GRASS.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+<<<<<<< HEAD
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
@@ -232,11 +245,15 @@
 			<Model>feature_eye_of_sahara_c.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</ArtDefine_Landmarks>
 
 	<ArtDefine_LandmarkTypes>
 		<Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -261,6 +278,13 @@
 		
 		<Row>
 >>>>>>> Stashed changes
+=======
+			<Type>ART_DEF_FEATURE_NEW_REEF</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Great Barrier Reef</FriendlyName>
+		</Row>
+		<Row>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Type>ART_DEF_FEATURE_SALAR_A</Type>
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Salar de Uyuni (B)</FriendlyName>
@@ -333,6 +357,7 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Dallol</FriendlyName>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -341,14 +366,19 @@
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Type>ART_DEF_FEATURE_MT_PAEKTU</Type>
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Mt. Paektu</FriendlyName>
 		</Row>
+<<<<<<< HEAD
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Type>ART_DEF_FEATURE_EYE_OF_SAHARA_A</Type>
 			<LandmarkType>Resource</LandmarkType>
@@ -364,21 +394,29 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Eye of the Sahara C</FriendlyName>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
 		<Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
 =======
 >>>>>>> Stashed changes
 			<StrategicViewType>ART_DEF_FEATURE_NEW_REEF_A</StrategicViewType>
+=======
+			<StrategicViewType>ART_DEF_FEATURE_NEW_REEF</StrategicViewType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<TileType>Feature</TileType>
 			<Asset>SV_CoralReef.dds</Asset>
 		</Row>
 		<Row>
+<<<<<<< HEAD
 			<StrategicViewType>ART_DEF_FEATURE_NEW_REEF_B</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>SV_CoralReef.dds</Asset>
@@ -393,14 +431,16 @@
 		
 		<Row>
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<StrategicViewType>ART_DEF_FEATURE_SALAR_A</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Salar.dds</Asset>
+			<Asset>sv_Salar_B.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_SALAR_B</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Salar.dds</Asset>
+			<Asset>sv_Salar_S.dds</Asset>
 		</Row>
 		
 		
@@ -408,12 +448,12 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY_A</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Causeway.dds</Asset>
+			<Asset>sv_Causeway_C.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_CAUSEWAY_B</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Causeway.dds</Asset>
+			<Asset>sv_Causeway_T.dds</Asset>
 		</Row>
 		
 		
@@ -421,7 +461,8 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_MT_EVEREST</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Mt_Everest.dds</Asset>
+			<!--<Asset>sv_Everest.dds</Asset>-->
+			<Asset>sv_Matterhorn.dds</Asset>
 		</Row>
 		
 		
@@ -465,6 +506,7 @@
 			<TileType>Feature</TileType>
 			<Asset>sv_Dallol.dds</Asset>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -473,14 +515,19 @@
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_MT_PAEKTU</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Paektu.dds</Asset>
 		</Row>
+<<<<<<< HEAD
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_EYE_OF_SAHARA_A</StrategicViewType>
 			<TileType>Feature</TileType>
@@ -496,12 +543,16 @@
 			<TileType>Feature</TileType>
 			<Asset>sv_Sahara_Eye.dds</Asset>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</ArtDefine_StrategicView>
 	
 	<Features>
 		<Update>
 			<Where Type="FEATURE_CRATER"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="false" Movement="2" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
@@ -511,6 +562,9 @@
 =======
 			<Set Help="TXT_KEY_CIV5_FEATURES_CRATER_HELP" InBorderHappiness="0" Impassable="false" Movement="3" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
 >>>>>>> Stashed changes
+=======
+			<Set InBorderHappiness="2" Impassable="false" Movement="3" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_EL_DORADO"/>
@@ -522,6 +576,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_FUJI"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
@@ -531,6 +586,9 @@
 =======
 			<Set Help="TXT_KEY_CIV5_FEATURES_FUJI_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 >>>>>>> Stashed changes
+=======
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GEYSER"/>
@@ -538,6 +596,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_GIBRALTAR"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="false" Movement="2" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
@@ -557,6 +616,13 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+			<Set InBorderHappiness="2" Impassable="false" Movement="3" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+		</Update>
+		<Update>
+			<Where Type="FEATURE_KILIMANJARO"/>
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_LAKE_VICTORIA"/>
@@ -568,16 +634,21 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_MT_KAILASH"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" FreePromotionIfOwned="PROMOTION_KAILASH"/>
+=======
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" FreePromotionIfOwned="PROMOTION_KAILASH"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_MT_SINAI"/>
-			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_POTOSI"/>
+<<<<<<< HEAD
 			<Set InBorderHappiness="0" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
 		<Update>
@@ -599,6 +670,9 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+			<Set InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_SOLOMONS_MINES"/>
@@ -606,19 +680,24 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_SRI_PADA"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+=======
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Update>
 		<Update>
 			<Where Type="FEATURE_ULURU"/>
-			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="0" FreePromotionIfOwned="PROMOTION_ULURU"/>
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="0" FreePromotionIfOwned="PROMOTION_ULURU"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_VOLCANO"/>
-			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+			<Set InBorderHappiness="2" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Stashed changes
@@ -640,6 +719,14 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_NEW_REEF_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_NEW_REEF_A</ArtDefineTag>
+=======
+		<!--<Delete Type="FEATURE_REEF"/>-->
+		<Row>
+			<Type>FEATURE_NEW_REEF</Type>
+			<Description>TXT_KEY_FEATURE_REEF</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_NEW_REEF</ArtDefineTag>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Movement>0</Movement>
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
@@ -651,6 +738,7 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>1</PortraitIndex>
+<<<<<<< HEAD
 			<InBorderHappiness>0</InBorderHappiness>
 			<TurnDamage>0</TurnDamage>
 			<IconAtlas>NW_ATLAS</IconAtlas>
@@ -704,6 +792,12 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+			<InBorderHappiness>1</InBorderHappiness>
+			<TurnDamage>0</TurnDamage>
+			<IconAtlas>NW_ATLAS</IconAtlas>
+		</Row>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Type>FEATURE_SALAR_A</Type>
 			<Description>TXT_KEY_FEATURE_SALAR_A</Description>
@@ -714,6 +808,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -734,6 +829,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -753,10 +849,11 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_A_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_CAUSEWAY_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_A</ArtDefineTag>
-			<Movement>5</Movement>
+			<Movement>0</Movement>
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -773,10 +870,11 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_CAUSEWAY_B_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_CAUSEWAY_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_CAUSEWAY_B</ArtDefineTag>
-			<Movement>5</Movement>
+			<Movement>0</Movement>
 			<SeeThrough>1</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -796,10 +894,11 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_MT_EVEREST_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_MT_EVEREST_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_MT_EVEREST</ArtDefineTag>
-			<Movement>5</Movement>
+			<Movement>0</Movement>
 			<SeeThrough>3</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -823,6 +922,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -845,6 +945,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -867,6 +968,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -889,6 +991,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -914,6 +1017,7 @@
 			<SeeThrough>0</SeeThrough>
 			<Impassable>false</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -933,10 +1037,11 @@
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_DALLOL_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_DALLOL_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_DALLOL</ArtDefineTag>
-			<Movement>5</Movement>
+			<Movement>0</Movement>
 			<SeeThrough>0</SeeThrough>
 			<Impassable>true</Impassable>
 			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>true</NoImprovement>
@@ -947,6 +1052,7 @@
 			<FreePromotionIfOwned>PROMOTION_DALLOL</FreePromotionIfOwned>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -955,11 +1061,16 @@
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Type>FEATURE_MT_PAEKTU</Type>
 			<Description>TXT_KEY_FEATURE_MT_PAEKTU</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_MT_PAEKTU_TEXT</Civilopedia>
+<<<<<<< HEAD
 			<Help>TXT_KEY_CIV5_FEATURES_MT_PAEKTU_HELP</Help>
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<ArtDefineTag>ART_DEF_FEATURE_MT_PAEKTU</ArtDefineTag>
 			<Movement>0</Movement>
 			<SeeThrough>2</SeeThrough>
@@ -972,17 +1083,26 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>8</PortraitIndex>
+<<<<<<< HEAD
 			<InBorderHappiness>0</InBorderHappiness>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 		
 		
 		
+=======
+			<InBorderHappiness>2</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<Type>FEATURE_EYE_OF_SAHARA_A</Type>
 			<Description>TXT_KEY_FEATURE_EYE_OF_SAHARA</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT</Civilopedia>
+<<<<<<< HEAD
 			<Help>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP</Help>
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<ArtDefineTag>ART_DEF_FEATURE_EYE_OF_SAHARA_A</ArtDefineTag>
 			<Movement>2</Movement>
 			<SeeThrough>1</SeeThrough>
@@ -995,7 +1115,11 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>4</PortraitIndex>
+<<<<<<< HEAD
 			<InBorderHappiness>0</InBorderHappiness>
+=======
+			<InBorderHappiness>1</InBorderHappiness>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Defense>20</Defense>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -1003,7 +1127,10 @@
 			<Type>FEATURE_EYE_OF_SAHARA_B</Type>
 			<Description>TXT_KEY_FEATURE_EYE_OF_SAHARA</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT</Civilopedia>
+<<<<<<< HEAD
 			<Help>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP</Help>
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<ArtDefineTag>ART_DEF_FEATURE_EYE_OF_SAHARA_B</ArtDefineTag>
 			<Movement>2</Movement>
 			<SeeThrough>1</SeeThrough>
@@ -1016,7 +1143,11 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>4</PortraitIndex>
+<<<<<<< HEAD
 			<InBorderHappiness>0</InBorderHappiness>
+=======
+			<InBorderHappiness>1</InBorderHappiness>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Defense>20</Defense>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -1024,7 +1155,10 @@
 			<Type>FEATURE_EYE_OF_SAHARA_C</Type>
 			<Description>TXT_KEY_FEATURE_EYE_OF_SAHARA</Description>
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT</Civilopedia>
+<<<<<<< HEAD
 			<Help>TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP</Help>
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<ArtDefineTag>ART_DEF_FEATURE_EYE_OF_SAHARA_C</ArtDefineTag>
 			<Movement>2</Movement>
 			<SeeThrough>1</SeeThrough>
@@ -1037,11 +1171,18 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>4</PortraitIndex>
+<<<<<<< HEAD
 			<InBorderHappiness>0</InBorderHappiness>
 			<Defense>20</Defense>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 >>>>>>> Stashed changes
+=======
+			<InBorderHappiness>1</InBorderHappiness>
+			<Defense>20</Defense>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</Features>
 
 	<Feature_YieldChanges>
@@ -1270,6 +1411,7 @@
 		
 		
 		<Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
@@ -1279,10 +1421,14 @@
 =======
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 >>>>>>> Stashed changes
+=======
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
@@ -1292,13 +1438,20 @@
 =======
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 >>>>>>> Stashed changes
+=======
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
+=======
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<YieldType>YIELD_TOURISM</YieldType>
 =======
 			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
@@ -1594,7 +1747,7 @@
 		<Row>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
-			<Yield>4</Yield>
+			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_DALLOL</FeatureType>
@@ -1606,11 +1759,15 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>2</Yield>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
 		
 		
+=======
+
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -1619,7 +1776,11 @@
 		<Row>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+<<<<<<< HEAD
 			<Yield>2</Yield>
+=======
+			<Yield>3</Yield>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
@@ -1632,11 +1793,22 @@
 			<Yield>1</Yield>
 		</Row>
 
+<<<<<<< HEAD
 		
 		
 		<Row>
 			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
+=======
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -1647,6 +1819,14 @@
 		<Row>
 			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
+<<<<<<< HEAD
+=======
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -1657,6 +1837,14 @@
 		<Row>
 			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
+<<<<<<< HEAD
+=======
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -1664,7 +1852,10 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</Feature_YieldChanges>
 
 	<Feature_EraYieldChanges>
@@ -1741,6 +1932,11 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>
+		<Row>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 		
 		
@@ -1870,6 +2066,7 @@
 		
 		
 		<Row>
+<<<<<<< HEAD
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
@@ -1895,6 +2092,9 @@
 		<Row>
 			<FeatureType>FEATURE_NEW_REEF_C</FeatureType>
 >>>>>>> Stashed changes
+=======
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
@@ -2071,9 +2271,695 @@
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+		
+		<Row>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</Feature_EraYieldChanges>
-			
+
+	<Plot_AdjacentFeatureYieldChanges>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-2</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+	</Plot_AdjacentFeatureYieldChanges>
+
+	<Improvement_ValidFeatures>
+		<Delete FeatureType="FEATURE_REEF"/>
+	</Improvement_ValidFeatures>
+
+	<Belief_YieldChangeNaturalWonder>
+		<Delete BeliefType="BELIEF_ONE_WITH_NATURE"/>
+	</Belief_YieldChangeNaturalWonder>
+
+	<Belief_FeatureYieldChanges>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CRATER</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CRATER</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EL_DORADO</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EL_DORADO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MESA</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MESA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_SINAI</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_SINAI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_POTOSI</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_POTOSI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_NEW_REEF</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_C</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Belief_FeatureYieldChanges>
+	
 	<Language_en_US>
 		<Row Tag="TXT_KEY_FEATURE_SALAR_A">
 			<Text>Salar de Uyuni (big)</Text>
@@ -2968,12 +3854,15 @@
 		<Row Tag="TXT_KEY_CIV5_FEATURES_DALLOL_TEXT">
 			<Text>TODO</Text>
 		</Row>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 		
 		
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		
 		<Row Tag="TXT_KEY_FEATURE_MT_PAEKTU">
 			<Text>Mt. Paektu</Text>
@@ -2983,8 +3872,11 @@
 			<Text>TODO</Text>
 		</Row>
 
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<Row Tag="TXT_KEY_FEATURE_EYE_OF_SAHARA">
 			<Text>Eye of the Sahara</Text>
 			<Gender>neuter:no_article</Gender>
@@ -2992,7 +3884,10 @@
 		<Row Tag="TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT">
 			<Text>TODO</Text>
 		</Row>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	</Language_en_US>
 
 	<IconTextureAtlases>
@@ -3001,35 +3896,35 @@
 			<IconSize>256</IconSize>
 			<Filename>More_Natural_Wonders_256.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>1</IconsPerColumn>
+			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>128</IconSize>
 			<Filename>More_Natural_Wonders_128.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>1</IconsPerColumn>
+			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>80</IconSize>
 			<Filename>More_Natural_Wonders_80.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>1</IconsPerColumn>
+			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>64</IconSize>
 			<Filename>More_Natural_Wonders_64.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>1</IconsPerColumn>
+			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>45</IconSize>
 			<Filename>More_Natural_Wonders_45.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>1</IconsPerColumn>
+			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
 	</IconTextureAtlases>
 </GameData>

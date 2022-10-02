@@ -1,9 +1,0 @@
--- ImportantNotes
--- Author: Adam
--- DateCreated: 6/21/2020 12:31:16 PM
---------------------------------------------------------------
-"AssignStartingPlots.lua" in 
-- "43-civ" folder is a file for 43-civ version of Vox Populi.
-- "EvenMoreResources" folder is a file compatible with Even More Resources for Vox Populi mod.
-
- If you play such, please copy/paste this file into 2.NaturalWonders/DefaultFiles and substitute existing file.
