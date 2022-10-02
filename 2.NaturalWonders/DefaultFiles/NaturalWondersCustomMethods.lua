@@ -20,6 +20,14 @@
 --		*
 --		* Bermuda Triangle (12):	set between 3-4 tiles of land on 3 corners separated by water;
 --		* Dallol (13):				has only tile changes method; all tiles around are clered from features;
+<<<<<<< Updated upstream
+=======
+--		* Bioluminescent Bay (14):	surrounded by jungle and grassland;
+--		* Mt. Paektu (15):			has only tile changes method; changes core tile to flat and tundra, creates 3 new rivers;
+--		* Uluru (16):				has only tile changes method; makes surrounding flat;
+--		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
+--		* Old Faithful (18):		changes core tile to hill;
+>>>>>>> Stashed changes
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -471,7 +479,50 @@ function NWCustomEligibility(x, y, method_number)
 		print("match!")
 		return true
 	elseif method_number == 13 then
+<<<<<<< Updated upstream
 		-- reserved for Dallol
+=======
+		-- reserved: Dallol
+	elseif method_number == 14 then
+		-- BIOLUMINESCENT BAY
+		local pPlot = Map.GetPlot(x, y)
+		
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		if pPlot:GetTerrainType() ~= eTerrainCoast then return false end
+		
+		local iNumCoast, iNumJungle, iNumGrass = 0, 0, 0
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+			
+			if sAdjacentPlotType ~= ePlotOcean then
+				if sAdjacentFeatureType == eFeatureJungle then
+					iNumJungle = iNumJungle + 1
+				end
+			else
+				iNumCoast = iNumCoast + 1
+			end
+		end
+		
+		if iNumCoast < 1 or iNumCoast > 2 or iNumJungle < 2 then return false end
+		
+		return true
+	elseif method_number == 15 then
+		-- reserved: Mt. Paektu
+	elseif method_number == 16 then
+		-- reserved: Uluru
+	elseif method_number == 17 then
+		-- reserved: Barringer
+	elseif method_number == 18 then
+		-- reserved: Old Faithful
+>>>>>>> Stashed changes
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -579,7 +630,21 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pDistantPlot:SetTerrainType(eTerrainCoast, false, false)
 					end
 
+<<<<<<< Updated upstream
 					pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_REEF)
+=======
+					if pDistantPlot:GetFeatureType() == eFeatureNo and pDistantPlot:GetResourceType() == -1 then
+						table.insert(tPossibleFeaturesOrResources, pDistantPlot)
+					else
+						iNumFeaturesOrResources = iNumFeaturesOrResources + 1
+					end
+
+					if i == iMainDirectionA then
+						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_B)
+					elseif i == iMainDirectionB then
+						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_C)
+					end
+>>>>>>> Stashed changes
 				end
 			end
 		end
@@ -672,13 +737,44 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local tPossibleSpots = {}
 		local pAdjacentPlot
 
+<<<<<<< Updated upstream
 		for i, direction in ipairs(tDirectionTypes) do
 			pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotFlat and not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then	
 				table.insert(tPossibleSpots, pAdjacentPlot)
+=======
+		-- 4 loops to check the hardest condition first
+		for j = 1, 4 do
+			for i, direction in ipairs(tDirectionTypes) do
+				pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+				if j == 1 then
+					if not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then
+						table.insert(tPossibleSpots, pAdjacentPlot)
+					end
+				elseif j == 2 then
+					if not pAdjacentPlot:IsAdjacentToShallowWater() then	
+						table.insert(tPossibleSpots, pAdjacentPlot)
+					end
+				elseif j == 3 then
+					if not pAdjacentPlot:IsRiver() then	
+						table.insert(tPossibleSpots, pAdjacentPlot)
+					end
+				elseif j == 4 then
+					table.insert(tPossibleSpots, pAdjacentPlot)
+				end		
+>>>>>>> Stashed changes
 			end
+			print("Possible spots for Salar", "iteration #", j, "Spots:", #tPossibleSpots)
+			if #tPossibleSpots > 0 then break end
 		end
+<<<<<<< Updated upstream
+=======
+		
+		-- choosing plot for SALAR
+		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
+>>>>>>> Stashed changes
 
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
 			
@@ -815,6 +911,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 			pAdjacentPlot:SetFeatureType(eFeatureNo)
 		end
+	elseif method_number == 18 then
+		-- OLD FAITHFUL
+		local pPlot = Map.GetPlot(x, y)
+		
+		pPlot:SetPlotType(ePlotHill, false, false)
 	end
 end
 ------------------------------------------------------------------------------

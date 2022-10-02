@@ -27,9 +27,9 @@ function OnPopup( popupInfo )
 	local sFeatureCondition = "FeatureType = '" .. pFeature.Type .. "'"
 	
 	local sTitle = L("TXT_KEY_MORE_NATURAL_WONDERS_TITLE", pFeature.Description)			
-	local sYield = L("TXT_KEY_MORE_NATURAL_WONDERS_HAPPINESS", pFeature.InBorderHappiness)
+	--local sYield = L("TXT_KEY_MORE_NATURAL_WONDERS_HAPPINESS", pFeature.InBorderHappiness)
 	
-	sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_YIELDS")
+	sYield = L("TXT_KEY_MORE_NATURAL_WONDERS_YIELDS")
 
 	for row in GameInfo.Feature_YieldChanges(sFeatureCondition) do
 	    if row.Yield > 0 then
@@ -116,7 +116,17 @@ function OnPopup( popupInfo )
 	if sExtendedWonderInfo ~= "" then
 		sYield = sYield .. sExtendedWonderInfo
 	end
-	
+
+
+
+	local sExtendedWonderMapInfo = L("TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_" .. pFeature.Type)
+
+	if sExtendedWonderMapInfo ~= "" then
+		sYield = sYield .. L("TXT_KEY_MORE_NATURAL_WONDERS_MAP_ABILITIES_HEADER")
+		sYield = sYield .. sExtendedWonderMapInfo
+	end
+
+
 	Controls.TitleLabel:SetText(sTitle)	
 	Controls.DescriptionLabel:SetText(sYield)	
 

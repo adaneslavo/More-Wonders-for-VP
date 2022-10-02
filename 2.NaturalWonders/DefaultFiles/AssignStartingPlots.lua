@@ -6263,12 +6263,20 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			-- MOD.Barathor: Fixed: Added a check for the Great Barrier Reef being placed.  If so, it appropriately applies impact values to its second tile to avoid buggy collisions with water resources.
 			-- MOD.Barathor: Start
 			-- MOD.adan_eslavo: adaptation to 3-tile GBR (now tiles around center blocked);
+<<<<<<< Updated upstream
 			if (self.wonder_list[wonder_number] == "FEATURE_REEF") then
+=======
+			if (self.wonder_list[wonder_number] == "FEATURE_NEW_REEF_A") then
+>>>>>>> Stashed changes
 				--print("Great Barrier Reef placed... applying impact values to its southeast tile as well.")
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pBarrierPlot = Map.PlotDirection(x, y, i)
 					
+<<<<<<< Updated upstream
 					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_REEF then	
+=======
+					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_B or pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_C then	
+>>>>>>> Stashed changes
 						local iBarrierX = pBarrierPlot:GetX()
 						local iBarrierY = pBarrierPlot:GetY()
 					

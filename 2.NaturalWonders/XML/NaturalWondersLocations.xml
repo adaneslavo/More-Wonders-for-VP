@@ -315,7 +315,14 @@
 		<!-- Old Faithful -->
 		<Row>
 			<NaturalWonderType>FEATURE_GEYSER</NaturalWonderType>
+<<<<<<< Updated upstream
 			<OccurrenceFrequency>70</OccurrenceFrequency>
+=======
+			<OccurrenceFrequency>50</OccurrenceFrequency>
+
+			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
+			<TileChangesMethodNumber>18</TileChangesMethodNumber>
+>>>>>>> Stashed changes
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -1474,8 +1481,16 @@
 
 		<!-- Great Barrier Reef -->
 		<Row>
+<<<<<<< Updated upstream
 			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
 			<OccurrenceFrequency>20</OccurrenceFrequency>
+=======
+			<NaturalWonderType>FEATURE_NEW_REEF_A</NaturalWonderType>
+			<OccurrenceFrequency>50</OccurrenceFrequency>
+
+			<EligibilityMethodNumber>1</EligibilityMethodNumber>
+			<TileChangesMethodNumber>1</TileChangesMethodNumber>
+>>>>>>> Stashed changes
 
 			<LandBased>false</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -1616,6 +1631,25 @@
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
+<<<<<<< Updated upstream
+=======
+		<Row>
+			<NaturalWonderType>FEATURE_NEW_REEF_B</NaturalWonderType>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
+		</Row>
+		<Row>
+			<NaturalWonderType>FEATURE_NEW_REEF_C</NaturalWonderType>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
+		</Row>
+		<!-- Old Great Barrier Reef -->
+		<Row>
+			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
+		</Row>
+>>>>>>> Stashed changes
 
 		<!-- Sri Pada -->
 		<Row>

@@ -20,7 +20,7 @@
 					<Label Anchor="C,C" Offset="0,0" Font="TwCenMT20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_POP_NATURAL_WONDER_FOUND" ID="TitleLabel" />
 				</Box>
 
-				<Label Anchor="L,T" Offset="0,20" WrapWidth="650" Font="TwCenMT18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_POP_NATURAL_WONDER_FOUND" ID="DescriptionLabel" />
+				<Label Anchor="L,T" Offset="0,-25" WrapWidth="650" Font="TwCenMT18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_POP_NATURAL_WONDER_FOUND" ID="DescriptionLabel" />
 			</Stack>
 		</Box>
 
