@@ -5852,7 +5852,7 @@ function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x,
 	end
 	
 	-- adan_eslavo, start (empty tile bugfix)
-	for i, direction in ipairs direction_types do
+	for i, direction in ipairs(direction_types) do
 		if Map.PlotDirection(x, y, direction) == nil then
 			return false
 		end
