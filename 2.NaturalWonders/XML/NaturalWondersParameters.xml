@@ -18,7 +18,10 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 			<ResourceType>ART_DEF_FEATURE_NEW_REEF_A</ResourceType>
 			<Model>NEW_REEF.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
@@ -52,6 +55,9 @@
 			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 			<ResourceType>ART_DEF_FEATURE_SALAR_A</ResourceType>
 			<Model>feature_salar.fxsxml</Model>
@@ -176,7 +182,10 @@
 			<TerrainContour>1</TerrainContour>
 		</Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		
 		
 		
@@ -229,7 +238,10 @@
 	<ArtDefine_LandmarkTypes>
 		<Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 			<Type>ART_DEF_FEATURE_NEW_REEF_A</Type>
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Great Barrier Reef A</FriendlyName>
@@ -322,7 +334,10 @@
 			<FriendlyName>Dallol</FriendlyName>
 		</Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		
 		
 		
@@ -355,7 +370,10 @@
 	<ArtDefine_StrategicView>
 		<Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 			<StrategicViewType>ART_DEF_FEATURE_NEW_REEF_A</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>SV_CoralReef.dds</Asset>
@@ -448,7 +466,10 @@
 			<Asset>sv_Dallol.dds</Asset>
 		</Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		
 		
 		
@@ -482,7 +503,11 @@
 		<Update>
 			<Where Type="FEATURE_CRATER"/>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="false" Movement="2" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
+=======
+			<Set Help="TXT_KEY_CIV5_FEATURES_CRATER_HELP" InBorderHappiness="0" Impassable="false" Movement="3" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
+>>>>>>> Stashed changes
 =======
 			<Set Help="TXT_KEY_CIV5_FEATURES_CRATER_HELP" InBorderHappiness="0" Impassable="false" Movement="3" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10"/>
 >>>>>>> Stashed changes
@@ -498,7 +523,11 @@
 		<Update>
 			<Where Type="FEATURE_FUJI"/>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+=======
+			<Set Help="TXT_KEY_CIV5_FEATURES_FUJI_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+>>>>>>> Stashed changes
 =======
 			<Set Help="TXT_KEY_CIV5_FEATURES_FUJI_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 >>>>>>> Stashed changes
@@ -510,17 +539,23 @@
 		<Update>
 			<Where Type="FEATURE_GIBRALTAR"/>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="false" Movement="2" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_KILIMANJARO"/>
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 =======
+=======
+>>>>>>> Stashed changes
 			<Set Help="TXT_KEY_CIV5_FEATURES_GIBRALTAR_HELP" InBorderHappiness="0" Impassable="false" Movement="3" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="20"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_KILIMANJARO"/>
 			<Set Help="TXT_KEY_CIV5_FEATURES_KILIMANJARO_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		</Update>
 		<Update>
@@ -533,6 +568,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_MT_KAILASH"/>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" FreePromotionIfOwned="PROMOTION_KAILASH"/>
 		</Update>
@@ -548,6 +584,8 @@
 			<Where Type="FEATURE_REEF"/>
 			<Set InBorderHappiness="1" Impassable="true" Movement="5" SeeThrough="0" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="0" />
 =======
+=======
+>>>>>>> Stashed changes
 			<Set Help="TXT_KEY_CIV5_FEATURES_MT_KAILASH_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" FreePromotionIfOwned="PROMOTION_KAILASH"/>
 		</Update>
 		<Update>
@@ -557,6 +595,9 @@
 		<Update>
 			<Where Type="FEATURE_POTOSI"/>
 			<Set Help="TXT_KEY_CIV5_FEATURES_POTOSI_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		</Update>
 		<Update>
@@ -565,6 +606,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_SRI_PADA"/>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<Set InBorderHappiness="2" Impassable="true" Movement="5" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
@@ -578,6 +620,8 @@
 		</Update>
 
 =======
+=======
+>>>>>>> Stashed changes
 			<Set Help="TXT_KEY_CIV5_FEATURES_SRI_PADA_HELP" InBorderHappiness="0" Impassable="true" Movement="0" SeeThrough="2" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false"/>
 		</Update>
 		<Update>
@@ -656,6 +700,9 @@
 		
 		
 		
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		<Row>
 			<Type>FEATURE_SALAR_A</Type>
@@ -901,7 +948,10 @@
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		
 		
 		
@@ -1221,7 +1271,11 @@
 		
 		<Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
+=======
+			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
+>>>>>>> Stashed changes
 =======
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 >>>>>>> Stashed changes
@@ -1230,7 +1284,11 @@
 		</Row>
 		<Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
+=======
+			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
+>>>>>>> Stashed changes
 =======
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 >>>>>>> Stashed changes
@@ -1238,6 +1296,7 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
@@ -1250,6 +1309,33 @@
 		<Row>
 			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_NEW_REEF_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_NEW_REEF_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		
+		
+		
+		<Row>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+=======
+			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+>>>>>>> Stashed changes
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -1628,9 +1714,15 @@
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
 		</Row>
+<<<<<<< Updated upstream
 
 
 
+=======
+
+
+
+>>>>>>> Stashed changes
 		<Row>
 			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
@@ -1655,6 +1747,17 @@
 		<Row>
 			<FeatureType>FEATURE_GEYSER</FeatureType>
 			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+<<<<<<< Updated upstream
+=======
+
+		
+		
+>>>>>>> Stashed changes
+		<Row>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -1771,10 +1874,20 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+<<<<<<< Updated upstream
 		<Row>
 <<<<<<< Updated upstream
 			<FeatureType>FEATURE_REEF</FeatureType>
 =======
+			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_NEW_REEF_C</FeatureType>
+>>>>>>> Stashed changes
+=======
+		<Row>
 			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
@@ -1981,11 +2094,30 @@
 		
 		
 		
+		
+		
 		<Row>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
+<<<<<<< Updated upstream
 		</Row>
+=======
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_GREAT_GENERAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+		
+		
+>>>>>>> Stashed changes
 		<Row>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
 			<YieldType>YIELD_GREAT_GENERAL_POINTS</YieldType>
@@ -2027,6 +2159,8 @@
 			<Gender>neuter:no_article</Gender>
 		</Row>
 =======
+		
+		
 		
 		
 		
@@ -2778,8 +2912,13 @@
 			<Text>Giant's Causeway is large cluster of hexagonal basalt columns formed from an ancient volcanic eruption. The tallest columns reach approximately 40 feet high. The columns formed during the Paleocene Epoch when molten basalt cooled and cracked into columns in a process similar to how cracks form in drying mud. According to legend, the causeway was built by an Irish giant in order to respond to a challenge issued by a Scottish giant. The causeway between the islands was destroyed in the resulting fight, with Giant's Causeway the principle remains. There is a smaller cluster of basalt columns across the North Sea in Scotland formed as part of the same ancient lava flow, leading to speculation that these matching columns inspired the legend.</Text>
 		</Row>
 
+<<<<<<< Updated upstream
 
 
+=======
+
+
+>>>>>>> Stashed changes
 		<!-- Mt. Everest's description was already created by the Firaxis -->
 		<!--<Row Tag="TXT_KEY_FEATURE_MT_EVEREST">
 			<Text>Mt. Everest</Text>
@@ -2831,6 +2970,8 @@
 		</Row>
 <<<<<<< Updated upstream
 =======
+		
+		
 		
 		
 		

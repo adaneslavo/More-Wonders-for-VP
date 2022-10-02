@@ -27,6 +27,9 @@
 --		* Uluru (16):				has only tile changes method; makes surrounding flat;
 --		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
 --		* Old Faithful (18):		changes core tile to hill;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
@@ -522,6 +525,9 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Barringer
 	elseif method_number == 18 then
 		-- reserved: Old Faithful
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	elseif method_number == 100 then
 		-- dummy
@@ -644,6 +650,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					elseif i == iMainDirectionB then
 						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_C)
 					end
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 				end
 			end
@@ -738,12 +747,15 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pAdjacentPlot
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		for i, direction in ipairs(tDirectionTypes) do
 			pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotFlat and not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then	
 				table.insert(tPossibleSpots, pAdjacentPlot)
 =======
+=======
+>>>>>>> Stashed changes
 		-- 4 loops to check the hardest condition first
 		for j = 1, 4 do
 			for i, direction in ipairs(tDirectionTypes) do
@@ -764,13 +776,19 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				elseif j == 4 then
 					table.insert(tPossibleSpots, pAdjacentPlot)
 				end		
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 			end
 			print("Possible spots for Salar", "iteration #", j, "Spots:", #tPossibleSpots)
 			if #tPossibleSpots > 0 then break end
 		end
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		
 		-- choosing plot for SALAR
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
@@ -915,6 +933,758 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- OLD FAITHFUL
 		local pPlot = Map.GetPlot(x, y)
 		
+<<<<<<< Updated upstream
+=======
+		pPlot:SetPlotType(ePlotFlat, false, false)
+		pPlot:SetTerrainType(eTerrainTundra, false, false)
+
+		local pNEPlot = Map.PlotDirection(x, y, eDirNE)
+		local pNWPlot = Map.PlotDirection(x, y, eDirNW)
+		local pWPlot = Map.PlotDirection(x, y, eDirW)
+		
+		-- creating 3 random Rivers with start around MT. PAEKTU
+		local iRandomRiverTurn, iCase
+		local bIsMetRiver = false
+		local bIsMetSeaOrLake = false
+		local pCurrentPlot, pSupportPlot, pUltraSupportPlot
+		local iNormalCorrection = -4 -- to even out chances for CW and CCW movement (depends on math.random values inside)
+		local iNormalCorrectionToMathRandom = math.abs(iNormalCorrection) * 2
+		local iHandicapCorrection = 2 -- for some preferred direction choices
+		local iAdditionalOneWayCorrection = 0 -- negative values for constant CW choices, and positive values for CCW choices (to prevent spiraling)
+		
+		-- NORTH RIVER (SONGHUA)
+		pNWPlot:SetWOfRiver(true, eFlowN)
+		
+		pCurrentPlot = Map.PlotDirection(pNWPlot:GetX(), pNWPlot:GetY(), eDirNE)
+		pSupportPlot = nil
+		pUltraSupportPlot = nil
+
+		iCase = 1
+
+		repeat
+			if iCase == 1 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 6
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 2
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end
+			elseif iCase == 2 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 1
+						
+						pSupportPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 3
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end		
+			elseif iCase == 3 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 2
+						
+						pSupportPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 4
+						
+						pUltraSupportPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 4 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 3
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 5
+						
+						pUltraSupportPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 5 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 4
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 6
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 6 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 5
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 1
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			end
+		until(bIsMetSeaOrLake or bIsMetRiver)
+		
+		-- NORTHEAST RIVER (TUMEN)
+		bIsMetRiver = false
+		bIsMetSeaOrLake = false
+		iAdditionalOneWayCorrection = 0
+
+		pNEPlot:SetNWOfRiver(true, eFlowNE)
+		
+		pCurrentPlot = Map.PlotDirection(pNEPlot:GetX(), pNEPlot:GetY(), eDirE)
+		pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+		pUltraSupportPlot = nil
+		
+		iCase = 2
+
+		repeat
+			if iCase == 1 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 6
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 2
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 2 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
+				
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 1
+						
+						pSupportPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 3
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end		
+			elseif iCase == 3 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 2
+						
+						pSupportPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 4
+						
+						pUltraSupportPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 4 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 3
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 5
+						
+						pUltraSupportPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 5 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
+				
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 4
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 6
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 6 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 5
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 1
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			end
+		until(bIsMetSeaOrLake or bIsMetRiver)
+		
+		-- SOUTHWEST RIVER (YALU)
+		bIsMetRiver = false
+		bIsMetSeaOrLake = false
+		iAdditionalOneWayCorrection = 0
+
+		pWPlot:SetNWOfRiver(true, eFlowSW)
+
+		pCurrentPlot = Map.PlotDirection(pWPlot:GetX(), pWPlot:GetY(), eDirSW)
+		pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+		pUltraSupportPlot = nil
+
+		iCase = 5
+
+		repeat
+			if iCase == 1 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 6
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 2
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 2 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 1
+						
+						pSupportPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 3
+						
+						pCurrentPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end		
+			elseif iCase == 3 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 2
+						
+						pSupportPlot:SetNWOfRiver(true, eFlowNE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 4
+						
+						pUltraSupportPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 4 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 3
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowSE)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn + iHandicapCorrection > 0 then
+						iCase = 5
+						
+						pUltraSupportPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 5 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
+				
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn <= 0 then
+						iCase = 4
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowS)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 6
+						
+						pSupportPlot:SetNEOfRiver(true, eFlowNW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			elseif iCase == 6 then
+				if pCurrentPlot:GetPlotType() == ePlotOcean then bIsMetSeaOrLake = true	end
+				if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
+
+				if not bIsMetSeaOrLake and not bIsMetRiver then
+					iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+					
+					if iRandomRiverTurn - iHandicapCorrection <= 0 then
+						iCase = 5
+						
+						pCurrentPlot:SetNWOfRiver(true, eFlowSW)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
+						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection >= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					elseif iRandomRiverTurn > 0 then
+						iCase = 1
+						
+						pCurrentPlot:SetWOfRiver(true, eFlowN)
+						
+						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
+						pSupportPlot = nil
+						pUltraSupportPlot = nil
+
+						if iAdditionalOneWayCorrection <= 0 then
+							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
+						else
+							iAdditionalOneWayCorrection = 0
+						end
+					end
+				end	
+			end
+		until(bIsMetSeaOrLake or bIsMetRiver)
+	elseif method_number == 16 then
+		-- ULURU
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			-- setting flat
+			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+		end
+	elseif method_number == 17 then
+		-- BARRINGER CRATER
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			-- setting flat
+			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+		end
+	elseif method_number == 18 then
+		-- OLD FAITHFUL
+		local pPlot = Map.GetPlot(x, y)
+		
+>>>>>>> Stashed changes
 		pPlot:SetPlotType(ePlotHill, false, false)
 	end
 end

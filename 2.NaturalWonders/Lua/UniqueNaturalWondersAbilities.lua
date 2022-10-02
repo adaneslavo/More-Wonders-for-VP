@@ -18,7 +18,13 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_GEYSER"],
 	GameInfoTypes["FEATURE_MT_EVEREST"],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	GameInfoTypes["FEATURE_REEF"],
+=======
+	GameInfoTypes["FEATURE_NEW_REEF_A"],
+	GameInfoTypes["FEATURE_NEW_REEF_B"],
+	GameInfoTypes["FEATURE_NEW_REEF_C"], -- 15
+>>>>>>> Stashed changes
 =======
 	GameInfoTypes["FEATURE_NEW_REEF_A"],
 	GameInfoTypes["FEATURE_NEW_REEF_B"],
@@ -29,9 +35,12 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_CAUSEWAY_A"],
 	GameInfoTypes["FEATURE_CAUSEWAY_B"],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	GameInfoTypes["FEATURE_RETBA"],
 	GameInfoTypes["FEATURE_DALLOL"]
 =======
+=======
+>>>>>>> Stashed changes
 	GameInfoTypes["FEATURE_RETBA"], -- 20
 	GameInfoTypes["FEATURE_LUMI_BAY"],
 	GameInfoTypes["FEATURE_DALLOL"],
@@ -42,11 +51,18 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_MT_KAILASH"],
 	GameInfoTypes["FEATURE_KILIMANJARO"],
 	GameInfoTypes["FEATURE_ULURU"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 local iWonderWithDummies = 19
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+local g_iWonderWithDummies = #g_tNaturalWonder
+>>>>>>> Stashed changes
 =======
 local g_iWonderWithDummies = #g_tNaturalWonder
 >>>>>>> Stashed changes
@@ -61,8 +77,11 @@ local g_tNaturalWonderSkip = {}
 		g_tNaturalWonderSkip[i] = false
 	end
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	g_tNaturalWonderSkip[16] = true
 =======
+=======
+>>>>>>> Stashed changes
 	-- skip is used for multitle wonders, where all tiles give same building; to prevent deleting previously set building skip is used;
 	-- g_tNaturalWonderSkip[18] = true -- unused since v0.16
 
@@ -72,6 +91,9 @@ local g_tNaturalWonderRegularBuilding = {}
 	end
 	-- used to place regular building instead of dummy ones;
 	g_tNaturalWonderRegularBuilding[26] = true
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 local g_tNaturalWonderX = {}
@@ -96,11 +118,14 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"],
 	GameInfoTypes["BUILDING_DALLOL_DUMMY"]
 =======
+=======
+>>>>>>> Stashed changes
 	GameInfoTypes["BUILDING_CAUSEWAY_A_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_B_DUMMY"],
 	GameInfoTypes["BUILDING_RETBA_DUMMY"], -- 20
@@ -113,6 +138,9 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
 	GameInfoTypes["BUILDING_ULURU_DUMMY"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
@@ -129,7 +157,10 @@ local g_tNaturalWonderDummy3 = {}
 	g_tNaturalWonderDummy3[9] = GameInfoTypes["BUILDING_FUJI_3_DUMMY"]
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 local g_tNaturalWonderDummyPolicy = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummyPolicy[i] = false
@@ -198,6 +229,7 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 			if bHasNaturalWonderInRange then
 				g_tNaturalWonderOwner[i] = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetOwner()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				
 				if g_tNaturalWonderOwner[i] == ePlayer then
 					pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
@@ -215,6 +247,8 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 					if not bSkip then
 						pPlayer:GetCapitalCity():SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
 =======
+=======
+>>>>>>> Stashed changes
 
 				if not g_tNaturalWonderRegularBuilding[i] then
 					local pCapital = pPlayer:GetCapitalCity()
@@ -223,6 +257,9 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 						if g_tNaturalWonderDummy[i] then
 							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
 						end
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 						if g_tNaturalWonderDummy2[i] then
@@ -236,6 +273,10 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 					else
 						bSkip = g_tNaturalWonderSkip[i]
 =======
+
+						if g_tNaturalWonderDummyPolicy[i] then
+							pPlayer:SetHasPolicy(g_tNaturalWonderDummyPolicy[i], true)
+						end
 
 						if g_tNaturalWonderDummyPolicy[i] then
 							pPlayer:SetHasPolicy(g_tNaturalWonderDummyPolicy[i], true)

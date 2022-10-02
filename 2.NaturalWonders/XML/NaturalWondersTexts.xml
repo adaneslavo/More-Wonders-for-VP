@@ -43,6 +43,9 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_MAP_ABILITIES_HEADER">
 			<Text>[NEWLINE][NEWLINE]Map abilities (affect map creation):</Text>
 		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_MAP_ABILITIES_HEADER">
+			<Text>[NEWLINE][NEWLINE]Map abilities (affect map creation):</Text>
+		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_FRESH_WATER">
 			<Text>[NEWLINE][ICON_BULLET]is a source of [COLOR_POSITIVE_TEXT]Fresh Water[ENDCOLOR]</Text>
 		</Row>
@@ -101,6 +104,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CRATER">
 			<Text>[NEWLINE][ICON_BULLET]10 [ICON_GOLDEN_AGE] in Capital every time you research a Technology[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_FUJI">
@@ -108,10 +114,17 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MESA">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+5 global [ICON_WAR] Military Supply Cap</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_RESEARCH][NEWLINE][ICON_BULLET]-10% global [ICON_HAPPINESS_3] Needs Modifier</Text>
+=======
+			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION] towards Mounted Military Units in Capital[NEWLINE][ICON_BULLET]+1[ICON_WAR][ICON_WAR] Military Supply Cap</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD], +1 [ICON_RESEARCH]/all Scientists[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_SCIENTIST] in Capital</Text>
+>>>>>>> Stashed changes
 =======
 			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION] towards Mounted Military Units in Capital[NEWLINE][ICON_BULLET]+1[ICON_WAR][ICON_WAR] Military Supply Cap</Text>
 		</Row>
@@ -139,7 +152,11 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_SINAI">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all [ICON_GREAT_WORK] Great Works[NEWLINE][ICON_BULLET]+1 [ICON_PEACE] and +1 [ICON_GOLDEN_AGE] to all Holy Sites</Text>
+=======
+			<Text>[NEWLINE][ICON_BULLET]grants 50 [ICON_PEACE] every time you gain possesion of this Natural Wonder[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
+>>>>>>> Stashed changes
 =======
 			<Text>[NEWLINE][ICON_BULLET]grants 50 [ICON_PEACE] every time you gain possesion of this Natural Wonder[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
 >>>>>>> Stashed changes
@@ -161,6 +178,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_A">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+10% global [ICON_FOOD] per Tile</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_B">
@@ -178,6 +196,8 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
 			<Text>[NEWLINE][ICON_BULLET]+5% global [ICON_FOOD]</Text>
 =======
+=======
+>>>>>>> Stashed changes
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_PRODUCTION]/all Factories and (any) Power Plants[NEWLINE][ICON_BULLET]+7% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SALAR_B">
@@ -194,6 +214,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
 			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD][NEWLINE][ICON_BULLET]+10% [ICON_FOOD][ICON_FOOD] during [ICON_HAPPINESS_1] WLTKD[NEWLINE][ICON_BULLET]15 [ICON_TOURISM] for every [ICON_CITIZEN] Birth</Text>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
@@ -207,6 +230,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<Text>[NEWLINE][ICON_BULLET]+2[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
@@ -218,6 +242,8 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_REEF">
 			<Text>"Organisms don't think of CO2 as a poison. Plants and organisms that make shells, coral, think of it as a building block."[NEWLINE] - Janine Benyus[NEWLINE]</Text>
 =======
+=======
+>>>>>>> Stashed changes
 			<Text>[NEWLINE][ICON_BULLET]+1[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]25 [ICON_TOURISM] for every Civilian unit creation</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
@@ -353,6 +379,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_NEW_REEF_C">
 			<Text>"Organisms don't think of carbon dioxide as a poison. Plants and organisms that make shells, coral, think of it as a building block."[NEWLINE] - Janine Benyus[NEWLINE]</Text>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_CRATER">

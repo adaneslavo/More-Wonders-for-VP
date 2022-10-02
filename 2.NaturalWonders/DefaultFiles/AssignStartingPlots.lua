@@ -6264,7 +6264,11 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			-- MOD.Barathor: Start
 			-- MOD.adan_eslavo: adaptation to 3-tile GBR (now tiles around center blocked);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			if (self.wonder_list[wonder_number] == "FEATURE_REEF") then
+=======
+			if (self.wonder_list[wonder_number] == "FEATURE_NEW_REEF_A") then
+>>>>>>> Stashed changes
 =======
 			if (self.wonder_list[wonder_number] == "FEATURE_NEW_REEF_A") then
 >>>>>>> Stashed changes
@@ -6273,7 +6277,11 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 					local pBarrierPlot = Map.PlotDirection(x, y, i)
 					
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_REEF then	
+=======
+					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_B or pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_C then	
+>>>>>>> Stashed changes
 =======
 					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_B or pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_C then	
 >>>>>>> Stashed changes

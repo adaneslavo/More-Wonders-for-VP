@@ -322,6 +322,9 @@
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>18</TileChangesMethodNumber>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 			<LandBased>true</LandBased>
@@ -1482,9 +1485,12 @@
 		<!-- Great Barrier Reef -->
 		<Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
 			<OccurrenceFrequency>20</OccurrenceFrequency>
 =======
+=======
+>>>>>>> Stashed changes
 			<NaturalWonderType>FEATURE_NEW_REEF_A</NaturalWonderType>
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
@@ -1632,7 +1638,10 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		<Row>
 			<NaturalWonderType>FEATURE_NEW_REEF_B</NaturalWonderType>
 			<OccurrenceFrequency>0</OccurrenceFrequency>

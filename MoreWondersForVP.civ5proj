@@ -141,6 +141,9 @@ Currently compatible with 4-12.</Description>
         <Description>Shows up Natural Wonder popup window on demand</Description>
         <FileName>2.NaturalWonders/UI/NaturalWonderPopupOnClick.xml</FileName>
       </Content>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     </ModContent>
     <ModDependencies>
@@ -1401,6 +1404,7 @@ Currently compatible with 4-12.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\fx_triggers_lumi_bay_1.ftsxml">
+<<<<<<< Updated upstream
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1416,6 +1420,23 @@ Currently compatible with 4-12.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+=======
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\fx_triggers_lumi_bay_2.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\lumi_bay.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\lumi_bay.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+>>>>>>> Stashed changes
     <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\lumi_bay_diff.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1749,11 +1770,21 @@ Currently compatible with 4-12.</Description>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.lua">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.xml">
+<<<<<<< Updated upstream
+=======
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
+>>>>>>> Stashed changes
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
