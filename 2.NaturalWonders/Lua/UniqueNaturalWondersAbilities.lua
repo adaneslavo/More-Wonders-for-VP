@@ -118,8 +118,8 @@ local g_tNaturalWonderDummyPolicy = {}
 local bMtPaektuBuilt = false
 for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
     local pPlayer = Players[i]
-    print("Paektu boolean:", pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]))
-    if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) > 0 then
+    
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) > 0 then
     	bMtPaektuBuilt = true
 	    break
     end

@@ -2,6 +2,11 @@
 -- Dummies for Natural Wonders
 -- May 11, 2020: Created, adan_eslavo
 --============================================--
+-- TEMPORARY FIXES
+--============================================--
+-- because multi-tile NWs cannot be balanced without new table, this Resolution must be deleted until it will be added
+DELETE FROM Resolutions WHERE Type = 'RESOLUTION_NATURAL_HERITAGE_SITES';
+--============================================--
 -- PROMOTIONS
 --============================================--
 INSERT INTO Language_en_US 
