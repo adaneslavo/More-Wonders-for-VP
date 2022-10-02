@@ -563,8 +563,8 @@
 	
 	INSERT INTO Building_YieldPerAlly
 				(BuildingType,		YieldType,					Yield) 
-	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',				2),
-				('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	3);
+	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	            2),
+                ('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	3);
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,					Yield) 

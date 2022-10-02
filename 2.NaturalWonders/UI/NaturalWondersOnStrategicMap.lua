@@ -7,11 +7,7 @@ include("IconSupport")
 include("InstanceManager")
 
 local tFeatures = {}
-<<<<<<< HEAD
 local bIsPseudoWonder = false
-=======
-local bIsWonder = false
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 for row in GameInfo.Features() do
 	tFeatures[row.ID] = {}

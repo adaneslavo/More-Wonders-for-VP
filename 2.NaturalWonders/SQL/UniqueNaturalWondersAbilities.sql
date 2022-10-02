@@ -2,11 +2,6 @@
 -- Dummies for Natural Wonders
 -- May 11, 2020: Created, adan_eslavo
 --============================================--
--- TEMPORARY FIXES
---============================================--
--- because multi-tile NWs cannot be balanced without new table, this Resolution must be deleted until it will be added
-DELETE FROM Resolutions WHERE Type = 'RESOLUTION_NATURAL_HERITAGE_SITES';
---============================================--
 -- PROMOTIONS
 --============================================--
 INSERT INTO Language_en_US 
@@ -27,18 +22,6 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Mahaprasthanika Parva'),
 			('TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'Unit gains [ICON_TOURISM] [COLOR:255:230:85:255]for revealing tiles[ENDCOLOR].');
 
 INSERT INTO UnitPromotions 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	DiploMissionInfluence,	WorkRateMod,	MovesChange,	ExtraNavalMovement,	PromotionDuration,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					0,						0,						0,				0,				0,					0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
-			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,						10,						0,				0,				0,					0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
-			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,						0,						25,				0,				0,					0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
-			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,						0,						0,				0,				-3,					3,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
-<<<<<<< HEAD
-			('PROMOTION_DALLOL',			'TXT_KEY_PROMOTION_DALLOL',				'TXT_KEY_PROMOTION_DALLOL_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,						0,						0,				0,				0,					0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL');
-=======
-=======
->>>>>>> Stashed changes
 			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
 VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
 			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
@@ -53,24 +36,11 @@ UPDATE UnitPromotions SET WorkRateMod = 25 WHERE Type = 'PROMOTION_SOLOMONS_MINE
 UPDATE UnitPromotions SET ExtraNavalMovement = -3, PromotionDuration = 3 WHERE Type = 'PROMOTION_BERMUDA_TRIANGLE';
 UPDATE UnitPromotions SET RangedAttackModifier = 10 WHERE Type = 'PROMOTION_DALLOL';
 UPDATE UnitPromotions SET WorkRateMod = 10, MovesChange = 1 WHERE Type = 'PROMOTION_CAUSEWAY';
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-			('PROMOTION_DALLOL',			'TXT_KEY_PROMOTION_DALLOL',				'TXT_KEY_PROMOTION_DALLOL_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,						0,						0,				0,				0,					0,					10,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL');
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 INSERT INTO UnitPromotions_Terrains
 			(PromotionType,			TerrainType,	DoubleMove)
 VALUES		('PROMOTION_KAILASH',	'TERRAIN_HILL',	1);
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 INSERT INTO UnitPromotions_YieldFromScouting
 			(PromotionType,				YieldType,			Yield)
 VALUES		('PROMOTION_MT_EVEREST',	'YIELD_TOURISM',	1);
@@ -82,11 +52,6 @@ UPDATE UnitPromotions SET PediaType = 'PEDIA_SCOUTING' WHERE type = 'PROMOTION_A
 UPDATE Language_en_US SET Text = '+1[ICON_VIEW_CITY]Sight. '||Text WHERE Tag = 'TXT_KEY_PROMOTION_ALTITUDE_TRAINING_HELP';
 DELETE FROM UnitPromotions_UnitCombats WHERE PromotionType = 'PROMOTION_ALTITUDE_TRAINING';
 
->>>>>>> Stashed changes
-=======
-DELETE FROM UnitPromotions_UnitCombats WHERE PromotionType = 'PROMOTION_ALTITUDE_TRAINING';
-
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 INSERT INTO UnitPromotions_UnitCombats
 			(PromotionType,					UnitCombatType)
 VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
@@ -113,10 +78,6 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPECIAL_PEOPLE'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_SPACESHIP_PART'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'UNITCOMBAT_ARCHAEOLOGIST'),
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-			('PROMOTION_DALLOL',			'UNITCOMBAT_SIEGE');
-=======
 			('PROMOTION_DALLOL',			'UNITCOMBAT_SIEGE'),
 			('PROMOTION_ALTITUDE_TRAINING',	'UNITCOMBAT_RECON'),
 			('PROMOTION_SACRED_STEPS',		'UNITCOMBAT_WORKER'),
@@ -130,18 +91,6 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_SACRED_STEPS',		'UNITCOMBAT_ARCHAEOLOGIST'),
 			('PROMOTION_CAUSEWAY',			'UNITCOMBAT_ARCHAEOLOGIST'),
 			('PROMOTION_MT_EVEREST',		'UNITCOMBAT_RECON');
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-			('PROMOTION_DALLOL',			'UNITCOMBAT_SIEGE'),
-			('PROMOTION_ALTITUDE_TRAINING',	'UNITCOMBAT_RECON');
-
-UPDATE UnitPromotions SET VisibilityChange = 1 WHERE Type = 'PROMOTION_ALTITUDE_TRAINING';
-
-UPDATE Language_en_US SET Text = '+1[ICON_VIEW_CITY]Sight. '||Text WHERE Tag = 'TXT_KEY_PROMOTION_ALTITUDE_TRAINING_HELP';
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 --============================================--
 -- RESOURCES
 --============================================--			
@@ -256,33 +205,6 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_CAUSEWAY_A_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',		'BUILDING_CAUSEWAY_A_DUMMY'),
 			('BUILDINGCLASS_CAUSEWAY_B_DUMMY',		'TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',		'BUILDING_CAUSEWAY_B_DUMMY'),
 			('BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				'BUILDING_RETBA_DUMMY'),
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			'BUILDING_DALLOL_DUMMY');
-
-INSERT INTO Buildings
-			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy,	SpecialistType,			GreatPeopleRateChange,	EmpireNeedsModifierGlobal,	GlobalSpaceProductionModifier,	NumTradeRouteBonus,	ExtraLeagueVotes,	CitySupplyFlatGlobal,	AllowsFoodTradeRoutesGlobal,	GlobalLandmarksTourismPercent)
-VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_SALAR_B_DUMMY',			'TXT_KEY_BUILDING_SALAR_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_EL_DORADO_DUMMY',		'BUILDINGCLASS_EL_DORADO_DUMMY',		'TXT_KEY_BUILDING_EL_DORADO_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_POTOSI_DUMMY',			'BUILDINGCLASS_POTOSI_DUMMY',			'TXT_KEY_BUILDING_POTOSI_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								1,					0,					0,						0,								0),
-			('BUILDING_CRATER_DUMMY',			'BUILDINGCLASS_CRATER_DUMMY',			'TXT_KEY_BUILDING_CRATER_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							20,								0,					0,					0,						0,								0),
-			('BUILDING_MESA_DUMMY',				'BUILDINGCLASS_MESA_DUMMY',				'TXT_KEY_BUILDING_MESA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					5,						0,								0),
-			('BUILDING_SOLOMONS_MINES_DUMMY',	'BUILDINGCLASS_SOLOMONS_MINES_DUMMY',	'TXT_KEY_BUILDING_SOLOMONS_MINES_DUMMY',	NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_VOLCANO_DUMMY',			'BUILDINGCLASS_VOLCANO_DUMMY',			'TXT_KEY_BUILDING_VOLCANO_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						-10,						0,								0,					0,					0,						0,								0),
-			('BUILDING_FUJI_1_DUMMY',			'BUILDINGCLASS_FUJI_1_DUMMY',			'TXT_KEY_BUILDING_FUJI_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			'SPECIALIST_ARTIST',	3,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_FUJI_2_DUMMY',			'BUILDINGCLASS_FUJI_2_DUMMY',			'TXT_KEY_BUILDING_FUJI_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			'SPECIALIST_WRITER',	2,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_FUJI_3_DUMMY',			'BUILDINGCLASS_FUJI_3_DUMMY',			'TXT_KEY_BUILDING_FUJI_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			'SPECIALIST_MUSICIAN',	1,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_MT_SINAI_DUMMY',			'BUILDINGCLASS_MT_SINAI_DUMMY',			'TXT_KEY_BUILDING_MT_SINAI_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_GEYSER_DUMMY',			'BUILDINGCLASS_GEYSER_DUMMY',			'TXT_KEY_BUILDING_GEYSER_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			'SPECIALIST_SCIENTIST',	2,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_MT_EVEREST_DUMMY',		'BUILDINGCLASS_MT_EVEREST_DUMMY',		'TXT_KEY_BUILDING_MT_EVEREST_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_REEF_DUMMY',				'BUILDINGCLASS_REEF_DUMMY',				'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_GIBRALTAR_DUMMY',		'BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_LAKE_VICTORIA_DUMMY',	'BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						1,								0),
-			('BUILDING_CAUSEWAY_DUMMY',			'BUILDINGCLASS_CAUSEWAY_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								25),
-			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0),
-			('BUILDING_DALLOL_DUMMY',			'BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1,			NULL,					0,						0,							0,								0,					0,					0,						0,								0);
-=======
 			('BUILDINGCLASS_LUMI_BAY_DUMMY',		'TXT_KEY_BUILDING_LUMI_BAY_DUMMY',			'BUILDING_LUMI_BAY_DUMMY'),
 			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			'BUILDING_DALLOL_DUMMY'),
 			('BUILDINGCLASS_EYE_OF_SAHARA_A_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		'BUILDING_EYE_OF_SAHARA_A_DUMMY'),
@@ -293,15 +215,6 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				'BUILDING_ULURU_DUMMY');
 
 INSERT INTO Buildings
-=======
-			('BUILDINGCLASS_LUMI_BAY_DUMMY',		'TXT_KEY_BUILDING_LUMI_BAY_DUMMY',			'BUILDING_LUMI_BAY_DUMMY'),
-			('BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			'BUILDING_DALLOL_DUMMY'),
-			('BUILDINGCLASS_EYE_OF_SAHARA_1_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		'BUILDING_EYE_OF_SAHARA_1_DUMMY'),
-			('BUILDINGCLASS_EYE_OF_SAHARA_2_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		'BUILDING_EYE_OF_SAHARA_2_DUMMY'),
-			('BUILDINGCLASS_EYE_OF_SAHARA_3_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		'BUILDING_EYE_OF_SAHARA_3_DUMMY');
-
-INSERT INTO Buildings
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
 VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_SALAR_B_DUMMY',			'TXT_KEY_BUILDING_SALAR_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
@@ -317,7 +230,6 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_MT_SINAI_DUMMY',			'BUILDINGCLASS_MT_SINAI_DUMMY',			'TXT_KEY_BUILDING_MT_SINAI_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_GEYSER_DUMMY',			'BUILDINGCLASS_GEYSER_DUMMY',			'TXT_KEY_BUILDING_GEYSER_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_MT_EVEREST_DUMMY',		'BUILDINGCLASS_MT_EVEREST_DUMMY',		'TXT_KEY_BUILDING_MT_EVEREST_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
-<<<<<<< HEAD
 			('BUILDING_NEW_REEF_A_DUMMY',		'BUILDINGCLASS_NEW_REEF_A_DUMMY',		'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_NEW_REEF_B_DUMMY',		'BUILDINGCLASS_NEW_REEF_B_DUMMY',		'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_NEW_REEF_C_DUMMY',		'BUILDINGCLASS_NEW_REEF_C_DUMMY',		'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
@@ -334,38 +246,6 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_MT_KAILASH_DUMMY',		'BUILDINGCLASS_MT_KAILASH_DUMMY',		'TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_KILIMANJARO_DUMMY',		'BUILDINGCLASS_KILIMANJARO_DUMMY',		'TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_ULURU_DUMMY',			'BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-			('BUILDING_REEF_DUMMY',				'BUILDINGCLASS_REEF_DUMMY',				'TXT_KEY_BUILDING_REEF_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_GIBRALTAR_DUMMY',		'BUILDINGCLASS_GIBRALTAR_DUMMY',		'TXT_KEY_BUILDING_GIBRALTAR_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_LAKE_VICTORIA_DUMMY',	'BUILDINGCLASS_LAKE_VICTORIA_DUMMY',	'TXT_KEY_BUILDING_LAKE_VICTORIA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_CAUSEWAY_DUMMY',			'BUILDINGCLASS_CAUSEWAY_DUMMY',			'TXT_KEY_BUILDING_CAUSEWAY_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_RETBA_DUMMY',			'BUILDINGCLASS_RETBA_DUMMY',			'TXT_KEY_BUILDING_RETBA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_LUMI_BAY_DUMMY',			'BUILDINGCLASS_LUMI_BAY_DUMMY',			'TXT_KEY_BUILDING_LUMI_BAY_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_DALLOL_DUMMY',			'BUILDINGCLASS_DALLOL_DUMMY',			'TXT_KEY_BUILDING_DALLOL_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_EYE_OF_SAHARA_1_DUMMY',	'BUILDINGCLASS_EYE_OF_SAHARA_1_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_EYE_OF_SAHARA_2_DUMMY',	'BUILDINGCLASS_EYE_OF_SAHARA_2_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_EYE_OF_SAHARA_3_DUMMY',	'BUILDINGCLASS_EYE_OF_SAHARA_3_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1);
-
-UPDATE Buildings SET SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_FUJI_1_DUMMY';
-UPDATE Buildings SET SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_FUJI_2_DUMMY';
-UPDATE Buildings SET SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_FUJI_3_DUMMY';
-UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_GEYSER_DUMMY';
-UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_VOLCANO_DUMMY';
-UPDATE Buildings SET GlobalSpaceProductionModifier = 20 WHERE Type = 'BUILDING_CRATER_DUMMY';
-UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY';
-UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
-UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY';
-UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 25 WHERE Type = 'BUILDING_CAUSEWAY_DUMMY';
-UPDATE Buildings SET UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
-UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_1_DUMMY';
-UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_2_DUMMY';
-UPDATE Buildings SET EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDING_EYE_OF_SAHARA_3_DUMMY';
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -387,10 +267,6 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_CAUSEWAY_A_DUMMY',		'Giant''s Causeway A'),
 			('TXT_KEY_BUILDING_CAUSEWAY_B_DUMMY',		'Giant''s Causeway B'),
 			('TXT_KEY_BUILDING_RETBA_DUMMY',			'Lake Retba'),
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-			('TXT_KEY_BUILDING_DALLOL_DUMMY',			'Dallol');
-=======
 			('TXT_KEY_BUILDING_LUMI_BAY_DUMMY',			'Bioluminescent Bay'),
 			('TXT_KEY_BUILDING_DALLOL_DUMMY',			'Dallol'),
 			('TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',	'Eye of the Sahara'),
@@ -408,8 +284,8 @@ UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY'
 UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
 UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY';
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 5 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 15 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
 UPDATE Buildings SET UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
@@ -421,15 +297,6 @@ UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILD
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_C_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDING_EYE_OF_SAHARA_C_DUMMY';
 UPDATE Buildings SET GlobalDefenseMod = 10 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-			('TXT_KEY_BUILDING_LUMI_BAY_DUMMY',			'Bioluminescent Bay'),
-			('TXT_KEY_BUILDING_DALLOL_DUMMY',			'Dallol'),
-			('TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',	'Eye of the Sahara');
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 INSERT INTO Building_ResourceQuantity
 			(BuildingType,					ResourceType,		Quantity) 
@@ -450,23 +317,12 @@ VALUES		('BUILDING_SOLOMONS_MINES_DUMMY',	'IMPROVEMENT_MINE',				'YIELD_GOLDEN_A
 			('BUILDING_NEW_REEF_B_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1),
 			('BUILDING_NEW_REEF_C_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1);
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 INSERT INTO Building_ResourceYieldChangesGlobal
-			(BuildingType,					ResourceType,				YieldType,			Yield) 
-VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',			'YIELD_SCIENCE',	1),
-			('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_TROPICAL_FISH',	'YIELD_SCIENCE',	1),
-			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_GOLD',		2),
-			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',			'YIELD_CULTURE',	1);
+			(BuildingType,					ResourceType,		YieldType,			Yield) 
+VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',	'YIELD_SCIENCE',	1),
+			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',	'YIELD_GOLD',		2),
+			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',	'YIELD_CULTURE',	1);
 
->>>>>>> Stashed changes
-=======
-INSERT INTO Building_ResourceYieldChangesGlobal
-			(BuildingType,				ResourceType,		YieldType,			Yield) 
-VALUES		('BUILDING_LUMI_BAY_DUMMY',	'RESOURCE_FISH',	'YIELD_SCIENCE',	1);
-
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,			ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_NEW_REEF_A_DUMMY',	Type,			'YIELD_SCIENCE',	1
 FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' and TechCityTrade = 'TECH_SAILING';
@@ -476,9 +332,6 @@ INSERT INTO Building_GlobalYieldModifiers
 VALUES		('BUILDING_MT_EVEREST_DUMMY',		'YIELD_TOURISM',	5),
 			('BUILDING_VOLCANO_DUMMY',			'YIELD_SCIENCE',	5),
 			('BUILDING_RETBA_DUMMY',			'YIELD_FOOD',		5);
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 
 INSERT INTO Building_TechEnhancedYieldChanges
 			(BuildingType,						YieldType,			Yield) 
@@ -526,7 +379,7 @@ VALUES		('BUILDING_MT_KAILASH_DUMMY',		'BUILDINGCLASS_MONUMENT',		'YIELD_FAITH',
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_NUCLEAR_PLANT',	'YIELD_PRODUCTION',	1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_WIND_PLANT',		'YIELD_PRODUCTION',	1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_HYDRO_PLANT',	'YIELD_PRODUCTION',	1),
-			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_TIDAL_PLANT',	'YIELD_PRODUCTION',	1);
+            ('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_TIDAL_PLANT',	'YIELD_PRODUCTION',	1);
 
 INSERT INTO Building_InstantYield
 			(BuildingType,				YieldType,		Yield) 
@@ -535,14 +388,15 @@ VALUES		('BUILDING_MT_SINAI_DUMMY',	'YIELD_FAITH',	100);
 -- POLICIES
 --============================================--
 INSERT INTO Policies 
-			(Type,						Description)
-VALUES		('POLICY_RETBA_DUMMY',		'TXT_KEY_POLICY_RETBA_DUMMY'),
+			(Type,					    Description)
+VALUES		('POLICY_RETBA_DUMMY', 	    'TXT_KEY_POLICY_RETBA_DUMMY'),
 			('POLICY_LUMI_BAY_DUMMY', 	'TXT_KEY_POLICY_LUMI_BAY_DUMMY');
 
 INSERT INTO Language_en_US 
-			(Tag,								Text) 
-VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',		'Lake Retba'),
+			(Tag,							    Text) 
+VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',	    'Lake Retba'),
 			('TXT_KEY_POLICY_LUMI_BAY_DUMMY',	'Bioluminescent Bay');
+
 
 INSERT INTO Policy_WLTKDYieldMod 
 			(PolicyType, 			YieldType, 		Yield)
@@ -555,17 +409,5 @@ VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_TOURISM', 	150);
 INSERT INTO Policy_TourismOnUnitCreation	(PolicyType,				UnitClassType,	Tourism)
 SELECT DISTINCT								'POLICY_LUMI_BAY_DUMMY',	Class,			25
 FROM Units WHERE CombatClass in ('UNITCOMBAT_SETTLER', 'UNITCOMBAT_WORKER', 'UNITCOMBAT_WORKBOAT', 'UNITCOMBAT_CARGO', 'UNITCOMBAT_CARAVAN', 'UNITCOMBAT_INQUISITOR', 'UNITCOMBAT_MISSIONARY', 'UNITCOMBAT_DIPLOMACY', 'UNITCOMBAT_SPECIAL_PEOPLE', 'UNITCOMBAT_SPACESHIP_PART', 'UNITCOMBAT_ARCHAEOLOGIST');
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-
-INSERT INTO Building_TechEnhancedYieldChanges
-			(BuildingType,						YieldType,			Yield) 
-VALUES		('BUILDING_EYE_OF_SAHARA_1_DUMMY',	'YIELD_CULTURE',	1),
-			('BUILDING_EYE_OF_SAHARA_2_DUMMY',	'YIELD_TOURISM',	5),
-			('BUILDING_EYE_OF_SAHARA_3_DUMMY',	'YIELD_TOURISM',	10);
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 --------------------------------------------------------------
 --------------------------------------------------------------

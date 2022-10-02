@@ -20,24 +20,11 @@
 --		* Eye of the Sahara (11):	3-tile wonder; creates more desert and mountains;
 --		* Bermuda Triangle (12):	3-tile wonder; set between 3-4 tiles of land on 3 corners separated by water;
 --		* Dallol (13):				has only tile changes method; all tiles around are clered from features;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 --		* Bioluminescent Bay (14):	surrounded by jungle and grassland;
 --		* Mt. Paektu (15):			has only tile changes method; changes core tile to flat and tundra, creates 3 new rivers;
 --		* Uluru (16):				has only tile changes method; makes surrounding flat;
 --		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
 --		* Old Faithful (18):		changes core tile to hill;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
---		* Bioluminescent Bay (14):	surrounded by jungle and grassland;
---		* Mt. Paektu (15):			has only tile changes method; changes core tile to flat and tundra, creates 3 new rivers;
---		* Uluru (16):				has only tile changes method; makes surrounding flat;
---		* Barringer Crater (17):	has only tile changes method; makes surroundings flat
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -457,12 +444,6 @@ function NWCustomEligibility(x, y, method_number)
 		
 		return true
 	elseif method_number == 13 then
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-		-- reserved for Dallol
-=======
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		-- reserved: Dallol
 	elseif method_number == 14 then
 		-- BIOLUMINESCENT BAY
@@ -501,15 +482,8 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Uluru
 	elseif method_number == 17 then
 		-- reserved: Barringer
-<<<<<<< HEAD
 	elseif method_number == 18 then
 		-- reserved: Old Faithful
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -661,31 +635,17 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pDistantPlot:SetTerrainType(eTerrainCoast, false, false)
 					end
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-					pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_REEF)
-=======
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 					if pDistantPlot:GetFeatureType() == eFeatureNo and pDistantPlot:GetResourceType() == -1 then
 						table.insert(tPossibleFeaturesOrResources, pDistantPlot)
 					else
 						iNumFeaturesOrResources = iNumFeaturesOrResources + 1
 					end
 
-<<<<<<< HEAD
 					if i == iMainDirectionA then
 						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_B)
 					elseif i == iMainDirectionB then
 						pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF_C)
 					end
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-					pAdjacentPlot:SetFeatureType(GameInfoTypes.FEATURE_NEW_REEF)
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 				end
 			end
 		end
@@ -861,17 +821,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local tPossibleSpots = {}
 		local pAdjacentPlot
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		for i, direction in ipairs(tDirectionTypes) do
-			pAdjacentPlot = Map.PlotDirection(x, y, direction)
-
-			--if not pAdjacentPlot:IsAdjacentToShallowWater() and not pAdjacentPlot:IsRiver() then
-			if not pAdjacentPlot:IsRiver() then	
-				table.insert(tPossibleSpots, pAdjacentPlot)
-=======
-=======
->>>>>>> Stashed changes
 		-- 4 loops to check the hardest condition first
 		for j = 1, 4 do
 			for i, direction in ipairs(tDirectionTypes) do
@@ -892,29 +841,12 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				elseif j == 4 then
 					table.insert(tPossibleSpots, pAdjacentPlot)
 				end		
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 			end
 			print("Possible spots for Salar", "iteration #", j, "Spots:", #tPossibleSpots)
 			if #tPossibleSpots > 0 then break end
 		end
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 		
 		-- choosing plot for SALAR
-		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
->>>>>>> Stashed changes
-
-=======
-		print("Possible spots for Salar:", #tPossibleSpots)
-		-- choosing plot for SALAR
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
 
 		local pChosenPlotX = pChosenPlot:GetX()
@@ -1136,14 +1068,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			pAdjacentPlot:SetFeatureType(eFeatureNo)
 		end
-<<<<<<< HEAD
-	elseif method_number == 18 then
-		-- OLD FAITHFUL
-		local pPlot = Map.GetPlot(x, y)
-		
-<<<<<<< Updated upstream
-=======
-=======
 	elseif method_number == 14 then
 		-- BIOLUMINESCENT BAY
 		for i, direction in ipairs(tDirectionTypes) do
@@ -1161,7 +1085,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 		local pPlot = Map.GetPlot(x, y)
 		
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainTundra, false, false)
 
@@ -1907,15 +1830,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			-- setting flat
 			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 		end
-<<<<<<< HEAD
 	elseif method_number == 18 then
 		-- OLD FAITHFUL
 		local pPlot = Map.GetPlot(x, y)
 		
->>>>>>> Stashed changes
 		pPlot:SetPlotType(ePlotHill, false, false)
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 	end
 end
 ------------------------------------------------------------------------------

@@ -315,24 +315,10 @@
 		<!-- Old Faithful -->
 		<Row>
 			<NaturalWonderType>FEATURE_GEYSER</NaturalWonderType>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-			<OccurrenceFrequency>70</OccurrenceFrequency>
-=======
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>18</TileChangesMethodNumber>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-			<OccurrenceFrequency>50</OccurrenceFrequency>
-
-			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
-			<TileChangesMethodNumber>-1</TileChangesMethodNumber>
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -1488,26 +1474,11 @@
 
 		<!-- New Great Barrier Reef -->
 		<Row>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
-			<OccurrenceFrequency>20</OccurrenceFrequency>
-=======
-=======
->>>>>>> Stashed changes
 			<NaturalWonderType>FEATURE_NEW_REEF_A</NaturalWonderType>
-=======
-			<NaturalWonderType>FEATURE_NEW_REEF</NaturalWonderType>
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>1</TileChangesMethodNumber>
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 			<LandBased>false</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -1645,12 +1616,6 @@
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 		<Row>
 			<NaturalWonderType>FEATURE_NEW_REEF_B</NaturalWonderType>
 			<OccurrenceFrequency>0</OccurrenceFrequency>
@@ -1661,18 +1626,12 @@
 			<OccurrenceFrequency>0</OccurrenceFrequency>
 			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 		<!-- Old Great Barrier Reef -->
 		<Row>
 			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
 			<OccurrenceFrequency>0</OccurrenceFrequency>
 			<EligibilityMethodNumber>100</EligibilityMethodNumber>
 		</Row>
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> eb6fda96a73db809c094dc9fe59b99a5b28ac804
 
 		<!-- Sri Pada -->
 		<Row>
