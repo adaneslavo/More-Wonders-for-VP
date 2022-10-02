@@ -80,7 +80,7 @@ function NWCustomEligibility(x, y, method_number)
 	}
 
 	local iW, iH = Map.GetGridSize()
-
+	--print("NWCE", method_number, x, y)
 	if method_number == 1 then
 		-- GREAT BARRIER REEF
 		-- MOD: Now 3 tile wonder - long shape;
@@ -661,11 +661,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				iRandomNumber = math.random(10)
 				
 				if iRandomNumber == 1 then
+					pRandomPlot:SetFeatureType(eFeatureAtoll)
+				elseif iRandomNumber >= 2 and iRandomNumber <= 3 then
 					pRandomPlot:SetPlotType(ePlotFlat, false, false)
 					pRandomPlot:SetTerrainType(eTerrainGrass, false, false)
 					pRandomPlot:SetFeatureType(eFeatureJungle)
-				elseif iRandomNumber >= 2 and iRandomNumber <= 3 then
-					pRandomPlot:SetFeatureType(eFeatureAtoll)
 				elseif iRandomNumber >= 4 and iRandomNumber <= 6 then
 					pRandomPlot:SetResourceType(eResourceCoral, 1)
 				else

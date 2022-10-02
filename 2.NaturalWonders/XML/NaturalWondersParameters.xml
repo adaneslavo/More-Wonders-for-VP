@@ -2796,5 +2796,43 @@
 			<IconsPerRow>8</IconsPerRow>
 			<IconsPerColumn>2</IconsPerColumn>
 		</Row>
+
+
+
+		<Row>
+			<Atlas>NATURAL_WONDERS_BUILDINGS_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>More_Natural_Wonders_Buildings_256.dds</Filename>
+			<IconsPerRow>8</IconsPerRow>
+			<IconsPerColumn>2</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NATURAL_WONDERS_BUILDINGS_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>More_Natural_Wonders_Buildings_128.dds</Filename>
+			<IconsPerRow>8</IconsPerRow>
+			<IconsPerColumn>2</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NATURAL_WONDERS_BUILDINGS_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>More_Natural_Wonders_Buildings_80.dds</Filename>
+			<IconsPerRow>8</IconsPerRow>
+			<IconsPerColumn>2</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NATURAL_WONDERS_BUILDINGS_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>More_Natural_Wonders_Buildings_64.dds</Filename>
+			<IconsPerRow>8</IconsPerRow>
+			<IconsPerColumn>2</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NATURAL_WONDERS_BUILDINGS_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>More_Natural_Wonders_Buildings_45.dds</Filename>
+			<IconsPerRow>8</IconsPerRow>
+			<IconsPerColumn>2</IconsPerColumn>
+		</Row>
 	</IconTextureAtlases>
 </GameData>

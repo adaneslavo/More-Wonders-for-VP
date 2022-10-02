@@ -5825,39 +5825,38 @@ function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
 	local iW, iH = Map.GetGridSize();
 	local plotIndex = iW * y + x + 1;
 	
+	-- adan_eslavo, start (top and bottom rows are not targetted)
+	if y == 0 or y == iH - 1 then
+		return false, false;
+	end
+	-- adan_eslavo, end
+	
 	-- Check for collision with player starts
 	if self.impactData[ImpactLayers.LAYER_NATURAL_WONDER][plotIndex] > 0 then
 		return false, false;
 	end
 	
+	-- adan_eslavo, start (fertility rework; was range=3; was 20/28); I use different algorithms than Fertility, so it's disabled now (all tiles are taken into account)
 	-- Check the location is a decent city site, otherwise the wonderID is pointless
 	local plot = Map.GetPlot(x, y);
-	local fertility = self:Plot_GetFertilityInRange(plot, 3);
-	if fertility < 1.8 then -- adan_eslavo (was 20/28); I use different algorithms than Fertility, so it's kinda disabled now
+	local fertility = self:Plot_GetFertilityInRange(plot, 1);
+	--print("Plot:", x, y, "fertility=", fertility)
+	if fertility < 0 then
 		return false, false;
-	elseif fertility < 1.8 then
+	elseif fertility < 0 then
 		return false, true;
 	end
 	return true, true;
+	-- adan_eslavo, end
 end
 ------------------------------------------------------------------------------
 function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x, y)
-	
-
 	-- This function checks only for eligibility requirements applicable to all 
 	-- Natural Wonders. If a candidate plot passes all such checks, we will move
 	-- on to checking it against specific needs for each particular NW.
 	if self:ExaminePlotForNaturalWondersEligibility(x, y) == false then
 		return false
 	end
-	
-	-- adan_eslavo, start (empty tile bugfix)
-	for i, direction in ipairs(direction_types) do
-		if Map.PlotDirection(x, y, direction) == nil then
-			return false
-		end
-	end
-	-- adan_eslavo, end (empty tile bugfix) 
 
 	-- local iW, iH = Map.GetGridSize();
 	-- Now loop through adjacent plots. Using Map.PlotDirection() in combination with
@@ -11734,15 +11733,9 @@ function AssignStartingPlots:Plot_GetFertilityInRange(plot, range, yieldID)
 end
 ------------------------------------------------------
 function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
-	-- adan_eslavo, start of Ocean tweak
-	if plot:IsImpassable() then
+	if plot:IsImpassable() or plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
 		return 0
 	end
-
-	if plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
-		return 0.1
-	end
-	-- adan_eslavo, end of Ocean tweak	
 
 	local value = 0
 	local featureID = plot:GetFeatureType()

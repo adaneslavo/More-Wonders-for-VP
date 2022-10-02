@@ -170,14 +170,16 @@ INSERT INTO BuildingClasses
 VALUES		('BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'BUILDING_MT_PAEKTU');
 
 INSERT INTO Buildings
-			(Type,					BuildingClass,				Description,					Civilopedia,						Help,								IconAtlas,					PortraitIndex,	PrereqTech, Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy,	GreatWorkSlotType,					GreatWorkCount,	FreeGreatWork,			SpecialistType,			GreatPeopleRateChange)
-VALUES		('BUILDING_MT_PAEKTU',	'BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TXT_KEY_BUILDING_MT_PAEKTU_HELP',	'NATURAL_WONDERS_ATLAS',	9,				NULL,       -1,		0,			1,          100,			0,			'GREAT_WORK_SLOT_ART_ARTIFACT',		1,				'GREAT_WORK_MT_PAEKTU',	'SPECIALIST_MUSICIAN',	1);
+			(Type,					BuildingClass,				Description,					Civilopedia,						Help,								IconAtlas,							PortraitIndex,	PrereqTech, Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
+VALUES		('BUILDING_MT_PAEKTU',	'BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TXT_KEY_BUILDING_MT_PAEKTU_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,       -1,		0,			1,          100,			0);
+
+UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_MT_PAEKTU', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MT_PAEKTU';
 
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
 VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',			'Altar of the Born under the Mountain'),
 			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TODO'),
-			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',		'+1 [ICON_GREAT_PERSON] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].');
+			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',		'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].');
 
 INSERT INTO Building_YieldChanges 
 			(BuildingType,			YieldType,					Yield) 
