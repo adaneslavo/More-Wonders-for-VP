@@ -11734,7 +11734,7 @@ function AssignStartingPlots:Plot_GetFertilityInRange(plot, range, yieldID)
 end
 ------------------------------------------------------
 function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
-	// adan_eslavo, start of Ocean tweak
+	-- adan_eslavo, start of Ocean tweak
 	if plot:IsImpassable() then
 		return 0
 	end
@@ -11742,7 +11742,7 @@ function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
 	if plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
 		return 0.1
 	end
-	// adan_eslavo, end of Ocean tweak	
+	-- adan_eslavo, end of Ocean tweak	
 
 	local value = 0
 	local featureID = plot:GetFeatureType()
