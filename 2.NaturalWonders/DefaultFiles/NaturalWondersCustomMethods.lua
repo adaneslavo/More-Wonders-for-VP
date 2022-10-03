@@ -80,7 +80,7 @@ function NWCustomEligibility(x, y, method_number)
 	}
 
 	local iW, iH = Map.GetGridSize()
-	--print("NWCE", method_number, x, y)
+	print("NWCE", method_number, x, y)
 	if method_number == 1 then
 		-- GREAT BARRIER REEF
 		-- MOD: Now 3 tile wonder - long shape;

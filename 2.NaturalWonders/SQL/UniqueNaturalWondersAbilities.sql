@@ -407,11 +407,11 @@ VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',	    'Lake Retba'),
 
 INSERT INTO Policy_WLTKDYieldMod 
 			(PolicyType, 			YieldType, 		Yield)
-VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_FOOD', 	500);
+VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_FOOD', 	10);
 
 INSERT INTO Policy_YieldFromBirth 
 			(PolicyType, 			YieldType, 			Yield)
-VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_TOURISM', 	150);
+VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_TOURISM', 	15);
 
 INSERT INTO Policy_TourismOnUnitCreation	(PolicyType,				UnitClassType,	Tourism)
 SELECT DISTINCT								'POLICY_LUMI_BAY_DUMMY',	Class,			25
