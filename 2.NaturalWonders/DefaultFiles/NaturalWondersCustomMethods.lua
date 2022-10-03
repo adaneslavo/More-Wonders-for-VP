@@ -1081,8 +1081,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 15 then
 		-- MT. PAEKTU
-		local ePlotOcean = PlotTypes.PLOT_OCEAN
-
 		local pPlot = Map.GetPlot(x, y)
 		
 		pPlot:SetPlotType(ePlotFlat, false, false)
@@ -1096,6 +1094,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local iRandomRiverTurn, iCase
 		local bIsMetRiver = false
 		local bIsMetSeaOrLake = false
+		local bIsEndOfTheMap = false
 		local pCurrentPlot, pSupportPlot, pUltraSupportPlot
 		local iNormalCorrection = -4 -- to even out chances for CW and CCW movement (depends on math.random values inside)
 		local iNormalCorrectionToMathRandom = math.abs(iNormalCorrection) * 2
@@ -1128,6 +1127,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A1")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1141,6 +1145,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A2")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1165,6 +1174,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A3")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1178,6 +1192,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A4")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1202,6 +1221,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A5")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1215,6 +1239,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A6")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1239,6 +1268,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A7")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1252,6 +1286,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A8")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1276,6 +1315,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A9")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1289,6 +1333,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A10")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1313,6 +1362,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A11")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1327,6 +1381,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map A12")
+						end
+
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
 						else
@@ -1335,7 +1394,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					end
 				end	
 			end
-		until(bIsMetSeaOrLake or bIsMetRiver)
+		until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		
 		-- NORTHEAST RIVER (TUMEN)
 		bIsMetRiver = false
@@ -1367,6 +1426,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B1")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1380,6 +1444,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B2")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1404,6 +1473,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B3")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1417,6 +1491,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B4")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1441,6 +1520,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B5")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1454,6 +1538,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B6")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1478,6 +1567,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B7")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1491,6 +1585,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B8")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1515,6 +1614,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B9")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1528,6 +1632,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B10")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1552,6 +1661,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B11")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1566,6 +1680,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map B12")
+						end
+
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
 						else
@@ -1574,7 +1693,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					end
 				end	
 			end
-		until(bIsMetSeaOrLake or bIsMetRiver)
+		until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		
 		-- SOUTHWEST RIVER (YALU)
 		bIsMetRiver = false
@@ -1606,6 +1725,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C1")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1619,6 +1743,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C2")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1643,6 +1772,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C3")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1656,6 +1790,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSE)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C4")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1680,6 +1819,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C5")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1693,6 +1837,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirSW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
+
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C6")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1717,6 +1866,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C7")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1730,6 +1884,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirW)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C8")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1754,6 +1913,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 
+						if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C9")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1767,6 +1931,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pCurrentPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNW)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
+
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C10")
+						end
 
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
@@ -1791,6 +1960,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = Map.PlotDirection(pCurrentPlot:GetX(), pCurrentPlot:GetY(), eDirNE)
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil or pSupportPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C11")
+						end
+
 						if iAdditionalOneWayCorrection >= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection + 1
 						else
@@ -1805,6 +1979,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 						pSupportPlot = nil
 						pUltraSupportPlot = nil
 
+						if pCurrentPlot == nil then
+							bIsEndOfTheMap = true
+							print("Paketu river at the end of the map C12")
+						end
+
 						if iAdditionalOneWayCorrection <= 0 then
 							iAdditionalOneWayCorrection = iAdditionalOneWayCorrection - 1
 						else
@@ -1813,7 +1992,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					end
 				end	
 			end
-		until(bIsMetSeaOrLake or bIsMetRiver)
+		until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 	elseif method_number == 16 then
 		-- ULURU
 		for i, direction in ipairs(tDirectionTypes) do
