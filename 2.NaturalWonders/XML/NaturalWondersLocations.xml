@@ -329,9 +329,9 @@
 			<RequireLandAdjacentToOcean>false</RequireLandAdjacentToOcean>
 			<AvoidLandAdjacentToOcean>true</AvoidLandAdjacentToOcean>
 
-			<CoreTileCanBeAnyPlotType>true</CoreTileCanBeAnyPlotType>
-			<CoreTileCanBeFlatland>false</CoreTileCanBeFlatland>
-			<CoreTileCanBeHills>false</CoreTileCanBeHills>
+			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
+			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
+			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
@@ -2530,7 +2530,7 @@
 			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
-			<CoreTileCanBeTundra>true</CoreTileCanBeTundra>
+			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
 			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
@@ -2812,7 +2812,7 @@
 			<TileChangesMethodNumber>9</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
-			<RequireBiggestLandmass>false</RequireBiggestLandmass>
+			<RequireBiggestLandmass>true</RequireBiggestLandmass>
 			<AvoidBiggestLandmass>false</AvoidBiggestLandmass>
 
 			<RequireFreshWater>false</RequireFreshWater>

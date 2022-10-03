@@ -5826,7 +5826,6 @@ function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
 	local plotIndex = iW * y + x + 1;
 	
 	-- adan_eslavo, start (top and bottom rows are not targetted)
-	print("Wrapping", Map.IsWrapX(), Map.IsWrapY())
 	if (not Map.IsWrapY() and (y == 0 or y == iH - 1)) or (not Map.IsWrapX() and (x == 0 or x == iW - 1)) then
 		return false, false;
 	end

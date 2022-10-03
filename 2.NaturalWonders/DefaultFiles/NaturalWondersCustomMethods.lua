@@ -88,12 +88,12 @@ function NWCustomEligibility(x, y, method_number)
 		-- MOD: Latitude to prevent it from spawning in polar regions;
 		if (y >= (iH/2)) then	
 			-- Upper half of map;
-			if (math.abs((iH/2) - y)/(iH/2)) > 0.8 then
+			if (math.abs((iH/2) - y)/(iH/2)) > 0.4 then
 				return false
 			end
 		else
 			-- Lower half of map;
-			if (math.abs((iH/2) - y + 1)/(iH/2)) > 0.8 then
+			if (math.abs((iH/2) - y + 1)/(iH/2)) > 0.4 then
 				return false
 			end
 		end 
@@ -192,7 +192,7 @@ function NWCustomEligibility(x, y, method_number)
 			-- MOD: Don't permit small landmasses especially those single-tile islands!
 			-- MOD: Avoid mountains
 			if sAdjacentPlotType ~= ePlotOcean then
-				if pAdjacentPlot:Area():GetNumTiles() < 25
+				if pAdjacentPlot:Area():GetNumTiles() < 40
 				or sAdjacentPlotType == ePlotMountain or sAdjacentPlotType == ePlotHill
 				or sAdjacentFeatureType ~= eFeatureNo
 				or sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainGrass then return false end
@@ -213,6 +213,7 @@ function NWCustomEligibility(x, y, method_number)
 		if pMainPlot == nil then return false end
 		if pMainPlot:IsWater() == false then return false end
 		if pMainPlot:IsLake() then return false end
+		if pMainPlot:GetFeatureType() ~= eFeatureNo then return false end
 		
 		local bBigIsland = false
 		
@@ -220,12 +221,11 @@ function NWCustomEligibility(x, y, method_number)
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
 			if pAdjacentPlot == nil then return false end
+			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then return false end
 		
 			local iX = pAdjacentPlot:GetX()
 			local iY = pAdjacentPlot:GetY()
 			
-			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then return false end
-
 			for j, subdirection in ipairs(tDirectionTypes) do
 				local pDistantPlot = Map.PlotDirection(iX, iY, subdirection)
 				
@@ -235,9 +235,9 @@ function NWCustomEligibility(x, y, method_number)
 				local sDistantAreaNear = pDistantPlot:Area():GetNumTiles()
 				
 				if sDistantPlotType ~= ePlotOcean then
-					if sDistantAreaNear > iH then return false end
+					if sDistantAreaNear > 25 then return false end
 					
-					if sDistantAreaNear >= 5 and sDistantAreaNear <= iH then
+					if sDistantAreaNear >= 10 and sDistantAreaNear <= 25 then
 						bBigIsland = true
 					end
 				end
