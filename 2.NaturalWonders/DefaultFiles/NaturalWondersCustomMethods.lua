@@ -1995,12 +1995,30 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 	elseif method_number == 16 then
 		-- ULURU
+		local tPlotsWithFeatures = {}
+		local iFeatures = 0
+		local pChosenPlot
+		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-
+			
+			-- checking features
+			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+				table.insert(tPlotsWithFeatures, pAdjacentPlot)
+				iFeatures = iFeatures + 1
+			end
+			
 			-- setting flat
 			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 		end
+		
+		-- deleting features
+		repeat
+			if #tPlotsWithFeatures <= 1 then break end
+			pChosenPlot = table.remove(tPlotsWithFeatures, math.random(#tPlotsWithFeatures))
+			pChosenPlot:SetFeatureType(eFeatureNo)
+			iFeatures = iFeatures - 1
+		until(iFeatures <= 1)
 	elseif method_number == 17 then
 		-- BARRINGER CRATER
 		for i, direction in ipairs(tDirectionTypes) do
