@@ -2530,7 +2530,7 @@
 			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
-			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
+			<CoreTileCanBeTundra>true</CoreTileCanBeTundra>
 			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
@@ -2540,7 +2540,7 @@
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
 			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
-			<CoreTileCanBeFloodPlains>true</CoreTileCanBeFloodPlains>
+			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
 			<CoreTileCanBeAtoll>false</CoreTileCanBeAtoll>
@@ -2603,7 +2603,7 @@
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
 			<MaximumAllowedAdjacentDeepWater>99</MaximumAllowedAdjacentDeepWater>
 
-			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
+			<AdjacentTilesCareAboutFeatureTypes>false</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>false</AdjacentTilesRequireNoFeature>
 			<RequiredNumberOfAdjacentNoFeature>0</RequiredNumberOfAdjacentNoFeature>
@@ -2812,7 +2812,7 @@
 			<TileChangesMethodNumber>9</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
-			<RequireBiggestLandmass>true</RequireBiggestLandmass>
+			<RequireBiggestLandmass>false</RequireBiggestLandmass>
 			<AvoidBiggestLandmass>false</AvoidBiggestLandmass>
 
 			<RequireFreshWater>false</RequireFreshWater>
@@ -2826,12 +2826,12 @@
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
-			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
-			<CoreTileCanBePlains>true</CoreTileCanBePlains>
+			<CoreTileCanBeAnyTerrainType>true</CoreTileCanBeAnyTerrainType>
+			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
+			<CoreTileCanBePlains>false</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>false</CoreTileCanBeDesert>
-			<CoreTileCanBeTundra>true</CoreTileCanBeTundra>
-			<CoreTileCanBeSnow>true</CoreTileCanBeSnow>
+			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
+			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
 
