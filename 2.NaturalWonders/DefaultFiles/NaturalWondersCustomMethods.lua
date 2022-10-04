@@ -472,7 +472,7 @@ function NWCustomEligibility(x, y, method_number)
 			end
 		end
 		
-		if iNumCoast < 1 or iNumCoast > 2 or iNumJungle < 2 then return false end
+		if iNumCoast < 1 or iNumCoast > 2 or iNumJungle == 0 then return false end
 		
 		return true
 	elseif method_number == 15 then
@@ -508,6 +508,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
 	local eFeatureAtoll = GameInfoTypes.FEATURE_ATOLL
+	local eFeatureOasis = GameInfoTypes.FEATURE_OASIS
 	local eResourceCoral = GameInfoTypes.RESOURCE_CORAL
 	local eResourceTropicalFish = GameInfoTypes.RESOURCE_TROPICAL_FISH
 
@@ -1107,6 +1108,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 14 then
 		-- BIOLUMINESCENT BAY
+		local iJungleChance = 0
+		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			local pAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
@@ -1114,6 +1117,12 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			-- making Grass on all lands around
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				pAdjacentPlot:SetTerrainType(eTerrainGrass, false, false)
+				
+				iJungleChance = math.random(3)
+				
+				if iJungleChance > 1 then
+					pAdjacentPlot:SetFeatureType(eFeatureJungle)
+				end
 			end
 		end
 	elseif method_number == 15 then
