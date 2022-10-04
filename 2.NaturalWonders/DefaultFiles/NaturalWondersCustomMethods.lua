@@ -322,7 +322,7 @@ function NWCustomEligibility(x, y, method_number)
 		if pMainPlot == nil then return false end
 		if not pMainPlot:IsAdjacentToShallowWater() then return false end
 		if pMainPlot:IsRiver() then return false end
-		if pMainPlot:GetPlotType() ~= ePlotFlat then return false end
+		if pMainPlot:GetPlotType() ~= ePlotFlat and pMainPlot:GetPlotType() ~= ePlotHill then return false end
 		
 		local pMainTerrainType = pMainPlot:GetTerrainType()
 
@@ -330,7 +330,7 @@ function NWCustomEligibility(x, y, method_number)
 		
 		local pMainAreaNear = pMainPlot:Area():GetNumTiles()
 
-		if pMainAreaNear < 6 or pMainAreaNear > (3 * iH) then return false end 
+		if pMainAreaNear < 10 then return false end 
 
 		local bIsHasSeaTiles = false
 		local iNumLandTiles = 0
@@ -347,8 +347,7 @@ function NWCustomEligibility(x, y, method_number)
 			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
 			
 			if sAdjacentPlotType == ePlotMountain then return false end
-
-			if sAdjacentPlotType == ePlotOcean then
+			if not bIsHasSeaTiles and sAdjacentPlotType == ePlotOcean then
 				if pAdjacentPlot:IsLake() then return false end
 				
 				bIsHasSeaTiles = true
@@ -359,7 +358,7 @@ function NWCustomEligibility(x, y, method_number)
 			end
 		end
 
-		if not bIsHasSeaTiles or iNumLandTiles ~= 4 then return false end
+		if not bIsHasSeaTiles or iNumLandTiles < 3 or iNumLandTiles > 4 then return false end
 
 		return true
 	elseif method_number == 11 then
@@ -1000,7 +999,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
-			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
+			if pAdjacentPlot:GetPlotType() ~= ePlotOcean and pAdjacentPlot:GetTerrainType() ~= eTerrainDesert then
 				pAdjacentPlot:SetTerrainType(eTerrainPlains, false, false)
 				
 				if pAdjacentPlot:GetFeatureType() == eFeatureForest or pAdjacentPlot:GetFeatureType() == eFeatureJungle then
