@@ -2088,7 +2088,7 @@
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
-			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
+			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
@@ -2104,7 +2104,7 @@
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
