@@ -176,7 +176,7 @@ function NWCustomEligibility(x, y, method_number)
 		if pPlot:IsWater() == false then return false end
 		if pPlot:IsLake() then return false end
 		if pPlot:GetFeatureType() ~= eFeatureNo then return false end
-		if pPlot:GetTerrainType() == eTerrainTundra or pPlot:GetTerrainType() == eTerrainSnow then return false end
+		if pPlot:GetTerrainType() == eTerrainTundra or pPlot:GetTerrainType() == eTerrainSnow or pPlot:GetTerrainType() == eTerrainPlains then return false end
 
 		local iNumLand = 0
 
@@ -195,7 +195,7 @@ function NWCustomEligibility(x, y, method_number)
 				if pAdjacentPlot:Area():GetNumTiles() < 40
 				or sAdjacentPlotType == ePlotMountain or sAdjacentPlotType == ePlotHill
 				or sAdjacentFeatureType ~= eFeatureNo
-				or sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainGrass then return false end
+				or sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainPlains then return false end
 				
 				iNumLand = iNumLand + 1
 				
@@ -219,10 +219,12 @@ function NWCustomEligibility(x, y, method_number)
 		
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
 			
 			if pAdjacentPlot == nil then return false end
 			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then return false end
-		
+			if sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainTundra then return false end
+			
 			local iX = pAdjacentPlot:GetX()
 			local iY = pAdjacentPlot:GetY()
 			
@@ -333,7 +335,7 @@ function NWCustomEligibility(x, y, method_number)
 		
 		local pMainAreaNear = pMainPlot:Area():GetNumTiles()
 
-		if pMainAreaNear < 20 then return false end 
+		if pMainAreaNear < 30 then return false end 
 
 		local bIsHasSeaTiles = false
 		local iNumLandTiles = 0
