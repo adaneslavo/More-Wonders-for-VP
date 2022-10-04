@@ -232,15 +232,18 @@ function NWCustomEligibility(x, y, method_number)
 				if pDistantPlot == nil then return false end
 		
 				local sDistantPlotType = pDistantPlot:GetPlotType()
+				local sDistantTerrainType = pDistantPlot:GetTerrainType()
 				local sDistantAreaNear = pDistantPlot:Area():GetNumTiles()
 				
 				if sDistantPlotType ~= ePlotOcean then
-					if sDistantAreaNear > 20 then return false end
+					if sDistantAreaNear > 30 then return false end
 					
-					if sDistantAreaNear >= 10 and sDistantAreaNear <= 20 then
+					if sDistantAreaNear >= 10 and sDistantAreaNear <= 30 then
 						bBigIsland = true
 					end
 				end
+
+				if sDistantTerrainType == eTerrainSnow or sDistantTerrainType == eTerrainTundra then return false end
 			end
 		end
 		
@@ -330,7 +333,7 @@ function NWCustomEligibility(x, y, method_number)
 		
 		local pMainAreaNear = pMainPlot:Area():GetNumTiles()
 
-		if pMainAreaNear < 10 then return false end 
+		if pMainAreaNear < 20 then return false end 
 
 		local bIsHasSeaTiles = false
 		local iNumLandTiles = 0
@@ -403,6 +406,7 @@ function NWCustomEligibility(x, y, method_number)
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
 			if pAdjacentPlot == nil then return false end
+			if pAdjacentPlot:GetTerrainType() == eTerrainSnow then return false end
 
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				iNumLandN = iNumLandN + 1
@@ -416,7 +420,8 @@ function NWCustomEligibility(x, y, method_number)
 			local pAdjacentPlot = Map.PlotDirection(iSEX, iSEY, direction)
 
 			if pAdjacentPlot == nil then return false end
-			
+			if pAdjacentPlot:GetTerrainType() == eTerrainSnow then return false end
+
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean  then
 				iNumLandSE = iNumLandSE + 1
 			end
@@ -429,7 +434,8 @@ function NWCustomEligibility(x, y, method_number)
 			local pAdjacentPlot = Map.PlotDirection(iSWX, iSWY, direction)
 
 			if pAdjacentPlot == nil then return false end
-			
+			if pAdjacentPlot:GetTerrainType() == eTerrainSnow then return false end
+
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				iNumLandSW = iNumLandSW + 1
 			end
@@ -439,7 +445,7 @@ function NWCustomEligibility(x, y, method_number)
 
 		local iNumLandSum = iNumLandN + iNumLandSE + iNumLandSW
 		
-		if iNumLandSum < 3 or iNumLandSum > 4 then return false end
+		if iNumLandSum < 3 or iNumLandSum > 5 then return false end
 		
 		return true
 	elseif method_number == 13 then
@@ -472,7 +478,7 @@ function NWCustomEligibility(x, y, method_number)
 			end
 		end
 		
-		if iNumCoast < 1 or iNumCoast > 2 or iNumJungle == 0 then return false end
+		if iNumCoast < 1 or iNumCoast > 3 or iNumJungle == 0 then return false end
 		
 		return true
 	elseif method_number == 15 then
@@ -831,7 +837,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
-				iRandomMountain = math.random(4)
+				iRandomMountain = math.random(4) -- 75%
 				
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
@@ -839,7 +845,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
-				iRandomOasis = math.random(4)
+				iRandomOasis = math.random(5) -- 20%
 				
 				if iRandomOasis == 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
@@ -892,14 +898,14 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
 				if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
-					iRandomMountain = math.random(2)
+					iRandomMountain = math.random(2) -- 50%
 
 					if iRandomMountain ~= 1 then
 						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
 					end
 				elseif pAdjacentPlot:GetPlotType() == ePlotFlat or pAdjacentPlot:GetPlotType() == ePlotOcean then
 					pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
-					iRandomOasis = math.random(3)
+					iRandomOasis = math.random(3) -- 33%
 
 					if iRandomOasis == 1 then
 						pSecondAdjacentPlot:SetFeatureType(eFeatureOasis)
