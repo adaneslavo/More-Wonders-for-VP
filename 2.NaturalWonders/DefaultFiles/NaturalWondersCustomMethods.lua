@@ -235,9 +235,9 @@ function NWCustomEligibility(x, y, method_number)
 				local sDistantAreaNear = pDistantPlot:Area():GetNumTiles()
 				
 				if sDistantPlotType ~= ePlotOcean then
-					if sDistantAreaNear > 25 then return false end
+					if sDistantAreaNear > 20 then return false end
 					
-					if sDistantAreaNear >= 10 and sDistantAreaNear <= 25 then
+					if sDistantAreaNear >= 10 and sDistantAreaNear <= 20 then
 						bBigIsland = true
 					end
 				end
@@ -271,7 +271,7 @@ function NWCustomEligibility(x, y, method_number)
 			end
 		end
 		
-		if iNumHillsAndMountains < 3 then return false end
+		if iNumHillsAndMountains < 2 then return false end
 
 		return true
 	elseif method_number == 5 then
@@ -768,6 +768,29 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		pPlot:SetPlotType(ePlotOcean, false, false)
 		pPlot:SetTerrainType(eTerrainCoast, false, false)
+		
+		local tPotentialHill = {}
+		local iHillsAndMountains = 0
+		local pChosenPlot
+		
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			-- checking flats
+			if pAdjacentPlot:GetPlotType() == ePlotFlat then
+				table.insert(tPotentialHill, pAdjacentPlot)
+			else
+				iHillsAndMountains = iHillsAndMountains + 1
+			end
+		end
+		
+		-- setting hills
+		repeat
+			if iHillsAndMountains >= 3 then break end
+			pChosenPlot = table.remove(tPotentialHill, math.random(#tPotentialHill))
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+			iHillsAndMountains = iHillsAndMountains + 1
+		until(iHillsAndMountains >= 3)
 	elseif method_number == 5 then
 		-- GIANT'S CAUSEWAY
 		local pPlot = Map.GetPlot(x, y)
