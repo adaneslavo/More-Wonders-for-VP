@@ -799,11 +799,13 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 		
-		local iRandomMountain
+		local iRandomMountain, iRandomOasis
 
 		-- making Desert and cleaning Features and Hills around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
 				iRandomMountain = math.random(4)
@@ -811,10 +813,17 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
 				end
+				
+				pAdjacentPlot:SetFeatureType(eFeatureNo)
+			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
+				iRandomOasis = math.random(4)
+				
+				if iRandomOasis == 1 then
+					pAdjacentPlot:SetFeatureType(eFeatureOasis)
+				else
+					pAdjacentPlot:SetFeatureType(eFeatureNo)
+				end
 			end	
-
-			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
-			pAdjacentPlot:SetFeatureType(eFeatureNo)
 		end
 
 		-- finding suitable places for SALAR
@@ -856,19 +865,25 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for j, subdirection in ipairs(tDirectionTypes) do
 			local pSecondAdjacentPlot = Map.PlotDirection(pChosenPlotX, pChosenPlotY, subdirection)
 			
-			if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
-				iRandomMountain = math.random(4)
-				
-				if iRandomMountain ~= 1 then
-					pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
-				end
-			end	
-
-			pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 			pSecondAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
-				pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
+				if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
+					iRandomMountain = math.random(2)
+
+					if iRandomMountain ~= 1 then
+						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+					end
+				elseif pAdjacentPlot:GetPlotType() == ePlotFlat or pAdjacentPlot:GetPlotType() == ePlotOcean then
+					pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+					iRandomOasis = math.random(3)
+
+					if iRandomOasis == 1 then
+						pSecondAdjacentPlot:SetFeatureType(eFeatureOasis)
+					else
+						pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
+					end
+				end	
 			end
 		end				
 
