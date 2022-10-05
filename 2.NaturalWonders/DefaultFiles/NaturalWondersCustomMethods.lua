@@ -839,7 +839,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
-				iRandomMountain = math.random(4) -- 75%
+				iRandomMountain = math.random(3) -- 66%
 				
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
@@ -847,7 +847,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
-				iRandomOasis = math.random(5) -- 20%
+				iRandomOasis = math.random(4) -- 25%
 				
 				if iRandomOasis == 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
@@ -905,6 +905,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if iRandomMountain ~= 1 then
 						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
 					end
+				
+					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				elseif pAdjacentPlot:GetPlotType() == ePlotFlat or pAdjacentPlot:GetPlotType() == ePlotOcean then
 					pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 					iRandomOasis = math.random(3) -- 33%
