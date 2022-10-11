@@ -150,21 +150,9 @@ Currently compatible with 2.7.</Description>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>NaturalWondersOnStrategicMap</Name>
-        <Description>Prints NW icons on SV map</Description>
-        <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
         <Name>NaturalWondersOnStrategicMapXML</Name>
         <Description>Prints NW icons on SV map</Description>
         <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.xml</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>NaturalWonderPopupOnClick.lua</Name>
-        <Description>Shows up Natural Wonder popup window on demand</Description>
-        <FileName>2.NaturalWonders/UI/NaturalWonderPopupOnClick.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>

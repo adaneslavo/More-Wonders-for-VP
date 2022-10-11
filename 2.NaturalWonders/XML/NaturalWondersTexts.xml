@@ -2,7 +2,7 @@
 <GameData>
 	<Language_en_US>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_TITLE">
-			<Text>You found [COLOR_CYAN]{1_Wonder}[ENDCOLOR] and gain 1 [ICON_HAPPINESS_1] from the discovery!</Text>
+			<Text>You found [COLOR_YIELD_GOLD]{1_Wonder}[ENDCOLOR] and gain 1 [ICON_HAPPINESS_1] from the discovery!</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_HAPPINESS">
 			<Text>(unused)</Text>
@@ -409,5 +409,59 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_EYE_OF_SAHARA_C">
 			<Text>"Oddly, it appears not to be the scar of a meteorite but a deeply eroded dome, with a rainbow-inspired color scheme."[NEWLINE] - Chris Hadfield[NEWLINE]</Text>
 		</Row>
+
+
+
+		<Row Tag="TXT_KEY_NATURAL_WONDER_DIPLO_CORNER_HOOK">
+			<Text>Natural Wonders Overview</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_DIPLO_CORNER_HOOK_TT">
+			<Text>Shows all discovered Natural Wonders and their abilities</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_OVERVIEW">
+			<Text>Natural Wonders Overview</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_NAME">
+			<Text>Name</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWN">
+			<Text>Own?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWNER">
+			<Text>Owner</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_DISTANCE">
+			<Text>Distance</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_NAME_TT">
+			<Text>LMB: Sort by name</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWN_TT">
+			<Text>LMB: Sort by your ownership</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWNER_TT">
+			<Text>LMB: Sort by current owner</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_DISTANCE_TT">
+			<Text>LMB: Sort by lowest distance from your cities[NEWLINE]RMB: Sort by your cities with lowest distances</Text>
+		</Row>
+		
+		
+		<Row Tag="TXT_KEY_NATURAL_WONDER_NO_WONDER">
+			<Text>You have found no Natural Wonder yet!</Text>
+		</Row>
+		
+		
+		<Row Tag="TXT_KEY_NATURAL_WONDER_OWNERSHIP_YES">
+			<Text>[COLOR_POSITIVE_TEXT]Yes[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_COUNT">
+			<Text>Natural Wonders found: {1_Color}{2_WondersFound}[ENDCOLOR]/{3_WondersOnMap}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_DISTANCE">
+			<Text>{1_Distance} tiles from[NEWLINE][COLOR_CYAN]{2_ClosestCity}[ENDCOLOR]</Text>
+		</Row>
+		
+		
 	</Language_en_US>
 </GameData>

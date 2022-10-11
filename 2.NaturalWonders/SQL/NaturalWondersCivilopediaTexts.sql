@@ -11,10 +11,10 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'The ', '') 	WHERE Tag = 'TXT_KEY
 -- Moved Civilopedia entry from OLD_REEF to NEW_REEF
 -----------------------------------------------------------
 INSERT INTO Language_en_US
-			(Tag, Text)
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT', Text FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_B_TEXT', Text FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_C_TEXT', Text FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT';
+			(Tag,										Text)
+SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
+SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_B_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
+SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_C_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT';
 -----------------------------------------------------------
 -- Goddess of Nature change for multi-tile Natural Wonders
 -----------------------------------------------------------
