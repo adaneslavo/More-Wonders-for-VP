@@ -158,6 +158,7 @@ function ShowHideHandler(bIsHide, bInitState)
 			if ePlotOwner == -2 then
 				IconHookup(5, 45, "KRIS_SWORDSMAN_PROMOTION_ATLAS", instance.NaturalWonderOwnerIconBG)
 				instance.NaturalWonderOwnerIconBG:SetHide(false)
+				instance.NaturalWonderOwnerIconBG:SetToolTipString(L("TXT_KEY_NATURAL_WONDER_OWNER_UNKNOWN_TT"))
 				sortEntry.Owner = "ZZY"
 				sortEntry.OwnerAndYou = "ZZY"
 			elseif ePlotOwner ~= -1 then
@@ -166,6 +167,7 @@ function ShowHideHandler(bIsHide, bInitState)
 				
 				local eCivilization = pPlotOwner:GetCivilizationType()
 				local sCivName = L(GameInfo.Civilizations{ID=eCivilization}().ShortDescription)
+				instance.NaturalWonderOwnerIconBG:SetToolTipString(sCivName)
 				sortEntry.Owner = sCivName
 				
 				if ePlotOwner == ePlayer then

@@ -445,6 +445,9 @@
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_DISTANCE_TT">
 			<Text>LMB: Sort by lowest distance from your cities[NEWLINE]RMB: Sort by your cities with lowest distances</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_OWNER_UNKNOWN_TT">
+			<Text>Unknown</Text>
+		</Row>
 		
 		<Row Tag="TXT_KEY_NATURAL_WONDER_NO_WONDER">
 			<Text>You have found no Natural Wonder yet!</Text>
