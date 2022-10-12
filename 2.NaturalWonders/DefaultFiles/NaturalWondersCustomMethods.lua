@@ -70,6 +70,7 @@ function NWCustomEligibility(x, y, method_number)
 	local eFeatureNo = FeatureTypes.NO_FEATURE
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
+	local eFeatureIce = FeatureTypes.FEATURE_ICE
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -299,9 +300,11 @@ function NWCustomEligibility(x, y, method_number)
 			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
 			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
 			
+			if sAdjacentFeatureType == eFeatureIce then return false end
+
 			if sAdjacentPlotType ~= ePlotOcean then
-				if pAdjacentPlot:Area():GetNumTiles() < 5 or pAdjacentPlot:Area():GetNumTiles() > 30 
-				or not (sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainSnow or sAdjacentTerrainType == eTerrainPlains)
+				if pAdjacentPlot:Area():GetNumTiles() < 5 or pAdjacentPlot:Area():GetNumTiles() > 50 
+				or not (sAdjacentTerrainType == eTerrainTundra or sAdjacentTerrainType == eTerrainGrass or sAdjacentTerrainType == eTerrainPlains)
 				or sAdjacentFeatureType ~= eFeatureNo then return false end
 				
 				iNumLand = iNumLand + 1
@@ -1158,9 +1161,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- changing snow to tundra
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-
 			if pAdjacentPlot:GetTerrainType() == eTerrainSnow then
-				pPlot:SetTerrainType(eTerrainTundra, false, false)
+				pAdjacentPlot:SetTerrainType(eTerrainTundra, false, false)
 			end
 
 			if pAdjacentPlot:GetTerrainType() == eTerrainTundra and pAdjacentPlot:GetFeatureType() == eFeatureNo then

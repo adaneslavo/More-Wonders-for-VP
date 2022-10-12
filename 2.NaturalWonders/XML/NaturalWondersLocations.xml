@@ -115,8 +115,8 @@
 			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
-			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
-			<MaximumAllowedAdjacentSnow>99</MaximumAllowedAdjacentSnow>
+			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
+			<MaximumAllowedAdjacentSnow>0</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
 			<MaximumAllowedAdjacentShallowWater>99</MaximumAllowedAdjacentShallowWater>
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
@@ -153,8 +153,8 @@
 			<MaximumAllowedAdjacentFloodPlains>0</MaximumAllowedAdjacentFloodPlains>
 			<AdjacentTilesAvoidMarsh>true</AdjacentTilesAvoidMarsh>
 			<MaximumAllowedAdjacentMarsh>0</MaximumAllowedAdjacentMarsh>
-			<AdjacentTilesAvoidIce>false</AdjacentTilesAvoidIce>
-			<MaximumAllowedAdjacentIce>99</MaximumAllowedAdjacentIce>
+			<AdjacentTilesAvoidIce>true</AdjacentTilesAvoidIce>
+			<MaximumAllowedAdjacentIce>0</MaximumAllowedAdjacentIce>
 			<AdjacentTilesAvoidAtoll>false</AdjacentTilesAvoidAtoll>
 			<MaximumAllowedAdjacentAtoll>99</MaximumAllowedAdjacentAtoll>
 

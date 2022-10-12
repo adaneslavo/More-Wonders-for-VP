@@ -424,8 +424,8 @@
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_NAME">
 			<Text>Name</Text>
 		</Row>
-		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWN">
-			<Text>Own?</Text>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_CIV">
+			<Text>Pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWNER">
 			<Text>Owner</Text>
@@ -436,25 +436,20 @@
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_NAME_TT">
 			<Text>LMB: Sort by name</Text>
 		</Row>
-		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWN_TT">
-			<Text>LMB: Sort by your ownership</Text>
+		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_CIV_TT">
+			<Text>LMB: Sort by name</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_OWNER_TT">
-			<Text>LMB: Sort by current owner</Text>
+			<Text>LMB: Sort by current owner alphabetically[NEWLINE]RMB: Sort by current owner alphabetically with yours on top</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NATURAL_WONDER_HEADER_DISTANCE_TT">
 			<Text>LMB: Sort by lowest distance from your cities[NEWLINE]RMB: Sort by your cities with lowest distances</Text>
 		</Row>
 		
-		
 		<Row Tag="TXT_KEY_NATURAL_WONDER_NO_WONDER">
 			<Text>You have found no Natural Wonder yet!</Text>
 		</Row>
 		
-		
-		<Row Tag="TXT_KEY_NATURAL_WONDER_OWNERSHIP_YES">
-			<Text>[COLOR_POSITIVE_TEXT]Yes[ENDCOLOR]</Text>
-		</Row>
 		<Row Tag="TXT_KEY_NATURAL_WONDER_COUNT">
 			<Text>Natural Wonders found: {1_Color}{2_WondersFound}[ENDCOLOR]/{3_WondersOnMap}</Text>
 		</Row>

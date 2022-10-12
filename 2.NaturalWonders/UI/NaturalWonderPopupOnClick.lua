@@ -11,8 +11,8 @@ local L = Locale.ConvertTextKey
 
 local tSortTable
 local eName = 0
-local eOwn = 1
-local eOwner = 2
+local eOwner = 1
+local eOwnerAndYou = 2
 local eDistance = 3
 local eClosestCity = 4
 local iSortMode = -1
@@ -74,7 +74,7 @@ end
 -- CLICK SUPPORT FUNCTIONS
 --------------------------------
 function OnNaturalWonderLeftClick(eFeature)
-    print("LEFT CLICK!", eFeature)
+    print("LEFT CLICK NW!", eFeature)
 end
 
 function OnNaturalWonderRightClick(x, y)
@@ -83,6 +83,10 @@ function OnNaturalWonderRightClick(x, y)
 	if pPlot ~= nil then
     	UI.LookAt(pPlot)
 	end
+end
+
+function OnCivilopediaLeftClick(eFeature)
+    print("LEFT CLICK CIV!", eFeature)
 end
 --------------------------------
 -- MAIN FUNCTION
@@ -146,28 +150,33 @@ function ShowHideHandler(bIsHide, bInitState)
 			instance.NaturalWonderButton:RegisterCallback(Mouse.eRClick, OnNaturalWonderRightClick)
 			instance.NaturalWonderButton:SetVoids(pPlot:GetX(), pPlot:GetY())
 			
-			-- ownership
-			if ePlotOwner == ePlayer then
-				instance.NaturalWonderOwnership:SetText(L("TXT_KEY_NATURAL_WONDER_OWNERSHIP_YES"))
-				sortEntry.Own = "Yes"
-			else
-			    sortEntry.Own = "No"
-			end
-			
+			-- civilopedia - always ON, same icon for all, sorting by name
+			instance.NaturalWonderCivButton:RegisterCallback(Mouse.eLClick, OnCivilopediaLeftClick)
+			instance.NaturalWonderCivButton:SetVoid1(eFeature)
+
 			-- current owner
 			if ePlotOwner == -2 then
 				IconHookup(5, 45, "KRIS_SWORDSMAN_PROMOTION_ATLAS", instance.NaturalWonderOwnerIconBG)
 				instance.NaturalWonderOwnerIconBG:SetHide(false)
-				--instance.NaturalWonderOwnerIconBG:SetOffset(Vector2(-1,0))
 				sortEntry.Owner = "ZZY"
+				sortEntry.OwnerAndYou = "ZZY"
 			elseif ePlotOwner ~= -1 then
         		CivIconHookup(ePlotOwner, 45, instance.NaturalWonderOwnerIcon, instance.NaturalWonderOwnerIconBG, instance.NaturalWonderOwnerIconShadow, false, true)
 				instance.NaturalWonderOwnerIconBG:SetHide(false)
-				--instance.NaturalWonderOwnerIconBG:SetOffset(Vector2(0,0))
-				sortEntry.Owner = pPlotOwner:GetName()
-        	else
+				
+				local eCivilization = pPlotOwner:GetCivilizationType()
+				local sCivName = L(GameInfo.Civilizations{ID=eCivilization}().ShortDescription)
+				sortEntry.Owner = sCivName
+				
+				if ePlotOwner == ePlayer then
+					sortEntry.OwnerAndYou = "AAA"
+				else
+					sortEntry.OwnerAndYou = sCivName
+				end
+			else
 				instance.NaturalWonderOwnerIconBG:SetHide(true)
 				sortEntry.Owner = "ZZZ"
+				sortEntry.OwnerAndYou = "ZZZ"
         	end
 			
 			-- distance from the closest city
@@ -182,6 +191,11 @@ function ShowHideHandler(bIsHide, bInitState)
 
 	local bIsFoundAnyNaturalWonders = iNaturalWonderFoundCount > 0
 	Controls.NoNaturalWonder:SetHide(bIsFoundAnyNaturalWonders)
+	Controls.NaturalWonderHeaderName:SetHide(not bIsFoundAnyNaturalWonders)
+	Controls.NaturalWonderHeaderCiv:SetHide(not bIsFoundAnyNaturalWonders)
+	Controls.NaturalWonderHeaderOwner:SetHide(not bIsFoundAnyNaturalWonders)
+	Controls.NaturalWonderHeaderDistance:SetHide(not bIsFoundAnyNaturalWonders)
+	Controls.NaturalWonderHeaderTrim:SetHide(not bIsFoundAnyNaturalWonders)
     
 	local sCountColor = ""
 	if iNaturalWonderFoundCount == 0 then
@@ -199,7 +213,7 @@ function ShowHideHandler(bIsHide, bInitState)
 	Controls.NaturalWonderScrollPanel:CalculateInternalSize()
 	
 	if not bIsHide then
-		bSortReverse = false
+		bSortReverse = true
 		OnSort(eName)
 	end
 end
@@ -213,7 +227,7 @@ function SortFunction(a, b)
 	
 	local entryA = tSortTable[tostring(a)]
     local entryB = tSortTable[tostring(b)]
-
+	
 	local bReversedOrder = false
 	
     if entryA == nil or entryB == nil then 
@@ -232,13 +246,12 @@ function SortFunction(a, b)
 		if iSortMode == eName then
 			valueA = entryA.Name
 			valueB = entryB.Name
-		elseif iSortMode == eOwn then
-			valueA = entryA.Own
-			valueB = entryB.Own
-			bReversedOrder = true
 		elseif iSortMode == eOwner then
 			valueA = entryA.Owner
 			valueB = entryB.Owner
+		elseif iSortMode == eOwnerAndYou then
+			valueA = entryA.OwnerAndYou
+			valueB = entryB.OwnerAndYou
 		elseif iSortMode == eDistance then
 			valueA = entryA.Distance
 			valueB = entryB.Distance
@@ -248,16 +261,27 @@ function SortFunction(a, b)
 		end
 	    
 		if valueA == valueB then
-			if iSortMode == eDistance then
+			if iSortMode == eName then
+				valueA = entryA.Distance
+				valueB = entryB.Distance
+			elseif iSortMode == eOwner then
+				valueA = entryA.Distance
+				valueB = entryB.Distance
+			elseif iSortMode == eOwnerAndYou then
+				valueA = entryA.Distance
+				valueB = entryB.Distance
+			elseif iSortMode == eDistance then
 				valueA = entryA.ClosestCity
 				valueB = entryB.ClosestCity
 			elseif iSortMode == eClosestCity then
 				valueA = entryA.Distance
 				valueB = entryB.Distance
-			else
-				valueA = entryA.Name
-				valueB = entryB.Name
 			end
+		end
+		
+		if valueA == valueB then
+			valueA = entryA.Name
+			valueB = entryB.Name
 		end
 
 		if bReversedOrder then
@@ -288,7 +312,9 @@ function OnSort(type)
 end
 
 function OnSortAlternative(type)
-	if type == eDistance then
+	if type == eOwner then
+		type = eOwnerAndYou
+	elseif type == eDistance then
 		type = eClosestCity
 	end
 	
@@ -302,12 +328,13 @@ function OnSortAlternative(type)
     Controls.NaturalWonderGridStack:SortChildren(SortFunction)
 end
 Controls.NaturalWonderHeaderName:RegisterCallback(Mouse.eLClick, OnSort)
-Controls.NaturalWonderHeaderOwn:RegisterCallback(Mouse.eLClick, OnSort)
+Controls.NaturalWonderHeaderCiv:RegisterCallback(Mouse.eLClick, OnSort)
 Controls.NaturalWonderHeaderOwner:RegisterCallback(Mouse.eLClick, OnSort)
+Controls.NaturalWonderHeaderOwner:RegisterCallback(Mouse.eRClick, OnSortAlternative)
 Controls.NaturalWonderHeaderDistance:RegisterCallback(Mouse.eLClick, OnSort)
 Controls.NaturalWonderHeaderDistance:RegisterCallback(Mouse.eRClick, OnSortAlternative)
 Controls.NaturalWonderHeaderName:SetVoid1(eName)
-Controls.NaturalWonderHeaderOwn:SetVoid1(eOwn)
+Controls.NaturalWonderHeaderCiv:SetVoid1(eName)
 Controls.NaturalWonderHeaderOwner:SetVoid1(eOwner)
 Controls.NaturalWonderHeaderDistance:SetVoid1(eDistance)
 --------------------------------
@@ -335,7 +362,7 @@ function OnDiploCornerPopup()
 end
 
 function OnAdditionalInformationDropdownGatherEntries(additionalEntries)
-	table.insert(additionalEntries, {text=L("TXT_KEY_NATURAL_WONDER_DIPLO_CORNER_HOOK"), call=OnDiploCornerPopup, art="WonderPlannerLogo.dds"})
+	table.insert(additionalEntries, {text=L("TXT_KEY_NATURAL_WONDER_DIPLO_CORNER_HOOK"), call=OnDiploCornerPopup, art="NWOverviewLogo.dds"})
 end
 LuaEvents.AdditionalInformationDropdownGatherEntries.Add(OnAdditionalInformationDropdownGatherEntries)
 LuaEvents.RequestRefreshAdditionalInformationDropdownEntries()

@@ -178,7 +178,7 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.85</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_MT_PAEKTU</ResourceType>
