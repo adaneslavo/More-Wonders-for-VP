@@ -1003,11 +1003,11 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				iNumMountains = iNumMountains + 1
 			end	
 			
-			if pAdjacentPlot:GetTerrainType() == eTerrainGrass then
+			if pAdjacentPlot:GetTerrainType() == eTerrainGrass or pAdjacentPlot:GetTerrainType() == eTerrainPlains then
 				pAdjacentPlot:SetTerrainType(eTerrainTundra, false, false)
 			end
 
-			if pAdjacentPlot:GetTerrainType() == eTerrainDesert or pAdjacentPlot:GetTerrainType() == eTerrainPlains then
+			if pAdjacentPlot:GetTerrainType() == eTerrainDesert then
 				pAdjacentPlot:SetTerrainType(eTerrainSnow, false, false)
 			end
 		end
