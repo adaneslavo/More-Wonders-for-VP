@@ -5825,20 +5825,29 @@ function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
 	local iW, iH = Map.GetGridSize();
 	local plotIndex = iW * y + x + 1;
 	
+	-- adan_eslavo, start (top and bottom rows are not targetted)
+	if (not Map.IsWrapY() and (y == 0 or y == iH - 1)) or (not Map.IsWrapX() and (x == 0 or x == iW - 1)) then
+		return false, false;
+	end
+	-- adan_eslavo, end
+	
 	-- Check for collision with player starts
 	if self.impactData[ImpactLayers.LAYER_NATURAL_WONDER][plotIndex] > 0 then
 		return false, false;
 	end
 	
+	-- adan_eslavo, start (fertility rework; was range=3; was 20/28); I use different algorithms than Fertility, so it's disabled now (all tiles are taken into account)
 	-- Check the location is a decent city site, otherwise the wonderID is pointless
 	local plot = Map.GetPlot(x, y);
-	local fertility = self:Plot_GetFertilityInRange(plot, 3);
-	if fertility < 15 then -- adan_eslavo (was 20/28); I use different algorithms than Fertility, so it's kinda disabled now
+	local fertility = self:Plot_GetFertilityInRange(plot, 1);
+	--print("Plot:", x, y, "fertility=", fertility)
+	if fertility < 0 then
 		return false, false;
-	elseif fertility < 15 then
+	elseif fertility < 0 then
 		return false, true;
 	end
 	return true, true;
+	-- adan_eslavo, end
 end
 ------------------------------------------------------------------------------
 function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x, y)
@@ -5848,6 +5857,7 @@ function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x,
 	if self:ExaminePlotForNaturalWondersEligibility(x, y) == false then
 		return false
 	end
+
 	-- local iW, iH = Map.GetGridSize();
 	-- Now loop through adjacent plots. Using Map.PlotDirection() in combination with
 	-- direction types, an alternate first-ring hex adjustment method, instead of the
@@ -6661,12 +6671,12 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			-- MOD.Barathor: Fixed: Added a check for the Great Barrier Reef being placed.  If so, it appropriately applies impact values to its second tile to avoid buggy collisions with water resources.
 			-- MOD.Barathor: Start
 			-- MOD.adan_eslavo: adaptation to 3-tile GBR (now tiles around center blocked);
-			if (self.wonder_list[wonder_number] == "FEATURE_NEW_REEF") then
+			if (self.wonder_list[wonder_number] == "FEATURE_NEW_REEF_A") then
 				--print("Great Barrier Reef placed... applying impact values to its southeast tile as well.")
 				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
 					local pBarrierPlot = Map.PlotDirection(x, y, i)
 					
-					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF then	
+					if pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_B or pBarrierPlot:GetFeatureType() == GameInfoTypes.FEATURE_NEW_REEF_C then	
 						local iBarrierX = pBarrierPlot:GetX()
 						local iBarrierY = pBarrierPlot:GetY()
 					
@@ -11726,7 +11736,7 @@ function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
 	if plot:IsImpassable() or plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
 		return 0
 	end
-	
+
 	local value = 0
 	local featureID = plot:GetFeatureType()
 	local terrainID = plot:GetTerrainType()

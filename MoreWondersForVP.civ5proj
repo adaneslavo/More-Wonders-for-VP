@@ -9,7 +9,7 @@
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
-Currently compatible with 7-1-3.</Description>
+Currently compatible with 2.7.</Description>
     <Authors>Infixo, adan_eslavo</Authors>
     <SpecialThanks>Infixo, Asterix_Rage, hokath, Artisanix, Gwennog and others in credits file</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
@@ -120,7 +120,7 @@ Currently compatible with 7-1-3.</Description>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>2.NaturalWonders/SQL/NaturalWondersTexts.sql</FileName>
+        <FileName>2.NaturalWonders/SQL/NaturalWondersCivilopediaTexts.sql</FileName>
       </Action>
     </ModActions>
     <ModContent>
@@ -150,15 +150,15 @@ Currently compatible with 7-1-3.</Description>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>NaturalWondersOnStrategicMap</Name>
-        <Description>Prints NW icons on SV map</Description>
-        <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
         <Name>NaturalWondersOnStrategicMapXML</Name>
         <Description>Prints NW icons on SV map</Description>
         <FileName>2.NaturalWonders/UI/NaturalWondersOnStrategicMap.xml</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>NaturalWonderPopupOnClick.xml</Name>
+        <Description>Shows up Natural Wonder popup window on demand</Description>
+        <FileName>2.NaturalWonders/UI/NaturalWonderPopupOnClick.xml</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -184,1354 +184,6 @@ Currently compatible with 7-1-3.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Great_Work_Holy_Crown.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_splash.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\DefaultFiles\WonderPopup.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\DefaultFiles\WonderPopup.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ahu_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ahu_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_akihabara_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_akihabara_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_altamira_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_altamira_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_ark_of_the_covenant_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_ark_of_the_covenant_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_arecibo_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_arecibo_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bakken_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bakken_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bamyan_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bamyan_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_banff_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_banff_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_benhaddou_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_benhaddou_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bletchley_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_bletchley_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_brooklyn_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_brooklyn_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_cern_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_cern_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_chand_baori_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_chand_baori_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_chevaliers_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_chevaliers_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_crystal_palace_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_crystal_palace_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_damascus_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_damascus_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_darjeeling_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_darjeeling_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_el_ghriba_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_el_ghriba_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_empire_state_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_empire_state_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_etchmiadzin_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_etchmiadzin_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_falun_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_falun_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_forum_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_forum_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_gate_of_sun_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_gate_of_sun_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ggantija_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ggantija_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_goebekli_tepe_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_goebekli_tepe_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_grand_canal_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_grand_canal_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_great_zimbabwe_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_great_zimbabwe_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_holy_crown_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_holy_crown_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_holy_lance_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\art_holy_lance_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_house_of_trade_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_house_of_trade_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_itsukushima_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_itsukushima_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_jumeirah_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_jumeirah_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_karnak_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_karnak_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kew_gardens_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kew_gardens_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kilwa_kisiwani_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kilwa_kisiwani_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kinkaku_ji_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kinkaku_ji_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kuk_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_kuk_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_lavaux_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_lavaux_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_majorville_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_majorville_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_malwiya_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_malwiya_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_marae_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_marae_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_meenakshi_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_meenakshi_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_menin_gate_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_michel_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_michel_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_millau_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_millau_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_mohenjo_daro_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_mohenjo_daro_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_monte_carlo_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_monte_carlo_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_motherland_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_motherland_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_museum_island_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_museum_island_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_nabawi_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_nabawi_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_nazca_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_nazca_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_old_bridge_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_old_bridge_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_olympic_village_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_olympic_village_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_orszaghaz_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_orszaghaz_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_panama_canal_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_panama_canal_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_peterhof_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_peterhof_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_polar_expedition_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_polar_expedition_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_qalhat_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_qalhat_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_rockefeller_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_rockefeller_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ruhr_valley_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_ruhr_valley_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_rushmore_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_rushmore_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_sanbo_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_sanbo_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_shwedagon_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_shwedagon_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_siberian_railway_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_siberian_railway_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_siku_quanshu_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_siku_quanshu_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_skara_brae_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_skara_brae_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_solovietsky_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_solovietsky_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_st_peters_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_st_peters_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_summer_palace_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_summer_palace_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_taipei_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_taipei_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_wartburg_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_wartburg_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_white_sands_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_white_sands_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_wieliczka_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_wieliczka_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_zocalo_man.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_zocalo_woman.mp3">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
     <Content Include="1.WorldWonders\SQL\WorldWondersDefinitions.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1540,605 +192,29 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_b_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_b_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_c_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_c_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\bermuda_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda_b.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda_b.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda_c.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\Model\feature_bermuda_c.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BermudaTriangle\sv_Bermuda.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\feature_lumi_bay.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\feature_lumi_bay.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\lumi_bay_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BioluminescentBay\Model\lumi_bay_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\BioluminescentBay\sv_Lumi_Bay.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Dallol\Model\feature_dallol.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Dallol\Model\feature_dallol.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Dallol\Model\dallol_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Dallol\Model\dallol_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Dallol\sv_Dallol.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\EyeOfTheSahara\sv_Sahara_Eye.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_b_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_b_ground_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway_b.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway_b.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway_C.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\sv_Causeway_T.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 orange.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 pink.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 1 red.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 2 orange.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 2 pink.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 pink.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 purple.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\coral plant type - 3 yellow.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\FX_NEW_REEF.ftsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_1_orange.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_1_white.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\great_barrier_reef_main_2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\NEW_REEF.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GreatBarrierReef\Model\NEW_REEF.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\feature_retba.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\feature_retba.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\retba_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\LakeRetba\Model\retba_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\LakeRetba\sv_Retba.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Matterhorn\sv_Matterhorn.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\Model\feature_mt_everest.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\Model\mt_everest_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\Model\mt_everest_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\Model\feature_mt_everest.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\feature_causeway.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\GiantsCauseway\Model\causeway_ground_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountEverest\sv_Everest.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Great_Work_Mt_Paektu.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_CLOUDS.ftsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL.ftsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL_2.ftsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\MT_PAEKTU_GRASS.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\MT_PAEKTU_GRASS.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Ice Water 3.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv3.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv4.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv5.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv6.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv7.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 3.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra 4.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu Tundra.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu water.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\Model\textures\mount paektu waterfall base.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\MountPaektu\sv_Paektu.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar_b.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\feature_salar_b.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_b_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\Model\salar_b_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\sv_Salar_B.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\SalarDeUyuni\sv_Salar_S.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\SQL\NaturalWondersTexts.sql">
+    <Content Include="1.WorldWonders\SQL\MainRulesForWorldWonders.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.lua">
+    <Content Include="1.WorldWonders\Lua\GlobalMutualExclusiveness.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.xml">
+    <Content Include="1.WorldWonders\Lua\UniqueWorldWondersRequirements.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
+    <Content Include="1.WorldWonders\Lua\DummyBuildingsForWonders.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Copy.txt">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Credits.txt">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="GlobalSettings.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="NaturalWonders.ods">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_128.dds">
+    <Content Include="1.WorldWonders\DefaultFiles\WonderPopup.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_256.dds">
+    <Content Include="1.WorldWonders\DefaultFiles\WonderPopup.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\More_Natural_Wonders_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWondersCustomMethods.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Lua\UniqueNaturalWondersAbilities.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\SQL\UniqueNaturalWondersAbilities.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\XML\NaturalWondersLocations.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\XML\NaturalWondersParameters.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\XML\NaturalWondersTexts.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_16.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_32.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Promotions\PromotionsDefinitions.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_32.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_80.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.ggxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fish_tropical.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fish_resource_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fish_tropical.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_3.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_orange_1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_purple_1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_1.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_2.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\ResourcesDefinitions.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\sv_icons\sv_Sylvite.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\sv_icons\sv_Tern_Egg.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Resources\sv_icons\sv_Tropical_Fish.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="WorldWonders.ods">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\Art\0.Neolithic\Wonder_Altamira_128.dds">
       <SubType>Lua</SubType>
@@ -3420,63 +1496,1998 @@ Currently compatible with 7-1-3.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Lua\(unused).lua">
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\1.Ancient\Wonder_Thong_Hai_Hin_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Sigiriya_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Buyuk_Han_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Rila_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Tembleque_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Great_Work_Holy_Crown.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Banff_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Kew_Gardens_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Orszaghaz_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Ruhr_Valley_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siberian_Railway_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Siku_Quanshu_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Zocalo_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Akihabara_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Autobahn_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Concorde_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Polar_Expedition_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Hollywood_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Interstate_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rockefeller_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Rushmore_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\6.Modern\Wonder_Sanbo_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Habitat_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_JFK_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Revolutionary_Museum_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Milestii_Mici_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Thule_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\7.Atomic\Wonder_Vostok_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Curiosity_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_GPS_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ahu_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ahu_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_akihabara_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_akihabara_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_altamira_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_altamira_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_ark_of_the_covenant_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_ark_of_the_covenant_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_arecibo_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_arecibo_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bakken_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bakken_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bamyan_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bamyan_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_banff_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_banff_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_benhaddou_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_benhaddou_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bletchley_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_bletchley_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_brooklyn_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_brooklyn_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_cern_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_cern_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_chand_baori_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_chand_baori_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_chevaliers_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_chevaliers_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_crystal_palace_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_crystal_palace_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_damascus_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_damascus_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_darjeeling_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_darjeeling_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_el_ghriba_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_el_ghriba_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_empire_state_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_empire_state_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_etchmiadzin_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_etchmiadzin_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_falun_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_falun_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_forum_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_forum_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_gate_of_sun_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_gate_of_sun_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ggantija_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ggantija_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_goebekli_tepe_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_goebekli_tepe_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_grand_canal_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_grand_canal_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_great_zimbabwe_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_great_zimbabwe_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_holy_crown_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_holy_crown_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_holy_lance_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\art_holy_lance_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_house_of_trade_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_house_of_trade_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_itsukushima_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_itsukushima_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_jumeirah_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_jumeirah_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_karnak_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_karnak_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kew_gardens_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kew_gardens_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kilwa_kisiwani_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kilwa_kisiwani_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kinkaku_ji_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kinkaku_ji_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kuk_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_kuk_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_lavaux_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_lavaux_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_majorville_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_majorville_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_malwiya_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_malwiya_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_marae_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_marae_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_meenakshi_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_meenakshi_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_menin_gate_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_menin_gate_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_michel_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_michel_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_millau_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_millau_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_mohenjo_daro_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_mohenjo_daro_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_monte_carlo_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_monte_carlo_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_motherland_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_motherland_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_museum_island_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_museum_island_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_nabawi_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_nabawi_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_nazca_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_nazca_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_old_bridge_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_old_bridge_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_olympic_village_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_olympic_village_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_orszaghaz_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_orszaghaz_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_panama_canal_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_panama_canal_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_peterhof_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_peterhof_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_polar_expedition_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_polar_expedition_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_qalhat_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_qalhat_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_rockefeller_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_rockefeller_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ruhr_valley_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_ruhr_valley_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_rushmore_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_rushmore_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_sanbo_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_sanbo_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_shwedagon_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_shwedagon_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_siberian_railway_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_siberian_railway_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_siku_quanshu_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_siku_quanshu_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_skara_brae_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_skara_brae_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_solovietsky_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_solovietsky_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_st_peters_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_st_peters_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_summer_palace_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_summer_palace_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_taipei_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_taipei_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_wartburg_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_wartburg_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_white_sands_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_white_sands_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_wieliczka_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_wieliczka_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_zocalo_man.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Sounds\wonder_zocalo_woman.mp3">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_Buildings_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_Buildings_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_Buildings_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_Buildings_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Atlases\More_Natural_Wonders_Buildings_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_b_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_b_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_c_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_c_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_b.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_b.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_c.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_c.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\sv_Bermuda.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\fx_triggers_lumi_bay_1.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\fx_triggers_lumi_bay_2.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\lumi_bay.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\lumi_bay.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\lumi_bay_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\lumi_bay_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\BioluminescentBay\sv_Lumi_Bay.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\sv_Dallol.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\sv_Sahara_Eye.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_b_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_b_ground_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_ground_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway_b.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway_b.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\sv_Causeway_C.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\sv_Causeway_T.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 1 orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 1 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 1 red.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 2 orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 2 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 3 pink.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 3 purple.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\coral plant type - 3 yellow.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\FX_NEW_REEF.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\great_barrier_reef_main_1_orange.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\great_barrier_reef_main_1_white.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\great_barrier_reef_main_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\NEW_REEF.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\NEW_REEF.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\feature_retba.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\feature_retba.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\retba_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\retba_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\sv_Retba.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Matterhorn\sv_Matterhorn.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\feature_mt_everest.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\feature_mt_everest.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\sv_Everest.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_CLOUDS.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\FX_TRIGGERS_MT_PAEKTU_WATERFALL_2.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\MT_PAEKTU_GRASS.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\MT_PAEKTU_GRASS.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Ice Water 1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Ice Water 2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Ice Water 3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv4.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv5.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv6.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Snowy Mountain fade to greenv7.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Tundra 2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Tundra 3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Tundra 4.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu Tundra.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu water.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\mount paektu waterfall base.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MountPaektu\sv_Paektu.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\feature_salar.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\feature_salar.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\feature_salar_b.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\feature_salar_b.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\salar_b_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\salar_b_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\salar_ground_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\salar_ground_h.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\sv_Salar_B.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\sv_Salar_S.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\OverviewPanel\Civilipedia_icon.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\OverviewPanel\NWOverviewLogo.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\UI\NaturalWonderPopupOnClick.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Lua\GlobalMutualExclusiveness.lua">
+    <Content Include="2.NaturalWonders\UI\NaturalWonderPopupOnClick.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Lua\UniqueWorldWondersRequirements.lua">
+    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Lua\DummyBuildingsForWonders.lua">
+    <Content Include="2.NaturalWonders\UI\NaturalWondersOnStrategicMap.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\SQL\MainRulesForWorldWonders.sql">
+    <Content Include="2.NaturalWonders\Art\Great_Work_Mt_Paektu.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\DefaultFiles\NaturalWondersCustomMethods.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Lua\UniqueNaturalWondersAbilities.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\SQL\UniqueNaturalWondersAbilities.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\SQL\NaturalWondersCivilopediaTexts.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\XML\NaturalWondersLocations.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\XML\NaturalWondersParameters.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\XML\NaturalWondersTexts.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_16.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\PromotionsDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_improved.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fishingboats_underconstruction.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_resource_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\fish_tropical_industrial.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_blue_3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_orange_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_purple_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_red_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\TropicalFish\NEW_fish_resource_diff_yellow_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\ResourcesDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Sylvite.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Tern_Egg.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\sv_icons\sv_Tropical_Fish.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Credits.txt">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="GlobalSettings.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="NaturalWonders.ods">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="WorldWonders.ods">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="1.WorldWonders" />
     <Folder Include="1.WorldWonders\DefaultFiles" />
     <Folder Include="1.WorldWonders\Sounds" />
-    <Folder Include="2.NaturalWonders" />
-    <Folder Include="2.NaturalWonders\Art\BermudaTriangle\Model" />
-    <Folder Include="2.NaturalWonders\Art\BioluminescentBay\Model" />
-    <Folder Include="2.NaturalWonders\Art\Dallol\Model" />
-    <Folder Include="2.NaturalWonders\Art\EyeOfTheSahara\Model" />
-    <Folder Include="2.NaturalWonders\Art\GreatBarrierReef\Model" />
-    <Folder Include="2.NaturalWonders\Art\LakeRetba\Model" />
-    <Folder Include="2.NaturalWonders\Art\MountEverest" />
-    <Folder Include="2.NaturalWonders\Art\MountEverest\Model" />
-    <Folder Include="2.NaturalWonders\Art\GiantsCauseway" />
-    <Folder Include="2.NaturalWonders\Art\GiantsCauseway\Model" />
-    <Folder Include="2.NaturalWonders\Art\LakeRetba" />
-    <Folder Include="2.NaturalWonders\Art\EyeOfTheSahara" />
-    <Folder Include="2.NaturalWonders\Art\BermudaTriangle" />
-    <Folder Include="2.NaturalWonders\Art\BioluminescentBay" />
-    <Folder Include="2.NaturalWonders\Art\Dallol" />
-    <Folder Include="2.NaturalWonders\Art\MountPaektu" />
-    <Folder Include="2.NaturalWonders\Art\MountPaektu\Model" />
-    <Folder Include="2.NaturalWonders\Art\Matterhorn" />
-    <Folder Include="2.NaturalWonders\Art\GreatBarrierReef" />
-    <Folder Include="2.NaturalWonders\Art\MountPaektu\Model\textures" />
-    <Folder Include="2.NaturalWonders\Art\SalarDeUyuni" />
-    <Folder Include="2.NaturalWonders\Art\SalarDeUyuni\Model" />
-    <Folder Include="2.NaturalWonders\DefaultFiles" />
-    <Folder Include="2.NaturalWonders\Art" />
-    <Folder Include="2.NaturalWonders\Lua" />
-    <Folder Include="2.NaturalWonders\UI" />
-    <Folder Include="2.NaturalWonders\SQL" />
-    <Folder Include="2.NaturalWonders\XML" />
-    <Folder Include="Addons" />
-    <Folder Include="Addons\43-civ" />
-    <Folder Include="Promotions\" />
-    <Folder Include="1.WorldWonders" />
+    <Folder Include="1.WorldWonders\Lua" />
+    <Folder Include="1.WorldWonders\Art" />
+    <Folder Include="1.WorldWonders\SQL" />
     <Folder Include="1.WorldWonders\Art\0.Neolithic" />
     <Folder Include="1.WorldWonders\Art\1.Ancient" />
     <Folder Include="1.WorldWonders\Art\2.Classical" />
@@ -3486,16 +3497,48 @@ Currently compatible with 7-1-3.</Description>
     <Folder Include="1.WorldWonders\Art\6.Modern" />
     <Folder Include="1.WorldWonders\Art\7.Atomic" />
     <Folder Include="1.WorldWonders\Art\8.Information" />
-    <Folder Include="1.WorldWonders\Lua" />
-    <Folder Include="1.WorldWonders\Art" />
-    <Folder Include="1.WorldWonders\SQL" />
+    <Folder Include="2.NaturalWonders" />
+    <Folder Include="2.NaturalWonders\Art\Atlases" />
+    <Folder Include="2.NaturalWonders\Art\Models" />
+    <Folder Include="2.NaturalWonders\Art\Models\BermudaTriangle\" />
+    <Folder Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\BioluminescentBay\" />
+    <Folder Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Dallol\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Dallol\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\" />
+    <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\" />
+    <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Matterhorn\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MountEverest\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MountEverest\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\" />
+    <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\" />
+    <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\" />
+    <Folder Include="2.NaturalWonders\Art\OverviewPanel" />
+    <Folder Include="2.NaturalWonders\DefaultFiles" />
+    <Folder Include="2.NaturalWonders\Art" />
+    <Folder Include="2.NaturalWonders\Lua" />
+    <Folder Include="2.NaturalWonders\UI" />
+    <Folder Include="2.NaturalWonders\SQL" />
+    <Folder Include="2.NaturalWonders\XML" />
+    <Folder Include="Addons" />
+    <Folder Include="Addons\43-civ" />
+    <Folder Include="Promotions\" />
     <Folder Include="Promotions\Atlases" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\Models" />
-    <Folder Include="Resources\Models\TropicalFish" />
     <Folder Include="Resources\FontIcons" />
     <Folder Include="Resources\Atlases" />
     <Folder Include="Resources\sv_icons" />
+    <Folder Include="Resources\Models\TropicalFish" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>

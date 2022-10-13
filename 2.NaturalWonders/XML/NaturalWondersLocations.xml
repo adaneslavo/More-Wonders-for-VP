@@ -46,7 +46,7 @@
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
+			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>false</CoreTileCanBeDesert>
 			<CoreTileCanBeTundra>true</CoreTileCanBeTundra>
@@ -146,15 +146,15 @@
 			<AdjacentTilesAvoidForest>true</AdjacentTilesAvoidForest>
 			<MaximumAllowedAdjacentForest>2</MaximumAllowedAdjacentForest>
 			<AdjacentTilesAvoidJungle>true</AdjacentTilesAvoidJungle>
-			<MaximumAllowedAdjacentJungle>1</MaximumAllowedAdjacentJungle>
+			<MaximumAllowedAdjacentJungle>2</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>true</AdjacentTilesAvoidOasis>
 			<MaximumAllowedAdjacentOasis>0</MaximumAllowedAdjacentOasis>
 			<AdjacentTilesAvoidFloodPlains>true</AdjacentTilesAvoidFloodPlains>
 			<MaximumAllowedAdjacentFloodPlains>0</MaximumAllowedAdjacentFloodPlains>
 			<AdjacentTilesAvoidMarsh>true</AdjacentTilesAvoidMarsh>
 			<MaximumAllowedAdjacentMarsh>0</MaximumAllowedAdjacentMarsh>
-			<AdjacentTilesAvoidIce>false</AdjacentTilesAvoidIce>
-			<MaximumAllowedAdjacentIce>99</MaximumAllowedAdjacentIce>
+			<AdjacentTilesAvoidIce>true</AdjacentTilesAvoidIce>
+			<MaximumAllowedAdjacentIce>0</MaximumAllowedAdjacentIce>
 			<AdjacentTilesAvoidAtoll>false</AdjacentTilesAvoidAtoll>
 			<MaximumAllowedAdjacentAtoll>99</MaximumAllowedAdjacentAtoll>
 
@@ -180,7 +180,7 @@
 			<AvoidBiggestLandmass>true</AvoidBiggestLandmass>
 
 			<RequireFreshWater>false</RequireFreshWater>
-			<AvoidFreshWater>true</AvoidFreshWater>
+			<AvoidFreshWater>false</AvoidFreshWater>
 			<RequireLandAdjacentToOcean>true</RequireLandAdjacentToOcean>
 			<AvoidLandAdjacentToOcean>false</AvoidLandAdjacentToOcean>
 
@@ -271,8 +271,8 @@
 
 			<AdjacentTilesRequireNoFeature>false</AdjacentTilesRequireNoFeature>
 			<RequiredNumberOfAdjacentNoFeature>0</RequiredNumberOfAdjacentNoFeature>
-			<AdjacentTilesRequireForest>true</AdjacentTilesRequireForest>
-			<RequiredNumberOfAdjacentForest>1</RequiredNumberOfAdjacentForest>
+			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
+			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>false</AdjacentTilesRequireJungle>
 			<RequiredNumberOfAdjacentJungle>0</RequiredNumberOfAdjacentJungle>
 			<AdjacentTilesRequireOasis>false</AdjacentTilesRequireOasis>
@@ -292,14 +292,14 @@
 			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
 			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
 			<MaximumAllowedAdjacentJungle>99</MaximumAllowedAdjacentJungle>
-			<AdjacentTilesAvoidOasis>true</AdjacentTilesAvoidOasis>
-			<MaximumAllowedAdjacentOasis>0</MaximumAllowedAdjacentOasis>
-			<AdjacentTilesAvoidFloodPlains>true</AdjacentTilesAvoidFloodPlains>
-			<MaximumAllowedAdjacentFloodPlains>0</MaximumAllowedAdjacentFloodPlains>
+			<AdjacentTilesAvoidOasis>false</AdjacentTilesAvoidOasis>
+			<MaximumAllowedAdjacentOasis>99</MaximumAllowedAdjacentOasis>
+			<AdjacentTilesAvoidFloodPlains>false</AdjacentTilesAvoidFloodPlains>
+			<MaximumAllowedAdjacentFloodPlains>99</MaximumAllowedAdjacentFloodPlains>
 			<AdjacentTilesAvoidMarsh>false</AdjacentTilesAvoidMarsh>
 			<MaximumAllowedAdjacentMarsh>99</MaximumAllowedAdjacentMarsh>
-			<AdjacentTilesAvoidIce>true</AdjacentTilesAvoidIce>
-			<MaximumAllowedAdjacentIce>1</MaximumAllowedAdjacentIce>
+			<AdjacentTilesAvoidIce>false</AdjacentTilesAvoidIce>
+			<MaximumAllowedAdjacentIce>99</MaximumAllowedAdjacentIce>
 			<AdjacentTilesAvoidAtoll>false</AdjacentTilesAvoidAtoll>
 			<MaximumAllowedAdjacentAtoll>99</MaximumAllowedAdjacentAtoll>
 
@@ -318,7 +318,7 @@
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
-			<TileChangesMethodNumber>-1</TileChangesMethodNumber>
+			<TileChangesMethodNumber>18</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -329,9 +329,9 @@
 			<RequireLandAdjacentToOcean>false</RequireLandAdjacentToOcean>
 			<AvoidLandAdjacentToOcean>true</AvoidLandAdjacentToOcean>
 
-			<CoreTileCanBeAnyPlotType>true</CoreTileCanBeAnyPlotType>
-			<CoreTileCanBeFlatland>false</CoreTileCanBeFlatland>
-			<CoreTileCanBeHills>false</CoreTileCanBeHills>
+			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
+			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
+			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
@@ -350,7 +350,7 @@
 			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
 			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
-			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
+			<CoreTileCanBeMarsh>true</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
 			<CoreTileCanBeAtoll>false</CoreTileCanBeAtoll>
 
@@ -359,7 +359,7 @@
 			<AdjacentTilesCareAboutPlotTypes>true</AdjacentTilesCareAboutPlotTypes>
 
 			<AdjacentTilesRequireFlatland>true</AdjacentTilesRequireFlatland>
-			<RequiredNumberOfAdjacentFlatland>3</RequiredNumberOfAdjacentFlatland>
+			<RequiredNumberOfAdjacentFlatland>2</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>false</AdjacentTilesRequireHills>
 			<RequiredNumberOfAdjacentHills>0</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>false</AdjacentTilesRequireMountain>
@@ -385,7 +385,7 @@
 			<AdjacentTilesRequireGrass>false</AdjacentTilesRequireGrass>
 			<RequiredNumberOfAdjacentGrass>0</RequiredNumberOfAdjacentGrass>
 			<AdjacentTilesRequirePlains>true</AdjacentTilesRequirePlains>
-			<RequiredNumberOfAdjacentPlains>3</RequiredNumberOfAdjacentPlains>
+			<RequiredNumberOfAdjacentPlains>2</RequiredNumberOfAdjacentPlains>
 			<AdjacentTilesRequireDesert>false</AdjacentTilesRequireDesert>
 			<RequiredNumberOfAdjacentDesert>0</RequiredNumberOfAdjacentDesert>
 			<AdjacentTilesRequireTundra>false</AdjacentTilesRequireTundra>
@@ -401,8 +401,8 @@
 			<MaximumAllowedAdjacentGrass>99</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
-			<AdjacentTilesAvoidDesert>true</AdjacentTilesAvoidDesert>
-			<MaximumAllowedAdjacentDesert>1</MaximumAllowedAdjacentDesert>
+			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
+			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
 			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
@@ -435,14 +435,14 @@
 			<MaximumAllowedAdjacentNoFeature>99</MaximumAllowedAdjacentNoFeature>
 			<AdjacentTilesAvoidForest>false</AdjacentTilesAvoidForest>
 			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
-			<AdjacentTilesAvoidJungle>true</AdjacentTilesAvoidJungle>
-			<MaximumAllowedAdjacentJungle>0</MaximumAllowedAdjacentJungle>
+			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
+			<MaximumAllowedAdjacentJungle>99</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>true</AdjacentTilesAvoidOasis>
 			<MaximumAllowedAdjacentOasis>0</MaximumAllowedAdjacentOasis>
 			<AdjacentTilesAvoidFloodPlains>true</AdjacentTilesAvoidFloodPlains>
 			<MaximumAllowedAdjacentFloodPlains>0</MaximumAllowedAdjacentFloodPlains>
-			<AdjacentTilesAvoidMarsh>true</AdjacentTilesAvoidMarsh>
-			<MaximumAllowedAdjacentMarsh>0</MaximumAllowedAdjacentMarsh>
+			<AdjacentTilesAvoidMarsh>false</AdjacentTilesAvoidMarsh>
+			<MaximumAllowedAdjacentMarsh>99</MaximumAllowedAdjacentMarsh>
 			<AdjacentTilesAvoidIce>true</AdjacentTilesAvoidIce>
 			<MaximumAllowedAdjacentIce>0</MaximumAllowedAdjacentIce>
 			<AdjacentTilesAvoidAtoll>true</AdjacentTilesAvoidAtoll>
@@ -620,13 +620,13 @@
 			<AvoidLandAdjacentToOcean>true</AvoidLandAdjacentToOcean>
 
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
-			<CoreTileCanBeFlatland>false</CoreTileCanBeFlatland>
+			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
+			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
 			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
@@ -638,8 +638,8 @@
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>true</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
-			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
+			<CoreTileCanBeFloodPlains>true</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
 			<CoreTileCanBeAtoll>false</CoreTileCanBeAtoll>
@@ -649,7 +649,7 @@
 			<AdjacentTilesCareAboutPlotTypes>true</AdjacentTilesCareAboutPlotTypes>
 
 			<AdjacentTilesRequireFlatland>true</AdjacentTilesRequireFlatland>
-			<RequiredNumberOfAdjacentFlatland>4</RequiredNumberOfAdjacentFlatland>
+			<RequiredNumberOfAdjacentFlatland>3</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>false</AdjacentTilesRequireHills>
 			<RequiredNumberOfAdjacentHills>0</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>false</AdjacentTilesRequireMountain>
@@ -662,7 +662,7 @@
 			<AdjacentTilesAvoidFlatland>false</AdjacentTilesAvoidFlatland>
 			<MaximumAllowedAdjacentFlatland>99</MaximumAllowedAdjacentFlatland>
 			<AdjacentTilesAvoidHills>true</AdjacentTilesAvoidHills>
-			<MaximumAllowedAdjacentHills>2</MaximumAllowedAdjacentHills>
+			<MaximumAllowedAdjacentHills>3</MaximumAllowedAdjacentHills>
 			<AdjacentTilesAvoidMountain>true</AdjacentTilesAvoidMountain>
 			<MaximumAllowedAdjacentMountain>0</MaximumAllowedAdjacentMountain>
 			<AdjacentTilesAvoidHillsPlusMountains>false</AdjacentTilesAvoidHillsPlusMountains>
@@ -687,14 +687,14 @@
 			<AdjacentTilesRequireDeepWater>false</AdjacentTilesRequireDeepWater>
 			<RequiredNumberOfAdjacentDeepWater>0</RequiredNumberOfAdjacentDeepWater>
 
-			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
-			<MaximumAllowedAdjacentGrass>3</MaximumAllowedAdjacentGrass>
+			<AdjacentTilesAvoidGrass>false</AdjacentTilesAvoidGrass>
+			<MaximumAllowedAdjacentGrass>99</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
 			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
 			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
-			<AdjacentTilesAvoidTundra>true</AdjacentTilesAvoidTundra>
-			<MaximumAllowedAdjacentTundra>0</MaximumAllowedAdjacentTundra>
+			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
+			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
 			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
 			<MaximumAllowedAdjacentSnow>0</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
@@ -702,7 +702,7 @@
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
 			<MaximumAllowedAdjacentDeepWater>99</MaximumAllowedAdjacentDeepWater>
 
-			<AdjacentTilesCareAboutFeatureTypes>false</AdjacentTilesCareAboutFeatureTypes>
+			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>false</AdjacentTilesRequireNoFeature>
 			<RequiredNumberOfAdjacentNoFeature>0</RequiredNumberOfAdjacentNoFeature>
@@ -721,12 +721,12 @@
 			<AdjacentTilesRequireAtoll>false</AdjacentTilesRequireAtoll>
 			<RequiredNumberOfAdjacentAtoll>0</RequiredNumberOfAdjacentAtoll>
 
-			<AdjacentTilesAvoidNoFeature>false</AdjacentTilesAvoidNoFeature>
-			<MaximumAllowedAdjacentNoFeature>99</MaximumAllowedAdjacentNoFeature>
-			<AdjacentTilesAvoidForest>true</AdjacentTilesAvoidForest>
-			<MaximumAllowedAdjacentForest>2</MaximumAllowedAdjacentForest>
-			<AdjacentTilesAvoidJungle>true</AdjacentTilesAvoidJungle>
-			<MaximumAllowedAdjacentJungle>3</MaximumAllowedAdjacentJungle>
+			<AdjacentTilesAvoidNoFeature>true</AdjacentTilesAvoidNoFeature>
+			<MaximumAllowedAdjacentNoFeature>3</MaximumAllowedAdjacentNoFeature>
+			<AdjacentTilesAvoidForest>false</AdjacentTilesAvoidForest>
+			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
+			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
+			<MaximumAllowedAdjacentJungle>99</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>false</AdjacentTilesAvoidOasis>
 			<MaximumAllowedAdjacentOasis>99</MaximumAllowedAdjacentOasis>
 			<AdjacentTilesAvoidFloodPlains>false</AdjacentTilesAvoidFloodPlains>
@@ -912,7 +912,7 @@
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
-			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
+			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
@@ -925,7 +925,7 @@
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
 
 			<CoreTileCanBeAnyFeatureType>false</CoreTileCanBeAnyFeatureType>
-			<CoreTileCanBeNoFeature>false</CoreTileCanBeNoFeature>
+			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>true</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
 			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
@@ -941,7 +941,7 @@
 			<AdjacentTilesRequireFlatland>false</AdjacentTilesRequireFlatland>
 			<RequiredNumberOfAdjacentFlatland>0</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>true</AdjacentTilesRequireHills>
-			<RequiredNumberOfAdjacentHills>2</RequiredNumberOfAdjacentHills>
+			<RequiredNumberOfAdjacentHills>1</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>false</AdjacentTilesRequireMountain>
 			<RequiredNumberOfAdjacentMountain>0</RequiredNumberOfAdjacentMountain>
 			<AdjacentTilesRequireHillsPlusMountains>false</AdjacentTilesRequireHillsPlusMountains>
@@ -954,7 +954,7 @@
 			<AdjacentTilesAvoidHills>false</AdjacentTilesAvoidHills>
 			<MaximumAllowedAdjacentHills>99</MaximumAllowedAdjacentHills>
 			<AdjacentTilesAvoidMountain>true</AdjacentTilesAvoidMountain>
-			<MaximumAllowedAdjacentMountain>2</MaximumAllowedAdjacentMountain>
+			<MaximumAllowedAdjacentMountain>1</MaximumAllowedAdjacentMountain>
 			<AdjacentTilesAvoidHillsPlusMountains>false</AdjacentTilesAvoidHillsPlusMountains>
 			<MaximumAllowedAdjacentHillsPlusMountains>99</MaximumAllowedAdjacentHillsPlusMountains>
 			<AdjacentTilesAvoidOcean>false</AdjacentTilesAvoidOcean>
@@ -1012,7 +1012,7 @@
 			<RequiredNumberOfAdjacentAtoll>0</RequiredNumberOfAdjacentAtoll>
 
 			<AdjacentTilesAvoidNoFeature>true</AdjacentTilesAvoidNoFeature>
-			<MaximumAllowedAdjacentNoFeature>4</MaximumAllowedAdjacentNoFeature>
+			<MaximumAllowedAdjacentNoFeature>3</MaximumAllowedAdjacentNoFeature>
 			<AdjacentTilesAvoidForest>false</AdjacentTilesAvoidForest>
 			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
 			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
@@ -1122,12 +1122,12 @@
 			<AdjacentTilesRequireDeepWater>false</AdjacentTilesRequireDeepWater>
 			<RequiredNumberOfAdjacentDeepWater>0</RequiredNumberOfAdjacentDeepWater>
 
-			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
-			<MaximumAllowedAdjacentGrass>1</MaximumAllowedAdjacentGrass>
+			<AdjacentTilesAvoidGrass>false</AdjacentTilesAvoidGrass>
+			<MaximumAllowedAdjacentGrass>99</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
-			<AdjacentTilesAvoidDesert>true</AdjacentTilesAvoidDesert>
-			<MaximumAllowedAdjacentDesert>1</MaximumAllowedAdjacentDesert>
+			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
+			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
 			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
@@ -1188,7 +1188,7 @@
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
-			<TileChangesMethodNumber>-1</TileChangesMethodNumber>
+			<TileChangesMethodNumber>19</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -1206,7 +1206,7 @@
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
+			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
 			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
@@ -1216,9 +1216,9 @@
 
 			<CoreTileCanBeAnyFeatureType>false</CoreTileCanBeAnyFeatureType>
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
-			<CoreTileCanBeForest>false</CoreTileCanBeForest>
-			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeForest>true</CoreTileCanBeForest>
+			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
@@ -1231,11 +1231,11 @@
 			<AdjacentTilesRequireFlatland>false</AdjacentTilesRequireFlatland>
 			<RequiredNumberOfAdjacentFlatland>0</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>false</AdjacentTilesRequireHills>
-			<RequiredNumberOfAdjacentHills>0</RequiredNumberOfAdjacentHills>
+			<RequiredNumberOfAdjacentHills>1</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>true</AdjacentTilesRequireMountain>
-			<RequiredNumberOfAdjacentMountain>1</RequiredNumberOfAdjacentMountain>
+			<RequiredNumberOfAdjacentMountain>0</RequiredNumberOfAdjacentMountain>
 			<AdjacentTilesRequireHillsPlusMountains>true</AdjacentTilesRequireHillsPlusMountains>
-			<RequiredNumberOfAdjacentHillsPlusMountains>3</RequiredNumberOfAdjacentHillsPlusMountains>
+			<RequiredNumberOfAdjacentHillsPlusMountains>2</RequiredNumberOfAdjacentHillsPlusMountains>
 			<AdjacentTilesRequireOcean>false</AdjacentTilesRequireOcean>
 			<RequiredNumberOfAdjacentOcean>0</RequiredNumberOfAdjacentOcean>
 
@@ -1268,7 +1268,7 @@
 			<RequiredNumberOfAdjacentDeepWater>0</RequiredNumberOfAdjacentDeepWater>
 
 			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
-			<MaximumAllowedAdjacentGrass>2</MaximumAllowedAdjacentGrass>
+			<MaximumAllowedAdjacentGrass>1</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
 			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
@@ -1285,7 +1285,7 @@
 			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>true</AdjacentTilesRequireNoFeature>
-			<RequiredNumberOfAdjacentNoFeature>3</RequiredNumberOfAdjacentNoFeature>
+			<RequiredNumberOfAdjacentNoFeature>2</RequiredNumberOfAdjacentNoFeature>
 			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
 			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>false</AdjacentTilesRequireJungle>
@@ -1362,8 +1362,8 @@
 			<CoreTileCanBeAnyFeatureType>false</CoreTileCanBeAnyFeatureType>
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
-			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
@@ -1376,11 +1376,11 @@
 			<AdjacentTilesRequireFlatland>false</AdjacentTilesRequireFlatland>
 			<RequiredNumberOfAdjacentFlatland>0</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>true</AdjacentTilesRequireHills>
-			<RequiredNumberOfAdjacentHills>2</RequiredNumberOfAdjacentHills>
+			<RequiredNumberOfAdjacentHills>1</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>false</AdjacentTilesRequireMountain>
 			<RequiredNumberOfAdjacentMountain>0</RequiredNumberOfAdjacentMountain>
-			<AdjacentTilesRequireHillsPlusMountains>false</AdjacentTilesRequireHillsPlusMountains>
-			<RequiredNumberOfAdjacentHillsPlusMountains>0</RequiredNumberOfAdjacentHillsPlusMountains>
+			<AdjacentTilesRequireHillsPlusMountains>true</AdjacentTilesRequireHillsPlusMountains>
+			<RequiredNumberOfAdjacentHillsPlusMountains>1</RequiredNumberOfAdjacentHillsPlusMountains>
 			<AdjacentTilesRequireOcean>false</AdjacentTilesRequireOcean>
 			<RequiredNumberOfAdjacentOcean>0</RequiredNumberOfAdjacentOcean>
 
@@ -1389,7 +1389,7 @@
 			<AdjacentTilesAvoidHills>false</AdjacentTilesAvoidHills>
 			<MaximumAllowedAdjacentHills>99</MaximumAllowedAdjacentHills>
 			<AdjacentTilesAvoidMountain>true</AdjacentTilesAvoidMountain>
-			<MaximumAllowedAdjacentMountain>2</MaximumAllowedAdjacentMountain>
+			<MaximumAllowedAdjacentMountain>3</MaximumAllowedAdjacentMountain>
 			<AdjacentTilesAvoidHillsPlusMountains>false</AdjacentTilesAvoidHillsPlusMountains>
 			<MaximumAllowedAdjacentHillsPlusMountains>99</MaximumAllowedAdjacentHillsPlusMountains>
 			<AdjacentTilesAvoidOcean>false</AdjacentTilesAvoidOcean>
@@ -1420,14 +1420,14 @@
 			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
-			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
-			<MaximumAllowedAdjacentSnow>99</MaximumAllowedAdjacentSnow>
+			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
+			<MaximumAllowedAdjacentSnow>0</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
 			<MaximumAllowedAdjacentShallowWater>99</MaximumAllowedAdjacentShallowWater>
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
 			<MaximumAllowedAdjacentDeepWater>99</MaximumAllowedAdjacentDeepWater>
 
-			<AdjacentTilesCareAboutFeatureTypes>false</AdjacentTilesCareAboutFeatureTypes>
+			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>false</AdjacentTilesRequireNoFeature>
 			<RequiredNumberOfAdjacentNoFeature>0</RequiredNumberOfAdjacentNoFeature>
@@ -1451,7 +1451,7 @@
 			<AdjacentTilesAvoidForest>true</AdjacentTilesAvoidForest>
 			<MaximumAllowedAdjacentForest>1</MaximumAllowedAdjacentForest>
 			<AdjacentTilesAvoidJungle>true</AdjacentTilesAvoidJungle>
-			<MaximumAllowedAdjacentJungle>1</MaximumAllowedAdjacentJungle>
+			<MaximumAllowedAdjacentJungle>2</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>false</AdjacentTilesAvoidOasis>
 			<MaximumAllowedAdjacentOasis>99</MaximumAllowedAdjacentOasis>
 			<AdjacentTilesAvoidFloodPlains>false</AdjacentTilesAvoidFloodPlains>
@@ -1474,7 +1474,7 @@
 
 		<!-- New Great Barrier Reef -->
 		<Row>
-			<NaturalWonderType>FEATURE_NEW_REEF</NaturalWonderType>
+			<NaturalWonderType>FEATURE_NEW_REEF_A</NaturalWonderType>
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>1</EligibilityMethodNumber>
@@ -1616,6 +1616,16 @@
 
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
+		<Row>
+			<NaturalWonderType>FEATURE_NEW_REEF_B</NaturalWonderType>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
+		</Row>
+		<Row>
+			<NaturalWonderType>FEATURE_NEW_REEF_C</NaturalWonderType>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<EligibilityMethodNumber>100</EligibilityMethodNumber>
+		</Row>
 		<!-- Old Great Barrier Reef -->
 		<Row>
 			<NaturalWonderType>FEATURE_REEF</NaturalWonderType>
@@ -1641,7 +1651,7 @@
 			<AvoidLandAdjacentToOcean>false</AvoidLandAdjacentToOcean>
 
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
-			<CoreTileCanBeFlatland>false</CoreTileCanBeFlatland>
+			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
@@ -1730,7 +1740,7 @@
 			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
 			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>true</AdjacentTilesRequireJungle>
-			<RequiredNumberOfAdjacentJungle>2</RequiredNumberOfAdjacentJungle>
+			<RequiredNumberOfAdjacentJungle>1</RequiredNumberOfAdjacentJungle>
 			<AdjacentTilesRequireOasis>false</AdjacentTilesRequireOasis>
 			<RequiredNumberOfAdjacentOasis>0</RequiredNumberOfAdjacentOasis>
 			<AdjacentTilesRequireFloodPlains>false</AdjacentTilesRequireFloodPlains>
@@ -1788,13 +1798,13 @@
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>false</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
-			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
+			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
+			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
-			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
+			<CoreTileCanBeDesert>false</CoreTileCanBeDesert>
 			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
 			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
@@ -1804,8 +1814,8 @@
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
-			<CoreTileCanBeFloodPlains>true</CoreTileCanBeFloodPlains>
+			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
 			<CoreTileCanBeAtoll>false</CoreTileCanBeAtoll>
@@ -1815,7 +1825,7 @@
 			<AdjacentTilesCareAboutPlotTypes>true</AdjacentTilesCareAboutPlotTypes>
 
 			<AdjacentTilesRequireFlatland>true</AdjacentTilesRequireFlatland>
-			<RequiredNumberOfAdjacentFlatland>4</RequiredNumberOfAdjacentFlatland>
+			<RequiredNumberOfAdjacentFlatland>3</RequiredNumberOfAdjacentFlatland>
 			<AdjacentTilesRequireHills>false</AdjacentTilesRequireHills>
 			<RequiredNumberOfAdjacentHills>0</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>false</AdjacentTilesRequireMountain>
@@ -1853,8 +1863,8 @@
 			<AdjacentTilesRequireDeepWater>false</AdjacentTilesRequireDeepWater>
 			<RequiredNumberOfAdjacentDeepWater>0</RequiredNumberOfAdjacentDeepWater>
 
-			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
-			<MaximumAllowedAdjacentGrass>2</MaximumAllowedAdjacentGrass>
+			<AdjacentTilesAvoidGrass>false</AdjacentTilesAvoidGrass>
+			<MaximumAllowedAdjacentGrass>99</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
 			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
@@ -1871,7 +1881,7 @@
 			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>true</AdjacentTilesRequireNoFeature>
-			<RequiredNumberOfAdjacentNoFeature>4</RequiredNumberOfAdjacentNoFeature>
+			<RequiredNumberOfAdjacentNoFeature>3</RequiredNumberOfAdjacentNoFeature>
 			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
 			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>false</AdjacentTilesRequireJungle>
@@ -1889,10 +1899,10 @@
 
 			<AdjacentTilesAvoidNoFeature>false</AdjacentTilesAvoidNoFeature>
 			<MaximumAllowedAdjacentNoFeature>99</MaximumAllowedAdjacentNoFeature>
-			<AdjacentTilesAvoidForest>true</AdjacentTilesAvoidForest>
-			<MaximumAllowedAdjacentForest>1</MaximumAllowedAdjacentForest>
-			<AdjacentTilesAvoidJungle>true</AdjacentTilesAvoidJungle>
-			<MaximumAllowedAdjacentJungle>2</MaximumAllowedAdjacentJungle>
+			<AdjacentTilesAvoidForest>false</AdjacentTilesAvoidForest>
+			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
+			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
+			<MaximumAllowedAdjacentJungle>99</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>false</AdjacentTilesAvoidOasis>
 			<MaximumAllowedAdjacentOasis>99</MaximumAllowedAdjacentOasis>
 			<AdjacentTilesAvoidFloodPlains>false</AdjacentTilesAvoidFloodPlains>
@@ -1946,7 +1956,7 @@
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
 
 			<CoreTileCanBeAnyFeatureType>false</CoreTileCanBeAnyFeatureType>
-			<CoreTileCanBeNoFeature>false</CoreTileCanBeNoFeature>
+			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>true</CoreTileCanBeJungle>
 			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
@@ -1981,7 +1991,7 @@
 			<AdjacentTilesAvoidOcean>false</AdjacentTilesAvoidOcean>
 			<MaximumAllowedAdjacentOcean>99</MaximumAllowedAdjacentOcean>
 
-			<AdjacentTilesCareAboutTerrainTypes>false</AdjacentTilesCareAboutTerrainTypes>
+			<AdjacentTilesCareAboutTerrainTypes>true</AdjacentTilesCareAboutTerrainTypes>
 
 			<AdjacentTilesRequireGrass>false</AdjacentTilesRequireGrass>
 			<RequiredNumberOfAdjacentGrass>0</RequiredNumberOfAdjacentGrass>
@@ -2003,9 +2013,9 @@
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
 			<AdjacentTilesAvoidDesert>true</AdjacentTilesAvoidDesert>
-			<MaximumAllowedAdjacentDesert>1</MaximumAllowedAdjacentDesert>
-			<AdjacentTilesAvoidTundra>true</AdjacentTilesAvoidTundra>
-			<MaximumAllowedAdjacentTundra>1</MaximumAllowedAdjacentTundra>
+			<MaximumAllowedAdjacentDesert>0</MaximumAllowedAdjacentDesert>
+			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
+			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
 			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
 			<MaximumAllowedAdjacentSnow>99</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
@@ -2020,7 +2030,7 @@
 			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
 			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>true</AdjacentTilesRequireJungle>
-			<RequiredNumberOfAdjacentJungle>3</RequiredNumberOfAdjacentJungle>
+			<RequiredNumberOfAdjacentJungle>2</RequiredNumberOfAdjacentJungle>
 			<AdjacentTilesRequireOasis>false</AdjacentTilesRequireOasis>
 			<RequiredNumberOfAdjacentOasis>0</RequiredNumberOfAdjacentOasis>
 			<AdjacentTilesRequireFloodPlains>false</AdjacentTilesRequireFloodPlains>
@@ -2034,8 +2044,8 @@
 
 			<AdjacentTilesAvoidNoFeature>false</AdjacentTilesAvoidNoFeature>
 			<MaximumAllowedAdjacentNoFeature>99</MaximumAllowedAdjacentNoFeature>
-			<AdjacentTilesAvoidForest>true</AdjacentTilesAvoidForest>
-			<MaximumAllowedAdjacentForest>1</MaximumAllowedAdjacentForest>
+			<AdjacentTilesAvoidForest>false</AdjacentTilesAvoidForest>
+			<MaximumAllowedAdjacentForest>99</MaximumAllowedAdjacentForest>
 			<AdjacentTilesAvoidJungle>false</AdjacentTilesAvoidJungle>
 			<MaximumAllowedAdjacentJungle>99</MaximumAllowedAdjacentJungle>
 			<AdjacentTilesAvoidOasis>false</AdjacentTilesAvoidOasis>
@@ -2078,7 +2088,7 @@
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
 			<CoreTileCanBeHills>true</CoreTileCanBeHills>
-			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
+			<CoreTileCanBeMountain>true</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
@@ -2092,9 +2102,9 @@
 
 			<CoreTileCanBeAnyFeatureType>false</CoreTileCanBeAnyFeatureType>
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
-			<CoreTileCanBeForest>false</CoreTileCanBeForest>
+			<CoreTileCanBeForest>true</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
@@ -2229,7 +2239,7 @@
 			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
 			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
 			<CoreTileCanBePlains>true</CoreTileCanBePlains>
-			<CoreTileCanBeDesert>false</CoreTileCanBeDesert>
+			<CoreTileCanBeDesert>true</CoreTileCanBeDesert>
 			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
 			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
@@ -2288,12 +2298,12 @@
 			<AdjacentTilesRequireDeepWater>false</AdjacentTilesRequireDeepWater>
 			<RequiredNumberOfAdjacentDeepWater>0</RequiredNumberOfAdjacentDeepWater>
 
-			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
-			<MaximumAllowedAdjacentGrass>3</MaximumAllowedAdjacentGrass>
+			<AdjacentTilesAvoidGrass>false</AdjacentTilesAvoidGrass>
+			<MaximumAllowedAdjacentGrass>99</MaximumAllowedAdjacentGrass>
 			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
 			<MaximumAllowedAdjacentPlains>99</MaximumAllowedAdjacentPlains>
-			<AdjacentTilesAvoidDesert>true</AdjacentTilesAvoidDesert>
-			<MaximumAllowedAdjacentDesert>1</MaximumAllowedAdjacentDesert>
+			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
+			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>true</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>0</MaximumAllowedAdjacentTundra>
 			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
@@ -2310,7 +2320,7 @@
 			<AdjacentTilesRequireForest>false</AdjacentTilesRequireForest>
 			<RequiredNumberOfAdjacentForest>0</RequiredNumberOfAdjacentForest>
 			<AdjacentTilesRequireJungle>true</AdjacentTilesRequireJungle>
-			<RequiredNumberOfAdjacentJungle>5</RequiredNumberOfAdjacentJungle>
+			<RequiredNumberOfAdjacentJungle>4</RequiredNumberOfAdjacentJungle>
 			<AdjacentTilesRequireOasis>false</AdjacentTilesRequireOasis>
 			<RequiredNumberOfAdjacentOasis>0</RequiredNumberOfAdjacentOasis>
 			<AdjacentTilesRequireFloodPlains>false</AdjacentTilesRequireFloodPlains>
@@ -2530,7 +2540,7 @@
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
 			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
-			<CoreTileCanBeFloodPlains>true</CoreTileCanBeFloodPlains>
+			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
 			<CoreTileCanBeAtoll>false</CoreTileCanBeAtoll>
@@ -2593,7 +2603,7 @@
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
 			<MaximumAllowedAdjacentDeepWater>99</MaximumAllowedAdjacentDeepWater>
 
-			<AdjacentTilesCareAboutFeatureTypes>true</AdjacentTilesCareAboutFeatureTypes>
+			<AdjacentTilesCareAboutFeatureTypes>false</AdjacentTilesCareAboutFeatureTypes>
 
 			<AdjacentTilesRequireNoFeature>false</AdjacentTilesRequireNoFeature>
 			<RequiredNumberOfAdjacentNoFeature>0</RequiredNumberOfAdjacentNoFeature>
@@ -2816,12 +2826,12 @@
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
-			<CoreTileCanBeAnyTerrainType>false</CoreTileCanBeAnyTerrainType>
-			<CoreTileCanBeGrass>true</CoreTileCanBeGrass>
-			<CoreTileCanBePlains>true</CoreTileCanBePlains>
+			<CoreTileCanBeAnyTerrainType>true</CoreTileCanBeAnyTerrainType>
+			<CoreTileCanBeGrass>false</CoreTileCanBeGrass>
+			<CoreTileCanBePlains>false</CoreTileCanBePlains>
 			<CoreTileCanBeDesert>false</CoreTileCanBeDesert>
-			<CoreTileCanBeTundra>true</CoreTileCanBeTundra>
-			<CoreTileCanBeSnow>true</CoreTileCanBeSnow>
+			<CoreTileCanBeTundra>false</CoreTileCanBeTundra>
+			<CoreTileCanBeSnow>false</CoreTileCanBeSnow>
 			<CoreTileCanBeShallowWater>false</CoreTileCanBeShallowWater>
 			<CoreTileCanBeDeepWater>false</CoreTileCanBeDeepWater>
 
@@ -2844,7 +2854,7 @@
 			<AdjacentTilesRequireHills>false</AdjacentTilesRequireHills>
 			<RequiredNumberOfAdjacentHills>0</RequiredNumberOfAdjacentHills>
 			<AdjacentTilesRequireMountain>true</AdjacentTilesRequireMountain>
-			<RequiredNumberOfAdjacentMountain>2</RequiredNumberOfAdjacentMountain>
+			<RequiredNumberOfAdjacentMountain>1</RequiredNumberOfAdjacentMountain>
 			<AdjacentTilesRequireHillsPlusMountains>true</AdjacentTilesRequireHillsPlusMountains>
 			<RequiredNumberOfAdjacentHillsPlusMountains>3</RequiredNumberOfAdjacentHillsPlusMountains>
 			<AdjacentTilesRequireOcean>false</AdjacentTilesRequireOcean>
@@ -2861,7 +2871,7 @@
 			<AdjacentTilesAvoidOcean>false</AdjacentTilesAvoidOcean>
 			<MaximumAllowedAdjacentOcean>99</MaximumAllowedAdjacentOcean>
 
-			<AdjacentTilesCareAboutTerrainTypes>false</AdjacentTilesCareAboutTerrainTypes>
+			<AdjacentTilesCareAboutTerrainTypes>true</AdjacentTilesCareAboutTerrainTypes>
 
 			<AdjacentTilesRequireGrass>false</AdjacentTilesRequireGrass>
 			<RequiredNumberOfAdjacentGrass>0</RequiredNumberOfAdjacentGrass>
@@ -2886,8 +2896,8 @@
 			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
-			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
-			<MaximumAllowedAdjacentSnow>99</MaximumAllowedAdjacentSnow>
+			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
+			<MaximumAllowedAdjacentSnow>0</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
 			<MaximumAllowedAdjacentShallowWater>99</MaximumAllowedAdjacentShallowWater>
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>
@@ -3402,7 +3412,7 @@
 
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
-			<CoreTileCanBeHills>false</CoreTileCanBeHills>
+			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
@@ -3470,8 +3480,8 @@
 
 			<AdjacentTilesAvoidGrass>true</AdjacentTilesAvoidGrass>
 			<MaximumAllowedAdjacentGrass>0</MaximumAllowedAdjacentGrass>
-			<AdjacentTilesAvoidPlains>true</AdjacentTilesAvoidPlains>
-			<MaximumAllowedAdjacentPlains>2</MaximumAllowedAdjacentPlains>
+			<AdjacentTilesAvoidPlains>false</AdjacentTilesAvoidPlains>
+			<MaximumAllowedAdjacentPlains>0</MaximumAllowedAdjacentPlains>
 			<AdjacentTilesAvoidDesert>false</AdjacentTilesAvoidDesert>
 			<MaximumAllowedAdjacentDesert>99</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>true</AdjacentTilesAvoidTundra>
@@ -3581,7 +3591,7 @@
 			<AdjacentTilesRequireMountain>true</AdjacentTilesRequireMountain>
 			<RequiredNumberOfAdjacentMountain>0</RequiredNumberOfAdjacentMountain>
 			<AdjacentTilesRequireHillsPlusMountains>true</AdjacentTilesRequireHillsPlusMountains>
-			<RequiredNumberOfAdjacentHillsPlusMountains>3</RequiredNumberOfAdjacentHillsPlusMountains>
+			<RequiredNumberOfAdjacentHillsPlusMountains>2</RequiredNumberOfAdjacentHillsPlusMountains>
 			<AdjacentTilesRequireOcean>false</AdjacentTilesRequireOcean>
 			<RequiredNumberOfAdjacentOcean>0</RequiredNumberOfAdjacentOcean>
 
@@ -3692,7 +3702,7 @@
 
 			<CoreTileCanBeAnyPlotType>false</CoreTileCanBeAnyPlotType>
 			<CoreTileCanBeFlatland>true</CoreTileCanBeFlatland>
-			<CoreTileCanBeHills>false</CoreTileCanBeHills>
+			<CoreTileCanBeHills>true</CoreTileCanBeHills>
 			<CoreTileCanBeMountain>false</CoreTileCanBeMountain>
 			<CoreTileCanBeOcean>false</CoreTileCanBeOcean>
 
@@ -3709,7 +3719,7 @@
 			<CoreTileCanBeNoFeature>true</CoreTileCanBeNoFeature>
 			<CoreTileCanBeForest>false</CoreTileCanBeForest>
 			<CoreTileCanBeJungle>false</CoreTileCanBeJungle>
-			<CoreTileCanBeOasis>false</CoreTileCanBeOasis>
+			<CoreTileCanBeOasis>true</CoreTileCanBeOasis>
 			<CoreTileCanBeFloodPlains>false</CoreTileCanBeFloodPlains>
 			<CoreTileCanBeMarsh>false</CoreTileCanBeMarsh>
 			<CoreTileCanBeIce>false</CoreTileCanBeIce>
@@ -3748,7 +3758,7 @@
 			<AdjacentTilesRequirePlains>false</AdjacentTilesRequirePlains>
 			<RequiredNumberOfAdjacentPlains>0</RequiredNumberOfAdjacentPlains>
 			<AdjacentTilesRequireDesert>true</AdjacentTilesRequireDesert>
-			<RequiredNumberOfAdjacentDesert>5</RequiredNumberOfAdjacentDesert>
+			<RequiredNumberOfAdjacentDesert>4</RequiredNumberOfAdjacentDesert>
 			<AdjacentTilesRequireTundra>false</AdjacentTilesRequireTundra>
 			<RequiredNumberOfAdjacentTundra>0</RequiredNumberOfAdjacentTundra>
 			<AdjacentTilesRequireSnow>false</AdjacentTilesRequireSnow>
