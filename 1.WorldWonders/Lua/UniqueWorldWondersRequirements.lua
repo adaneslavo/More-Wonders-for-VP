@@ -760,10 +760,13 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
-			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
 		}
+		-- EE compatibility
+		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+		end
 		for id, building in pairs(tValidIsNoCoast) do
 			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end

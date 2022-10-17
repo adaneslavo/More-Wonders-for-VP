@@ -8,7 +8,7 @@ Two versions of new quote recordings for wonders!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,			Value)
+		(Type,					Value)
 VALUES	('MW-SETTING-SPEECH', 	0);
 --------------------------------------------------------------
 /*
@@ -18,7 +18,7 @@ New HELP texts!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,			Value)
+		(Type,					Value)
 VALUES	('MW-SETTING-HELP', 	1);
 --------------------------------------------------------------
 /*
@@ -28,18 +28,18 @@ Maximum Era restriction!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,					Value)
-VALUES	('MW-SETTING-MAX-ERA', 			1);
+		(Type,						Value)
+VALUES	('MW-SETTING-MAX-ERA', 		1);
 --------------------------------------------------------------
 /*
 World Wonder's restrictions!
 0 = No restrictions for building World Wonders (unused; do not set!);
-1 = Light restrictions added; sort of what you saw in base VP (Default);
-2 = Hard restrictions added - maximum attention and no "aiming" for all WWs in the eyesight;
+1 = Light restrictions added; sort of what you saw in base VP;
+2 = Hard restrictions added - maximum attention and no "aiming" for all WWs within the eyesight (Default);
 */
 
 INSERT INTO COMMUNITY	
-		(Type,					Value)
+		(Type,							Value)
 VALUES	('MW-SETTING-REQUIREMENT', 		2);
 --============================================--
 -- AUTOMATED COMPATIBILITIES
