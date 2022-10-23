@@ -198,7 +198,7 @@
 			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BLUE_HOLE">
-			<Text>[NEWLINE][ICON_BULLET]can be improved with [COLOR_POSITIVE_TEXT]Fishing Boat[ENDCOLOR] or [COLOR_POSITIVE_TEXT]Offshore Platform[ENDCOLOR][NEWLINE][ICON_BULLET]allows construction of 3 late game marine buildings: [COLOR_YIELD_FOOD]Scuba Diving Resort[ENDCOLOR], [COLOR_YIELD_FOOD]Deep Ocean Research Facility[ENDCOLOR] and [COLOR_YIELD_FOOD]Bathyscaphe Docking Bay[ENDCOLOR]</Text>
+			<Text>[NEWLINE][ICON_BULLET]can be improved with [COLOR_POSITIVE_TEXT]Fishing Boat[ENDCOLOR] or [COLOR_POSITIVE_TEXT]Offshore Platform[ENDCOLOR][NEWLINE][ICON_BULLET]allows construction of 3 late game coastal city buildings: [COLOR_YIELD_FOOD]Scuba Diving Resort[ENDCOLOR], [COLOR_YIELD_FOOD]Deep Ocean Research Facility[ENDCOLOR] and [COLOR_YIELD_FOOD]Bathyscaphe Docking Bay[ENDCOLOR]</Text>
 		</Row>
 
 
