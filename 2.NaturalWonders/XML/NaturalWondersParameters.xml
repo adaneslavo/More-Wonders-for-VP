@@ -541,7 +541,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_SOLOMONS_MINES"/>
-			<Set Help="TXT_KEY_CIV5_FEATURES_SOLOMONS_MINES_HELP" InBorderHappiness="0" Impassable="false" Movement="1" SeeThrough="1" Rough="true" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10" AdjacentUnitFreePromotion="PROMOTION_SOLOMONS_MINES"/>
+			<Set Help="TXT_KEY_CIV5_FEATURES_SOLOMONS_MINES_HELP" InBorderHappiness="0" Impassable="false" Movement="1" SeeThrough="1" Rough="false" NoImprovement="true" NoCity="true" AddsFreshWater="false" Defense="10" AdjacentUnitFreePromotion="PROMOTION_SOLOMONS_MINES"/>
 		</Update>
 		<Update>
 			<Where Type="FEATURE_SRI_PADA"/>
@@ -983,7 +983,7 @@
 			<PseudoNaturalWonder>true</PseudoNaturalWonder>
 			<NoCity>true</NoCity>
 			<NoImprovement>false</NoImprovement>
-			<Rough>true</Rough>
+			<Rough>false</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>9</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
