@@ -26,6 +26,7 @@
 --		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
 --		* Old Faithful (18):		changes core tile to hill;
 --		* Mt. Sinai (19):			have chance to change surronding hills to mountains and clears all features;
+--		* Great Blue Hole (20):			spawns some attols;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -62,6 +63,7 @@ function NWCustomEligibility(x, y, method_number)
 	local ePlotHill = PlotTypes.PLOT_HILLS
 	local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 	local eTerrainCoast = TerrainTypes.TERRAIN_COAST
+	local eTerrainOcean = TerrainTypes.TERRAIN_OCEAN
 	local eTerrainGrass = TerrainTypes.TERRAIN_GRASS	
 	local eTerrainPlains = TerrainTypes.TERRAIN_PLAINS
 	local eTerrainDesert = TerrainTypes.TERRAIN_DESERT
@@ -71,6 +73,7 @@ function NWCustomEligibility(x, y, method_number)
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
 	local eFeatureIce = FeatureTypes.FEATURE_ICE
+	local eFeatureAtoll = GameInfoTypes.FEATURE_ATOLL
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -497,6 +500,43 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Old Faithful
 	elseif method_number == 19 then
 		-- reserved: Mt. Sinai
+	elseif method_number == 20 then
+		-- GREAT BLUE HOLE
+		local pPlot = Map.GetPlot(x, y)
+		
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		
+		local iNumAtoll, iNumLand, iNumOcean = 0, 0, 0
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			
+			if sAdjacentPlotType ~= ePlotOcean then
+				iNumLand = iNumLand + 1
+			end
+			
+			if sAdjacentFeatureType == eFeatureAtoll then
+				iNumAtoll = iNumAtoll + 1
+			end
+			
+			if sAdjacentTerrainType == eTerrainOcean then
+				iNumOcean = iNumOcean + 1
+			end
+		end
+			
+		print("--!GBH tile parameters:", iNumAtoll, iNumLand, iNumOcean)
+		
+		if iNumAtoll == 0 or iNumLand == 0 or iNumOcean == 0 then return false end
+		
+		return true
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -2174,6 +2214,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			end
 		end
+	elseif method_number == 20 then
+		-- reserved for: Great Blue Hole
 	end
 end
 ------------------------------------------------------------------------------
