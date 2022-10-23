@@ -51,7 +51,8 @@ VALUES		('TXT_KEY_CIV5_FEATURES_CRATER_HELP',			'One of the biggests, and the su
 			('TXT_KEY_CIV5_FEATURES_LUMI_BAY_HELP',			'Bay inhabited by unusual kinds of phytoplancton glowing blue and giving wonderful visual effects.'),
 			('TXT_KEY_CIV5_FEATURES_DALLOL_HELP',			'Flat volcanoes, creating unusual lake structures formed by huge african rifts.'),
 			('TXT_KEY_CIV5_FEATURES_MT_PAEKTU_HELP',		'Holy mountain of both Korean nations, and the highest volcanic lake of all known.'),
-			('TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP',	'Huge sand formation of unknown origin, which is seen in its full shape only from the air or space.');
+			('TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP',	'Huge sand formation of unknown origin, which is seen in its full shape only from the air or space.'),
+			('TXT_KEY_CIV5_FEATURES_BLUE_HOLE_HELP',		'Giant marine sinkhole surrounded by coral reefs and atolls.');
 -----------------------------------------------------------
 -- Civilopedia replacements (deleted texts out of date)
 -----------------------------------------------------------
@@ -160,4 +161,7 @@ UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][IC
 
 -- Eye of the Sahara
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]3-tile[NEWLINE][ICON_BULLET](owned) +1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET](owned) +2[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET](owned) +5[ICON_TOURISM] at [COLOR_CYAN]Satellites[ENDCOLOR][NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT';
+
+-- Great Blue Hole
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][ICON_BULLET](owned) can be improved with [COLOR_POSITIVE_TEXT]Fishing Boat[ENDCOLOR] or [COLOR_POSITIVE_TEXT]Offshore Platform[ENDCOLOR][NEWLINE][ICON_BULLET](owned) allows construction of 3 late game coastal city buildings: [COLOR_YIELD_FOOD]Scuba Diving Resort[ENDCOLOR], [COLOR_YIELD_FOOD]Deep Ocean Research Facility[ENDCOLOR] and [COLOR_YIELD_FOOD]Bathyscaphe Docking Bay[ENDCOLOR][NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_BLUE_HOLE_TEXT';
 
