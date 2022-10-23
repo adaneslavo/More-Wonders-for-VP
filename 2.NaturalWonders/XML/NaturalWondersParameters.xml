@@ -218,6 +218,19 @@
 			<Model>feature_eye_of_sahara_c.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+		
+		
+		
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
+			<Model>feature_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
 	</ArtDefine_Landmarks>
 
 	<ArtDefine_LandmarkTypes>
@@ -458,6 +471,14 @@
 			<StrategicViewType>ART_DEF_FEATURE_EYE_OF_SAHARA_C</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Sahara_Eye.dds</Asset>
+		</Row>
+		
+		
+		
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_BLUE_HOLE</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Blue_Hole.dds</Asset>
 		</Row>
 	</ArtDefine_StrategicView>
 	
@@ -935,6 +956,30 @@
 			<PortraitIndex>4</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<Defense>20</Defense>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		
+		
+		
+		<Row>
+			<Type>FEATURE_BLUE_HOLE</Type>
+			<Description>TXT_KEY_FEATURE_BLUE_HOLE</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_BLUE_HOLE_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_BLUE_HOLE_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_BLUE_HOLE</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>false</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<Defense>0</Defense>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 	</Features>
@@ -1508,6 +1553,29 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		
+		
+		
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_YieldChanges>
 
 	<Feature_EraYieldChanges>
@@ -1924,6 +1992,24 @@
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		
+		
+		
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_EraYieldChanges>
 
 	<Plot_AdjacentFeatureYieldChanges>
@@ -2152,8 +2238,50 @@
 
 	<Improvement_ValidFeatures>
 		<Delete FeatureType="FEATURE_REEF"/>
+		
+		<Row>
+			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+		</Row>		
 	</Improvement_ValidFeatures>
-
+	
+	<Improvement_FeatureYieldChanges>
+		<Row>
+			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>-4</Yield>
+		</Row>
+	</Improvement_FeatureYieldChanges>
+	
 	<Belief_YieldChangeNaturalWonder>
 		<Delete BeliefType="BELIEF_ONE_WITH_NATURE"/>
 	</Belief_YieldChangeNaturalWonder>
@@ -2641,6 +2769,21 @@
 			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		
+		
+		
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
 		</Row>
 	</Belief_FeatureYieldChanges>
 
