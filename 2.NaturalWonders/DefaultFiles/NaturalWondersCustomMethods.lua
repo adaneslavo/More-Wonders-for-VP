@@ -82,7 +82,7 @@ function NWCustomEligibility(x, y, method_number)
 	}
 
 	local iW, iH = Map.GetGridSize()
-	print("NWCE", method_number, x, y)
+	--print("NWCE", method_number, x, y)
 	if method_number == 1 then
 		-- GREAT BARRIER REEF
 		-- MOD: Now 3 tile wonder - long shape;
@@ -852,18 +852,21 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
 				iRandomMountain = math.random(3) -- 66%
-				
+				print("--!SALAR: hill detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
 				if iRandomMountain ~= 1 then
+					print("--!SALAR: hill converted into a mountain")
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
 				end
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
 				iRandomOasis = math.random(4) -- 25%
-				
+				print("--!SALAR: flat detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
 				if iRandomOasis == 1 then
+					print("--!SALAR: added oasis around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
 				else
+					print("--!SALAR: deleted any features around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				end
 			end	
