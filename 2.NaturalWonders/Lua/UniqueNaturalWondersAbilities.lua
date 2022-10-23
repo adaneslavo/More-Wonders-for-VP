@@ -33,7 +33,8 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_MT_PAEKTU"],
 	GameInfoTypes["FEATURE_MT_KAILASH"],
 	GameInfoTypes["FEATURE_KILIMANJARO"],
-	GameInfoTypes["FEATURE_ULURU"]
+	GameInfoTypes["FEATURE_ULURU"],
+	GameInfoTypes["FEATURE_BLUE_HOLE"] -- 30
 }
 
 local g_iWonderWithDummies = #g_tNaturalWonder
@@ -90,7 +91,8 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_MT_PAEKTU"],
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
-	GameInfoTypes["BUILDING_ULURU_DUMMY"]
+	GameInfoTypes["BUILDING_ULURU_DUMMY"],
+	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"] -- 30
 }
 
 local g_tNaturalWonderDummy2 = {}
