@@ -191,13 +191,13 @@ VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',				'Altar of the Born under the Mountain'
 			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].'),
 			('TXT_KEY_BUILDING_SCUBA_RESORT',			'Scuba Diving Resort'),
 			('TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TODO'),
-			('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		''),
+			('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from Atolls in the City. +1 [ICON_GOLD] Gold and +1 [ICON_RESEARCH] Science from Ocean tiles in the City.'),
 			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY',		'Bathyscaphe Docking Bay'),
 			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TODO'),
-			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	''),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'+35% [ICON_PRODUCTION] Production when constructing [COLOR_POSITIVE_TEXT]Submarines[ENDCOLOR] in this City.'),
 			('TXT_KEY_BUILDING_OCEAN_FACILITY',			'Deep Ocean Research Facility'),
 			('TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TODO'),
-			('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'');
+			('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_RESEARCH] Science from Ocean tiles in the City. All Sea resources in this City gain +1 [ICON_FOOD] Food.');
 
 INSERT INTO Building_YieldChanges 
 			(BuildingType,					YieldType,					Yield) 
