@@ -351,6 +351,14 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Eye of the Sahara C</FriendlyName>
 		</Row>
+		
+		
+		
+		<Row>
+			<Type>ART_DEF_FEATURE_BLUE_HOLE</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Great Blue Hole</FriendlyName>
+		</Row>
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
