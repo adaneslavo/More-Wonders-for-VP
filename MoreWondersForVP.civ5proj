@@ -2984,35 +2984,15 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_b_ground_diff.dds">
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\giants cause way.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_b_ground_sref.dds">
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\Giants_causeway.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_ground_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway_b.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\feature_causeway_b.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\Giants_causeway.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

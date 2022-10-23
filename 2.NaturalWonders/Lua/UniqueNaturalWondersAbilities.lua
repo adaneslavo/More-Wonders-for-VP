@@ -229,6 +229,21 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 	end
 end
 GameEvents.PlayerDoTurn.Add(SetDummiesForOwnedNaturalWonders)
+
+function CanWeBuildInBlueHole(ePlayer, eBuilding)
+	if eBuilding ~= GameInfoTypes.BUILDING_SCUBA_RESORT 
+	and eBuilding ~= GameInfoTypes.BUILDING_BATHYSCAPHE_BAY 
+	and eBuilding ~= GameInfoTypes.BUILDING_OCEAN_FACILITY then return true end
+	
+	local pPlayer = Players[ePlayer]
+	
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) >= 1 then
+		return true
+	else
+		return false
+	end
+end
+GameEvents.PlayerCanConstruct.Add(CanWeBuildInBlueHole)
 --------------------------------------------------------------
 --------------------------------------------------------------
 print("Loaded UniqueNaturalWondersAbilities.lua from MWfVP");

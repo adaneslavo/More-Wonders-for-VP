@@ -108,9 +108,9 @@ VALUES		('TXT_KEY_RESOURCE_SYLVITE',				'Sylvite'),
 			('TXT_KEY_RESOURCE_TROPICAL_FISH_TEXT',		'TODO');	
 ---------------------------------------------------------
 INSERT INTO Resources 
-			(Type,						TechReveal,			TechCityTrade, 		Description,						Civilopedia, 							Help,									ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 						CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 				PortraitIndex, 	IconAtlas)
-VALUES		('RESOURCE_SYLVITE',		null,				null,				'TXT_KEY_RESOURCE_SYLVITE',			'TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_SYLVITE',			null,					0,				2,			2,				'[ICON_RES_SYLVITE]',		1, 				'RESOURCE_MORE_WONDERS_ATLAS'),
-			('RESOURCE_TROPICAL_FISH',	'TECH_POTTERY',		null,				'TXT_KEY_RESOURCE_TROPICAL_FISH',	'TXT_KEY_RESOURCE_TROPICAL_FISH_TEXT',	NULL,									'RESOURCECLASS_BONUS',	0,				'ART_DEF_RESOURCE_TROPICAL_FISH',	null,					0,				0,			0,				'[ICON_RES_TROPICAL_FISH]',	2, 				'RESOURCE_MORE_WONDERS_ATLAS');
+			(Type,						TechReveal,			TechCityTrade, 		Description,						Civilopedia, 							Help,									ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 						CivilizationType,		TechCityTrade,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 				PortraitIndex, 	IconAtlas)
+VALUES		('RESOURCE_SYLVITE',		null,				null,				'TXT_KEY_RESOURCE_SYLVITE',			'TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_SYLVITE',			null,					'TECH_MINING',		0,				2,			2,				'[ICON_RES_SYLVITE]',		1, 				'RESOURCE_MORE_WONDERS_ATLAS'),
+			('RESOURCE_TROPICAL_FISH',	'TECH_POTTERY',		null,				'TXT_KEY_RESOURCE_TROPICAL_FISH',	'TXT_KEY_RESOURCE_TROPICAL_FISH_TEXT',	NULL,									'RESOURCECLASS_BONUS',	0,				'ART_DEF_RESOURCE_TROPICAL_FISH',	null,					'TECH_SAILING',		0,				0,			0,				'[ICON_RES_TROPICAL_FISH]',	2, 				'RESOURCE_MORE_WONDERS_ATLAS');
 ---------------------------------------------------------
 INSERT INTO Resource_YieldChanges
 			(ResourceType, 				YieldType, 			Yield)
@@ -166,25 +166,69 @@ VALUES		('TXT_KEY_GREAT_WORK_MT_PAEKTU',		'Kim Il-sung and Kim Jong-il standing 
 -- BUILDINGS
 --============================================--
 INSERT INTO BuildingClasses 
-			(Type,						Description,					DefaultBuilding)
-VALUES		('BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'BUILDING_MT_PAEKTU');
+			(Type,								Description,						DefaultBuilding)
+VALUES		('BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'BUILDING_MT_PAEKTU'),
+			('BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'BUILDING_SCUBA_RESORT'),
+			('BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'BUILDING_BATHYSCAPHE_BAY'),
+			('BUILDINGCLASS_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY',	'BUILDING_OCEAN_FACILITY');
 
 INSERT INTO Buildings
-			(Type,					BuildingClass,				Description,					Civilopedia,						Help,								IconAtlas,							PortraitIndex,	PrereqTech, Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
-VALUES		('BUILDING_MT_PAEKTU',	'BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TXT_KEY_BUILDING_MT_PAEKTU_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,       -1,		0,			1,          100,			0);
+			(Type,							BuildingClass,						Description,						Civilopedia,								Help,										IconAtlas,							PortraitIndex,	PrereqTech,				Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
+VALUES		('BUILDING_MT_PAEKTU',			'BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',			'TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,					-1,		0,			1,          100,			0),
+			('BUILDING_SCUBA_RESORT',		'BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	1,				'TECH_PLASTIC',			1000,	0,			1,          66,				0),
+			('BUILDING_BATHYSCAPHE_BAY',	'BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	2,				'TECH_REFRIGERATION',   1000,	0,			1,          66,				0),
+			('BUILDING_OCEAN_FACILITY',		'BUILDINGCLASS_OCEAN_FACILITY',		'TXT_KEY_BUILDING_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	3,				'TECH_BIOLOGY',			1000,	0,			1,          66,				0);
 
 UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_MT_PAEKTU', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MT_PAEKTU';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SCUBA_RESORT';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_BATHYSCAPHE_BAY';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_OCEAN_FACILITY';
 
 INSERT INTO Language_en_US 
-			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',			'Altar of the Born under the Mountain'),
-			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TODO'),
-			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',		'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].');
+			(Tag,										Text) 
+VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',				'Altar of the Born under the Mountain'),
+			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',		'TODO'),
+			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT',			'Scuba Diving Resort'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TODO'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		''),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY',		'Bathyscaphe Docking Bay'),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TODO'),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	''),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY',			'Deep Ocean Research Facility'),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TODO'),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'');
 
 INSERT INTO Building_YieldChanges 
-			(BuildingType,			YieldType,					Yield) 
-VALUES		('BUILDING_MT_PAEKTU',	'YIELD_FAITH',				3),
-			('BUILDING_MT_PAEKTU',	'YIELD_GOLDEN_AGE_POINTS',	3);
+			(BuildingType,					YieldType,					Yield) 
+VALUES		('BUILDING_MT_PAEKTU',			'YIELD_FAITH',				3),
+			('BUILDING_MT_PAEKTU',			'YIELD_GOLDEN_AGE_POINTS',	3),
+			('BUILDING_SCUBA_RESORT',		'YIELD_GOLD',				2),
+			('BUILDING_SCUBA_RESORT',		'YIELD_SCIENCE',			1),
+			('BUILDING_SCUBA_RESORT',		'YIELD_TOURISM',			1),
+			('BUILDING_BATHYSCAPHE_BAY',	'YIELD_PRODUCTION',			2),
+			('BUILDING_BATHYSCAPHE_BAY',	'YIELD_SCIENCE',			2),
+			('BUILDING_OCEAN_FACILITY',		'YIELD_SCIENCE',			5);
+
+INSERT INTO Building_FeatureYieldChanges
+			(BuildingType,				FeatureType,		YieldType,			Yield) 
+VALUES		('BUILDING_SCUBA_RESORT',	'FEATURE_ATOLL',	'YIELD_GOLD',		1),
+			('BUILDING_SCUBA_RESORT',	'FEATURE_ATOLL',	'YIELD_TOURISM',	1);
+
+INSERT INTO Building_TerrainYieldChanges
+			(BuildingType,				TerrainType,		YieldType,			Yield) 
+VALUES		('BUILDING_SCUBA_RESORT',	'TERRAIN_OCEAN',	'YIELD_GOLD',		1),
+			('BUILDING_SCUBA_RESORT',	'TERRAIN_OCEAN',	'YIELD_SCIENCE',	1),
+			('BUILDING_OCEAN_FACILITY',	'TERRAIN_OCEAN',	'YIELD_FOOD',		1),
+			('BUILDING_OCEAN_FACILITY',	'TERRAIN_OCEAN',	'YIELD_SCIENCE',	1);
+
+INSERT INTO Building_UnitCombatProductionModifiers
+			(BuildingType,					UnitCombatType,				Modifier) 
+VALUES		('BUILDING_BATHYSCAPHE_BAY',	'UNITCOMBAT_SUBMARINE',		35);
+
+INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
+SELECT DISTINCT								'BUILDING_OCEAN_FACILITY',	Type,			'YIELD_FOOD',	1
+FROM Resources WHERE TechCityTrade = 'TECH_SAILING';
 --============================================--
 -- DUMMY BUILDINGS
 --============================================--

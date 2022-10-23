@@ -459,7 +459,126 @@
 		<Row Tag="TXT_KEY_NATURAL_WONDER_DISTANCE">
 			<Text>{1_Distance} tiles from[NEWLINE][COLOR_CYAN]{2_ClosestCity}[ENDCOLOR]</Text>
 		</Row>
+
 		
 		
+		<Row Tag="TXT_KEY_FEATURE_NEW_REEF_A">
+			<Text>Great Barrier Reef (core)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_NEW_REEF_B">
+			<Text>Great Barrier Reef (side)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_NEW_REEF_C">
+			<Text>Great Barrier Reef (side)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Update>
+			<Where Tag="TXT_KEY_FEATURE_REEF"/>
+			<Set Text="[COLOR:50:50:50:255](unused) Great Barrier Reef[ENDCOLOR]"/>
+		</Update>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_SALAR_A">
+			<Text>Salar de Uyuni (big)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_SALAR_B">
+			<Text>Salar de Uyuni (small)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_SALAR_A_TEXT">
+			<Text>Salar de Uyuni is the largest salt flat in the world. When wet, its surface becomes a massive mirror, which is famously beautiful. Several species of flamingo use Salar de Uyuni as their breeding ground. Salar de Uyuni is particularly rich in lithium salt, and contains over half of the world's lithium reserves. Its large, flat surface is excellent for calibrating distance measurements in satellites. Satellites have been able to measure distances from points on the earth accurate to within an inch when calibrated against the surface of Salar de Uyuni.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_SALAR_B_TEXT">
+			<Text>Salar de Uyuni is the largest salt flat in the world. When wet, its surface becomes a massive mirror, which is famously beautiful. Several species of flamingo use Salar de Uyuni as their breeding ground. Salar de Uyuni is particularly rich in lithium salt, and contains over half of the world's lithium reserves. Its large, flat surface is excellent for calibrating distance measurements in satellites. Satellites have been able to measure distances from points on the earth accurate to within an inch when calibrated against the surface of Salar de Uyuni.</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_CAUSEWAY_A">
+			<Text>Giant's Causeway (sea)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_CAUSEWAY_B">
+			<Text>Giant's Causeway (land)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_CAUSEWAY_TEXT">
+			<Text>Giant's Causeway is large cluster of hexagonal basalt columns formed from an ancient volcanic eruption. The tallest columns reach approximately 40 feet high. The columns formed during the Paleocene Epoch when molten basalt cooled and cracked into columns in a process similar to how cracks form in drying mud. According to legend, the causeway was built by an Irish giant in order to respond to a challenge issued by a Scottish giant. The causeway between the islands was destroyed in the resulting fight, with Giant's Causeway the principle remains. There is a smaller cluster of basalt columns across the North Sea in Scotland formed as part of the same ancient lava flow, leading to speculation that these matching columns inspired the legend.</Text>
+		</Row>
+
+
+
+		<!-- This name have already existed in Civ 5 files! -->
+		<!--<Row Tag="TXT_KEY_FEATURE_MT_EVEREST">
+			<Text>Mt. Everest</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>-->
+		<Row Tag="TXT_KEY_CIV5_FEATURES_MT_EVEREST_TEXT">
+			<Text>Mount Everest is the tallest mountain in the world, towering 29,029 feet (8,848 meters) above sea level. The mountain reaches to the stratosphere, causing wind speeds to routinely exceed 100 miles per hour at the summit. The atmospheric pressure at the peak of Mount Everest is roughly one third of the pressure at sea level. In 1953, Tenzing Norgay and Edmund Hillary became the first humans known to have ascended to the summit. However, it is possible that Everest was summited in 1924 when George Mallory and Andrew Irving disappeared into clouds high on the mountain. Tragically, they did not successfully descend the mountain, and whether they reached the peak first is unknown. Mount Everest is named after Sir George Everest, a former Surveyor General of India. Everest himself opposed this name, arguing that there were local names for the mountain which would be better choices.</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_RETBA">
+			<Text>Lake Retba</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_RETBA_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_BERMUDA">
+			<Text>Bermuda Triangle</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_BERMUDA_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_LUMI_BAY">
+			<Text>Bioluminescent Bay</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_LUMI_BAY_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_DALLOL">
+			<Text>Dallol</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_DALLOL_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_MT_PAEKTU">
+			<Text>Mt. Paektu</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_MT_PAEKTU_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_EYE_OF_SAHARA">
+			<Text>Eye of the Sahara</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_TEXT">
+			<Text>TODO</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
