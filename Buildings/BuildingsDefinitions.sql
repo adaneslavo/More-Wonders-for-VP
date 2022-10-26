@@ -14,7 +14,7 @@ VALUES		('BUILDING_MORE_WONDERS_ATLAS', 	256, 		'More_Wonders_Buildings_256.dds'
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
 VALUES		('TXT_KEY_PROMOTION_FLETCHER',		'Yerba de la Fleche'),
-			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'2% [COLOR:255:230:85:255]Kill Chance after Ranged Attack[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'5% [COLOR:255:230:85:255]Kill Chance after Ranged Attack[ENDCOLOR].');
 
 INSERT INTO UnitPromotions 
 			(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
