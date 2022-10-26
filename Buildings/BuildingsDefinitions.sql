@@ -46,7 +46,7 @@ VALUES		('TXT_KEY_BUILDING_FLETCHER',			'Fletcher'),
 			('TXT_KEY_BUILDING_FLETCHER_HELP',		'[COLOR_POSITIVE_TEXT]Yerba de la Fleche[ENDCOLOR] promotion for Archery units produced in this City. +10% [ICON_PRODUCTION] Production towards Archery units in this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Tropical Fish: +2 [ICON_PRODUCTION] Production.'),
 			('TXT_KEY_BUILDING_SEAFOOD',			'Seafood Station'),
 			('TXT_KEY_BUILDING_SEAFOOD_PEDIA',		'TODO'),
-			('TXT_KEY_BUILDING_SEAFOOD_HELP',		'5% of the City''s [ICON_FOOD] Food is converted into [ICON_TOURISM] Tourism every turn. Contains 1 slot for a [ICON_GREAT_WORK] Great Work of Music.[NEWLINE][NEWLINE]Nearby [ICON_RES_CRAB] Crab: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_SHRIMPS] Shrimps: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +1 [ICON_FOOD] Food.');
+			('TXT_KEY_BUILDING_SEAFOOD_HELP',		'5% of the City''s [ICON_FOOD] Food is converted into [ICON_TOURISM] Tourism every turn. Contains 1 slot for a [ICON_GREAT_WORK] Great Work of Music.[NEWLINE][NEWLINE]Nearby [ICON_RES_CRAB] Crab: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_SHRIMP] Shrimp: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +1 [ICON_FOOD] Food.');
 
 INSERT INTO Building_LocalResourceOrs
 			(BuildingType,			ResourceType) 
@@ -57,7 +57,7 @@ VALUES		('BUILDING_FLETCHER',	'RESOURCE_TROPICAL_FISH'),
 			
 INSERT INTO Building_LocalResourceOrs
 			(BuildingType,			ResourceType) 
-VALUES		('BUILDING_SEAFOOD',	'RESOURCE_SHRIMPS')
+VALUES		('BUILDING_SEAFOOD',	'RESOURCE_SHRIMP')
 WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 1);
 
 INSERT INTO Building_YieldChanges 
@@ -79,7 +79,7 @@ VALUES		('BUILDING_FLETCHER',	'RESOURCE_TROPICAL_FISH',	'YIELD_PRODUCTION', 2),
 			
 INSERT INTO Building_ResourceYieldChanges
 			(BuildingType,			ResourceType,				YieldType,			Yield) 
-VALUES		('BUILDING_SEAFOOD',	'RESOURCE_SHRIMPS',			'YIELD_FOOD',		1)
+VALUES		('BUILDING_SEAFOOD',	'RESOURCE_SHRIMP',			'YIELD_FOOD',		1)
 WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 1);
 
 INSERT INTO Building_UnitCombatProductionModifiers
