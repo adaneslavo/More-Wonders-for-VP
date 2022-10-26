@@ -58,6 +58,21 @@ VALUES	('MW-EE', 		2);
 UPDATE COMMUNITY
 SET Value = '1'
 WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM UnitPromotions WHERE Type='PROMOTION_2HANDER') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 0);
+
+/*
+Civilizations compatibility patch!
+0 = Disabled disregarding if its detects any Civilization.
+1 = Enabled if it detects any Civilization.
+2 = Disabled until it detects something! (Default)
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,			Value)
+VALUES	('MW-CIV-LOI', 		2);
+
+UPDATE COMMUNITY
+SET Value = '1'
+WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMPS') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 0);
 --============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--
