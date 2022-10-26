@@ -44,13 +44,6 @@ Currently compatible with 2.7.</Description>
       </Association>
       <Association>
         <Type>Mod</Type>
-        <Name>Unique City-States</Name>
-        <Id>b2eb6d1e-1fcb-4a0d-829c-51691aa3183a</Id>
-        <MinVersion>0</MinVersion>
-        <MaxVersion>999</MaxVersion>
-      </Association>
-      <Association>
-        <Type>Mod</Type>
         <Name>New Beliefs Mod</Name>
         <Id>d600c443-2f04-469a-9475-e857284d5992</Id>
         <MinVersion>0</MinVersion>
@@ -122,6 +115,11 @@ Currently compatible with 2.7.</Description>
         <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/SQL/NaturalWondersCivilopediaTexts.sql</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Buildings/BuildingsDefinitions.sql</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -159,6 +157,12 @@ Currently compatible with 2.7.</Description>
         <Name>NaturalWonderPopupOnClick.xml</Name>
         <Description>Shows up Natural Wonder popup window on demand</Description>
         <FileName>2.NaturalWonders/UI/NaturalWonderPopupOnClick.xml</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>AbilitiesForBuildings</Name>
+        <Description>Code some unique lua stuff</Description>
+        <FileName>Buildings/AbilitiesForBuildings.lua</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -3304,23 +3308,55 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_16.dds">
+    <Content Include="Buildings\AbilitiesForBuildings.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Buildings\Atlases\More_Wonders_Buildings_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_256.dds">
+    <Content Include="Buildings\Atlases\More_Wonders_Buildings_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_32.dds">
+    <Content Include="Buildings\Atlases\More_Wonders_Buildings_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_45.dds">
+    <Content Include="Buildings\Atlases\More_Wonders_Buildings_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Promotions\Atlases\PromotionMoreWondersIcons_64.dds">
+    <Content Include="Buildings\Atlases\More_Wonders_Buildings_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Buildings\BuildingsDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Changelog.txt">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\More_Wonders_Promotions_16.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\More_Wonders_Promotions_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\More_Wonders_Promotions_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\More_Wonders_Promotions_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Promotions\Atlases\More_Wonders_Promotions_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3328,35 +3364,35 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_128.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_256.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_32.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_45.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_64.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\Atlases\ResourceMoreWondersIcon_80.dds">
+    <Content Include="Resources\Atlases\More_Wonders_Resources_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.dds">
+    <Content Include="Resources\FontIcons\More_Wonders_Resources_Font_22.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Resources\FontIcons\ResourceMoreWondersFontIcon_22.ggxml">
+    <Content Include="Resources\FontIcons\More_Wonders_Resources_Font_22.ggxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3511,6 +3547,8 @@ Currently compatible with 2.7.</Description>
     <Folder Include="2.NaturalWonders\XML" />
     <Folder Include="Addons" />
     <Folder Include="Addons\43-civ" />
+    <Folder Include="Buildings" />
+    <Folder Include="Buildings\Atlases" />
     <Folder Include="Promotions\" />
     <Folder Include="Promotions\Atlases" />
     <Folder Include="Resources\" />

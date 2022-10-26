@@ -52,7 +52,7 @@
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_SALAR_A</ResourceType>
 			<Model>feature_salar.fxsxml</Model>
-			<TerrainContour>1</TerrainContour>
+			<TerrainContour>0</TerrainContour>
 		</Row>
 		<Row>
 			<Era>Any</Era>
@@ -62,7 +62,7 @@
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_SALAR_B</ResourceType>
 			<Model>feature_salar_b.fxsxml</Model>
-			<TerrainContour>1</TerrainContour>
+			<TerrainContour>0</TerrainContour>
 		</Row>
 		
 		

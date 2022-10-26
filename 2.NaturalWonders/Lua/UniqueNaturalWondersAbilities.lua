@@ -239,7 +239,7 @@ function CanWeBuildInBlueHole(ePlayer, eBuilding)
 	
 	local pPlayer = Players[ePlayer]
 	
-	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) >= 1 then
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[30]) >= 1 then
 		return true
 	else
 		return false

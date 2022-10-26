@@ -58,21 +58,6 @@ VALUES	('MW-EE', 		2);
 UPDATE COMMUNITY
 SET Value = '1'
 WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM UnitPromotions WHERE Type='PROMOTION_2HANDER') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 0);
---------------------------------------------------------------
-/*
-UCS compatibility patch!
-0 = Disabled disregarding if its detects UCS by Infixo and Padre.
-1 = Enabled if it detects the UCS by Infixo and Padre.
-2 = Disabled until it detects something! (Default)
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,			Value)
-VALUES	('MW-UCS', 		2);
-
-UPDATE COMMUNITY
-SET Value = '1'
-WHERE Type = 'MW-UCS' AND EXISTS (SELECT * FROM MinorCivilizations WHERE Type='MINOR_CIV_HONDURAS') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-UCS' AND Value= 0);
 --============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--

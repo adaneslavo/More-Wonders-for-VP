@@ -1064,27 +1064,6 @@
 				('BUILDING_AHU',	'FLAVOR_PRODUCTION',	50),
 				('BUILDING_AHU',	'FLAVOR_RELIGION',		30),
 				('BUILDING_AHU',	'FLAVOR_HAPPINESS',		20);
-	---------------------------------------------------------
-	INSERT INTO Resources 
-				(Type,				TechReveal,		TechCityTrade, 		Description,				Civilopedia, 					Help,								ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 				CivilizationType,	TechCityTrade,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 		PortraitIndex, 	IconAtlas)
-	VALUES		('RESOURCE_TERN',	null,			null,				'TXT_KEY_RESOURCE_TERN',	'TXT_KEY_RESOURCE_TERN_TEXT',	'TXT_KEY_RESOURCE_MONOPOLY_TERN',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_TERN',	null,				'TECH_PHYSICS',		0,				2,			2,				'[ICON_RES_TERN]',	0, 				'RESOURCE_MORE_WONDERS_ATLAS');
-
-	INSERT INTO Resource_Flavors 	
-				(ResourceType, 		FlavorType, 			Flavor)
-	VALUES		('RESOURCE_TERN',	'FLAVOR_GROWTH',		10),
-				('RESOURCE_TERN',	'FLAVOR_RELIGION',		50);
-	---------------------------------------------------------
-	INSERT INTO ArtDefine_StrategicView
-				(StrategicViewType, 					TileType, 		Asset)
-	VALUES 		('ART_DEF_RESOURCE_TERN', 	'Resource', 	'sv_Tern_Egg.dds');
-
-	INSERT INTO ArtDefine_LandmarkTypes
-				(Type, 									LandmarkType, 	FriendlyName)
-	VALUES 		('ART_DEF_RESOURCE_TERN', 	'Resource', 	'Tern Egg');
-	---------------------------------------------------------
-	INSERT INTO IconFontMapping 
-				(IconName, 			IconFontTexture,			IconMapping)
-	VALUES		('ICON_RES_TERN', 	'MORE_WONDERS_FONT_ATLAS',	1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FALUN MINE (NEW)

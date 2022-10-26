@@ -531,11 +531,9 @@ function NWCustomEligibility(x, y, method_number)
 				iNumOcean = iNumOcean + 1
 			end
 		end
-			
-		print("--!GBH tile parameters:", iNumAtoll, iNumLand, iNumOcean)
 		
 		if iNumAtoll == 0 or iNumLand == 0 or iNumOcean == 0 then return false end
-		
+		print("--!GBH tile", x, y, "parameters:", iNumAtoll, iNumLand, iNumOcean)
 		return true
 	elseif method_number == 100 then
 		-- dummy
