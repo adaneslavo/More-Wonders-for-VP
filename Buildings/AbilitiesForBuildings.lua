@@ -28,7 +28,7 @@ function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
 			if class == eNewUnitClass then
 				print("OnUpgradeTest-class-match!!!")
 	
-				pNewUnit:SetHasPromotion(ePromotionYerba, false)
+				pNewUnit:SetHasPromotion(ePromotionYerba, true)
 				break
 			end
 		end
