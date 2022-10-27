@@ -46,7 +46,7 @@ VALUES		('TXT_KEY_BUILDING_FLETCHER',			'Fletcher'),
 			('TXT_KEY_BUILDING_FLETCHER_HELP',		'[COLOR_POSITIVE_TEXT]Yerba de la Fleche[ENDCOLOR] promotion for Archery units produced in this City. +10% [ICON_PRODUCTION] Production towards Archery units in this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +2 [ICON_PRODUCTION] Production.'),
 			('TXT_KEY_BUILDING_SEAFOOD',			'Seafood Station'),
 			('TXT_KEY_BUILDING_SEAFOOD_PEDIA',		'TODO'),
-			('TXT_KEY_BUILDING_SEAFOOD_HELP',		'5% of the City''s [ICON_FOOD] Food is converted into [ICON_TOURISM] Tourism every turn. Contains 1 slot for a [ICON_GREAT_WORK] Great Work of Music. -1 [ICON_CULTURE] Boredom in this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.[NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.');
+			('TXT_KEY_BUILDING_SEAFOOD_HELP',		'5% of the City''s [ICON_FOOD] Food is converted into [ICON_TOURISM] Tourism every turn. Contains 1 slot for a [ICON_GREAT_WORK] Great Work of Music.[NEWLINE][NEWLINE]-1 [ICON_HAPPINESS_3] from [ICON_CULTURE] Boredom.[NEWLINE][NEWLINE]Nearby [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.[NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.');
 
 INSERT INTO Building_LocalResourceOrs
 			(BuildingType,			ResourceType) 
