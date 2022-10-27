@@ -2,11 +2,11 @@ MW Changelog:
 - new:
 	- new model for Giant's Causeway (by @ghost toast);
 	- 1 new World Wonder: Svalbard Global Seed Vault (Information Era - tier 1);
-	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (idea in cooperation with @gwennog; art by @gwennog);
-		- new promotion Yerba de la Fleche which gives Archer units chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
-		- Seafood Station has compatibility with Loisiana civ! (by @Hinin and @gwennog);
+	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (ideas in cooperation with @gwennog; art by @gwennog);
+		- new promotion Yerba de la Fleche which gives Archery units (new lua code) chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
+		- Seafood Station has compatibility with Loisiana civ's Shrimp resource! (by @Hinin and @gwennog);
 - balance:
-	- Skara BRae now requires and boosts Rice and Maize;
+	- Skara Brae now requires and boosts Rice and Maize;
 - fixes:
 	- Tropical Fish fixes:
 		- added missing industrial model for Tropical Fish;
@@ -15,6 +15,7 @@ MW Changelog:
 	- added TechCityTrade value to all new resources (MINING for Sylvite, SAILING for Tropical Fish and PHYSICS for Tern Egg);
 	- deleted UCS reference;
 	- Mt. Fuji now has maximum 1 snow adjacent (was unlimited);
+	- Revolutionary Museum now has updated splash image (upsy!);
 	- numerous text fixes:
 		- now Grand Mesa uses SILVER_FIST icon instead of WAR icon for supply boost;
 		- all supply modifiers now have their text revised to emphasize they are based on the population (local or global);

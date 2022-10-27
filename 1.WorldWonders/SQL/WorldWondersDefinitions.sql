@@ -3079,7 +3079,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- REVOLUTIONARY_MUSEUM (NEW)
 	UPDATE Buildings SET Cost = 2350, PrereqTech = 'TECH_NUCLEAR_FISSION', NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
-	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
 	---------------------------------------------------------
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value-1 OR Value=2));
 	
