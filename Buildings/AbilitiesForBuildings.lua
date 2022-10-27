@@ -1,31 +1,32 @@
 local ePromotionYerba = GameInfoTypes.PROMOTION_FLETCHER
+local eBuildingFletcher = GameInfoTypes.BUILDING_FLETCHER
 
-local tExcludedUnitClasses = {
-	GameInfoTypes.UNITCLASS_HELICOPTER_GUNSHIP,
-	GameInfoTypes.UNITCLASS_ANTI_TANK_GUN,
-	GameInfoTypes.UNITCLASS_CAVALRY,
-	GameInfoTypes.UNITCLASS_MUSKETMAN,
-	GameInfoTypes.UNITCLASS_CUIRASSIER,
+local tArcheryUnits = {
 	GameInfoTypes.UNITCLASS_VP_SLINGER,
-	GameInfoTypes.UNITCLASS_MACHINE_GUN,
-	GameInfoTypes.UNITCLASS_GATLINGGUN,
-	GameInfoTypes.UNITCLASS_BAZOOKA
+	GameInfoTypes.UNITCLASS_ARCHER,
+	GameInfoTypes.UNITCLASS_COMPOSITE_BOWMAN,
+	GameInfoTypes.UNITCLASS_CROSSBOWMAN,
+	GameInfoTypes.UNITCLASS_LONGBOWMAN,
+	GameInfoTypes.UNITCLASS_CHARIOT_ARCHER,
+	GameInfoTypes.UNITCLASS_HORSE_ARCHER,
+	GameInfoTypes.UNITCLASS_MOUNTED_BOWMAN
 }
 
+-- adding fletcher promotion to archery units
 function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
 	local pPlayer = Players[iPlayer]
 	local pOldUnit = pPlayer:GetUnitByID(iOldUnit)
 	local pNewUnit = pPlayer:GetUnitByID(iNewUnit)
-	print("OnPromoteTest", pPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
+	print("OnUpgradeTest", pPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
 	if pOldUnit:IsHasPromotion(ePromotionYerba) then
-		local eUnitClass = pNewUnit:GetUnitClassType()
-		print("OnPromoteTest-class", eUnitClass)
+		local eNewUnitClass = pNewUnit:GetUnitClassType()
+		print("OnUpgradeTest-class", eNewUnitClass)
 	
 		for _, class in ipairs(tExcludedUnitClasses) do
-			print("OnPromoteTest-class-for", eUnitClass, class)
+			print("OnUpgradeTest-class-for", eNewUnitClass, class)
 	
-			if class == eUnitClass then
-				print("OnPromoteTest-class-match!!!")
+			if class == eNewUnitClass then
+				print("OnUpgradeTest-class-match!!!")
 	
 				pNewUnit:SetHasPromotion(ePromotionYerba, false)
 				break
@@ -36,10 +37,32 @@ end
 GameEvents.UnitUpgraded.Add(OnUpgradeTakeOutFletcher)
 
 function OnCityTrainTakeOutFletcher(iPlayer, iCity, iUnit, bGold, bFaith)
+    local pPlayer = Players[iPlayer]
+    local pCity = pPlayer:GetCityByID(iCity)
+    local pUnit = pPlayer:GetUnitByID(iUnit)
+    
+    print("OnTrainedTest", pPlayer:GetName(), pUnit:GetName())
+	
+    if pCity:IsHasBuilding(eBuildingFletcher) then
+        local eUnitClass = pUnit:GetUnitClassType()
+		
+		for _, class in ipairs(tArcheryUnits) do
+            print("OnTrainedTest-class-for", eUnitClass, class)
+        
+            if class == eUnitClass then
+			    print("OnTrainedTest-class-match!!!")
 
+			    pUnit:SetHasPromotion(ePromotionYerba, true)
+			    break
+			end
+		end
+    end
 end
 GameEvents.CityTrained.Add(OnCityTrainTakeOutFletcher)
 
+
+
+-- code for promotion - kill chance
 function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
 	local pAttackingPlayer = Players[iAttackingPlayer]
 	
