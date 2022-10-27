@@ -30,12 +30,9 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_BISON'	
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_DEER'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_BISON'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_DEER'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
 	
@@ -224,14 +221,12 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType, ResourceType) 
-	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_FISH'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_COW'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_WHEAT'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_SHEEP'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_FISH'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_COW'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_WHEAT' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_MAIZE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_RICE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SKARA_BRAE', 'RESOURCE_SHEEP' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -243,6 +238,8 @@
 	VALUES		('BUILDING_SKARA_BRAE', 'RESOURCE_FISH',	'YIELD_FOOD',	1),
 				('BUILDING_SKARA_BRAE', 'RESOURCE_COW',		'YIELD_FOOD',	1),
 				('BUILDING_SKARA_BRAE', 'RESOURCE_WHEAT',	'YIELD_FOOD',	1),
+				('BUILDING_SKARA_BRAE', 'RESOURCE_MAIZE',	'YIELD_FOOD',	1),
+				('BUILDING_SKARA_BRAE', 'RESOURCE_RICE',	'YIELD_FOOD',	1),
 				('BUILDING_SKARA_BRAE', 'RESOURCE_SHEEP',	'YIELD_FOOD',	1);
 	
 	INSERT INTO Building_ImprovementYieldChangesGlobal 
@@ -266,11 +263,10 @@
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_KARNAK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,			FeatureType) 
-	SELECT		'BUILDING_KARNAK',		'FEATURE_OASIS'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_KARNAK',		'FEATURE_FLOOD_PLAINS'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+				(BuildingType,		FeatureType) 
+	SELECT		'BUILDING_KARNAK',	'FEATURE_OASIS'			WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KARNAK',	'FEATURE_FLOOD_PLAINS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
 	---------------------------------------------------------	
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONUMENT' WHERE Type = 'BUILDING_KARNAK';
 	
@@ -402,11 +398,9 @@
 	UPDATE Buildings SET ProhibitedCityTerrain = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMPLE_ARTEMIS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,					FeatureType) 
-	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	SELECT		'BUILDING_TEMPLE_ARTEMIS',		'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_TEMPLE_ARTEMIS',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_TEMPLE_ARTEMIS',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	-- + Camp(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -473,10 +467,8 @@
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_GREAT_LIBRARY',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HANGING GARDENS
@@ -495,8 +487,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,		FeatureType) 
-	SELECT		'BUILDING_FORUM',	'FEATURE_MARSH'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_FORUM',	'FEATURE_MARSH' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW)
@@ -506,9 +497,8 @@
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,		BuildingClassType) 
+	SELECT		'BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 
@@ -671,8 +661,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	SELECT		'BUILDING_ETCHMIADZIN',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_ETCHMIADZIN',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_LANCE'  WHERE Type = 'BUILDING_ETCHMIADZIN';
 	
@@ -709,9 +698,8 @@
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_ANGKOR_WAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_ANGKOR_WAT',		'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,			FeatureType) 
+	SELECT		'BUILDING_ANGKOR_WAT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIGIRIYA (NEW)
@@ -723,10 +711,8 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
 
@@ -774,9 +760,8 @@
 	UPDATE Buildings SET IsNoWater = 1 WHERE Type = 'BUILDING_CHAND_BAORI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_CHAND_BAORI',	'BUILDINGCLASS_WELL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, GreatPeopleRateModifier = 10, FreeGreatPeople = 1 WHERE Type = 'BUILDING_CHAND_BAORI';
 	
@@ -807,10 +792,8 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_IRON'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_COPPER'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_IRON'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_COLOSSUS',	'RESOURCE_COPPER'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
@@ -822,8 +805,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	SELECT		'BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_MOSQUE_OF_DJENNE',	'BUILDINGCLASS_LIBRARY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PROPHET'S MOSQUE (NEW)
@@ -926,13 +908,11 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	SELECT		'BUILDING_WARTBURG',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_WARTBURG',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
@@ -1020,15 +1000,12 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,	FeatureType) 
-	SELECT		'BUILDING_AHU',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_AHU',	'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_AHU',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_AHU',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,	ResourceType) 
-	SELECT		'BUILDING_AHU',	'RESOURCE_STONE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_AHU',	'RESOURCE_STONE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 20 WHERE Type = 'BUILDING_AHU';
 	
@@ -1118,8 +1095,7 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_DAMASCUS',	'RESOURCE_IRON'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_DAMASCUS',	'RESOURCE_IRON' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_DAMASCUS', SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2, EnhancedYieldTech = 'TECH_METALLURGY' WHERE Type = 'BUILDING_DAMASCUS';
 
@@ -1162,10 +1138,8 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_WALLS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RILA MONASTERY (FORMER KARLSTEJN)
@@ -1272,14 +1246,10 @@
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
@@ -1328,8 +1298,7 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_QALHAT',	'RESOURCE_HORSE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_QALHAT',	'RESOURCE_HORSE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 1, TradeRouteSeaGoldBonus = 100 WHERE Type = 'BUILDING_QALHAT';
 
@@ -1481,10 +1450,8 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'		 WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ST. PETER'S BASILICA (NEW)
@@ -1523,8 +1490,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN PAVILION (NEW)
@@ -1535,10 +1501,8 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
 
@@ -1580,8 +1544,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
@@ -1645,8 +1608,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_HIMEJI_CASTLE',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_HIMEJI_CASTLE',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- OLD BRIDGE (NEW)
@@ -1684,8 +1646,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_LEANING_TOWER',	'FEATURE_MARSH'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_LEANING_TOWER',	'FEATURE_MARSH' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MEENAKSHI TEMPLE (NEW)
@@ -1763,8 +1724,7 @@
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_PETERHOF',	'RESOURCE_IRON'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_PETERHOF',	'RESOURCE_IRON' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WLTKDTurns = 20, GreatPeopleRateModifier = 10 WHERE Type = 'BUILDING_PETERHOF';
 
@@ -1821,8 +1781,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_SISTINE_CHAPEL',	'BUILDINGCLASS_ARTISTS_GUILD' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SUMMER PALACE
@@ -1834,8 +1793,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_SUMMER_PALACE',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_SUMMER_PALACE',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HOUSE OF TRADE OF THE INDIES (NEW)
@@ -1937,7 +1895,7 @@
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'BUILDINGCLASS_MUSEUM',	'YIELD_TOURISM',	2);
 
 	INSERT INTO Building_SpecificGreatPersonRateModifier 
-				(BuildingType,					SpecialistType,			Modifier)
+				(BuildingType,						SpecialistType,			Modifier)
 	VALUES		('BUILDING_MUSEUM_ISLAND_DUMMY',	'SPECIALIST_ARTIST',	50);
 
 	INSERT INTO Building_ThemingBonuses 
@@ -2048,8 +2006,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
-	SELECT		'BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_SIBERIAN_RAILWAY',	'BUILDINGCLASS_TRAINSTATION' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 25, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 
@@ -2106,8 +2063,7 @@
 
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
@@ -2194,11 +2150,9 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_KEW_GARDENS';
 	---------------------------------------------------------
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
 
@@ -2306,8 +2260,7 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,				ResourceType) 
-	SELECT		'BUILDING_EIFFEL_TOWER',	'RESOURCE_IRON'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_EIFFEL_TOWER',	'RESOURCE_IRON' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- DARJEELING HIMALAYAN RAILWAY (NEW)
@@ -2318,8 +2271,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_DARJEELING',	'BUILDINGCLASS_TRAINSTATION' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 
 	-- + Mountains(2) (lua) (HARD)
 	---------------------------------------------------------
@@ -2406,8 +2358,7 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
@@ -2475,8 +2426,7 @@
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,						ResourceType) 
-	SELECT		'BUILDING_EMPIRE_STATE_BUILDING',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_EMPIRE_STATE_BUILDING',	'RESOURCE_ALUMINUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- AKIHABARA ELECTRIC TOWN (NEW)
@@ -2517,9 +2467,8 @@
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_ROCKEFELLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_ROCKEFELLER',	'BUILDINGCLASS_OPERA_HOUSE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,			BuildingClassType) 
+	SELECT		'BUILDING_ROCKEFELLER',	'BUILDINGCLASS_OPERA_HOUSE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_LABORATORY' WHERE Type = 'BUILDING_ROCKEFELLER';
 	
@@ -2557,15 +2506,12 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_AUTOBAHN',	'RESOURCE_OIL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_AUTOBAHN',	'RESOURCE_OIL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_ARSENAL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_FACTORY'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_ARSENAL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_FACTORY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 30, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
 	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
@@ -2592,8 +2538,7 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_INTERSTATE',	'RESOURCE_OIL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_INTERSTATE',	'RESOURCE_OIL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	-- + Cities(8) (lua) (HARD)
 	---------------------------------------------------------
@@ -2659,8 +2604,7 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_CONCORDE',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_CONCORDE',	'RESOURCE_ALUMINUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	-- + Engineers(3) (lua) (HARD)
 	---------------------------------------------------------
@@ -2695,10 +2639,8 @@
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_CRISTO_REDENTOR',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BROADWAY
@@ -2718,11 +2660,9 @@
 	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PRORA_RESORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,					FeatureType) 
-	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_PRORA_RESORT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SANBO HONBU (NEW)
@@ -2733,10 +2673,8 @@
 
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_ARSENAL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_MILITARY_ACADEMY'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_ARSENAL'				WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_MILITARY_ACADEMY'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, FreePromotion = 'PROMOTION_SANBO_LAND' WHERE Type = 'BUILDING_SANBO';
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
@@ -2811,8 +2749,7 @@
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
-	SELECT		'BUILDING_RUSHMORE',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_RUSHMORE',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
 	
@@ -2911,8 +2848,7 @@
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_MILESTII_MICI',	'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_MILESTII_MICI',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
@@ -2952,8 +2888,7 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_SPUTNIK',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_SPUTNIK',	'RESOURCE_ALUMINUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	-- + Scientists(3) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, GoldenAge = 1 WHERE Type = 'BUILDING_SPUTNIK';
@@ -2996,10 +2931,8 @@
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_ANITKABIR',		'FEATURE_FOREST'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ANITKABIR',		'FEATURE_JUNGLE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_ANITKABIR',		'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';
 
@@ -3151,11 +3084,9 @@
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value-1 OR Value=2));
 	
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_POLICE_STATION'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_BROADCAST_TOWER'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+				(BuildingType,						BuildingClassType) 
+	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_POLICE_STATION'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_BROADCAST_TOWER' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatPeopleRateModifier = 10, FreePolicies = 1 WHERE Type = 'BUILDING_REVOLUTIONARY_MUSEUM';
 
@@ -3210,6 +3141,39 @@
 --============================================--
 -- INFORMATION ERA
 --============================================--
+-- SVALBARD GLOBAL SEED VAULT (NEW)
+	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ECOLOGY', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_SEED_VAULT';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SEED_VAULT';
+	---------------------------------------------------------
+	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	UPDATE Buildings SET DefenseHappinessChangeGlobal = -15 WHERE Type = 'BUILDING_SEED_VAULT';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_SEED_VAULT',	'YIELD_FOOD',		5);
+
+	INSERT INTO Building_GlobalYieldModifiers 
+				(BuildingType,			YieldType,		Yield) 
+	VALUES		('BUILDING_SEED_VAULT',	'YIELD_FOOD',	10);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,			ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_SEED_VAULT',	'RESOURCE_WHEAT',	'YIELD_FOOD',		2),
+				('BUILDING_SEED_VAULT',	'RESOURCE_MAIZE',	'YIELD_FOOD',		2),
+				('BUILDING_SEED_VAULT',	'RESOURCE_RICE',	'YIELD_FOOD',		2);
+
+	INSERT INTO Building_GrowthExtraYield
+				(BuildingType,					YieldType,			Yield) 
+	VALUES		('BUILDING_SEED_VAULT_DUMMY',	'YIELD_PRODUCTION',	50);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_SEED_VAULT',	'FLAVOR_GROWTH',		150),
+				('BUILDING_SEED_VAULT',	'FLAVOR_PRODUCTION',	30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- CN TOWER
 	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_CN_TOWER';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_CN_TOWER';
@@ -3237,8 +3201,7 @@
 
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_JUMEIRAH',	'RESOURCE_OIL'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_JUMEIRAH',	'RESOURCE_OIL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	INSERT INTO Building_TerrainYieldChanges
 				(BuildingType,			TerrainType,			YieldType,				Yield) 
@@ -3310,8 +3273,7 @@
 	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_CURIOSITY',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_CURIOSITY',	'RESOURCE_ALUMINUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET MinorFriendshipChange = 50 WHERE Type = 'BUILDING_CURIOSITY';
 	
@@ -3343,10 +3305,8 @@
 	---------------------------------------------------------
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_POLICE_STATION'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
+	SELECT		'BUILDING_GREAT_FIREWALL',	'BUILDINGCLASS_WIRE_SERVICE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GLOBAL POSITIONING SYSTEM (NEW)
@@ -3355,13 +3315,11 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_GPS',		'RESOURCE_URANIUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_GPS',		'RESOURCE_URANIUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_GPS',		'BUILDINGCLASS_BOMB_SHELTER'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_GPS',		'BUILDINGCLASS_BOMB_SHELTER' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET Espionage = 1, GlobalEspionageModifier = -20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
 	
@@ -3396,8 +3354,7 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_HUBBLE',	'RESOURCE_ALUMINUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_HUBBLE',	'RESOURCE_ALUMINUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Research Agreement(1) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -3407,13 +3364,11 @@
 	---------------------------------------------------------
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,		ResourceType) 
-	SELECT		'BUILDING_CERN',	'RESOURCE_URANIUM'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_CERN',	'RESOURCE_URANIUM' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_CERN',	'BUILDINGCLASS_LABORATORY'
-	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	SELECT		'BUILDING_CERN',	'BUILDINGCLASS_LABORATORY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --============================================--
 -- EE Compatibility
 --============================================--
@@ -3457,6 +3412,7 @@ UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_INTERSTATE' A
 UPDATE Buildings SET NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_CRISTO_REDENTOR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_ANITKABIR' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_EE_TOPKAPI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 800 WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3525,6 +3481,7 @@ UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_JUMEIRAH' AND EXISTS (SE
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_TAIPEI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 UPDATE Buildings SET PrereqTech = 'TECH_EE_SOVEREIGNTY' WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET PrereqTech = 'TECH_ACOUSTICS' WHERE Type = 'BUILDING_EE_VERSAILLES' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3560,13 +3517,11 @@ UPDATE Buildings SET River = 1																				WHERE Type = 'BUILDING_EE_SMIT
 --------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Building_ClassesNeededInCity 
 			(BuildingType,				BuildingClassType) 
-SELECT		'BUILDING_EE_TOPKAPI',		'BUILDINGCLASS_EE_MANOR'
-WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+SELECT		'BUILDING_EE_TOPKAPI',		'BUILDINGCLASS_EE_MANOR' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 			
 INSERT INTO Building_ClassesNeededInCity 
 			(BuildingType,				BuildingClassType) 
-SELECT		'BUILDING_EE_KRONBORG',		'BUILDINGCLASS_HARBOR'
-WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+SELECT		'BUILDING_EE_KRONBORG',		'BUILDINGCLASS_HARBOR' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--

@@ -13,28 +13,32 @@ local tArcheryUnits = {
 }
 
 -- adding fletcher promotion to archery units
-function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
-	local pPlayer = Players[iPlayer]
-	local pOldUnit = pPlayer:GetUnitByID(iOldUnit)
-	local pNewUnit = pPlayer:GetUnitByID(iNewUnit)
-	print("OnUpgradeTest", pPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
-	if pOldUnit:IsHasPromotion(ePromotionYerba) then
-		local eNewUnitClass = pNewUnit:GetUnitClassType()
-		print("OnUpgradeTest-class", eNewUnitClass)
+--function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
+function OnUpgradeTakeOutFletcher(iOldPlayer, iNewPlayer, iOldUnit, iNewUnit, bIsUpgrade)
+	if bIsUpgrade then
+		local pNewPlayer = Players[iNewPlayer]
+		local pOldUnit = pNewPlayer:GetUnitByID(iOldUnit)
+		local pNewUnit = pNewPlayer:GetUnitByID(iNewUnit)
+		print("OnUpgradeTest", pNewPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
+		if pOldUnit:IsHasPromotion(ePromotionYerba) then
+			local eNewUnitClass = pNewUnit:GetUnitClassType()
+			print("OnUpgradeTest-class", eNewUnitClass)
 	
-		for _, class in ipairs(tExcludedUnitClasses) do
-			print("OnUpgradeTest-class-for", eNewUnitClass, class)
+			for _, class in ipairs(tArcheryUnits) do
+				print("OnUpgradeTest-class-for", eNewUnitClass, class)
 	
-			if class == eNewUnitClass then
-				print("OnUpgradeTest-class-match!!!")
+				if class == eNewUnitClass then
+					print("OnUpgradeTest-class-match!!!")
 	
-				pNewUnit:SetHasPromotion(ePromotionYerba, true)
-				break
+					pNewUnit:SetHasPromotion(ePromotionYerba, true)
+					break
+				end
 			end
 		end
 	end
 end
-GameEvents.UnitUpgraded.Add(OnUpgradeTakeOutFletcher)
+GameEvents.UnitConverted.Add(OnUpgradeTakeOutFletcher)
+--GameEvents.UnitUpgraded.Add(OnUpgradeTakeOutFletcher)
 
 function OnCityTrainTakeOutFletcher(iPlayer, iCity, iUnit, bGold, bFaith)
     local pPlayer = Players[iPlayer]

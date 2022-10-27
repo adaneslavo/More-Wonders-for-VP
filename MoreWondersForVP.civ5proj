@@ -169,7 +169,7 @@ Currently compatible with 2.7.</Description>
         <Type>InGameUIAddin</Type>
         <Name>AbilitiesForBuildings</Name>
         <Description>Code some unique lua stuff</Description>
-        <FileName>Buildings/AbilitiesForBuildings.lua</FileName>
+        <FileName>Buildings/FletcherPromotion.lua</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -195,6 +195,10 @@ Currently compatible with 2.7.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\SQL\WorldWondersDefinitions.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -2207,23 +2211,23 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_128.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_256.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_45.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_64.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Global_Seed_Vault_80.dds">
+    <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3315,7 +3319,7 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Buildings\AbilitiesForBuildings.lua">
+    <Content Include="Buildings\FletcherPromotion.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

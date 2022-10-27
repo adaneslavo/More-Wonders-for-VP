@@ -1,10 +1,12 @@
 MW Changelog:
 - new:
 	- new model for Giant's Causeway (by @ghost toast);
+	- 1 new World Wonder: Svalbard Global Seed Vault (Information Era - tier 1);
 	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (idea in cooperation with @gwennog; art by @gwennog);
 		- new promotion Yerba de la Fleche which gives Archer units chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
 		- Seafood Station has compatibility with Loisiana civ! (by @Hinin and @gwennog);
 - balance:
+	- Skara BRae now requires and boosts Rice and Maize;
 - fixes:
 	- Tropical Fish fixes:
 		- added missing industrial model for Tropical Fish;
@@ -18,6 +20,7 @@ MW Changelog:
 		- all supply modifiers now have their text revised to emphasize they are based on the population (local or global);
 		- now Natural Wonder popup says that all units get the promotion instead of new ones;
 		- moved Potala Palace text changes from MW to UCS;
+		- Curiosity Rover no correctly mentions about global GAP boost (was local);
 - miscellanous:
 	- another tweak to Natural Wonders Overview icon (by @gwennog);
 	- old Great Barrier Reef is now called "(unused)..." with changed color to grey;

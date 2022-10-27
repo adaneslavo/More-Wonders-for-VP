@@ -126,7 +126,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('ARECIBO',					'None',		1,			1),		-- Arecibo Observatory
 			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0),		-- Northern Light Cathedral
-			--('SEED_VAULT',			'None',		1,			0),		-- Svalbard Global Seed Vault
+			('SEED_VAULT',				'None',		1,			0),		-- Svalbard Global Seed Vault
 			--('THREE_GORGES_DAM',		'None',		1,			0),		-- Three Gorges Dam
 			('JUMEIRAH',				'None',		1,			1),		-- Palm Jumeirah
 			('TAIPEI',					'None',		1,			1),		-- Taipei 101
@@ -448,7 +448,8 @@ VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
 			('AUTOBAHN_DUMMY',				'Autobahn',								2,			0),
 			('INTERSTATE_DUMMY',			'Interstate',							2,			0),
 			('MUSEUM_ISLAND_DUMMY',			'Museum Island',						2,			0),
-			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0);
+			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0),
+			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

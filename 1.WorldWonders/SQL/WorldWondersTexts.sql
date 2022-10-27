@@ -2117,6 +2117,25 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[E
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 ----------------------------------------------------
+-- Svalbard Global Seed Vault
+INSERT INTO Language_en_US 
+			(Tag,								Text)
+VALUES		('TXT_KEY_BUILDING_SEED_VAULT',		'Svalbard Global Seed Vault'),
+			('TXT_KEY_WONDER_SEED_VAULT_QUOTE',	'[NEWLINE]"The fact that the seed collection destroyed in Syria during the civil war has been systematically rebuilt shows that the vault functions as an insurance for current and future food supply and for local food security."[NEWLINE] - Anne Beathe Tvinnereim[NEWLINE]'),
+			('TXT_KEY_WONDER_SEED_VAULT_PEDIA',	''),
+			('TXT_KEY_WONDER_SEED_VAULT_HELP',	'');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Svalbard Global Seed Vault[ENDCOLOR] is an insurance policy in case of tragic events (+10%[ICON_FOOD][ICON_FOOD]). It contains seeds of most known plants (+2[ICON_FOOD]/[ICON_RES_WHEAT][ICON_RES_WHEAT], [ICON_RES_MAIZE][ICON_RES_MAIZE], [ICON_RES_RICE][ICON_RES_RICE]), boosts production in secured areas (50% of each city''s [ICON_PRODUCTION] is added to their current [ICON_PRODUCTION] on [ICON_CITIZEN] Birth) and supports the most affected people (-15%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Distress).'
+WHERE Tag = 'TXT_KEY_WONDER_SEED_VAULT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_SEED_VAULT_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SEED_VAULT_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_SEED_VAULT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_SEED_VAULT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 -- Palm Jumeirah
 INSERT INTO Language_en_US 
 			(Tag,								Text)
@@ -2161,10 +2180,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_CURIOSITY',			'Curiosity Rover'),
 			('TXT_KEY_WONDER_CURIOSITY_QUOTE',		'[NEWLINE]"Projects we have completed demonstrate what we know - future projects decide what we will learn."[NEWLINE] - Dr. Mohsin Tiwana[NEWLINE]'),
 			('TXT_KEY_WONDER_CURIOSITY_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_CURIOSITY_HELP',		'Grants 50 [ICON_INFLUENCE] on construction. +3 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist and Engineer Specialists in your Empire. +10 [ICON_GOLDEN_AGE] Golden Age Points from each Research Agreement you sign.');
+			('TXT_KEY_WONDER_CURIOSITY_HELP',		'Grants 50 [ICON_INFLUENCE] on construction. +3 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist and Engineer Specialists in your Empire. +10 global [ICON_GOLDEN_AGE] Golden Age Points from each Research Agreement you sign.');
 			
 UPDATE Language_en_US
-SET Text = 'Sending [COLOR_YIELD_FOOD]Curiosity Rover[ENDCOLOR] is an impuls for other nations, that you have the power and will to rule the Solar System (50[ICON_INFLUENCE]/[ICON_CITY_STATE][ICON_CITY_STATE]). This is only the start for you glorious march from one golden age to another (+10[ICON_GOLDEN_AGE]/Research Agreement; +3[ICON_GOLDEN_AGE]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER],[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]).'
+SET Text = 'Sending [COLOR_YIELD_FOOD]Curiosity Rover[ENDCOLOR] is an impuls for other nations, that you have the power and will to rule the Solar System (50[ICON_INFLUENCE]/[ICON_CITY_STATE][ICON_CITY_STATE]). This is only the start for you glorious march from one golden age to another (+10[ICON_GOLDEN_AGE][ICON_GOLDEN_AGE]/Research Agreement; +3[ICON_GOLDEN_AGE]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER],[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]).'
 WHERE Tag = 'TXT_KEY_WONDER_CURIOSITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
