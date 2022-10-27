@@ -94,7 +94,7 @@ UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][IC
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][ICON_BULLET](owned) adds [COLOR_POSITIVE_TEXT]Fresh Water[ENDCOLOR][NEWLINE][ICON_BULLET](owned) [COLOR_POSITIVE_TEXT]Everlasting Youth[ENDCOLOR] promotion for newly created [COLOR:255:230:85:255]Military Melee[ENDCOLOR] units[NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_FOUNTAIN_YOUTH_TEXT';
 
 -- Grand Mesa
-UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][ICON_BULLET](owned) +20% [ICON_PRODUCTION] towards Mounted Military Units[NEWLINE][ICON_BULLET](owned) +1[ICON_WAR][ICON_WAR] Military Supply Cap[NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GRANDMESA_TEXT';
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]1-tile[NEWLINE][ICON_BULLET](owned) +20% [ICON_PRODUCTION] towards Mounted Military Units[NEWLINE][ICON_BULLET](owned) +1[ICON_SILVER_FIST][ICON_SILVER_FIST] Military Supply Cap[NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GRANDMESA_TEXT';
 
 -- Great Barrier Reef
 UPDATE Language_en_US SET Text = Text||'[NEWLINE][ICON_BULLET]3-tile (line)[NEWLINE][ICON_BULLET](owned) +1[ICON_RESEARCH]/all Sea luxury resources[NEWLINE][ICON_BULLET](map) spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] adjacent to its tiles[NEWLINE]' WHERE Tag = 'TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT';

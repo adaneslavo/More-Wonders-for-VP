@@ -1,23 +1,30 @@
 MW Changelog:
 - new:
 	- new model for Giant's Causeway (by @ghost toast);
-	- 2 new standalone buildings strongly related to Tropical Fish resource: Hunters' Guild and Gourmet Restaurant (in cooperation with @gwennog; art by @gwennog);
-		- new promotion Yerba de la Fleche which gives Archer units chance to instakill an enemy with poison! (art by @gwennog);
-		- both players receive notifications when the unit is killed/dead;
+	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (idea in cooperation with @gwennog; art by @gwennog);
+		- new promotion Yerba de la Fleche which gives Archer units chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
+		- Seafood Station has compatibility with Loisiana civ! (by @Hinin and @gwennog);
 - balance:
 - fixes:
+	- Tropical Fish fixes:
+		- added missing industrial model for Tropical Fish;
+		- added missing boost to Tropical Fish from Bioluminescent Bay;
+		- Tropical Fish is now revealed at Fishing (was Pottery);
 	- added TechCityTrade value to all new resources (MINING for Sylvite, SAILING for Tropical Fish and PHYSICS for Tern Egg);
-	- added missing industrial model for Tropical Fish;
-	- added missing boost to Tropical Fish from Bioluminescent Bay;
-	- Tropical Fish is now revealed at Fishing (was Pottery);
-	- moved Potala Palace text changes from MW to UCS;
 	- deleted UCS reference;
+	- Mt. Fuji now has maximum 1 snow adjacent (was unlimited);
+	- numerous text fixes:
+		- now Grand Mesa uses SILVER_FIST icon instead of WAR icon for supply boost;
+		- all supply modifiers now have their text revised to emphasize they are based on the population (local or global);
+		- now Natural Wonder popup says that all units get the promotion instead of new ones;
+		- moved Potala Palace text changes from MW to UCS;
 - miscellanous:
 	- another tweak to Natural Wonders Overview icon (by @gwennog);
 	- old Great Barrier Reef is now called "(unused)..." with changed color to grey;
 	- all new resources have additional info about their source in help texts;
-	- prepared some new art for upcoming new Natural Wonders (by @gwennog);
-	- added some new code (currently unused) for upcoming new Natural Wonders;
 	- moved all resource definitions out to the separate file;
-	- created new folders for upcoming Buildings;
+	- created new folders (Buildings) and cleaned up existing ones;
+	- prepared some new art for upcoming new Natural Wonders (Great Blue Hole) (by @gwennog);
+	- added some new code (currently unused) for upcoming new Natural Wonders (Great Blue Hole);
+	
 

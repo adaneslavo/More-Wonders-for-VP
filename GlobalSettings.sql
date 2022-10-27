@@ -72,7 +72,7 @@ VALUES	('MW-CIV-LOI', 		2);
 
 UPDATE COMMUNITY
 SET Value = '1'
-WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMP') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 0);
+WHERE Type = 'MW-CIV-LOI' AND EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMP') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 0);
 --============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--

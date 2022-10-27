@@ -1,5 +1,45 @@
 local ePromotionYerba = GameInfoTypes.PROMOTION_FLETCHER
 
+local tExcludedUnitClasses = {
+	GameInfoTypes.UNITCLASS_HELICOPTER_GUNSHIP,
+	GameInfoTypes.UNITCLASS_ANTI_TANK_GUN,
+	GameInfoTypes.UNITCLASS_CAVALRY,
+	GameInfoTypes.UNITCLASS_MUSKETMAN,
+	GameInfoTypes.UNITCLASS_CUIRASSIER,
+	GameInfoTypes.UNITCLASS_VP_SLINGER,
+	GameInfoTypes.UNITCLASS_MACHINE_GUN,
+	GameInfoTypes.UNITCLASS_GATLINGGUN,
+	GameInfoTypes.UNITCLASS_BAZOOKA
+}
+
+function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
+	local pPlayer = Players[iPlayer]
+	local pOldUnit = pPlayer:GetUnitByID(iOldUnit)
+	local pNewUnit = pPlayer:GetUnitByID(iNewUnit)
+	print("OnPromoteTest", pPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
+	if pOldUnit:IsHasPromotion(ePromotionYerba) then
+		local eUnitClass = pNewUnit:GetUnitClassType()
+		print("OnPromoteTest-class", eUnitClass)
+	
+		for _, class in ipairs(tExcludedUnitClasses) do
+			print("OnPromoteTest-class-for", eUnitClass, class)
+	
+			if class == eUnitClass then
+				print("OnPromoteTest-class-match!!!")
+	
+				pNewUnit:SetHasPromotion(ePromotionYerba, false)
+				break
+			end
+		end
+	end
+end
+GameEvents.UnitUpgraded.Add(OnUpgradeTakeOutFletcher)
+
+function OnCityTrainTakeOutFletcher(iPlayer, iCity, iUnit, bGold, bFaith)
+
+end
+GameEvents.CityTrained.Add(OnCityTrainTakeOutFletcher)
+
 function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
 	local pAttackingPlayer = Players[iAttackingPlayer]
 	
