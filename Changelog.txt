@@ -5,6 +5,10 @@ MW Changelog:
 	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (ideas in cooperation with @gwennog; art by @gwennog);
 		- new promotion Yerba de la Fleche which gives Archery units (new lua code) chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
 		- Seafood Station has compatibility with Loisiana civ's Shrimp resource! (by @Hinin and @gwennog);
+	- new Natural Wonder Overview features:
+		- left clicking on Natural Wonder button now runs Natural Wonder popup window;
+		- hovering over question mark icon in Pedia column shows Pedia entry in form of a tooltip;
+		- additional info about NW abilities deleted from civilopedia (because popup finally works);
 - balance:
 	- Skara Brae now requires and boosts Rice and Maize;
 - fixes:
