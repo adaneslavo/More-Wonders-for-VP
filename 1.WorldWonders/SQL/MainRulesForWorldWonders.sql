@@ -449,7 +449,8 @@ VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
 			('INTERSTATE_DUMMY',			'Interstate',							2,			0),
 			('MUSEUM_ISLAND_DUMMY',			'Museum Island',						2,			0),
 			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0),
-			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0);
+			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0),
+			('TEMBLEQUE_DUMMY',				'Aqueduct of Padre Tembleque',			2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

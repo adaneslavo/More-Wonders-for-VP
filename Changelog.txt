@@ -1,7 +1,7 @@
 MW Changelog:
 - new:
 	- new model for Giant's Causeway (by @ghost toast);
-	- 1 new World Wonder: Svalbard Global Seed Vault (Information Era - tier 1);
+	- 2 new World Wonders: Aqueduct of Padre Tembleque (Renaissance Era - tier 2) and Svalbard Global Seed Vault (Information Era - tier 1);
 	- 2 new standalone buildings strongly related to Tropical Fish resource: Fletcher and Seafood Station (ideas in cooperation with @gwennog; art by @gwennog);
 		- new promotion Yerba de la Fleche which gives Archery units (new lua code) chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
 		- Seafood Station has compatibility with Loisiana civ's Shrimp resource! (by @Hinin and @gwennog);

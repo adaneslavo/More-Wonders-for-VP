@@ -1873,6 +1873,44 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- AQUEDUCT OF PADRE TEMBLEQUE (NEW)
+	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_METALLURGY', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_TEMBLEQUE';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_TEMBLEQUE';
+	---------------------------------------------------------
+	UPDATE Buildings SET  /*IsNoCoast = 1, */ FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET  FreshWater = 1 WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_TEMBLEQUE',	'YIELD_FOOD',		2),
+				('BUILDING_TEMBLEQUE',	'YIELD_CULTURE',	1),
+				('BUILDING_TEMBLEQUE',	'YIELD_FAITH',		1);
+
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,			TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_TEMBLEQUE',	'TERRAIN_DESERT',		'YIELD_FOOD',		1);
+
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_CULTURE',	1),
+				('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_FAITH',		1);
+
+	INSERT INTO Building_UnhappinessNeedsFlatReduction
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	1);
+
+	INSERT INTO Building_YieldFromFaithPurchase
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_CULTURE',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_TEMBLEQUE',	'FLAVOR_GROWTH',		60),
+				('BUILDING_TEMBLEQUE',	'FLAVOR_CULTURE',		40),
+				('BUILDING_TEMBLEQUE',	'FLAVOR_RELIGION',		20),
+				('BUILDING_TEMBLEQUE',	'FLAVOR_HAPPINESS',		30);
 --============================================--
 -- INDUSTRIAL ERA
 --============================================--

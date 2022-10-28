@@ -830,7 +830,8 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
 			[GameInfo.Buildings.BUILDING_MILLAU.ID] = true,
-			[GameInfo.Buildings.BUILDING_SEED_VAULT.ID] = true
+			[GameInfo.Buildings.BUILDING_SEED_VAULT.ID] = true,
+			[GameInfo.Buildings.BUILDING_TEMBLEQUE.ID] = true
 		}
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
