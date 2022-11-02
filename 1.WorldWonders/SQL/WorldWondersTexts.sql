@@ -1152,18 +1152,18 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_TEMBLEQUE',			'Aqueduct of Padre Tembleque'),
 			('TXT_KEY_WONDER_TEMBLEQUE_QUOTE',		'[NEWLINE]"Mexico is a mosaic of different realities and beauties."[NEWLINE] - Enrique Pena Nieto[NEWLINE]'),
 			('TXT_KEY_WONDER_TEMBLEQUE_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_TEMBLEQUE_HELP',		'+1 [ICON_FOOD] Food to Desert tiles in this City. All Aqueducts gain +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith. Converts 5% of [ICON_PEACE] Faith Purchase into [ICON_CULTURE] in your every City.[NEWLINE][NEWLINE]-1 [ICON_HAPPINESS_3] Unhappiness from [ICON_FOOD]/[ICON_PRODUCTION] Distress in you Empire.');
+			('TXT_KEY_WONDER_TEMBLEQUE_HELP',		'+1 [ICON_FOOD] Food to Desert tiles in this City. All Aqueducts gain +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith. Converts 5% of [ICON_PEACE] Faith Purchase into [ICON_PRODUCTION] Production in your every City.[NEWLINE][NEWLINE]-1 [ICON_HAPPINESS_3] Unhappiness from [ICON_FOOD]/[ICON_PRODUCTION] Distress in you Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Aqueduct of Padre Tembleque[ENDCOLOR] makes inhabitable places like [COLOR_CITY_BLUE]Desert[ENDCOLOR] prosperous again (+1[ICON_FOOD]/[ICON_FLOWER]), making people happy, because water is not as scarce as before (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] from [ICON_FOOD]/[ICON_PRODUCTION]) and all of that is thanks to religious devotion of only one visionary monk (+1[ICON_CULTURE], +1[ICON_PEACE]/all [COLOR_YIELD_FOOD]Aqueducts[ENDCOLOR]; 5%[ICON_PEACE][ICON_PEACE] Faith Purchase into [ICON_CULTURE]).'
+SET Text = '[COLOR_YIELD_FOOD]Aqueduct of Padre Tembleque[ENDCOLOR] makes inhabitable places like [COLOR_CITY_BLUE]Desert[ENDCOLOR] prosperous again (+1[ICON_FOOD]/[ICON_FLOWER]), making people happy, because water is not as scarce as before (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] from [ICON_FOOD]/[ICON_PRODUCTION]) and all of that is thanks to religious devotion of only one visionary monk (+1[ICON_PRODUCTION], +1[ICON_PEACE]/all [COLOR_YIELD_FOOD]Aqueducts[ENDCOLOR]; 5%[ICON_PEACE][ICON_PEACE] Faith Purchase into [ICON_PRODUCTION]).'
 WHERE Tag = 'TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_BUILDING_TEMBLEQUE_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_TEMBLEQUE_HELP';
+SELECT 'TXT_KEY_WONDER_TEMBLEQUE_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TEMBLEQUE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; [COLOR_NEGTIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Globe Theater
 UPDATE Language_en_US
@@ -1294,7 +1294,7 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_RED_FORT_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_RED_FORT_HELP';
 
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_NEGTIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 ----------------------------------------------------

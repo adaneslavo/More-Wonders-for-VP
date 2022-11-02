@@ -1885,7 +1885,7 @@
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
 	VALUES		('BUILDING_TEMBLEQUE',	'YIELD_FOOD',		2),
-				('BUILDING_TEMBLEQUE',	'YIELD_CULTURE',	1),
+				('BUILDING_TEMBLEQUE',	'YIELD_PRODUCTION',	1),
 				('BUILDING_TEMBLEQUE',	'YIELD_FAITH',		1);
 
 	INSERT INTO Building_TerrainYieldChanges
@@ -1894,7 +1894,7 @@
 
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
-	VALUES		('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_CULTURE',	1),
+	VALUES		('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_PRODUCTION',	1),
 				('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_FAITH',		1);
 
 	INSERT INTO Building_UnhappinessNeedsFlatReduction
@@ -1903,12 +1903,12 @@
 
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_CULTURE',	5);
+	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	5);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_TEMBLEQUE',	'FLAVOR_GROWTH',		60),
-				('BUILDING_TEMBLEQUE',	'FLAVOR_CULTURE',		40),
+				('BUILDING_TEMBLEQUE',	'FLAVOR_PRODUCTION',	40),
 				('BUILDING_TEMBLEQUE',	'FLAVOR_RELIGION',		20),
 				('BUILDING_TEMBLEQUE',	'FLAVOR_HAPPINESS',		30);
 --============================================--

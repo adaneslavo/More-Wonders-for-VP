@@ -19,17 +19,12 @@ function OnUpgradeTakeOutFletcher(iOldPlayer, iNewPlayer, iOldUnit, iNewUnit, bI
 		local pNewPlayer = Players[iNewPlayer]
 		local pOldUnit = pNewPlayer:GetUnitByID(iOldUnit)
 		local pNewUnit = pNewPlayer:GetUnitByID(iNewUnit)
-		print("OnUpgradeTest", pNewPlayer:GetName(), pOldUnit:GetName(), pNewUnit:GetName())
+		
 		if pOldUnit:IsHasPromotion(ePromotionYerba) then
 			local eNewUnitClass = pNewUnit:GetUnitClassType()
-			print("OnUpgradeTest-class", eNewUnitClass)
-	
+			
 			for _, class in ipairs(tArcheryUnits) do
-				print("OnUpgradeTest-class-for", eNewUnitClass, class)
-	
 				if class == eNewUnitClass then
-					print("OnUpgradeTest-class-match!!!")
-	
 					pNewUnit:SetHasPromotion(ePromotionYerba, true)
 					break
 				end
@@ -45,17 +40,11 @@ function OnCityTrainTakeOutFletcher(iPlayer, iCity, iUnit, bGold, bFaith)
     local pCity = pPlayer:GetCityByID(iCity)
     local pUnit = pPlayer:GetUnitByID(iUnit)
     
-    print("OnTrainedTest", pPlayer:GetName(), pUnit:GetName())
-	
     if pCity:IsHasBuilding(eBuildingFletcher) then
         local eUnitClass = pUnit:GetUnitClassType()
 		
 		for _, class in ipairs(tArcheryUnits) do
-            print("OnTrainedTest-class-for", eUnitClass, class)
-        
             if class == eUnitClass then
-			    print("OnTrainedTest-class-match!!!")
-
 			    pUnit:SetHasPromotion(ePromotionYerba, true)
 			    break
 			end
