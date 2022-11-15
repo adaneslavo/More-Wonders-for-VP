@@ -100,9 +100,3 @@ function UnitVisibilityChanged(ePlayer, iUnit, bVisible, bCheckFlag, uBlendTime)
 	end
 end
 Events.UnitVisibilityChanged.Add(UnitVisibilityChanged)
-
---[[function UnitMoved(ePlayer, iUnit)
-	print("UnitMoved", ePlayer, iUnit)
-	UpdateNaturalWondersSVIcons()
-end
-Events.UnitActionChanged.Add(UnitMoved)--]]

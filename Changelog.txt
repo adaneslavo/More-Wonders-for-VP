@@ -3,7 +3,9 @@ Once @Asterix Rage said Natural Wonders' models should be either pretty or there
 
 MW Changelog:
 - new:
-	- new models for existing Natural Wonders: Giant's Causeway, Dallol (by @ghost toast);
+	- new models for existing Natural Wonders (by @ghost toast):
+		- Giant's Causeway;
+		- Dallol;
 	- reworked Bioluminescent Bay animation is now visible also in FoW (download new effects v5 by @ghost toast!);
 	- 2 new World Wonders:
 		- Aqueduct of Padre Tembleque (Renaissance Era - tier 2);
@@ -12,9 +14,10 @@ MW Changelog:
 		- Fletcher: gives new promotion Yerba de la Fleche which grants Archery units (new lua code) small chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
 		- Seafood Station: has compatibility with Loisiana civ's Shrimp resource! (by @Hinin and @gwennog);
 	- new Natural Wonder Overview features:
-		- left clicking on Natural Wonder button now runs Natural Wonder popup window;
+		- left clicking on Natural Wonder button now runs Natural Wonder popup window (finally!);
 		- hovering over question mark icon in Pedia column shows Pedia entry in form of a tooltip;
 		- additional info about NW abilities deleted from civilopedia (because popup finally works);
+	- now you can hide custom Natural Wonders' icons on Strategic View;
 - balance:
 	- Skara Brae now requires (as additional ORs) and boosts Rice and Maize;
 	- Tropical Fish is now revealed at Fishing (was Pottery);
@@ -25,6 +28,7 @@ MW Changelog:
 	- added TechCityTrade value to all new resources (MINING for Sylvite, SAILING for Tropical Fish and PHYSICS for Tern Egg);
 	- deleted UCS reference;
 	- Mt. Fuji now might have maximum 1 snow adjacent (was unlimited);
+	- Salar has protection from Mountain attack (there was a situation when it was closed by mountains around);
 	- Revolutionary Museum now has updated splash image (upsy!);
 	- numerous text fixes (most important ones are mentioned):
 		- now Grand Mesa uses SILVER_FIST icon instead of WAR icon for supply boost;

@@ -2640,7 +2640,7 @@
 			<MaximumAllowedAdjacentAtoll>99</MaximumAllowedAdjacentAtoll>
 
 			<ChangeCoreTileToMountain>0</ChangeCoreTileToMountain>
-			<ChangeCoreTileToFlatland>0</ChangeCoreTileToFlatland>
+			<ChangeCoreTileToFlatland>1</ChangeCoreTileToFlatland>
 
 			<ChangeCoreTileTerrainToGrass>0</ChangeCoreTileTerrainToGrass>
 			<ChangeCoreTileTerrainToPlains>0</ChangeCoreTileTerrainToPlains>

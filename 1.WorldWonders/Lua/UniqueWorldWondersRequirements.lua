@@ -259,6 +259,7 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 		if id == eBuilding then
 			local eRequiredImprovement1 = building.eRequiredImprovement1
 			local eRequiredImprovement2 = building.eRequiredImprovement2
+			local eRequiredImprovement3 = building.eRequiredImprovement3
 			local iRequiredImprovements = tValidIsHasImprovement[eBuilding].iRequiredImprovements or 0
 			local iRequiredRoads = tValidIsHasImprovement[eBuilding].iRequiredRoads or 0
 			
@@ -284,7 +285,7 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 						if iRequiredImprovements > 0 then
 							local eImprovement = pSpecificPlot:GetImprovementType()
 				
-							if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2) and not pSpecificPlot:IsImprovementPillaged() then
+							if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 or eImprovement == eRequiredImprovement3) and not pSpecificPlot:IsImprovementPillaged() then
 								iCurrentImprovements = iCurrentImprovements + 1
 							end
 						end

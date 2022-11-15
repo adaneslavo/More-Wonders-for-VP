@@ -881,19 +881,34 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 		
 		local iRandomMountain, iRandomOasis
+		local iLimitMountains = 0
 
+		-- checking for Mountains
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
+			
+			if pAdjacentPlot:GetPlotType() == ePlotMountain then
+				iLimitMountains = iLimitMountains + 1
+			end
+		end
+		
+		print("--!SALAR: how many mountains?", iLimitMountains)
+					
 		-- making Desert and cleaning Features and Hills around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
-			if pAdjacentPlot:GetPlotType() == ePlotHill then
+			if pAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains <= 2 then
 				iRandomMountain = math.random(3) -- 66%
 				print("--!SALAR: hill detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
 				if iRandomMountain ~= 1 then
-					print("--!SALAR: hill converted into a mountain")
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+					iLimitMountains = iLimitMountains + 1
+					print("--!SALAR: hill converted into a mountain", iLimitMountains)
 				end
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
@@ -952,11 +967,12 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pSecondAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
-				if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
+				if pSecondAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains < 2 then
 					iRandomMountain = math.random(2) -- 50%
 
 					if iRandomMountain ~= 1 then
 						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+						iLimitMountains = iLimitMountains + 1
 					end
 					
 					pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
