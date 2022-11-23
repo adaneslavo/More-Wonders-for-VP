@@ -97,62 +97,6 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_CAUSEWAY',			'UNITCOMBAT_ARCHAEOLOGIST'),
 			('PROMOTION_MT_EVEREST',		'UNITCOMBAT_RECON');
 --============================================--
--- RESOURCES
---============================================--			
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-VALUES		('TXT_KEY_RESOURCE_SYLVITE',				'Sylvite'),
-			('TXT_KEY_RESOURCE_SYLVITE_TEXT',			'TODO'),
-			('TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',		'[COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] Promotion [COLOR_POSITIVE_TEXT]Explosive Mixture[ENDCOLOR] for owned [COLOR:255:230:85:255]Siege[ENDCOLOR] units (tied to dummy building). -5% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom.'),
-			('TXT_KEY_RESOURCE_TROPICAL_FISH',			'Tropical Fish'),
-			('TXT_KEY_RESOURCE_TROPICAL_FISH_TEXT',		'TODO');	
----------------------------------------------------------
-INSERT INTO Resources 
-			(Type,						TechReveal,			TechCityTrade, 		Description,						Civilopedia, 							Help,									ResourceClassType, 		IsMonopoly, 	ArtDefineTag, 						CivilizationType,		OnlyMinorCivs,  Happiness,  ResourceUsage,	IconString, 				PortraitIndex, 	IconAtlas)
-VALUES		('RESOURCE_SYLVITE',		null,				null,				'TXT_KEY_RESOURCE_SYLVITE',			'TXT_KEY_RESOURCE_SYLVITE_TEXT',		'TXT_KEY_RESOURCE_MONOPOLY_SYLVITE',	'RESOURCECLASS_LUXURY',	1,				'ART_DEF_RESOURCE_SYLVITE',			null,					0,				2,			2,				'[ICON_RES_SYLVITE]',		1, 				'RESOURCE_MORE_WONDERS_ATLAS'),
-			('RESOURCE_TROPICAL_FISH',	'TECH_POTTERY',		null,				'TXT_KEY_RESOURCE_TROPICAL_FISH',	'TXT_KEY_RESOURCE_TROPICAL_FISH_TEXT',	NULL,									'RESOURCECLASS_BONUS',	0,				'ART_DEF_RESOURCE_TROPICAL_FISH',	null,					0,				0,			0,				'[ICON_RES_TROPICAL_FISH]',	2, 				'RESOURCE_MORE_WONDERS_ATLAS');
----------------------------------------------------------
-INSERT INTO Resource_YieldChanges
-			(ResourceType, 				YieldType, 			Yield)
-VALUES		('RESOURCE_TROPICAL_FISH',	'YIELD_FOOD',		1),
-			('RESOURCE_TROPICAL_FISH',	'YIELD_CULTURE',	1);
-
-INSERT INTO Improvement_ResourceTypes
-			(ImprovementType,				ResourceType, 				ResourceMakesValid, ResourceTrade)
-VALUES		('IMPROVEMENT_FISHING_BOATS',	'RESOURCE_TROPICAL_FISH',	1,					1);
-
-INSERT INTO Improvement_ResourceType_Yields
-			(ImprovementType,				ResourceType, 				YieldType, 			Yield)
-VALUES		('IMPROVEMENT_FISHING_BOATS',	'RESOURCE_TROPICAL_FISH',	'YIELD_FOOD',		2),
-			('IMPROVEMENT_FISHING_BOATS',	'RESOURCE_TROPICAL_FISH',	'YIELD_CULTURE',	1);
----------------------------------------------------------
-INSERT INTO Resource_Flavors 	
-			(ResourceType, 				FlavorType, 			Flavor)
-VALUES		('RESOURCE_SYLVITE',		'FLAVOR_PRODUCTION',	20),
-			('RESOURCE_SYLVITE',		'FLAVOR_CULTURE',		30),
-			('RESOURCE_TROPICAL_FISH',	'FLAVOR_GROWTH',		10),
-			('RESOURCE_TROPICAL_FISH',	'FLAVOR_CULTURE',		30);
----------------------------------------------------------
-INSERT INTO ArtDefine_StrategicView
-			(StrategicViewType, 				TileType, 		Asset)
-VALUES 		('ART_DEF_RESOURCE_SYLVITE',		'Resource', 	'sv_Sylvite.dds'),
-			('ART_DEF_RESOURCE_TROPICAL_FISH', 	'Resource', 	'sv_Tropical_Fish.dds');
-
-INSERT INTO ArtDefine_LandmarkTypes
-			(Type, 								LandmarkType, 	FriendlyName)
-VALUES 		('ART_DEF_RESOURCE_SYLVITE', 		'Resource', 	'Sylvite'),
-			('ART_DEF_RESOURCE_TROPICAL_FISH', 	'Resource', 	'Tropical Fish');
-
-INSERT INTO ArtDefine_Landmarks
-			(Era,	State,	Scale,	ImprovementType,	LayoutHandler,	ResourceType,						Model,					TerrainContour,	Tech) 
-SELECT		Era,	State,	Scale,	ImprovementType,	LayoutHandler,	'ART_DEF_RESOURCE_TROPICAL_FISH',	'fish_tropical.fxsxml', TerrainContour,	Tech
-FROM ArtDefine_Landmarks WHERE ResourceType = 'ART_DEF_RESOURCE_FISH';
----------------------------------------------------------
-INSERT INTO IconFontMapping 
-			(IconName, 					IconFontTexture,			IconMapping)
-VALUES		('ICON_RES_SYLVITE', 		'MORE_WONDERS_FONT_ATLAS',	2),
-			('ICON_RES_TROPICAL_FISH', 	'MORE_WONDERS_FONT_ATLAS',	3);
---============================================--
 -- GREAT_WORKS
 --============================================--
 INSERT INTO GreatWorks
@@ -166,25 +110,69 @@ VALUES		('TXT_KEY_GREAT_WORK_MT_PAEKTU',		'Kim Il-sung and Kim Jong-il standing 
 -- BUILDINGS
 --============================================--
 INSERT INTO BuildingClasses 
-			(Type,						Description,					DefaultBuilding)
-VALUES		('BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'BUILDING_MT_PAEKTU');
+			(Type,								Description,						DefaultBuilding)
+VALUES		('BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'BUILDING_MT_PAEKTU'),
+			('BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'BUILDING_SCUBA_RESORT'),
+			('BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'BUILDING_BATHYSCAPHE_BAY'),
+			('BUILDINGCLASS_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY',	'BUILDING_OCEAN_FACILITY');
 
 INSERT INTO Buildings
-			(Type,					BuildingClass,				Description,					Civilopedia,						Help,								IconAtlas,							PortraitIndex,	PrereqTech, Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
-VALUES		('BUILDING_MT_PAEKTU',	'BUILDINGCLASS_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU',	'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TXT_KEY_BUILDING_MT_PAEKTU_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,       -1,		0,			1,          100,			0);
+			(Type,							BuildingClass,						Description,						Civilopedia,								Help,										IconAtlas,							PortraitIndex,	PrereqTech,				Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
+VALUES		('BUILDING_MT_PAEKTU',			'BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',			'TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,					-1,		0,			1,          100,			0),
+			('BUILDING_SCUBA_RESORT',		'BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	1,				'TECH_PLASTIC',			1000,	0,			0,          66,				1),
+			('BUILDING_BATHYSCAPHE_BAY',	'BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	2,				'TECH_REFRIGERATION',   1000,	0,			0,          66,				1),
+			('BUILDING_OCEAN_FACILITY',		'BUILDINGCLASS_OCEAN_FACILITY',		'TXT_KEY_BUILDING_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	3,				'TECH_BIOLOGY',			1000,	0,			0,          66,				1);
 
 UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_MT_PAEKTU', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MT_PAEKTU';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SCUBA_RESORT';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_BATHYSCAPHE_BAY';
+UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_OCEAN_FACILITY';
 
 INSERT INTO Language_en_US 
-			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',			'Altar of the Born under the Mountain'),
-			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',	'TODO'),
-			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',		'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].');
+			(Tag,										Text) 
+VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',				'Altar of the Born under the Mountain'),
+			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',		'TODO'),
+			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT',			'Scuba Diving Resort'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TODO'),
+			('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from Atolls worked by this City. +1 [ICON_GOLD] Gold and +1 [ICON_RESEARCH] Science from Ocean Tiles worked by this City.'),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY',		'Bathyscaphe Docking Bay'),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TODO'),
+			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'+35% [ICON_PRODUCTION] Production when constructing [COLOR_POSITIVE_TEXT]Submarines[ENDCOLOR] in the City.'),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY',			'Deep Ocean Research Facility'),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TODO'),
+			('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_RESEARCH] Science from Ocean Tiles worked by this City.[NEWLINE][NEWLINE]All Sea resources in this City gain +1 [ICON_FOOD] Food.');
 
 INSERT INTO Building_YieldChanges 
-			(BuildingType,			YieldType,					Yield) 
-VALUES		('BUILDING_MT_PAEKTU',	'YIELD_FAITH',				3),
-			('BUILDING_MT_PAEKTU',	'YIELD_GOLDEN_AGE_POINTS',	3);
+			(BuildingType,					YieldType,					Yield) 
+VALUES		('BUILDING_MT_PAEKTU',			'YIELD_FAITH',				3),
+			('BUILDING_MT_PAEKTU',			'YIELD_GOLDEN_AGE_POINTS',	3),
+			('BUILDING_SCUBA_RESORT',		'YIELD_GOLD',				2),
+			('BUILDING_SCUBA_RESORT',		'YIELD_SCIENCE',			1),
+			('BUILDING_SCUBA_RESORT',		'YIELD_TOURISM',			1),
+			('BUILDING_BATHYSCAPHE_BAY',	'YIELD_PRODUCTION',			2),
+			('BUILDING_BATHYSCAPHE_BAY',	'YIELD_SCIENCE',			2),
+			('BUILDING_OCEAN_FACILITY',		'YIELD_SCIENCE',			5);
+
+INSERT INTO Building_FeatureYieldChanges
+			(BuildingType,				FeatureType,		YieldType,			Yield) 
+VALUES		('BUILDING_SCUBA_RESORT',	'FEATURE_ATOLL',	'YIELD_GOLD',		1),
+			('BUILDING_SCUBA_RESORT',	'FEATURE_ATOLL',	'YIELD_TOURISM',	1);
+
+INSERT INTO Building_TerrainYieldChanges
+			(BuildingType,				TerrainType,		YieldType,			Yield) 
+VALUES		('BUILDING_SCUBA_RESORT',	'TERRAIN_OCEAN',	'YIELD_GOLD',		1),
+			('BUILDING_SCUBA_RESORT',	'TERRAIN_OCEAN',	'YIELD_SCIENCE',	1),
+			('BUILDING_OCEAN_FACILITY',	'TERRAIN_OCEAN',	'YIELD_FOOD',		1),
+			('BUILDING_OCEAN_FACILITY',	'TERRAIN_OCEAN',	'YIELD_SCIENCE',	1);
+
+INSERT INTO Building_UnitCombatProductionModifiers
+			(BuildingType,					UnitCombatType,				Modifier) 
+VALUES		('BUILDING_BATHYSCAPHE_BAY',	'UNITCOMBAT_SUBMARINE',		35);
+
+INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
+SELECT DISTINCT								'BUILDING_OCEAN_FACILITY',	Type,			'YIELD_FOOD',	1
+FROM Resources WHERE TechCityTrade = 'TECH_SAILING';
 --============================================--
 -- DUMMY BUILDINGS
 --============================================--
@@ -219,7 +207,8 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_EYE_OF_SAHARA_C_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		'BUILDING_EYE_OF_SAHARA_C_DUMMY'),
 			('BUILDINGCLASS_MT_KAILASH_DUMMY',		'TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		'BUILDING_MT_KAILASH_DUMMY'),
 			('BUILDINGCLASS_KILIMANJARO_DUMMY',		'TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		'BUILDING_KILIMANJARO_DUMMY'),
-			('BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				'BUILDING_ULURU_DUMMY');
+			('BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				'BUILDING_ULURU_DUMMY'),
+			('BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			'BUILDING_BLUE_HOLE_DUMMY');
 
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
@@ -252,7 +241,8 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_EYE_OF_SAHARA_C_DUMMY',	'BUILDINGCLASS_EYE_OF_SAHARA_C_DUMMY',	'TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_MT_KAILASH_DUMMY',		'BUILDINGCLASS_MT_KAILASH_DUMMY',		'TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_KILIMANJARO_DUMMY',		'BUILDINGCLASS_KILIMANJARO_DUMMY',		'TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_ULURU_DUMMY',			'BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1);
+			('BUILDING_ULURU_DUMMY',			'BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_BLUE_HOLE_DUMMY',			'BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -279,12 +269,13 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_EYE_OF_SAHARA_DUMMY',	'Eye of the Sahara'),
 			('TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		'Mt. Kailash'),
 			('TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		'Mt. Kilimanjaro'),
-			('TXT_KEY_BUILDING_ULURU_DUMMY',			'Uluru');
+			('TXT_KEY_BUILDING_ULURU_DUMMY',			'Uluru'),
+			('TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			'Great Blue Hole');
 
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_FUJI_1_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_FUJI_2_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_FUJI_3_DUMMY';
-UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_GEYSER_DUMMY';
+UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILDING_GEYSER_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_VOLCANO_DUMMY';
 UPDATE Buildings SET GlobalSpaceProductionModifier = 20 WHERE Type = 'BUILDING_CRATER_DUMMY';
 UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY';
@@ -293,7 +284,7 @@ UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY'
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
 UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
 UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
-UPDATE Buildings SET UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
+UPDATE Buildings SET CultureMedianModifierGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
@@ -325,10 +316,11 @@ VALUES		('BUILDING_SOLOMONS_MINES_DUMMY',	'IMPROVEMENT_MINE',				'YIELD_GOLDEN_A
 			('BUILDING_NEW_REEF_C_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1);
 
 INSERT INTO Building_ResourceYieldChangesGlobal
-			(BuildingType,					ResourceType,		YieldType,			Yield) 
-VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',	'YIELD_SCIENCE',	1),
-			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',	'YIELD_GOLD',		2),
-			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',	'YIELD_CULTURE',	1);
+			(BuildingType,					ResourceType,				YieldType,			Yield) 
+VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',			'YIELD_SCIENCE',	1),
+			('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_TROPICAL_FISH',	'YIELD_SCIENCE',	1),
+			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_GOLD',		2),
+			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',			'YIELD_CULTURE',	1);
 
 INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,			ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_NEW_REEF_A_DUMMY',	Type,			'YIELD_SCIENCE',	1

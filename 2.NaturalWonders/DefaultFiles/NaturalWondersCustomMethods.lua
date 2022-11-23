@@ -26,6 +26,7 @@
 --		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
 --		* Old Faithful (18):		changes core tile to hill;
 --		* Mt. Sinai (19):			have chance to change surronding hills to mountains and clears all features;
+--		* Great Blue Hole (20):			spawns some attols;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -62,6 +63,7 @@ function NWCustomEligibility(x, y, method_number)
 	local ePlotHill = PlotTypes.PLOT_HILLS
 	local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 	local eTerrainCoast = TerrainTypes.TERRAIN_COAST
+	local eTerrainOcean = TerrainTypes.TERRAIN_OCEAN
 	local eTerrainGrass = TerrainTypes.TERRAIN_GRASS	
 	local eTerrainPlains = TerrainTypes.TERRAIN_PLAINS
 	local eTerrainDesert = TerrainTypes.TERRAIN_DESERT
@@ -71,6 +73,7 @@ function NWCustomEligibility(x, y, method_number)
 	local eFeatureForest = FeatureTypes.FEATURE_FOREST
 	local eFeatureJungle = FeatureTypes.FEATURE_JUNGLE
 	local eFeatureIce = FeatureTypes.FEATURE_ICE
+	local eFeatureAtoll = GameInfoTypes.FEATURE_ATOLL
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -82,7 +85,7 @@ function NWCustomEligibility(x, y, method_number)
 	}
 
 	local iW, iH = Map.GetGridSize()
-	print("NWCE", method_number, x, y)
+	--print("NWCE", method_number, x, y)
 	if method_number == 1 then
 		-- GREAT BARRIER REEF
 		-- MOD: Now 3 tile wonder - long shape;
@@ -497,6 +500,41 @@ function NWCustomEligibility(x, y, method_number)
 		-- reserved: Old Faithful
 	elseif method_number == 19 then
 		-- reserved: Mt. Sinai
+	elseif method_number == 20 then
+		-- GREAT BLUE HOLE
+		local pPlot = Map.GetPlot(x, y)
+		
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		
+		local iNumAtoll, iNumLand, iNumOcean = 0, 0, 0
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			
+			if sAdjacentPlotType ~= ePlotOcean then
+				iNumLand = iNumLand + 1
+			end
+			
+			if sAdjacentFeatureType == eFeatureAtoll then
+				iNumAtoll = iNumAtoll + 1
+			end
+			
+			if sAdjacentTerrainType == eTerrainOcean then
+				iNumOcean = iNumOcean + 1
+			end
+		end
+		
+		if iNumAtoll == 0 or iNumLand == 0 or iNumOcean == 0 then return false end
+		print("--!GBH tile", x, y, "parameters:", iNumAtoll, iNumLand, iNumOcean)
+		return true
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -843,27 +881,45 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 		
 		local iRandomMountain, iRandomOasis
+		local iLimitMountains = 0
 
+		-- checking for Mountains
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
+			
+			if pAdjacentPlot:GetPlotType() == ePlotMountain then
+				iLimitMountains = iLimitMountains + 1
+			end
+		end
+		
+		print("--!SALAR: how many mountains?", iLimitMountains)
+					
 		-- making Desert and cleaning Features and Hills around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
-			if pAdjacentPlot:GetPlotType() == ePlotHill then
+			if pAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains <= 2 then
 				iRandomMountain = math.random(3) -- 66%
-				
+				print("--!SALAR: hill detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+					iLimitMountains = iLimitMountains + 1
+					print("--!SALAR: hill converted into a mountain", iLimitMountains)
 				end
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
 				iRandomOasis = math.random(4) -- 25%
-				
+				print("--!SALAR: flat detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
 				if iRandomOasis == 1 then
+					print("--!SALAR: added oasis around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
 				else
+					print("--!SALAR: deleted any features around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				end
 			end	
@@ -911,11 +967,12 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pSecondAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
-				if pSecondAdjacentPlot:GetPlotType() == ePlotHill then
+				if pSecondAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains < 2 then
 					iRandomMountain = math.random(2) -- 50%
 
 					if iRandomMountain ~= 1 then
 						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
+						iLimitMountains = iLimitMountains + 1
 					end
 					
 					pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
@@ -1120,6 +1177,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- DALLOL
 		local pPlot = Map.GetPlot(x, y)
 
+		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 
 		for i, direction in ipairs(tDirectionTypes) do
@@ -2171,6 +2229,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			end
 		end
+	elseif method_number == 20 then
+		-- reserved for: Great Blue Hole
 	end
 end
 ------------------------------------------------------------------------------

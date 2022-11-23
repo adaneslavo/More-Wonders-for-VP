@@ -32,6 +32,7 @@ for row in GameInfo.Features() do
 	if bIsNaturalWonder or bIsPseudoWonder then
 		tNaturalWonders[row.ID] = {
 			Description		= L(row.Description),
+			Civilopedia		= L(row.Civilopedia),
 			PortraitIndex	= row.PortraitIndex,
 			IconAtlas		= row.IconAtlas
 		}
@@ -73,8 +74,14 @@ end
 --------------------------------
 -- CLICK SUPPORT FUNCTIONS
 --------------------------------
-function OnNaturalWonderLeftClick(eFeature)
-    print("LEFT CLICK NW!", eFeature)
+function OnNaturalWonderLeftClick(x, y)
+    local tPopupInfo = {
+		Type = ButtonPopupTypes.BUTTONPOPUP_NATURAL_WONDER_REWARD,
+		Data1 = x,
+		Data2 = y
+	}
+	
+	Events.SerialEventGameMessagePopup(tPopupInfo)
 end
 
 function OnNaturalWonderRightClick(x, y)
@@ -146,13 +153,16 @@ function ShowHideHandler(bIsHide, bInitState)
 			
 			-- buttons
 			instance.NaturalWonderButton:RegisterCallback(Mouse.eLClick, OnNaturalWonderLeftClick)
-			instance.NaturalWonderButton:SetVoid1(eFeature)
+			instance.NaturalWonderButton:SetVoids(pPlot:GetX(), pPlot:GetY())
 			instance.NaturalWonderButton:RegisterCallback(Mouse.eRClick, OnNaturalWonderRightClick)
 			instance.NaturalWonderButton:SetVoids(pPlot:GetX(), pPlot:GetY())
 			
 			-- civilopedia - always ON, same icon for all, sorting by name
 			instance.NaturalWonderCivButton:RegisterCallback(Mouse.eLClick, OnCivilopediaLeftClick)
 			instance.NaturalWonderCivButton:SetVoid1(eFeature)
+			
+			local sCivilopediaEntry = naturalWonder.Civilopedia
+			instance.NaturalWonderCivButton:SetToolTipString(sCivilopediaEntry)
 
 			-- current owner
 			if ePlotOwner == -2 then

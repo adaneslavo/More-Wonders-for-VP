@@ -259,6 +259,7 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 		if id == eBuilding then
 			local eRequiredImprovement1 = building.eRequiredImprovement1
 			local eRequiredImprovement2 = building.eRequiredImprovement2
+			local eRequiredImprovement3 = building.eRequiredImprovement3
 			local iRequiredImprovements = tValidIsHasImprovement[eBuilding].iRequiredImprovements or 0
 			local iRequiredRoads = tValidIsHasImprovement[eBuilding].iRequiredRoads or 0
 			
@@ -284,7 +285,7 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 						if iRequiredImprovements > 0 then
 							local eImprovement = pSpecificPlot:GetImprovementType()
 				
-							if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2) and not pSpecificPlot:IsImprovementPillaged() then
+							if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 or eImprovement == eRequiredImprovement3) and not pSpecificPlot:IsImprovementPillaged() then
 								iCurrentImprovements = iCurrentImprovements + 1
 							end
 						end
@@ -760,10 +761,13 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
-			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true,
-			[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
 		}
+		-- EE compatibility
+		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_FASIL_GHEBBI.ID] = true
+		end
 		for id, building in pairs(tValidIsNoCoast) do
 			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end
@@ -826,7 +830,9 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true,
-			[GameInfo.Buildings.BUILDING_MILLAU.ID] = true
+			[GameInfo.Buildings.BUILDING_MILLAU.ID] = true,
+			[GameInfo.Buildings.BUILDING_SEED_VAULT.ID] = true,
+			[GameInfo.Buildings.BUILDING_TEMBLEQUE.ID] = true
 		}
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then

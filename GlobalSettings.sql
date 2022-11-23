@@ -8,7 +8,7 @@ Two versions of new quote recordings for wonders!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,			Value)
+		(Type,					Value)
 VALUES	('MW-SETTING-SPEECH', 	0);
 --------------------------------------------------------------
 /*
@@ -18,7 +18,7 @@ New HELP texts!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,			Value)
+		(Type,					Value)
 VALUES	('MW-SETTING-HELP', 	1);
 --------------------------------------------------------------
 /*
@@ -28,18 +28,18 @@ Maximum Era restriction!
 */
 
 INSERT INTO COMMUNITY	
-		(Type,					Value)
-VALUES	('MW-SETTING-MAX-ERA', 			1);
+		(Type,						Value)
+VALUES	('MW-SETTING-MAX-ERA', 		1);
 --------------------------------------------------------------
 /*
 World Wonder's restrictions!
 0 = No restrictions for building World Wonders (unused; do not set!);
-1 = Light restrictions added; sort of what you saw in base VP (Default);
-2 = Hard restrictions added - maximum attention and no "aiming" for all WWs in the eyesight;
+1 = Light restrictions added; sort of what you saw in base VP;
+2 = Hard restrictions added - maximum attention and no "aiming" for all WWs within the eyesight (Default);
 */
 
 INSERT INTO COMMUNITY	
-		(Type,					Value)
+		(Type,							Value)
 VALUES	('MW-SETTING-REQUIREMENT', 		2);
 --============================================--
 -- AUTOMATED COMPATIBILITIES
@@ -58,21 +58,21 @@ VALUES	('MW-EE', 		2);
 UPDATE COMMUNITY
 SET Value = '1'
 WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM UnitPromotions WHERE Type='PROMOTION_2HANDER') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 0);
---------------------------------------------------------------
+
 /*
-UCS compatibility patch!
-0 = Disabled disregarding if its detects UCS by Infixo and Padre.
-1 = Enabled if it detects the UCS by Infixo and Padre.
+Civilizations compatibility patch!
+0 = Disabled disregarding if its detects any Civilization.
+1 = Enabled if it detects any Civilization.
 2 = Disabled until it detects something! (Default)
 */
 
 INSERT INTO COMMUNITY	
 		(Type,			Value)
-VALUES	('MW-UCS', 		2);
+VALUES	('MW-CIV-LOI', 		2);
 
 UPDATE COMMUNITY
 SET Value = '1'
-WHERE Type = 'MW-UCS' AND EXISTS (SELECT * FROM MinorCivilizations WHERE Type='MINOR_CIV_HONDURAS') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-UCS' AND Value= 0);
+WHERE Type = 'MW-CIV-LOI' AND EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMP') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 0);
 --============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--
@@ -81,6 +81,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_RESULT';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT_ENDED';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTIONS_CROSS_MOUNTAINS';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_UPGRADES';
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CONVERTS';
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- VP FIXES

@@ -33,7 +33,8 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_MT_PAEKTU"],
 	GameInfoTypes["FEATURE_MT_KAILASH"],
 	GameInfoTypes["FEATURE_KILIMANJARO"],
-	GameInfoTypes["FEATURE_ULURU"]
+	GameInfoTypes["FEATURE_ULURU"],
+	GameInfoTypes["FEATURE_BLUE_HOLE"] -- 30
 }
 
 local g_iWonderWithDummies = #g_tNaturalWonder
@@ -90,7 +91,8 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_MT_PAEKTU"],
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
-	GameInfoTypes["BUILDING_ULURU_DUMMY"]
+	GameInfoTypes["BUILDING_ULURU_DUMMY"],
+	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"] -- 30
 }
 
 local g_tNaturalWonderDummy2 = {}
@@ -229,6 +231,21 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 	end
 end
 GameEvents.PlayerDoTurn.Add(SetDummiesForOwnedNaturalWonders)
+
+function CanWeBuildInBlueHole(ePlayer, eBuilding)
+	if eBuilding ~= GameInfoTypes.BUILDING_SCUBA_RESORT 
+	and eBuilding ~= GameInfoTypes.BUILDING_BATHYSCAPHE_BAY 
+	and eBuilding ~= GameInfoTypes.BUILDING_OCEAN_FACILITY then return true end
+	
+	local pPlayer = Players[ePlayer]
+	
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[30]) >= 1 then
+		return true
+	else
+		return false
+	end
+end
+GameEvents.PlayerCanConstruct.Add(CanWeBuildInBlueHole)
 --------------------------------------------------------------
 --------------------------------------------------------------
 print("Loaded UniqueNaturalWondersAbilities.lua from MWfVP");

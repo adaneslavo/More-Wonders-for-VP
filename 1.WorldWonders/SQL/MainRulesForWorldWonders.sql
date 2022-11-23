@@ -8,7 +8,8 @@
 --============================================--
 UPDATE Defines SET Value = 40 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SAME_ERA_COST_MODIFIER'; --original: 25
 UPDATE Defines SET Value = 35 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_PREVIOUS_ERA_COST_MODIFIER'; --original: 15
-UPDATE Defines SET Value = 30 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_EARLIER_ERA_COST_MODIFIER'; --original: 10
+UPDATE Defines SET Value = 30 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SECOND_PREVIOUS_ERA_COST_MODIFIER'; --original: 10
+UPDATE Defines SET Value = 20 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_EARLIER_ERA_COST_MODIFIER'; --original: 5
 
 UPDATE Language_en_US
 SET Text = 'Additional [ICON_PRODUCTION] Production Cost due to owned World Wonders: [COLOR_NEGATIVE_TEXT]{1_Num}%[ENDCOLOR].[NEWLINE][ICON_PRODUCTION] Production Cost increase factors:[NEWLINE][ICON_BULLET] Wonders from the same Era: [COLOR_NEGATIVE_TEXT]40%.[ENDCOLOR][NEWLINE][ICON_BULLET] Wonders from the previous Era: [COLOR_NEGATIVE_TEXT]35%[ENDCOLOR].[NEWLINE][ICON_BULLET] Wonders from two Eras earlier: [COLOR_NEGATIVE_TEXT]30%.[ENDCOLOR][NEWLINE][ICON_BULLET] Wonders from three Eras earlier or more do not add any penalties.'
@@ -83,7 +84,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('BAKKEN',					'None',		1,			1),		-- Bakken
 			('HOUSE_OF_TRADE',			'None',		1,			1),		-- House of Trade of the Indies (Casa de Contratación)
 			('SOLOVIETSKY',				'None',		1,			1),		-- Solovietsky Monastery
-			--('TEMBLEQUE',				'None',		1,			0),		-- Aqueducto del Padre Tembleque
+			('TEMBLEQUE',				'None',		1,			0),		-- Aqueducto del Padre Tembleque
 			-------------------ENLIGHTENMENT--------------------------------------------------------
 			--('BOLSHOI',				'None',		1,			1),		-- Bolshoi Theater
 			-------------------INDUSTRIAL-----------------------------------------------------------
@@ -126,7 +127,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('ARECIBO',					'None',		1,			1),		-- Arecibo Observatory
 			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0),		-- Northern Light Cathedral
-			--('SEED_VAULT',			'None',		1,			0),		-- Svalbard Global Seed Vault
+			('SEED_VAULT',				'None',		1,			0),		-- Svalbard Global Seed Vault
 			--('THREE_GORGES_DAM',		'None',		1,			0),		-- Three Gorges Dam
 			('JUMEIRAH',				'None',		1,			1),		-- Palm Jumeirah
 			('TAIPEI',					'None',		1,			1),		-- Taipei 101
@@ -448,7 +449,9 @@ VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
 			('AUTOBAHN_DUMMY',				'Autobahn',								2,			0),
 			('INTERSTATE_DUMMY',			'Interstate',							2,			0),
 			('MUSEUM_ISLAND_DUMMY',			'Museum Island',						2,			0),
-			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0);
+			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0),
+			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0),
+			('TEMBLEQUE_DUMMY',				'Aqueduct of Padre Tembleque',			2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

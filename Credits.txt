@@ -65,6 +65,7 @@ Special thanks to:
 		- Thule: https://commons.wikimedia.org/wiki/File:Thule_air_base_above.jpeg
 		- Vostok: https://argusspectrum.com/vostok_station_antarctica
 		- Revolutionary Museum: 
+		- Global Seed Vault: https://www.flickr.com/photos/croptrust/3851518425 (CC BY-SA 2.0)
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);
