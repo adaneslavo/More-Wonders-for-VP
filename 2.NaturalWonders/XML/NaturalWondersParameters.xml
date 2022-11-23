@@ -70,22 +70,22 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>1.3</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_CAUSEWAY_A</ResourceType>
-			<Model>Giants_causeway.fxsxml</Model>
-			<TerrainContour>1.3</TerrainContour>
+			<Model>causeway_sea.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>1.3</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_CAUSEWAY_B</ResourceType>
-			<Model>Giants_causeway.fxsxml</Model>
-			<TerrainContour>1.3</TerrainContour>
+			<Model>causeway_land.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
 		</Row>
 		
 		

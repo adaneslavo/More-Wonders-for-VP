@@ -1177,6 +1177,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- DALLOL
 		local pPlot = Map.GetPlot(x, y)
 
+		pPlot:SetPlotType(ePlotFlat, false, false)
 		pPlot:SetTerrainType(eTerrainDesert, false, false)
 
 		for i, direction in ipairs(tDirectionTypes) do

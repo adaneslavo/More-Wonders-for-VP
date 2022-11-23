@@ -860,7 +860,7 @@
 	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + PlaceForResource lua
 	---------------------------------------------------------
-	UPDATE Buildings SET EmpireNeedsModifierGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
+	UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
 	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_LAVAUX';
 
 	INSERT INTO Building_YieldChanges 
@@ -1882,6 +1882,8 @@
 	UPDATE Buildings SET  /*IsNoCoast = 1, */ FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET  FreshWater = 1 WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
+	UPDATE Buildings SET DistressFlatReduction = 1 WHERE Type = 'BUILDING_TEMBLEQUE';
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
 	VALUES		('BUILDING_TEMBLEQUE',	'YIELD_FOOD',		2),
@@ -1896,10 +1898,6 @@
 				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
 	VALUES		('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_PRODUCTION',	1),
 				('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_FAITH',		1);
-
-	INSERT INTO Building_UnhappinessNeedsFlatReduction
-				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	1);
 
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,					YieldType,			Yield)
@@ -1962,8 +1960,8 @@
 	-- + GW_of_Literature(4) (lua) (HARD)
 	-- + Cities(7) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 4, SpecialistType = 'SPECIALIST_WRITER', SpecialistCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP' WHERE Type = 'BUILDING_SIKU_QUANSHU';
-
+	UPDATE Buildings SET IlliteracyFlatReduction = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 4, SpecialistType = 'SPECIALIST_WRITER', SpecialistCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP' WHERE Type = 'BUILDING_SIKU_QUANSHU';
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	2);
@@ -1977,10 +1975,6 @@
 	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1),
 				('BUILDING_SIKU_QUANSHU',	'YIELD_CULTURE',	1);
 	
-	INSERT INTO Building_UnhappinessNeedsFlatReduction
-				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1);
-
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	UniqueEras,	RequiresOwner,	AIPriority)
 	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,				5),
@@ -2361,15 +2355,11 @@
 	UPDATE Buildings SET NearbyMountainRequired = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_BANFF' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_BANFF';
-
+	UPDATE Buildings SET BoredomFlatReduction = 1, FreeBuildingThisCity = 'BUILDINGCLASS_HOTEL', SpecialistType = 'SPECIALIST_MERCHANT', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_BANFF';
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield)
 	VALUES		('BUILDING_BANFF',	'YIELD_TOURISM',	5);
-
-	INSERT INTO Building_UnhappinessNeedsFlatReduction
-				(BuildingType,		YieldType,			Yield)
-	VALUES		('BUILDING_BANFF',	'YIELD_CULTURE',	1);
 
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,		SpecialistType,			YieldType,			Yield) 
@@ -2580,7 +2570,7 @@
 
 	-- + Cities(8) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET EmpireNeedsModifierGlobal = -5, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_INTERSTATE';
+	UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -5, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_INTERSTATE';
 	UPDATE Buildings SET PopulationChange = 1 WHERE Type = 'BUILDING_INTERSTATE_DUMMY';
 	
 	INSERT INTO Building_GlobalYieldModifiers
@@ -2601,7 +2591,7 @@
 	UPDATE Buildings SET Hill = 1, Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_HOLLYWOOD' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePolicies = 1, UnculturedHappinessChangeGlobal = -5 WHERE Type = 'BUILDING_HOLLYWOOD';
+	UPDATE Buildings SET BoredomFlatReduction = 1, FreePolicies = 1, CultureMedianModifierGlobal = -5 WHERE Type = 'BUILDING_HOLLYWOOD';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
@@ -2610,10 +2600,6 @@
 	INSERT INTO Building_YieldFromPolicyUnlock
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_TOURISM',	75);
-
-	INSERT INTO Building_UnhappinessNeedsFlatReduction
-				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_HOLLYWOOD',	'YIELD_CULTURE',	1);
 
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,			BuildingClassType,					YieldType,			YieldChange) 
@@ -2820,16 +2806,12 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_HABITAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET NoUnhappfromXSpecialists = 3, PopulationChange = 3 WHERE Type = 'BUILDING_HABITAT';
-
+	UPDATE Buildings SET DistressFlatReduction = 2, NoUnhappfromXSpecialists = 3, PopulationChange = 3 WHERE Type = 'BUILDING_HABITAT';
+	
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,			Yield) 
 	VALUES		('BUILDING_HABITAT',	'SPECIALIST_ENGINEER',	'YIELD_CULTURE',	1);
 	
-	INSERT INTO Building_UnhappinessNeedsFlatReduction
-				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_HABITAT',	'YIELD_PRODUCTION',	2);
-
 	INSERT INTO Building_BuildingClassLocalHappiness 
 				(BuildingType,			BuildingClassType,					Happiness)
 	VALUES		('BUILDING_HABITAT',	'BUILDINGCLASS_GARDEN',				1),
@@ -3186,7 +3168,7 @@
 	UPDATE Buildings SET IsNoWater = 1/*, IsNoCoast = 1*/, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET IsNoWater = 1, NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET DefenseHappinessChangeGlobal = -15 WHERE Type = 'BUILDING_SEED_VAULT';
+	UPDATE Buildings SET BasicNeedsMedianModifierGlobal = -15 WHERE Type = 'BUILDING_SEED_VAULT';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)

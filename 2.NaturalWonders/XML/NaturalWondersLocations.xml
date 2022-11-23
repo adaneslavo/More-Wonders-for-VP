@@ -228,8 +228,8 @@
 			<MaximumAllowedAdjacentFlatland>99</MaximumAllowedAdjacentFlatland>
 			<AdjacentTilesAvoidHills>false</AdjacentTilesAvoidHills>
 			<MaximumAllowedAdjacentHills>99</MaximumAllowedAdjacentHills>
-			<AdjacentTilesAvoidMountain>false</AdjacentTilesAvoidMountain>
-			<MaximumAllowedAdjacentMountain>99</MaximumAllowedAdjacentMountain>
+			<AdjacentTilesAvoidMountain>true</AdjacentTilesAvoidMountain>
+			<MaximumAllowedAdjacentMountain>2</MaximumAllowedAdjacentMountain>
 			<AdjacentTilesAvoidHillsPlusMountains>false</AdjacentTilesAvoidHillsPlusMountains>
 			<MaximumAllowedAdjacentHillsPlusMountains>99</MaximumAllowedAdjacentHillsPlusMountains>
 			<AdjacentTilesAvoidOcean>false</AdjacentTilesAvoidOcean>

@@ -2,11 +2,13 @@ Once @Asterix Rage said Natural Wonders' models should be either pretty or there
 
 
 MW Changelog:
+- important:
+	- updated for VP 3.0!
 - new:
-	- new models for existing Natural Wonders (by @ghost toast):
+	- new models for existing Natural Wonders (still in progress; by @ghost toast):
 		- Giant's Causeway;
 		- Dallol;
-	- reworked Bioluminescent Bay animation is now visible also in FoW (download new effects v5 by @ghost toast!);
+	- reworked Bioluminescent Bay animation is now visible also in FoW (download new effects v5 or later by @ghost toast!);
 	- 2 new World Wonders:
 		- Aqueduct of Padre Tembleque (Renaissance Era - tier 2);
 		- Svalbard Global Seed Vault (Information Era - tier 1; art by @gwennog);
@@ -28,6 +30,8 @@ MW Changelog:
 	- added TechCityTrade value to all new resources (MINING for Sylvite, SAILING for Tropical Fish and PHYSICS for Tern Egg);
 	- deleted UCS reference;
 	- Mt. Fuji now might have maximum 1 snow adjacent (was unlimited);
+	- Mt. Fuji now might have maximum 2 mountains adjacent (was unlimited);
+	- Dallol now always on flat tile (was flat or hill);
 	- Salar has protection from Mountain attack (there was a situation when it was closed by mountains around);
 	- Revolutionary Museum now has updated splash image (upsy!);
 	- numerous text fixes (most important ones are mentioned):
