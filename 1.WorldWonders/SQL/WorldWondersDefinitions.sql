@@ -2510,8 +2510,8 @@
 	VALUES		('BUILDING_ROCKEFELLER',	'BUILDINGCLASS_HOSPITAL',	'YIELD_SCIENCE',	2);
 
 	INSERT INTO Building_YieldFromPurchase
-				(BuildingType,				YieldType,			Yield) 
-	VALUES		('BUILDING_ROCKEFELLER',	'YIELD_CULTURE',	5);
+				(BuildingType,					YieldType,			Yield) 
+	VALUES		('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_CULTURE',	5);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2769,7 +2769,7 @@
 	UPDATE Buildings SET Cost = 1800, PrereqTech = 'TECH_BALLISTICS', NumPoliciesNeeded = 19 WHERE Type = 'BUILDING_RUSHMORE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUSHMORE';
 	---------------------------------------------------------
-	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_RUSHMORE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
