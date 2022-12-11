@@ -5857,7 +5857,6 @@ function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x,
 	if self:ExaminePlotForNaturalWondersEligibility(x, y) == false then
 		return false
 	end
-
 	-- local iW, iH = Map.GetGridSize();
 	-- Now loop through adjacent plots. Using Map.PlotDirection() in combination with
 	-- direction types, an alternate first-ring hex adjustment method, instead of the
@@ -5882,6 +5881,15 @@ function AssignStartingPlots:CanBeThisNaturalWonderType(x, y, wn, rn)
 	-- Checks a candidate plot for eligibility to host the supplied wonder type.
 	-- "rn" = the row number for this wonder type within the xml Placement data table.
 	local plot = Map.GetPlot(x, y);
+
+	-- Check whether adjacent plots are valid
+	for loop, direction in ipairs(self.direction_types) do
+		local adjPlot = Map.PlotDirection(x, y, direction);
+		if adjPlot == nil then
+			return
+		end
+	end
+
 	-- Use Custom Eligibility method if indicated.
 	if self.EligibilityMethodNumber[wn] ~= -1 then
 		local method_number = self.EligibilityMethodNumber[wn];
@@ -6469,7 +6477,7 @@ function AssignStartingPlots:GenerateNaturalWondersCandidatePlotLists(target_num
 	self.wonder_list = table.fill(-1, self.iNumNW);
 	local next_wonder_number = 1;
 	for row in GameInfo.Features() do
-		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then -- adan_eslavo
+		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then
 			self.wonder_list[next_wonder_number] = row.Type;
 			next_wonder_number = next_wonder_number + 1;
 		end
@@ -6653,7 +6661,7 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			table.insert(self.placed_natural_wonder, wonder_number);
 
 			-- Natural Wonders shouldn't be too close to each other.
-			self:PlaceResourceImpact(x, y, ImpactLayers.LAYER_NATURAL_WONDER, 9); -- adan_eslavo
+			self:PlaceResourceImpact(x, y, ImpactLayers.LAYER_NATURAL_WONDER, 11);
 
 			-- Force no resource on Natural Wonders.
 			self:PlaceStrategicResourceImpact(x, y, 0);
@@ -6798,12 +6806,12 @@ function AssignStartingPlots:PlaceNaturalWonders()
 	-- Determine how many NWs to attempt to place. Target is regulated per map size.
 	-- The final number cannot exceed the number the map has locations to support.
 	local worldsizes = {
-		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3, -- adan_eslavo
-		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 6,
-		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 9,
-		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 12,
-		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = 15,
-		[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = 18
+		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 2, -- adan_eslavo
+		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 4,
+		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 6,
+		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 8,
+		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = 10,
+		[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = 12
 		}
 	local target_number = worldsizes[Map.GetWorldSize()];
 
@@ -7131,6 +7139,11 @@ function AssignStartingPlots:CanPlaceCityStateAt(x, y, area_ID, force_it, ignore
 	end
 
 	if plot:IsWater() or plot:IsMountain() then
+		return false
+	end
+
+	-- Must not be on map borders
+	if (not Map:IsWrapX() and (x < 1 or x >= iW - 1)) or (not Map:IsWrapY() and (y < 1 or y >= iH - 1)) then
 		return false
 	end
 
@@ -11114,12 +11127,12 @@ end
 function AssignStartingPlots:GetMajorStrategicResourceQuantityValues()
 	-- This function determines quantity per tile for each strategic resource's major deposit size.
 	-- Note: scripts that cannot place Oil in the sea need to increase amounts on land to compensate.
-	local uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 3, 6, 3, 4, 7;
+	local uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 3, 5, 3, 4, 7;
 	-- Check the strategic deposit size setting.
 	if self.resSize == 1 then -- Small
 		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 2, 3, 2, 2, 3;
 	elseif self.resSize == 3 then -- Large
-		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 4, 6, 9, 6, 7, 10;
+		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 4, 6, 8, 6, 7, 10;
 	end
 
 	if self:IsReducedSupplyActive() then
@@ -11736,7 +11749,7 @@ function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
 	if plot:IsImpassable() or plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
 		return 0
 	end
-
+	
 	local value = 0
 	local featureID = plot:GetFeatureType()
 	local terrainID = plot:GetTerrainType()
