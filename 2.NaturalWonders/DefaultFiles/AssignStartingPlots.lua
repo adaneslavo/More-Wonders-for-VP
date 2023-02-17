@@ -6790,6 +6790,44 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
 				self.playerCollisionData[iEyeOfSaharaPlotIndex] = true -- Record exact plot of wonder in the collision list.
+			elseif (self.wonder_list[wonder_number] == "FEATURE_GALAPAGOS_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pGalapagosPlot = Map.PlotDirection(x, y, i)
+					
+					if pGalapagosPlot:GetFeatureType() == GameInfoTypes.FEATURE_GALAPAGOS_B then	
+						local iGalapagosX = pGalapagosPlot:GetX()
+						local iGalapagosY = pGalapagosPlot:GetY()
+					
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+					
+						local iGalapagosPlotIndex = iGalapagosY * iW + iGalapagosX + 1
+						
+						self.playerCollisionData[iGalapagosPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
+			elseif (self.wonder_list[wonder_number] == "FEATURE_HA_LONG_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pHaLongPlot = Map.PlotDirection(x, y, i)
+					
+					if pHaLongPlot:GetFeatureType() == GameInfoTypes.FEATURE_HA_LONG_B then	
+						local iHaLongX = pHaLongPlot:GetX()
+						local iHaLongY = pHaLongPlot:GetY()
+					
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+					
+						local iHaLongPlotIndex = iHaLongY * iW + iHaLongX + 1
+						
+						self.playerCollisionData[iHaLongPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
 			end
 			-- MOD.Barathor: End
 			--

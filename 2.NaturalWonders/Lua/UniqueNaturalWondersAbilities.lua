@@ -34,7 +34,12 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_MT_KAILASH"],
 	GameInfoTypes["FEATURE_KILIMANJARO"],
 	GameInfoTypes["FEATURE_ULURU"],
-	GameInfoTypes["FEATURE_BLUE_HOLE"] -- 30
+	GameInfoTypes["FEATURE_BLUE_HOLE"], -- 30
+	GameInfoTypes["FEATURE_GALAPAGOS_A"],
+	GameInfoTypes["FEATURE_GALAPAGOS_B"],
+	GameInfoTypes["FEATURE_HA_LONG_A"],
+	GameInfoTypes["FEATURE_HA_LONG_B"],
+	GameInfoTypes["FEATURE_ZHANGJIAJIE"] -- 35
 }
 
 local g_iWonderWithDummies = #g_tNaturalWonder
@@ -92,7 +97,12 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
 	GameInfoTypes["BUILDING_ULURU_DUMMY"],
-	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"] -- 30
+	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"], -- 30
+	GameInfoTypes["BUILDING_GALAPAGOS_A_DUMMY"],
+	GameInfoTypes["BUILDING_GALAPAGOS_B_DUMMY"],
+	GameInfoTypes["BUILDING_HA_LONG_A_DUMMY"],
+	GameInfoTypes["BUILDING_HA_LONG_B_DUMMY"],
+	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"] -- 35
 }
 
 local g_tNaturalWonderDummy2 = {}
@@ -111,8 +121,11 @@ local g_tNaturalWonderDummyPolicy = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummyPolicy[i] = false
 	end
+	g_tNaturalWonderDummyPolicy[6] = GameInfoTypes["POLICY_MESA_DUMMY"]
 	g_tNaturalWonderDummyPolicy[20] = GameInfoTypes["POLICY_RETBA_DUMMY"]
 	g_tNaturalWonderDummyPolicy[21] = GameInfoTypes["POLICY_LUMI_BAY_DUMMY"]
+	g_tNaturalWonderDummyPolicy[33] = GameInfoTypes["POLICY_HA_LONG_A_DUMMY"]
+	g_tNaturalWonderDummyPolicy[34] = GameInfoTypes["POLICY_HA_LONG_B_DUMMY"]
 
 
 

@@ -2975,11 +2975,11 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol.dds">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\blank.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_sref.dds">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2991,13 +2991,41 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\no_hight_decal.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Dallol\sv_Dallol.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\blank.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\eye of the sahara.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\eye_of_the_sahara.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\feature_eye_of_sahara.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\no_hight_decal.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\sv_Sahara_Eye.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\sv_Galapagos.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\causeway_land.fxsxml">
       <SubType>Lua</SubType>
@@ -3082,6 +3110,26 @@ Currently compatible with 2.7.</Description>
     <Content Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\NEW_REEF.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\great blue hole.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\great_blue_hole.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\great_blue_hole.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\sv_Blue_Hole.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\sv_Ha_Long.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\feature_retba.fxsxml">
       <SubType>Lua</SubType>
@@ -3252,6 +3300,26 @@ Currently compatible with 2.7.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\sv_Salar_S.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\feature_zhangjiajie.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie_Jungle1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie_stone.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\sv_Zhangjiajie.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3543,10 +3611,13 @@ Currently compatible with 2.7.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\Dallol\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Galapagos\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\" />
     <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\" />
     <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model" />
+    <Folder Include="2.NaturalWonders\Art\Models\HaLongBay\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\Matterhorn\" />
@@ -3555,8 +3626,13 @@ Currently compatible with 2.7.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBlueHole" />
+    <Folder Include="2.NaturalWonders\Art\Models\Galapagos" />
+    <Folder Include="2.NaturalWonders\Art\Models\HaLongBay" />
+    <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model" />
     <Folder Include="2.NaturalWonders\Art\OverviewPanel" />
     <Folder Include="2.NaturalWonders\DefaultFiles" />
     <Folder Include="2.NaturalWonders\Art" />

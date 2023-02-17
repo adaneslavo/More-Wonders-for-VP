@@ -195,7 +195,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_A</ResourceType>
-			<Model>feature_eye_of_sahara_a.fxsxml</Model>
+			<Model>feature_eye_of_sahara.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -205,7 +205,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_B</ResourceType>
-			<Model>feature_eye_of_sahara_b.fxsxml</Model>
+			<Model>feature_zhangjiajie.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -215,7 +215,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_C</ResourceType>
-			<Model>feature_eye_of_sahara_c.fxsxml</Model>
+			<Model>feature_eye_of_sahara.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -224,11 +224,57 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>2.3</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
-			<Model>feature_blue_hole.fxsxml</Model>
+			<Model>great_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_GALAPAGOS_A</ResourceType>
+			<Model>great_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_GALAPAGOS_B</ResourceType>
+			<Model>great_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_HA_LONG_A</ResourceType>
+			<Model>great_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_HA_LONG_B</ResourceType>
+			<Model>great_blue_hole.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 	</ArtDefine_Landmarks>
@@ -359,6 +405,32 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Great Blue Hole</FriendlyName>
 		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_GALAPAGOS_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Bermuda Triangle A</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_GALAPAGOS_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Bermuda Triangle B</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_HA_LONG_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Bermuda Triangle A</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_HA_LONG_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Bermuda Triangle B</FriendlyName>
+		</Row>
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
@@ -478,7 +550,7 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_EYE_OF_SAHARA_C</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Sahara_Eye.dds</Asset>
+			<Asset>sv_Zhangjiajie.dds</Asset>
 		</Row>
 		
 		
@@ -487,6 +559,32 @@
 			<StrategicViewType>ART_DEF_FEATURE_BLUE_HOLE</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Blue_Hole.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_GALAPAGOS_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Galapagos.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_GALAPAGOS_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Galapagos.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_HA_LONG_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Ha_Long.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_HA_LONG_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Ha_Long.dds</Asset>
 		</Row>
 	</ArtDefine_StrategicView>
 	
@@ -988,6 +1086,96 @@
 			<PortraitIndex>9</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<Defense>0</Defense>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_GALAPAGOS_A</Type>
+			<Description>TXT_KEY_FEATURE_GALAPAGOS_A</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_GALAPAGOS_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_GALAPAGOS_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_GALAPAGOS_A</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_GALAPAGOS_B</Type>
+			<Description>TXT_KEY_FEATURE_GALAPAGOS_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_GALAPAGOS_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_GALAPAGOS_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_GALAPAGOS_B</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_HA_LONG_A</Type>
+			<Description>TXT_KEY_FEATURE_HA_LONG_A</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_HA_LONG_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_HA_LONG_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_HA_LONG_A</ArtDefineTag>
+			<Movement>3</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<Defense>20</Defense>
+			<AdjacentUnitFreePromotion>PROMOTION_HA_LONG</AdjacentUnitFreePromotion>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_HA_LONG_B</Type>
+			<Description>TXT_KEY_FEATURE_HA_LONG_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_HA_LONG_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_HA_LONG_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_HA_LONG_B</ArtDefineTag>
+			<Movement>3</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<Defense>20</Defense>
+			<AdjacentUnitFreePromotion>PROMOTION_HA_LONG</AdjacentUnitFreePromotion>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 	</Features>
@@ -1584,6 +1772,52 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_YieldChanges>
 
 	<Feature_EraYieldChanges>
@@ -2018,6 +2252,42 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_EraYieldChanges>
 
 	<Plot_AdjacentFeatureYieldChanges>
@@ -2256,6 +2526,19 @@
 			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
 		</Row>		
 	</Improvement_ValidFeatures>
+
+	<BuildFeatures>
+		<Row>
+			<BuildType>BUILD_FISHING_BOATS</BuildType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<PrereqTech>TECH_POTTERY</PrereqTech>
+		</Row>
+		<Row>
+			<BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<PrereqTech>TECH_POTTERY</PrereqTech>
+		</Row>
+	</BuildFeatures>
 	
 	<Improvement_FeatureYieldChanges>
 		<Row>
@@ -2792,6 +3075,60 @@
 			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Belief_FeatureYieldChanges>
 

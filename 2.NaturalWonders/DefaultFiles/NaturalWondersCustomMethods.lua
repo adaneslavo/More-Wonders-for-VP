@@ -26,7 +26,9 @@
 --		* Barringer Crater (17):	has only tile changes method; makes surroundings flat;
 --		* Old Faithful (18):		changes core tile to hill;
 --		* Mt. Sinai (19):			have chance to change surronding hills to mountains and clears all features;
---		* Great Blue Hole (20):			spawns some attols;
+--		* Great Blue Hole (20):		spawns some attols;
+--		* Galapagos (21):			2-tile wonder; spawns islands;
+--		* Ha Long Bay (22):			2-tile wonder; looks for coast;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -535,6 +537,88 @@ function NWCustomEligibility(x, y, method_number)
 		if iNumAtoll == 0 or iNumLand == 0 or iNumOcean == 0 then return false end
 		print("--!GBH tile", x, y, "parameters:", iNumAtoll, iNumLand, iNumOcean)
 		return true
+	elseif method_number == 21 then
+		-- GALAPAGOS
+		local pPlot = Map.GetPlot(x, y)
+		
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		
+		local iNumCoast, iNumAtoll = 0, 0
+		local bLand = false
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			
+			if sAdjacentPlotType ~= ePlotOcean then
+				bLand = true
+				break
+			end
+
+			if sAdjacentFeatureType == eFeatureAtoll then
+				iNumAtoll = iNumAtoll + 1
+			end
+
+			if sAdjacentTerrainType == eTerrainCoast then
+				iNumCoast = iNumCoast + 1
+			end
+		end
+		
+		if iNumCoast < 1 or iNumCoast > 4 or iNumAtoll == 0 or bLand then return false end
+		print("--!Galapagos tile", x, y, "parameters:", iNumCoast, iNumAtoll)
+		return true
+	elseif method_number == 22 then
+		-- HA LONG BAY
+		local pPlot = Map.GetPlot(x, y)
+		
+		if pPlot == nil then return false end
+		if pPlot:IsWater() == false then return false end
+		if pPlot:IsLake() then return false end
+		
+		local iNumLand, iNumCoast, iNumOcean = 0, 0, 0
+		local bContinent, bGrass = false, false
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			if pAdjacentPlot == nil then return false end
+		
+			local sAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local sAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			
+			if sAdjacentPlotType ~= ePlotOcean then
+				iNumLand = iNumLand + 1
+
+				local sAdjacentAreaNear = pAdjacentPlot:Area():GetNumTiles()
+				
+				if sAdjacentAreaNear > 40 then
+					bContinent = true
+				end
+
+				if sAdjacentTerrainType == eTerrainGrass then
+					bGrass = true
+				end
+			else
+				if sAdjacentTerrainType == eTerrainCoast then
+					iNumCoast = iNumCoast + 1
+				end
+			
+				if sAdjacentTerrainType == eTerrainOcean then
+					iNumOcean = iNumOcean + 1
+				end
+			end
+		end
+		
+		if iNumLand == 0 or iNumCoast < 2 or iNumOcean < 2 or bContinent == false or bGrass == false then return false end
+		print("--!Ha Long tile", x, y, "parameters:", iNumLand, iNumCoast, iNumOcean)
+		return true
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -563,6 +647,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eFeatureOasis = GameInfoTypes.FEATURE_OASIS
 	local eResourceCoral = GameInfoTypes.RESOURCE_CORAL
 	local eResourceTropicalFish = GameInfoTypes.RESOURCE_TROPICAL_FISH
+	local eResourceTortoise = GameInfoTypes.RESOURCE_TORTOISE
 
 	local tDirectionTypes = {
 		DirectionTypes.DIRECTION_NORTHEAST,
@@ -707,7 +792,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		iNumFeaturesOrResources = iNumFeaturesOrResources - 2 -- correction factor for GBR plots counted in
 		
-		print("--!GBR existing and possible resources:", iNumFeaturesOrResources, #tPossibleFeaturesOrResources)
 		if iNumFeaturesOrResources >= 5 or #tPossibleFeaturesOrResources == 0 then return end
 
 		repeat
@@ -804,7 +888,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 		
-		print("--!KRAKATOA potential islands:", #tPotentialLand)	
 		if #tPotentialLand == 0 then return end
 
 		local pChosenPlot
@@ -840,7 +923,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 			
-		print("--!LAKE VICTORIA hills and potential hills:", iHillsAndMountains, #tPotentialHill)
 		if iHillsAndMountains >= 3 or #tPotentialHill == 0 then return end
 		
 		-- setting hills
@@ -894,8 +976,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 		
-		print("--!SALAR: how many mountains?", iLimitMountains)
-					
 		-- making Desert and cleaning Features and Hills around
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
@@ -904,22 +984,19 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains <= 2 then
 				iRandomMountain = math.random(3) -- 66%
-				print("--!SALAR: hill detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
+				
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
 					iLimitMountains = iLimitMountains + 1
-					print("--!SALAR: hill converted into a mountain", iLimitMountains)
 				end
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
 				iRandomOasis = math.random(4) -- 25%
-				print("--!SALAR: flat detected around main tile", pAdjacentPlot:GetX(), pAdjacentPlot:GetY())
+				
 				if iRandomOasis == 1 then
-					print("--!SALAR: added oasis around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
 				else
-					print("--!SALAR: deleted any features around main tile")
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
 				end
 			end	
@@ -950,7 +1027,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					table.insert(tPossibleSpots, pAdjacentPlot)
 				end		
 			end
-			print("--!Possible spots for Salar", "iteration #", j, "Spots:", #tPossibleSpots)
+			
 			if #tPossibleSpots > 0 then break end
 		end
 		
@@ -1232,8 +1309,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 
-		print("--!MT. PAEKTU possible forests:", iForestsPlanted, #tPossibleForests)
-
 		-- placing some forests
 		if iForestsPlanted < 2 and #tPossibleForests ~= 0 then
 			local pChosenTileForTheForest
@@ -1290,7 +1365,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A1")
+								--print("Paketu river at the end of the map A1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1309,7 +1384,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A2")
+								--print("Paketu river at the end of the map A2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1337,7 +1412,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A3")
+								--print("Paketu river at the end of the map A3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1356,7 +1431,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A4")
+								--print("Paketu river at the end of the map A4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1384,7 +1459,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A5")
+								--print("Paketu river at the end of the map A5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1403,7 +1478,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A6")
+								--print("Paketu river at the end of the map A6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1431,7 +1506,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A7")
+								--print("Paketu river at the end of the map A7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1450,7 +1525,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A8")
+								--print("Paketu river at the end of the map A8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1478,7 +1553,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A9")
+								--print("Paketu river at the end of the map A9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1497,7 +1572,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A10")
+								--print("Paketu river at the end of the map A10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1525,7 +1600,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A11")
+								--print("Paketu river at the end of the map A11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1544,7 +1619,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map A12")
+								--print("Paketu river at the end of the map A12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1557,7 +1632,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			print("Paketu river at the end of the map X1")
+			--print("Paketu river at the end of the map X1")
 		end
 
 		-- NORTHEAST RIVER (TUMEN)
@@ -1593,7 +1668,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B1")
+								--print("Paketu river at the end of the map B1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1612,7 +1687,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B2")
+								--print("Paketu river at the end of the map B2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1640,7 +1715,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B3")
+								--print("Paketu river at the end of the map B3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1659,7 +1734,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B4")
+								--print("Paketu river at the end of the map B4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1687,7 +1762,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B5")
+								--print("Paketu river at the end of the map B5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1706,7 +1781,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B6")
+								--print("Paketu river at the end of the map B6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1734,7 +1809,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B7")
+								--print("Paketu river at the end of the map B7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1753,7 +1828,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B8")
+								--print("Paketu river at the end of the map B8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1781,7 +1856,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B9")
+								--print("Paketu river at the end of the map B9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1800,7 +1875,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B10")
+								--print("Paketu river at the end of the map B10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1828,7 +1903,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B11")
+								--print("Paketu river at the end of the map B11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1847,7 +1922,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map B12")
+								--print("Paketu river at the end of the map B12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1860,7 +1935,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			print("Paketu river at the end of the map X2")
+			--print("Paketu river at the end of the map X2")
 		end
 		
 		-- SOUTHWEST RIVER (YALU)
@@ -1896,7 +1971,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C1")
+								--print("Paketu river at the end of the map C1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1915,7 +1990,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C2")
+								--print("Paketu river at the end of the map C2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1943,7 +2018,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C3")
+								--print("Paketu river at the end of the map C3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1962,7 +2037,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C4")
+								--print("Paketu river at the end of the map C4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1990,7 +2065,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C5")
+								--print("Paketu river at the end of the map C5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2009,7 +2084,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C6")
+								--print("Paketu river at the end of the map C6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2037,7 +2112,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C7")
+								--print("Paketu river at the end of the map C7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2056,7 +2131,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C8")
+								--print("Paketu river at the end of the map C8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2084,7 +2159,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C9")
+								--print("Paketu river at the end of the map C9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2103,7 +2178,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C10")
+								--print("Paketu river at the end of the map C10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2131,7 +2206,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C11")
+								--print("Paketu river at the end of the map C11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2150,7 +2225,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								print("Paketu river at the end of the map C12")
+								--print("Paketu river at the end of the map C12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2163,7 +2238,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			print("Paketu river at the end of the map X3")
+			--print("Paketu river at the end of the map X3")
 		end
 	elseif method_number == 16 then
 		-- ULURU
@@ -2182,7 +2257,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 		end
 		
-		print("--!ULURU features:", #tPlotsWithFeatures)	
 		if #tPlotsWithFeatures <= 1 then return end
 		
 		-- deleting features
@@ -2231,6 +2305,102 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 	elseif method_number == 20 then
 		-- reserved for: Great Blue Hole
+	elseif method_number == 21 then
+		-- GALAPAGOS
+		local tOceanPlots, tCoastPlots, tPlotsAroundForResources = {}, {}, {}
+		local pChosenPlot
+		local pPlot = Map.GetPlot(x, y)
+
+		pPlot:SetTerrainType(eTerrainCoast, false, false)
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+
+			if pAdjacentPlot:GetTerrainType() == eTerrainOcean then
+				table.insert(tOceanPlots, pAdjacentPlot)
+			elseif pAdjacentPlot:GetTerrainType() == eTerrainCoast then
+				table.insert(tCoastPlots, pAdjacentPlot)
+			end
+
+			table.insert(tPlotsAroundForResources, pAdjacentPlot)
+		end
+		
+		print("--!GALAPAGOS ocean tiles around:", #tOceanPlots)
+		print("--!GALAPAGOS coast tiles around:", #tCoastPlots)
+		
+		if #tOceanPlots > 0 then
+			pChosenPlot = table.remove(tOceanPlots, math.random(#tOceanPlots))
+		elseif #tCoastPlots > 0 then
+			pChosenPlot = table.remove(tCoastPlots, math.random(#tCoastPlots))
+		end
+
+		pChosenPlot:SetTerrainType(eTerrainCoast, false, false)
+		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_GALAPAGOS_B)
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pChosenX = pChosenPlot:GetX()
+			local pChosenY = pChosenPlot:GetY()
+			local pAdjacentPlot = Map.PlotDirection(pChosenX, pChosenY, direction)
+
+			if pAdjacentPlot:GetX() == x and pAdjacentPlot:GetY() == y then
+				-- GALAPAGOS_A
+			else
+				pAdjacentPlot:SetTerrainType(eTerrainCoast, false, false)
+				table.insert(tPlotsAroundForResources, pAdjacentPlot)
+			end
+		end
+
+		print("--!GALAPAGOS tiles around:", #tPlotsAroundForResources)
+
+		-- placing resources
+		local iNumFish = 0
+
+		repeat
+			pChosenPlot = table.remove(tPlotsAroundForResources, math.random(#tPlotsAroundForResources))
+			eChosenFeature = pChosenPlot:GetFeatureType()
+			eChosenResource = pChosenPlot:GetResourceType()
+			print(eChosenFeature, eChosenResource)
+			if eChosenFeature == eFeatureNo and eChosenResource == -1 then
+				pChosenPlot:SetResourceType(eResourceCoral, 1)
+				iNumFish = iNumFish + 1
+			end
+		until(#tPlotsAroundForResources == 0 or iNumFish >= 2)
+		
+		print("--!GALAPAGOS tortoise placed:", #tPlotsAroundForResources)
+		if #tPlotsAroundForResources == 0 then return end
+
+		repeat
+			pChosenPlot = table.remove(tPlotsAroundForResources, math.random(#tPlotsAroundForResources))
+			eChosenFeature = pChosenPlot:GetFeatureType()
+			eChosenResource = pChosenPlot:GetResourceType()
+			print(eChosenFeature, eChosenResource)
+			if eChosenFeature == eFeatureNo and eChosenResource == -1 then
+				pChosenPlot:SetResourceType(eResourceTropicalFish, 1)
+				iNumFish = iNumFish + 1
+			end
+		until(#tPlotsAroundForResources == 0 or iNumFish >= 4)
+
+		print("--!GALAPAGOS fish placed:", #tPlotsAroundForResources, iNumFish)
+	elseif method_number == 22 then
+		-- HA LONG BAY
+		local tCoastPlots = {}
+		local pChosenPlot
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			-- checking features
+			if pAdjacentPlot:GetTerrainType() == eTerrainCoast then
+				table.insert(tCoastPlots, pAdjacentPlot)
+			end
+		end
+		
+		print("--!HA LONG BAY coast tiles around:", #tCoastPlots)	
+		
+		pChosenPlot = table.remove(tCoastPlots, math.random(#tCoastPlots))
+		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_HA_LONG_B)
 	end
 end
 ------------------------------------------------------------------------------
