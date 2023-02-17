@@ -1107,7 +1107,7 @@
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
-			<PortraitIndex>9</PortraitIndex>
+			<PortraitIndex>10</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -1127,7 +1127,7 @@
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
-			<PortraitIndex>9</PortraitIndex>
+			<PortraitIndex>10</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -1150,7 +1150,7 @@
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
-			<PortraitIndex>9</PortraitIndex>
+			<PortraitIndex>11</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<Defense>20</Defense>
 			<AdjacentUnitFreePromotion>PROMOTION_HA_LONG</AdjacentUnitFreePromotion>
@@ -1172,7 +1172,7 @@
 			<NoImprovement>true</NoImprovement>
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
-			<PortraitIndex>9</PortraitIndex>
+			<PortraitIndex>11</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<Defense>20</Defense>
 			<AdjacentUnitFreePromotion>PROMOTION_HA_LONG</AdjacentUnitFreePromotion>
