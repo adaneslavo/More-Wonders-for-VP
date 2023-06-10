@@ -2363,10 +2363,13 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			eChosenResource = pChosenPlot:GetResourceType()
 			print(eChosenFeature, eChosenResource)
 			if eChosenFeature == eFeatureNo and eChosenResource == -1 then
-				pChosenPlot:SetResourceType(eResourceCoral, 1)
+				pChosenPlot:SetPlotType(ePlotFlat, false, false)
+				pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
+				pChosenPlot:SetResourceType(eResourceTortoise, 1)
 				iNumFish = iNumFish + 1
+				print("--!GALAPAGOS tortoise and island placed at:", pChosenPlot:GetX(), pChosenPlot:GetY())
 			end
-		until(#tPlotsAroundForResources == 0 or iNumFish >= 2)
+		until(#tPlotsAroundForResources == 0 or iNumFish >= 1)
 		
 		print("--!GALAPAGOS tortoise placed:", #tPlotsAroundForResources)
 		if #tPlotsAroundForResources == 0 then return end
@@ -2380,7 +2383,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				pChosenPlot:SetResourceType(eResourceTropicalFish, 1)
 				iNumFish = iNumFish + 1
 			end
-		until(#tPlotsAroundForResources == 0 or iNumFish >= 4)
+		until(#tPlotsAroundForResources == 0 or iNumFish >= 3)
 
 		print("--!GALAPAGOS fish placed:", #tPlotsAroundForResources, iNumFish)
 	elseif method_number == 22 then

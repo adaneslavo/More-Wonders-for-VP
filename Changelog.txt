@@ -1,12 +1,13 @@
 MW Changelog:
 - added:
-	- added new model for Dallol and Giant's Causeway;
-	- added 5 new Natural Wonders: Eye of the Sahara, Great Blue Hole, Eye of the Sahara, Galapagos, Ha Long Bay and Zhangjiajie;
+	- added new model for Dallol, Giant's Causeway and Bermuda Triangle;
+	- added 5 new Natural Wonders: Eye of the Sahara, Great Blue Hole, Galapagos, Ha Long Bay and Zhangjiajie;
+	- added new resource: Giant Tortoise exclusive for Galapagos;
 - changed:
 	- Grand Mesa now provides global Production bonus instead of local in capital;
 - fixed:
 	- fixed multiple broken requirements related to Forest/Jungle ownership;
-	- fixed text Issue with White Sands Missile Range;
+	- fixed text issue with White Sands Missile Range;
 	- minor correction in the files;
 	
 

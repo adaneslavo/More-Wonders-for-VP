@@ -1,5 +1,0 @@
-<Asset>
-	<Mesh file="feature_bermuda.gr2" source="Max" />
-	<Texture file="bermuda_ground_diff.dds" source="Max" />
-	<Texture file="bermuda_ground_h.dds" source="Max" />
-</Asset>
