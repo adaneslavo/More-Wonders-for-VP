@@ -126,6 +126,7 @@ local g_tNaturalWonderDummyPolicy = {}
 	g_tNaturalWonderDummyPolicy[21] = GameInfoTypes["POLICY_LUMI_BAY_DUMMY"]
 	g_tNaturalWonderDummyPolicy[33] = GameInfoTypes["POLICY_HA_LONG_A_DUMMY"]
 	g_tNaturalWonderDummyPolicy[34] = GameInfoTypes["POLICY_HA_LONG_B_DUMMY"]
+	g_tNaturalWonderDummyPolicy[35] = GameInfoTypes["POLICY_ZHANGJIAJIE_DUMMY"]
 
 
 

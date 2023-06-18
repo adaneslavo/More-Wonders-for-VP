@@ -93,11 +93,11 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>0.65</Scale>
+			<Scale>1.5</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_MT_EVEREST</ResourceType>
-			<Model>feature_mt_everest.fxsxml</Model>
+			<Model>Mt_Everest.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -106,11 +106,11 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>0.55</Scale>
+			<Scale>0.8</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_RETBA</ResourceType>
-			<Model>feature_retba.fxsxml</Model>
+			<Model>Lake_Retba.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -119,7 +119,7 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.85</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_BERMUDA_A</ResourceType>
@@ -224,11 +224,41 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>2.3</Scale>
+			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
-			<Model>great_blue_hole.fxsxml</Model>
+			<Model>Great_blue_hole.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Ancient</Era>
+			<State>Constructed</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
+			<Model>Great_blue_hole_Boats_early.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Industrial</Era>
+			<State>Constructed</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
+			<Model>Great_blue_hole_Boats_ind.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Constructed</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_BLUE_HOLE</ResourceType>
+			<Model>Great_blue_hole_oil_platform.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 
@@ -247,7 +277,7 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.85</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_GALAPAGOS_B</ResourceType>
@@ -260,22 +290,22 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.95</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_HA_LONG_A</ResourceType>
 			<Model>Halong_Bay_1.fxsxml</Model>
-			<TerrainContour>1</TerrainContour>
+			<TerrainContour>0</TerrainContour>
 		</Row>
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>1</Scale>
+			<Scale>0.95</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_HA_LONG_B</ResourceType>
 			<Model>Halong_Bay_2.fxsxml</Model>
-			<TerrainContour>1</TerrainContour>
+			<TerrainContour>0</TerrainContour>
 		</Row>
 
 
@@ -587,12 +617,12 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_GALAPAGOS_A</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Galapagos.dds</Asset>
+			<Asset>sv_Galapagos_A.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_GALAPAGOS_B</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Galapagos.dds</Asset>
+			<Asset>sv_Galapagos_B.dds</Asset>
 		</Row>
 
 
@@ -600,12 +630,12 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_HA_LONG_A</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Ha_Long.dds</Asset>
+			<Asset>sv_Ha_Long_A.dds</Asset>
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_HA_LONG_B</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Ha_Long.dds</Asset>
+			<Asset>sv_Ha_Long_B.dds</Asset>
 		</Row>
 
 
@@ -2614,12 +2644,10 @@
 		<Row>
 			<BuildType>BUILD_FISHING_BOATS</BuildType>
 			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
-			<PrereqTech>TECH_POTTERY</PrereqTech>
 		</Row>
 		<Row>
 			<BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
 			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
-			<PrereqTech>TECH_POTTERY</PrereqTech>
 		</Row>
 	</BuildFeatures>
 	

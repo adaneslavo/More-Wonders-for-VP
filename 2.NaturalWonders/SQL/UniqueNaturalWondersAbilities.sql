@@ -306,8 +306,8 @@ UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY'
 UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
 UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY';
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 6 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 14 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
 UPDATE Buildings SET CultureMedianModifierGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
@@ -412,21 +412,22 @@ VALUES		('BUILDING_MT_SINAI_DUMMY',	'YIELD_FAITH',	100);
 -- POLICIES
 --============================================--
 INSERT INTO Policies 
-			(Type,					    Description)
-VALUES		('POLICY_RETBA_DUMMY', 	    'TXT_KEY_POLICY_RETBA_DUMMY'),
-			('POLICY_LUMI_BAY_DUMMY', 	'TXT_KEY_POLICY_LUMI_BAY_DUMMY'),
-			('POLICY_MESA_DUMMY',		'TXT_KEY_POLICY_MESA_DUMMY'),
-			('POLICY_HA_LONG_A_DUMMY', 	'TXT_KEY_POLICY_HA_LONG_A_DUMMY'),
-			('POLICY_HA_LONG_B_DUMMY', 	'TXT_KEY_POLICY_HA_LONG_B_DUMMY');
+			(Type,							Description)
+VALUES		('POLICY_RETBA_DUMMY', 			'TXT_KEY_POLICY_RETBA_DUMMY'),
+			('POLICY_LUMI_BAY_DUMMY', 		'TXT_KEY_POLICY_LUMI_BAY_DUMMY'),
+			('POLICY_MESA_DUMMY',			'TXT_KEY_POLICY_MESA_DUMMY'),
+			('POLICY_HA_LONG_A_DUMMY', 		'TXT_KEY_POLICY_HA_LONG_A_DUMMY'),
+			('POLICY_HA_LONG_B_DUMMY', 		'TXT_KEY_POLICY_HA_LONG_B_DUMMY'),
+			('POLICY_ZHANGJIAJIE_DUMMY', 	'TXT_KEY_POLICY_ZHANGJIAJIE_DUMMY');
 
 INSERT INTO Language_en_US 
-			(Tag,							    Text) 
-VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',	    'Lake Retba'),
-			('TXT_KEY_POLICY_LUMI_BAY_DUMMY',	'Bioluminescent Bay'),
-			('TXT_KEY_POLICY_MESA_DUMMY',		'Grand Mesa'),
-			('TXT_KEY_POLICY_HA_LONG_A_DUMMY',	'Ha Long Bay A'),
-			('TXT_KEY_POLICY_HA_LONG_B_DUMMY',	'Ha Long Bay B');
-
+			(Tag,									Text) 
+VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',			'Lake Retba'),
+			('TXT_KEY_POLICY_LUMI_BAY_DUMMY',		'Bioluminescent Bay'),
+			('TXT_KEY_POLICY_MESA_DUMMY',			'Grand Mesa'),
+			('TXT_KEY_POLICY_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
+			('TXT_KEY_POLICY_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
+			('TXT_KEY_POLICY_ZHANGJIAJIE_DUMMY',	'Zhangjiajie');
 
 INSERT INTO Policy_WLTKDYieldMod 
 			(PolicyType, 			YieldType, 		Yield)
@@ -441,6 +442,26 @@ INSERT INTO Policy_UnitCombatProductionModifiers
 VALUES 		('POLICY_MESA_DUMMY', 		'UNITCOMBAT_MOUNTED', 		20),
 			('POLICY_HA_LONG_A_DUMMY', 	'UNITCOMBAT_NAVALMELEE', 	5),
 			('POLICY_HA_LONG_B_DUMMY', 	'UNITCOMBAT_NAVALMELEE', 	5);
+
+INSERT INTO Policy_ArtifactYieldChanges
+			(PolicyType, 				YieldType, 			Yield)
+VALUES 		('POLICY_HA_LONG_B_DUMMY', 	'YIELD_CULTURE', 	1);
+
+INSERT INTO Policy_YieldGPExpend
+			(PolicyType, 					YieldType, 			Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_TOURISM', 	50);
+
+INSERT INTO Policy_ArtYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
+
+INSERT INTO Policy_LitYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
+
+INSERT INTO Policy_MusicYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
 
 INSERT INTO Policy_TourismOnUnitCreation	(PolicyType,				UnitClassType,	Tourism)
 SELECT DISTINCT								'POLICY_LUMI_BAY_DUMMY',	Class,			25
