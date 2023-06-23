@@ -511,7 +511,6 @@ FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_
 
 
 
-
 INSERT INTO Improvement_Yields 
 			(ImprovementType,							YieldType,			Yield)
 SELECT		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 		YieldType,			Yield
@@ -554,30 +553,108 @@ FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE
 
 
 
-
-
-
-
-
-/*CREATE TRIGGER MW_Improvement_Belief
-AFTER INSERT ON Belief_ImprovementYieldChanges
-WHEN NEW.BeliefType
-    IN(
-    SELECT  DISTINCT b.BuildingClass
-            FROM Buildings b, Improvements i, Building_ImprovementYieldChanges iyc
-            WHERE i.Type IN ('IMPROVEMENT_TERRACE_FARM', 'IMPROVEMENT_FARM')
-            AND iyc.ImprovementType = i.Type
-            AND b.Type = iyc.BuildingType
-    )
-AND NEW.BeliefType IS NOT NULL
+CREATE TRIGGER GBH_IY
+AFTER INSERT ON Improvement_Yields
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
 BEGIN
-    INSERT  INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
-    SELECT  DISTINCT NEW.BuildingType, 'IMPROVEMENT_TERRACE_FARM', iyc.YieldType, iyc.Yield
-            FROM Improvements i, Building_ImprovementYieldChanges iyc, BuildingClasses bc
-            WHERE i.Type = 'IMPROVEMENT_FARM'
-            AND iyc.ImprovementType = i.Type
-            AND bc.Type = NEW.BuildingClassType
-            AND iyc.BuildingType = bc.DefaultBuilding;
-END;*/
+    INSERT INTO Improvement_Yields (ImprovementType, YieldType, Yield)
+    SELECT DISTINCT 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Improvement_Yields (ImprovementType, YieldType, Yield)
+    SELECT DISTINCT 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Belief_IYC
+AFTER INSERT ON Belief_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Belief_ImprovementYieldChanges (BeliefType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BeliefType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Belief_ImprovementYieldChanges (BeliefType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BeliefType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Building_IYC
+AFTER INSERT ON Building_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Building_IYCG
+AFTER INSERT ON Building_ImprovementYieldChangesGlobal
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_EventChoice_IYC
+AFTER INSERT ON EventChoice_ImprovementYieldChange
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO EventChoice_ImprovementYieldChange (EventChoiceType, ImprovementType, YieldType, YieldChange)
+    SELECT DISTINCT NEW.EventChoiceType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.YieldChange
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO EventChoice_ImprovementYieldChange (EventChoiceType, ImprovementType, YieldType, YieldChange)
+    SELECT DISTINCT NEW.EventChoiceType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.YieldChange
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Improvement_AIYC
+AFTER INSERT ON Improvement_AdjacentImprovementYieldChanges
+WHEN NEW.OtherImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Policy_IYC
+AFTER INSERT ON Policy_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Policy_ImprovementYieldChanges (PolicyType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.PolicyType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Policy_ImprovementYieldChanges (PolicyType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.PolicyType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Trait_IYC
+AFTER INSERT ON Trait_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Trait_ImprovementYieldChanges (TraitType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.TraitType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Trait_ImprovementYieldChanges (TraitType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.TraitType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
 --------------------------------------------------------------
 --------------------------------------------------------------
