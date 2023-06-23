@@ -1,6 +1,6 @@
 MW Changelog:
 - added:
-	- added brand new models for Giant's Causeway, Mt. Everest, Lake Retba, Dallol and Bermuda Triangle;
+	- added brand new models for Giant's Causeway (with new colour), Mt. Everest, Lake Retba (now 3D), Dallol (now 3D) and Bermuda Triangle;
 	- added 5 new Natural Wonders: Eye of the Sahara, Great Blue Hole, Galapagos, Ha Long Bay and Zhangjiajie;
 	- added new resource: Giant Tortoise exclusive for Galapagos;
 - changed:

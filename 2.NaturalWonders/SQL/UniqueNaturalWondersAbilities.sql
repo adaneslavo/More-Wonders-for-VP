@@ -466,5 +466,118 @@ VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
 INSERT INTO Policy_TourismOnUnitCreation	(PolicyType,				UnitClassType,	Tourism)
 SELECT DISTINCT								'POLICY_LUMI_BAY_DUMMY',	Class,			25
 FROM Units WHERE CombatClass in ('UNITCOMBAT_SETTLER', 'UNITCOMBAT_WORKER', 'UNITCOMBAT_WORKBOAT', 'UNITCOMBAT_CARGO', 'UNITCOMBAT_CARAVAN', 'UNITCOMBAT_INQUISITOR', 'UNITCOMBAT_MISSIONARY', 'UNITCOMBAT_DIPLOMACY', 'UNITCOMBAT_SPECIAL_PEOPLE', 'UNITCOMBAT_SPACESHIP_PART', 'UNITCOMBAT_ARCHAEOLOGIST');
+--============================================--
+-- IMPROVEMENTS
+--============================================--
+INSERT INTO Improvement_Yields 
+			(ImprovementType,							YieldType,			Yield)
+SELECT		'IMPROVEMENT_FISHING_BOATS_GBH', 			YieldType,			Yield
+FROM Improvement_Yields WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Belief_ImprovementYieldChanges 
+			(BeliefType,	ImprovementType,					YieldType,		Yield)
+SELECT		BeliefType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Belief_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Building_ImprovementYieldChanges 
+			(BuildingType,	ImprovementType,					YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Building_ImprovementYieldChangesGlobal
+			(BuildingType,	ImprovementType,					YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChangesGlobal WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO EventChoice_ImprovementYieldChange
+			(EventChoiceType,	ImprovementType,					YieldType,		YieldChange)
+SELECT		EventChoiceType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		YieldChange
+FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Improvement_AdjacentImprovementYieldChanges
+			(ImprovementType,	OtherImprovementType,				YieldType,		Yield)
+SELECT		ImprovementType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Policy_ImprovementYieldChanges 
+			(PolicyType,	ImprovementType,					YieldType,		Yield)
+SELECT		PolicyType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Policy_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Trait_ImprovementYieldChanges 
+			(TraitType,		ImprovementType,					YieldType,		Yield)
+SELECT		TraitType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+
+
+
+INSERT INTO Improvement_Yields 
+			(ImprovementType,							YieldType,			Yield)
+SELECT		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 		YieldType,			Yield
+FROM Improvement_Yields WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Belief_ImprovementYieldChanges 
+			(BeliefType,	ImprovementType,						YieldType,		Yield)
+SELECT		BeliefType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Belief_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Building_ImprovementYieldChanges 
+			(BuildingType,	ImprovementType,						YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Building_ImprovementYieldChangesGlobal
+			(BuildingType,	ImprovementType,						YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChangesGlobal WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO EventChoice_ImprovementYieldChange
+			(EventChoiceType,	ImprovementType,						YieldType,		YieldChange)
+SELECT		EventChoiceType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		YieldChange
+FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Improvement_AdjacentImprovementYieldChanges
+			(ImprovementType,	OtherImprovementType,					YieldType,		Yield)
+SELECT		ImprovementType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Policy_ImprovementYieldChanges 
+			(PolicyType,	ImprovementType,						YieldType,		Yield)
+SELECT		PolicyType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Policy_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Trait_ImprovementYieldChanges 
+			(TraitType,		ImprovementType,						YieldType,		Yield)
+SELECT		TraitType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+
+
+
+
+
+
+
+/*CREATE TRIGGER MW_Improvement_Belief
+AFTER INSERT ON Belief_ImprovementYieldChanges
+WHEN NEW.BeliefType
+    IN(
+    SELECT  DISTINCT b.BuildingClass
+            FROM Buildings b, Improvements i, Building_ImprovementYieldChanges iyc
+            WHERE i.Type IN ('IMPROVEMENT_TERRACE_FARM', 'IMPROVEMENT_FARM')
+            AND iyc.ImprovementType = i.Type
+            AND b.Type = iyc.BuildingType
+    )
+AND NEW.BeliefType IS NOT NULL
+BEGIN
+    INSERT  INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT  DISTINCT NEW.BuildingType, 'IMPROVEMENT_TERRACE_FARM', iyc.YieldType, iyc.Yield
+            FROM Improvements i, Building_ImprovementYieldChanges iyc, BuildingClasses bc
+            WHERE i.Type = 'IMPROVEMENT_FARM'
+            AND iyc.ImprovementType = i.Type
+            AND bc.Type = NEW.BuildingClassType
+            AND iyc.BuildingType = bc.DefaultBuilding;
+END;*/
 --------------------------------------------------------------
 --------------------------------------------------------------

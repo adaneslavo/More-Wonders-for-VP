@@ -245,8 +245,8 @@
 			<RequiredNumberOfAdjacentDesert>0</RequiredNumberOfAdjacentDesert>
 			<AdjacentTilesRequireTundra>false</AdjacentTilesRequireTundra>
 			<RequiredNumberOfAdjacentTundra>0</RequiredNumberOfAdjacentTundra>
-			<AdjacentTilesRequireSnow>true</AdjacentTilesRequireSnow>
-			<RequiredNumberOfAdjacentSnow>1</RequiredNumberOfAdjacentSnow>
+			<AdjacentTilesRequireSnow>false</AdjacentTilesRequireSnow>
+			<RequiredNumberOfAdjacentSnow>0</RequiredNumberOfAdjacentSnow>
 			<AdjacentTilesRequireShallowWater>false</AdjacentTilesRequireShallowWater>
 			<RequiredNumberOfAdjacentShallowWater>0</RequiredNumberOfAdjacentShallowWater>
 			<AdjacentTilesRequireDeepWater>false</AdjacentTilesRequireDeepWater>
@@ -260,8 +260,8 @@
 			<MaximumAllowedAdjacentDesert>0</MaximumAllowedAdjacentDesert>
 			<AdjacentTilesAvoidTundra>false</AdjacentTilesAvoidTundra>
 			<MaximumAllowedAdjacentTundra>99</MaximumAllowedAdjacentTundra>
-			<AdjacentTilesAvoidSnow>false</AdjacentTilesAvoidSnow>
-			<MaximumAllowedAdjacentSnow>99</MaximumAllowedAdjacentSnow>
+			<AdjacentTilesAvoidSnow>true</AdjacentTilesAvoidSnow>
+			<MaximumAllowedAdjacentSnow>1</MaximumAllowedAdjacentSnow>
 			<AdjacentTilesAvoidShallowWater>false</AdjacentTilesAvoidShallowWater>
 			<MaximumAllowedAdjacentShallowWater>99</MaximumAllowedAdjacentShallowWater>
 			<AdjacentTilesAvoidDeepWater>false</AdjacentTilesAvoidDeepWater>

@@ -100,11 +100,6 @@ Currently compatible with 2.7.</Description>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>2.NaturalWonders/SQL/UniqueNaturalWondersAbilities.sql</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/XML/NaturalWondersParameters.xml</FileName>
       </Action>
       <Action>
@@ -116,6 +111,11 @@ Currently compatible with 2.7.</Description>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/XML/NaturalWondersTexts.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>2.NaturalWonders/SQL/UniqueNaturalWondersAbilities.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -2943,23 +2943,19 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\blank.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.fxsxml">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_3d.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_3d.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\no_hight_decal.dds">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_acid_geyser textures.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
