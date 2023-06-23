@@ -281,7 +281,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [C
 ----------------------------------------------------
 -- Statue of Zeus
 UPDATE Language_en_US
-SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) and triples your efforts towards reducing local unrest (-1[ICON_HAPPINESS_3] Distress).'
+SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) and triples your efforts towards reducing local unrest (-1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]free Settler[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1674,10 +1674,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ROCKEFELLER',		'Rockefeller Center'),
 			('TXT_KEY_WONDER_ROCKEFELLER_QUOTE',	'[NEWLINE]"A friendship founded on business is better than a business founded on friendship."[NEWLINE] - John D. Rockefeller[NEWLINE]'),
 			('TXT_KEY_WONDER_ROCKEFELLER_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_ROCKEFELLER_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Research Lab in the City in which it is built. +2 [ICON_RESEARCH] Science from all Hospitals in your Empire. +2 [ICON_RESEARCH] Science from all Scientist Specialists in your Empire. +3 [ICON_GOLD] Gold to all your Cities in Empire. Receive 10 [ICON_CULTURE] Culture from each [ICON_GOLD] Gold Purchase.');
+			('TXT_KEY_WONDER_ROCKEFELLER_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Research Lab in the City in which it is built. +2 [ICON_RESEARCH] Science from all Hospitals in your Empire. +3 [ICON_GOLD] Gold to all your Cities in Empire. Receive 5% [ICON_CULTURE] Culture from each [ICON_GOLD] Gold Purchase in the Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Rockefeller Center[ENDCOLOR] strongly supports many different branches of your country: economy (+3[ICON_GOLD]/City), culture (10[ICON_CULTURE]/[ICON_GOLD] Purchase) and research (+2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Hospitals[ENDCOLOR]). Huge breakthroughs will be only matter of time thanks to new [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] ([ICON_RESEARCH]) working in this complex.'
+SET Text = '[COLOR_YIELD_FOOD]Rockefeller Center[ENDCOLOR] strongly supports many different branches of your country: economy (+3[ICON_GOLD]/City), culture (5%[ICON_CULTURE]/[ICON_GOLD][ICON_GOLD] Purchase) and research (+2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Hospitals[ENDCOLOR]). Huge breakthroughs will be only matter of time thanks to new [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] ([ICON_RESEARCH]) working in this complex.'
 WHERE Tag = 'TXT_KEY_WONDER_ROCKEFELLER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

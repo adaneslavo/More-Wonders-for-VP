@@ -1,52 +1,16 @@
-Once @Asterix Rage said Natural Wonders' models should be either pretty or there should be no new Natural Wonder. His dream slowly comes true thanks to @ghost toast. It's a pity he left the community before it happened.
-
-
 MW Changelog:
-- important:
-	- updated for VP 3.0!
-- new:
-	- new models for existing Natural Wonders (still in progress; by @ghost toast):
-		- Giant's Causeway;
-		- Dallol;
-	- reworked Bioluminescent Bay animation is now visible also in FoW (download new effects v5 or later by @ghost toast!);
-	- 2 new World Wonders:
-		- Aqueduct of Padre Tembleque (Renaissance Era - tier 2);
-		- Svalbard Global Seed Vault (Information Era - tier 1; art by @gwennog);
-	- 2 new standalone buildings strongly related to Tropical Fish resource (ideas in cooperation with @gwennog; art by @gwennog):
-		- Fletcher: gives new promotion Yerba de la Fleche which grants Archery units (new lua code) small chance to instakill an enemy with poison! (art by @gwennog); both players receive notifications when the unit is killed/dead;
-		- Seafood Station: has compatibility with Loisiana civ's Shrimp resource! (by @Hinin and @gwennog);
-	- new Natural Wonder Overview features:
-		- left clicking on Natural Wonder button now runs Natural Wonder popup window (finally!);
-		- hovering over question mark icon in Pedia column shows Pedia entry in form of a tooltip;
-		- additional info about NW abilities deleted from civilopedia (because popup finally works);
-	- now you can hide custom Natural Wonders' icons on Strategic View;
-- balance:
-	- Skara Brae now requires (as additional ORs) and boosts Rice and Maize;
-	- Tropical Fish is now revealed at Fishing (was Pottery);
-- fixes:
-	- Tropical Fish fixes:
-		- added missing industrial model for Tropical Fish;
-		- added missing boost to Tropical Fish from Bioluminescent Bay;
-	- added TechCityTrade value to all new resources (MINING for Sylvite, SAILING for Tropical Fish and PHYSICS for Tern Egg);
-	- deleted UCS reference;
-	- Mt. Fuji now might have maximum 1 snow adjacent (was unlimited);
-	- Mt. Fuji now might have maximum 2 mountains adjacent (was unlimited);
-	- Dallol now always on flat tile (was flat or hill);
-	- Salar has protection from Mountain attack (there was a situation when it was closed by mountains around);
-	- Revolutionary Museum now has updated splash image (upsy!);
-	- numerous text fixes (most important ones are mentioned):
-		- now Grand Mesa uses SILVER_FIST icon instead of WAR icon for supply boost;
-		- all supply modifiers now have their text revised to emphasize they are based on the population (local or global);
-		- now Natural Wonder popup says that all units get the promotion instead of new ones;
-		- Curiosity Rover now correctly mentions about global GAP boost (was local);
-		- moved Potala Palace text changes from MW to UCS;
-- miscellanous:
-	- another tweak to Natural Wonders Overview icon (by @gwennog);
-	- old Great Barrier Reef is now called "(unused)..." with changed color to grey;
-	- all new resources have additional info about their source (World Wonder, Natural Wonder) in help texts;
-	- moved all resource definitions out to the separate file;
-	- created new folders (Buildings) and cleaned up existing ones;
-	- prepared some new art for upcoming new Natural Wonders (Great Blue Hole) (by @gwennog);
-	- added some new code (currently unused) for upcoming new Natural Wonders (Great Blue Hole);
+- added:
+	- added brand new models for Giant's Causeway (with new colour), Mt. Everest, Lake Retba (now 3D), Dallol (now sort of 3D) and Bermuda Triangle;
+	- added 5 new Natural Wonders: Eye of the Sahara, Great Blue Hole, Galapagos, Ha Long Bay and Zhangjiajie;
+	- added new resource: Giant Tortoise exclusive for Galapagos;
+- changed:
+	- Grand Mesa now provides global Production bonus instead of local in capital;
+	- updated AssignStartingPlots.lua file for VP 3.7;
+- fixed:
+	- fixed Giant's Causeway's Tourism values;
+	- fixed multiple broken requirements related to Forest/Jungle ownership;
+	- fixed text issue with White Sands Missile Range;
+	- adaptation to latest VP versions;
+	- minor correction in the files;
 	
 

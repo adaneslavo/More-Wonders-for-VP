@@ -24,7 +24,9 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Mahaprasthanika Parva'),
 			('TXT_KEY_PROMOTION_CAUSEWAY',				'Curiosity'),
 			('TXT_KEY_PROMOTION_CAUSEWAY_HELP',			'+1[ICON_MOVES]Movement Point. +10% [ICON_WORKER] Work Rate.'),
 			('TXT_KEY_PROMOTION_MT_EVEREST',			'Roof of the World'),
-			('TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'Unit gains [ICON_TOURISM] [COLOR:255:230:85:255]for revealing tiles[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'Unit gains [ICON_TOURISM] [COLOR:255:230:85:255]for revealing tiles[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_HA_LONG',				'Descending Dragon'),
+			('TXT_KEY_PROMOTION_HA_LONG_HELP',			'Gain 80% of an Enemy Unit''s [ICON_STRENGTH]CS as a [ICON_CULTURE] Culture [COLOR:255:230:85:255]on Kill[ENDCOLOR]. +20%[ICON_STRENGTH]Defensive CS');
 
 INSERT INTO UnitPromotions 
 			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
@@ -34,13 +36,15 @@ VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTIO
 			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
 			('PROMOTION_DALLOL',			'TXT_KEY_PROMOTION_DALLOL',				'TXT_KEY_PROMOTION_DALLOL_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SIEGE',		'TXT_KEY_PROMOTION_DALLOL'),
 			('PROMOTION_CAUSEWAY',			'TXT_KEY_PROMOTION_CAUSEWAY',			'TXT_KEY_PROMOTION_CAUSEWAY_HELP',			'AS2D_IF_LEVELUP',	1,				0,					17,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_CAUSEWAY'),
-			('PROMOTION_MT_EVEREST',		'TXT_KEY_PROMOTION_MT_EVEREST',			'TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'AS2D_IF_LEVELUP',	1,				0,					19,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SCOUTING',	'TXT_KEY_PROMOTION_MT_EVEREST');
+			('PROMOTION_MT_EVEREST',		'TXT_KEY_PROMOTION_MT_EVEREST',			'TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'AS2D_IF_LEVELUP',	1,				0,					19,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SCOUTING',	'TXT_KEY_PROMOTION_MT_EVEREST'),
+			('PROMOTION_HA_LONG',			'TXT_KEY_PROMOTION_HA_LONG',			'TXT_KEY_PROMOTION_HA_LONG_HELP',			'AS2D_IF_LEVELUP',	1,				0,					18,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',		'TXT_KEY_PROMOTION_MT_EVEREST');
 
 UPDATE UnitPromotions SET DiploMissionInfluence = 10 WHERE Type = 'PROMOTION_ULURU';
 UPDATE UnitPromotions SET WorkRateMod = 25 WHERE Type = 'PROMOTION_SOLOMONS_MINES';
 UPDATE UnitPromotions SET ExtraNavalMovement = -3, PromotionDuration = 3 WHERE Type = 'PROMOTION_BERMUDA_TRIANGLE';
 UPDATE UnitPromotions SET RangedAttackModifier = 10 WHERE Type = 'PROMOTION_DALLOL';
 UPDATE UnitPromotions SET WorkRateMod = 10, MovesChange = 1 WHERE Type = 'PROMOTION_CAUSEWAY';
+UPDATE UnitPromotions SET OpenDefense = 20, RoughDefense = 20 WHERE Type = 'PROMOTION_HA_LONG';
 
 INSERT INTO UnitPromotions_Terrains
 			(PromotionType,			TerrainType,	DoubleMove)
@@ -49,6 +53,10 @@ VALUES		('PROMOTION_KAILASH',	'TERRAIN_HILL',	1);
 INSERT INTO UnitPromotions_YieldFromScouting
 			(PromotionType,				YieldType,			Yield)
 VALUES		('PROMOTION_MT_EVEREST',	'YIELD_TOURISM',	1);
+
+INSERT INTO UnitPromotions_YieldFromKills
+			(PromotionType,			YieldType,			Yield)
+VALUES		('PROMOTION_HA_LONG',	'YIELD_CULTURE',	80);
 
 DELETE FROM UnitPromotions_CivilianUnitType WHERE PromotionType = 'PROMOTION_SACRED_STEPS';
 
@@ -95,7 +103,8 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_SACRED_STEPS',		'UNITCOMBAT_INQUISITOR'),
 			('PROMOTION_SACRED_STEPS',		'UNITCOMBAT_ARCHAEOLOGIST'),
 			('PROMOTION_CAUSEWAY',			'UNITCOMBAT_ARCHAEOLOGIST'),
-			('PROMOTION_MT_EVEREST',		'UNITCOMBAT_RECON');
+			('PROMOTION_MT_EVEREST',		'UNITCOMBAT_RECON'),
+			('PROMOTION_HA_LONG',			'UNITCOMBAT_NAVALMELEE');
 --============================================--
 -- GREAT_WORKS
 --============================================--
@@ -119,9 +128,9 @@ VALUES		('BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'BUILDING_M
 INSERT INTO Buildings
 			(Type,							BuildingClass,						Description,						Civilopedia,								Help,										IconAtlas,							PortraitIndex,	PrereqTech,				Cost,	FaithCost,	NukeImmune, ConquestProb,	IsDummy)
 VALUES		('BUILDING_MT_PAEKTU',			'BUILDINGCLASS_MT_PAEKTU',			'TXT_KEY_BUILDING_MT_PAEKTU',		'TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',			'TXT_KEY_BUILDING_MT_PAEKTU_HELP',			'NATURAL_WONDERS_BUILDINGS_ATLAS',	0,				NULL,					-1,		0,			1,          100,			0),
-			('BUILDING_SCUBA_RESORT',		'BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	1,				'TECH_PLASTIC',			1000,	0,			0,          66,				1),
-			('BUILDING_BATHYSCAPHE_BAY',	'BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	2,				'TECH_REFRIGERATION',   1000,	0,			0,          66,				1),
-			('BUILDING_OCEAN_FACILITY',		'BUILDINGCLASS_OCEAN_FACILITY',		'TXT_KEY_BUILDING_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	3,				'TECH_BIOLOGY',			1000,	0,			0,          66,				1);
+			('BUILDING_SCUBA_RESORT',		'BUILDINGCLASS_SCUBA_RESORT',		'TXT_KEY_BUILDING_SCUBA_RESORT',	'TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	1,				'TECH_PLASTIC',			1000,	0,			0,          66,				0),
+			('BUILDING_BATHYSCAPHE_BAY',	'BUILDINGCLASS_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'NATURAL_WONDERS_BUILDINGS_ATLAS',	2,				'TECH_REFRIGERATION',   1000,	0,			0,          66,				0),
+			('BUILDING_OCEAN_FACILITY',		'BUILDINGCLASS_OCEAN_FACILITY',		'TXT_KEY_BUILDING_OCEAN_FACILITY',	'TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',		'NATURAL_WONDERS_BUILDINGS_ATLAS',	3,				'TECH_BIOLOGY',			1000,	0,			0,          66,				0);
 
 UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_MT_PAEKTU', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MT_PAEKTU';
 UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_SCUBA_RESORT';
@@ -208,7 +217,12 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_MT_KAILASH_DUMMY',		'TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		'BUILDING_MT_KAILASH_DUMMY'),
 			('BUILDINGCLASS_KILIMANJARO_DUMMY',		'TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		'BUILDING_KILIMANJARO_DUMMY'),
 			('BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				'BUILDING_ULURU_DUMMY'),
-			('BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			'BUILDING_BLUE_HOLE_DUMMY');
+			('BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			'BUILDING_BLUE_HOLE_DUMMY'),
+			('BUILDINGCLASS_GALAPAGOS_A_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_A_DUMMY',		'BUILDING_GALAPAGOS_A_DUMMY'),
+			('BUILDINGCLASS_GALAPAGOS_B_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		'BUILDING_GALAPAGOS_B_DUMMY'),
+			('BUILDINGCLASS_HA_LONG_A_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_A_DUMMY',			'BUILDING_HA_LONG_A_DUMMY'),
+			('BUILDINGCLASS_HA_LONG_B_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_B_DUMMY',			'BUILDING_HA_LONG_B_DUMMY'),
+			('BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDING_ZHANGJIAJIE_DUMMY');
 
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
@@ -242,7 +256,12 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_MT_KAILASH_DUMMY',		'BUILDINGCLASS_MT_KAILASH_DUMMY',		'TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_KILIMANJARO_DUMMY',		'BUILDINGCLASS_KILIMANJARO_DUMMY',		'TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_ULURU_DUMMY',			'BUILDINGCLASS_ULURU_DUMMY',			'TXT_KEY_BUILDING_ULURU_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_BLUE_HOLE_DUMMY',			'BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1);
+			('BUILDING_BLUE_HOLE_DUMMY',		'BUILDINGCLASS_BLUE_HOLE_DUMMY',		'TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_GALAPAGOS_A_DUMMY',		'BUILDINGCLASS_GALAPAGOS_A_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_A_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_GALAPAGOS_B_DUMMY',		'BUILDINGCLASS_GALAPAGOS_B_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_HA_LONG_A_DUMMY',		'BUILDINGCLASS_HA_LONG_A_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_HA_LONG_B_DUMMY',		'BUILDINGCLASS_HA_LONG_B_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
+			('BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -270,7 +289,12 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_MT_KAILASH_DUMMY',		'Mt. Kailash'),
 			('TXT_KEY_BUILDING_KILIMANJARO_DUMMY',		'Mt. Kilimanjaro'),
 			('TXT_KEY_BUILDING_ULURU_DUMMY',			'Uluru'),
-			('TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',			'Great Blue Hole');
+			('TXT_KEY_BUILDING_BLUE_HOLE_DUMMY',		'Great Blue Hole'),
+			('TXT_KEY_BUILDING_GALAPAGOS_A_DUMMY',		'Galapagos A'),
+			('TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		'Galapagos B'),
+			('TXT_KEY_BUILDING_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
+			('TXT_KEY_BUILDING_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
+			('TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'Zhangjiajie');
 
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_FUJI_1_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_FUJI_2_DUMMY';
@@ -282,8 +306,8 @@ UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY'
 UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
 UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY';
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
-UPDATE Buildings SET GlobalLandmarksTourismPercent = 10 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 6 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
+UPDATE Buildings SET GlobalLandmarksTourismPercent = 14 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
 UPDATE Buildings SET CultureMedianModifierGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
@@ -322,7 +346,7 @@ VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',			'YIELD_SCIENCE',	1),
 			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_GOLD',		2),
 			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',			'YIELD_CULTURE',	1);
 
-INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,			ResourceType,	YieldType,			Yield)
+INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,					ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_NEW_REEF_A_DUMMY',	Type,			'YIELD_SCIENCE',	1
 FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' and TechCityTrade = 'TECH_SAILING';
 
@@ -350,8 +374,7 @@ VALUES		('BUILDING_CRATER_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	10);
 
 INSERT INTO Building_UnitCombatProductionModifiers
 			(BuildingType,				UnitCombatType,				Modifier) 
-VALUES		('BUILDING_MESA_DUMMY',		'UNITCOMBAT_MOUNTED',		20),
-			('BUILDING_ULURU_DUMMY',	'UNITCOMBAT_DIPLOMACY',		20);
+VALUES		('BUILDING_ULURU_DUMMY',	'UNITCOMBAT_DIPLOMACY',		20);
 
 INSERT INTO Building_SpecialistYieldChanges
 			(BuildingType,				SpecialistType,			YieldType,			Yield) 
@@ -378,7 +401,9 @@ VALUES		('BUILDING_MT_KAILASH_DUMMY',		'BUILDINGCLASS_MONUMENT',		'YIELD_FAITH',
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_NUCLEAR_PLANT',	'YIELD_PRODUCTION',	1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_WIND_PLANT',		'YIELD_PRODUCTION',	1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_HYDRO_PLANT',	'YIELD_PRODUCTION',	1),
-            ('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_TIDAL_PLANT',	'YIELD_PRODUCTION',	1);
+            ('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_TIDAL_PLANT',	'YIELD_PRODUCTION',	1),
+			('BUILDING_GALAPAGOS_A_DUMMY',		'BUILDINGCLASS_WRITERS_GUILD',	'YIELD_SCIENCE',	4),
+			('BUILDING_GALAPAGOS_B_DUMMY',		'BUILDINGCLASS_WRITERS_GUILD',	'YIELD_SCIENCE',	2);
 
 INSERT INTO Building_InstantYield
 			(BuildingType,				YieldType,		Yield) 
@@ -387,15 +412,22 @@ VALUES		('BUILDING_MT_SINAI_DUMMY',	'YIELD_FAITH',	100);
 -- POLICIES
 --============================================--
 INSERT INTO Policies 
-			(Type,					    Description)
-VALUES		('POLICY_RETBA_DUMMY', 	    'TXT_KEY_POLICY_RETBA_DUMMY'),
-			('POLICY_LUMI_BAY_DUMMY', 	'TXT_KEY_POLICY_LUMI_BAY_DUMMY');
+			(Type,							Description)
+VALUES		('POLICY_RETBA_DUMMY', 			'TXT_KEY_POLICY_RETBA_DUMMY'),
+			('POLICY_LUMI_BAY_DUMMY', 		'TXT_KEY_POLICY_LUMI_BAY_DUMMY'),
+			('POLICY_MESA_DUMMY',			'TXT_KEY_POLICY_MESA_DUMMY'),
+			('POLICY_HA_LONG_A_DUMMY', 		'TXT_KEY_POLICY_HA_LONG_A_DUMMY'),
+			('POLICY_HA_LONG_B_DUMMY', 		'TXT_KEY_POLICY_HA_LONG_B_DUMMY'),
+			('POLICY_ZHANGJIAJIE_DUMMY', 	'TXT_KEY_POLICY_ZHANGJIAJIE_DUMMY');
 
 INSERT INTO Language_en_US 
-			(Tag,							    Text) 
-VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',	    'Lake Retba'),
-			('TXT_KEY_POLICY_LUMI_BAY_DUMMY',	'Bioluminescent Bay');
-
+			(Tag,									Text) 
+VALUES		('TXT_KEY_POLICY_RETBA_DUMMY',			'Lake Retba'),
+			('TXT_KEY_POLICY_LUMI_BAY_DUMMY',		'Bioluminescent Bay'),
+			('TXT_KEY_POLICY_MESA_DUMMY',			'Grand Mesa'),
+			('TXT_KEY_POLICY_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
+			('TXT_KEY_POLICY_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
+			('TXT_KEY_POLICY_ZHANGJIAJIE_DUMMY',	'Zhangjiajie');
 
 INSERT INTO Policy_WLTKDYieldMod 
 			(PolicyType, 			YieldType, 		Yield)
@@ -405,8 +437,224 @@ INSERT INTO Policy_YieldFromBirth
 			(PolicyType, 			YieldType, 			Yield)
 VALUES 		('POLICY_RETBA_DUMMY', 	'YIELD_TOURISM', 	15);
 
+INSERT INTO Policy_UnitCombatProductionModifiers
+			(PolicyType, 				UnitCombatType, 			ProductionModifier)
+VALUES 		('POLICY_MESA_DUMMY', 		'UNITCOMBAT_MOUNTED', 		20),
+			('POLICY_HA_LONG_A_DUMMY', 	'UNITCOMBAT_NAVALMELEE', 	5),
+			('POLICY_HA_LONG_B_DUMMY', 	'UNITCOMBAT_NAVALMELEE', 	5);
+
+INSERT INTO Policy_ArtifactYieldChanges
+			(PolicyType, 				YieldType, 			Yield)
+VALUES 		('POLICY_HA_LONG_B_DUMMY', 	'YIELD_CULTURE', 	1);
+
+INSERT INTO Policy_YieldGPExpend
+			(PolicyType, 					YieldType, 			Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_TOURISM', 	50);
+
+INSERT INTO Policy_ArtYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
+
+INSERT INTO Policy_LitYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
+
+INSERT INTO Policy_MusicYieldChanges
+			(PolicyType, 					YieldType, 					Yield)
+VALUES 		('POLICY_ZHANGJIAJIE_DUMMY', 	'YIELD_GOLDEN_AGE_POINTS', 	2);
+
 INSERT INTO Policy_TourismOnUnitCreation	(PolicyType,				UnitClassType,	Tourism)
 SELECT DISTINCT								'POLICY_LUMI_BAY_DUMMY',	Class,			25
 FROM Units WHERE CombatClass in ('UNITCOMBAT_SETTLER', 'UNITCOMBAT_WORKER', 'UNITCOMBAT_WORKBOAT', 'UNITCOMBAT_CARGO', 'UNITCOMBAT_CARAVAN', 'UNITCOMBAT_INQUISITOR', 'UNITCOMBAT_MISSIONARY', 'UNITCOMBAT_DIPLOMACY', 'UNITCOMBAT_SPECIAL_PEOPLE', 'UNITCOMBAT_SPACESHIP_PART', 'UNITCOMBAT_ARCHAEOLOGIST');
+--============================================--
+-- IMPROVEMENTS
+--============================================--
+INSERT INTO Improvement_Yields 
+			(ImprovementType,							YieldType,			Yield)
+SELECT		'IMPROVEMENT_FISHING_BOATS_GBH', 			YieldType,			Yield
+FROM Improvement_Yields WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Belief_ImprovementYieldChanges 
+			(BeliefType,	ImprovementType,					YieldType,		Yield)
+SELECT		BeliefType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Belief_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Building_ImprovementYieldChanges 
+			(BuildingType,	ImprovementType,					YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Building_ImprovementYieldChangesGlobal
+			(BuildingType,	ImprovementType,					YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChangesGlobal WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO EventChoice_ImprovementYieldChange
+			(EventChoiceType,	ImprovementType,					YieldType,		YieldChange)
+SELECT		EventChoiceType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		YieldChange
+FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Improvement_AdjacentImprovementYieldChanges
+			(ImprovementType,	OtherImprovementType,				YieldType,		Yield)
+SELECT		ImprovementType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Policy_ImprovementYieldChanges 
+			(PolicyType,	ImprovementType,					YieldType,		Yield)
+SELECT		PolicyType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Policy_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+INSERT INTO Trait_ImprovementYieldChanges 
+			(TraitType,		ImprovementType,					YieldType,		Yield)
+SELECT		TraitType,		'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
+FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+
+
+INSERT INTO Improvement_Yields 
+			(ImprovementType,							YieldType,			Yield)
+SELECT		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 		YieldType,			Yield
+FROM Improvement_Yields WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Belief_ImprovementYieldChanges 
+			(BeliefType,	ImprovementType,						YieldType,		Yield)
+SELECT		BeliefType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Belief_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Building_ImprovementYieldChanges 
+			(BuildingType,	ImprovementType,						YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Building_ImprovementYieldChangesGlobal
+			(BuildingType,	ImprovementType,						YieldType,		Yield)
+SELECT		BuildingType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Building_ImprovementYieldChangesGlobal WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO EventChoice_ImprovementYieldChange
+			(EventChoiceType,	ImprovementType,						YieldType,		YieldChange)
+SELECT		EventChoiceType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		YieldChange
+FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Improvement_AdjacentImprovementYieldChanges
+			(ImprovementType,	OtherImprovementType,					YieldType,		Yield)
+SELECT		ImprovementType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Policy_ImprovementYieldChanges 
+			(PolicyType,	ImprovementType,						YieldType,		Yield)
+SELECT		PolicyType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Policy_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+INSERT INTO Trait_ImprovementYieldChanges 
+			(TraitType,		ImprovementType,						YieldType,		Yield)
+SELECT		TraitType,		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
+FROM Trait_ImprovementYieldChanges WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+
+
+
+CREATE TRIGGER GBH_IY
+AFTER INSERT ON Improvement_Yields
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Improvement_Yields (ImprovementType, YieldType, Yield)
+    SELECT DISTINCT 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Improvement_Yields (ImprovementType, YieldType, Yield)
+    SELECT DISTINCT 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Belief_IYC
+AFTER INSERT ON Belief_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Belief_ImprovementYieldChanges (BeliefType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BeliefType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Belief_ImprovementYieldChanges (BeliefType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BeliefType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Building_IYC
+AFTER INSERT ON Building_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Building_ImprovementYieldChanges (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Building_IYCG
+AFTER INSERT ON Building_ImprovementYieldChangesGlobal
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Building_ImprovementYieldChangesGlobal (BuildingType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.BuildingType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_EventChoice_IYC
+AFTER INSERT ON EventChoice_ImprovementYieldChange
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO EventChoice_ImprovementYieldChange (EventChoiceType, ImprovementType, YieldType, YieldChange)
+    SELECT DISTINCT NEW.EventChoiceType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.YieldChange
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO EventChoice_ImprovementYieldChange (EventChoiceType, ImprovementType, YieldType, YieldChange)
+    SELECT DISTINCT NEW.EventChoiceType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.YieldChange
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Improvement_AIYC
+AFTER INSERT ON Improvement_AdjacentImprovementYieldChanges
+WHEN NEW.OtherImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Policy_IYC
+AFTER INSERT ON Policy_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Policy_ImprovementYieldChanges (PolicyType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.PolicyType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Policy_ImprovementYieldChanges (PolicyType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.PolicyType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
+
+CREATE TRIGGER GBH_Trait_IYC
+AFTER INSERT ON Trait_ImprovementYieldChanges
+WHEN NEW.ImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
+BEGIN
+    INSERT INTO Trait_ImprovementYieldChanges (TraitType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.TraitType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+
+    INSERT INTO Trait_ImprovementYieldChanges (TraitType, ImprovementType, YieldType, Yield)
+    SELECT DISTINCT NEW.TraitType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+END;
 --------------------------------------------------------------
 --------------------------------------------------------------

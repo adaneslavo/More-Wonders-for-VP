@@ -52,7 +52,10 @@ VALUES		('TXT_KEY_CIV5_FEATURES_CRATER_HELP',			'One of the biggests, and the su
 			('TXT_KEY_CIV5_FEATURES_DALLOL_HELP',			'Flat volcanoes, creating unusual lake structures formed by huge african rifts.'),
 			('TXT_KEY_CIV5_FEATURES_MT_PAEKTU_HELP',		'Holy mountain of both Korean nations, and the highest volcanic lake of all known.'),
 			('TXT_KEY_CIV5_FEATURES_EYE_OF_SAHARA_HELP',	'Huge sand formation of unknown origin, which is seen in its full shape only from the air or space.'),
-			('TXT_KEY_CIV5_FEATURES_BLUE_HOLE_HELP',		'Giant marine sinkhole surrounded by coral reefs and atolls.');
+			('TXT_KEY_CIV5_FEATURES_BLUE_HOLE_HELP',		'Giant marine sinkhole surrounded by coral reefs and atolls.'),
+			('TXT_KEY_CIV5_FEATURES_GALAPAGOS_HELP',		'Isolated archipelago with endemic flora and fauna.'),
+			('TXT_KEY_CIV5_FEATURES_HA_LONG_HELP',			'Bay with enormous amount of islands and unique rock formations.'),
+			('TXT_KEY_CIV5_FEATURES_ZHANGJIAJIE_HELP',		'Unique rock formations being an inspiration for the unique scenes in science-fiction movie.');
 -----------------------------------------------------------
 -- Civilopedia replacements (deleted texts out of date)
 -----------------------------------------------------------

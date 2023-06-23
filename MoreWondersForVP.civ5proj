@@ -100,11 +100,6 @@ Currently compatible with 2.7.</Description>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>2.NaturalWonders/SQL/UniqueNaturalWondersAbilities.sql</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/XML/NaturalWondersParameters.xml</FileName>
       </Action>
       <Action>
@@ -116,6 +111,11 @@ Currently compatible with 2.7.</Description>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/XML/NaturalWondersTexts.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>2.NaturalWonders/SQL/UniqueNaturalWondersAbilities.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -2895,51 +2895,15 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_b_ground_diff.dds">
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_triangle.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_b_ground_h.dds">
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_triangle_1.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_c_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_c_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_ground_diff.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_ground_h.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_b.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_b.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_c.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\feature_bermuda_c.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_triangle_1.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2975,19 +2939,23 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\blank.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_sref.dds">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_3d.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.fxsxml">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_3d.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\feature_dallol.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\Dallol\Model\dallol_acid_geyser textures.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2995,7 +2963,59 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\blank.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\eye_of_the_sahara_3_tile_version.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\eye_of_the_sahara_3_tile_version.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\eye_of_the_sahara_3_tile_version.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\no_hight_decal.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\sv_Sahara_Eye.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos_2.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos_2.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos_tile_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\Model\galapagos_tile_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\sv_Galapagos_A.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Galapagos\sv_Galapagos_B.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3083,19 +3103,83 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\feature_retba.fxsxml">
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\great blue hole.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\feature_retba.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\retba_ground_diff.dds">
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\retba_ground_h.dds">
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_Boats_early.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_Boats_early.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_Boats_ind.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_Boats_ind.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_oil_platform.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model\Great_blue_hole_oil_platform.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\GreatBlueHole\sv_Blue_Hole.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\Model\halong_bay_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\Model\Halong_Bay_1.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\Model\Halong_Bay_1.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\Model\Halong_Bay_2.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\Model\Halong_Bay_2.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\sv_Ha_Long_A.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\HaLongBay\sv_Ha_Long_B.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\Lake_Retba.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\Lake_Retba.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\LakeRetba\Model\Lake_Retba_d.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3107,19 +3191,19 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\feature_mt_everest.fxsxml">
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\Mt_Everest.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\feature_mt_everest.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\Mt_Everest.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_diff.dds">
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_diff_1.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_sref.dds">
+    <Content Include="2.NaturalWonders\Art\Models\MountEverest\Model\mt_everest_diff_2.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3252,6 +3336,26 @@ Currently compatible with 2.7.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\SalarDeUyuni\sv_Salar_S.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\feature_zhangjiajie.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie_Jungle1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\zhamgiajie_stone.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\sv_Zhangjiajie.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3415,6 +3519,46 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Resources\Models\GiantTortoise\fx_triggers_tortis_camp.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_cn.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_cn.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_hb.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_hb.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_pl.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_camp_pl.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_resource.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Resources\Models\GiantTortoise\tortoise_resource.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Resources\Models\TropicalFish\fish_tropical.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3495,6 +3639,10 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Resources\sv_icons\sv_Tortoise.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Resources\sv_icons\sv_Tropical_Fish.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3543,10 +3691,13 @@ Currently compatible with 2.7.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\Dallol\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Galapagos\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\" />
     <Folder Include="2.NaturalWonders\Art\Models\GiantsCauseway\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\" />
     <Folder Include="2.NaturalWonders\Art\Models\GreatBarrierReef\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBlueHole\Model" />
+    <Folder Include="2.NaturalWonders\Art\Models\HaLongBay\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\Matterhorn\" />
@@ -3555,8 +3706,13 @@ Currently compatible with 2.7.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountPaektu\Model\textures\" />
+    <Folder Include="2.NaturalWonders\Art\Models\GreatBlueHole" />
+    <Folder Include="2.NaturalWonders\Art\Models\Galapagos" />
+    <Folder Include="2.NaturalWonders\Art\Models\HaLongBay" />
+    <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model" />
     <Folder Include="2.NaturalWonders\Art\OverviewPanel" />
     <Folder Include="2.NaturalWonders\DefaultFiles" />
     <Folder Include="2.NaturalWonders\Art" />
@@ -3574,6 +3730,7 @@ Currently compatible with 2.7.</Description>
     <Folder Include="Resources\Models" />
     <Folder Include="Resources\FontIcons" />
     <Folder Include="Resources\Atlases" />
+    <Folder Include="Resources\Models\GiantTortoise" />
     <Folder Include="Resources\sv_icons" />
     <Folder Include="Resources\Models\TropicalFish" />
   </ItemGroup>

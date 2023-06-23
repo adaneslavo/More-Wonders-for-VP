@@ -91,6 +91,9 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_MT_EVEREST">
 			<Text>[COLOR_YIELD_GOLD]Recon[ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_PROMOTION_DETAILS_PROMOTION_HA_LONG">
+			<Text>[COLOR_YIELD_GOLD]Naval[ENDCOLOR]</Text>
+		</Row>
 
 
 
@@ -105,13 +108,13 @@
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD]/all Fishing Boats</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CRATER">
-			<Text>[NEWLINE][ICON_BULLET]10 [ICON_GOLDEN_AGE] in Capital every time you research a Technology[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
+			<Text>[NEWLINE][ICON_BULLET]10 [ICON_GOLDEN_AGE] every time you research a [ICON_RESEARCH] Technology[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_FUJI">
 			<Text>[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_ARTIST] in Capital[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_WRITER] in Capital[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN] in Capital</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MESA">
-			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION] towards Mounted Military Units in Capital[NEWLINE][ICON_BULLET]+1[ICON_SILVER_FIST][ICON_SILVER_FIST] Military Supply Cap</Text>
+			<Text>[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] towards Mounted Military Units[NEWLINE][ICON_BULLET]+1[ICON_SILVER_FIST][ICON_SILVER_FIST] Military Supply Cap</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_VOLCANO">
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD], +1 [ICON_RESEARCH]/all Scientists[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_SCIENTIST] in Capital</Text>
@@ -135,7 +138,7 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_SINAI">
-			<Text>[NEWLINE][ICON_BULLET]grants 50 [ICON_PEACE] every time you gain possesion of this Natural Wonder[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
+			<Text>[NEWLINE][ICON_BULLET]50 [ICON_PEACE] every time you gain possesion of this Natural Wonder[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_KAILASH">
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_PEACE]/all Monuments and Temples</Text>
@@ -159,16 +162,16 @@
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PRODUCTION]/all Factories and (any) Power Plants[NEWLINE][ICON_BULLET]+3% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_A">
-			<Text>[NEWLINE][ICON_BULLET]+25% [ICON_TOURISM][ICON_TOURISM]/all Landmarks</Text>
+			<Text>[NEWLINE][ICON_BULLET]+6% [ICON_TOURISM][ICON_TOURISM]/all Landmarks</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CAUSEWAY_B">
-			<Text>[NEWLINE][ICON_BULLET]+25% [ICON_TOURISM][ICON_TOURISM]/all Landmarks</Text>
+			<Text>[NEWLINE][ICON_BULLET]+14% [ICON_TOURISM][ICON_TOURISM]/all Landmarks</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_EVEREST">
 			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_TOURISM][ICON_TOURISM]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_RETBA">
-			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD][NEWLINE][ICON_BULLET]+10% [ICON_FOOD][ICON_FOOD] during [ICON_HAPPINESS_1] WLTKD[NEWLINE][ICON_BULLET]15 [ICON_TOURISM] for every [ICON_CITIZEN] Birth</Text>
+			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD][NEWLINE][ICON_BULLET]+10% [ICON_FOOD][ICON_FOOD] during [ICON_HAPPINESS_1] WLTKD[NEWLINE][ICON_BULLET]15 [ICON_TOURISM] every time a [ICON_CITIZEN] Citizen is born</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
 			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
@@ -180,7 +183,7 @@
 			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
-			<Text>[NEWLINE][ICON_BULLET]+1[ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]25 [ICON_TOURISM] for every Civilian unit creation</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]25 [ICON_TOURISM] every time a Civilian unit is created</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
 			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SYLVITE][NEWLINE][ICON_BULLET]-5% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom</Text>
@@ -189,16 +192,31 @@
 			<Text>[NEWLINE][ICON_BULLET]first owner gets unique building in the City nearby: [COLOR_YIELD_FOOD]Altar of the Born under the Mountain[ENDCOLOR] with unique [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR], and other bonuses</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_A">
-			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2 [ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 [ICON_TOURISM] at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_B">
-			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2 [ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 [ICON_TOURISM] at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EYE_OF_SAHARA_C">
-			<Text>[NEWLINE][ICON_BULLET]+1[ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2[ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_CULTURE] at [COLOR_CYAN]Masonry[ENDCOLOR][NEWLINE][ICON_BULLET]+2 [ICON_TOURISM] at [COLOR_CYAN]Archaeology[ENDCOLOR][NEWLINE][ICON_BULLET]+5 [ICON_TOURISM] at [COLOR_CYAN]Satellites[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BLUE_HOLE">
 			<Text>[NEWLINE][ICON_BULLET]can be improved with [COLOR_POSITIVE_TEXT]Fishing Boat[ENDCOLOR] or [COLOR_POSITIVE_TEXT]Offshore Platform[ENDCOLOR][NEWLINE][ICON_BULLET]allows construction of 3 late game coastal city buildings: [COLOR_YIELD_FOOD]Scuba Diving Resort[ENDCOLOR], [COLOR_YIELD_FOOD]Deep Ocean Research Facility[ENDCOLOR] and [COLOR_YIELD_FOOD]Bathyscaphe Docking Bay[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_GALAPAGOS_A">
+			<Text>[NEWLINE][ICON_BULLET]+4 [ICON_RESEARCH] to all Writers' Guilds</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_GALAPAGOS_B">
+			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_RESEARCH] to all Writers' Guilds</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_HA_LONG_A">
+			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_PRODUCTION][ICON_PRODUCTION] towards Naval Melee Units[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_HA_LONG_B">
+			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_PRODUCTION][ICON_PRODUCTION] towards Naval Melee Units[NEWLINE][ICON_BULLET]+1 [ICON CULTURE] to all [ICON_GREAT_WORK] Artifacts</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_ZHANGJIAJIE">
+			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]50 [ICON_TOURISM] every time a [ICON_GREAT_PEOPLE] Great Person is expended</Text>
 		</Row>
 
 
@@ -307,6 +325,21 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_BLUE_HOLE">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_GALAPAGOS_A">
+			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise adjacent to its tiles</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_GALAPAGOS_B">
+			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise adjacent to its tiles</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_HA_LONG_A">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_HA_LONG_B">
+			<Text></Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_ZHANGJIAJIE">
 			<Text></Text>
 		</Row>
 
@@ -418,6 +451,22 @@
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_BLUE_HOLE">
 			<Text>"Scuba divers and snorkelers have been cruising the surface waters for decades, but few have dared to venture deeper and explore what lies beyond the blackness."[NEWLINE] -  Steve Cameron and Rebecca Wilkin[NEWLINE]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_GALAPAGOS_A">
+			<Text>"The archipelago is a little world within itself, or rather a satellite attached to America, whence it has derived a few stray colonists, and has received the general character of its indigenous population."[NEWLINE] -  Charles Darwin[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_GALAPAGOS_B">
+			<Text>"The archipelago is a little world within itself, or rather a satellite attached to America, whence it has derived a few stray colonists, and has received the general character of its indigenous population."[NEWLINE] -  Charles Darwin[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_HA_LONG_A">
+			<Text>"If you don't like my ocean don't fish in my sea. Stay out of my valley and let my mountain be."[NEWLINE] - Ma Rainey[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_HA_LONG_B">
+			<Text>"If you don't like my ocean don't fish in my sea. Stay out of my valley and let my mountain be."[NEWLINE] - Ma Rainey[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_QUOTE_FEATURE_ZHANGJIAJIE">
+			<Text>"Mountains teach that not everything in this world can be rationally explained."[NEWLINE] - Aleksander Lwow[NEWLINE]</Text>
+		</Row>
+		
 
 
 
@@ -597,6 +646,44 @@
 			<Gender>neuter:no_article</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_FEATURES_BLUE_HOLE_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_GALAPAGOS_A">
+			<Text>Galapagos (big)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_GALAPAGOS_B">
+			<Text>Galapagos (small)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_GALAPAGOS_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_HA_LONG_A">
+			<Text>Ha Long Bay (primary)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_FEATURE_HA_LONG_B">
+			<Text>Ha Long Bay (secondary)</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_HA_LONG_TEXT">
+			<Text>TODO</Text>
+		</Row>
+
+
+
+		<Row Tag="TXT_KEY_FEATURE_ZHANGJIAJIE">
+			<Text>Zhangjiajie</Text>
+			<Gender>neuter:no_article</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_ZHANGJIAJIE_TEXT">
 			<Text>TODO</Text>
 		</Row>
 	</Language_en_US>

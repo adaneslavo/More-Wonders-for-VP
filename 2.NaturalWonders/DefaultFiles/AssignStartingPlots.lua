@@ -182,7 +182,7 @@ function AssignStartingPlots.Create()
 		AttemptToPlaceSmallStrategicAtPlot = AssignStartingPlots.AttemptToPlaceSmallStrategicAtPlot,
 		FindFallbackForUnmatchedRegionPriority = AssignStartingPlots.FindFallbackForUnmatchedRegionPriority,
 		AddStrategicBalanceResources = AssignStartingPlots.AddStrategicBalanceResources,
-		AttemptToPlaceForestAtGrassPlot = AssignStartingPlots.AttemptToPlaceForestAtGrassPlot,
+		AttemptToPlaceCattleAtGrassPlot = AssignStartingPlots.AttemptToPlaceCattleAtGrassPlot,
 		AttemptToPlaceStoneAtGrassPlot = AssignStartingPlots.AttemptToPlaceStoneAtGrassPlot,
 		NormalizeStartLocation = AssignStartingPlots.NormalizeStartLocation,
 		NormalizeTeamLocations = AssignStartingPlots.NormalizeTeamLocations,
@@ -4228,32 +4228,33 @@ function AssignStartingPlots:AddStrategicBalanceResources(region_number)
 
 	if table.maxn(iron_list) > 0 then
 		shuf_list = GetShuffledCopyOfTable(iron_list)
-		iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.iron_ID, iron_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
+		local iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.iron_ID, iron_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
 		if iNumLeftToPlace == 0 then
 			placed_iron = true;
 		end
 	end
 	if table.maxn(horse_list) > 0 then
 		shuf_list = GetShuffledCopyOfTable(horse_list)
-		iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.horse_ID, horse_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
+		local iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.horse_ID, horse_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
 		if iNumLeftToPlace == 0 then
 			placed_horse = true;
 		end
 	end
 	if placed_iron == false and table.maxn(iron_fallback) > 0 then
 		shuf_list = GetShuffledCopyOfTable(iron_fallback)
-		iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.iron_ID, iron_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
+		local iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.iron_ID, iron_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
 	end
 	if placed_horse == false and table.maxn(horse_fallback) > 0 then
 		shuf_list = GetShuffledCopyOfTable(horse_fallback)
-		iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.horse_ID, horse_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
+		local iNumLeftToPlace = self:PlaceSpecificNumberOfResources(self.horse_ID, horse_amt, 1, 1, ImpactLayers.LAYER_NONE, 0, 0, shuf_list);
 	end
 end
 ------------------------------------------------------------------------------
-function AssignStartingPlots:AttemptToPlaceForestAtGrassPlot(x, y)
+function AssignStartingPlots:AttemptToPlaceCattleAtGrassPlot(x, y)
 	-- Function modified May 2011 to boost production at heavy grass starts. - BT
 	-- Now placing Stone instead of Cows. Returns true if Stone is placed.
 	-- Now placing Forest instead of Stone. -- September 2020, azum4roll
+	-- Now placing Cattle instead of Forest. We've gone full circle! -- June 2023, azum4roll
 	--print("-"); print("Attempting to place Forest at: ", x, y);
 	local plot = Map.GetPlot(x, y);
 	if plot == nil then
@@ -4269,9 +4270,9 @@ function AssignStartingPlots:AttemptToPlaceForestAtGrassPlot(x, y)
 		local featureType = plot:GetFeatureType()
 		if featureType == FeatureTypes.NO_FEATURE then
 			local terrainType = plot:GetTerrainType()
-			if terrainType == TerrainTypes.TERRAIN_GRASS then -- Place Forest
-				plot:SetFeatureType(FeatureTypes.FEATURE_FOREST, -1);
-				--print("Placed Forest.");
+			if terrainType == TerrainTypes.TERRAIN_GRASS then -- Place Cattle
+				plot:SetResourceType(self.cow_ID, 1);
+				--print("Placed Cattle.");
 				return true
 			end
 		end
@@ -4526,7 +4527,6 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 
 	for loop, plot_adjustments in ipairs(search_table) do
 		local searchX, searchY = self:ApplyHexAdjustment(x, y, plot_adjustments)
-		local plot = Map.GetPlot(x, y);
 		--
 		--
 		if searchX < 0 or searchX >= iW or searchY < 0 or searchY >= iH then
@@ -4668,6 +4668,7 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 	local innerHammerScore = (4 * innerHills) + (2 * innerForest) + innerOneHammer;
 	local outerHammerScore = (2 * outerHills) + outerForest + outerOneHammer;
 	local earlyHammerScore = (2 * innerForest) + outerForest + innerOneHammer + outerOneHammer;
+	local randomized_first_ring_adjustments, randomized_second_ring_adjustments, randomized_third_ring_adjustments;
 	-- If drastic shortage, attempt to add a hill to first ring.
 	if (outerHammerScore < 8 and innerHammerScore < 2) or innerHammerScore == 0 then -- Change a first ring plot to Hills.
 		if isEvenY then
@@ -4733,7 +4734,6 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 			local plot_adjustments = randomized_second_ring_adjustments[attempt];
 			local searchX, searchY = self:ApplyHexAdjustment(x, y, plot_adjustments)
 			-- Attempt to place a Forest at the currently chosen plot.
-			local plot = Map.GetPlot(searchX, searchY);
 			if plot:GetResourceType(-1) == -1 then -- No resource here, safe to proceed.
 				local plotType = plot:GetPlotType();
 				local terrainType = plot:GetTerrainType();
@@ -4796,6 +4796,7 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 		local currentY = y;
 		for direction_index = 1, 6 do
 			for plot_to_handle = 1, ripple_radius do
+				local plot_adjustments, nextX, nextY;
 				if currentY / 2 > math.floor(currentY / 2) then
 					plot_adjustments = odd[direction_index];
 				else
@@ -4859,7 +4860,6 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 		print("-");
 
 		local innerPlaced, outerPlaced = 0, 0;
-		local randomized_first_ring_adjustments, randomized_second_ring_adjustments, randomized_third_ring_adjustments;
 		if isEvenY then
 			randomized_first_ring_adjustments = GetShuffledCopyOfTable(self.firstRingYIsEven);
 			randomized_second_ring_adjustments = GetShuffledCopyOfTable(self.secondRingYIsEven);
@@ -4873,7 +4873,6 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 		local tried_all_second_ring = false;
 		local tried_all_third_ring = false;
 		local allow_oasis = true; -- Permanent flag. (We don't want to place more than one Oasis per location).
-		local placedOasis; -- Records returning result from each attempt.
 		while iNumFoodBonusNeeded > 0 do
 			if ((innerPlaced < 2 and innerCanHaveBonus > 0) or (self.legStart and innerPlaced < 3 and innerCanHaveBonus > 0))
 			  and tried_all_first_ring == false then
@@ -4937,15 +4936,15 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 						tried_all_third_ring = true;
 					end
 				end
-				
 			else -- Tried everywhere, have to give up.
-				break				
+				break
 			end
 		end
 	end
 
 	-- Check for heavy grass and light plains. Adding Stone if grass count is high and plains count is low. - May 2011, BT
 	-- Changed to check for only FLAT grass/plains and add forests instead. - September 2020, azum4roll
+	-- Add Cattle instead. - June 2023, azum4roll
 	local iNumStoneNeeded = 0;
 	if iNumGrass >= 9 and iNumPlains == 0 then
 		iNumStoneNeeded = 2;
@@ -4954,7 +4953,6 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 	end
 	if iNumStoneNeeded > 0 then -- Add Forest to this grass start.
 		local stonePlaced, innerPlaced = 0, 0;
-		local randomized_first_ring_adjustments, randomized_second_ring_adjustments;
 		if isEvenY then
 			randomized_first_ring_adjustments = GetShuffledCopyOfTable(self.firstRingYIsEven);
 			randomized_second_ring_adjustments = GetShuffledCopyOfTable(self.secondRingYIsEven);
@@ -4970,10 +4968,10 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 				for attempt = 1, 6 do
 					local plot_adjustments = randomized_first_ring_adjustments[attempt];
 					local searchX, searchY = self:ApplyHexAdjustment(x, y, plot_adjustments)
-					-- Attempt to place Forest at the currently chosen plot.
-					local placedBonus = self:AttemptToPlaceForestAtGrassPlot(searchX, searchY);
+					-- Attempt to place Cattle at the currently chosen plot.
+					local placedBonus = self:AttemptToPlaceCattleAtGrassPlot(searchX, searchY);
 					if placedBonus == true then
-						print("Placed Forest in first ring at ", searchX, searchY);
+						print("Placed Cattle in first ring at ", searchX, searchY);
 						innerPlaced = innerPlaced + 1;
 						iNumStoneNeeded = iNumStoneNeeded - 1;
 						break
@@ -4987,10 +4985,10 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 				for attempt = 1, 12 do
 					local plot_adjustments = randomized_second_ring_adjustments[attempt];
 					local searchX, searchY = self:ApplyHexAdjustment(x, y, plot_adjustments)
-					-- Attempt to place Forest at the currently chosen plot.
-					local placedBonus = self:AttemptToPlaceForestAtGrassPlot(searchX, searchY);
+					-- Attempt to place Cattle at the currently chosen plot.
+					local placedBonus = self:AttemptToPlaceCattleAtGrassPlot(searchX, searchY);
 					if placedBonus == true then
-						print("Placed Forest in second ring at ", searchX, searchY);
+						print("Placed Cattle in second ring at ", searchX, searchY);
 						iNumStoneNeeded = iNumStoneNeeded - 1;
 						break
 					elseif attempt == 12 then
@@ -5003,7 +5001,7 @@ function AssignStartingPlots:NormalizeStartLocation(region_number)
 			end
 		end
 	end
-	
+
 	-- Record conditions at this start location.
 	local results_table = {alongOcean, nextToLake, isRiver, nearRiver, nearMountain, forestCount, jungleCount, tundraCount, desertCount};
 	self.startLocationConditions[region_number] = results_table;
@@ -5857,7 +5855,6 @@ function AssignStartingPlots:ExamineCandidatePlotForNaturalWondersEligibility(x,
 	if self:ExaminePlotForNaturalWondersEligibility(x, y) == false then
 		return false
 	end
-
 	-- local iW, iH = Map.GetGridSize();
 	-- Now loop through adjacent plots. Using Map.PlotDirection() in combination with
 	-- direction types, an alternate first-ring hex adjustment method, instead of the
@@ -5882,6 +5879,15 @@ function AssignStartingPlots:CanBeThisNaturalWonderType(x, y, wn, rn)
 	-- Checks a candidate plot for eligibility to host the supplied wonder type.
 	-- "rn" = the row number for this wonder type within the xml Placement data table.
 	local plot = Map.GetPlot(x, y);
+
+	-- Check whether adjacent plots are valid
+	for loop, direction in ipairs(self.direction_types) do
+		local adjPlot = Map.PlotDirection(x, y, direction);
+		if adjPlot == nil then
+			return
+		end
+	end
+
 	-- Use Custom Eligibility method if indicated.
 	if self.EligibilityMethodNumber[wn] ~= -1 then
 		local method_number = self.EligibilityMethodNumber[wn];
@@ -6469,7 +6475,7 @@ function AssignStartingPlots:GenerateNaturalWondersCandidatePlotLists(target_num
 	self.wonder_list = table.fill(-1, self.iNumNW);
 	local next_wonder_number = 1;
 	for row in GameInfo.Features() do
-		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then -- adan_eslavo
+		if (row.NaturalWonder == true or row.PseudoNaturalWonder == 1) then
 			self.wonder_list[next_wonder_number] = row.Type;
 			next_wonder_number = next_wonder_number + 1;
 		end
@@ -6653,7 +6659,7 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 			table.insert(self.placed_natural_wonder, wonder_number);
 
 			-- Natural Wonders shouldn't be too close to each other.
-			self:PlaceResourceImpact(x, y, ImpactLayers.LAYER_NATURAL_WONDER, 9); -- adan_eslavo
+			self:PlaceResourceImpact(x, y, ImpactLayers.LAYER_NATURAL_WONDER, 11);
 
 			-- Force no resource on Natural Wonders.
 			self:PlaceStrategicResourceImpact(x, y, 0);
@@ -6782,6 +6788,44 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
 				self.playerCollisionData[iEyeOfSaharaPlotIndex] = true -- Record exact plot of wonder in the collision list.
+			elseif (self.wonder_list[wonder_number] == "FEATURE_GALAPAGOS_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pGalapagosPlot = Map.PlotDirection(x, y, i)
+					
+					if pGalapagosPlot:GetFeatureType() == GameInfoTypes.FEATURE_GALAPAGOS_B then	
+						local iGalapagosX = pGalapagosPlot:GetX()
+						local iGalapagosY = pGalapagosPlot:GetY()
+					
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+					
+						local iGalapagosPlotIndex = iGalapagosY * iW + iGalapagosX + 1
+						
+						self.playerCollisionData[iGalapagosPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
+			elseif (self.wonder_list[wonder_number] == "FEATURE_HA_LONG_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pHaLongPlot = Map.PlotDirection(x, y, i)
+					
+					if pHaLongPlot:GetFeatureType() == GameInfoTypes.FEATURE_HA_LONG_B then	
+						local iHaLongX = pHaLongPlot:GetX()
+						local iHaLongY = pHaLongPlot:GetY()
+					
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+					
+						local iHaLongPlotIndex = iHaLongY * iW + iHaLongX + 1
+						
+						self.playerCollisionData[iHaLongPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
 			end
 			-- MOD.Barathor: End
 			--
@@ -6798,12 +6842,12 @@ function AssignStartingPlots:PlaceNaturalWonders()
 	-- Determine how many NWs to attempt to place. Target is regulated per map size.
 	-- The final number cannot exceed the number the map has locations to support.
 	local worldsizes = {
-		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 3, -- adan_eslavo
-		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 6,
-		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 9,
-		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 12,
-		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = 15,
-		[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = 18
+		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = 2, -- adan_eslavo
+		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = 4,
+		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = 6,
+		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = 8,
+		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = 10,
+		[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = 12
 		}
 	local target_number = worldsizes[Map.GetWorldSize()];
 
@@ -6962,7 +7006,7 @@ function AssignStartingPlots:AssignCityStatesToRegionsOrToUninhabited(args)
 				local plot = Map.GetPlot(x, y);
 				local plotType = plot:GetPlotType()
 				local terrainType = plot:GetTerrainType()
-				if (plotType == PlotTypes.PLOT_LAND or plotType == PlotTypes.PLOT_HILLS) and terrainType ~= TerrainTypes.TERRAIN_SNOW then -- Habitable land plot, process it.
+				if (plotType == PlotTypes.PLOT_LAND or plotType == PlotTypes.PLOT_HILLS) and self:CanPlaceCityStateAt(x, y, plot:GetArea(), false, false) then -- Habitable land plot, process it.
 					local iArea = plot:GetArea();
 					if self.method == RegionDivision.RECTANGULAR_SELF_DEFINED then -- Determine if plot is inside or outside the regional rectangle
 						if (x >= self.inhabited_WestX and x <= self.inhabited_WestX + self.inhabited_Width - 1) and
@@ -6998,7 +7042,7 @@ function AssignStartingPlots:AssignCityStatesToRegionsOrToUninhabited(args)
 					iNumCivLandmassPlots = iNumCivLandmassPlots + plot_count;
 				else
 					iNumUninhabitedLandmassPlots = iNumUninhabitedLandmassPlots + plot_count;
-					if plot_count < 4 then
+					if plot_count < 3 then
 						table.insert(areas_too_small, areaID);
 					else
 						table.insert(areas_uninhabited, areaID);
@@ -7013,7 +7057,7 @@ function AssignStartingPlots:AssignCityStatesToRegionsOrToUninhabited(args)
 						local y = (plotIndex - x - 1) / iW;
 						local plot = Map.GetPlot(x, y);
 						local terrainType = plot:GetTerrainType();
-						if terrainType ~= TerrainTypes.TERRAIN_SNOW then
+						if self:CanPlaceCityStateAt(x, y, areaID, false, false) then
 							if self.plotDataIsCoastal[plotIndex] == true then
 								table.insert(self.uninhabited_areas_coastal_plots, plotIndex);
 							else
@@ -7134,6 +7178,18 @@ function AssignStartingPlots:CanPlaceCityStateAt(x, y, area_ID, force_it, ignore
 		return false
 	end
 
+	-- Must not be on map borders
+	if (not Map:IsWrapX() and (x < 1 or x >= iW - 1)) or (not Map:IsWrapY() and (y < 1 or y >= iH - 1)) then
+		return false
+	end
+
+	-- Avoid ice
+	for nearPlot in self:Plot_GetPlotsInCircle(plot, 1) do
+		if nearPlot:GetFeatureType() == FeatureTypes.FEATURE_ICE then
+			return false
+		end
+	end
+
 	-- Avoid natural wonders
 	for nearPlot in self:Plot_GetPlotsInCircle(plot, 1, 4) do
 		local featureInfo = GameInfo.Features[nearPlot:GetFeatureType()]
@@ -7145,7 +7201,7 @@ function AssignStartingPlots:CanPlaceCityStateAt(x, y, area_ID, force_it, ignore
 	
 	-- Reserve the best city sites for major civs
 	local fertility = self:Plot_GetFertilityInRange(plot, 2)
-	if fertility > 28 then
+	if fertility > 30 then
 		--print("CanPlaceCityStateAt: avoided fertility: ", fertility)
 		return false
 	end
@@ -7154,7 +7210,7 @@ function AssignStartingPlots:CanPlaceCityStateAt(x, y, area_ID, force_it, ignore
 	if self.impactData[ImpactLayers.LAYER_CITY_STATE][plotIndex] > 0 and force_it == false then
 		return false
 	end
-	local plotIndex = y * iW + x + 1;
+	plotIndex = y * iW + x + 1;
 	if self.playerCollisionData[plotIndex] == true and ignore_collisions == false then
 		print("-"); print("City State candidate plot rejected: collided with already-placed civ or City State at", x, y);
 		return false
@@ -10925,7 +10981,7 @@ function AssignStartingPlots:AdjustTiles()
 					else
 						-- Add some jungle or forest.
 						if self:IsTropical(y) then
-							if res_ID ~= self.deer_ID and res_ID ~= self.fur_ID then
+							if res_ID ~= self.fur_ID then
 								plot:SetFeatureType(FeatureTypes.FEATURE_JUNGLE, -1)
 							else
 								plot:SetFeatureType(FeatureTypes.FEATURE_FOREST, -1)
@@ -10944,7 +11000,7 @@ function AssignStartingPlots:AdjustTiles()
 					else
 						-- Add some jungle or forest.
 						if self:IsTropical(y) then
-							if res_ID ~= self.deer_ID and res_ID ~= self.fur_ID then
+							if res_ID ~= self.fur_ID then
 								plot:SetFeatureType(FeatureTypes.FEATURE_JUNGLE, -1)
 							else
 								plot:SetFeatureType(FeatureTypes.FEATURE_FOREST, -1)
@@ -11114,12 +11170,12 @@ end
 function AssignStartingPlots:GetMajorStrategicResourceQuantityValues()
 	-- This function determines quantity per tile for each strategic resource's major deposit size.
 	-- Note: scripts that cannot place Oil in the sea need to increase amounts on land to compensate.
-	local uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 3, 6, 3, 4, 7;
+	local uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 3, 5, 3, 4, 7;
 	-- Check the strategic deposit size setting.
 	if self.resSize == 1 then -- Small
 		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 2, 2, 3, 2, 2, 3;
 	elseif self.resSize == 3 then -- Large
-		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 4, 6, 9, 6, 7, 10;
+		uran_amt, horse_amt, oil_amt, iron_amt, coal_amt, alum_amt = 4, 6, 8, 6, 7, 10;
 	end
 
 	if self:IsReducedSupplyActive() then
@@ -11320,6 +11376,14 @@ function AssignStartingPlots:PlaceBonusResources()
 		{self.deer_ID, 1, 100, 0, 2} };
 		self:ProcessResourceList(16 * resMultiplier, ImpactLayers.LAYER_BONUS, self.tundra_flat_no_feature, resources_to_place)
 		-- 12
+		resources_to_place = {
+		{self.deer_ID, 1, 100, 0, 1} };
+		self:ProcessResourceList(30 * resMultiplier, ImpactLayers.LAYER_BONUS, self.banana_list, resources_to_place)
+		-- none
+		resources_to_place = {
+		{self.deer_ID, 1, 100, 0, 1} };
+		self:ProcessResourceList(30 * resMultiplier, ImpactLayers.LAYER_BONUS, self.hills_jungle_list, resources_to_place)
+		-- none
 		
 		resources_to_place = {
 		{self.wheat_ID, 1, 100, 1, 2} };
@@ -11490,6 +11554,14 @@ function AssignStartingPlots:PlaceBonusResources()
 		{self.deer_ID, 1, 100, 0, 2} };
 		self:ProcessResourceList(8 * resMultiplier, ImpactLayers.LAYER_BONUS, self.tundra_flat_no_feature, resources_to_place)
 		-- 12
+		resources_to_place = {
+		{self.deer_ID, 1, 100, 0, 1} };
+		self:ProcessResourceList(15 * resMultiplier, ImpactLayers.LAYER_BONUS, self.banana_list, resources_to_place)
+		-- none
+		resources_to_place = {
+		{self.deer_ID, 1, 100, 0, 1} };
+		self:ProcessResourceList(15 * resMultiplier, ImpactLayers.LAYER_BONUS, self.hills_jungle_list, resources_to_place)
+		-- none
 		
 		resources_to_place = {
 		{self.wheat_ID, 1, 100, 0, 2} };
@@ -11736,22 +11808,22 @@ function AssignStartingPlots:Plot_GetFertility(plot, yieldID, ignoreStrategics)
 	if plot:IsImpassable() or plot:GetTerrainType() == TerrainTypes.TERRAIN_OCEAN then
 		return 0
 	end
-
+	
 	local value = 0
 	local featureID = plot:GetFeatureType()
 	local terrainID = plot:GetTerrainType()
 	local resID = plot:GetResourceType(-1)
 	
 	if yieldID then
-		value = value + plot:CalculateYield(yieldID, true)
+		value = value + plot:CalculateYield(yieldID, false)
 	else
 		-- Science, Culture and Faith are worth more than the others at start
-		value = value + plot:CalculateYield(YieldTypes.YIELD_FOOD, true)
-		value = value + plot:CalculateYield(YieldTypes.YIELD_PRODUCTION, true)
-		value = value + plot:CalculateYield(YieldTypes.YIELD_GOLD, true)
-		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_SCIENCE, true)
-		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_CULTURE, true)
-		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_FAITH, true)
+		value = value + plot:CalculateYield(YieldTypes.YIELD_FOOD, false)
+		value = value + plot:CalculateYield(YieldTypes.YIELD_PRODUCTION, false)
+		value = value + plot:CalculateYield(YieldTypes.YIELD_GOLD, false)
+		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_SCIENCE, false)
+		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_CULTURE, false)
+		value = value + 2 * plot:CalculateYield(YieldTypes.YIELD_FAITH, false)
 	end
 	
 	if plot:IsFreshWater() and plot:GetPlotType() ~= PlotTypes.PLOT_HILLS then

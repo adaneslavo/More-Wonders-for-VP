@@ -564,7 +564,7 @@ end
 GameEvents.CityCanConstruct.Add(IsHasCitizens)
 
 -- checks if player has enough cities (SIKU QANSHU)
-function IsHasCitizens(ePlayer, eCity, eBuilding)
+function IsHasCities(ePlayer, eCity, eBuilding)
 	if not tValidIsHasCities[eBuilding] then return true end
 	if bReachedMaxEra then return false end
 
