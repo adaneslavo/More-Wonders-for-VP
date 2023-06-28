@@ -64,7 +64,7 @@ function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iA
 	local pAttackingUnit = pAttackingPlayer:GetUnitByID(iAttackingUnit)
 	
 	if pAttackingUnit ~= nil and pAttackingUnit:IsHasPromotion(ePromotionYerba) then
-		local iChanceToKill = math.random(100)
+		local iChanceToKill = Game.Rand(100, "Chance to kill") + 1
 		
 		if iChanceToKill <= 5 then
 			local pDefendingPlayer = Players[iDefendingPlayer]

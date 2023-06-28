@@ -695,7 +695,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		-- GREAT BARRIER REEF
 		-- Totally new method;
 		-- Randomizer chooses one of main 3 directions: E-W, NE-SW, NW-SE;
-		local iMainDirectionA = math.random(3)
+		local iMainDirectionA = Game.Rand(3, "Choose GBR direction") + 1
 		local iMainDirectionB = iMainDirectionA + 3
 		local pMainPlot = Map.GetPlot(x, y)
 		
@@ -795,8 +795,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		if iNumFeaturesOrResources >= 5 or #tPossibleFeaturesOrResources == 0 then return end
 
 		repeat
-			pRandomPlot = table.remove(tPossibleFeaturesOrResources, math.random(#tPossibleFeaturesOrResources))
-			iRandomNumber = math.random(10)
+			pRandomPlot = table.remove(tPossibleFeaturesOrResources, Game.Rand(#tPossibleFeaturesOrResources, "Place a resource around GBR") + 1)
+			iRandomNumber = Game.Rand(10, "Choose a resource type") + 1
 				
 			if iRandomNumber == 1 then
 				pRandomPlot:SetFeatureType(eFeatureAtoll)
@@ -895,7 +895,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local iIslandsToPlace = 3
 
 		repeat
-			pChosenPlot = table.remove(tPotentialLand, math.random(#tPotentialLand))
+			pChosenPlot = table.remove(tPotentialLand, Game.Rand(#tPotentialLand, "Place an island around Krakatoa") + 1)
 			pChosenPlot:SetPlotType(ePlotHill, false, false)
 			pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
 			
@@ -927,7 +927,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		-- setting hills
 		repeat
-			pChosenPlot = table.remove(tPotentialHill, math.random(#tPotentialHill))
+			pChosenPlot = table.remove(tPotentialHill, Game.Rand(#tPotentialHill, "Place a hill around Lake Victoria") + 1)
 			pChosenPlot:SetPlotType(ePlotHill, false, false)
 			iHillsAndMountains = iHillsAndMountains + 1
 		until(iHillsAndMountains >= 3 or #tPotentialHill == 0)
@@ -951,7 +951,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 		
-		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
+		pChosenPlot = table.remove(tPossibleSpots, Game.Rand(#tPossibleSpots, "Place B tile for Giant's Causeway") + 1)
 		pChosenPlot:SetPlotType(ePlotFlat, false, false)
 		pChosenPlot:SetTerrainType(eTerrainTundra, false, false)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_CAUSEWAY_B)
@@ -983,7 +983,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
 			
 			if pAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains <= 2 then
-				iRandomMountain = math.random(3) -- 66%
+				iRandomMountain = Game.Rand(3, "Mountain chance") + 1 -- 66%
 				
 				if iRandomMountain ~= 1 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
@@ -992,7 +992,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
-				iRandomOasis = math.random(4) -- 25%
+				iRandomOasis = Game.Rand(3, "Oasis chance") + 1 -- 25%
 				
 				if iRandomOasis == 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
@@ -1032,7 +1032,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		end
 		
 		-- choosing plot for SALAR
-		pChosenPlot = table.remove(tPossibleSpots, math.random(#tPossibleSpots))
+		pChosenPlot = table.remove(tPossibleSpots, Game.Rand(#tPossibleSpots, "Placing Salar B") + 1)
 
 		local pChosenPlotX = pChosenPlot:GetX()
 		local pChosenPlotY = pChosenPlot:GetY()
@@ -1045,7 +1045,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	
 			if pSecondAdjacentPlot:GetFeatureType() ~= GameInfoTypes.FEATURE_SALAR_A then
 				if pSecondAdjacentPlot:GetPlotType() == ePlotHill and iLimitMountains < 2 then
-					iRandomMountain = math.random(2) -- 50%
+					iRandomMountain = Game.Rand(2, "Mountain chance") + 1 -- 50%
 
 					if iRandomMountain ~= 1 then
 						pSecondAdjacentPlot:SetPlotType(ePlotMountain, false, false)
@@ -1055,7 +1055,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					pSecondAdjacentPlot:SetFeatureType(eFeatureNo)
 				elseif pAdjacentPlot:GetPlotType() == ePlotFlat or pAdjacentPlot:GetPlotType() == ePlotOcean then
 					pSecondAdjacentPlot:SetPlotType(ePlotFlat, false, false)
-					iRandomOasis = math.random(3) -- 33%
+					iRandomOasis = Game.Rand(3, "Oasis chance") + 1 -- 33%
 
 					if iRandomOasis == 1 then
 						pSecondAdjacentPlot:SetFeatureType(eFeatureOasis)
@@ -1233,7 +1233,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pChosenPlot
 
 		repeat
-			pChosenPlot = table.remove(tPossibleMountains, math.random(#tPossibleMountains))
+			pChosenPlot = table.remove(tPossibleMountains, Game.Rand(#tPossibleMountains, "Place a mountain around Eye of Sahara") + 1)
 			pChosenPlot:SetPlotType(ePlotMountain, false, false)
 
 			iNumberMountains = iNumberMountains + 1
@@ -1276,7 +1276,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				pAdjacentPlot:SetTerrainType(eTerrainGrass, false, false)
 				
-				iJungleChance = math.random(3)
+				iJungleChance = Game.Rand(3, "Jungle chance") + 1
 				
 				if iJungleChance > 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureJungle)
@@ -1314,7 +1314,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			local pChosenTileForTheForest
 
 			repeat
-				pChosenTileForTheForest = table.remove(tPossibleForests, math.random(#tPossibleForests))
+				pChosenTileForTheForest = table.remove(tPossibleForests, Game.Rand(#tPossibleForests, "Placing a forest around Mt. Paektu") + 1)
 				pChosenTileForTheForest:SetFeatureType(eFeatureForest)
 				iForestsPlanted = iForestsPlanted + 1
 			until(iForestsPlanted >= 2 or #tPossibleForests == 0)
@@ -1331,7 +1331,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local bIsMetSeaOrLake = false
 		local bIsEndOfTheMap = false
 		local pCurrentPlot, pSupportPlot, pUltraSupportPlot
-		local iNormalCorrection = -4 -- to even out chances for CW and CCW movement (depends on math.random values inside)
+		local iNormalCorrection = -4 -- to even out chances for CW and CCW movement (depends on Game.Rand values inside)
 		local iNormalCorrectionToMathRandom = math.abs(iNormalCorrection) * 2
 		local iHandicapCorrection = 2 -- for some preferred direction choices
 		local iAdditionalOneWayCorrection = 0 -- negative values for constant CW choices, and positive values for CCW choices (to prevent spiraling)
@@ -1352,7 +1352,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 6
@@ -1399,7 +1399,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 1
@@ -1446,7 +1446,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 2
@@ -1493,7 +1493,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 3
@@ -1540,7 +1540,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 4
@@ -1587,7 +1587,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 5
@@ -1655,7 +1655,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 6
@@ -1702,7 +1702,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
 				
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 1
@@ -1749,7 +1749,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 2
@@ -1796,7 +1796,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 3
@@ -1843,7 +1843,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
 				
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 4
@@ -1890,7 +1890,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 5
@@ -1958,7 +1958,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNWOfRiver() or pCurrentPlot:IsNEOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 6
@@ -2005,7 +2005,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsNEOfRiver() or pSupportPlot:IsWOfRiver() then	bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 1
@@ -2052,7 +2052,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNWOfRiver() or pUltraSupportPlot:IsWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 2
@@ -2099,7 +2099,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pSupportPlot:IsNEOfRiver() or pUltraSupportPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 3
@@ -2146,7 +2146,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pSupportPlot:IsNEOfRiver() then bIsMetRiver = true end
 				
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn <= 0 then
 							iCase = 4
@@ -2193,7 +2193,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 					if pCurrentPlot:IsWOfRiver() or pCurrentPlot:IsNWOfRiver() then bIsMetRiver = true end
 
 					if not bIsMetSeaOrLake and not bIsMetRiver then
-						iRandomRiverTurn = math.random(iNormalCorrectionToMathRandom) + iNormalCorrection + iAdditionalOneWayCorrection
+						iRandomRiverTurn = Game.Rand(iNormalCorrectionToMathRandom, "River turn") + 1 + iNormalCorrection + iAdditionalOneWayCorrection
 					
 						if iRandomRiverTurn - iHandicapCorrection <= 0 then
 							iCase = 5
@@ -2261,7 +2261,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		-- deleting features
 		repeat
-			pChosenPlot = table.remove(tPlotsWithFeatures, math.random(#tPlotsWithFeatures))
+			pChosenPlot = table.remove(tPlotsWithFeatures, Game.Rand(#tPlotsWithFeatures, "Deleting features around Uluru") + 1)
 			pChosenPlot:SetFeatureType(eFeatureNo)
 		until(#tPlotsWithFeatures <= 1)
 	elseif method_number == 17 then
@@ -2287,7 +2287,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			
 			-- checking features
 			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
-				iFeatureChance = math.random(4)
+				iFeatureChance = Game.Rand(4, "Checking features around Mt. Sinai") + 1
 				
 				if iFeatureChance > 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureNo)
@@ -2296,7 +2296,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			
 			-- setting flat
 			if pAdjacentPlot:GetPlotType() == ePlotHill then
-				iMountainChance = math.random(2)
+				iMountainChance = Game.Rand(2, "Setting Mountain around Mt. Sinai") + 1
 				
 				if iMountainChance == 2 then
 					pAdjacentPlot:SetPlotType(ePlotMountain, false, false)
@@ -2331,9 +2331,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		print("--!GALAPAGOS coast tiles around:", #tCoastPlots)
 		
 		if #tOceanPlots > 0 then
-			pChosenPlot = table.remove(tOceanPlots, math.random(#tOceanPlots))
+			pChosenPlot = table.remove(tOceanPlots, Game.Rand(#tOceanPlots, "Choose ocean around Galapagos") + 1)
 		elseif #tCoastPlots > 0 then
-			pChosenPlot = table.remove(tCoastPlots, math.random(#tCoastPlots))
+			pChosenPlot = table.remove(tCoastPlots, Game.Rand(#tCoastPlots, "Choose coast around Galapagos") + 1)
 		end
 
 		pChosenPlot:SetTerrainType(eTerrainCoast, false, false)
@@ -2358,7 +2358,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local iNumFish = 0
 
 		repeat
-			pChosenPlot = table.remove(tPlotsAroundForResources, math.random(#tPlotsAroundForResources))
+			pChosenPlot = table.remove(tPlotsAroundForResources, Game.Rand(#tPlotsAroundForResources, "Choose plot for a resource around Galapagos") + 1)
 			eChosenFeature = pChosenPlot:GetFeatureType()
 			eChosenResource = pChosenPlot:GetResourceType()
 			print(eChosenFeature, eChosenResource)
@@ -2375,7 +2375,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		if #tPlotsAroundForResources == 0 then return end
 
 		repeat
-			pChosenPlot = table.remove(tPlotsAroundForResources, math.random(#tPlotsAroundForResources))
+			pChosenPlot = table.remove(tPlotsAroundForResources, Game.Rand(#tPlotsAroundForResources, "Choose plot for a resource around Galapagos") + 1)
 			eChosenFeature = pChosenPlot:GetFeatureType()
 			eChosenResource = pChosenPlot:GetResourceType()
 			print(eChosenFeature, eChosenResource)
@@ -2402,7 +2402,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		print("--!HA LONG BAY coast tiles around:", #tCoastPlots)	
 		
-		pChosenPlot = table.remove(tCoastPlots, math.random(#tCoastPlots))
+		pChosenPlot = table.remove(tCoastPlots, Game.Rand(#tCoastPlots, "Choose plot for Ha Long Bay B") + 1)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_HA_LONG_B)
 	end
 end
