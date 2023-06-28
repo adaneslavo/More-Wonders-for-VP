@@ -992,7 +992,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				
 				pAdjacentPlot:SetFeatureType(eFeatureNo)
 			elseif pAdjacentPlot:GetPlotType() == ePlotFlat then
-				iRandomOasis = Game.Rand(3, "Oasis chance") + 1 -- 25%
+				iRandomOasis = Game.Rand(4, "Oasis chance") + 1 -- 25%
 				
 				if iRandomOasis == 1 then
 					pAdjacentPlot:SetFeatureType(eFeatureOasis)
