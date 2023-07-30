@@ -131,12 +131,6 @@ Currently compatible with 2.7.</Description>
     <ModContent>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>GlobalMutualExclusiveness</Name>
-        <Description>Condition for exclusive wonders</Description>
-        <FileName>1.WorldWonders/Lua/GlobalMutualExclusiveness.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
         <Name>UniqueWorldWondersRequirements</Name>
         <Description>Non sql requirements</Description>
         <FileName>1.WorldWonders/Lua/UniqueWorldWondersRequirements.lua</FileName>
@@ -208,10 +202,6 @@ Currently compatible with 2.7.</Description>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="1.WorldWonders\SQL\MainRulesForWorldWonders.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="1.WorldWonders\Lua\GlobalMutualExclusiveness.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
