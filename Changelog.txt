@@ -1,19 +1,18 @@
 MW Changelog:
 v19:
 - World Wonders:
-	- updated texts for WW changes from VP v3.8;
+	- updated texts for WW changes from VP v3.8 (Uffizi, Chichen Itza, statu of Zeus);
 	- added texts and compatibility for 3 new American WWs (previously they were National Wonders):
 		- splash screens:
-			- moved Slater Mill splash screen change to American WW one (Soho has now original left);
+			- moved Slater Mill splash screen old change to American WW one (Soho Foundry is now left with original one);
 			- West Point got new splash screen;
 			- Smithsonian got a splash screen from EE;
 		- quotes:
-			- restored old Slater Mill quote;
-			- Smithsonian now has EE quote;
-			- West Point got  new quote;
-	- multiple text fixes;
+			- restored old Slater Mill quote with sound file assigned;
+			- Smithsonian and West Point got new unique quotes;
+	- multiple minor text fixes;
 	- files cleaning;
 - Natural Wonders:
-	- deleted "blank" model from Eye of the Sahara and Bermuda Triangle code (should help with CTDs on restart, that didn't happen on my recent tests);
+	- deleted "blank" model from Eye of the Sahara and Bermuda Triangle code (it should help with CTDs on restart, that didn't happen on my recent tests);
 
 v0.18 and earlier changelogs can be found on the forum. Game begins from v19 and it was a long journey!
