@@ -5,11 +5,11 @@
     <ProjectGuid>{af6f426c-c21e-41c2-bfb7-20a461bc0cc5}</ProjectGuid>
     <Name>(overhaul) More Wonders for VP</Name>
     <Guid>3e151552-1683-4881-b736-8ee89226f599</Guid>
-    <ModVersion>1</ModVersion>
+    <ModVersion>19</ModVersion>
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
-Currently compatible with 2.7.</Description>
+Currently compatible with VP 3.8.X.</Description>
     <Authors>Infixo, adan_eslavo</Authors>
     <SpecialThanks>Infixo, Asterix_Rage, hokath, Artisanix, Gwennog and others in credits file</SpecialThanks>
     <AffectsSavedGames>true</AffectsSavedGames>
@@ -189,6 +189,14 @@ Currently compatible with 2.7.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_America_West_Point_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_America_Smithsonian_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\8.Information\Wonder_Seed_Vault_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1325,7 +1333,7 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_Slatter_Mill_splash.dds">
+    <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_America_Slater_Mill_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -2773,11 +2781,11 @@ Currently compatible with 2.7.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_man.mp3">
+    <Content Include="1.WorldWonders\Sounds\wonder_america_slater_mill_man.mp3">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Sounds\wonder_slater_mill_woman.mp3">
+    <Content Include="1.WorldWonders\Sounds\wonder_america_slater_mill_woman.mp3">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

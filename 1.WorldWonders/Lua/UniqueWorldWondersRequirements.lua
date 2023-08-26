@@ -923,10 +923,6 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			iRequiredImprovements = 4
 		}
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
-			iRequiredImprovements = 2
-		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
@@ -1083,9 +1079,6 @@ function Initialize()
 		}
 		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
 			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_WINDMILL"
 		}
 		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
 			iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",

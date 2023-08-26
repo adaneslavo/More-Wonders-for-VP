@@ -66,6 +66,7 @@ Special thanks to:
 		- Vostok: https://argusspectrum.com/vostok_station_antarctica
 		- Revolutionary Museum: 
 		- Global Seed Vault: https://www.flickr.com/photos/croptrust/3851518425 (CC BY-SA 2.0)
+		- West Point: https://media.npr.org/assets/img/2022/08/31/west-point-campus_custom-4a62e6a258a9f3126820fca2ec645c2391dfa0c6-s1100-c50.jpg
 - Natural Wonders:
 	- initiators:
 		- @Aheadatime: initial idea of wonder balancing (Natural Wonder Enhancement);

@@ -2084,18 +2084,17 @@
 				('BUILDING_SIBERIAN_RAILWAY',	'FLAVOR_GOLD',			30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- SLATER MILL
-	UPDATE Buildings SET Cost = 1100 WHERE Type = 'BUILDING_SLATER_MILL';
-	UPDATE Buildings SET NumPoliciesNeeded = 14 WHERE Type = 'BUILDING_SLATER_MILL';
-	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SLATER_MILL';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_Slatter_Mill_splash.dds' WHERE Type = 'BUILDING_SLATER_MILL';
+-- SOHO FOUNDRY
+	UPDATE Buildings SET Cost = 1100 WHERE Type = 'BUILDING_SOHO_FOUNDRY';
+	UPDATE Buildings SET NumPoliciesNeeded = 14 WHERE Type = 'BUILDING_SOHO_FOUNDRY';
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SOHO_FOUNDRY';
 	---------------------------------------------------------
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + Plantation(2) (lua) (HARD)
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_SOHO_FOUNDRY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 
-	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_SLATER_MILL',	'BUILDINGCLASS_WINDMILL' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	INSERT INTO Building_LocalFeatureOrs 
+				(BuildingType,				FeatureType) 
+	SELECT		'BUILDING_SOHO_FOUNDRY',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_SOHO_FOUNDRY',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
@@ -2402,6 +2401,25 @@
 				(BuildingType,			FlavorType,			Flavor)
 	VALUES		('BUILDING_ORSZAGHAZ',	'FLAVOR_DIPLOMACY',	100),
 				('BUILDING_ORSZAGHAZ',	'FLAVOR_CULTURE',	30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- AMERCIAN UWWs (FROM VP 3.8)
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- Smithsonian Institute
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_America_Smithsonian_splash.dds' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- West Point
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B', WonderSplashImage = 'Wonder_America_West_Point_splash.dds' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- Slater Mill
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_America_Slater_Mill_splash.dds' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_AMERICA_SLATERMILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --============================================--
 -- MODERN ERA
 --============================================--
@@ -3414,7 +3432,7 @@ UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_BROOKLYN' AND
 UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_EE_SMITHSONIAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_SOHO_FOUNDRY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 16 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 17 WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3457,7 +3475,7 @@ UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY' AND EX
 UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_ZOCALO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
-UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_SLATER_MILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
+UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_SOHO_FOUNDRY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1350 WHERE Type = 'BUILDING_NEUSCHWANSTEIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_ORSZAGHAZ' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET Cost = 1500 WHERE Type = 'BUILDING_DARJEELING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
@@ -3821,7 +3839,7 @@ DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND Building
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
-DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SLATER_MILL';
+DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SOHO_FOUNDRY';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BRANDENBURG_GATE';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BIG_BEN';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PENTAGON';
