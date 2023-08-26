@@ -2386,7 +2386,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR:45:150:50:255]Victory in "Glob
 -- Smithsonian Institute
 INSERT INTO Language_en_US 
 			(Tag,											Text)
-VALUES		('TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE',	'[NEWLINE]""[NEWLINE] - [NEWLINE]');
+VALUES		('TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE',	'[NEWLINE]"I read a book every night. I really am that nerd, so when I get to go to the Smithsonian and get to go in the back rooms and play with stuff, things like that, for a guy like me, that''s amazing."[NEWLINE] - Rick Harrison[NEWLINE]');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is an unusual [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM]) you should be proud of (+1[ICON_RESEARCH]/[ICON_GREAT_WORK][ICON_GREAT_WORK] and all Landmarks). Science is the key, but culture is the only thing that keeps a nation in one piece (+5[ICON_CULTURE], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Museums[ENDCOLOR], [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR]; +2[ICON_CULTURE], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]), so you should invest in it at all cost (10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_CULTURE][ICON_CULTURE]; -25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost).'
@@ -2403,7 +2403,7 @@ UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Bu
 -- West Point
 INSERT INTO Language_en_US 
 			(Tag,											Text)
-VALUES		('TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE',		'[NEWLINE]""[NEWLINE] - [NEWLINE]');
+VALUES		('TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE',		'[NEWLINE]"Give me an Army of West Point graduates and I''ll win a battle... Give me a handful of Texas Aggies and I''ll win a war."[NEWLINE] - George S. Patton[NEWLINE]');
 			
 UPDATE Language_en_US
 SET Text = 'True American knows that strong military is a core, and that''s why [COLOR_YIELD_FOOD]West Point[ENDCOLOR], as a high tier [COLOR_YIELD_FOOD]Military Academy[ENDCOLOR] ([ICON_PRODUCTION], [ICON_HAPPINESS_3], [ICON_SILVER_FIST]) improves the quality of all other training grounds (+5[ICON_PRODUCTION], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Military Academies[ENDCOLOR], [COLOR_YIELD_FOOD]Arsenals[ENDCOLOR]) and of your soldiers ([COLOR_WATER_TEXT]Splash[ENDCOLOR]/[COLOR_YIELD_GOLD]Siege[ENDCOLOR], [COLOR_YIELD_GOLD]Naval Ranged[ENDCOLOR]). Great level of training helps with keeping your borders (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost) and maintaining crucial infrastructure in good shape (+2[ICON_PRODUCTION], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_RESEARCH][ICON_RESEARCH]).'
