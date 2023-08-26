@@ -10,9 +10,10 @@ v19:
 		- quotes:
 			- restored old Slater Mill quote with sound file assigned;
 			- Smithsonian and West Point got new unique quotes;
-	- multiple minor text fixes;
 	- files cleaning;
 - Natural Wonders:
 	- deleted "blank" model from Eye of the Sahara and Bermuda Triangle code (it should help with CTDs on restart, that didn't happen on my recent tests);
+- multiple minor text fixes;
 
-v0.18 and earlier changelogs can be found on the forum. Game begins from v19 and it was a long journey!
+v0.18 and earlier changelogs:
+- they can be found on the forum; game begins from v19 and it was a long journey!
