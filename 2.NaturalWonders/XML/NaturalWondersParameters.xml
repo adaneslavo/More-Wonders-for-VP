@@ -464,12 +464,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle A</FriendlyName>
+			<FriendlyName>Galapagos A</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle B</FriendlyName>
+			<FriendlyName>Galapagos B</FriendlyName>
 		</Row>
 
 
@@ -477,12 +477,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle A</FriendlyName>
+			<FriendlyName>Ha Long Bay A</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle B</FriendlyName>
+			<FriendlyName>Ha Long Bay B</FriendlyName>
 		</Row>
 
 
