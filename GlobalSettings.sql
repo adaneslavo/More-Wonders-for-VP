@@ -53,7 +53,7 @@ EE compatibility patch!
 
 INSERT INTO COMMUNITY	
 		(Type,			Value)
-VALUES	('MW-EE', 		2);
+VALUES	('MW-EE', 		0); -- disabled because of outdated EE
 
 UPDATE COMMUNITY
 SET Value = '1'

@@ -13,6 +13,8 @@ v19:
 	- files cleaning;
 - Natural Wonders:
 	- deleted "blank" model from Eye of the Sahara and Bermuda Triangle code (it should help with CTDs on restart, that didn't happen on my recent tests);
+	- Fountain of Youth's promotion now granted to adjacent units instead of all;
+- disabled EE compatibility until it will be redone/updated/fixed;
 - multiple minor text fixes;
 
 v0.18 and earlier changelogs:

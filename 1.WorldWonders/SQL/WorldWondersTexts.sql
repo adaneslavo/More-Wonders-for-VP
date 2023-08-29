@@ -2423,7 +2423,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE',		'[NEWLINE]"If I do not make a good yarn, as they do in England, I will have nothing for my services but will throw the whole of what I have attempted over the bridge."[NEWLINE] - Samuel Slater[NEWLINE]');
 			
 UPDATE Language_en_US
-SET Text = 'To be a leader, you need the [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR]. This modern [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) introduce new quality to your industry (+5[ICON_PRODUCTION], +5[ICON_GOLD]/all [COLOR_YIELD_FOOD]Factories[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and makes your expansion faster (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost; +1[ICON_INTERNATIONAL_TRADE]). Your investments should quickly grant you additional profits (+2[ICON_PRODUCTION], +2[ICON_GOLD]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_PRODUCTION][ICON_PRODUCTION]).'
+SET Text = 'To be a leader, you need the [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR]. This modern [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) introduces new quality to your industry (+5[ICON_PRODUCTION], +5[ICON_GOLD]/all [COLOR_YIELD_FOOD]Factories[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and makes your expansion faster (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost; +1[ICON_INTERNATIONAL_TRADE]). Your investments should quickly grant you additional profits (+2[ICON_PRODUCTION], +2[ICON_GOLD]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_PRODUCTION][ICON_PRODUCTION]).'
 WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -2439,7 +2439,7 @@ UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Bu
 -- Main Compatibility Code
 	-- updating texts for new promotions
 	----------------------------------------------------
-	-- SMITHSONIAN INSTITUTE
+	-- SMITHSONIAN INSTITUTE???
 	UPDATE Language_en_US
 	SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is well-known [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) and contains some nice artwork (+2[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_GOLD]). All other similar places profit of its influence (+1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Museums, Galleries[ENDCOLOR]). Thanks to that people are much happier (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Illiteracy).'
 	WHERE Tag = 'TXT_KEY_WONDER_EE_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
