@@ -9,6 +9,7 @@ v20:
 	- Sylvite:
 		- dropped Unhappiness reduction from the Monopoly;
 	- Tern Egg:
+		- deleted all flat yields;
 		- halved Monopoly bonus (now +5% Faith on Empire);
 - deleted unnecessary icon sizes from atlas;
 
