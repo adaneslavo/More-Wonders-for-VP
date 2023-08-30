@@ -1,4 +1,17 @@
 MW Changelog:
+v20:
+- shortened Monopoly texts (for better look in Trade Opportunities);
+- changed (mostly nerfed) unique luxury resources:
+	- Giant Tortoise:
+		- lost 1 Food on Camp;
+		- Monopoly bonus halved (now 10% GA Length) and corrected in descriptions;
+		- Research Lab now adds +2 Science;
+	- Sylvite:
+		- dropped Unhappiness reduction from the Monopoly;
+	- Tern Egg:
+		- halved Monopoly bonus (now +5% Faith on Empire);
+- deleted unnecessary icon sizes from atlas;
+
 v19:
 - World Wonders:
 	- updated texts for WW changes from VP v3.8 (Uffizi, Chichen Itza, statu of Zeus);

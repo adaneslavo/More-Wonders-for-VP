@@ -1009,14 +1009,9 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 20 WHERE Type = 'BUILDING_AHU';
 	
-	INSERT INTO Building_YieldChanges 
-				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_AHU',	'YIELD_FAITH',	3),
-				('BUILDING_AHU',	'YIELD_FOOD',	1);
-	
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_AHU',	'YIELD_FAITH',	10);
+	VALUES		('BUILDING_AHU',	'YIELD_FAITH',	5);
 
 	INSERT INTO Building_ResourceQuantity
 				(BuildingType,		ResourceType,		Quantity) 
