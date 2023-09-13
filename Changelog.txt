@@ -1,17 +1,24 @@
 MW Changelog:
 v20:
-- shortened Monopoly texts (for better look in Trade Opportunities);
-- changed (mostly nerfed) unique luxury resources:
-	- Giant Tortoise:
-		- lost 1 Food on Camp;
-		- Monopoly bonus halved (now 10% GA Length) and corrected in descriptions;
-		- Research Lab now adds +2 Science;
-	- Sylvite:
-		- dropped Unhappiness reduction from the Monopoly;
-	- Tern Egg:
-		- deleted all flat yields;
-		- halved Monopoly bonus (now +5% Faith on Empire);
-- deleted unnecessary icon sizes from atlas;
+- World Wonders:
+	- now required improvements must be worked by the interested city (were all in range);
+- Natural Wonders:
+	- excluded City-States from dummy placement (should help with no capital error);
+- Resources:
+	- shortened Monopoly texts (for better look in Trade Opportunities);
+	- changed (mostly nerfed) unique luxury resources:
+		- Giant Tortoise:
+			- lost 1 Food on Camp;
+			- Monopoly bonus halved (now 10% GA Length) and corrected in descriptions;
+			- Research Lab now adds +2 Science;
+		- Sylvite:
+			- dropped Unhappiness reduction from the Monopoly;
+		- Tern Egg:
+			- deleted all flat yields;
+			- halved Monopoly bonus (now +5% Faith on Empire);
+	- deleted unnecessary icon sizes from atlas;
+- text fixes (major are mentioned):
+	- Forge of Damascus texts;
 
 v19:
 - World Wonders:

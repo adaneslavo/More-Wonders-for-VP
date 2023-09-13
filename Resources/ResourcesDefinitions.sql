@@ -32,7 +32,7 @@ VALUES		('TXT_KEY_RESOURCE_TERN',						'Tern Egg'),
 			('TXT_KEY_RESOURCE_TORTOISE_MONOPOLY',			'Spawned by Galapagos. [COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] +10% [ICON_GOLDEN_AGE] Length.');
 			--('TXT_KEY_RESOURCE_TORTOISE_MONOPOLY_FULL',	'Can be spawned by Galapagos Natural Wonder.[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Monopoly Bonus:[ENDCOLOR] +10% [ICON_GOLDEN_AGE] Golden Age Length.');
 
-UPDATE Language_en_US SET Text||'[NEWLINE][NEWLINE]Nearby [ICON_RES_TORTOISE]: +2 [ICON_RESEARCH] Science.' WHERE Tag = 'TXT_KEY_BUILDING_LABORATORY_HELP';
+UPDATE Language_en_US SET Text = Text||'[NEWLINE][NEWLINE]Nearby [ICON_RES_TORTOISE]: +2 [ICON_RESEARCH] Science.' WHERE Tag = 'TXT_KEY_BUILDING_LABORATORY_HELP';
 --=====================================================--
 -- RESURCES
 ---------------------------------------------------------

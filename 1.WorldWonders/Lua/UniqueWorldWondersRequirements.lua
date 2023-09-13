@@ -271,8 +271,9 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 				
 				if pSpecificPlot then
 					local ePlotOwner = pSpecificPlot:GetOwner()
-				
-					if ePlotOwner == ePlayer then
+					local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
+      
+					if ePlotOwner == ePlayer and eWorkingCity == eCity then
 						if iRequiredRoads > 0 then
 							local eRoute = pSpecificPlot:GetRouteType()
 							local eRoad = GameInfoTypes.ROUTE_ROAD
