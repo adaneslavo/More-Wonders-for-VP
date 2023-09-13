@@ -281,7 +281,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [C
 ----------------------------------------------------
 -- Statue of Zeus
 UPDATE Language_en_US
-SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) and triples your efforts towards reducing local unrest (-1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]free Settler[ENDCOLOR]).'
+SET Text = 'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) and triples your efforts towards reducing local unrest (-1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]Settlers[ENDCOLOR] are immune to [COLOR_WATER_TEXT]Prisoners of War[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_STATUE_ZEUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -692,13 +692,13 @@ INSERT INTO Language_en_US
 			(Tag,									Text) 
 VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
 			('TXT_KEY_WONDER_DAMASCUS_QUOTE',		'[NEWLINE]"The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. The manufacturing technique has yet to be reverse engineered, even in modern times."[NEWLINE] - from legends about Damascus Steel[NEWLINE]'),
-			('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE]  The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time. [COLOR_NEGATIVE_TEXT]Lost after unit upgrade[ENDCOLOR].'),
+			('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE] The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time. [COLOR_NEGATIVE_TEXT]Lost after unit upgrade[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_DAMASCUS',			'Damascus Steel'),
 			('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+10%[ICON_STRENGTH]CS.'),
-			('TXT_KEY_WONDER_DAMASCUS_HELP',		'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Forge in the City in which it is built. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.');
+			('TXT_KEY_WONDER_DAMASCUS_HELP',		'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR], thanks to recent scientific discovery, turns your melee weaponry into masterpiece ([COLOR_WATER_TEXT]Damascus Steel[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Land[ENDCOLOR]), which cannot be copied in any other forge. Your production and science literally explodes (+2[ICON_GREAT_SCIENTIST]), so remember to claim all available [COLOR_GREY]Iron[ENDCOLOR] deposits (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_RES_IRON][ICON_RES_IRON]).'
+SET Text = '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR], thanks to recent scientific discovery, turns your melee weaponry into a masterpiece ([COLOR_WATER_TEXT]Damascus Steel[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Land[ENDCOLOR]), which cannot be copied in any other forge. Your production and science literally explodes (+2[ICON_GREAT_SCIENTIST]), so remember to claim all available [COLOR_GREY]Iron[ENDCOLOR] deposits (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_RES_IRON][ICON_RES_IRON]).'
 WHERE Tag = 'TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1180,7 +1180,7 @@ UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Amphitheater[ENDCOLOR], 
 ----------------------------------------------------
 -- Chichen Itza
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Chichen Itza[ENDCOLOR] makes your golden ages much more important (+50%[ICON_GOLDEN_AGE] Length), and your citizens much happier (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3]). Build it, and your people will awe you.'
+SET Text = '[COLOR_YIELD_FOOD]Chichen Itza[ENDCOLOR] makes your golden ages much more important (+50%[ICON_GOLDEN_AGE] Length). Your citizens will become (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3]), especially when they visit brand new [COLOR_YIELD_FOOD]Teocalli[ENDCOLOR] (). Build it, and your people will awe you.'
 WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1245,7 +1245,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [CO
 ----------------------------------------------------
 -- Uffizi
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Uffizi[ENDCOLOR] gallery is perfect spot for any talented artist ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTISTS][ENDCOLOR]; +3[ICON_GREAT_WORK] if themed: [ICON_CULTURE]; +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). This wonder also resolves almost all problems with urbanization in your empire (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization)'
+SET Text = '[COLOR_YIELD_FOOD]Uffizi[ENDCOLOR], as a kind of [COLOR_YIELD_FOOD]Gallery[ENDCOLOR] ([ICON_GOLD], [ICON_GREAT_WORK], [ICON_GREAT_ARTIST], [ICON_TOURISM]) is perfect spot for any talented artist ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTISTS][ENDCOLOR]; +3[ICON_GREAT_WORK] if themed: [ICON_CULTURE]; +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). This wonder also resolves almost all problems with urbanization in your empire (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization)'
 WHERE Tag = 'TXT_KEY_WONDER_UFFIZI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1312,7 +1312,7 @@ VALUES		('TXT_KEY_BUILDING_MUSEUM_ISLAND',					'Museum Island'),
 			('TXT_KEY_WONDER_MUSEUM_ISLAND_HELP',				'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Museum. +50% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_TOURISM] Tourism to all Museums. Has 4 slots for [ICON_GREAT_WORK] Great Works of Art. +5 [ICON_RESEARCH] Science, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (+4[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_GREAT_ARTIST]; [ICON_GOLD]) (+2[ICON_TOURISM]).'
+SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (+4[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) (+2[ICON_TOURISM]).'
 WHERE Tag = 'TXT_KEY_WONDER_MUSEUM_ISLAND_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1454,7 +1454,7 @@ VALUES		('TXT_KEY_BUILDING_MONTE_CARLO',		'Monte Carlo Casino'),
 			('TXT_KEY_WONDER_MONTE_CARLO_HELP',		'+10% [ICON_GOLD] Gold in your Empire. Converts 33% of [ICON_TOURISM] Tourism produced by this City into [ICON_GOLD] Gold. 20% of [ICON_GOLD] Gold Purchase is converted into [ICON_TOURISM] Tourism. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Hotel.');
 			
 UPDATE Language_en_US
-SET Text = 'Casino of [COLOR_YIELD_FOOD]Monte Carlo[ENDCOLOR] invites anyone favoured by the fortune (+10% global [ICON_GOLD]). Promises of becoming rich attract tourists (20%[ICON_GOLD] Spent into [ICON_TOURISM]), and money they spend in your [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([ICON_TOURISM]) (+2[ICON_GOLD]; +2[ICON_TOURISM]) is what your empire needs the most (33%[ICON_TOURISM] into [ICON_GOLD]).'
+SET Text = 'Casino of [COLOR_YIELD_FOOD]Monte Carlo[ENDCOLOR] invites anyone favoured by the fortune (+10%[ICON_GOLD][ICON_GOLD]). Promises of becoming rich attract tourists (20%[ICON_GOLD] Spent into [ICON_TOURISM]), and money they spend in your [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([ICON_TOURISM]) (+2[ICON_GOLD]; +2[ICON_TOURISM]) is what your empire needs the most (33%[ICON_TOURISM] into [ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_MONTE_CARLO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1473,7 +1473,7 @@ VALUES		('TXT_KEY_BUILDING_RUHR_VALLEY',		'Ruhr Valley'),
 			('TXT_KEY_WONDER_RUHR_VALLEY_HELP',		'Wonder places 2 new [ICON_RES_COAL] Coal resources inside City range if possible. +10% [ICON_PRODUCTION] Production in your Empire. +1 [ICON_PRODUCTION] Production from Mines and Quarries in your Empire. +2 Working Range of this City.');
 			
 UPDATE Language_en_US
-SET Text = 'Abundant [COLOR_YIELD_FOOD]Ruhr Valley[ENDCOLOR] agglomeration (+2[ICON_RANGE] City Working Range) is the heart of whole country (+10% global [ICON_PRODUCTION]). It supports your industry thanks to new discoveries of [COLOR_GREY]Coal[ENDCOLOR] deposits (+2[ICON_RES_COAL]) and well-trained workforce spread across all [COLOR_CITY_BROWN]Mines[ENDCOLOR] and [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+1[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]).'
+SET Text = 'Abundant [COLOR_YIELD_FOOD]Ruhr Valley[ENDCOLOR] agglomeration (+2[ICON_RANGE] City Working Range) is the heart of whole country (+10%[ICON_PRODUCTION][ICON_PRODUCTION]). It supports your industry thanks to new discoveries of [COLOR_GREY]Coal[ENDCOLOR] deposits (+2[ICON_RES_COAL]) and well-trained workforce spread across all [COLOR_CITY_BROWN]Mines[ENDCOLOR] and [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+1[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]).'
 WHERE Tag = 'TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1559,23 +1559,21 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP';
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Slater Mill
+-- Soho Foundry
 UPDATE Language_en_US
-SET Text = 'If you are looking for a nice industrial boost for your civilization, then [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR] is for you. This [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) is great source of strategic [COLOR_GREY]Coal[ENDCOLOR] (+4 flat [ICON_RES_COAL]), supported by fresh engineering corps (+1[ICON_GREAT_ENGINEER]), that will increase your developement significantly.' WHERE Tag = 'TXT_KEY_BUILDING_SLATER_MILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Can only be built in a City next to a River. ', '') WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
+SET Text = 'If you are looking for a nice industrial boost for your civilization, then [COLOR_YIELD_FOOD]Soho Foundry[ENDCOLOR] is for you. This [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) is great source of strategic [COLOR_GREY]Coal[ENDCOLOR] (+4 flat [ICON_RES_COAL]), supported by fresh engineering corps (+1[ICON_GREAT_ENGINEER]), that will increase your developement significantly.' WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
-SELECT		'TXT_KEY_BUILDING_SLATER_MILL_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_SLATER_MILL_HELP';
+SELECT		'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP';
 				
-UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR]; Building: [COLOR_CYAN]Windmill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Plantations[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_SLATER_MILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_SLATER_MILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Louvre
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] is an ideal place for hiding precious artifacts (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]). This huge [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_GREAT_ARTIST]; [ICON_GOLD]) also contains wonderful pieces of global art (4[ICON_GREAT_WORK] if themed: [ICON_CULTURE]) and invites artists from all over the world ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] is an ideal place for hiding precious artifacts (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]). This huge [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) also contains wonderful pieces of global art (4[ICON_GREAT_WORK] if themed: [ICON_CULTURE]) and invites artists from all over the world ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Artistry[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -2233,7 +2231,7 @@ UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Uranium[ENDCOLO
 ----------------------------------------------------
 -- CN Tower
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]CN Tower[ENDCOLOR] is unusual [COLOR_YIELD_FOOD]Broadcast Tower[ENDCOLOR] ([ICON_GREAT_WORK]; [ICON_CULTURE]; [ICON_TOURISM]; [ICON_HAPPINESS_3]), which serves for masses (+1[ICON_HAPPINESS_1]/City). All works become much more valuable (+2[ICON_GOLD], +2[ICON_TOURISM], +25%[ICON_TOURISM], +25%[ICON_TOURISM][ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and all wonders are now tourism centers (+25%[ICON_CULTURE] of all [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BLUE]Tiles[ENDCOLOR] is converted into [ICON_TOURISM][ICON_TOURISM] and another 25% into [ICON_TOURISM]).'
+SET Text = '[COLOR_YIELD_FOOD]CN Tower[ENDCOLOR] is unusual [COLOR_YIELD_FOOD]Broadcast Tower[ENDCOLOR] ([ICON_GREAT_WORK]; [ICON_CULTURE]; [ICON_TOURISM]; [ICON_HAPPINESS_3]), which serves for masses (+1[ICON_HAPPINESS_1]/City). All works become much more valuable (+2[ICON_GOLD], +2[ICON_TOURISM], +25%[ICON_TOURISM], +25%[ICON_TOURISM][ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and all wonders are now tourism centers (+25%[ICON_CULTURE] of all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BLUE]Tiles[ENDCOLOR] is converted into [ICON_TOURISM][ICON_TOURISM] and another 25% into [ICON_TOURISM]).'
 WHERE Tag = 'TXT_KEY_WONDER_CN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -2357,7 +2355,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR:45:150:50:255]Victory in "Inte
 ----------------------------------------------------
 -- Olympic Village
 UPDATE Language_en_US
-SET Text = 'Olympic Games are great source of joy in these difficult times (+3[ICON_HAPPINESS_1]). [COLOR_YIELD_FOOD]Olympic Village[ENDCOLOR] is here to gather people together, watching games and forgetting about surrounding pain (+25%[ICON_CULTURE] of all [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BROWN]Improvements[ENDCOLOR] into [ICON_TOURISM]). All constructed [COLOR_YIELD_FOOD]Stadiums[ENDCOLOR] (+2[ICON_GOLD]; +2[ICON_TOURISM]) become center of upcoming world events.'
+SET Text = 'Olympic Games are great source of joy in these difficult times (+3[ICON_HAPPINESS_1]). [COLOR_YIELD_FOOD]Olympic Village[ENDCOLOR] is here to gather people together, watching games and forgetting about surrounding pain (+25%[ICON_CULTURE] of all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BROWN]Improvements[ENDCOLOR] into [ICON_TOURISM]). All constructed [COLOR_YIELD_FOOD]Stadiums[ENDCOLOR] (+2[ICON_GOLD]; +2[ICON_TOURISM]) become center of upcoming world events.'
 WHERE Tag = 'TXT_KEY_BUILDING_OLYMPIC_VILLAGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'May only be built collaboratively through the World Congress. ', '') WHERE Tag ='TXT_KEY_BUILDING_OLYMPIC_VILLAGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -2382,15 +2380,68 @@ SELECT		'TXT_KEY_BUILDING_MENIN_GATE_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_MENIN_GATE_HELP';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR:45:150:50:255]Victory in "Global Wargames" project[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_MENIN_GATE_HELP';
+----------------------------------------------------
+-- AMERICA'S UNIQUE WORLD WONDERS (VP v3.8)
+----------------------------------------------------
+-- Smithsonian Institute
+INSERT INTO Language_en_US 
+			(Tag,											Text)
+VALUES		('TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE',	'[NEWLINE]"I read a book every night. I really am that nerd, so when I get to go to the Smithsonian and get to go in the back rooms and play with stuff, things like that, for a guy like me, that''s amazing."[NEWLINE] - Rick Harrison[NEWLINE]');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is an unusual [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM]) you should be proud of (+1[ICON_RESEARCH]/[ICON_GREAT_WORK][ICON_GREAT_WORK] and all Landmarks). Science is the key, but culture is the only thing that keeps a nation in one piece (+5[ICON_CULTURE], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Museums[ENDCOLOR], [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR]; +2[ICON_CULTURE], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]), so you should invest in it at all cost (10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_CULTURE][ICON_CULTURE]; -25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost).'
+WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US 
+			(Tag,										Text) 
+SELECT		'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP';
+				
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
+-- West Point
+INSERT INTO Language_en_US 
+			(Tag,											Text)
+VALUES		('TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE',		'[NEWLINE]"Give me an Army of West Point graduates and I''ll win a battle... Give me a handful of Texas Aggies and I''ll win a war."[NEWLINE] - George S. Patton[NEWLINE]');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]West Point[ENDCOLOR], as a high tier [COLOR_YIELD_FOOD]Military Academy[ENDCOLOR] ([ICON_PRODUCTION], [ICON_HAPPINESS_3], [ICON_SILVER_FIST]) improves all similar facilities (+5[ICON_PRODUCTION], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Military Academies[ENDCOLOR], [COLOR_YIELD_FOOD]Arsenals[ENDCOLOR]) and your troops ([COLOR_WATER_TEXT]Splash[ENDCOLOR]/[COLOR_YIELD_GOLD]Siege[ENDCOLOR], [COLOR_YIELD_GOLD]Naval Ranged[ENDCOLOR]). New training techniques help with keeping your borders (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost) and maintaining crucial infrastructure in good shape (+2[ICON_PRODUCTION], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_RESEARCH][ICON_RESEARCH]).'
+WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US 
+			(Tag,										Text) 
+SELECT		'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP';
+				
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
+-- Slater Mill
+INSERT INTO Language_en_US 
+			(Tag,											Text)
+VALUES		('TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE',		'[NEWLINE]"If I do not make a good yarn, as they do in England, I will have nothing for my services but will throw the whole of what I have attempted over the bridge."[NEWLINE] - Samuel Slater[NEWLINE]');
+			
+UPDATE Language_en_US
+SET Text = 'To be a leader, you need the [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR]. This modern [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) introduces new quality to your industry (+5[ICON_PRODUCTION], +5[ICON_GOLD]/all [COLOR_YIELD_FOOD]Factories[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and makes your expansion faster (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost; +1[ICON_INTERNATIONAL_TRADE]). Your investments should quickly grant you additional profits (+2[ICON_PRODUCTION], +2[ICON_GOLD]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] Spent into [ICON_PRODUCTION][ICON_PRODUCTION]).'
+WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US 
+			(Tag,										Text) 
+SELECT		'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP';
+				
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --============================================--
 -- EE Compatibility
 --============================================--
 -- Main Compatibility Code
 	-- updating texts for new promotions
 	----------------------------------------------------
-	-- SMITHSONIAN INSTITUTE
+	-- SMITHSONIAN INSTITUTE???
 	UPDATE Language_en_US
-	SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is well-known [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_GREAT_ARTIST]; [ICON_GOLD]) and contains some nice artwork (+2[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_GOLD]). All other similar places profit of its influence (+1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Museums, Galleries[ENDCOLOR]). Thanks to that people are much happier (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Illiteracy).'
+	SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is well-known [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) and contains some nice artwork (+2[ICON_GREAT_WORK] if themed: [ICON_RESEARCH], [ICON_GOLD]). All other similar places profit of its influence (+1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Museums, Galleries[ENDCOLOR]). Thanks to that people are much happier (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Illiteracy).'
 	WHERE Tag = 'TXT_KEY_WONDER_EE_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 
 	INSERT INTO Language_en_US 

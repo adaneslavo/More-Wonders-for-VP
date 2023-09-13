@@ -20,7 +20,7 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Mahaprasthanika Parva'),
 			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',		'Lost in Time and Space'),
 			('TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'-3[ICON_MOVES] Movement Points. [COLOR_NEGATIVE_TEXT]Promotion lasts 3 turns[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_DALLOL',				'Explosive Mixture'),
-			('TXT_KEY_PROMOTION_DALLOL_HELP',			'+10%[ICON_RANGE_STRENGTH]RCS.'),
+			('TXT_KEY_PROMOTION_DALLOL_HELP',			'+10%[ICON_RANGE_STRENGTH]Offensive RCS.'),
 			('TXT_KEY_PROMOTION_CAUSEWAY',				'Curiosity'),
 			('TXT_KEY_PROMOTION_CAUSEWAY_HELP',			'+1[ICON_MOVES]Movement Point. +10% [ICON_WORKER] Work Rate.'),
 			('TXT_KEY_PROMOTION_MT_EVEREST',			'Roof of the World'),
@@ -308,7 +308,6 @@ UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY'
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
 UPDATE Buildings SET GlobalLandmarksTourismPercent = 6 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
 UPDATE Buildings SET GlobalLandmarksTourismPercent = 14 WHERE Type = 'BUILDING_CAUSEWAY_B_DUMMY';
-UPDATE Buildings SET CultureMedianModifierGlobal = -5 WHERE Type = 'BUILDING_DALLOL_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_CONSTRUCTION' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';
 UPDATE Buildings SET EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDING_EYE_OF_SAHARA_A_DUMMY';

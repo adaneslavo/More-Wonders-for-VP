@@ -178,6 +178,9 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 	for i, existingFeature in ipairs(g_tNaturalWonderExists) do
 		if existingFeature then
 			local pPlayer = Players[ePlayer]
+			
+			if pPlayer:IsMinorCiv() or pPlayer:IsBarbarian() then return end
+
 			local bHasNaturalWonderInRange = pPlayer:CountCityFeatures(g_tNaturalWonder[i]) >= 1
 			
 			if bHasNaturalWonderInRange then

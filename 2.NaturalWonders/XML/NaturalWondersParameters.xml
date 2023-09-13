@@ -133,7 +133,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_BERMUDA_B</ResourceType>
-			<Model>blank.fxsxml</Model>
+			<!--<Model>blank.fxsxml</Model>-->
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -143,7 +143,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_BERMUDA_C</ResourceType>
-			<Model>blank.fxsxml</Model>
+			<!--<Model>blank.fxsxml</Model>-->
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -205,7 +205,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_B</ResourceType>
-			<Model>blank.fxsxml</Model>
+			<!--<Model>blank.fxsxml</Model>-->
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -215,7 +215,7 @@
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_C</ResourceType>
-			<Model>blank.fxsxml</Model>
+			<!--<Model>blank.fxsxml</Model>-->
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -464,12 +464,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle A</FriendlyName>
+			<FriendlyName>Galapagos A</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle B</FriendlyName>
+			<FriendlyName>Galapagos B</FriendlyName>
 		</Row>
 
 
@@ -477,12 +477,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle A</FriendlyName>
+			<FriendlyName>Ha Long Bay A</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Bermuda Triangle B</FriendlyName>
+			<FriendlyName>Ha Long Bay B</FriendlyName>
 		</Row>
 
 
@@ -668,7 +668,7 @@
 		</Update>
 		<Update>
 			<Where Type="FEATURE_FOUNTAIN_YOUTH"/>
-			<Set Help="TXT_KEY_CIV5_FEATURES_FOUNTAIN_YOUTH_HELP" InBorderHappiness="0" Impassable="false" Movement="1" SeeThrough="0" Rough="false" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" />
+			<Set Help="TXT_KEY_CIV5_FEATURES_FOUNTAIN_YOUTH_HELP" InBorderHappiness="0" Impassable="false" Movement="1" SeeThrough="0" Rough="false" NoImprovement="true" NoCity="true" AddsFreshWater="true" Defense="0" FreePromotionIfOwned="" AdjacentUnitFreePromotion="PROMOTION_EVERLASTING_YOUTH" />
 		</Update>
 		<Update>
 			<Where Type="FEATURE_FUJI"/>

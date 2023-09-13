@@ -271,8 +271,9 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 				
 				if pSpecificPlot then
 					local ePlotOwner = pSpecificPlot:GetOwner()
-				
-					if ePlotOwner == ePlayer then
+					local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
+      
+					if ePlotOwner == ePlayer and eWorkingCity == eCity then
 						if iRequiredRoads > 0 then
 							local eRoute = pSpecificPlot:GetRouteType()
 							local eRoad = GameInfoTypes.ROUTE_ROAD
@@ -923,10 +924,6 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			iRequiredImprovements = 4
 		}
-		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_PLANTATION,
-			iRequiredImprovements = 2
-		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
@@ -1083,9 +1080,6 @@ function Initialize()
 		}
 		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
 			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SLATER_MILL.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_WINDMILL"
 		}
 		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
 			iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",

@@ -1,16 +1,42 @@
 MW Changelog:
-- added:
-	- added brand new models for Giant's Causeway (with new colour), Mt. Everest, Lake Retba (now 3D), Dallol (now sort of 3D) and Bermuda Triangle;
-	- added 5 new Natural Wonders: Eye of the Sahara, Great Blue Hole, Galapagos, Ha Long Bay and Zhangjiajie;
-	- added new resource: Giant Tortoise exclusive for Galapagos;
-- changed:
-	- Grand Mesa now provides global Production bonus instead of local in capital;
-	- updated AssignStartingPlots.lua file for VP 3.7;
-- fixed:
-	- fixed Giant's Causeway's Tourism values;
-	- fixed multiple broken requirements related to Forest/Jungle ownership;
-	- fixed text issue with White Sands Missile Range;
-	- adaptation to latest VP versions;
-	- minor correction in the files;
-	
+v20:
+- World Wonders:
+	- now required improvements must be worked by the interested city (were all in range);
+- Natural Wonders:
+	- excluded City-States from dummy placement (should help with no capital error);
+- Resources:
+	- shortened Monopoly texts (for better look in Trade Opportunities);
+	- changed (mostly nerfed) unique luxury resources:
+		- Giant Tortoise:
+			- lost 1 Food on Camp;
+			- Monopoly bonus halved (now 10% GA Length) and corrected in descriptions;
+			- Research Lab now adds +2 Science;
+		- Sylvite:
+			- dropped Unhappiness reduction from the Monopoly;
+		- Tern Egg:
+			- deleted all flat yields;
+			- halved Monopoly bonus (now +5% Faith on Empire);
+	- deleted unnecessary icon sizes from atlas;
+- text fixes (major are mentioned):
+	- Forge of Damascus texts;
 
+v19:
+- World Wonders:
+	- updated texts for WW changes from VP v3.8 (Uffizi, Chichen Itza, statu of Zeus);
+	- added texts and compatibility for 3 new American WWs (previously they were National Wonders):
+		- splash screens:
+			- moved Slater Mill splash screen old change to American WW one (Soho Foundry is now left with original one);
+			- West Point got new splash screen;
+			- Smithsonian got a splash screen from EE;
+		- quotes:
+			- restored old Slater Mill quote with sound file assigned;
+			- Smithsonian and West Point got new unique quotes;
+	- files cleaning;
+- Natural Wonders:
+	- deleted "blank" model from Eye of the Sahara and Bermuda Triangle code (it should help with CTDs on restart, that didn't happen on my recent tests);
+	- Fountain of Youth's promotion now granted to adjacent units instead of all;
+- disabled EE compatibility until it will be redone/updated/fixed;
+- multiple minor text fixes;
+
+v0.18 and earlier changelogs:
+- they can be found on the forum; game begins from v19 and it was a long journey!
