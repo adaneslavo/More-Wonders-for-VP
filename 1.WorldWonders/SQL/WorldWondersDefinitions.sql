@@ -2037,7 +2037,7 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_SIBERIAN_RAILWAY', WorkerSpeedModifier = 25, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 
-	INSERT INTO Building_ResourceYieldChanges 
+	INSERT INTO Building_ResourceYieldChangesGlobal
 				(BuildingType,					ResourceType,			YieldType,						Yield) 
 	VALUES		('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_COAL',		'YIELD_GOLDEN_AGE_POINTS',		5),
 				('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_OIL',			'YIELD_GOLDEN_AGE_POINTS',		5),
