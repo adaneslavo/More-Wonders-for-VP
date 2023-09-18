@@ -1,4 +1,13 @@
 MW Changelog:
+v20.1.2:
+- fixed Skara Brae tootlip;
+
+v20.1.1:
+- fixed improvement requirements;
+
+v20.1:
+- Trans-Siberian Railway now grants gloabl yield boost to Strategic Resources (was local);
+
 v20:
 - World Wonders:
 	- now required improvements must be worked by the interested city (were all in range);

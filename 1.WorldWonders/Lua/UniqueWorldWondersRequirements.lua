@@ -271,29 +271,32 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 				
 				if pSpecificPlot then
 					local ePlotOwner = pSpecificPlot:GetOwner()
-					local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
-      
-					if ePlotOwner == ePlayer and eWorkingCity == eCity then
-						if iRequiredRoads > 0 then
-							local eRoute = pSpecificPlot:GetRouteType()
-							local eRoad = GameInfoTypes.ROUTE_ROAD
-						
-							if eRoute == eRoad and not pSpecificPlot:IsRoutePillaged() then
-								iCurrentRoads = iCurrentRoads + 1
-							end
-						end
 
-						if iRequiredImprovements > 0 then
-							local eImprovement = pSpecificPlot:GetImprovementType()
+					if ePlotOwner == ePlayer then
+						local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
+						
+						if eWorkingCity == eCity then
+							if iRequiredRoads > 0 then
+								local eRoute = pSpecificPlot:GetRouteType()
+								local eRoad = GameInfoTypes.ROUTE_ROAD
+						
+								if eRoute == eRoad and not pSpecificPlot:IsRoutePillaged() then
+									iCurrentRoads = iCurrentRoads + 1
+								end
+							end
+
+							if iRequiredImprovements > 0 then
+								local eImprovement = pSpecificPlot:GetImprovementType()
 				
-							if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 or eImprovement == eRequiredImprovement3) and not pSpecificPlot:IsImprovementPillaged() then
-								iCurrentImprovements = iCurrentImprovements + 1
+								if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 or eImprovement == eRequiredImprovement3) and not pSpecificPlot:IsImprovementPillaged() then
+									iCurrentImprovements = iCurrentImprovements + 1
+								end
 							end
 						end
-					end
 					
-					if iCurrentRoads >= iRequiredRoads and iCurrentImprovements >= iRequiredImprovements then
-						return true
+						if iCurrentRoads >= iRequiredRoads and iCurrentImprovements >= iRequiredImprovements then
+							return true
+						end
 					end
 				end
 			end
