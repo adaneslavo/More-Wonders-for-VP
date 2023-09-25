@@ -271,8 +271,9 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 				
 				if pSpecificPlot then
 					local ePlotOwner = pSpecificPlot:GetOwner()
-
+					
 					if ePlotOwner == ePlayer then
+						print("CHECK_WORK_PLOT_FOR_IMP", "OWNER", ePlotOwner, "TILE", cityPlot, pSpecificPlot:GetX(), pSpecificPlot:GetY())
 						local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
 						
 						if eWorkingCity == eCity then

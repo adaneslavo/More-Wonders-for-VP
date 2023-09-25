@@ -1,4 +1,8 @@
 MW Changelog:
+v20.2:
+- fixed resource icons sizes;
+- revived checking printouts for Mt. Paektu for a very, very rare situation when it causes map processing problems;
+
 v20.1.2:
 - fixed Skara Brae tootlip;
 

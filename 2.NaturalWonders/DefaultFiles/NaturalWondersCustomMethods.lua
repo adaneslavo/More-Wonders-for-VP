@@ -1365,7 +1365,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A1")
+								print("Paketu river at the end of the map A1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1384,7 +1384,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A2")
+								print("Paketu river at the end of the map A2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1412,7 +1412,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A3")
+								print("Paketu river at the end of the map A3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1431,7 +1431,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A4")
+								print("Paketu river at the end of the map A4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1459,7 +1459,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A5")
+								print("Paketu river at the end of the map A5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1478,7 +1478,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A6")
+								print("Paketu river at the end of the map A6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1506,7 +1506,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A7")
+								print("Paketu river at the end of the map A7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1525,7 +1525,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A8")
+								print("Paketu river at the end of the map A8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1553,7 +1553,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A9")
+								print("Paketu river at the end of the map A9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1572,7 +1572,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A10")
+								print("Paketu river at the end of the map A10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1600,7 +1600,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A11")
+								print("Paketu river at the end of the map A11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1619,7 +1619,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map A12")
+								print("Paketu river at the end of the map A12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1632,7 +1632,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			--print("Paketu river at the end of the map X1")
+			print("Paketu river at the end of the map X1")
 		end
 
 		-- NORTHEAST RIVER (TUMEN)
@@ -1668,7 +1668,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B1")
+								print("Paketu river at the end of the map B1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1687,7 +1687,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B2")
+								print("Paketu river at the end of the map B2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1715,7 +1715,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B3")
+								print("Paketu river at the end of the map B3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1734,7 +1734,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B4")
+								print("Paketu river at the end of the map B4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1762,7 +1762,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B5")
+								print("Paketu river at the end of the map B5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1781,7 +1781,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B6")
+								print("Paketu river at the end of the map B6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1809,7 +1809,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B7")
+								print("Paketu river at the end of the map B7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1828,7 +1828,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B8")
+								print("Paketu river at the end of the map B8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1856,7 +1856,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B9")
+								print("Paketu river at the end of the map B9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1875,7 +1875,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B10")
+								print("Paketu river at the end of the map B10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1903,7 +1903,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B11")
+								print("Paketu river at the end of the map B11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1922,7 +1922,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map B12")
+								print("Paketu river at the end of the map B12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -1935,7 +1935,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			--print("Paketu river at the end of the map X2")
+			print("Paketu river at the end of the map X2")
 		end
 		
 		-- SOUTHWEST RIVER (YALU)
@@ -1971,7 +1971,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C1")
+								print("Paketu river at the end of the map C1")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -1990,7 +1990,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C2")
+								print("Paketu river at the end of the map C2")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2018,7 +2018,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C3")
+								print("Paketu river at the end of the map C3")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2037,7 +2037,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C4")
+								print("Paketu river at the end of the map C4")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2065,7 +2065,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C5")
+								print("Paketu river at the end of the map C5")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2084,7 +2084,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C6")
+								print("Paketu river at the end of the map C6")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2112,7 +2112,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C7")
+								print("Paketu river at the end of the map C7")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2131,7 +2131,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C8")
+								print("Paketu river at the end of the map C8")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2159,7 +2159,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil or pUltraSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C9")
+								print("Paketu river at the end of the map C9")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2178,7 +2178,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C10")
+								print("Paketu river at the end of the map C10")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2206,7 +2206,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil or pSupportPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C11")
+								print("Paketu river at the end of the map C11")
 							end
 
 							if iAdditionalOneWayCorrection >= 0 then
@@ -2225,7 +2225,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 							if pCurrentPlot == nil then
 								bIsEndOfTheMap = true
-								--print("Paketu river at the end of the map C12")
+								print("Paketu river at the end of the map C12")
 							end
 
 							if iAdditionalOneWayCorrection <= 0 then
@@ -2238,7 +2238,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				end
 			until(bIsMetSeaOrLake or bIsMetRiver or bIsEndOfTheMap)
 		else
-			--print("Paketu river at the end of the map X3")
+			print("Paketu river at the end of the map X3")
 		end
 	elseif method_number == 16 then
 		-- ULURU
