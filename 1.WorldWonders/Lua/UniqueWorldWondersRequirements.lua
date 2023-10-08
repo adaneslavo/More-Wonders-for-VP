@@ -273,8 +273,13 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 					local ePlotOwner = pSpecificPlot:GetOwner()
 					
 					if ePlotOwner == ePlayer then
-						print("CHECK_WORK_PLOT_FOR_IMP", "OWNER", ePlotOwner, "TILE", cityPlot, pSpecificPlot:GetX(), pSpecificPlot:GetY())
-						local eWorkingCity = pSpecificPlot:GetWorkingCity():GetID()      
+						local pWorkingCity = pSpecificPlot:GetWorkingCity()
+						
+						if pWorkingCity == nil then
+							print("CHECK_WORK_PLOT_FOR_IMP", "OWNER", ePlotOwner, "TILE", cityPlot, pSpecificPlot:GetX(), pSpecificPlot:GetY())
+						end
+
+						local eWorkingCity = pWorkingCity:GetID()      
 						
 						if eWorkingCity == eCity then
 							if iRequiredRoads > 0 then

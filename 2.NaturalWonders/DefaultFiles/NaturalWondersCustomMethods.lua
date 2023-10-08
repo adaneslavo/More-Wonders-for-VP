@@ -535,7 +535,7 @@ function NWCustomEligibility(x, y, method_number)
 		end
 		
 		if iNumAtoll == 0 or iNumLand == 0 or iNumOcean == 0 then return false end
-		print("--!GBH tile", x, y, "parameters:", iNumAtoll, iNumLand, iNumOcean)
+
 		return true
 	elseif method_number == 21 then
 		-- GALAPAGOS
@@ -572,7 +572,7 @@ function NWCustomEligibility(x, y, method_number)
 		end
 		
 		if iNumCoast < 1 or iNumCoast > 4 or iNumAtoll == 0 or bLand then return false end
-		print("--!Galapagos tile", x, y, "parameters:", iNumCoast, iNumAtoll)
+
 		return true
 	elseif method_number == 22 then
 		-- HA LONG BAY
@@ -617,7 +617,7 @@ function NWCustomEligibility(x, y, method_number)
 		end
 		
 		if iNumLand == 0 or iNumCoast < 2 or iNumOcean < 2 or bContinent == false or bGrass == false then return false end
-		print("--!Ha Long tile", x, y, "parameters:", iNumLand, iNumCoast, iNumOcean)
+
 		return true
 	elseif method_number == 100 then
 		-- dummy
