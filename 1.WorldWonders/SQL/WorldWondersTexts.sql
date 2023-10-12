@@ -228,15 +228,15 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], Plot
 -- Pyramids
 UPDATE Language_en_US
 SET Text = 'Great [COLOR_YIELD_FOOD]Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]), accelerating the coming of next golden age thanks to the efforts of prominent people (50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). Use recently trained [COLOR_YIELD_GOLD]free Settler[ENDCOLOR] to found another great and prosperous city.'
-WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+WHERE Tag = 'TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-SELECT		'TXT_KEY_WONDER_CHICHEN_ITZA_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
+SELECT		'TXT_KEY_WONDER_PYRAMIDS_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PYRAMIDS_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Petra
 UPDATE Language_en_US
@@ -1181,15 +1181,15 @@ UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Amphitheater[ENDCOLOR], 
 -- Chichen Itza
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Chichen Itza[ENDCOLOR] makes your golden ages much more important (+50%[ICON_GOLDEN_AGE] Length). Your citizens will become (-10%[ICON_HAPPINESS_3][ICON_HAPPINESS_3]), especially when they visit brand new [COLOR_YIELD_FOOD]Teocalli[ENDCOLOR] (). Build it, and your people will awe you.'
-WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-SELECT		'TXT_KEY_WONDER_TAJ_MAHAL_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP';
+SELECT		'TXT_KEY_WONDER_CHICHEN_ITZA_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CHICHEN_ITZA_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_CHICHEN_ITZA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Himeji Castle
 UPDATE Language_en_US
@@ -1233,15 +1233,15 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE]
 -- Taj Mahal
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Taj Mahal[ENDCOLOR] maximizes number of golden ages you enter (Start [ICON_GOLDEN_AGE]; +1[ICON_GOLDEN_AGE]/2[ICON_CITIZEN]) and benefits from multiple religions in your city (+3[ICON_RESEARCH], +3[ICON_CULTURE], +3[ICON_PEACE]/[ICON_RELIGION]). Do not let them go away!'
-WHERE Tag = 'TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
-SELECT		'TXT_KEY_WONDER_PYRAMIDS_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PYRAMIDS_HELP';
+SELECT		'TXT_KEY_WONDER_TAJ_MAHAL_HELP_CUT',	Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_TAJ_MAHAL_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TAJ_MAHAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Uffizi
 UPDATE Language_en_US
@@ -1491,7 +1491,7 @@ VALUES		('TXT_KEY_BUILDING_DARJEELING',			'Darjeeling Himalayan Railway'),
 			('TXT_KEY_WONDER_DARJEELING_PEDIA',		'The Darjeeling Himalayan Railway is a narrow-gauge railway that operates between the Indian cities of Siliguri and Darjeeling, in the North-East of the country. It features a vertical ascent of approximately 2,100 metres along the 78 kilometre track, and was built during the British Raj period of the colonialism of the country in order to provide railroad access to the area, which was perfect for Tea plantations. It is often referred to as the ''Toy train'' due to the small size of the train and tracks, a design which was deliberate to allow the train to handle the steep ascent to Darjeeling. The railway was closed for a brief period in the late 1980''s during a violent Gorkhaland movement, in which residents of the area campaigned for a seperate state within India to recognise their ethnic heritage of Gorkhas.'),
 			('TXT_KEY_WONDER_DARJEELING_HELP',		'All Pedestrian Military Units receive [COLOR_POSITIVE_TEXT]Toy Train[ENDCOLOR] promotion. +15% [ICON_GOLD] Gold from City Connections. +1 [ICON_FOOD] Food, [ICON_PRODUCTION] Production, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism from Mountain tiles worked by this City.'),
 			('TXT_KEY_PROMOTION_DARJEELING',		'Toy Train'),
-			('TXT_KEY_PROMOTION_DARJEELING_HELP',	'Unit [COLOR:255:230:85:255]can Move over Mountain[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_DARJEELING_HELP',	'Unit [COLOR:255:230:85:255]can Enter Mountain[ENDCOLOR].');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Darjeeling Himalayan Railway[ENDCOLOR] is excellent way to communicate difficult areas of your empire together ([COLOR_WATER_TEXT]Toy Train[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Pedestrian[ENDCOLOR]). Such a connection can also improve your income (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED]) and populate [COLOR_CITY_BLUE]Mountainous[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_TOURISM]/[ICON_FLOWER][ICON_FLOWER] to corresponding City) terrain surrounding your city.'
@@ -1771,7 +1771,7 @@ VALUES		('TXT_KEY_BUILDING_SANBO',					'Sanbo Honbu'),
 			('TXT_KEY_PROMOTION_SANBO_LAND',			'Imperial Army'),
 			('TXT_KEY_PROMOTION_SANBO_LAND_HELP',		'Bonus[ICON_MOVES]Movement Point[COLOR:255:230:85:255] after crossing Rivers[ENDCOLOR]. +10%[ICON_STRENGTH]CS/[ICON_RANGE_STRENGTH]RCS [COLOR:255:230:85:255]in Rough Terrain[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_SEA',				'Fleet of the Sun'),
-			('TXT_KEY_PROMOTION_SANBO_SEA_HELP',		'Unit deals Damage [COLOR:255:230:85:255]to attackng Air Unit[ENDCOLOR]. Requires [ICON_RESEARCH]Flight (excluding Submarines). +10%[ICON_STRENGTH]CS if unit [COLOR:255:230:85:255]is adjacent to another Friendly Unit[ENDCOLOR].'),
+			('TXT_KEY_PROMOTION_SANBO_SEA_HELP',		'Unit deals Damage [COLOR:255:230:85:255]to attackng Air Unit[ENDCOLOR]. Requires [ICON_RESEARCH][COLOR_RESEARCH_STORED]Flight[ENDCOLOR] (excluding Submarines). +10%[ICON_STRENGTH]CS/[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]is adjacent to another Friendly Unit[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_AIR',				'Kamikaze'),
 			('TXT_KEY_PROMOTION_SANBO_AIR_HELP',		'+30%[ICON_RANGE_STRENGTH]RCS if unit [COLOR:255:230:85:255]has 20% of its maximum HP or less[ENDCOLOR] [COLOR_GREY](inactive)[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',		'Kamikaze: For the Emperor!'),
@@ -2012,7 +2012,7 @@ VALUES		('TXT_KEY_BUILDING_THULE',			'Thule Air Base'),
 			('TXT_KEY_WONDER_THULE_PEDIA',		'TODO'),
 			('TXT_KEY_WONDER_THULE_HELP',		'+10 XP to all Planes produced in this City and +5 XP to all Planes produced in your Empire. +3 Air slots in this City and +2 [ICON_SILVER_FIST] Military Unit Supply Cap in your Empire. All Planes get [COLOR_POSITIVE_TEXT]Operational Range[ENDCOLOR] promotion.'),
 			('TXT_KEY_PROMOTION_THULE',			'Operational Range'),
-			('TXT_KEY_PROMOTION_THULE_HELP',	'+5%[ICON_RANGE_STRENGTH]RCS. +2 [ICON_SWAP] Range.');
+			('TXT_KEY_PROMOTION_THULE_HELP',	'+5%[ICON_RANGE_STRENGTH]Offensive RCS. +2 [ICON_SWAP] Range.');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Thule Air Base[ENDCOLOR] strengthen your air supremacy by keeping more planes in local hangars (+3[ICON_BULLET]Air slots; +2[ICON_SILVER_FIST]), training better pilots (+10 XP to local Planes; +5 XP to global Planes) or improving the overall units capabilities ([COLOR_WATER_TEXT]Operational Range[ENDCOLOR]/[COLOR_YIELD_GOLD]Planes[ENDCOLOR]).'

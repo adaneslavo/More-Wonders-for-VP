@@ -1,6 +1,7 @@
 MW Changelog:
 v20.4:
-- ???
+- small promotion's texts corrections;
+- fixed WWs description that were swapped before (Pyramids, Chichen Itza, Taj Mahal);
 
 v20.3:
 - fixed Soho Foundry tooltip;
