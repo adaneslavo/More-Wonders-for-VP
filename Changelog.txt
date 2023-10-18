@@ -1,9 +1,12 @@
 MW Changelog:
+v20.5:
+- ???
+
 v20.4:
 - small promotion's texts corrections;
 - fixed WWs description that were swapped before (Pyramids, Chichen Itza, Taj Mahal);
 
-v20.3:
+v20.3 (last for 3.10.X):
 - fixed Soho Foundry tooltip;
 - clarified Great Firewall, Menin Gate and Brandenburg Gate;
 
