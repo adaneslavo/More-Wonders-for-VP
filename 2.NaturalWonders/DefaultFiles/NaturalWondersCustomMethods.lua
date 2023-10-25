@@ -29,6 +29,7 @@
 --		* Great Blue Hole (20):		spawns some attols;
 --		* Galapagos (21):			2-tile wonder; spawns islands;
 --		* Ha Long Bay (22):			2-tile wonder; looks for coast;
+--      * Aurora Borealis (23):		3-tile wonder;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -619,6 +620,8 @@ function NWCustomEligibility(x, y, method_number)
 		if iNumLand == 0 or iNumCoast < 2 or iNumOcean < 2 or bContinent == false or bGrass == false then return false end
 
 		return true
+	elseif method_number == 23 then
+		-- reserved: Aurora Borealis
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -2404,6 +2407,25 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		
 		pChosenPlot = table.remove(tCoastPlots, Game.Rand(#tCoastPlots, "Choose plot for Ha Long Bay B") + 1)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_HA_LONG_B)
+	elseif method_number == 23 then
+		-- AURORA BOREALIS
+		local tPossiblePlots = {}
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+
+			if pAdjacentPlot then
+				table.insert(tPossiblePlots, pAdjacentPlot)
+			end
+		end
+
+		if #tPossiblePlots <= 1 then print("NOT ENOUGH SPOTS FOR AURORA!!!", #tPossiblePlots, x, y) end
+
+		local pChosenPlot1 = table.remove(tPossiblePlots, Game.Rand(#tPossiblePlots, "Choose side plot") + 1)
+		local pChosenPlot2 = table.remove(tPossiblePlots, Game.Rand(#tPossiblePlots, "Choose side plot") + 1)
+
+		pChosenPlot1:SetFeatureType(GameInfoTypes.FEATURE_AURORA_B)
+		pChosenPlot2:SetFeatureType(GameInfoTypes.FEATURE_AURORA_C)
 	end
 end
 ------------------------------------------------------------------------------

@@ -5,7 +5,7 @@
     <ProjectGuid>{af6f426c-c21e-41c2-bfb7-20a461bc0cc5}</ProjectGuid>
     <Name>(overhaul) More Wonders for VP</Name>
     <Guid>3e151552-1683-4881-b736-8ee89226f599</Guid>
-    <ModVersion>20</ModVersion>
+    <ModVersion>21</ModVersion>
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
@@ -2893,6 +2893,18 @@ Currently compatible with VP 3.10.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\AuroraBorealis\Model\AURORA_BOREALIS.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\AuroraBorealis\Model\AURORA_BOREALIS.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\AuroraBorealis\Model\fx_triggers_aurora_borealis_1.ftsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\bermuda_triangle.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3669,6 +3681,7 @@ Currently compatible with VP 3.10.X.</Description>
     <Folder Include="2.NaturalWonders" />
     <Folder Include="2.NaturalWonders\Art\Atlases" />
     <Folder Include="2.NaturalWonders\Art\Models" />
+    <Folder Include="2.NaturalWonders\Art\Models\AuroraBorealis\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\BermudaTriangle\" />
     <Folder Include="2.NaturalWonders\Art\Models\BermudaTriangle\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\BioluminescentBay\" />
@@ -3695,6 +3708,7 @@ Currently compatible with VP 3.10.X.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\GreatBlueHole" />
     <Folder Include="2.NaturalWonders\Art\Models\Galapagos" />
     <Folder Include="2.NaturalWonders\Art\Models\HaLongBay" />
+    <Folder Include="2.NaturalWonders\Art\Models\AuroraBorealis" />
     <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\" />

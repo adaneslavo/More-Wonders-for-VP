@@ -6826,6 +6826,24 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						break
 					end
 				end
+			elseif (self.wonder_list[wonder_number] == "FEATURE_AURORA_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pAuroraPlot = Map.PlotDirection(x, y, i)
+					
+					if pAuroraPlot:GetFeatureType() == GameInfoTypes.FEATURE_AURORA_B or pAuroraPlot:GetFeatureType() == GameInfoTypes.FEATURE_AURORA_C then	
+						local iAuroraX = pAuroraPlot:GetX()
+						local iAuroraY = pAuroraPlot:GetY()
+					
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+					
+						local iAuroraPlotIndex = iAuroraY * iW + iAuroraX + 1
+						
+						self.playerCollisionData[iAuroraPlotIndex] = true -- Record exact plot of wonder in the collision list.
+					end
+				end
 			end
 			-- MOD.Barathor: End
 			--

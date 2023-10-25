@@ -6,10 +6,10 @@
 --============================================--
 -- DEFINES
 --============================================--
-UPDATE Defines SET Value = 40 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SAME_ERA_COST_MODIFIER'; --original: 25
-UPDATE Defines SET Value = 35 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_PREVIOUS_ERA_COST_MODIFIER'; --original: 15
-UPDATE Defines SET Value = 30 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SECOND_PREVIOUS_ERA_COST_MODIFIER'; --original: 10
-UPDATE Defines SET Value = 20 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_EARLIER_ERA_COST_MODIFIER'; --original: 5
+UPDATE Defines SET Value = 50 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SAME_ERA_COST_MODIFIER'; --original: 25
+UPDATE Defines SET Value = 30 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_PREVIOUS_ERA_COST_MODIFIER'; --original: 15
+UPDATE Defines SET Value = 20 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_SECOND_PREVIOUS_ERA_COST_MODIFIER'; --original: 10
+UPDATE Defines SET Value = 10 WHERE Name = 'BALANCE_CORE_WORLD_WONDER_EARLIER_ERA_COST_MODIFIER'; --original: 5
 
 UPDATE Language_en_US
 SET Text = 'Additional [ICON_PRODUCTION] Production Cost due to owned World Wonders: [COLOR_NEGATIVE_TEXT]{1_Num}%[ENDCOLOR].[NEWLINE][ICON_PRODUCTION] Production Cost increase factors:[NEWLINE][ICON_BULLET] Wonders from the same Era: [COLOR_NEGATIVE_TEXT]40%.[ENDCOLOR][NEWLINE][ICON_BULLET] Wonders from the previous Era: [COLOR_NEGATIVE_TEXT]35%[ENDCOLOR].[NEWLINE][ICON_BULLET] Wonders from two Eras earlier: [COLOR_NEGATIVE_TEXT]30%.[ENDCOLOR][NEWLINE][ICON_BULLET] Wonders from three Eras earlier or more do not add any penalties.'

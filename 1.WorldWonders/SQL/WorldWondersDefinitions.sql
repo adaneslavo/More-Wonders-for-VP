@@ -1613,7 +1613,7 @@
 	UPDATE Buildings SET River = 1, Hill = 1 WHERE Type = 'BUILDING_OLD_BRIDGE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Peace (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET Happiness = 1, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, ExtraLeagueVotes = 2 WHERE Type = 'BUILDING_OLD_BRIDGE';
+	UPDATE Buildings SET Happiness = 1, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, SingleLeagueVotes = 2 WHERE Type = 'BUILDING_OLD_BRIDGE';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2382,7 +2382,7 @@
 				(BuildingType,			BuildingClassType) 
 	SELECT		'BUILDING_ORSZAGHAZ',	'BUILDINGCLASS_CONSTABLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
+	UPDATE Buildings SET FreePolicies = 1, SingleLeagueVotes = 1, DoFToVotes = 1, DPToVotes = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, FreeGreatWork = 'GREAT_WORK_HOLY_CROWN' WHERE Type = 'BUILDING_ORSZAGHAZ';
 
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,			YieldType,					Yield) 
@@ -2788,7 +2788,7 @@
 				(BuildingType,			FeatureType) 
 	SELECT		'BUILDING_RUSHMORE',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
+	UPDATE Buildings SET SingleLeagueVotes = 1, SpecialistType = 'SPECIALIST_ARTIST', SpecialistCount = 1 WHERE Type = 'BUILDING_RUSHMORE';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2967,7 +2967,7 @@
 	SELECT		'BUILDING_ANITKABIR',		'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
 	SELECT		'BUILDING_ANITKABIR',		'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePolicies = 1, ExtraLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';
+	UPDATE Buildings SET FreePolicies = 1, SingleLeagueVotes = 1, CapitalsToVotes = 1 WHERE Type = 'BUILDING_ANITKABIR';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield)
@@ -3149,7 +3149,7 @@
 	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_ARECIBO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Academy(1) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1, SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 2 WHERE Type = 'BUILDING_ARECIBO';
+	UPDATE Buildings SET SingleLeagueVotes = 1, SpecialistType = 'SPECIALIST_SCIENTIST', SpecialistCount = 2 WHERE Type = 'BUILDING_ARECIBO';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -3267,7 +3267,7 @@
 	-- + Village(1) (lua) (HARD)
 	-- + CS_Ally(3) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_TAIPEI';
+	UPDATE Buildings SET SingleLeagueVotes = 1 WHERE Type = 'BUILDING_TAIPEI';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,			Yield)

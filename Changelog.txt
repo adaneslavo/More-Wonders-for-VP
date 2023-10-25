@@ -1,6 +1,16 @@
 MW Changelog:
 v20.5:
-- ???
+- added Aurora Borealis Natural Wonder - unique 3-tile wonder exclusive for Snow/Tundra terrain (credits to @gwennog and @ghost toast);
+- revamped era scalers for WWs to 50-30-20-10 (was 40-35-30-20);
+	- now older WWs have lower impact on the cost, but if you build one or two of the actual era, then the cost jumps more;
+	- if you capture a city with a bunch of older WWs, it will be a bit less punishing for you, so less chance contemporary WWs will be blocked;
+- some WWs have now SingleLeagueVotes parameter (not scaling) instead of ExtraLeagueVotes (scaling):
+	- Old Bridge in Mostar (2), Orszaghaz (1), Mount Rushmore (1), Anitkabir (1), Arecibo (1), Taipei 101 (1);
+	- St. Peter's Basilica have the scaler left (similarly like original Palace of Westminster, but only 1 instead of 2);
+	- Rock of Gibraltar also has the scaler left;
+		- as a compensation, defensive bonus lowered to 5% (was 10%);
+	- all corresponding texts corrected;
+- minor text corrections;
 
 v20.4:
 - small promotion's texts corrections;

@@ -55,7 +55,9 @@ VALUES		('TXT_KEY_CIV5_FEATURES_CRATER_HELP',			'One of the biggests, and the su
 			('TXT_KEY_CIV5_FEATURES_BLUE_HOLE_HELP',		'Giant marine sinkhole surrounded by coral reefs and atolls.'),
 			('TXT_KEY_CIV5_FEATURES_GALAPAGOS_HELP',		'Isolated archipelago with endemic flora and fauna.'),
 			('TXT_KEY_CIV5_FEATURES_HA_LONG_HELP',			'Bay with enormous amount of islands and unique rock formations.'),
-			('TXT_KEY_CIV5_FEATURES_ZHANGJIAJIE_HELP',		'Unique rock formations being an inspiration for the unique scenes in science-fiction movie.');
+			('TXT_KEY_CIV5_FEATURES_ZHANGJIAJIE_HELP',		'Unique rock formations being an inspiration for the unique scenes in science-fiction movie.'),
+			('TXT_KEY_CIV5_FEATURES_AURORA_HELP',			'Beautiful light effects on the sky created by the magnetic field of Earth, and seen mostly on the poles.');
+
 -----------------------------------------------------------
 -- Civilopedia replacements (deleted texts out of date)
 -----------------------------------------------------------

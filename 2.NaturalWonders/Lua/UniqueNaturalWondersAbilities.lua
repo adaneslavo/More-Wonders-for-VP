@@ -39,7 +39,10 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_GALAPAGOS_B"],
 	GameInfoTypes["FEATURE_HA_LONG_A"],
 	GameInfoTypes["FEATURE_HA_LONG_B"],
-	GameInfoTypes["FEATURE_ZHANGJIAJIE"] -- 35
+	GameInfoTypes["FEATURE_ZHANGJIAJIE"], -- 35
+	GameInfoTypes["FEATURE_AURORA_A"],
+	GameInfoTypes["FEATURE_AURORA_B"],
+	GameInfoTypes["FEATURE_AURORA_C"]
 }
 
 local g_iWonderWithDummies = #g_tNaturalWonder
@@ -102,7 +105,10 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_GALAPAGOS_B_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_A_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_B_DUMMY"],
-	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"] -- 35
+	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"], -- 35
+	GameInfoTypes["BUILDING_AURORA_A_DUMMY"],
+	GameInfoTypes["BUILDING_AURORA_B_DUMMY"],
+	GameInfoTypes["BUILDING_AURORA_C_DUMMY"]
 }
 
 local g_tNaturalWonderDummy2 = {}
@@ -228,6 +234,8 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 							bSkip = g_tNaturalWonderSkip[i]
 						end
 					end
+
+
 				else
 					-- MT. PAEKTU
 					if g_tNaturalWonderDummy[i] == GameInfoTypes["BUILDING_MT_PAEKTU"] and bMtPaektuBuilt == false then
