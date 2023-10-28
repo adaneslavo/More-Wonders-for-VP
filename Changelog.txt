@@ -1,5 +1,5 @@
 MW Changelog:
-v20.5:
+v21:
 - added Aurora Borealis Natural Wonder - unique 3-tile wonder exclusive for Snow/Tundra terrain (credits to @gwennog and @ghost toast);
 - revamped era scalers for WWs to 50-30-20-10 (was 40-35-30-20);
 	- now older WWs have lower impact on the cost, but if you build one or two of the actual era, then the cost jumps more;
