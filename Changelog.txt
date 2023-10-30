@@ -1,4 +1,7 @@
 MW Changelog:
+v21.1:
+- fixed Ha Long Bay's promotion pedia entry;
+
 v21:
 - added Aurora Borealis Natural Wonder - unique 3-tile wonder exclusive for Snow/Tundra terrain (credits to @gwennog and @ghost toast);
 - revamped era scalers for WWs to 50-30-20-10 (was 40-35-30-20);
