@@ -1,6 +1,10 @@
 MW Changelog:
 v21.1:
-- fixed Ha Long Bay's promotion pedia entry;
+- added FlagPromoOrder and OrderPriority for new promotions;
+- fixed text issues:
+	- fixed Ha Long Bay's promotion pedia entry;
+	- Statue of Zeus now mentions Workers not Settlers (immunity);
+	- Updated Great Lighthouse text (now mentions about Navigation II, not Great Lighthouse promotion);
 
 v21:
 - added Aurora Borealis Natural Wonder - unique 3-tile wonder exclusive for Snow/Tundra terrain (credits to @gwennog and @ghost toast);

@@ -124,6 +124,22 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 			('PROMOTION_AURORA',			'UNITCOMBAT_SPECIAL_PEOPLE'),
 			('PROMOTION_AURORA',			'UNITCOMBAT_SPACESHIP_PART'),
 			('PROMOTION_AURORA',			'UNITCOMBAT_ARCHAEOLOGIST');
+
+UPDATE UnitPromotions SET FlagPromoOrder = 4, OrderPriority = 4 WHERE Type = 'PROMOTION_BERMUDA_TRIANGLE';
+			
+UPDATE UnitPromotions SET FlagPromoOrder = 250, OrderPriority = 250 WHERE Type = 'PROMOTION_EVERLASTING_YOUTH';
+UPDATE UnitPromotions SET FlagPromoOrder = 251, OrderPriority = 251 WHERE Type = 'PROMOTION_HA_LONG';
+UPDATE UnitPromotions SET FlagPromoOrder = 252, OrderPriority = 252 WHERE Type = 'PROMOTION_SOLOMONS_MINES';
+UPDATE UnitPromotions SET FlagPromoOrder = 253, OrderPriority = 253 WHERE Type = 'PROMOTION_AURORA';
+
+UPDATE UnitPromotions SET FlagPromoOrder = 254, OrderPriority = 254 WHERE Type = 'PROMOTION_DALLOL';
+UPDATE UnitPromotions SET FlagPromoOrder = 255, OrderPriority = 255 WHERE Type = 'PROMOTION_ALTITUDE_TRAINING';
+
+UPDATE UnitPromotions SET FlagPromoOrder = 256, OrderPriority = 256 WHERE Type = 'PROMOTION_SACRED_STEPS';
+UPDATE UnitPromotions SET FlagPromoOrder = 257, OrderPriority = 257 WHERE Type = 'PROMOTION_KAILASH';
+UPDATE UnitPromotions SET FlagPromoOrder = 258, OrderPriority = 258 WHERE Type = 'PROMOTION_ULURU';
+UPDATE UnitPromotions SET FlagPromoOrder = 259, OrderPriority = 259 WHERE Type = 'PROMOTION_CAUSEWAY';
+UPDATE UnitPromotions SET FlagPromoOrder = 260, OrderPriority = 260 WHERE Type = 'PROMOTION_MT_EVEREST';
 --============================================--
 -- GREAT_WORKS
 --============================================--
