@@ -1333,7 +1333,7 @@
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
-			<TileChangesMethodNumber>-1</TileChangesMethodNumber>
+			<TileChangesMethodNumber>25</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>
@@ -2219,7 +2219,7 @@
 			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
-			<TileChangesMethodNumber>-1</TileChangesMethodNumber>
+			<TileChangesMethodNumber>24</TileChangesMethodNumber>
 
 			<LandBased>true</LandBased>
 			<RequireBiggestLandmass>false</RequireBiggestLandmass>

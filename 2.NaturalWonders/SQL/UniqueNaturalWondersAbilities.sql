@@ -127,19 +127,19 @@ VALUES		('PROMOTION_KAILASH',			'UNITCOMBAT_MISSIONARY'),
 
 UPDATE UnitPromotions SET FlagPromoOrder = 4, OrderPriority = 4 WHERE Type = 'PROMOTION_BERMUDA_TRIANGLE';
 			
-UPDATE UnitPromotions SET FlagPromoOrder = 250, OrderPriority = 250 WHERE Type = 'PROMOTION_EVERLASTING_YOUTH';
-UPDATE UnitPromotions SET FlagPromoOrder = 251, OrderPriority = 251 WHERE Type = 'PROMOTION_HA_LONG';
-UPDATE UnitPromotions SET FlagPromoOrder = 252, OrderPriority = 252 WHERE Type = 'PROMOTION_SOLOMONS_MINES';
-UPDATE UnitPromotions SET FlagPromoOrder = 253, OrderPriority = 253 WHERE Type = 'PROMOTION_AURORA';
+UPDATE UnitPromotions SET FlagPromoOrder = 70, OrderPriority = 70 WHERE Type = 'PROMOTION_EVERLASTING_YOUTH';
+UPDATE UnitPromotions SET FlagPromoOrder = 71, OrderPriority = 71 WHERE Type = 'PROMOTION_HA_LONG';
+UPDATE UnitPromotions SET FlagPromoOrder = 72, OrderPriority = 72 WHERE Type = 'PROMOTION_SOLOMONS_MINES';
+UPDATE UnitPromotions SET FlagPromoOrder = 73, OrderPriority = 73 WHERE Type = 'PROMOTION_AURORA';
 
-UPDATE UnitPromotions SET FlagPromoOrder = 254, OrderPriority = 254 WHERE Type = 'PROMOTION_DALLOL';
-UPDATE UnitPromotions SET FlagPromoOrder = 255, OrderPriority = 255 WHERE Type = 'PROMOTION_ALTITUDE_TRAINING';
+UPDATE UnitPromotions SET FlagPromoOrder = 250, OrderPriority = 250 WHERE Type = 'PROMOTION_DALLOL';
+UPDATE UnitPromotions SET FlagPromoOrder = 251, OrderPriority = 251 WHERE Type = 'PROMOTION_ALTITUDE_TRAINING';
 
-UPDATE UnitPromotions SET FlagPromoOrder = 256, OrderPriority = 256 WHERE Type = 'PROMOTION_SACRED_STEPS';
-UPDATE UnitPromotions SET FlagPromoOrder = 257, OrderPriority = 257 WHERE Type = 'PROMOTION_KAILASH';
-UPDATE UnitPromotions SET FlagPromoOrder = 258, OrderPriority = 258 WHERE Type = 'PROMOTION_ULURU';
-UPDATE UnitPromotions SET FlagPromoOrder = 259, OrderPriority = 259 WHERE Type = 'PROMOTION_CAUSEWAY';
-UPDATE UnitPromotions SET FlagPromoOrder = 260, OrderPriority = 260 WHERE Type = 'PROMOTION_MT_EVEREST';
+UPDATE UnitPromotions SET FlagPromoOrder = 252, OrderPriority = 252 WHERE Type = 'PROMOTION_SACRED_STEPS';
+UPDATE UnitPromotions SET FlagPromoOrder = 253, OrderPriority = 253 WHERE Type = 'PROMOTION_KAILASH';
+UPDATE UnitPromotions SET FlagPromoOrder = 254, OrderPriority = 254 WHERE Type = 'PROMOTION_ULURU';
+UPDATE UnitPromotions SET FlagPromoOrder = 255, OrderPriority = 255 WHERE Type = 'PROMOTION_CAUSEWAY';
+UPDATE UnitPromotions SET FlagPromoOrder = 256, OrderPriority = 256 WHERE Type = 'PROMOTION_MT_EVEREST';
 --============================================--
 -- GREAT_WORKS
 --============================================--
@@ -362,9 +362,7 @@ UPDATE Buildings SET EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDIN
 
 INSERT INTO Building_ResourceQuantity
 			(BuildingType,					ResourceType,		Quantity) 
-VALUES		('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',	1),
-			('BUILDING_POTOSI_DUMMY',		'RESOURCE_SILVER',	1),
-			('BUILDING_DALLOL_DUMMY',		'RESOURCE_SYLVITE',	1);
+VALUES		('BUILDING_DALLOL_DUMMY',		'RESOURCE_SYLVITE',	1);
 
 INSERT INTO Building_GreatWorkYieldChanges
 			(BuildingType,				YieldType,					Yield) 
@@ -373,18 +371,19 @@ VALUES		('BUILDING_MT_SINAI_DUMMY',	'YIELD_FAITH',				1),
 
 INSERT INTO Building_ImprovementYieldChangesGlobal
 			(BuildingType,						ImprovementType,				YieldType,						Yield) 
-VALUES		('BUILDING_SOLOMONS_MINES_DUMMY',	'IMPROVEMENT_MINE',				'YIELD_GOLDEN_AGE_POINTS',		1),
-			('BUILDING_MT_SINAI_DUMMY',			'IMPROVEMENT_HOLY_SITE',		'YIELD_FAITH',					1),
+VALUES		('BUILDING_MT_SINAI_DUMMY',			'IMPROVEMENT_HOLY_SITE',		'YIELD_FAITH',					1),
 			('BUILDING_MT_SINAI_DUMMY',			'IMPROVEMENT_HOLY_SITE',		'YIELD_GOLDEN_AGE_POINTS',		1),
 			('BUILDING_NEW_REEF_B_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1),
-			('BUILDING_NEW_REEF_C_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1);
-
+			('BUILDING_NEW_REEF_C_DUMMY',		'IMPROVEMENT_FISHING_BOATS',	'YIELD_FOOD',					1),
+			('BUILDING_SOLOMONS_MINES_DUMMY',	'IMPROVEMENT_MINE',				'YIELD_GOLDEN_AGE_POINTS',		1);
+			
 INSERT INTO Building_ResourceYieldChangesGlobal
 			(BuildingType,					ResourceType,				YieldType,			Yield) 
-VALUES		('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',			'YIELD_SCIENCE',	1),
+VALUES		('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_FAITH',		1),
+			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',			'YIELD_CULTURE',	1),
+			('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_FISH',			'YIELD_SCIENCE',	1),
 			('BUILDING_LUMI_BAY_DUMMY',		'RESOURCE_TROPICAL_FISH',	'YIELD_SCIENCE',	1),
-			('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_GOLD',		2),
-			('BUILDING_KILIMANJARO_DUMMY',	'RESOURCE_IVORY',			'YIELD_CULTURE',	1);
+			('BUILDING_POTOSI_DUMMY',		'RESOURCE_SILVER',			'YIELD_SCIENCE',	1);
 
 INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,					ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_NEW_REEF_A_DUMMY',	Type,			'YIELD_SCIENCE',	1

@@ -132,10 +132,10 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_POTOSI">
-			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_SILVER][NEWLINE][ICON_BULLET]+1 [ICON_INTERNATIONAL_TRADE] Trade Route</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_INTERNATIONAL_TRADE] Trade Route[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/[ICON_RES_SILVER][ICON_RES_SILVER]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_EL_DORADO">
-			<Text>[NEWLINE][ICON_BULLET]+1 flat [ICON_RES_GOLD][NEWLINE][ICON_BULLET]+2 [ICON_GOLD]/[ICON_RES_GOLD][ICON_RES_GOLD]</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_PEACE]/[ICON_RES_GOLD][ICON_RES_GOLD]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_SRI_PADA">
 			<Text></Text>
@@ -235,13 +235,13 @@
 
 		<!-- Map abilities -->
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_NEW_REEF_A">
-			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] adjacent to its tiles</Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_NEW_REEF_B">
-			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] adjacent to its tiles</Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_NEW_REEF_C">
-			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] adjacent to its tiles</Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns up to [COLOR_POSITIVE_TEXT]5 different features or resources[ENDCOLOR] on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_CRATER">
 			<Text></Text>
@@ -265,10 +265,10 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_POTOSI">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns 2 [ICON_RES_SILVER] on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_EL_DORADO">
-			<Text></Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns 2 [ICON_RES_GOLD] on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_SRI_PADA">
 			<Text></Text>
@@ -340,10 +340,10 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_GALAPAGOS_A">
-			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise adjacent to its tiles</Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_GALAPAGOS_B">
-			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise adjacent to its tiles</Text>
+			<Text>[NEWLINE][ICON_BULLET]spawns up to 2 [ICON_RES_TROPICAL_FISH] Tropical Fish and up to 1 [ICON_RES_TORTOISE] Giant Tortoise on adjacent tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_HA_LONG_A">
 			<Text></Text>

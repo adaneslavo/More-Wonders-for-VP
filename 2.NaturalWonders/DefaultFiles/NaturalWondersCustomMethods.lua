@@ -29,7 +29,9 @@
 --		* Great Blue Hole (20):		spawns some attols;
 --		* Galapagos (21):			2-tile wonder; spawns islands;
 --		* Ha Long Bay (22):			2-tile wonder; looks for coast;
---      * Aurora Borealis (23):		3-tile wonder;
+--      * Aurora Borealis (23):		3-tile wonder; has only tile changes method;
+--		* El Dorado (24):			has only tile changes method; spawns 2 Gold around;
+--		* Cerro de Potosi (25):		has only tile changes method; spawns 2 Silver around;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -622,6 +624,10 @@ function NWCustomEligibility(x, y, method_number)
 		return true
 	elseif method_number == 23 then
 		-- reserved: Aurora Borealis
+	elseif method_number == 24 then
+		-- reserved: El Dorado
+	elseif method_number == 25 then
+		-- reserved: Cerro de Potosi
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -649,6 +655,8 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local eFeatureAtoll = GameInfoTypes.FEATURE_ATOLL
 	local eFeatureOasis = GameInfoTypes.FEATURE_OASIS
 	local eResourceCoral = GameInfoTypes.RESOURCE_CORAL
+	local eResourceGold = GameInfoTypes.RESOURCE_GOLD
+	local eResourceSilver = GameInfoTypes.RESOURCE_SILVER
 	local eResourceTropicalFish = GameInfoTypes.RESOURCE_TROPICAL_FISH
 	local eResourceTortoise = GameInfoTypes.RESOURCE_TORTOISE
 
@@ -1230,7 +1238,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 			
-		print("--!EYE OF THE SAHARA possible mountains:", iNumberMountains, #tPossibleMountains)
 		if iNumberMountains >= 2 or #tPossibleMountains == 0 then return end
 
 		local pChosenPlot
@@ -2330,9 +2337,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			table.insert(tPlotsAroundForResources, pAdjacentPlot)
 		end
 		
-		print("--!GALAPAGOS ocean tiles around:", #tOceanPlots)
-		print("--!GALAPAGOS coast tiles around:", #tCoastPlots)
-		
 		if #tOceanPlots > 0 then
 			pChosenPlot = table.remove(tOceanPlots, Game.Rand(#tOceanPlots, "Choose ocean around Galapagos") + 1)
 		elseif #tCoastPlots > 0 then
@@ -2355,8 +2359,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 			end
 		end
 
-		print("--!GALAPAGOS tiles around:", #tPlotsAroundForResources)
-
 		-- placing resources
 		local iNumFish = 0
 
@@ -2370,11 +2372,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
 				pChosenPlot:SetResourceType(eResourceTortoise, 1)
 				iNumFish = iNumFish + 1
-				print("--!GALAPAGOS tortoise and island placed at:", pChosenPlot:GetX(), pChosenPlot:GetY())
 			end
 		until(#tPlotsAroundForResources == 0 or iNumFish >= 1)
 		
-		print("--!GALAPAGOS tortoise placed:", #tPlotsAroundForResources)
 		if #tPlotsAroundForResources == 0 then return end
 
 		repeat
@@ -2387,8 +2387,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				iNumFish = iNumFish + 1
 			end
 		until(#tPlotsAroundForResources == 0 or iNumFish >= 3)
-
-		print("--!GALAPAGOS fish placed:", #tPlotsAroundForResources, iNumFish)
 	elseif method_number == 22 then
 		-- HA LONG BAY
 		local tCoastPlots = {}
@@ -2402,8 +2400,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				table.insert(tCoastPlots, pAdjacentPlot)
 			end
 		end
-		
-		print("--!HA LONG BAY coast tiles around:", #tCoastPlots)	
 		
 		pChosenPlot = table.remove(tCoastPlots, Game.Rand(#tCoastPlots, "Choose plot for Ha Long Bay B") + 1)
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_HA_LONG_B)
@@ -2426,6 +2422,114 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 		pChosenPlot1:SetFeatureType(GameInfoTypes.FEATURE_AURORA_B)
 		pChosenPlot2:SetFeatureType(GameInfoTypes.FEATURE_AURORA_C)
+	elseif method_number == 24 then
+		-- EL DORADO
+		local tAcessiblePlots, tReservePlots = {}, {}
+		local pChosenPlot
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			local eAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local eAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local eAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+
+			if eAdjacentPlotType ~= ePlotMountain then
+				if eAdjacentFeatureType == eFeatureNo or eAdjacentFeatureType == eFeatureForest or eAdjacentFeatureType == eFeatureJungle then
+					if eAdjacentTerrainType == eTerrainPlains or eAdjacentTerrainType == eTerrainGrass or eAdjacentTerrainType == eTerrainDesert then
+						table.insert(tAcessiblePlots, pAdjacentPlot)
+					elseif eAdjacentTerrainType == eTerrainTundra then
+						table.insert(tReservePlots, pAdjacentPlot)
+					end
+				end
+			end
+		end
+		
+		print("--!EL_DORADO acessible tiles around:", #tAcessiblePlots, #tReservePlots)
+		
+		if #tAcessiblePlots == 0 then
+			if #tReservePlots == 0 then 
+				return
+			else
+				pChosenPlot = table.remove(tReservePlots, Game.Rand(#tReservePlots, "Choose one random tile for Gold") + 1)
+				pChosenPlot:SetResourceType(eResourceGold, 1)
+				pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
+				pChosenPlot:SetPlotType(ePlotHill, false, false)
+			end
+		else		
+			pChosenPlot = table.remove(tAcessiblePlots, Game.Rand(#tAcessiblePlots, "Choose one random tile for Gold") + 1)
+			pChosenPlot:SetResourceType(eResourceGold, 1)
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+		end
+
+		if #tAcessiblePlots == 0 then
+			if #tReservePlots == 0 then 
+				return
+			else
+				pChosenPlot = table.remove(tReservePlots, Game.Rand(#tReservePlots, "Choose one random tile for Gold") + 1)
+				pChosenPlot:SetResourceType(eResourceGold, 1)
+				pChosenPlot:SetTerrainType(eTerrainGrass, false, false)
+				pChosenPlot:SetPlotType(ePlotHill, false, false)
+			end
+		else		
+			pChosenPlot = table.remove(tAcessiblePlots, Game.Rand(#tAcessiblePlots, "Choose one random tile for Gold") + 1)
+			pChosenPlot:SetResourceType(eResourceGold, 1)
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+		end
+	elseif method_number == 25 then
+		-- CERRO DE POTOSI
+		local tAcessiblePlots, tReservePlots = {}, {}
+		local pChosenPlot
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+			
+			local eAdjacentPlotType = pAdjacentPlot:GetPlotType()
+			local eAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local eAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+
+			if eAdjacentPlotType ~= ePlotMountain then
+				if eAdjacentFeatureType == eFeatureNo or eAdjacentFeatureType == eFeatureForest or eAdjacentFeatureType == eFeatureJungle then
+					if eAdjacentTerrainType == eTerrainTundra or eAdjacentTerrainType == eTerrainDesert then
+						table.insert(tAcessiblePlots, pAdjacentPlot)
+					elseif eAdjacentTerrainType == eTerrainPlains then
+						table.insert(tReservePlots, pAdjacentPlot)
+					end
+				end
+			end
+		end
+		
+		print("--!POTOSI acessible tiles around:", #tAcessiblePlots, #tReservePlots)
+		
+		if #tAcessiblePlots == 0 then
+			if #tReservePlots == 0 then 
+				return
+			else
+				pChosenPlot = table.remove(tReservePlots, Game.Rand(#tReservePlots, "Choose one random tile for Silver") + 1)
+				pChosenPlot:SetResourceType(eResourceSilver, 1)
+				pChosenPlot:SetTerrainType(eTerrainTundra, false, false)
+				pChosenPlot:SetPlotType(ePlotHill, false, false)
+			end
+		else		
+			pChosenPlot = table.remove(tAcessiblePlots, Game.Rand(#tAcessiblePlots, "Choose one random tile for Silver") + 1)
+			pChosenPlot:SetResourceType(eResourceSilver, 1)
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+		end
+
+		if #tAcessiblePlots == 0 then
+			if #tReservePlots == 0 then 
+				return
+			else
+				pChosenPlot = table.remove(tReservePlots, Game.Rand(#tReservePlots, "Choose one random tile for Silver") + 1)
+				pChosenPlot:SetResourceType(eResourceSilver, 1)
+				pChosenPlot:SetTerrainType(eTerrainTundra, false, false)
+				pChosenPlot:SetPlotType(ePlotHill, false, false)
+			end
+		else		
+			pChosenPlot = table.remove(tAcessiblePlots, Game.Rand(#tAcessiblePlots, "Choose one random tile for Silver") + 1)
+			pChosenPlot:SetResourceType(eResourceSilver, 1)
+			pChosenPlot:SetPlotType(ePlotHill, false, false)
+		end
 	end
 end
 ------------------------------------------------------------------------------

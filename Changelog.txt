@@ -1,5 +1,14 @@
 MW Changelog:
 v21.1:
+- reworked Natural Wonder's abilities giving free luxuries:
+	- Cerro de Potosi:
+		- deleted free Silver;
+		- now spawns 2 Silver around;
+		- all Silver gain +1 Science;
+	- El Dorado:
+		- deleted free Gold;
+		- deleted +2 Gold to all Gold; now all Gold gain +1 Faith;
+		- now spawns 2 Gold around;
 - added FlagPromoOrder and OrderPriority for new promotions;
 - fixed text issues:
 	- fixed Ha Long Bay's promotion pedia entry;
