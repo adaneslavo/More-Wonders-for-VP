@@ -1239,8 +1239,13 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_ITSUKUSHIMA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 
+	-- luxury sea resources
+	INSERT INTO Building_LocalResourceOrs	(BuildingType,			ResourceType)
+	SELECT DISTINCT							'BUILDING_ITSUKUSHIMA',	Type
+	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
+
 	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,				ResourceType) 
+				(BuildingType,			ResourceType) 
 	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
 	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
 	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
@@ -1252,12 +1257,10 @@
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_CULTURE',	2);
 
-	INSERT INTO Building_ResourceYieldChanges 
-				(BuildingType,				ResourceType,		YieldType,		Yield) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL',	'YIELD_FAITH',	2),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB',	'YIELD_FAITH',	2),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS',	'YIELD_FAITH',	2),
-				('BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE',	'YIELD_FAITH',	2);
+	-- luxury sea resources
+	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,		YieldType,		Yield)
+	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,				'YIELD_FAITH',	2
+	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
 
 	INSERT INTO Building_ImprovementYieldChangesGlobal 
 				(BuildingType,				ImprovementType,				YieldType,		Yield) 
@@ -1321,7 +1324,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- NOTRE DAME
-	UPDATE Buildings SET NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NOTRE_DAME';
+	UPDATE Buildings SET HolyCity = 0, NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_NOTRE_DAME';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NOTRE_DAME';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);

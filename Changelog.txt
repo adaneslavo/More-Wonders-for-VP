@@ -1,4 +1,8 @@
 MW Changelog:
+v21.2:
+- changed manual entries for sea resources to automatic ones with a query (Itsukushima);
+- fixed Revolutionary Museum requirement description;
+
 v21.1:
 - reworked Natural Wonder's abilities giving free luxuries:
 	- Cerro de Potosi:
