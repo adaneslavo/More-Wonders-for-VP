@@ -2219,7 +2219,7 @@ VALUES		('TXT_KEY_BUILDING_GPS',			'Global Positioning System'),
 			('TXT_KEY_WONDER_GPS_HELP',			'Receive 2 or more [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_SPY] Spies (based on number of [ICON_CITY_STATE] City-States in game). Improves Empire Security Level by 20%. Gain 25 [ICON_GREAT_GENERAL] Great General Points and 25 [ICON_GREAT_ADMIRAL] Great Admiral Points for successful offensive Espionage action or 50 [ICON_PRODUCTION] Production and 50 [ICON_GOLD] Gold for successful defensive Espionage action.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Global Positioning System[ENDCOLOR] helps you maintain security in your country (+2[ICON_SPY]; +20%[ICON_SPY][ICON_SPY] Resistance). Both, your attacks (25[ICON_GREAT_GENERAL], 25[ICON_GREAT_ADMIRAL]/[ICON_SPY] Attack) and defense (50[ICON_PRODUCTION], 50[ICON_GOLD]/[ICON_SPY] Defense) are generously rewarded.'
+SET Text = '[COLOR_YIELD_FOOD]Global Positioning System[ENDCOLOR] helps you maintain security in your country (+2[ICON_SPY]; +20%[ICON_SPY][ICON_SPY] Security). Both, your attacks (25[ICON_GREAT_GENERAL], 25[ICON_GREAT_ADMIRAL]/[ICON_SPY] Attack) and defense (50[ICON_PRODUCTION], 50[ICON_GOLD]/[ICON_SPY] Defense) are generously rewarded.'
 WHERE Tag = 'TXT_KEY_WONDER_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2259,7 +2259,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].[NEWLINE]
 ----------------------------------------------------
 -- Great Firewall
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Great Firewall[ENDCOLOR] makes hacking to your city systems much harder (+75%[ICON_SPY] Resistance; +25%[ICON_SPY][ICON_SPY] Resistance). You will be able to resist influence of other civilizations (foreign [ICON_TOURISM] bonus from technologies is negated) and your [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] (+10[ICON_RESEARCH]) become much more effective.'
+SET Text = '[COLOR_YIELD_FOOD]Great Firewall[ENDCOLOR] makes hacking to your city systems much harder (+50%[ICON_SPY] Security). You will be able to resist influence of other civilizations (foreign [ICON_TOURISM] bonus from technologies is negated) and your [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] (+10[ICON_RESEARCH]) become much more effective.'
 WHERE Tag = 'TXT_KEY_BUILDING_GREAT_FIREWALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 

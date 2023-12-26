@@ -3357,7 +3357,7 @@
 				(BuildingType,		BuildingClassType) 
 	SELECT		'BUILDING_GPS',		'BUILDINGCLASS_BOMB_SHELTER' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET Espionage = 1, GlobalEspionageModifier = -20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
+	UPDATE Buildings SET Espionage = 1, GlobalSpySecurityModifier = 20, ExtraSpies = 2 WHERE Type = 'BUILDING_GPS';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,				Yield)

@@ -1,6 +1,7 @@
 MW Changelog:
-v21.2:
+v22:
 - changed manual entries for sea resources to automatic ones with a query (Itsukushima);
+- update GPS for new Espionage System;
 - fixed Revolutionary Museum requirement description;
 
 v21.1:
