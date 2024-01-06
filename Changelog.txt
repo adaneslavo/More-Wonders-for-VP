@@ -1,5 +1,8 @@
 MW Changelog:
 v22:
+- updated AssignStartinPlots.lua file; added special replacement file with only reworked functions (must be tested, but if it works, then there will be less compatibility issues);
+- new World Wonder icons for Plain of Jars, Sigiriya and Hollywood (thanks to @hokath);
+- corrected World Wonder icons for Sanbo Honbu (thanks to @hokath);
 - changed manual entries for sea resources to automatic ones with a query (Itsukushima);
 - update GPS for new Espionage System;
 - fixed Revolutionary Museum requirement description;
