@@ -56,7 +56,7 @@ GameEvents.CityTrained.Add(OnCityTrainTakeOutFletcher)
 
 
 -- code for promotion - kill chance
-function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
+--[[function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
 	local pAttackingPlayer = Players[iAttackingPlayer]
 	
 	if not (pAttackingPlayer and (iDefenderFinalDamage < iDefenderMaxHP)) then return end
@@ -89,4 +89,4 @@ function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iA
 		end
 	end
 end
-GameEvents.CombatEnded.Add(OnCombatInstaKill)
+GameEvents.CombatEnded.Add(OnCombatInstaKill)--]]

@@ -199,7 +199,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_THONG_HAI_HIN',			'Plain of Jars'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_QUOTE',		'[NEWLINE]"As a well-spent day brings happy sleep, so life well used brings happy death."[NEWLINE] - Leonardo da Vinci[NEWLINE]'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'Units generate [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR]. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_GOLD] Gold. All local [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_FOOD] Food.');
+			('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'Units generate 5 [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR], scaling with Era. Land [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_GOLD] Gold. All local [ICON_INTERNATIONAL_TRADE] Trade Routes gain +2 [ICON_FOOD] Food.');
 			
 UPDATE Language_en_US
 SET Text = '[COLOR_YIELD_FOOD]Plain of Jars[ENDCOLOR] lays on the crossroad of multiple trade routes, so it must fulfill many different roles: a storehouse ([ICON_INTERNATIONAL_TRADE]: +2[ICON_FOOD]), a cemetery (+3[ICON_PEACE]; 5[ICON_PEACE]/Death) and a market (+2[ICON_GOLD]; Land [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]).'
@@ -975,10 +975,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ST_PETERS',			'St. Peter''s Basilica'),
 			('TXT_KEY_WONDER_ST_PETERS_QUOTE',		'[NEWLINE]"A rock pile ceases to be a rock pile the moment a single man contemplates it, bearing within him the image of a cathedral."[NEWLINE] - Antoine de Saint-Exupery[NEWLINE]'),
 			('TXT_KEY_WONDER_ST_PETERS_PEDIA',		'Basilica Papale di San Pietro in Vaticano, better known as St. Peter''s Basilica, is a late Renaissance church in Vatican City, with the largest interior of any Christian church in the world. The supposed burial site of the apostle Peter in 64 AD, some years later a shrine was constructed there. Replacing the shrine, construction of "old" St. Peter''s was begun by the Emperor Constantine between 319 and 333 AD.[NEWLINE][NEWLINE]  Having fallen into serious disrepair over the centuries, Pope Julius II in 1505 determined to demolish the old church and replace it with a monumental structure, a construction project that spanned the next 120 years under a succession of popes and architects. To finance the colossal project, a number of popes authorized the wholesale selling of indulgences, a practice that led in part to Martin Luther''s protestant movement.[NEWLINE][NEWLINE]  With work by some of the Renaissance''s leading figures - Michelangelo, Raphael, Bramante, Bernini and others - the church now stands as one of the great treasures of Western civilization.'),
-			('TXT_KEY_WONDER_ST_PETERS_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Cathedral and 3 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Inquisitors in the City in which it is built. +1 [ICON_HAPPINESS_1] Happiness from all unique Religious buildings. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate (scaling with number of players).');
+			('TXT_KEY_WONDER_ST_PETERS_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Cathedral and 3 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Inquisitors in the City in which it is built. +1 [ICON_HAPPINESS_1] Happiness from all unique Religious buildings. Receive 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegate for every 6 [ICON_CITY_STATE] City-States at the game start.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR] is not only religious, but also diplomatic (3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]; +1[ICON_DIPLOMAT] League Vote (scaling)) [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([ICON_GOLD]; [ICON_PEACE]; [ICON_MISSIONARY]; [ICON_HAPPINESS_3]) as well. Grants massive happiness boost, if you invest in religion (+1[ICON_HAPPINESS_1]/all Religious buildings).'
+SET Text = '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR] is not only religious, but also diplomatic (3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]; +1[ICON_DIPLOMAT] League Vote/6[ICON_CITY_STATE] on start) [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([ICON_GOLD]; [ICON_PEACE]; [ICON_MISSIONARY]; [ICON_HAPPINESS_3]) as well. Grants massive happiness boost, if you invest in religion (+1[ICON_HAPPINESS_1]/all Religious buildings).'
 WHERE Tag = 'TXT_KEY_WONDER_ST_PETERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1015,7 +1015,7 @@ VALUES		('TXT_KEY_BUILDING_MARAE',				'Marae Arahurahu'),
 			('TXT_KEY_WONDER_MARAE_PEDIA',			'TODO'),
 			('TXT_KEY_THEMING_BONUS_MARAE',			'Pre-war pump-up songs'),
 			('TXT_KEY_THEMING_BONUS_MARAE_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Music created by you.'),
-			('TXT_KEY_WONDER_MARAE_HELP',			'Has 2 slot for [ICON_GREAT_WORK] Great Works of Music. +8 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 15 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land and Sea Units trained in this City. All Ranged Land Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR] promotion. Units generate [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR].'),
+			('TXT_KEY_WONDER_MARAE_HELP',			'Has 2 slot for [ICON_GREAT_WORK] Great Works of Music. +8 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR]. 15 XP per each [ICON_GREAT_WORK] Great Work in this wonder for Land and Sea Units trained in this City. All Ranged Land Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR] promotion. Units generate 10 [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR], scaling with Era.'),
 			('TXT_KEY_PROMOTION_MARAE',				'Marae'),
 			('TXT_KEY_PROMOTION_MARAE_HELP',		'+10%[ICON_RANGE_STRENGTH]RCS.'),
 			('TXT_KEY_PROMOTION_ARAHURAHU',			'Arahurahu'),

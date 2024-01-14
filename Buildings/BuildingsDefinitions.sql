@@ -14,11 +14,13 @@ VALUES		('BUILDING_MORE_WONDERS_ATLAS', 	256, 		'More_Wonders_Buildings_256.dds'
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
 VALUES		('TXT_KEY_PROMOTION_FLETCHER',		'Yerba de la Fleche'),
-			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'5% [COLOR:255:230:85:255]Kill Chance after Ranged Attack[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'+50%[ICON_RANGE_STRENGTH]Attacking RCS [COLOR:255:230:85:255]vs Wounded Units[ENDCOLOR].');
 
 INSERT INTO UnitPromotions 
 			(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
 VALUES		('PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER_HELP',		'AS2D_IF_LEVELUP',	1,				1,					20,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED',		'TXT_KEY_PROMOTION_FLETCHER');
+
+UPDATE UnitPromotions SET AttackWoundedMod = 50 WHERE Type = 'PROMOTION_FLETCHER';
 
 /*INSERT INTO UnitPromotions_UnitCombats
 			(PromotionType,				UnitCombatType)
@@ -36,14 +38,14 @@ INSERT INTO Buildings
 VALUES		('BUILDING_FLETCHER',	'BUILDINGCLASS_FLETCHER',	'TXT_KEY_BUILDING_FLETCHER',	'TXT_KEY_BUILDING_FLETCHER_PEDIA',		'TXT_KEY_BUILDING_FLETCHER_HELP',	'BUILDING_MORE_WONDERS_ATLAS',	0,				'TECH_SAILING',		110,	0,			0,					0,					0,          66,				0),
 			('BUILDING_SEAFOOD',	'BUILDINGCLASS_SEAFOOD',	'TXT_KEY_BUILDING_SEAFOOD',		'TXT_KEY_BUILDING_SEAFOOD_PEDIA',		'TXT_KEY_BUILDING_SEAFOOD_HELP',	'BUILDING_MORE_WONDERS_ATLAS',	1,				'TECH_FERTILIZER',	1250,	0,			0,					0,					0,			66,				0);
 
-UPDATE Buildings SET TrainedFreePromotion = 'PROMOTION_FLETCHER' WHERE Type = 'BUILDING_FLETCHER';
+UPDATE Buildings SET FreePromotion = 'PROMOTION_FLETCHER' WHERE Type = 'BUILDING_FLETCHER';
 UPDATE Buildings SET BoredomFlatReduction = 1, GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 1 WHERE Type = 'BUILDING_SEAFOOD';
 
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
 VALUES		('TXT_KEY_BUILDING_FLETCHER',			'Fletcher'),
 			('TXT_KEY_BUILDING_FLETCHER_PEDIA',		'TODO'),
-			('TXT_KEY_BUILDING_FLETCHER_HELP',		'[COLOR_POSITIVE_TEXT]Yerba de la Fleche[ENDCOLOR] promotion for Archery units produced in this City. +10% [ICON_PRODUCTION] Production towards Archery units in this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +2 [ICON_PRODUCTION] Production.'),
+			('TXT_KEY_BUILDING_FLETCHER_HELP',		'[COLOR_POSITIVE_TEXT]Yerba de la Fleche[ENDCOLOR] promotion for all Archery units. +10% [ICON_PRODUCTION] Production towards Archery units in this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +2 [ICON_PRODUCTION] Production.'),
 			('TXT_KEY_BUILDING_SEAFOOD',			'Seafood Station'),
 			('TXT_KEY_BUILDING_SEAFOOD_PEDIA',		'TODO'),
 			('TXT_KEY_BUILDING_SEAFOOD_HELP',		'5% of the City''s [ICON_FOOD] Food is converted into [ICON_TOURISM] Tourism every turn. Contains 1 slot for a [ICON_GREAT_WORK] Great Work of Music.[NEWLINE][NEWLINE]-1 [ICON_HAPPINESS_3] from [ICON_CULTURE] Boredom.[NEWLINE][NEWLINE]Nearby [ICON_RES_FISH] Fish: +1 [ICON_FOOD] Food.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.[NEWLINE]Nearby [ICON_RES_TROPICAL_FISH] Tropical Fish: +1 [ICON_FOOD] Food and +1 [ICON_TOURISM] Tourism.');

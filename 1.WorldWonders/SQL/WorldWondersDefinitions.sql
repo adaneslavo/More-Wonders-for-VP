@@ -407,7 +407,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PLAIN OF JARS (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_THONG_HAI_HIN';
-	UPDATE Buildings SET Cost = 185, PrereqTech = 'TECH_CALENDAR',	NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_THONG_HAI_HIN';
+	UPDATE Buildings SET Cost = 185, PrereqTech = 'TECH_ARCHERY', NumPoliciesNeeded = 2, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_THONG_HAI_HIN';
 	---------------------------------------------------------
 	UPDATE Buildings SET Flat = 1, /*, IsNoCoast = 1*/ NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET Flat = 1, NearbyTerrainRequired = 'TERRAIN_PLAINS' WHERE Type = 'BUILDING_THONG_HAI_HIN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1456,7 +1456,7 @@
 	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_ST_PETERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_ST_PETERS';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CATHEDRAL', ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_ST_PETERS';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CATHEDRAL', ExtraLeagueVotes = 6 WHERE Type = 'BUILDING_ST_PETERS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)

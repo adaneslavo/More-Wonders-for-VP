@@ -1,4 +1,19 @@
 MW Changelog:
+v22.3:
+- clarified texts for Rock of Gibraltar and St. Peter's Basilica;
+- ???
+- minor text fixes;
+
+v22.2:
+- Rock of Gibraltar: now grants 1 League Vote for each 8 CSs at the game start;
+
+v22.1:
+- Plain of Jars: moved to Military Theory (was Calendar);
+- Plain of Jars and Marae Arahurahu now mention how much Faith they produce on unit kill (base tooltip addition);
+- St. Peter's Basilica: now grants 1 League Vote for each 6 CSs at the game start;
+- Fletcher: now grants "Yerba de la Fleche" promotion globally (was only for units trained in this city);
+- "Yerba de la Fleche": now +50% Attacking RCS vs Wounded Units (was 5% chance for instakill);
+
 v22:
 - updated AssignStartinPlots.lua file; added special replacement file with only reworked functions (must be tested, but if it works, then there will be less compatibility issues);
 - new World Wonder icons for Plain of Jars, Sigiriya and Hollywood (thanks to @hokath);

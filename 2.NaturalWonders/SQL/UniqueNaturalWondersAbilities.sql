@@ -345,7 +345,7 @@ UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILD
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_VOLCANO_DUMMY';
 UPDATE Buildings SET GlobalSpaceProductionModifier = 20 WHERE Type = 'BUILDING_CRATER_DUMMY';
 UPDATE Buildings SET NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_POTOSI_DUMMY';
-UPDATE Buildings SET GlobalDefenseMod = 5, ExtraLeagueVotes = 1 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
+UPDATE Buildings SET GlobalDefenseMod = 5, ExtraLeagueVotes = 8 WHERE Type = 'BUILDING_GIBRALTAR_DUMMY';
 UPDATE Buildings SET CitySupplyFlatGlobal = 1 WHERE Type = 'BUILDING_MESA_DUMMY';
 UPDATE Buildings SET AllowsFoodTradeRoutesGlobal = 1 WHERE Type = 'BUILDING_LAKE_VICTORIA_DUMMY';
 UPDATE Buildings SET GlobalLandmarksTourismPercent = 6 WHERE Type = 'BUILDING_CAUSEWAY_A_DUMMY';
