@@ -196,7 +196,7 @@
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_A</ResourceType>
 			<Model>3d_eye_of_the_sahara.fxsxml</Model>
-			<TerrainContour>0</TerrainContour>
+			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
 			<Era>Any</Era>
