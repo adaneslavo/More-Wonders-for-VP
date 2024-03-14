@@ -623,7 +623,7 @@ function IsHasSpecialists(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasSpecialists)
 
--- checks if city has place for resources (WIELICZKA, LAVAUX, RUHR)
+-- checks if city has place for resources (WIELICZKA, FALUN, LAVAUX, RUHR)
 function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
 	if not tValidIsHasPlotsForResources[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -639,7 +639,7 @@ function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
 		local pSpecificPlot = pCity:GetCityIndexPlot(cityPlot)
 				
 		if pSpecificPlot then
-			if pSpecificPlot:CanHaveResource(eCheckedResource, false) and pSpecificPlot:GetNumResource() == 0 then
+			if pSpecificPlot:CanHaveResource(eCheckedResource, true) and pSpecificPlot:GetNumResource() == 0 then
 				return true
 			end
 		end
@@ -799,6 +799,7 @@ function Initialize()
 		-- IsHasPlotsForResources
 		tValidIsHasPlotsForResources = {
 			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
+			[GameInfo.Buildings.BUILDING_FALUN.ID] = GameInfoTypes.RESOURCE_COPPER,
 			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
 			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
 		}
@@ -931,7 +932,7 @@ function Initialize()
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-			iRequiredImprovements = 4
+			iRequiredImprovements = 3
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
@@ -1151,6 +1152,7 @@ function Initialize()
 		-- IsHasPlotsForResources
 		tValidIsHasPlotsForResources = {
 			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
+			[GameInfo.Buildings.BUILDING_FALUN.ID] = GameInfoTypes.RESOURCE_COPPER,
 			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
 			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
 		}

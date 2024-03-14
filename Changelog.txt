@@ -1,7 +1,11 @@
 MW Changelog:
 v22.3:
 - clarified texts for Rock of Gibraltar and St. Peter's Basilica;
-- ???
+- added 3d model for Eye of Sahara;
+- added 3d (better) model for Dallol;
+- added Falun Mine's missing requirement (possible Copper placement);
+- lowered Falun Mine's requirement (now 3 Mines);
+- Eye of the Sahara now spawns Mountains around more frequently;
 - minor text fixes;
 
 v22.2:

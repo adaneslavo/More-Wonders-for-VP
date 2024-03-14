@@ -1199,7 +1199,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for i, direction in ipairs(tDirectionsTop) do
 			pAdjacentPlot = Map.PlotDirection(x, y, direction)
 			
-			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+			if pAdjacentPlot:GetFeatureType() == eFeatureNo then
 				table.insert(tPossibleMountains, pAdjacentPlot)
 			end
 
@@ -1214,7 +1214,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for i, direction in ipairs(tDirectionsBottomRight) do
 			pAdjacentPlot = Map.PlotDirection(iSEX, iSEY, direction)
 			
-			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+			if pAdjacentPlot:GetFeatureType() == eFeatureNo then
 				table.insert(tPossibleMountains, pAdjacentPlot)
 			end
 
@@ -1229,7 +1229,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for i, direction in ipairs(tDirectionsBottomLeft) do
 			pAdjacentPlot = Map.PlotDirection(iSWX, iSWY, direction)
 			
-			if pAdjacentPlot:GetFeatureType() ~= eFeatureNo then
+			if pAdjacentPlot:GetFeatureType() == eFeatureNo then
 				table.insert(tPossibleMountains, pAdjacentPlot)
 			end
 
@@ -1237,7 +1237,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				iNumberMountains = iNumberMountains + 1
 			end
 		end
-			
+
 		if iNumberMountains >= 2 or #tPossibleMountains == 0 then return end
 
 		local pChosenPlot

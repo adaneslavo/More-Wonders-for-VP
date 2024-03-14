@@ -165,11 +165,11 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>0.8</Scale>
+			<Scale>1.2</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_DALLOL</ResourceType>
-			<Model>dallol_3d.fxsxml</Model>
+			<Model>dallol_3d_v3.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -191,12 +191,12 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>3</Scale>
+			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_A</ResourceType>
-			<Model>eye_of_the_sahara_3_tile_version.fxsxml</Model>
-			<TerrainContour>1</TerrainContour>
+			<Model>3d_eye_of_the_sahara.fxsxml</Model>
+			<TerrainContour>0</TerrainContour>
 		</Row>
 		<Row>
 			<Era>Any</Era>
