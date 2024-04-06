@@ -1728,11 +1728,11 @@
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield)
-	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	6);
+	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	7);
 
 	INSERT INTO Building_WLTKDYieldMod
 				(BuildingType,			YieldType,					Yield)
-	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	15),
+	VALUES		('BUILDING_PETERHOF',	'YIELD_GOLDEN_AGE_POINTS',	25),
 				('BUILDING_PETERHOF',	'YIELD_GOLD',				15),
 				('BUILDING_PETERHOF',	'YIELD_PRODUCTION',			15);
 	---------------------------------------------------------

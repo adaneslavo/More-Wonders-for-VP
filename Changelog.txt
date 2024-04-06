@@ -1,4 +1,11 @@
 MW Changelog:
+v22.4:
+- Peterhof:
+	- gains additional GAP;
+	- GAP boost increased to +25% (was +15%);
+- updated AssignStartingPlots.lua file;
+- fixed Sigiriya's description;
+
 v22.3:
 - clarified texts for Rock of Gibraltar and St. Peter's Basilica;
 - added 3d model for Eye of Sahara (by @ghost toast);
