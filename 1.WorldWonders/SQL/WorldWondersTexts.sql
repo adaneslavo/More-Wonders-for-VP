@@ -1219,7 +1219,7 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Water[ENDCOLOR], [COLOR_C
 ----------------------------------------------------
 -- Porcelain Tower
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Porcelain Tower[ENDCOLOR] is a wonderful scientific building which improves education of your citizens (-1[ICON_HAPPINESS_3] Illiteracy), invites new great people to the city ([COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]; +2[ICON_GREAT_SCIENTIST]) and makes use of overall research you produce (+10%[ICON_SCIENCE]).'
+SET Text = '[COLOR_YIELD_FOOD]Porcelain Tower[ENDCOLOR] is a wonderful scientific building which improves education of your citizens (-1[ICON_HAPPINESS_3] Illiteracy), invites new great people to the city ([COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]; +2[ICON_GREAT_SCIENTIST]) and makes use of overall research you produce (+10%[ICON_RESEARCH]).'
 WHERE Tag = 'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 

@@ -1,4 +1,7 @@
 MW Changelog:
+v22.5.2:
+- fixed one icon;
+
 v22.5.1:
 - updated World Wonder's descriiption to latest changes;
 
