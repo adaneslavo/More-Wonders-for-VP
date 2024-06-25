@@ -1,4 +1,11 @@
 MW Changelog:
+v22.5:
+- new AssignStartingPlots.lua file from VP 4.9.1;
+- fixed Train Station issue;
+
+v22.4.1:
+- fixed AssignStartingPlots.lua file and added some crucial changes from VP 4.6;
+
 v22.4:
 - Peterhof:
 	- gains additional GAP;

@@ -771,11 +771,11 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	-- MOD.Barathor: All region weights below have been updated.
 	-- MOD.Barathor: Start
 	self.luxury_region_weights[1] = { -- Tundra
-		{self.fur_ID,		50},
-		{self.silver_ID,	40},
-		{self.salt_ID,		40},
-		{self.amber_ID,		10},
-		{self.copper_ID,	10},
+		{self.fur_ID,		60},
+		{self.amber_ID,		35},
+		{self.silver_ID,	30},
+		{self.copper_ID,	20},
+		{self.salt_ID,		15},
 		{self.gems_ID,		10},
 		{self.jade_ID,		10},
 		{self.lapis_ID,		10},
@@ -797,11 +797,11 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	self.luxury_region_weights[10] = self.luxury_region_weights[1];
 
 	self.luxury_region_weights[2] = { -- Jungle
-		{self.citrus_ID,	40},
-		{self.cocoa_ID,		40},
-		{self.spices_ID,	40},
-		{self.sugar_ID,		50},
-		{self.truffles_ID,	40},
+		{self.citrus_ID,	35},
+		{self.cocoa_ID,		35},
+		{self.spices_ID,	35},
+		{self.sugar_ID,		35},
+		{self.truffles_ID,	15},
 		{self.silk_ID,		10},
 		{self.dye_ID,		10},
 		{self.gems_ID,		10},
@@ -813,42 +813,42 @@ function AssignStartingPlots:__InitLuxuryWeights()
 
 	-- MOD.HungryForFood: Start
 	if self:IsEvenMoreResourcesActive() then
-		table.insert(self.luxury_region_weights[2], {self.obsidian_ID,	40});
-		table.insert(self.luxury_region_weights[2], {self.poppy_ID,		40});
+		table.insert(self.luxury_region_weights[2], {self.obsidian_ID,	35});
+		table.insert(self.luxury_region_weights[2], {self.poppy_ID,		35});
 		table.insert(self.luxury_region_weights[2], {self.platinum_ID,	10});
 		table.insert(self.luxury_region_weights[2], {self.tin_ID,		10});
 	end
 	-- MOD.HungryForFood: End
 
 	self.luxury_region_weights[3] = { -- Forest
-		{self.silk_ID,		40},
-		{self.dye_ID,		40},
-		{self.truffles_ID,	10},
-		{self.citrus_ID,	10},
-		{self.cocoa_ID,		10},
-		{self.spices_ID,	10},
-		{self.whale_ID,		10},
-		{self.crab_ID,		10},
-		{self.pearls_ID,	10},
-		{self.coral_ID,		10},
+		{self.truffles_ID,	40},
+		{self.silk_ID,		35},
+		{self.dye_ID,		35},
+		{self.citrus_ID,	15},
+		{self.cocoa_ID,		15},
+		{self.spices_ID,	15},
+		{self.whale_ID,		8},
+		{self.crab_ID,		8},
+		{self.pearls_ID,	8},
+		{self.coral_ID,		8},
 	};
 
 	-- MOD.HungryForFood: Start
 	if self:IsEvenMoreResourcesActive() then
-		table.insert(self.luxury_region_weights[3], {self.lavender_ID,	10});
+		table.insert(self.luxury_region_weights[3], {self.lavender_ID,	15});
 	end
 	-- MOD.HungryForFood: End
 
 	self.luxury_region_weights[4] = { -- Desert
-		{self.incense_ID,	40},
-		{self.salt_ID,		40},
-		{self.gold_ID,		40},
-		{self.lapis_ID,		40},
+		{self.incense_ID,	35},
+		{self.lapis_ID,		35},
+		{self.gold_ID,		20},
 		{self.silver_ID,	20},
+		{self.salt_ID,		15},
+		{self.jade_ID,		15},
 		{self.copper_ID,	10},
 		{self.amber_ID,		10},
 		{self.gems_ID,		10},
-		{self.jade_ID,		10},
 		{self.sugar_ID,		10},
 		{self.cotton_ID,	10},
 		{self.whale_ID,		10},
@@ -866,25 +866,25 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	-- MOD.HungryForFood: End
 
 	self.luxury_region_weights[5] = { -- Hills
-		{self.gold_ID,		30},
-		{self.copper_ID,	30},
-		{self.gems_ID,		30},
-		{self.salt_ID,		30},
-		{self.jade_ID,		30},
-		{self.amber_ID,		30},
-		{self.lapis_ID,		30},
-		{self.whale_ID,		10},
-		{self.crab_ID,		10},
-		{self.pearls_ID,	10},
-		{self.coral_ID,		10},
+		{self.gold_ID,		20},
+		{self.copper_ID,	20},
+		{self.gems_ID,		20},
+		{self.jade_ID,		20},
+		{self.salt_ID,		10},
+		{self.amber_ID,		10},
+		{self.lapis_ID,		10},
+		{self.whale_ID,		6},
+		{self.crab_ID,		6},
+		{self.pearls_ID,	6},
+		{self.coral_ID,		6},
 	};
 
 	-- MOD.HungryForFood: Start
 	if self:IsEvenMoreResourcesActive() then
-		table.insert(self.luxury_region_weights[5], {self.obsidian_ID,	30});
-		table.insert(self.luxury_region_weights[5], {self.poppy_ID,		30});
-		table.insert(self.luxury_region_weights[5], {self.platinum_ID,	30});
-		table.insert(self.luxury_region_weights[5], {self.tin_ID,		30});
+		table.insert(self.luxury_region_weights[5], {self.obsidian_ID,	20});
+		table.insert(self.luxury_region_weights[5], {self.poppy_ID,		20});
+		table.insert(self.luxury_region_weights[5], {self.platinum_ID,	20});
+		table.insert(self.luxury_region_weights[5], {self.tin_ID,		20});
 	end
 	-- MOD.HungryForFood: End
 
@@ -892,18 +892,19 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	self.luxury_region_weights[9] = self.luxury_region_weights[5];
 
 	self.luxury_region_weights[6] = { -- Plains
-		{self.incense_ID,	40},
 		{self.wine_ID,		40},
 		{self.olives_ID,	40},
 		{self.coffee_ID,	40},
-		{self.tobacco_ID,	10},
-		{self.tea_ID,		10},
-		{self.perfume_ID,	10},
-		{self.cotton_ID,	10},
-		{self.whale_ID,		10},
-		{self.crab_ID,		10},
-		{self.pearls_ID,	10},
-		{self.coral_ID,		10},
+		{self.incense_ID,	20},
+		{self.cotton_ID,	20},
+		{self.salt_ID,		15},
+		{self.tobacco_ID,	15},
+		{self.tea_ID,		15},
+		{self.perfume_ID,	15},
+		{self.whale_ID,		11},
+		{self.crab_ID,		11},
+		{self.pearls_ID,	11},
+		{self.coral_ID,		11},
 	};
 
 	-- MOD.HungryForFood: Start
@@ -914,24 +915,25 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	-- MOD.HungryForFood: End
 
 	self.luxury_region_weights[7] = { -- Grass
-		{self.tobacco_ID,	40},
-		{self.tea_ID,		40},
-		{self.perfume_ID,	40},
-		{self.cotton_ID,	40},
-		{self.wine_ID,		10},
-		{self.olives_ID,	10},
-		{self.coffee_ID,	10},
+		{self.tobacco_ID,	50},
+		{self.tea_ID,		50},
+		{self.perfume_ID,	50},
+		{self.cotton_ID,	35},
+		{self.wine_ID,		20},
+		{self.olives_ID,	20},
+		{self.coffee_ID,	20},
 		{self.sugar_ID,		10},
-		{self.whale_ID,		10},
-		{self.crab_ID,		10},
-		{self.pearls_ID,	10},
-		{self.coral_ID,		10},
+		{self.gold_ID,		10},
+		{self.whale_ID,		14},
+		{self.crab_ID,		14},
+		{self.pearls_ID,	14},
+		{self.coral_ID,		14},
 	};
 
 	-- MOD.HungryForFood: Start
 	if self:IsEvenMoreResourcesActive() then
-		table.insert(self.luxury_region_weights[7], {self.lavender_ID,	40});
-		table.insert(self.luxury_region_weights[7], {self.poppy_ID,		40});
+		table.insert(self.luxury_region_weights[7], {self.lavender_ID,	50});
+		table.insert(self.luxury_region_weights[7], {self.poppy_ID,		50});
 	end
 	-- MOD.HungryForFood: End
 
@@ -2348,9 +2350,9 @@ function AssignStartingPlots:DetermineRegionTypes()
 		-- MOD.Barathor: These are the minimum values
 		local desert_percent = 0.20;
 		local tundra_percent = 0.20;
-		local jungle_percent = 0.20;
-		local forest_percent = 0.25;
-		local hills_percent = 0.30;
+		local jungle_percent = 0.28;
+		local forest_percent = 0.28;
+		local hills_percent = 0.37;
 		local plains_percent = 0.30;
 		local grass_percent = 0.30;
 
@@ -2380,8 +2382,8 @@ function AssignStartingPlots:DetermineRegionTypes()
 				print("Region #", this_region, " has been defined as a JUNGLE Region.");
 				found_region = true;
 
-			-- Forest check.
-			elseif forestCount >= regionPlots * (forest_percent + adjustment) and tundraCount < regionPlots * tundra_percent then
+			-- Forest check. Can't have too much tundra.
+			elseif forestCount >= regionPlots * (forest_percent + adjustment) and tundraCount < regionPlots * (tundra_percent + adjustment) * 0.5 then
 				table.insert(self.regionTypes, RegionTypes.REGION_FOREST);
 				print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 				print("Region #", this_region, " has been defined as a FOREST Region.");
@@ -2420,9 +2422,9 @@ function AssignStartingPlots:DetermineRegionTypes()
 			end
 		end
 
-		--[[ MOD.Barathor: New data for very useful debug printouts.
+		---[[ MOD.Barathor: New data for very useful debug printouts.
 		print("Threshold Values:");
-		print(string.format("Desert: %.2f - Tundra: %.2f - Jungle: %.2f - Forest: %.2f - Hills: %.2f - Plains: %.2f - Grass: %.2f", desert_percent, tundra_percent, jungle_percent, forest_percent, hills_percent, plains_percent, grass_percent));
+		print(string.format("Desert: %.2f - Tundra: %.2f - Jungle: %.2f - Forest: %.2f - Hills: %.2f - Plains: %.2f - Grass: %.2f", desert_percent + adjustment, tundra_percent + adjustment, jungle_percent + adjustment, forest_percent + adjustment, hills_percent + adjustment, plains_percent + adjustment, grass_percent + adjustment));
 		print("Region Values:");
 		print(string.format("Desert: %.2f - Tundra: %.2f - Jungle: %.2f - Forest: %.2f - Hills: %.2f - Plains: %.2f - Grass: %.2f", desertCount / regionPlots, tundraCount / regionPlots, jungleCount / regionPlots, forestCount / regionPlots, hillsCount / regionPlots, plainsCount / regionPlots, grassCount / regionPlots));
 		print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
@@ -5757,7 +5759,7 @@ function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
 	-- If a candidate plot passes all such checks, we will move on to checking it against specific needs for each particular wonderID.
 
 	-- Update, May 2011: Control over wonderID placement is being migrated to XML. Some checks here moved to there.
-	local iW, _ = Map.GetGridSize();
+	local iW, iH = Map.GetGridSize();
 	local plotIndex = iW * y + x + 1;
 
 	-- adan_eslavo, start (top and bottom rows are not targetted)
@@ -6605,10 +6607,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iBarrierX = pBarrierPlot:GetX()
 						local iBarrierY = pBarrierPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iBarrierX, iBarrierY, 0);
+						
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iBarrierPlotIndex = iBarrierY * iW + iBarrierX + 1
 						
@@ -6623,10 +6628,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iSalarX = pSalarPlot:GetX()
 						local iSalarY = pSalarPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iSalarX, iSalarY, 0);
+						
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iSalarPlotIndex = iSalarY * iW + iSalarX + 1
 						
@@ -6641,10 +6649,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iBermudaX = pBermudaPlotSE:GetX()
 				local iBermudaY = pBermudaPlotSE:GetY()
 				
+				self:PlaceStrategicResourceImpact(iBermudaX, iBermudaY, 0);
+						
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
 					
@@ -6653,10 +6664,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iBermudaX = pBermudaPlotSW:GetX()
 				local iBermudaY = pBermudaPlotSW:GetY()
 				
+				self:PlaceStrategicResourceImpact(iBermudaX, iBermudaY, 0);
+						
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
 					
@@ -6669,10 +6683,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iCausewayX = pCausewayPlot:GetX()
 						local iCausewayY = pCausewayPlot:GetY()
 				
+						self:PlaceStrategicResourceImpact(iCausewayX, iCausewayY, 0);
+						
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iCausewayPlotIndex = iCausewayY * iW + iCausewayX + 1
 						
@@ -6687,10 +6704,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaX = pEyeOfSaharaPlotSE:GetX()
 				local iEyeOfSaharaY = pEyeOfSaharaPlotSE:GetY()
 				
+				self:PlaceStrategicResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, 0);
+						
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
@@ -6699,10 +6719,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaX = pEyeOfSaharaPlotSW:GetX()
 				local iEyeOfSaharaY = pEyeOfSaharaPlotSW:GetY()
 				
+				self:PlaceStrategicResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, 0);
+						
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
@@ -6715,10 +6738,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iGalapagosX = pGalapagosPlot:GetX()
 						local iGalapagosY = pGalapagosPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iGalapagosX, iGalapagosY, 0);
+						
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iGalapagosPlotIndex = iGalapagosY * iW + iGalapagosX + 1
 						
@@ -6734,10 +6760,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iHaLongX = pHaLongPlot:GetX()
 						local iHaLongY = pHaLongPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iHaLongX, iHaLongY, 0);
+						
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iHaLongPlotIndex = iHaLongY * iW + iHaLongX + 1
 						
@@ -6753,10 +6782,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iAuroraX = pAuroraPlot:GetX()
 						local iAuroraY = pAuroraPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iAuroraX, iAuroraY, 0);
+						
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iAuroraPlotIndex = iAuroraY * iW + iAuroraX + 1
 						
@@ -9201,7 +9233,10 @@ function AssignStartingPlots:GenerateLuxuryPlotListsInRegion(region_number)
 					end
 				end
 			elseif plotType ~= PlotTypes.PLOT_MOUNTAIN and not plot:IsNaturalWonder(true) and featureType ~= FeatureTypes.FEATURE_OASIS then
-				if iAreaID ~= -1 then
+				if iAreaID == -1 then
+					-- Always ok!
+					table.insert(plotList, plotIndex);
+				else
 					-- Need to check whether the plot is in/adjacent to the correct area/landmass
 					if self.bArea and (plot:GetArea() == iAreaID or plot:IsAdjacentToArea(region_area_object)) then
 						table.insert(plotList, plotIndex);
@@ -9820,7 +9855,7 @@ function AssignStartingPlots:PlaceLuxuries(args)
 		for _, index in ipairs(tList) do
 			local shuf_list = luxury_plot_lists[index];
 			if iNumLeftToPlace > 0 and index > 0 then
-				iNumLeftToPlace = self:PlaceSpecificNumberOfResources(res_ID, 1, iNumLeftToPlace, 0.25, ImpactLayers.LAYER_LUXURY, 1, 3, shuf_list);
+				iNumLeftToPlace = self:PlaceSpecificNumberOfResources(res_ID, 1, iNumLeftToPlace, 0.25, ImpactLayers.LAYER_LUXURY, 1, 2, shuf_list);
 			end
 			if iNumLeftToPlace <= 0 then
 				break;
