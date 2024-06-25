@@ -1,4 +1,7 @@
 MW Changelog:
+v22.5.1:
+- updated World Wonder's descriiption to latest changes;
+
 v22.5:
 - new AssignStartingPlots.lua file from VP 4.9.1;
 - fixed Train Station issue;
