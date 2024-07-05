@@ -1,4 +1,10 @@
 MW Changelog:
+v22.6:
+- Parthenon: 
+	- updated description (supply change);
+	- 
+- slightly reowrked description of Great Work slots;
+
 v22.5.2:
 - fixed one icon;
 
