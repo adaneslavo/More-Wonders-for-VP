@@ -1474,10 +1474,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_RUHR_VALLEY',		'Ruhr Valley'),
 			('TXT_KEY_WONDER_RUHR_VALLEY_QUOTE',	'[NEWLINE]"Art without engineering is dreaming. Engineering without art is calculating."[NEWLINE] - Steven Roberts[NEWLINE]'),
 			('TXT_KEY_WONDER_RUHR_VALLEY_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_RUHR_VALLEY_HELP',		'Wonder places 2 new [ICON_RES_COAL] Coal resources inside City range if possible. +10% [ICON_PRODUCTION] Production in your Empire. +1 [ICON_PRODUCTION] Production from Mines and Quarries in your Empire. +2 Working Range of this City.');
+			('TXT_KEY_WONDER_RUHR_VALLEY_HELP',		'Wonder places 1 new [ICON_RES_COAL] Coal resource inside City range if possible. +10% [ICON_PRODUCTION] Production in your Empire. +1 [ICON_PRODUCTION] Production from Mines and Quarries in your Empire. +1 [ICON_GOLD] Gold and +1 [ICON_GOLDEN_AGE] Golden Age Point from Coals in your Empire. +1 Working Range of this City.');
 			
 UPDATE Language_en_US
-SET Text = 'Abundant [COLOR_YIELD_FOOD]Ruhr Valley[ENDCOLOR] agglomeration (+2[ICON_RANGE] City Working Range) is the heart of whole country (+10%[ICON_PRODUCTION][ICON_PRODUCTION]). It supports your industry thanks to new discoveries of [COLOR_GREY]Coal[ENDCOLOR] deposits (+2[ICON_RES_COAL]) and well-trained workforce spread across all [COLOR_CITY_BROWN]Mines[ENDCOLOR] and [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+1[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]).'
+SET Text = 'Abundant [COLOR_YIELD_FOOD]Ruhr Valley[ENDCOLOR] agglomeration (+2[ICON_RANGE] City Working Range) is the heart of whole country (+10%[ICON_PRODUCTION][ICON_PRODUCTION]). It supports your industry thanks to new discoveries of [COLOR_GREY]Coal[ENDCOLOR] deposits (+1[ICON_RES_COAL](3); +1[ICON_GOLD], +1[ICON_GOLDEN_AGE]/[ICON_RES_COAL][ICON_RES_COAL]) and well-trained workforce spread across all [COLOR_CITY_BROWN]Mines[ENDCOLOR] and [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+1[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]).'
 WHERE Tag = 'TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1638,10 +1638,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_POLAR_EXPEDITION',		'Polar Expedition'),
 			('TXT_KEY_WONDER_POLAR_EXPEDITION_QUOTE',	'[NEWLINE]"Adventure is just bad planning."[NEWLINE] - Roald Amundsen[NEWLINE]'),
 			('TXT_KEY_WONDER_POLAR_EXPEDITION_PEDIA',	'TODO'),
-			('TXT_KEY_WONDER_POLAR_EXPEDITION_HELP',	'Wonder places 3 new [ICON_RES_OIL] Oil resources inside City range if possible. +2 [ICON_RESEARCH] Science from all Snow tiles worked by the City. +1 [ICON_RESEARCH] Science and +1 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist Specialists in your Empire.');
+			('TXT_KEY_WONDER_POLAR_EXPEDITION_HELP',	'Wonder places 2 new [ICON_RES_OIL] Oil resources inside City range if possible. +2 [ICON_RESEARCH] Science from all Snow tiles worked by the City. +1 [ICON_RESEARCH] Science and +1 [ICON_GOLDEN_AGE] Golden Age Points from all Scientist Specialists in your Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Polar Expedition[ENDCOLOR] vastly explores unvisited [COLOR_CITY_BLUE]Snow[ENDCOLOR] areas (+2[ICON_RESEARCH]/[ICON_FLOWER]) and looks for new underground [COLOR_GREY]Oil[ENDCOLOR] deposits (+3[ICON_RES_OIL]) hidden by white cover. New research facilities created there will surely expand our knowledge about Earth and its history (+1[ICON_RESEARCH], +1[ICON_GOLDEN_AGE]/[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]).'
+SET Text = '[COLOR_YIELD_FOOD]Polar Expedition[ENDCOLOR] vastly explores unvisited [COLOR_CITY_BLUE]Snow[ENDCOLOR] areas (+2[ICON_RESEARCH]/[ICON_FLOWER]) and looks for new underground [COLOR_GREY]Oil[ENDCOLOR] deposits (+1[ICON_RES_OIL](2), +1[ICON_RES_OIL](3)) hidden by white cover. New research facilities created there will surely expand our knowledge about Earth and its history (+1[ICON_RESEARCH], +1[ICON_GOLDEN_AGE]/[ICON_GREAT_SCIENTIST][ICON_GREAT_SCIENTIST]).'
 WHERE Tag = 'TXT_KEY_WONDER_POLAR_EXPEDITION_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 

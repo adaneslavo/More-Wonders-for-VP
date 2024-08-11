@@ -2461,8 +2461,9 @@
 	VALUES		('BUILDING_POLAR_EXPEDITION',	'TERRAIN_SNOW',		'YIELD_SCIENCE',		2);
 
 	INSERT INTO Building_ResourcePlotsToPlace
-				(BuildingType,					ResourceType,		NumPlots) 
-	VALUES		('BUILDING_POLAR_EXPEDITION',	'RESOURCE_OIL',		3);
+				(BuildingType,					ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_POLAR_EXPEDITION',	'RESOURCE_OIL',		1,			2),
+				('BUILDING_POLAR_EXPEDITION',	'RESOURCE_OIL',		1,			3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,					FlavorType,				Flavor)
