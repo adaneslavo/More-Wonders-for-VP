@@ -432,7 +432,7 @@ VALUES		('BUILDING_ULURU_DUMMY',	'UNITCOMBAT_DIPLOMACY',		20);
 
 INSERT INTO Building_HurryModifiers
 			(BuildingType,						HurryType,		HurryCostModifier) 
-VALUES		('BUILDING_LAKE_VICTORIA_DUMMY',	'HURRY_GOLD',	10);
+VALUES		('BUILDING_LAKE_VICTORIA_DUMMY',	'HURRY_GOLD',	-10);
 
 INSERT INTO Building_GlobalYieldModifiers
 			(BuildingType,						YieldType,			Yield) 

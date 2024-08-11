@@ -194,13 +194,17 @@
 	UPDATE Buildings SET /*IsNoCoast = 1, */River = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_MOHENJO_DARO' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
+	--UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_WELL' WHERE Type = 'BUILDING_MOHENJO_DARO';
 	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
 	VALUES		('BUILDING_MOHENJO_DARO',	'YIELD_CULTURE',	2),
 				('BUILDING_MOHENJO_DARO',	'YIELD_FAITH',		1),
 				('BUILDING_MOHENJO_DARO',	'YIELD_FOOD',		1);
+
+	INSERT INTO Building_YieldChangesPerPop 
+				(BuildingType,				YieldType,			Yield) 
+	VALUES		('BUILDING_MOHENJO_DARO',	'YIELD_PRODUCTION',	25);
 
 	INSERT INTO Building_RiverPlotYieldChanges
 				(BuildingType,				YieldType,		Yield) 
@@ -2260,7 +2264,7 @@
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + PlaceForResource lua (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET CityWorkingChange = 2 WHERE Type = 'BUILDING_RUHR_VALLEY';
+	UPDATE Buildings SET CityWorkingChange = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
 
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,				YieldType,				Yield) 
@@ -2270,10 +2274,15 @@
 				(BuildingType,				ImprovementType,		YieldType,				Yield) 
 	VALUES		('BUILDING_RUHR_VALLEY',	'IMPROVEMENT_MINE',		'YIELD_PRODUCTION',		1),
 				('BUILDING_RUHR_VALLEY',	'IMPROVEMENT_QUARRY',	'YIELD_PRODUCTION',		1);
+
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,				ResourceType,			YieldType,					Yield) 
+	VALUES		('BUILDING_RUHR_VALLEY',	'RESOURCE_COAL',		'YIELD_GOLD',				1),
+				('BUILDING_RUHR_VALLEY',	'RESOURCE_COAL',		'YIELD_GOLDEN_AGE_POINTS',	1);
 	
 	INSERT INTO Building_ResourcePlotsToPlace
-				(BuildingType,				ResourceType,		NumPlots) 
-	VALUES		('BUILDING_RUHR_VALLEY',	'RESOURCE_COAL',	2);
+				(BuildingType,				ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_RUHR_VALLEY',	'RESOURCE_COAL',	1,			3);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor)

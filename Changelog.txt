@@ -1,9 +1,18 @@
 MW Changelog:
 v22.6:
+- new AssignStartingPlots.lua file from VP 4.15.2;
+- Ruhr Valley:
+	- now places Coal on 1 spot (was 2) of value 3 (was 1 each);
+	- now gives reduced Working Range to +1 (was +2);
+	- instead it boosts all Coals by +1 Gold and +1 Golden Age Point;
+- Mohenjo-Daro:
+	- now does not give a free Well (VP change made it unable to use);
+	- gives a little bit boosted value of what Well had, so +1 Production per 4 Citizens (Well has +1 Production per 5 Citizens, but cannot be built where Mohenjo-Daro is);
 - Parthenon: 
-	- updated description (supply change);
-	- 
+	- temporarily disabled text changes to Parthenon, until 4UC changes will be implemented;
 - slightly reowrked description of Great Work slots;
+- fixed Lake Victoria bonus (now gives a real discount);
+- fixed Thule Air Base description;
 
 v22.5.2:
 - fixed one icon;
