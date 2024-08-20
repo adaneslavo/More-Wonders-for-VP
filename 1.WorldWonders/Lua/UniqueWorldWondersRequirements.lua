@@ -628,6 +628,8 @@ function IsHasPlotsForResources(ePlayer, eCity, eBuilding)
 	if not tValidIsHasPlotsForResources[eBuilding] then return true end
 	if bReachedMaxEra then return false end
 
+	if Map.GetNumResources(tValidIsHasPlotsForResources[eBuilding]) == 0 then return false end
+
 	local pPlayer = Players[ePlayer]
 	
 	if not pPlayer:IsAlive() then return false end
@@ -769,6 +771,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
+			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
@@ -801,7 +804,8 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
 			[GameInfo.Buildings.BUILDING_FALUN.ID] = GameInfoTypes.RESOURCE_COPPER,
 			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
-			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
+			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL,
+			[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = GameInfoTypes.RESOURCE_OIL
 		}
 		for id, building in pairs(tValidIsHasPlotsForResources) do
 			--dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])
@@ -831,6 +835,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
+			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
 			[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
 			[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true,
@@ -932,7 +937,11 @@ function Initialize()
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
-			iRequiredImprovements = 3
+			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
@@ -1154,7 +1163,8 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = GameInfoTypes.RESOURCE_SALT,
 			[GameInfo.Buildings.BUILDING_FALUN.ID] = GameInfoTypes.RESOURCE_COPPER,
 			[GameInfo.Buildings.BUILDING_LAVAUX.ID] = GameInfoTypes.RESOURCE_WINE,
-			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL
+			[GameInfo.Buildings.BUILDING_RUHR_VALLEY.ID] = GameInfoTypes.RESOURCE_COAL,
+			[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = GameInfoTypes.RESOURCE_OIL
 		}
 		for id, building in pairs(tValidIsHasPlotsForResources) do
 			--dprint("...adding (id,building,resource)", id, GameInfo.Buildings[id].Type, tValidIsHasPlotsForResources[id])

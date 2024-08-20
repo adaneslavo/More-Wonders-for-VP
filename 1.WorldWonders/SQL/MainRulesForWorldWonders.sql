@@ -68,7 +68,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('DAMASCUS',				'None',		1,			1),		-- Forge of Damascus
 			('SHWEDAGON',				'None',		1,			1),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
 			('MICHEL',					'None',		1,			1),		-- Mont Saint Michel
-			--('BURUK_HAN',				'None',		1,			0),		-- Buruk Han (Great Inn)
+			('BUYUK_HAN',				'None',		1,			0),		-- Büyük Han (Great Inn)
 			('ITSUKUSHIMA',				'None',		1,			1),		-- Itsukushima Shrine
 			('QALHAT',					'None',		1,			1),		-- Qalhat
 			('CHEVALIERS',				'None',		1,			1),		-- Krak des Chevaliers

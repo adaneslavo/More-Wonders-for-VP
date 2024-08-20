@@ -193,8 +193,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_WIELICZKA_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_WIELICZKA_HELP';
 				
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Mines[ENDCOLOR]; City [COLOR_CYAN]place for Salt[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WIELICZKA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; City [COLOR_CYAN]place for Salt[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WIELICZKA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Mines[ENDCOLOR]; City: [COLOR_CYAN]place for Salt[ENDCOLOR]; Map: [COLOR_CYAN]Salt on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WIELICZKA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; City: [COLOR_CYAN]place for Salt[ENDCOLOR]; Map: [COLOR_CYAN]Salt on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_WIELICZKA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Plain of Jars
 INSERT INTO Language_en_US 
@@ -610,8 +610,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_LAVAUX_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LAVAUX_HELP';
 				
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR]; City [COLOR_CYAN]place for Wine[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR]; City [COLOR_CYAN]place for Wine[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR]; City: [COLOR_CYAN]place for Wine[ENDCOLOR]; Map: [COLOR_CYAN]Wine on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR]; City: [COLOR_CYAN]place for Wine[ENDCOLOR]; Map: [COLOR_CYAN]Wine on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_LAVAUX_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Wartburg
 INSERT INTO Language_en_US 
@@ -659,7 +659,7 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_AHU',			'Ahu Tongariki'),
 			('TXT_KEY_WONDER_AHU_QUOTE',		'[NEWLINE]"The metaphor is so obvious. Easter Island isolated in the Pacific Ocean - once the island got into trouble, there was no way they could get free. There was no other people from whom they could get help. In the same way that we on planet Earth, if we ruin our own world, we won''t be able to get help."[NEWLINE] - Jared Diamond[NEWLINE]'),
 			('TXT_KEY_WONDER_AHU_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_AHU_HELP',			'+10% [ICON_PEACE] in your Empire. +1 [ICON_PRODUCTION] Production from Forest or Jungle, +1 [ICON_CULTURE] Culture from Quarries and +1 [ICON_PEACE] Faith from Coast tiles worked by this City. +20% [ICON_WORKER] Improvement Construction Rate. Grants 1 copy of unique luxury resource: Tern Egg.');
+			('TXT_KEY_WONDER_AHU_HELP',			'+10% [ICON_PEACE] in your Empire. +1 [ICON_PRODUCTION] Production from Forest or Jungle and +1 [ICON_PEACE] Faith from Coast tiles worked by this City. +1 [ICON_CULTURE] Culture from Quarries in your Empire. +20% [ICON_WORKER] Improvement Construction Rate. Grants 1 copy of unique luxury resource: Tern Egg.');
 			
 UPDATE Language_en_US
 SET Text = 'Monumental platform, [COLOR_YIELD_FOOD]Ahu Tongariki[ENDCOLOR], boosts your production significantly, if you have [COLOR_CITY_GREEN]Forests[ENDCOLOR] or [COLOR_CITY_GREEN]Jungles[ENDCOLOR] (+1[ICON_PRODUCTION]/[ICON_MUSHROOM]) nearby or hire new workers (+20%[ICON_WORKER]). Cultural influence of all [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+1[ICON_CULTURE]/[ICON_WORKER][ICON_WORKER]) on your citizens, supported by new [COLOR_GREY]Unique Luxury[ENDCOLOR] resource (+1 flat [ICON_RES_TERN]; +10%[ICON_PEACE][ICON_PEACE]) will send you in much brighter future.'
@@ -688,8 +688,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_FALUN_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FALUN_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Improvement: [COLOR_CYAN]3 Mines[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Mines[ENDCOLOR]; City: [COLOR_CYAN]place for Copper[ENDCOLOR]; Map: [COLOR_CYAN]Copper on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; City: [COLOR_CYAN]place for Copper[ENDCOLOR]; Map: [COLOR_CYAN]Copper on map[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Forge of Damascus
 INSERT INTO Language_en_US 
@@ -756,6 +756,25 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MICHEL_HELP';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
+----------------------------------------------------
+-- Buyuk Han
+INSERT INTO Language_en_US 
+			(Tag,								Text) 
+VALUES		('TXT_KEY_BUILDING_BUYUK_HAN',		'Büyük Han'),
+			('TXT_KEY_WONDER_BUYUK_HAN_QUOTE',	'[NEWLINE]"There is no friendship in trade."[NEWLINE] - Cornelius Vanderbilt[NEWLINE]'),
+			('TXT_KEY_WONDER_BUYUK_HAN_PEDIA',	''),
+			('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravansary and a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravan in the City in which it is built. +2 [ICON_PRODUCTION] Production from Villages in your Empire. +2 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold with [COLOR_CYAN]Corporations[ENDCOLOR].');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]) provides wide trading opportunities. You can use brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]) or find new trading partners ([COLOR_CYAN]Corporations:[ENDCOLOR] +2[ICON_PRODUCTION], +3[ICON_GOLD]).'
+WHERE Tag = 'TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BUYUK_HAN_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Village[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
 -- Itsukushima Shrine
 INSERT INTO Language_en_US 
@@ -1484,8 +1503,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_RUHR_VALLEY_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_RUHR_VALLEY_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; City [COLOR_CYAN]place for Coal[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; City [COLOR_CYAN]place for Coal[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; City: [COLOR_CYAN]place for Coal[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; City: [COLOR_CYAN]place for Coal[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_RUHR_VALLEY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Darjeeling Himalayan Railway
 INSERT INTO Language_en_US 
@@ -1648,8 +1667,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_POLAR_EXPEDITION_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_POLAR_EXPEDITION_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; City: [COLOR_CYAN]Near Pole[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; City: [COLOR_CYAN]Near Pole[ENDCOLOR], [COLOR_CYAN]place for Oil[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Snow[ENDCOLOR]; City: [COLOR_CYAN]place for Oil[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_POLAR_EXPEDITION_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Akihabara Electric Town
 INSERT INTO Language_en_US 
