@@ -5,7 +5,7 @@
     <ProjectGuid>{af6f426c-c21e-41c2-bfb7-20a461bc0cc5}</ProjectGuid>
     <Name>(overhaul) More Wonders for VP</Name>
     <Guid>3e151552-1683-4881-b736-8ee89226f599</Guid>
-    <ModVersion>22</ModVersion>
+    <ModVersion>23</ModVersion>
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
@@ -1581,27 +1581,27 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_128.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_256.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_45.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_64.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_80.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Muray_splash.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Moray_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

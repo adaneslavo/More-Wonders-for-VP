@@ -1,4 +1,10 @@
 MW Changelog:
+v23:
+- added 2 new World Wonders:
+	- Moray Terraces (Education);
+	- JFK Space Center (Rocketry, Freedom)
+- numerous text fixes and corrections;
+
 v22.8:
 - new World Wonder:
 	- Buyuk Han (Progress, instead of Qalhat);

@@ -59,7 +59,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('CHAND_BAORI',				'None',		1,			1),		-- Chand Baori Well
 			-------------------MEDIEVAL-------------------------------------------------------------
 			('NABAWI',					'None',		1,			1),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			--('MURAY',					'None',		1,			0),		-- Muray (Moray Terraces)
+			('MORAY',					'None',		1,			0),		-- Moray (Moray Terraces)
 			('LAVAUX',					'None',		1,			1),		-- Lavaux
 			('WARTBURG',				'None',		1,			1),		-- Wartburg Castle
 			('GREAT_ZIMBABWE',			'None',		1,			1),		-- Great Zimbabwe
@@ -117,7 +117,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('VOSTOK',					'None',		1,			0),		-- Vostok Station
 			('MILESTII_MICI',			'None',		1,			0),		-- Milestii Mici Winery
 			--('NUCLEAR_FACILITY',		'None',		1,			0),		-- Tehran Nuclear Research Facility
-			--('JFK',					'None',		1,			0),		-- JFK Space Center
+			('JFK',						'None',		1,			0),		-- JFK Space Center
 			('SPUTNIK',					'None',		1,			0),		-- Sputnik Program
 			('ANITKABIR',				'None',		1,			0),		-- Anitkabir Mausoleum
 			('THULE',					'None',		1,			0),		-- Thule Airbase

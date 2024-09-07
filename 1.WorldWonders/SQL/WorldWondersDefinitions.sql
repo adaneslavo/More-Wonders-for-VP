@@ -847,6 +847,39 @@
 				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- MORAY TERRACES (NEW)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 6, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MORAY';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_MORAY';
+	---------------------------------------------------------
+	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_JFK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	-- + Farm(1) (lua) (HARD)
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,			Yield)
+	VALUES		('BUILDING_MORAY',	'YIELD_FOOD',		2),
+				('BUILDING_MORAY',	'YIELD_SCIENCE',	2);
+
+	INSERT INTO Building_PlotYieldChanges 
+				(BuildingType,		PlotType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MORAY',	'PLOT_HILLS',	'YIELD_FOOD',		1),
+				('BUILDING_MORAY',	'PLOT_HILLS',	'YIELD_PRODUCTION',	1),
+				('BUILDING_MORAY',	'PLOT_HILLS',	'YIELD_SCIENCE',	1);
+
+	INSERT INTO Building_GlobalYieldModifiers 
+				(BuildingType,		YieldType,		Yield) 
+	VALUES		('BUILDING_MORAY',	'YIELD_FOOD',	5);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,		YieldIn,			YieldOut,		Value) 
+	VALUES		('BUILDING_MORAY',	'YIELD_SCIENCE',	'YIELD_FOOD',	15);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_MORAY', 'FLAVOR_GROWTH',			70),
+				('BUILDING_MORAY', 'FLAVOR_PRODUCTION',		50),
+				('BUILDING_MORAY', 'FLAVOR_SCIENCE',		20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
@@ -1242,7 +1275,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_BUYUK_HAN';
 	---------------------------------------------------------
 	UPDATE Buildings SET /*IsNoCoast = 1, */ Flat = 1 WHERE Type = 'BUILDING_BUYUK_HAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- Village(1)
+	-- + Village(1) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CARAVANSARY', EnhancedYieldTech = 'TECH_CORPORATIONS' WHERE Type = 'BUILDING_BUYUK_HAN';
 
@@ -2965,6 +2998,41 @@
 				('BUILDING_MILESTII_MICI',	'FLAVOR_PRODUCTION',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- JFK SPACE CENTER (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ROCKETRY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_JFK';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_JFK';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1, Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_JFK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,		BuildingClassType) 
+	SELECT		'BUILDING_JFK',		'BUILDINGCLASS_LABORATORY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1, AirModifier = 2, IlliteracyFlatReduction = 1, EnhancedYieldTech = 'TECH_SATELLITES' WHERE Type = 'BUILDING_JFK';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,						Yield)
+	VALUES		('BUILDING_JFK',	'YIELD_PRODUCTION',				1),
+				('BUILDING_JFK',	'YIELD_SCIENCE',				1),
+				('BUILDING_JFK',	'YIELD_TOURISM',				2),
+				('BUILDING_JFK',	'YIELD_GREAT_GENERAL_POINTS',	1);
+	
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,		UnitCombatType,					Modifier)
+	VALUES		('BUILDING_JFK',	'UNITCOMBAT_SPACESHIP_PART',	20);
+
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_JFK',	'YIELD_SCIENCE',	3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_JFK',	'FLAVOR_SPACESHIP',		50),
+				('BUILDING_JFK',	'FLAVOR_PRODUCTION',	10),
+				('BUILDING_JFK',	'FLAVOR_SCIENCE',		80),
+				('BUILDING_JFK',	'FLAVOR_OFFENSE',		10);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- SPUTNIK (NEW)
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ROCKETRY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_SPUTNIK';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_SPUTNIK';
@@ -3625,26 +3693,26 @@ VALUES		('BUILDING_DARJEELING',			'BUILDINGCLASS_SIBERIAN_RAILWAY'),
 --============================================--
 -- IDEOLOGY WONDERS
 --============================================--
-UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD'/*, 'BUILDING_JFK_SPACE_CENTER'*/);
+UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD', 'BUILDING_JFK');
 UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_KREMLIN'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_REVOLUTIONARY_MUSEUM');
 UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
 
 INSERT INTO Building_ClassNeededNowhere
 			(BuildingType,						BuildingClassType) 
-VALUES		('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_ORSZAGHAZ'),		-- freedom
+VALUES		('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_ORSZAGHAZ'),				-- freedom
 			('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_HOLLYWOOD'),
-			--('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_JFK_SPACE_CENTER'),
+			('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_JFK'),
 			('BUILDING_ORSZAGHAZ',				'BUILDINGCLASS_STATUE_OF_LIBERTY'),
 			('BUILDING_ORSZAGHAZ',				'BUILDINGCLASS_HOLLYWOOD'),
-			--('BUILDING_ORSZAGHAZ',				'BUILDINGCLASS_JFK_SPACE_CENTER'),
+			('BUILDING_ORSZAGHAZ',				'BUILDINGCLASS_JFK'),
 			('BUILDING_HOLLYWOOD',				'BUILDINGCLASS_STATUE_OF_LIBERTY'),
 			('BUILDING_HOLLYWOOD',				'BUILDINGCLASS_ORSZAGHAZ'),
-			--('BUILDING_HOLLYWOOD',				'BUILDINGCLASS_JFK_SPACE_CENTER'),
-			--('BUILDING_JFK_SPACE_CENTER',		'BUILDINGCLASS_STATUE_OF_LIBERTY'),
-			--('BUILDING_JFK_SPACE_CENTER',		'BUILDINGCLASS_ORSZAGHAZ'),
-			--('BUILDING_JFK_SPACE_CENTER',		'BUILDINGCLASS_HOLLYWOOD'),
+			('BUILDING_HOLLYWOOD',				'BUILDINGCLASS_JFK'),
+			('BUILDING_JFK',					'BUILDINGCLASS_STATUE_OF_LIBERTY'),
+			('BUILDING_JFK',					'BUILDINGCLASS_ORSZAGHAZ'),
+			('BUILDING_JFK',					'BUILDINGCLASS_HOLLYWOOD'),
 			------------------------------
-			--('BUILDING_KREMLIN',				'BUILDINGCLASS_GREAT_HALL'),	-- order
+			--('BUILDING_KREMLIN',				'BUILDINGCLASS_GREAT_HALL'),			-- order
 			('BUILDING_KREMLIN',				'BUILDINGCLASS_SPUTNIK'),
 			('BUILDING_KREMLIN',				'BUILDINGCLASS_REVOLUTIONARY_MUSEUM'),
 			--('BUILDING_GREAT_HALL',				'BUILDINGCLASS_KREMLIN'),
@@ -3657,7 +3725,7 @@ VALUES		('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_ORSZAGHAZ'),		-- freedom
 			--('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_GREAT_HALL'),
 			('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_SPUTNIK'),
 			------------------------------
-			('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_SANBO'),				-- autocracy
+			('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_SANBO'),						-- autocracy
 			--('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_TEHRAN_NUCLEAR'),
 			('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_ANITKABIR'),
 			('BUILDING_SANBO',				'BUILDINGCLASS_PRORA_RESORT'),

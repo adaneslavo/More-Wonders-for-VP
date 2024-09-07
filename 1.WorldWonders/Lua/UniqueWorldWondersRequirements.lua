@@ -769,6 +769,7 @@ function Initialize()
 		-- IsNoCoast
 		tValidIsNoCoast = {
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
+			[GameInfo.Buildings.BUILDING_MORAY.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
 			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
@@ -834,6 +835,7 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_SIGIRIYA.ID] = true,			
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
+			[GameInfo.Buildings.BUILDING_MORAY.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
@@ -920,6 +922,10 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
 			iRequiredImprovements = 2
+		}
+		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MORAY.ID] = {
+			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
+			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,

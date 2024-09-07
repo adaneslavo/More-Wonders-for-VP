@@ -11,7 +11,7 @@ VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Cave'),
 			('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Contains 1 slot for [ICON_GREAT_WORK] Great Work of Art or Artifact. +3 [ICON_CULTURE] Culture with [COLOR_CYAN]Archaeology[ENDCOLOR].[NEWLINE][NEWLINE]Nearby [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]Nearby [ICON_RES_HORSE] Horses: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.');
 
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] greatly supports early culture generation (+1[ICON_CULTURE]), especially if [COLOR_GREY]Bisons[ENDCOLOR], [COLOR_GREY]Deers[ENDCOLOR] or [COLOR_GREY]Horses[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON], [ICON_RES_DEER], [ICON_RES_HORSE]) are present nearby. Maximize its effectiveness by filling empty art slot (+1[ICON_GREAT_WORK]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology:[ENDCOLOR] +3[ICON_CULTURE]).'
+SET Text = '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] greatly supports early culture generation (+1[ICON_CULTURE]), especially if [COLOR_GREY]Bisons[ENDCOLOR], [COLOR_GREY]Deers[ENDCOLOR] or [COLOR_GREY]Horses[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON], [ICON_RES_DEER], [ICON_RES_HORSE]) are present nearby. Maximize its effectiveness by filling empty art slot (+1[ICON_GREAT_WORK]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology[ENDCOLOR]: +3[ICON_CULTURE]).'
 WHERE Tag = 'TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -68,7 +68,7 @@ VALUES		('TXT_KEY_BUILDING_KUK',		'Kuk Swamp'),
 			('TXT_KEY_WONDER_KUK_HELP',		'10% [ICON_FOOD] Food is carried over after new [ICON_CITIZEN] Citizen is born. +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science from Marshes worked in the Empire. +5 [ICON_PRODUCTION] Production in the City and +2 [ICON_PRODUCTION] Production in all other Cities with [COLOR_CYAN]Steam Power[ENDCOLOR]');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Kuk Swamp[ENDCOLOR], thanks to unique agricultural techniques, turned [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_MUSHROOM][ICON_MUSHROOM]) into rich soil. Use its power to speed up developement of your huge city even more (+10%[ICON_FOOD]/New [ICON_CITIZEN]; [COLOR_CYAN]Steam Power:[ENDCOLOR] +3[ICON_PRODUCTION], +2[ICON_PRODUCTION][ICON_PRODUCTION]).'
+SET Text = '[COLOR_YIELD_FOOD]Kuk Swamp[ENDCOLOR], thanks to unique agricultural techniques, turned [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_MUSHROOM][ICON_MUSHROOM]) into rich soil. Use its power to speed up developement of your huge city even more (+10%[ICON_FOOD]/New [ICON_CITIZEN]; [COLOR_CYAN]Steam Power[ENDCOLOR]: +3[ICON_PRODUCTION], +2[ICON_PRODUCTION][ICON_PRODUCTION]).'
 WHERE Tag = 'TXT_KEY_WONDER_KUK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -167,7 +167,7 @@ VALUES		('TXT_KEY_BUILDING_NAZCA',			'Nazca Lines'),
 			('TXT_KEY_WONDER_NAZCA_HELP',		'+2 [ICON_FOOD] Food from nearby Plains, +1 [ICON_PEACE] Faith from nearby Hills and +1 [ICON_RESEARCH] Science from Camps worked by this City. +4 [ICON_RESEARCH] Science and +2 [ICON_TOURISM] Tourism with [COLOR_CYAN]Flight[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Nazca Lines[ENDCOLOR] hide awesome scientific secrets, fully discovered only with air reconaissance ([COLOR_CYAN]Flight:[ENDCOLOR] +4[ICON_RESEARCH], +2[ICON_TOURISM]). Boost your growth and religion by claiming local [COLOR_CITY_BLUE]Plains[ENDCOLOR] (+2[ICON_FOOD]/[ICON_FLOWER]) and [COLOR_CITY_BLUE]Hills[ENDCOLOR] (+1[ICON_PEACE]/[ICON_FLOWER]) or science by constructing [COLOR_CITY_BROWN]Camps[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_WORKER]).'
+SET Text = '[COLOR_YIELD_FOOD]Nazca Lines[ENDCOLOR] hide awesome scientific secrets, fully discovered only with air reconaissance ([COLOR_CYAN]Flight[ENDCOLOR]: +4[ICON_RESEARCH], +2[ICON_TOURISM]). Boost your growth and religion by claiming local [COLOR_CITY_BLUE]Plains[ENDCOLOR] (+2[ICON_FOOD]/[ICON_FLOWER]) and [COLOR_CITY_BLUE]Hills[ENDCOLOR] (+1[ICON_PEACE]/[ICON_FLOWER]) or science by constructing [COLOR_CITY_BROWN]Camps[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_WORKER]).'
 WHERE Tag = 'TXT_KEY_WONDER_NAZCA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -243,7 +243,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [CO
 ----------------------------------------------------
 -- Petra
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Petra[ENDCOLOR] complex uses surrounding [COLOR_CITY_BLUE]Desert[ENDCOLOR] (+1[ICON_GOLD]/[ICON_FLOWER]) to increase your income. Send new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR] along available trade routes (+1[ICON_INTERNATIONAL_TRADE]) to quickly spread your culture over the world ([COLOR_CYAN]Archaeology:[ENDCOLOR] +6[ICON_CULTURE]).'
+SET Text = '[COLOR_YIELD_FOOD]Petra[ENDCOLOR] complex uses surrounding [COLOR_CITY_BLUE]Desert[ENDCOLOR] (+1[ICON_GOLD]/[ICON_FLOWER]) to increase your income. Send new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR] along available trade routes (+1[ICON_INTERNATIONAL_TRADE]) to quickly spread your culture over the world ([COLOR_CYAN]Archaeology[ENDCOLOR]: +6[ICON_CULTURE]).'
 WHERE Tag = 'TXT_KEY_WONDER_PETRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built on or next to Desert. ', '') WHERE Tag ='TXT_KEY_WONDER_PETRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -594,11 +594,30 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_NABAWI_HELP';
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
+-- Moray Terraces
+INSERT INTO Language_en_US 
+			(Tag,									Text)
+VALUES		('TXT_KEY_BUILDING_MORAY',				'Moray Terraces'),
+			('TXT_KEY_WONDER_MORAY_QUOTE',			'[NEWLINE]"Science is a way of thinking much more than it is a body of knowledge."[NEWLINE] - Carl Sagan[NEWLINE]'),
+			('TXT_KEY_WONDER_MORAY_PEDIA',			'TODO'),
+			('TXT_KEY_WONDER_MORAY_HELP',			'+5% [ICON_FOOD] Food in all Cities. +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science from nearby Hills. Converts 15% of [ICON_RESEARCH] Science produced by this City into [ICON_FOOD] Food.');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]Moray Terraces[ENDCOLOR], mysterious farming structures made on [COLOR_CITY_BLUE]Hills[ENDCOLOR] allow you to grow unusual plants and crops in places where they are not naturally seen (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_FLOWER]; +5%[ICON_FOOD][ICON_FOOD]). Use your scientific knowledge to boost your growth even more (15%[ICON_RESEARCH] into [ICON_FOOD])!'
+WHERE Tag = 'TXT_KEY_WONDER_MORAY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_MORAY_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MORAY_HELP';
+				
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]Farm[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MORAY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MORAY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+----------------------------------------------------
 -- Lavaux
 INSERT INTO Language_en_US 
 			(Tag,									Text)
 VALUES		('TXT_KEY_BUILDING_LAVAUX',				'Lavaux'),
-			('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world".[NEWLINE] - Louis Pasteur[NEWLINE]'),
+			('TXT_KEY_WONDER_LAVAUX_QUOTE',			'[NEWLINE]"A bottle of wine contains more philosophy than all the books in the world."[NEWLINE] - Louis Pasteur[NEWLINE]'),
 			('TXT_KEY_WONDER_LAVAUX_PEDIA',			'TODO'),
 			('TXT_KEY_WONDER_LAVAUX_HELP',			'Wonder places 2 new [ICON_RES_WINE] Wine resources inside City range if possible. Empire [ICON_HAPPINESS_3] Needs Modifier is reduced by 10% in all Cities. +1 [ICON_FOOD] Food from Lakes worked by this City.[NEWLINE][NEWLINE]Nearby [ICON_RES_WINE] Wine: +1 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_PEACE] Faith.');
 			
@@ -766,7 +785,7 @@ VALUES		('TXT_KEY_BUILDING_BUYUK_HAN',		'Büyük Han'),
 			('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravansary and a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravan in the City in which it is built. +2 [ICON_PRODUCTION] Production from Villages in your Empire. +2 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold with [COLOR_CYAN]Corporations[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]) provides wide trading opportunities. You can use brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]) or find new trading partners ([COLOR_CYAN]Corporations:[ENDCOLOR] +2[ICON_PRODUCTION], +3[ICON_GOLD]).'
+SET Text = '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]) provides wide trading opportunities. You can use brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[ICON_WORKER][ICON_WORKER]) or find new trading partners ([COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -963,7 +982,7 @@ VALUES		('TXT_KEY_BUILDING_BENHADDOU',			'Ait Benhaddou'),
 			('TXT_KEY_WONDER_BENHADDOU_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +1 [ICON_FOOD] Food from River tiles woked by this City. Nearby Villages receive +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism. +4 [ICON_TOURISM] Tourism with [COLOR_CYAN]Radio[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = 'Huge [COLOR_YIELD_FOOD]Ait Benhaddou[ENDCOLOR] [COLOR_CITY_BROWN]Village[ENDCOLOR] (+3[ICON_GOLD], +3[ICON_TOURISM]/[ICON_WORKER]) is awesome tourist attraction and an ideal scenography for numerous movie projects ([COLOR_CYAN]Radio:[ENDCOLOR] +4[ICON_TOURISM]). This desert settlement makes also profit from nearby [COLOR_CITY_GREEN]River[ENDCOLOR] (+1[ICON_FOOD]/[ICON_MUSHROOM]) to expand your current trade network (+1[ICON_INTERNATIONAL_TRADE]).'
+SET Text = 'Huge [COLOR_YIELD_FOOD]Ait Benhaddou[ENDCOLOR] [COLOR_CITY_BROWN]Village[ENDCOLOR] (+3[ICON_GOLD], +3[ICON_TOURISM]/[ICON_WORKER]) is awesome tourist attraction and an ideal scenography for numerous movie projects ([COLOR_CYAN]Radio[ENDCOLOR]: +4[ICON_TOURISM]). This desert settlement makes also profit from nearby [COLOR_CITY_GREEN]River[ENDCOLOR] (+1[ICON_FOOD]/[ICON_MUSHROOM]) to expand your current trade network (+1[ICON_INTERNATIONAL_TRADE]).'
 WHERE Tag = 'TXT_KEY_WONDER_BENHADDOU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1989,6 +2008,25 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MILESTII_MICI_HELP';
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR].[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MILESTII_MICI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
+-- JFK Space Center
+INSERT INTO Language_en_US 
+			(Tag,							Text)
+VALUES		('TXT_KEY_BUILDING_JFK',		'JFK Space Center'),
+			('TXT_KEY_WONDER_JFK_QUOTE',	'[NEWLINE]"The view of Earth is absolutely spectacular, and the feeling of looking back and seeing your planet as a planet is just an amazing feeling. It’s a totally different perspective, and it makes you appreciate, actually, how fragile our existence is."[NEWLINE] - Sally Ride[NEWLINE]'),
+			('TXT_KEY_WONDER_JFK_PEDIA',	'TODO'),
+			('TXT_KEY_WONDER_JFK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +20% [ICON_PRODUCT-ION] Production towards Spaceship Parts. +2 Air slots in this City. -1 [ICON_HAPPINESS_3] Unhappiness from Illiteracy in your City. +3 [ICON_RESEARCH] Science with [COLOR_CYAN]Satellites[ENDCOLOR]');
+			
+UPDATE Language_en_US
+SET Text = '[COLOR_YIELD_FOOD]JFK Space Center[ENDCOLOR] is a voice of freedom that desires reaching the sky (+2[ICON_BULLET]Air slots; +20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]). Even though it is a military project, even civilians may benefit from new technologies (-2[ICON_HAPPINESS_3] Illiteracy; [COLOR_CYAN]Satellites[ENDCOLOR]: +3[ICON_RESEARCH]). But not only new technologies, yet also new reforms might come with it ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
+WHERE Tag = 'TXT_KEY_WONDER_JFK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+
+INSERT INTO Language_en_US (Tag, Text) 
+SELECT 'TXT_KEY_WONDER_JFK_HELP_CUT', Text
+FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_JFK_HELP';
+				
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Building: [COLOR_CYAN]Research Lab[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_JFK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR][NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_JFK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 -- Sputnik
 INSERT INTO Language_en_US 
 			(Tag,								Text)
@@ -1998,7 +2036,7 @@ VALUES		('TXT_KEY_BUILDING_SPUTNIK',		'Sputnik'),
 			('TXT_KEY_WONDER_SPUTNIK_HELP',		'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +20% [ICON_PRODUCTION] Production towards Spaceship Parts. Starts [ICON_GOLDEN_AGE] Golden Age. +33% generation of [ICON_GREAT_ENGINEER] Great Engineers and +25% generation of [ICON_GREAT_SCIENTIST] Great Scientists in this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Sputnik[ENDCOLOR] is a milestone on your way to the space (+20%[ICON_PRODUCION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]; starts [ICON_GOLDEN_AGE]). Many different specialities in your empire will benefit from the discoveries made by this satellite (+33%[ICON_GREAT_ENGINEER]; +25%[ICON_GREAT_SCIENTIST]), not to mention about your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Sputnik[ENDCOLOR] is a milestone on your way to the space (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]; starts [ICON_GOLDEN_AGE]). Many different specialities in your empire will benefit from the discoveries made by this satellite (+33%[ICON_GREAT_ENGINEER]; +25%[ICON_GREAT_SCIENTIST]), not to mention about your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2295,7 +2333,7 @@ UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_BUILDING_GREAT_FIR
 ----------------------------------------------------
 -- Hubble Space Telescope
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_RESEARCH]). This huge leap towards space can be an inspiration for further developement (1 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_RESEARCH]). This huge leap towards space can be an inspiration for further developement (1 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -2502,7 +2540,7 @@ UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Bu
 	----------------------------------------------------
 	-- TOPKAPI PALACE
 	UPDATE Language_en_US
-	SET Text = '[COLOR_YIELD_FOOD]Topkapi Palace[ENDCOLOR] strenghten your faith by praying the defense doctrine (+1[ICON_PEACE]/all [COLOR_YIELD_FOOD]defensive buildings[ENDCOLOR]). Additionally, when you build some planes, you will bring some tourists to new attractions ([COLOR_CYAN]Flight:[ENDCOLOR] +3[ICON_GOLD], +2[ICON_TOURISM]).'
+	SET Text = '[COLOR_YIELD_FOOD]Topkapi Palace[ENDCOLOR] strenghten your faith by praying the defense doctrine (+1[ICON_PEACE]/all [COLOR_YIELD_FOOD]defensive buildings[ENDCOLOR]). Additionally, when you build some planes, you will bring some tourists to new attractions ([COLOR_CYAN]Flight[ENDCOLOR]: +3[ICON_GOLD], +2[ICON_TOURISM]).'
 	WHERE Tag = 'TXT_KEY_WONDER_EE_TOPKAPI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 
 	INSERT INTO Language_en_US 
