@@ -1,4 +1,12 @@
 MW Changelog:
+v23.2:
+- fixed theming bonuses for multi-themed World Wonders;
+
+v23.1:
+- increased theming bonuses on all World Wonders;
+- fixed Moray Terraces/JFK Hill requirement;
+- fixed Great Zimbabwe tooltip;
+
 v23:
 - added 2 new World Wonders:
 	- Moray Terraces (Education);

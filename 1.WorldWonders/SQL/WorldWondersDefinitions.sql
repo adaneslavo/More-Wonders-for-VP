@@ -734,7 +734,7 @@
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,						Bonus,	MustBeArt,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SIGIRIYA',	'TXT_KEY_THEMING_BONUS_SIGIRIYA',	5,		1,			1,				5);
+	VALUES		('BUILDING_SIGIRIYA',	'TXT_KEY_THEMING_BONUS_SIGIRIYA',	7,		1,			1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,			YieldType,			Yield) 
@@ -833,7 +833,7 @@
 
 	INSERT INTO Building_ThemingBonuses
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 7,		1,				5);
+	VALUES		('BUILDING_NABAWI', 'TXT_KEY_THEMING_BONUS_NABAWI', 10,		1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus
 				(BuildingType,		YieldType,					Yield)
@@ -851,7 +851,7 @@
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 6, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MORAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_MORAY';
 	---------------------------------------------------------
-	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_JFK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MORAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Farm(1) (lua) (HARD)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
@@ -968,7 +968,7 @@
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,						Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_WARTBURG',	'TXT_KEY_THEMING_BONUS_WARTBURG',	7,		1,				5);
+	VALUES		('BUILDING_WARTBURG',	'TXT_KEY_THEMING_BONUS_WARTBURG',	15,		1,				5);
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
 				(BuildingType,			DomainType,		Experience)
@@ -1207,11 +1207,11 @@
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,			Description,									Bonus,	MustBeArtifact,	RequiresUniquePlayers,	ConsecutiveEras,	AIPriority)
-	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	12,		1,				0,						0,					5),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',		20,		1,				1,						0,					6),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',	25,		1,				0,						1,					6),
-				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',		30,		1,				1,						1,					7);
-
+	VALUES		('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',		40,		1,				1,						1,					7),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',	32,		1,				0,						1,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',		24,		1,				1,						0,					6),
+				('BUILDING_SHWEDAGON',	'TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',	20,		1,				0,						0,					5);
+				
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
 	VALUES		('BUILDING_SHWEDAGON',	'YIELD_GOLD',	1);
@@ -1632,7 +1632,7 @@
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	7,		1,				5);
+	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	14,		1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,		YieldType,			Yield) 
@@ -2008,11 +2008,11 @@
 
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresAnyButOwner,	AIPriority)
-	VALUES		('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ART',			8,		1,			0,			0,						5),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_OTHERS',		14,		1,			0,			1,						6),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ERAS',			20,		1,			1,			0,						7),
-				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	25,		1,			1,			1,						8);
-
+	VALUES		('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	30,		1,			1,			1,						8),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ERAS',			24,		1,			1,			0,						7),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_OTHERS',		20,		1,			0,			1,						6),
+				('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ART',			12,		1,			0,			0,						5);
+				
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,				YieldType,			Yield) 
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'YIELD_CULTURE',	5),
@@ -2049,11 +2049,11 @@
 	
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	UniqueEras,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		8,		0,			0,				5),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			15,		0,			1,				6),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			22,		1,			0,				7),
-				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	28,		1,			1,				8);
-
+	VALUES		('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	34,		1,			1,				8),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			28,		1,			0,				7),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',			22,		0,			1,				6),
+				('BUILDING_SIKU_QUANSHU',	'TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		14,		0,			0,				5);
+				
 	INSERT INTO Building_ThemingYieldBonus 
 				(BuildingType,				YieldType,			Yield) 
 	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_CULTURE',	10),
