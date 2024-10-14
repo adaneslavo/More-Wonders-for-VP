@@ -1,4 +1,8 @@
 MW Changelog:
+v23.3:
+- fixed Great Barrier Reef science bug;
+- updated AssignStartingPlots.lua file to VP 4.16.2;
+
 v23.2:
 - fixed theming bonuses for multi-themed World Wonders;
 

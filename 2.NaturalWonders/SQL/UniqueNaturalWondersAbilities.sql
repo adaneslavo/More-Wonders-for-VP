@@ -387,7 +387,7 @@ VALUES		('BUILDING_EL_DORADO_DUMMY',	'RESOURCE_GOLD',			'YIELD_FAITH',		1),
 
 INSERT INTO Building_ResourceYieldChangesGlobal (BuildingType,					ResourceType,	YieldType,			Yield)
 SELECT DISTINCT									'BUILDING_NEW_REEF_A_DUMMY',	Type,			'YIELD_SCIENCE',	1
-FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' and TechCityTrade = 'TECH_SAILING';
+FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' and SeaResource = 1;
 
 INSERT INTO Building_TechEnhancedYieldChanges
 			(BuildingType,						YieldType,			Yield) 
