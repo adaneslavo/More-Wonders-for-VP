@@ -2036,7 +2036,7 @@
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	2);
+	VALUES		('BUILDING_SIKU_QUANSHU',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,				SpecialistType,			YieldType,			Yield) 

@@ -1,4 +1,7 @@
 MW Changelog:
+v23.4 (in progress):
+- Siku Quanshu yield fix;
+
 v23.3:
 - fixed Great Barrier Reef science bug;
 - updated AssignStartingPlots.lua file to VP 4.16.2;
