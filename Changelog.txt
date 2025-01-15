@@ -1,6 +1,8 @@
 MW Changelog:
 v23.4 (in progress):
 - Siku Quanshu yield fix;
+- Wonders placing resources fix;
+- GBH sql fix;
 
 v23.3:
 - fixed Great Barrier Reef science bug;

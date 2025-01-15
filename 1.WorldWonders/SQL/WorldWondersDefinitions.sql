@@ -360,16 +360,14 @@
 	-- + Mine(2) lua (HARD)
 	-- + PlaceForResource lua (ALL)
 	---------------------------------------------------------	
-	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_WIELICZKA';
-
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_PRODUCTION',	1),
-				('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_GOLD',	1);
+				('BUILDING_WIELICZKA',	'RESOURCE_SALT',	'YIELD_GOLD',		1);
 	
 	INSERT INTO Building_ResourcePlotsToPlace
-				(BuildingType,			ResourceType,		NumPlots) 
-	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2);
+				(BuildingType,			ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_WIELICZKA',	'RESOURCE_SALT',	2,			1);
 
 	INSERT INTO Building_GlobalYieldModifiers 
 				(BuildingType,			YieldType,		Yield) 
@@ -898,8 +896,7 @@
 	-- + PlaceForResource lua
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
-	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_LAVAUX';
-
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,		Yield)
 	VALUES		('BUILDING_LAVAUX', 'YIELD_FOOD',	2),
@@ -916,8 +913,8 @@
 				('BUILDING_LAVAUX',	'RESOURCE_WINE',	'YIELD_FAITH',	1);
 
 	INSERT INTO Building_ResourcePlotsToPlace
-				(BuildingType,		ResourceType,		NumPlots) 
-	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE',	2);
+				(BuildingType,		ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_LAVAUX',	'RESOURCE_WINE',	2,			1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
@@ -1082,8 +1079,6 @@
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_FALUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	-- + Mine(4) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET ResourceQuantityToPlace = 1 WHERE Type = 'BUILDING_FALUN';
-	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield)
 	VALUES		('BUILDING_FALUN',	'YIELD_GOLDEN_AGE_POINTS',		1),
@@ -1099,8 +1094,8 @@
 	VALUES		('BUILDING_FALUN',	'IMPROVEMENT_MINE',	'YIELD_GOLD',	1);
 
 	INSERT INTO Building_ResourcePlotsToPlace
-				(BuildingType,		ResourceType,		NumPlots) 
-	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	2);
+				(BuildingType,		ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_FALUN',	'RESOURCE_COPPER',	2,			1);
 	
 	INSERT INTO Building_FreeUnits 
 				(BuildingType,		UnitType,				NumUnits) 

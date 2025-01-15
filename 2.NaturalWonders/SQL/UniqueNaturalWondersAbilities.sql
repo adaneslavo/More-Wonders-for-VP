@@ -545,10 +545,10 @@ INSERT INTO EventChoice_ImprovementYieldChange
 SELECT		EventChoiceType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		YieldChange
 FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
 
-INSERT INTO Improvement_AdjacentImprovementYieldChanges
-			(ImprovementType,	OtherImprovementType,				YieldType,		Yield)
-SELECT		ImprovementType,	'IMPROVEMENT_FISHING_BOATS_GBH', 	YieldType,		Yield
-FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+INSERT INTO Improvement_YieldPerXAdjacentImprovement
+			(ImprovementType,					OtherImprovementType,	YieldType,		Yield,	NumRequired)
+SELECT		'IMPROVEMENT_FISHING_BOATS_GBH',	OtherImprovementType, 	YieldType,		Yield,	NumRequired
+FROM Improvement_YieldPerXAdjacentImprovement WHERE OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
 
 INSERT INTO Policy_ImprovementYieldChanges 
 			(PolicyType,	ImprovementType,					YieldType,		Yield)
@@ -587,10 +587,10 @@ INSERT INTO EventChoice_ImprovementYieldChange
 SELECT		EventChoiceType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		YieldChange
 FROM EventChoice_ImprovementYieldChange WHERE ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
 
-INSERT INTO Improvement_AdjacentImprovementYieldChanges
-			(ImprovementType,	OtherImprovementType,					YieldType,		Yield)
-SELECT		ImprovementType,	'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', 	YieldType,		Yield
-FROM Improvement_AdjacentImprovementYieldChanges WHERE OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+INSERT INTO Improvement_YieldPerXAdjacentImprovement
+			(ImprovementType,						OtherImprovementType,	YieldType,		Yield,	NumRequired)
+SELECT		'IMPROVEMENT_OFFSHORE_PLATFORM_GBH',	OtherImprovementType, 	YieldType,		Yield,	NumRequired
+FROM Improvement_YieldPerXAdjacentImprovement WHERE OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
 
 INSERT INTO Policy_ImprovementYieldChanges 
 			(PolicyType,	ImprovementType,						YieldType,		Yield)
@@ -670,16 +670,16 @@ BEGIN
 END;
 
 CREATE TRIGGER GBH_Improvement_AIYC
-AFTER INSERT ON Improvement_AdjacentImprovementYieldChanges
+AFTER INSERT ON Improvement_YieldPerXAdjacentImprovement
 WHEN NEW.OtherImprovementType IN ('IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_OFFSHORE_PLATFORM')
 BEGIN
-    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
-    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.YieldType, NEW.Yield
-    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_FISHING_BOATS';
+    INSERT INTO Improvement_YieldPerXAdjacentImprovement (ImprovementType, OtherImprovementType, YieldType, Yield, NumRequired)
+    SELECT DISTINCT 'IMPROVEMENT_FISHING_BOATS_GBH', NEW.OtherImprovementType, NEW.YieldType, NEW.Yield, NEW.NumRequired
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_FISHING_BOATS';
 
-    INSERT INTO Improvement_AdjacentImprovementYieldChanges (ImprovementType, OtherImprovementType, YieldType, Yield)
-    SELECT DISTINCT NEW.ImprovementType, 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.YieldType, NEW.Yield
-    WHERE NEW.OtherImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
+    INSERT INTO Improvement_YieldPerXAdjacentImprovement (ImprovementType, OtherImprovementType, YieldType, Yield, NumRequired)
+    SELECT DISTINCT 'IMPROVEMENT_OFFSHORE_PLATFORM_GBH', NEW.OtherImprovementType, NEW.YieldType, NEW.Yield, NEW.NumRequired
+    WHERE NEW.ImprovementType = 'IMPROVEMENT_OFFSHORE_PLATFORM';
 END;
 
 CREATE TRIGGER GBH_Policy_IYC
