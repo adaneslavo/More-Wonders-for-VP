@@ -1,7 +1,11 @@
 MW Changelog:
-v23.4 (in progress):
+v23.5:
+- Curiosity Rover: added missing IsNoCoast requirement;
+- updated AssignStartingPlots.lua file to latest (VP 4.18.3);
+
+v23.4:
 - Siku Quanshu yield fix;
-- Wonders placing resources fix;
+- Wonders that place new resources fix;
 - GBH sql fix;
 
 v23.3:
