@@ -165,6 +165,12 @@ Currently compatible with VP 4.4.X.</Description>
         <Description>Code some unique lua stuff</Description>
         <FileName>Buildings/FletcherPromotion.lua</FileName>
       </Content>
+      <Content>
+        <Type>PreMapGenScript</Type>
+        <Name>ASP</Name>
+        <Description>Overriding functions</Description>
+        <FileName>2.NaturalWonders/DefaultFiles/ASP_replacement.lua</FileName>
+      </Content>
     </ModContent>
     <ModDependencies>
       <Association>
@@ -3371,7 +3377,7 @@ Currently compatible with VP 4.4.X.</Description>
     </Content>
     <Content Include="2.NaturalWonders\DefaultFiles\ASP_replacement.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\UI\NaturalWonderPopupOnClick.lua">
       <SubType>Lua</SubType>
@@ -3393,9 +3399,9 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots.lua">
+    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots_unused.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.lua">
       <SubType>Lua</SubType>

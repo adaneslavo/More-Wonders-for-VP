@@ -27,7 +27,7 @@ local bIsPseudoWonder = false
 --------------------------------
 for row in GameInfo.Features() do
 	bIsNaturalWonder = row.NaturalWonder
-	bIsPseudoWonder = (row.PseudoNaturalWonder == 1)
+	bIsPseudoWonder = (row.PseudoNaturalWonder == true)
 	
 	if bIsNaturalWonder or bIsPseudoWonder then
 		tNaturalWonders[row.ID] = {

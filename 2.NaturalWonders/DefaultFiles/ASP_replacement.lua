@@ -2,17 +2,16 @@
 -- Author: adan_eslavo
 -- DateCreated: 1/1/2024 12:39:17 PM
 --------------------------------------------------------------
-include("AssignStartingPlots.lua")
+include("AssignStartingPlots")
 
 function AssignStartingPlots:ExaminePlotForNaturalWondersEligibility(x, y)
-	-- This function checks only for eligibility requirements applicable to all 
-	-- Natural Wonders. If a candidate plot passes all such checks, we will move
-	-- on to checking it against specific needs for each particular wonderID.
-	--
+	-- This function checks only for eligibility requirements applicable to all Natural Wonders.
+	-- If a candidate plot passes all such checks, we will move on to checking it against specific needs for each particular wonderID.
+
 	-- Update, May 2011: Control over wonderID placement is being migrated to XML. Some checks here moved to there.
 	local iW, iH = Map.GetGridSize();
 	local plotIndex = iW * y + x + 1;
-	
+
 	-- adan_eslavo, start (top and bottom rows are not targetted)
 	if (not Map.IsWrapY() and (y == 0 or y == iH - 1)) or (not Map.IsWrapX() and (x == 0 or x == iW - 1)) then
 		return false, false;
@@ -122,10 +121,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iBarrierX = pBarrierPlot:GetX()
 						local iBarrierY = pBarrierPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iBarrierX, iBarrierY, 0);
+						
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iBarrierX, iBarrierY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iBarrierPlotIndex = iBarrierY * iW + iBarrierX + 1
 						
@@ -140,10 +142,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iSalarX = pSalarPlot:GetX()
 						local iSalarY = pSalarPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iSalarX, iSalarY, 0);
+						
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iSalarX, iSalarY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iSalarPlotIndex = iSalarY * iW + iSalarX + 1
 						
@@ -158,10 +163,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iBermudaX = pBermudaPlotSE:GetX()
 				local iBermudaY = pBermudaPlotSE:GetY()
 				
+				self:PlaceStrategicResourceImpact(iBermudaX, iBermudaY, 0);
+						
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
 					
@@ -170,10 +178,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iBermudaX = pBermudaPlotSW:GetX()
 				local iBermudaY = pBermudaPlotSW:GetY()
 				
+				self:PlaceStrategicResourceImpact(iBermudaX, iBermudaY, 0);
+						
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iBermudaX, iBermudaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iBermudaPlotIndex = iBermudaY * iW + iBermudaX + 1
 					
@@ -186,10 +197,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iCausewayX = pCausewayPlot:GetX()
 						local iCausewayY = pCausewayPlot:GetY()
 				
+						self:PlaceStrategicResourceImpact(iCausewayX, iCausewayY, 0);
+						
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iCausewayX, iCausewayY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iCausewayPlotIndex = iCausewayY * iW + iCausewayX + 1
 						
@@ -204,10 +218,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaX = pEyeOfSaharaPlotSE:GetX()
 				local iEyeOfSaharaY = pEyeOfSaharaPlotSE:GetY()
 				
+				self:PlaceStrategicResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, 0);
+						
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
@@ -216,10 +233,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 				local iEyeOfSaharaX = pEyeOfSaharaPlotSW:GetX()
 				local iEyeOfSaharaY = pEyeOfSaharaPlotSW:GetY()
 				
+				self:PlaceStrategicResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, 0);
+						
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+				self:PlaceResourceImpact(iEyeOfSaharaX, iEyeOfSaharaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 				
 				local iEyeOfSaharaPlotIndex = iEyeOfSaharaY * iW + iEyeOfSaharaX + 1
 					
@@ -232,10 +252,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iGalapagosX = pGalapagosPlot:GetX()
 						local iGalapagosY = pGalapagosPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iGalapagosX, iGalapagosY, 0);
+						
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iGalapagosX, iGalapagosY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iGalapagosPlotIndex = iGalapagosY * iW + iGalapagosX + 1
 						
@@ -251,10 +274,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iHaLongX = pHaLongPlot:GetX()
 						local iHaLongY = pHaLongPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iHaLongX, iHaLongY, 0);
+						
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iHaLongX, iHaLongY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iHaLongPlotIndex = iHaLongY * iW + iHaLongX + 1
 						
@@ -270,10 +296,13 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						local iAuroraX = pAuroraPlot:GetX()
 						local iAuroraY = pAuroraPlot:GetY()
 					
+						self:PlaceStrategicResourceImpact(iAuroraX, iAuroraY, 0);
+						
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
 						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iAuroraX, iAuroraY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
 					
 						local iAuroraPlotIndex = iAuroraY * iW + iAuroraX + 1
 						
