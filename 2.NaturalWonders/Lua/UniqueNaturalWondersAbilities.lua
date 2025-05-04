@@ -45,31 +45,6 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_AURORA_C"]
 }
 
-local g_iWonderWithDummies = #g_tNaturalWonder
-local g_tNaturalWonderOwner = {}
-
-local g_tNaturalWonderExists = {}
-	for i = 1, g_iWonderWithDummies do
-		g_tNaturalWonderExists[i] = false
-	end
-
-local g_tNaturalWonderSkip = {}
-	for i = 1, g_iWonderWithDummies do
-		g_tNaturalWonderSkip[i] = false
-	end
-	-- skip is used for multitle wonders, where all tiles give same building; to prevent deleting previously set building skip is used;
-	-- g_tNaturalWonderSkip[18] = true -- unused since v0.16
-
-local g_tNaturalWonderRegularBuilding = {}
-	for i = 1, g_iWonderWithDummies do
-		g_tNaturalWonderRegularBuilding[i] = false
-	end
-	-- used to place regular building instead of dummy ones;
-	g_tNaturalWonderRegularBuilding[26] = true
-
-local g_tNaturalWonderX = {}
-local g_tNaturalWonderY = {}
-
 local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_SALAR_A_DUMMY"], -- 1
 	GameInfoTypes["BUILDING_SALAR_B_DUMMY"],
@@ -96,7 +71,7 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_EYE_OF_SAHARA_A_DUMMY"],
 	GameInfoTypes["BUILDING_EYE_OF_SAHARA_B_DUMMY"],
 	GameInfoTypes["BUILDING_EYE_OF_SAHARA_C_DUMMY"], -- 25
-	GameInfoTypes["BUILDING_MT_PAEKTU"],
+	GameInfoTypes["BUILDING_MT_PAEKTU"],						-- regular building not dummy, placed in wonder spot
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
 	GameInfoTypes["BUILDING_ULURU_DUMMY"],
@@ -108,9 +83,31 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"], -- 35
 	GameInfoTypes["BUILDING_AURORA_A_DUMMY"],
 	GameInfoTypes["BUILDING_AURORA_B_DUMMY"],
-	GameInfoTypes["BUILDING_AURORA_C_DUMMY"]
+	GameInfoTypes["BUILDING_AURORA_C_DUMMY"],
+	GameInfoTypes["BUILDING_JEJU_DO_DUMMY"]						-- placed in wonder spot
 }
 
+local g_tNaturalWonderOwner = {}
+local g_tNaturalWonderX = {}
+local g_tNaturalWonderY = {}
+local g_iWonderWithDummies = #g_tNaturalWonder
+
+-- table checking if Natural wonder exists on the map
+local g_tNaturalWonderExists = {}
+	for i = 1, g_iWonderWithDummies do
+		g_tNaturalWonderExists[i] = false
+	end
+
+-- table for placement a building in particular City instead of Capital
+local g_tNaturalWonderIndestructibleBuilding = {}
+	for i = 1, g_iWonderWithDummies do
+		g_tNaturalWonderIndestructibleBuilding[i] = false
+	end
+	-- used to place regular building instead of dummy ones;
+	g_tNaturalWonderIndestructibleBuilding[26] = true -- Mt. Paektu
+	g_tNaturalWonderIndestructibleBuilding[39] = true -- Seongsan Ilchulbong	
+
+-- tables for placement more than one dummy bulding per wonder
 local g_tNaturalWonderDummy2 = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummy2[i] = false
@@ -123,6 +120,7 @@ local g_tNaturalWonderDummy3 = {}
 	end
 	g_tNaturalWonderDummy3[9] = GameInfoTypes["BUILDING_FUJI_3_DUMMY"]
 
+-- table for adding policies
 local g_tNaturalWonderDummyPolicy = {}
 	for i = 1, g_iWonderWithDummies do
 		g_tNaturalWonderDummyPolicy[i] = false
@@ -133,19 +131,6 @@ local g_tNaturalWonderDummyPolicy = {}
 	g_tNaturalWonderDummyPolicy[33] = GameInfoTypes["POLICY_HA_LONG_A_DUMMY"]
 	g_tNaturalWonderDummyPolicy[34] = GameInfoTypes["POLICY_HA_LONG_B_DUMMY"]
 	g_tNaturalWonderDummyPolicy[35] = GameInfoTypes["POLICY_ZHANGJIAJIE_DUMMY"]
-
-
-
--- initializing regular building booleans
-local bMtPaektuBuilt = false
-for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
-    local pPlayer = Players[i]
-    
-	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) > 0 then
-    	bMtPaektuBuilt = true
-	    break
-    end
-end
 
 
 
@@ -166,11 +151,38 @@ function CheckIfNaturalWonderExists()
 end
 Events.LoadScreenClose.Add(CheckIfNaturalWonderExists)
 
+
+
+-- initializing indestructible building booleans
+local bMtPaektuBuilt, bJejuDoBuilt = false, false
+print("INDESTRUCTIBLE", "INIT_1")
+for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do	
+	local pPlayer = Players[i]
+    
+	-- MT. PAEKTU
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[26]) > 0 then
+    	bMtPaektuBuilt = true
+	end
+
+	-- SEONGSAN ILCHULBONG
+	if pPlayer:CountNumBuildings(g_tNaturalWonderDummy[39]) > 0 then
+		print("JEJU_DO", "INIT_1")
+    	bJejuDoBuilt = true
+	end
+end
+
 function CheckIfBuildingsWereBuilt()
+	print("INDESTRUCTIBLE", "INIT_2")
+    
 	for _, player in ipairs(Players) do
 		-- MT. PAEKTU
 		if player:CountNumBuildings(g_tNaturalWonderDummy[26]) == 1 then
 			bMtPaektuBuilt = true
+		end
+		-- SEONGSAN ILCHULBONG
+		if player:CountNumBuildings(g_tNaturalWonderDummy[39]) == 1 then
+			print("JEJU_DO", "INIT_2")
+    		bJejuDoBuilt = true
 		end
 	end
 end
@@ -179,8 +191,6 @@ Events.LoadScreenClose.Add(CheckIfBuildingsWereBuilt)
 
 
 function SetDummiesForOwnedNaturalWonders(ePlayer)
-	local bSkip = false
-
 	for i, existingFeature in ipairs(g_tNaturalWonderExists) do
 		if existingFeature then
 			local pPlayer = Players[ePlayer]
@@ -192,7 +202,26 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 			if bHasNaturalWonderInRange then
 				g_tNaturalWonderOwner[i] = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetOwner()
 					
-				if not g_tNaturalWonderRegularBuilding[i] then
+				if g_tNaturalWonderIndestructibleBuilding[i] then
+					-- MT. PAEKTU
+					if g_tNaturalWonderDummy[i] == GameInfoTypes["BUILDING_MT_PAEKTU"] and bMtPaektuBuilt == false then
+						if g_tNaturalWonderOwner[i] == ePlayer then
+							local pCity = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetWorkingCity()
+								
+							pCity:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
+							bMtPaektuBuilt = true
+						end
+					end
+					-- SEONGSAN ILCHULBONG
+					if g_tNaturalWonderDummy[i] == GameInfoTypes["BUILDING_JEJU_DO"] and bJejuDoBuilt == false then
+						if g_tNaturalWonderOwner[i] == ePlayer then
+							local pCity = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetWorkingCity()
+								
+							pCity:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
+							bJejuDoBuilt = true
+						end
+					end
+				else
 					local pCapital = pPlayer:GetCapitalCity()
 					
 					if g_tNaturalWonderOwner[i] == ePlayer then
@@ -211,45 +240,23 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 						if g_tNaturalWonderDummyPolicy[i] then
 							pPlayer:SetHasPolicy(g_tNaturalWonderDummyPolicy[i], true)
 						end
-					
-						bSkip = g_tNaturalWonderSkip[i]
 					else
-						if not bSkip then
-							if g_tNaturalWonderDummy[i] then
-								pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
-							end							
+						if g_tNaturalWonderDummy[i] then
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 0)
+						end							
 
-							if g_tNaturalWonderDummy2[i] then
-								pCapital:SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
-							end
+						if g_tNaturalWonderDummy2[i] then
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy2[i], 0)
+						end
 
-							if g_tNaturalWonderDummy3[i] then
-								pCapital:SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
-							end
+						if g_tNaturalWonderDummy3[i] then
+							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy3[i], 0)
+						end
 
-							if g_tNaturalWonderDummyPolicy[i] then
-								pPlayer:SetHasPolicy(g_tNaturalWonderDummyPolicy[i], false)
-							end
-						else
-							bSkip = g_tNaturalWonderSkip[i]
+						if g_tNaturalWonderDummyPolicy[i] then
+							pPlayer:SetHasPolicy(g_tNaturalWonderDummyPolicy[i], false)
 						end
 					end
-
-
-				else
-					-- MT. PAEKTU
-					if g_tNaturalWonderDummy[i] == GameInfoTypes["BUILDING_MT_PAEKTU"] and bMtPaektuBuilt == false then
-						if g_tNaturalWonderOwner[i] == ePlayer then
-							local pCity = Map.GetPlot(g_tNaturalWonderX[i], g_tNaturalWonderY[i]):GetWorkingCity()
-								
-							pCity:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
-							bMtPaektuBuilt = true
-						end
-					end
-				end
-			else
-				if bSkip then
-					bSkip = g_tNaturalWonderSkip[i]
 				end
 			end
 		end

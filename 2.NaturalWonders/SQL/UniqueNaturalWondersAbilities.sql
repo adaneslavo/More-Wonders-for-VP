@@ -260,7 +260,8 @@ VALUES		('BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			'B
 			('BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDING_ZHANGJIAJIE_DUMMY'),
 			('BUILDINGCLASS_AURORA_A_DUMMY',		'TXT_KEY_BUILDING_AURORA_A_DUMMY',			'BUILDING_AURORA_A_DUMMY'),
 			('BUILDINGCLASS_AURORA_B_DUMMY',		'TXT_KEY_BUILDING_AURORA_B_DUMMY',			'BUILDING_AURORA_B_DUMMY'),
-			('BUILDINGCLASS_AURORA_C_DUMMY',		'TXT_KEY_BUILDING_AURORA_C_DUMMY',			'BUILDING_AURORA_C_DUMMY');
+			('BUILDINGCLASS_AURORA_C_DUMMY',		'TXT_KEY_BUILDING_AURORA_C_DUMMY',			'BUILDING_AURORA_C_DUMMY'),		
+			('BUILDINGCLASS_JEJU_DO_DUMMY',			'TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'BUILDING_JEJU_DO_DUMMY');
 
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
@@ -302,7 +303,9 @@ VALUES		('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_B
 			('BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_AURORA_A_DUMMY',			'BUILDINGCLASS_AURORA_A_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_AURORA_B_DUMMY',			'BUILDINGCLASS_AURORA_B_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_AURORA_C_DUMMY',			'BUILDINGCLASS_AURORA_C_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1);
+			('BUILDING_AURORA_C_DUMMY',			'BUILDINGCLASS_AURORA_C_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
+			-- dummy building with direct placement
+			('BUILDING_JEJU_DO_DUMMY',			'BUILDINGCLASS_JEJU_DO_DUMMY',			'TXT_KEY_BUILDING_JEJU_DO_DUMMY',			NULL,       -1,   -1,        -1,              1,          100,			1);
 
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
@@ -336,11 +339,13 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
 			('TXT_KEY_BUILDING_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
 			('TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'Zhangjiajie'),
-			('TXT_KEY_BUILDING_AURORA_DUMMY',			'Aurora Borealis');
+			('TXT_KEY_BUILDING_AURORA_DUMMY',			'Aurora Borealis'),
+			('TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'Seongsan Ilchulbong');
 
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_FUJI_1_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_FUJI_2_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_FUJI_3_DUMMY';
+UPDATE Buildings SET SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_JEJU_DO_DUMMY';
 UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILDING_GEYSER_DUMMY';
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_VOLCANO_DUMMY';
 UPDATE Buildings SET GlobalSpaceProductionModifier = 20 WHERE Type = 'BUILDING_CRATER_DUMMY';
@@ -459,6 +464,10 @@ VALUES		('BUILDING_AURORA_A_DUMMY',	'YIELD_SCIENCE',	'YIELD_FAITH',	3),
 INSERT INTO Building_InstantYield
 			(BuildingType,				YieldType,		Yield) 
 VALUES		('BUILDING_MT_SINAI_DUMMY',	'YIELD_FAITH',	100);
+
+INSERT INTO Building_YieldFromGPBirthScaledWithArtistBulb
+			(BuildingType,				YieldType,		Yield) 
+VALUES		('BUILDING_JEJU_DO_DUMMY',	'YIELD_GOLD',	5);
 --============================================--
 -- POLICIES
 --============================================--

@@ -5,7 +5,7 @@
     <ProjectGuid>{af6f426c-c21e-41c2-bfb7-20a461bc0cc5}</ProjectGuid>
     <Name>(overhaul) More Wonders for VP</Name>
     <Guid>3e151552-1683-4881-b736-8ee89226f599</Guid>
-    <ModVersion>23</ModVersion>
+    <ModVersion>24</ModVersion>
     <Stability>Alpha</Stability>
     <Teaser>More World Wonders for Vox Populi</Teaser>
     <Description>This mod adds more World Wonders for Vox Populi.
@@ -2975,6 +2975,18 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\DelicateArch\Model\Decicate_Arch.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\DelicateArch\Model\Decicate_Arch.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\DelicateArch\Model\NWON_DelicateArch_B.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\3d_eye_of_the_sahara.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3195,6 +3207,22 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1\marianas trench.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1\marianas_trench.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3\marianas trench.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3\marianas_trench.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Matterhorn\sv_Matterhorn.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3347,6 +3375,18 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\Model\jeju_island.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\Model\Jeju_Island.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\Model\Jeju_Island.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\feature_zhangjiajie.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3364,6 +3404,22 @@ Currently compatible with VP 4.4.X.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\sv_Zhangjiajie.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model\danxia mountain.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model\Danxia_Mountain.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model\Danxia_Mountain.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model\no_hight_decal.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3399,10 +3455,6 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\DefaultFiles\AssignStartingPlots_unused.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
     <Content Include="2.NaturalWonders\DefaultFiles\NaturalWonderPopup.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3436,10 +3488,6 @@ Currently compatible with VP 4.4.X.</Description>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\XML\NaturalWondersTexts.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Addons\43-civ\AssignStartingPlots.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -3694,6 +3742,7 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\BioluminescentBay\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\Dallol\" />
     <Folder Include="2.NaturalWonders\Art\Models\Dallol\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\DelicateArch\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\" />
     <Folder Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\Galapagos\Model" />
@@ -3705,6 +3754,8 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\HaLongBay\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\Model\" />
+    <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1" />
+    <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3" />
     <Folder Include="2.NaturalWonders\Art\Models\Matterhorn\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountEverest\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountEverest\Model\" />
@@ -3715,10 +3766,16 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\Galapagos" />
     <Folder Include="2.NaturalWonders\Art\Models\HaLongBay" />
     <Folder Include="2.NaturalWonders\Art\Models\AuroraBorealis" />
+    <Folder Include="2.NaturalWonders\Art\Models\DelicateArch" />
+    <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench" />
+    <Folder Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\Model" />
+    <Folder Include="2.NaturalWonders\Art\Models\ZhangyeDanxia" />
+    <Folder Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong" />
     <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\" />
     <Folder Include="2.NaturalWonders\Art\Models\SalarDeUyuni\Model\" />
     <Folder Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model" />
+    <Folder Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model" />
     <Folder Include="2.NaturalWonders\Art\OverviewPanel" />
     <Folder Include="2.NaturalWonders\DefaultFiles" />
     <Folder Include="2.NaturalWonders\Art" />
@@ -3726,8 +3783,6 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\UI" />
     <Folder Include="2.NaturalWonders\SQL" />
     <Folder Include="2.NaturalWonders\XML" />
-    <Folder Include="Addons" />
-    <Folder Include="Addons\43-civ" />
     <Folder Include="Buildings" />
     <Folder Include="Buildings\Atlases" />
     <Folder Include="Promotions\" />

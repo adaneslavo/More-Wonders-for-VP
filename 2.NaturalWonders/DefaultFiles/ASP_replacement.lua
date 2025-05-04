@@ -309,6 +309,28 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 						self.playerCollisionData[iAuroraPlotIndex] = true -- Record exact plot of wonder in the collision list.
 					end
 				end
+			elseif (self.wonder_list[wonder_number] == "FEATURE_DANXIA_A") then
+				for i = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+					local pDanxiaPlot = Map.PlotDirection(x, y, i)
+					
+					if pDanxiaPlot:GetFeatureType() == GameInfoTypes.FEATURE_DANXIA_B then	
+						local iDanxiaX = pDanxiaPlot:GetX()
+						local iDanxiaY = pDanxiaPlot:GetY()
+					
+						self:PlaceStrategicResourceImpact(iDanxiaX, iDanxiaY, 0);
+						
+						self:PlaceResourceImpact(iDanxiaX, iDanxiaY, ImpactLayers.LAYER_LUXURY, 0) -- Luxury layer
+						self:PlaceResourceImpact(iDanxiaX, iDanxiaY, ImpactLayers.LAYER_BONUS, 0) -- Bonus layer
+						self:PlaceResourceImpact(iDanxiaX, iDanxiaY, ImpactLayers.LAYER_FISH, 0) -- Fish layer
+						self:PlaceResourceImpact(iDanxiaX, iDanxiaY, ImpactLayers.LAYER_MARBLE, 0) -- Marble layer
+						self:PlaceResourceImpact(iDanxiaX, iDanxiaY, ImpactLayers.LAYER_IVORY, 0) -- Ivory layer
+					
+						local iDanxiaPlotIndex = iDanxiaY * iW + iDanxiaX + 1
+						
+						self.playerCollisionData[iDanxiaPlotIndex] = true -- Record exact plot of wonder in the collision list.
+						break
+					end
+				end
 			end
 			-- MOD.Barathor: End
 

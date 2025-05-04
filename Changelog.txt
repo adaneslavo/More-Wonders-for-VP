@@ -1,4 +1,19 @@
 MW Changelog:
+v24:
+- new:
+	- added 3 new Natural Wonders:
+		- Delicate Arch,
+		- Seongsan Ilchulbong,
+		- Zhangyie Danxia.
+- fixed:
+	- added few missing civilopedia entries for new Natural Wonders;
+	- expanded Natural Wonder's descriptions a bit;
+- cleaned:
+	- deleted 43-civ files (new solution implemented in previous version should work here too);
+	- deleted old AssignStartingPlots.lua file;
+	- revised UniqueNaturalWonderAbilities.lua file;
+	- deleted old print statements in lua files;
+	
 v23.7:
 - finally added new file that substitutes only changed function of asp.lua, so no more problems with incompatibility after an update (thanks to @azum4roll);
 - fixed invisible Natural Wonder icons on strategic map;

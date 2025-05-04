@@ -353,6 +353,55 @@
 			<Model>AURORA_BOREALIS.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.5</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_ARCH</ResourceType>
+			<Model>Decicate_Arch.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.35</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_DANXIA_A</ResourceType>
+			<Model>Danxia_Mountain.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.35</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_DANXIA_B</ResourceType>
+			<Model>Danxia_Mountain.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_JEJU_DO</ResourceType>
+			<Model>Jeju_Island.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
 	</ArtDefine_Landmarks>
 
 	<ArtDefine_LandmarkTypes>
@@ -543,6 +592,35 @@
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Aurora Borealis</FriendlyName>
 		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_ARCH</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Delicate Arch</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_DANXIA_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Zhangye Danxia A</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_DANXIA_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Zhangye Danxia B</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_JEJU_DO</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Seongsan Ilchulbong</FriendlyName>
+		</Row>
 	</ArtDefine_LandmarkTypes>
 
 	<ArtDefine_StrategicView>
@@ -721,6 +799,35 @@
 		</Row>
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_AURORA_C</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_ARCH</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_DANXIA_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_DANXIA_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_JEJU_DO</StrategicViewType>
 			<TileType>Feature</TileType>
 			<Asset>sv_Aurora.dds</Asset>
 		</Row>
@@ -1403,6 +1510,96 @@
 			<PortraitIndex>13</PortraitIndex>
 			<AdjacentUnitFreePromotion>PROMOTION_AURORA</AdjacentUnitFreePromotion>
 			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_ARCH</Type>
+			<Description>TXT_KEY_FEATURE_ARCH</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_ARCH_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_ARCH_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_ARCH</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>1</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_DANXIA_A</Type>
+			<Description>TXT_KEY_FEATURE_DANXIA_A</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_DANXIA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_DANXIA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_DANXIA_A</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_DANXIA_B</Type>
+			<Description>TXT_KEY_FEATURE_DANXIA_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_DANXIA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_DANXIA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_DANXIA_B</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_JEJU_DO</Type>
+			<Description>TXT_KEY_FEATURE_JEJU_DO</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_JEJU_DO_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_JEJU_DO_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_JEJU_DO</ArtDefineTag>
+			<Movement>3</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>9</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<Defense>20</Defense>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
 	</Features>
@@ -2091,6 +2288,80 @@
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_YieldChanges>
 
 	<Feature_EraYieldChanges>
@@ -2597,6 +2868,55 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GREAT_GENERAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_EraYieldChanges>
 
 	<Plot_AdjacentFeatureYieldChanges>
@@ -2907,6 +3227,37 @@
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+
+
+
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 	</Plot_AdjacentFeatureYieldChanges>
 
@@ -3580,73 +3931,130 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 
 
 
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>3</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
-		</Row>
-
-
-
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_A</FeatureType>
-			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_A</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_B</FeatureType>
-			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_B</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_C</FeatureType>
-			<YieldType>YIELD_FAITH</YieldType>
-			<Yield>1</Yield>
-		</Row>
-		<Row>
-			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_AURORA_C</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
 		</Row>
 	</Belief_FeatureYieldChanges>
 
