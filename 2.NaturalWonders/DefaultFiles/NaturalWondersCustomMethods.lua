@@ -33,6 +33,9 @@
 --		* El Dorado (24):			has only tile changes method; spawns 2 Gold around;
 --		* Cerro de Potosi (25):		has only tile changes method; spawns 2 Silver around;
 --		* Seongsan Ilchulbong (26):	spawns on 2-5 tile island;
+--		* Zhangye Danxia (27):		2-tile wonder; has only tile changes method; changes adjacent coast to desert;
+--		* Mariana Trench (28):		3-tile wonder; creates a rift;
+--		* Delicate Arch (29):		has only tile changes method; changes tile to hills;
 --		
 --		* Adds a latitude check for all water-based natural wonders in this function. Unlike land-based NW's, these are too flexible and need more restrictions.
 --		  (With the new latitude check keeping them away from the polar areas, the ice checks aren't really needed anymore, but I kept them in for modders.)
@@ -203,7 +206,6 @@ function NWCustomEligibility(x, y, method_number)
 			-- MOD: Don't permit small landmasses especially those single-tile islands!
 			-- MOD: Avoid mountains
 			if eAdjacentPlotType ~= ePlotOcean then
-				--if pAdjacentPlot:Area():GetNumTiles() < 40
 				if Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass()) < 40
 				or eAdjacentPlotType == ePlotMountain or eAdjacentPlotType == ePlotHill
 				or eAdjacentFeatureType ~= eFeatureNo
@@ -389,18 +391,22 @@ function NWCustomEligibility(x, y, method_number)
 		local pMainPlot = Map.GetPlot(x, y)		
 		
 		if pMainPlot == nil then return false end
-		if pMainPlot:IsWater() == false then return false end
+		if not pMainPlot:IsWater() then return false end
 		if pMainPlot:IsLake() then return false end
+
+		local iWaterArea = Map.GetNumTilesOfLandmass(pMainPlot:GetLandmass())
+		
+		if iWaterArea < 100 then return false end
 
 		local pSEPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHEAST)
 		
 		if pSEPlot == nil then return false end
-		if pSEPlot:IsWater() == false then return false end
+		if not pSEPlot:IsWater() then return false end
 		
 		local pSWPlot = Map.PlotDirection(x, y, DirectionTypes.DIRECTION_SOUTHWEST)
 
 		if pSWPlot == nil then return false end
-		if pSWPlot:IsWater() == false then return false end
+		if not pSWPlot:IsWater() then return false end
 		
 		local iNumLandN, iNumLandSE, iNumLandSW = 0, 0, 0
 		
@@ -603,7 +609,6 @@ function NWCustomEligibility(x, y, method_number)
 			if eAdjacentPlotType ~= ePlotOcean then
 				iNumLand = iNumLand + 1
 
-				--local iAdjacentAreaNear = pAdjacentPlot:Area():GetNumTiles()
 				local iAdjacentAreaNear = Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass())
 				
 				if iAdjacentAreaNear > 40 then
@@ -640,20 +645,31 @@ function NWCustomEligibility(x, y, method_number)
 
 		local pPlot = Map.GetPlot(x, y)
 		local eTerrainType = pPlot:GetTerrainType()
-		
-		if eTerrainType == eTerrainSnow then return false end
+
+		if eTerrainType == eTerrainSnow or eTerrainType == eTerrainTundra or eTerrainType == eTerrainOcean then return false end
+			
+		local iLandAround = 0
 
 		if eTerrainType == eTerrainCoast then
 			for i, direction in ipairs(tDirectionTypes) do
 				local pAdjacentPlot = Map.PlotDirection(x, y, direction)
-			
+				
 				if pAdjacentPlot == nil then return false end
 
 				iArea = Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass())
+				local eAdjacentPlotType = pAdjacentPlot:GetPlotType()
+				local eAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+				local eAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
 
-				if iArea > 5 then
+				if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
+					iLandAround = iLandAround + 1
+
+					if iLandAround > 1 then return false end
+				end
+
+				if (eAdjacentPlotType ~= ePlotOcean and iArea > 9) or eAdjacentTerrainType == eTerrainSnow or eAdjacentFeatureType == eFeatureIce then
 					return false
-				elseif iArea >= 2 or iArea <= 5 then
+				elseif iArea >= 4 and iArea <= 9 then
 					bIsSmallIslandNearby = true
 				end
 			end
@@ -662,16 +678,92 @@ function NWCustomEligibility(x, y, method_number)
 		else
 			iArea = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
 
-			if iArea >= 2 or iArea <= 5 then
+			if iArea >= 4 and iArea <= 10 then
 				bIsSmallIslandNearby = true
 				print("JEJU_DO", "LAND", x, y, iArea)
-			end			
+			end
+
+			for i, direction in ipairs(tDirectionTypes) do
+				local pAdjacentPlot = Map.PlotDirection(x, y, direction)
+				
+				if pAdjacentPlot == nil then return false end
+				
+				if pAdjacentPlot:GetPlotType() ~= ePlotOcean then
+					iLandAround = iLandAround + 1
+
+					if iLandAround > 1 then return false end
+				end
+			end		
 		end
 
 		if not bIsSmallIslandNearby then return false end
+		print("JEJU_DO", x, y, "APPROVED")
 		return true		
 	elseif method_number == 27 then
 		-- reserved: Zhangye Danxia
+	elseif method_number == 28 then
+		-- MARIANA TRENCH
+		local pPlot = Map.GetPlot(x, y)
+		local iWaterArea = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
+		
+		if iWaterArea < 100 then return false end
+		
+		local eTerrainType = pPlot:GetTerrainType()
+
+		if eTerrainType ~= eTerrainOcean then return false end
+
+		local pSWPlot = Map.PlotDirection(x, y, tDirectionTypes[4])
+		if pSWPlot:GetTerrainType() ~= eTerrainOcean then return false end
+		
+		local pNWPlot = Map.PlotDirection(x, y, tDirectionTypes[6])
+		if pNWPlot:GetTerrainType() ~= eTerrainOcean then return false end
+
+		local iSWX = pSWPlot:GetX()
+		local iSWY = pSWPlot:GetY()
+		local iNWX = pNWPlot:GetX()
+		local iNWY = pNWPlot:GetY()
+		local iLandMain, iLandSide1, iLandSide2 = 0, 0, 0
+		local pEPlot = Map.PlotDirection(x, y, tDirectionTypes[2])
+		
+		if pEPlot:GetTerrainType() == eTerrainCoast and pEPlot:IsAdjacentToLand() then
+			iLandMain = iLandMain + 1
+		end
+
+		for i, direction in ipairs(tDirectionTypes) do
+			if i == 6 then break end
+
+			local pAdjacentPlot = Map.PlotDirection(iSWX, iSWY, direction)
+				
+			if pAdjacentPlot == nil then return false end
+
+			local eAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local eAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+
+			if eAdjacentTerrainType == eTerrainCoast and pAdjacentPlot:IsAdjacentToLand() and eAdjacentFeatureType ~= eFeatureIce then
+				iLandSide1 = iLandSide1 + 1
+			end
+		end
+
+		for i, direction in ipairs(tDirectionTypes) do
+			local pAdjacentPlot = Map.PlotDirection(iNWX, iNWY, direction)
+				
+			if pAdjacentPlot == nil then return false end
+
+			local eAdjacentTerrainType = pAdjacentPlot:GetTerrainType()
+			local eAdjacentFeatureType = pAdjacentPlot:GetFeatureType()
+
+			if eAdjacentTerrainType == eTerrainCoast and pAdjacentPlot:IsAdjacentToLand() and eAdjacentFeatureType ~= eFeatureIce then
+				iLandSide2 = iLandSide2 + 1
+			end
+		end
+		
+		local iLandSum = iLandMain + iLandSide1 + iLandSide2
+
+		if iLandSide1 == 0 or iLandSide2 == 0 or iLandSum < 4 then return false end
+		print("MARIANA_FINISH", x, y, iLandMain, iLandSide1, iLandSide2)
+		return true
+	elseif method_number == 29 then
+		-- reserved: Delicate Arch
 	elseif method_number == 100 then
 		-- dummy
 		return false
@@ -2463,7 +2555,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		for i, direction in ipairs(tDirectionTypes) do
 			local pAdjacentPlot = Map.PlotDirection(x, y, direction)
 
-			if pAdjacentPlot then
+			if pAdjacentPlot and pAdjacentPlot:GetPlotType() ~= ePlotOcean then
 				table.insert(tPossiblePlots, pAdjacentPlot)
 			end
 		end
@@ -2602,6 +2694,29 @@ function NWCustomPlacement(x, y, row_number, method_number)
 
 		pChosenPlot:SetFeatureType(GameInfoTypes.FEATURE_DANXIA_B)
 		pChosenPlot:SetTerrainType(eTerrainDesert, false, false)
+
+		if pChosenPlot:IsAdjacentToShallowWater() then
+			for i, direction in ipairs(tDirectionTypes) do
+				local pAdjacentPlot = Map.PlotDirection(pChosenPlot:GetX(), pChosenPlot:GetY(), direction)
+			
+				if pAdjacentPlot:GetPlotType() == ePlotOcean then
+					pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
+					pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
+					print("DANXIA_DESERT", pChosenPlot:GetX(), pChosenPlot:GetY(), "PLOT_CHANGE")
+				end
+			end
+		end
+	elseif method_number == 28 then
+		-- MARIANA TRENCH
+		local pSWPlot = Map.PlotDirection(x, y, tDirectionTypes[4])
+		local pNWPlot = Map.PlotDirection(x, y, tDirectionTypes[6])
+		
+		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_MARIANA_B)
+		pNWPlot:SetFeatureType(GameInfoTypes.FEATURE_MARIANA_C)
+	elseif method_number == 29 then
+		-- DELICATE ARCH
+		local pPlot = Map.GetPlot(x, y)
+		pPlot:SetPlotType(ePlotHill, false, false)
 	end
 end
 ------------------------------------------------------------------------------

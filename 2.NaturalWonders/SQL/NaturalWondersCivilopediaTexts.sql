@@ -11,10 +11,8 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'The ', '') 	WHERE Tag = 'TXT_KEY
 -- Moved Civilopedia entry from OLD_REEF to NEW_REEF
 -----------------------------------------------------------
 INSERT INTO Language_en_US
-			(Tag,										Text)
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_B_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT' UNION ALL
-SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_C_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT';
+			(Tag,									Text)
+SELECT		'TXT_KEY_CIV5_FEATURES_NEW_REEF_TEXT',	Text	FROM Language_en_US WHERE Tag = 'TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT';
 -----------------------------------------------------------
 -- Goddess of Nature change for multi-tile Natural Wonders
 -----------------------------------------------------------
@@ -59,7 +57,8 @@ VALUES		('TXT_KEY_CIV5_FEATURES_CRATER_HELP',			'One of the biggests, and the su
 			('TXT_KEY_CIV5_FEATURES_AURORA_HELP',			'Beautiful light effects on the sky created by Earth''s magnetosphere as a result of solar wind from coronal holes and coronal mass ejections. It can be seen on high-latitude regions, mostly on the poles, but from time to time also in lower latitudes. It can form different shapes like surfaces, arcs or coronas in different colurs from red and green to blue and ultraviolet.'),
 			('TXT_KEY_CIV5_FEATURES_ARCH_HELP',				'Delicate sand formation discovered by an erosion. The arch is the most widely recognized landmark in Arches National Park and is depicted on Utah license plates and a postage stamp. The Olympic torch relay for the 2002 Winter Olympics passed through the arch. It was also a challenge for mountain climbers, but after its continuous degeneration, climbing is now forbidden.'),
 			('TXT_KEY_CIV5_FEATURES_DANXIA_HELP',			'Beautiful multicoloured hills and mountains created around 24 million years ago from sandstone and other minerals. They look like multi-layered cake and thanks to wind, rain, and time which sculpted extraordinary shapes, including towers, pillars, and ravines, with varying colours, patterns, and sizes, it is huge tourism attraction of Northern China.'),
-			('TXT_KEY_CIV5_FEATURES_JEJU_DO_HELP',			'Huge volcanic caldera made of tuff, being the leftover of emerging magma. Created appx. 6,700 years ago, initially separated from the island Jejudo, it finally connected and now serves as one of the best tourism attraction of South Korea. It is said, that the most beautiful sunrises can be captured right there, and because of that, it hosts Seongsan Sunrise Festival.');
+			('TXT_KEY_CIV5_FEATURES_JEJU_DO_HELP',			'Huge volcanic caldera made of tuff, being the leftover of emerging magma. Created appx. 6,700 years ago, initially separated from the island Jejudo, it finally connected and now serves as one of the best tourism attraction of South Korea. It is said, that the most beautiful sunrises can be captured right there, and because of that, it hosts Seongsan Sunrise Festival.'),
+			('TXT_KEY_CIV5_FEATURES_MARIANA_HELP',			'');
 
 -----------------------------------------------------------
 -- Civilopedia replacements (deleted texts out of date)

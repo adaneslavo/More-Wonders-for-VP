@@ -1,18 +1,38 @@
 MW Changelog:
 v24:
 - new:
-	- added 3 new Natural Wonders:
+	- added 4 new Natural Wonders:
 		- Delicate Arch,
+		- Mariana Trench,
 		- Seongsan Ilchulbong,
 		- Zhangyie Danxia.
+	- added compatibility check for few mods:
+		- @gwennog's: Brittany and Ainu (Trading Posts replacements) and Tehuelche (Camp replacement);
+		- @jarcast's: Italy and Navajo (Trading Posts replacements);
+- changed:
+	- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
+	- Ha Long Bay: added Artifact icon;
+	- Sylvite and Tern Egg: added names, so new players would know what they are;
+	- Great Blue Hole: special buldings are now mutually exclusive;
+	- Aurora Borealis: now does not spawn on Coast (model is invisible when spawned there);
+	- Mt. Fuji: now ability is in neaby City (was in Capital);
+	- Krakatoa: now ability is in neaby City (was in Capital);
+	- Louisiana (shrimp): compatibility check is now reworked and also uses trigger;
+	- expanded Natural Wonder's descriptions a bit (look at Civilopedia);
 - fixed:
+	- Uluru: bonus production towards Diplomatic Units is global (was in Capital);
+	- Mt. Sinai: now grants correct 50 Faith and ownership change (was 100);
+	- fixed missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
+	- replaced Plot:Area():GetNumTiles() function with Map.GetNumTilesOfLandmass(Plot:GetLandmass()) function;
 	- added few missing civilopedia entries for new Natural Wonders;
-	- expanded Natural Wonder's descriptions a bit;
+	- multiple text corrections and updates;
 - cleaned:
 	- deleted 43-civ files (new solution implemented in previous version should work here too);
 	- deleted old AssignStartingPlots.lua file;
-	- revised UniqueNaturalWonderAbilities.lua file;
+	- revised and simplified UniqueNaturalWonderAbilities.lua file;
+	- revised NaturalWondersCustomMethods.lua file;
 	- deleted old print statements in lua files;
+	- deleted unnecessary New Reef tags;
 	
 v23.7:
 - finally added new file that substitutes only changed function of asp.lua, so no more problems with incompatibility after an update (thanks to @azum4roll);

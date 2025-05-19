@@ -260,6 +260,8 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 			local eRequiredImprovement1 = building.eRequiredImprovement1
 			local eRequiredImprovement2 = building.eRequiredImprovement2
 			local eRequiredImprovement3 = building.eRequiredImprovement3
+			local eRequiredImprovement4 = building.eRequiredImprovement4
+			local eRequiredImprovement5 = building.eRequiredImprovement5
 			local iRequiredImprovements = tValidIsHasImprovement[eBuilding].iRequiredImprovements or 0
 			local iRequiredRoads = tValidIsHasImprovement[eBuilding].iRequiredRoads or 0
 			
@@ -294,7 +296,9 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 							if iRequiredImprovements > 0 then
 								local eImprovement = pSpecificPlot:GetImprovementType()
 				
-								if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 or eImprovement == eRequiredImprovement3) and not pSpecificPlot:IsImprovementPillaged() then
+								if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 
+									or eImprovement == eRequiredImprovement3 or eImprovement == eRequiredImprovement4 
+									or eImprovement == eRequiredImprovement5) and not pSpecificPlot:IsImprovementPillaged() then
 									iCurrentImprovements = iCurrentImprovements + 1
 								end
 							end
@@ -909,6 +913,7 @@ function Initialize()
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
@@ -931,15 +936,21 @@ function Initialize()
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 			iRequiredImprovements = 3
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
+			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
+			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 			iRequiredImprovements = 3
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
@@ -948,6 +959,10 @@ function Initialize()
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
+			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
+			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
@@ -970,6 +985,10 @@ function Initialize()
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
+			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
+			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
@@ -978,6 +997,10 @@ function Initialize()
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
+			eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
+			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
+			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		-- EE compatibility

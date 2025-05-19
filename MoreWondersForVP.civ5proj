@@ -2987,6 +2987,10 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\DelicateArch\sv_Delicate_Arch_hillcover.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\EyeOfTheSahara\Model\3d_eye_of_the_sahara.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3207,19 +3211,31 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1\marianas trench.dds">
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1_unused\marianas trench.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1\marianas_trench.gr2">
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1_unused\marianas_trench.gr2">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1_unused\mariana_trench.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3\marianas trench.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3\marianas_trench.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3\mariana_trench.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\MarianaTrench\sv_Mariana_trench.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3387,6 +3403,26 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\sv_Seongsan.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\sv_Seongsan_dark_20.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\sv_Seongsan_dark_40.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\sv_Seongsan_other_a.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\SeongsanIlchulbong\sv_Seongsan_other_b.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="2.NaturalWonders\Art\Models\Zhangjiajie\Model\feature_zhangjiajie.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -3420,6 +3456,18 @@ Currently compatible with VP 4.4.X.</Description>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\Model\no_hight_decal.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\sv_Danxia_1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\sv_Danxia_2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="2.NaturalWonders\Art\Models\ZhangyeDanxia\sv_Danxia_Mountain.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -3754,7 +3802,7 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\Art\Models\HaLongBay\Model" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\" />
     <Folder Include="2.NaturalWonders\Art\Models\LakeRetba\Model\" />
-    <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1" />
+    <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench\Model1_unused" />
     <Folder Include="2.NaturalWonders\Art\Models\MarianaTrench\Model3" />
     <Folder Include="2.NaturalWonders\Art\Models\Matterhorn\" />
     <Folder Include="2.NaturalWonders\Art\Models\MountEverest\" />

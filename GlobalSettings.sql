@@ -19,7 +19,7 @@ New HELP texts!
 
 INSERT INTO COMMUNITY	
 		(Type,					Value)
-VALUES	('MW-SETTING-HELP', 	1);
+VALUES	('MW-SETTING-HELP', 	0);
 --------------------------------------------------------------
 /*
 Maximum Era restriction!
@@ -42,37 +42,31 @@ INSERT INTO COMMUNITY
 		(Type,							Value)
 VALUES	('MW-SETTING-REQUIREMENT', 		2);
 --============================================--
--- AUTOMATED COMPATIBILITIES
+-- AUTOMATED COMPATIBILITIES SQL
 --============================================--
-/*
-EE compatibility patch!
-0 = Disabled disregarding if its detects EE by Infixo and Padre.
-1 = Enabled if it detects the EE by Infixo and Padre.
-2 = Disabled until it detects something! (Default)
-*/
+/* Louisiana */
+INSERT INTO BuildingClasses (Type)
+SELECT		'BUILDINGCLASS_DUMMY_LOUISIANA'
+WHERE EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMP');
 
-INSERT INTO COMMUNITY	
-		(Type,			Value)
-VALUES	('MW-EE', 		0); -- disabled because of outdated EE
+CREATE TRIGGER IF NOT EXISTS MWCompatibilityLouisiana
+AFTER INSERT ON Resources
+WHEN NEW.Type = 'RESOURCE_SHRIMP'
+BEGIN
+    INSERT INTO BuildingClasses (Type)
+	VALUES		('BUILDINGCLASS_DUMMY_LOUISIANA');
+END;
+--============================================--
+-- AUTOMATED COMPATIBILITIES LUA
+--============================================--
+/* for GameInfoTypes.IMPROVEMENT_TRADING_POST
+GameInfoTypes.IMPROVEMENT_GW_BRITTANY_KERIADENN (Brittany)
+GameInfoTypes.IMPROVEMENT_HININ_AINU_KOTAN (Ainu)
+GameInfoTypes.IMPROVEMENT_JAR_BORGO (Italy from Jarcast)
+GameInfoTypes.IMPROVEMENT_JAR_HOGAN (Navajo from Jarcast) */
 
-UPDATE COMMUNITY
-SET Value = '1'
-WHERE Type = 'MW-EE' AND EXISTS (SELECT * FROM UnitPromotions WHERE Type='PROMOTION_2HANDER') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 0);
-
-/*
-Civilizations compatibility patch!
-0 = Disabled disregarding if its detects any Civilization.
-1 = Enabled if it detects any Civilization.
-2 = Disabled until it detects something! (Default)
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,			Value)
-VALUES	('MW-CIV-LOI', 		2);
-
-UPDATE COMMUNITY
-SET Value = '1'
-WHERE Type = 'MW-CIV-LOI' AND EXISTS (SELECT * FROM Resources WHERE Type='RESOURCE_SHRIMP') AND NOT EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-CIV-LOI' AND Value= 0);
+/* for GameInfoTypes.IMPROVEMENT_CAMP
+GameInfoTypes.IMPROVEMENT_DMS_KAN (Tehuelche) */
 --============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--
