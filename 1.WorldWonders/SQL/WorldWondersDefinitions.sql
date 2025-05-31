@@ -705,11 +705,10 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIGIRIYA (NEW)
-	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SIGIRIYA';
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SIGIRIYA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIGIRIYA';
 	---------------------------------------------------------
-	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_SIGIRIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
@@ -803,7 +802,7 @@
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	---------------------------------------------------------
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET /*IsNoCoast = 1, */ IsNoWater = 1 WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,					BuildingClassType) 
@@ -846,7 +845,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MORAY TERRACES (NEW)
-	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 6, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MORAY';
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MORAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_MORAY';
 	---------------------------------------------------------
 	UPDATE Buildings SET Hill = 1 /*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_MORAY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
@@ -1180,6 +1179,7 @@
 	INSERT INTO IconTextureAtlases (Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES ('ATLAS_MORE_WONDERS_RILA', 45,	'Wonder_Rila_45.dds',	'1', '1');
 
 	UPDATE Buildings SET IconAtlas = 'ATLAS_MORE_WONDERS_RILA', PortraitIndex = 0 WHERE Type = 'BUILDING_KARLSTEJN';
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY' WHERE Type = 'BUILDING_KARLSTEJN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN DAGON PAGODA (NEW)
@@ -1240,7 +1240,7 @@
 	---------------------------------------------------------
 	-- + OneTileCity (lua) (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY', ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY' WHERE Type = 'BUILDING_MICHEL';
+	UPDATE Buildings SET ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
@@ -1254,7 +1254,7 @@
 	
 	INSERT INTO Building_YieldChangesPerPop 
 				(BuildingType,		YieldType,		Yield) 
-	VALUES		('BUILDING_MICHEL', 'YIELD_FAITH',	40);
+	VALUES		('BUILDING_MICHEL', 'YIELD_FAITH',	80);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
@@ -1398,6 +1398,10 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
+	UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+	UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KRAK DES CHEVALIERS (NEW)
@@ -1558,6 +1562,8 @@
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	SELECT		'BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN PAVILION (NEW)
@@ -1571,14 +1577,14 @@
 	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
 	SELECT		'BUILDING_KINKAKU_JI',		'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_PAGODA', GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
+	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_KINKAKU_JI';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
 	VALUES		('BUILDING_KINKAKU_JI',			'YIELD_FAITH',		3),
 				('BUILDING_KINKAKU_JI',			'YIELD_CULTURE',	2);
 
-	INSERT INTO Building_LakePlotYieldChanges 
+	INSERT INTO Building_LakePlotYieldChangesGlobal
 				(BuildingType,			YieldType,			Yield)
 	VALUES		('BUILDING_KINKAKU_JI',	'YIELD_CULTURE',	1),
 				('BUILDING_KINKAKU_JI',	'YIELD_FAITH',		1),
@@ -1603,7 +1609,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MARAE ARAHURAHU (NEW)
-	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MARAE';
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
@@ -1841,7 +1847,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SISTINE CHAPEL
 	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_SISTINE_CHAPEL';
-	UPDATE Buildings SET NumPoliciesNeeded = 13, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
+	UPDATE Buildings SET NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_SISTINE_CHAPEL';
 	---------------------------------------------------------
 	-- + Founded_Religion (lua) (HARD)
@@ -1853,14 +1859,10 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SUMMER PALACE
 	UPDATE Buildings SET Cost = 850 WHERE Type = 'BUILDING_SUMMER_PALACE';
-	UPDATE Buildings SET NumPoliciesNeeded = 13, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SUMMER_PALACE';
+	UPDATE Buildings SET NumPoliciesNeeded = 0, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_SUMMER_PALACE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,T' WHERE Type = 'BUILDING_SUMMER_PALACE';
 	---------------------------------------------------------
 	UPDATE Buildings SET FreshWater = 1, Water = 1, MinAreaSize = 1, Hill = 1 WHERE Type = 'BUILDING_SUMMER_PALACE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,				FeatureType) 
-	SELECT		'BUILDING_SUMMER_PALACE',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HOUSE OF TRADE OF THE INDIES (NEW)
@@ -3518,13 +3520,18 @@
 --============================================--
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
--- El Ghriba					- Judaism			- Late Classical
--- Hagia Sophia					- Orthodox/Islam	- Early Medieval
--- Borobudur					- Buddhism			- Early Medieval
--- Al Masjid an-Nabawi			- Islam				- Early Medieval
--- Rila Monastery (Karlstejn)	- Orthodox			- Late Medieval 
--- St Peter's Basilica			- Catholic			- Early Renaissance
--- Meenakshi Temple				- Hindu				- Early Renaissance
+-- El Ghriba					- Synagogue:	Judaism				- Late Classical
+-- Hagia Sophia					- Church:		Orthodox/Islam		- Early Medieval
+-- Borobudur					- Stupa:		Buddhism			- Early Medieval
+-- Al Masjid an-Nabawi			- Mosque:		Islam				- Early Medieval
+-- Rila Monastery (Karlstejn)	- Monastery:	Orthodox			- Late Medieval 
+-- St Peter's Basilica			- Cathedral:	Catholic			- Early Renaissance
+-- Meenakshi Temple				- Mandir:		Hindu				- Early Renaissance
+
+-- ???							- Teocalli:		???					- ???
+-- ???							- Gurdwara:		???					- ???
+-- ???							- Pagoda:		???					- ???
+-- ???							- Order:		???					- ???
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1 WHERE Type IN
 ('BUILDING_EL_GHRIBA', 'BUILDING_NABAWI', 'BUILDING_HAGIA_SOPHIA', 'BUILDING_BOROBUDUR', 'BUILDING_KARLSTEJN', 'BUILDING_ST_PETERS', 'BUILDING_MEENAKSHI');
@@ -3576,57 +3583,93 @@ VALUES		('BUILDING_EL_GHRIBA',		'BUILDINGCLASS_NABAWI'),
 --============================================--
 -- POLICY FINISHERS
 --============================================--
-UPDATE Buildings SET PolicyType = 'POLICY_TRADITION_FINISHER' 	WHERE Type IN ('BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME',		'BUILDING_SHWEDAGON');
-UPDATE Buildings SET PolicyType = 'POLICY_LIBERTY_FINISHER' 	WHERE Type IN ('BUILDING_FORBIDDEN_PALACE',	'BUILDING_WARTBURG',		'BUILDING_BUYUK_HAN');
-UPDATE Buildings SET PolicyType = 'POLICY_HONOR_FINISHER' 		WHERE Type IN ('BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS',		'BUILDING_GREAT_ZIMBABWE');
-UPDATE Buildings SET PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_RED_FORT',			'BUILDING_KINKAKU_JI',		'BUILDING_SOLOVIETSKY');
-UPDATE Buildings SET PolicyType = 'POLICY_PATRONAGE_FINISHER'	WHERE Type IN ('BUILDING_BIG_BEN', 			'BUILDING_KILWA_KISIWANI',	'BUILDING_OLD_BRIDGE');
-UPDATE Buildings SET PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_LOUVRE', 			'BUILDING_MONTE_CARLO',		'BUILDING_MUSEUM_ISLAND');
-UPDATE Buildings SET PolicyType = 'POLICY_COMMERCE_FINISHER' 	WHERE Type IN ('BUILDING_BROADWAY', 		'BUILDING_RUHR_VALLEY',		'BUILDING_BANFF');
-UPDATE Buildings SET PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE', 'BUILDING_PENTAGON',		'BUILDING_WHITE_SANDS');
-UPDATE Buildings SET PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',	'BUILDING_KEW_GARDENS',		'BUILDING_ARECIBO');
+UPDATE Buildings SET PolicyType = 'POLICY_TRADITION_FINISHER' 	WHERE Type IN ('BUILDING_SIGIRIYA',				'BUILDING_MOSQUE_OF_DJENNE',	'BUILDING_NOTRE_DAME',			'BUILDING_SHWEDAGON');
+UPDATE Buildings SET PolicyType = 'POLICY_LIBERTY_FINISHER' 	WHERE Type IN ('BUILDING_MORAY',				'BUILDING_FORBIDDEN_PALACE',	'BUILDING_WARTBURG',			'BUILDING_BUYUK_HAN');
+UPDATE Buildings SET PolicyType = 'POLICY_HONOR_FINISHER' 		WHERE Type IN ('BUILDING_CHEVALIERS',			'BUILDING_ALHAMBRA',			'BUILDING_DAMASCUS',			'BUILDING_GREAT_ZIMBABWE');
+UPDATE Buildings SET PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_SISTINE_CHAPEL',		'BUILDING_RED_FORT',			'BUILDING_KINKAKU_JI',			'BUILDING_SOLOVIETSKY');
+UPDATE Buildings SET PolicyType = 'POLICY_PATRONAGE_FINISHER'	WHERE Type IN ('BUILDING_SUMMER_PALACE',		'BUILDING_BIG_BEN', 			'BUILDING_KILWA_KISIWANI',		'BUILDING_OLD_BRIDGE');
+UPDATE Buildings SET PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_MARAE',				'BUILDING_LOUVRE', 				'BUILDING_MONTE_CARLO',			'BUILDING_MUSEUM_ISLAND');
+UPDATE Buildings SET PolicyType = 'POLICY_COMMERCE_FINISHER' 	WHERE Type IN ('BUILDING_BROADWAY', 			'BUILDING_RUHR_VALLEY',			'BUILDING_BANFF');
+UPDATE Buildings SET PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_BRANDENBURG_GATE',		'BUILDING_PENTAGON',			'BUILDING_WHITE_SANDS');
+UPDATE Buildings SET PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_BLETCHLEY_PARK',		'BUILDING_KEW_GARDENS',			'BUILDING_ARECIBO');
 
 INSERT INTO Building_ClassNeededNowhere
 			(BuildingType,						BuildingClassType) 
-VALUES		('BUILDING_MOSQUE_OF_DJENNE',		'BUILDINGCLASS_NOTRE_DAME'),		-- tradition
+VALUES		('BUILDING_SIGIRIYA',				'BUILDINGCLASS_MOSQUE_OF_DJENNE'),	-- tradition
+			('BUILDING_SIGIRIYA',				'BUILDINGCLASS_NOTRE_DAME'),		
+			('BUILDING_SIGIRIYA',				'BUILDINGCLASS_SHWEDAGON'),
+			('BUILDING_MOSQUE_OF_DJENNE',		'BUILDINGCLASS_SIGIRIYA'),		
+			('BUILDING_MOSQUE_OF_DJENNE',		'BUILDINGCLASS_NOTRE_DAME'),		
 			('BUILDING_MOSQUE_OF_DJENNE',		'BUILDINGCLASS_SHWEDAGON'),
+			('BUILDING_NOTRE_DAME',				'BUILDINGCLASS_SIGIRIYA'),
 			('BUILDING_NOTRE_DAME',				'BUILDINGCLASS_MOSQUE_OF_DJENNE'),
 			('BUILDING_NOTRE_DAME',				'BUILDINGCLASS_SHWEDAGON'),
+			('BUILDING_SHWEDAGON',				'BUILDINGCLASS_SIGIRIYA'),
 			('BUILDING_SHWEDAGON',				'BUILDINGCLASS_MOSQUE_OF_DJENNE'),
 			('BUILDING_SHWEDAGON',				'BUILDINGCLASS_NOTRE_DAME'),
 			------------------------------
-			('BUILDING_FORBIDDEN_PALACE',		'BUILDINGCLASS_WARTBURG'),			-- liberty (progress)
+			('BUILDING_MORAY',					'BUILDINGCLASS_FORBIDDEN_PALACE'),	-- liberty (progress)
+			('BUILDING_MORAY',					'BUILDINGCLASS_WARTBURG'),			
+			('BUILDING_MORAY',					'BUILDINGCLASS_BUYUK_HAN'),
+			('BUILDING_FORBIDDEN_PALACE',		'BUILDINGCLASS_MORAY'),				
+			('BUILDING_FORBIDDEN_PALACE',		'BUILDINGCLASS_WARTBURG'),			
 			('BUILDING_FORBIDDEN_PALACE',		'BUILDINGCLASS_BUYUK_HAN'),
+			('BUILDING_WARTBURG',				'BUILDINGCLASS_MORAY'),
 			('BUILDING_WARTBURG',				'BUILDINGCLASS_FORBIDDEN_PALACE'),
 			('BUILDING_WARTBURG',				'BUILDINGCLASS_BUYUK_HAN'),
+			('BUILDING_BUYUK_HAN',				'BUILDINGCLASS_MORAY'),
 			('BUILDING_BUYUK_HAN',				'BUILDINGCLASS_FORBIDDEN_PALACE'),
 			('BUILDING_BUYUK_HAN',				'BUILDINGCLASS_WARTBURG'),
 			------------------------------
-			('BUILDING_ALHAMBRA',				'BUILDINGCLASS_DAMASCUS'),			-- honor (authority)
+			('BUILDING_CHEVALIERS',				'BUILDINGCLASS_ALHAMBRA'),			-- honor (authority)
+			('BUILDING_CHEVALIERS',				'BUILDINGCLASS_DAMASCUS'),			
+			('BUILDING_CHEVALIERS',				'BUILDINGCLASS_GREAT_ZIMBABWE'),
+			('BUILDING_ALHAMBRA',				'BUILDINGCLASS_CHEVALIERS'),			
+			('BUILDING_ALHAMBRA',				'BUILDINGCLASS_DAMASCUS'),			
 			('BUILDING_ALHAMBRA',				'BUILDINGCLASS_GREAT_ZIMBABWE'),
+			('BUILDING_DAMASCUS',				'BUILDINGCLASS_CHEVALIERS'),
 			('BUILDING_DAMASCUS',				'BUILDINGCLASS_ALHAMBRA'),
 			('BUILDING_DAMASCUS',				'BUILDINGCLASS_GREAT_ZIMBABWE'),
+			('BUILDING_GREAT_ZIMBABWE',			'BUILDINGCLASS_CHEVALIERS'),
 			('BUILDING_GREAT_ZIMBABWE',			'BUILDINGCLASS_ALHAMBRA'),
 			('BUILDING_GREAT_ZIMBABWE',			'BUILDINGCLASS_DAMASCUS'),
 			------------------------------
-			('BUILDING_RED_FORT',				'BUILDINGCLASS_KINKAKU_JI'),		-- piety
+			('BUILDING_SISTINE_CHAPEL',			'BUILDINGCLASS_RED_FORT'),			-- piety
+			('BUILDING_SISTINE_CHAPEL',			'BUILDINGCLASS_KINKAKU_JI'),		
+			('BUILDING_SISTINE_CHAPEL',			'BUILDINGCLASS_SOLOVIETSKY'),
+			('BUILDING_RED_FORT',				'BUILDINGCLASS_SISTINE_CHAPEL'),		
+			('BUILDING_RED_FORT',				'BUILDINGCLASS_KINKAKU_JI'),		
 			('BUILDING_RED_FORT',				'BUILDINGCLASS_SOLOVIETSKY'),
+			('BUILDING_KINKAKU_JI',				'BUILDINGCLASS_SISTINE_CHAPEL'),
 			('BUILDING_KINKAKU_JI',				'BUILDINGCLASS_RED_FORT'),
 			('BUILDING_KINKAKU_JI',				'BUILDINGCLASS_SOLOVIETSKY'),
+			('BUILDING_SOLOVIETSKY',			'BUILDINGCLASS_SISTINE_CHAPEL'),
 			('BUILDING_SOLOVIETSKY',			'BUILDINGCLASS_RED_FORT'),
 			('BUILDING_SOLOVIETSKY',			'BUILDINGCLASS_KINKAKU_JI'),
 			------------------------------
-			('BUILDING_BIG_BEN',				'BUILDINGCLASS_KILWA_KISIWANI'),	-- patronage
+			('BUILDING_SUMMER_PALACE',			'BUILDINGCLASS_BIG_BEN'),			-- patronage
+			('BUILDING_SUMMER_PALACE',			'BUILDINGCLASS_KILWA_KISIWANI'),	
+			('BUILDING_SUMMER_PALACE',			'BUILDINGCLASS_OLD_BRIDGE'),
+			('BUILDING_BIG_BEN',				'BUILDINGCLASS_SUMMER_PALACE'),	
+			('BUILDING_BIG_BEN',				'BUILDINGCLASS_KILWA_KISIWANI'),	
 			('BUILDING_BIG_BEN',				'BUILDINGCLASS_OLD_BRIDGE'),
+			('BUILDING_KILWA_KISIWANI',			'BUILDINGCLASS_SUMMER_PALACE'),
 			('BUILDING_KILWA_KISIWANI',			'BUILDINGCLASS_BIG_BEN'),
 			('BUILDING_KILWA_KISIWANI',			'BUILDINGCLASS_OLD_BRIDGE'),
+			('BUILDING_OLD_BRIDGE',				'BUILDINGCLASS_SUMMER_PALACE'),
 			('BUILDING_OLD_BRIDGE',				'BUILDINGCLASS_BIG_BEN'),
 			('BUILDING_OLD_BRIDGE',				'BUILDINGCLASS_KILWA_KISIWANI'),
 			------------------------------
-			('BUILDING_LOUVRE',					'BUILDINGCLASS_MONTE_CARLO'),		-- aesthetics
+			('BUILDING_MARAE',					'BUILDINGCLASS_LOUVRE'),			-- aesthetics
+			('BUILDING_MARAE',					'BUILDINGCLASS_MONTE_CARLO'),		
+			('BUILDING_MARAE',					'BUILDINGCLASS_MUSEUM_ISLAND'),
+			('BUILDING_LOUVRE',					'BUILDINGCLASS_MARAE'),		
+			('BUILDING_LOUVRE',					'BUILDINGCLASS_MONTE_CARLO'),		
 			('BUILDING_LOUVRE',					'BUILDINGCLASS_MUSEUM_ISLAND'),
+			('BUILDING_MONTE_CARLO',			'BUILDINGCLASS_MARAE'),		
 			('BUILDING_MONTE_CARLO',			'BUILDINGCLASS_LOUVRE'),
 			('BUILDING_MONTE_CARLO',			'BUILDINGCLASS_MUSEUM_ISLAND'),
+			('BUILDING_MUSEUM_ISLAND',			'BUILDINGCLASS_MARAE'),		
 			('BUILDING_MUSEUM_ISLAND',			'BUILDINGCLASS_LOUVRE'),
 			('BUILDING_MUSEUM_ISLAND',			'BUILDINGCLASS_MONTE_CARLO'),
 			------------------------------
@@ -3651,12 +3694,12 @@ VALUES		('BUILDING_MOSQUE_OF_DJENNE',		'BUILDINGCLASS_NOTRE_DAME'),		-- traditio
 			('BUILDING_ARECIBO',				'BUILDINGCLASS_BLETCHLEY_PARK'),
 			('BUILDING_ARECIBO',				'BUILDINGCLASS_KEW_GARDENS');
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 	WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Forbidden Palace[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR] and [COLOR_CYAN]Büyük Han[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Alhambra[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Alhambra[ENDCOLOR], [COLOR_CYAN]Forge of Damascus[ENDCOLOR] and [COLOR_CYAN]Great Zimbabwe[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Red Fort[ENDCOLOR], [COLOR_CYAN]Golden Pavilion[ENDCOLOR] and [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Palace of Westminster[ENDCOLOR], [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR] and [COLOR_CYAN]Old Bridge[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
-UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Louvre[ENDCOLOR], [COLOR_CYAN]Monte Carlo Cassino[ENDCOLOR] and [COLOR_CYAN]Museum Island[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]University of Sankore[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Sigiriya[ENDCOLOR], [COLOR_CYAN]University of Sankore[ENDCOLOR], [COLOR_CYAN]Golden Dagon Pagoda[ENDCOLOR] and [COLOR_CYAN]Notre Dame[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_TRADITION_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].', 		'Wonders: [COLOR_CYAN]Moray Terraces[ENDCOLOR], [COLOR_CYAN]Wartburg[ENDCOLOR], [COLOR_CYAN]Forbidden Palace[ENDCOLOR] and [COLOR_CYAN]Büyük Han[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 					WHERE Tag = 'TXT_KEY_POLICY_BRANCH_LIBERTY_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Alhambra[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Alhambra[ENDCOLOR], [COLOR_CYAN]Great Zimbabwe[ENDCOLOR], [COLOR_CYAN]Forge of Damascus[ENDCOLOR] and [COLOR_CYAN]Krak des Chevaliers[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_HONOR_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Red Fort[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Golden Pavilion[ENDCOLOR], [COLOR_CYAN]Sistine Chapel[ENDCOLOR], [COLOR_CYAN]Solovietsky Monastery[ENDCOLOR] and [COLOR_CYAN]Red Fort[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PIETY_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Palace of Westminster[ENDCOLOR].', 	'Wonders: [COLOR_CYAN]Kilwa Kisiwani[ENDCOLOR], [COLOR_CYAN]Old Bridge[ENDCOLOR], [COLOR_CYAN]Summer Palace[ENDCOLOR] and [COLOR_CYAN]Palace of Westminster[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 		WHERE Tag = 'TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP';
+UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Louvre[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Marae Arahurahu[ENDCOLOR], [COLOR_CYAN]Museum Island[ENDCOLOR], [COLOR_CYAN]Louvre[ENDCOLOR] and [COLOR_CYAN]Monte Carlo Cassino[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 							WHERE Tag = 'TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Broadway[ENDCOLOR].', 					'Wonders: [COLOR_CYAN]Broadway[ENDCOLOR], [COLOR_CYAN]Ruhr Valley[ENDCOLOR] and [COLOR_CYAN]Banff Spring Hotel[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_COMMERCE_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building the [COLOR_POSITIVE_TEXT]Pentagon[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Pentagon[ENDCOLOR], [COLOR_CYAN]Brandenburg Gate[ENDCOLOR] and [COLOR_CYAN]White Sands Missile Range[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 				WHERE Tag = 'TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'building [COLOR_POSITIVE_TEXT]Bletchley Park[ENDCOLOR].', 				'Wonders: [COLOR_CYAN]Bletchley Park[ENDCOLOR], [COLOR_CYAN]Kew Gardens[ENDCOLOR] and [COLOR_CYAN]Arecibo Observatory[ENDCOLOR] (only [COLOR_NEGATIVE_TEXT]one[ENDCOLOR] of those newly unlocked Wonders can be built in Empire).') 			WHERE Tag = 'TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP';
@@ -3841,7 +3884,7 @@ DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND Building
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
 DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
 --============================================--
--- EE Compatibility
+-- EE Compatibility (OUTDATED)
 --============================================--
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_HIMEJI_CASTLE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value=1);

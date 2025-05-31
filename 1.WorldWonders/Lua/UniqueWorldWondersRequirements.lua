@@ -777,7 +777,8 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = true,
 			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
-			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
+			[GameInfo.Buildings.BUILDING_SANKORE.ID] = true,
+			[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = true,
 			[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true
 		}
@@ -836,12 +837,12 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_NAZCA.ID] = true,
 			[GameInfo.Buildings.BUILDING_THONG_HAI_HIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_HANGING_GARDEN.ID] = true,
-			[GameInfo.Buildings.BUILDING_SIGIRIYA.ID] = true,			
 			[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
 			[GameInfo.Buildings.BUILDING_ETCHMIADZIN.ID] = true,
 			[GameInfo.Buildings.BUILDING_MORAY.ID] = true,
 			[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
 			[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = true,
+			[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = true,
 			[GameInfo.Buildings.BUILDING_CHEVALIERS.ID] = true,
 			[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
 			[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true,
@@ -937,7 +938,7 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
-			iRequiredImprovements = 3
+			iRequiredImprovements = 2
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
@@ -951,7 +952,7 @@ function Initialize()
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
-			iRequiredImprovements = 3
+			iRequiredImprovements = 2
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
@@ -1038,7 +1039,7 @@ function Initialize()
 		tValidIsHasCsAllies = {
 			[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
 			[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
-			[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 3,
+			[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 2,
 			[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
 		}
 		for id, building in pairs(tValidIsHasCsAllies) do

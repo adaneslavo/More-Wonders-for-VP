@@ -186,7 +186,7 @@
 			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
-			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]25 [ICON_TOURISM] every time a Civilian unit is created</Text>
+			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]Grants 25 [ICON_TOURISM] every time a Civilian unit is created</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_DALLOL">
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RES_SYLVITE] (Sylvite)[NEWLINE][ICON_BULLET]-5% [ICON_HAPPINESS_3][ICON_HAPPINESS_3] Boredom</Text>
@@ -243,13 +243,13 @@
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_ARTIST] in nearby City[NEWLINE][ICON_BULLET]When a [ICON_GREAT_ARTIST] Great Artist is born in nearby City, gain [ICON_GOLD] equal to 25% of his potential [ICON_GOLDEN_AGE] from [COLOR_POSITIVE_TEXT]Starting a Golden Age[ENDCOLOR] ability</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_A">
-			<Text>[NEWLINE][ICON_BULLET]</Text>
+			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_B">
-			<Text>[NEWLINE][ICON_BULLET]</Text>
+			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_C">
-			<Text>[NEWLINE][ICON_BULLET]</Text>
+			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 
 

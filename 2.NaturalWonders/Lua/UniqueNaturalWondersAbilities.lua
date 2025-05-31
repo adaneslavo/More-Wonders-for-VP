@@ -44,7 +44,10 @@ local g_tNaturalWonder = {
 	GameInfoTypes["FEATURE_AURORA_B"],
 	GameInfoTypes["FEATURE_AURORA_C"],
 	GameInfoTypes["FEATURE_JEJU_DO"],
-	GameInfoTypes["FEATURE_ARCH"] -- 40
+	GameInfoTypes["FEATURE_ARCH"], -- 40
+	GameInfoTypes["FEATURE_MARIANA_A"],
+	GameInfoTypes["FEATURE_MARIANA_B"],
+	GameInfoTypes["FEATURE_MARIANA_C"]
 }
 
 local g_tNaturalWonderDummy = {
@@ -87,7 +90,10 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_AURORA_B_DUMMY"],
 	GameInfoTypes["BUILDING_AURORA_C_DUMMY"],
 	GameInfoTypes["BUILDING_JEJU_DO_DUMMY"],					-- placed in wonder spot
-	GameInfoTypes["BUILDING_ARCH_DUMMY"] -- 40					-- placed in wonder spot
+	GameInfoTypes["BUILDING_ARCH_DUMMY"], -- 40					-- placed in wonder spot
+	GameInfoTypes["BUILDING_MARIANA_A_DUMMY"],
+	GameInfoTypes["BUILDING_MARIANA_B_DUMMY"],
+	GameInfoTypes["BUILDING_MARIANA_C_DUMMY"]
 }
 
 local g_tNaturalWonderOwner = {}
@@ -148,6 +154,9 @@ local g_tNaturalWonderDummyPolicy = {}
 	g_tNaturalWonderDummyPolicy[33] = GameInfoTypes["POLICY_HA_LONG_A_DUMMY"]
 	g_tNaturalWonderDummyPolicy[34] = GameInfoTypes["POLICY_HA_LONG_B_DUMMY"]
 	g_tNaturalWonderDummyPolicy[35] = GameInfoTypes["POLICY_ZHANGJIAJIE_DUMMY"]
+	g_tNaturalWonderDummyPolicy[41] = GameInfoTypes["POLICY_MARIANA_A_DUMMY"]
+	g_tNaturalWonderDummyPolicy[42] = GameInfoTypes["POLICY_MARIANA_B_DUMMY"]
+	g_tNaturalWonderDummyPolicy[43] = GameInfoTypes["POLICY_MARIANA_C_DUMMY"]
 
 
 

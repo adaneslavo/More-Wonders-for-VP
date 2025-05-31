@@ -880,7 +880,7 @@
 		<Row>
 			<StrategicViewType>ART_DEF_FEATURE_JEJU_DO</StrategicViewType>
 			<TileType>Feature</TileType>
-			<Asset>sv_Seongsan_dark_20.dds</Asset>
+			<Asset>sv_Seongsan_tinbrush_source_dark.dds</Asset>
 		</Row>
 
 
@@ -2499,6 +2499,16 @@
 
 		<Row>
 			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
@@ -2509,12 +2519,32 @@
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_MARIANA_B</FeatureType>
 			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -3091,8 +3121,23 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<FeatureType>FEATURE_MARIANA_B</FeatureType>
 			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
