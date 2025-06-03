@@ -44,6 +44,19 @@ VALUES	('MW-SETTING-REQUIREMENT', 		2);
 --============================================--
 -- AUTOMATED COMPATIBILITIES SQL
 --============================================--
+/* Enlightenment Era */
+INSERT INTO BuildingClasses (Type)
+SELECT		'BUILDINGCLASS_DUMMY_EE'
+WHERE EXISTS (SELECT * FROM Buildings WHERE Type='BUILDING_EE_SUMMER_PALACE');
+
+CREATE TRIGGER IF NOT EXISTS MWCompatibilityEE
+AFTER INSERT ON Buildings
+WHEN NEW.Type = 'BUILDING_EE_SUMMER_PALACE'
+BEGIN
+    INSERT INTO BuildingClasses (Type)
+	VALUES		('BUILDINGCLASS_DUMMY_EE');
+END;
+
 /* Louisiana */
 INSERT INTO BuildingClasses (Type)
 SELECT		'BUILDINGCLASS_DUMMY_LOUISIANA'
