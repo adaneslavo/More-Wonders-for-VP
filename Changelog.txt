@@ -56,6 +56,13 @@ v24:
 		- Skara Brae:
 			- removed flat Food;
 			- removed Flat requirement;
+		- Stonehenge: now +1 Great Scientist Point (was Great Engineer);
+		- Temple of Artemis:
+			- deleted bonus GPP;
+			- now +12% global Food (was +10%) and +30% Production towards Archery units (was +25%);
+		- Petra:
+			- deleted bonus GPP;
+			- now +3 Culture and +1 Gold (was +2 Culture);
 	- fixed:
 		- fixed missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- fixed and reworked numerous texts;
