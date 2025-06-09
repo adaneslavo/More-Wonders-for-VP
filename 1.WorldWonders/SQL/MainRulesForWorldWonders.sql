@@ -57,6 +57,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('ETCHMIADZIN',				'None',		1,			1),		-- Etchmiadzin Cathedral
 			('SIGIRIYA',				'None',		1,			0),		-- Sirigiya
 			('CHAND_BAORI',				'None',		1,			1),		-- Chand Baori Well
+			('SONGYUE',					'None',		1,			0),		-- Songyue Pagoda
 			-------------------MEDIEVAL-------------------------------------------------------------
 			('NABAWI',					'None',		1,			1),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
 			('MORAY',					'None',		1,			0),		-- Moray (Moray Terraces)
@@ -67,17 +68,20 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('AHU',						'None',		1,			1),		-- Ahu Tongariki
 			('DAMASCUS',				'None',		1,			1),		-- Forge of Damascus
 			('SHWEDAGON',				'None',		1,			1),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
+			('JOHNS',					'None',		1,			0),		-- Hospital of St. John
 			('MICHEL',					'None',		1,			1),		-- Mont Saint Michel
 			('BUYUK_HAN',				'None',		1,			0),		-- Büyük Han (Great Inn)
 			('ITSUKUSHIMA',				'None',		1,			1),		-- Itsukushima Shrine
 			('QALHAT',					'None',		1,			1),		-- Qalhat
 			('CHEVALIERS',				'None',		1,			1),		-- Krak des Chevaliers
+			('TLACHIHUALTEPETL',		'None',		1,			0),		-- Tlachihualtepetl
 			-------------------RENAISSANCE----------------------------------------------------------
 			('BENHADDOU',				'None',		1,			1),		-- Ait Benhaddou
 			('KILWA_KISIWANI',			'None',		1,			1),		-- Kilwa Kisiwani
 			('ST_PETERS',				'None',		1,			1),		-- Papal Basilica of St. Peter in the Vatican
 			('KINKAKU_JI',				'None',		1,			1),		-- Golden Pavilion (Kikaku-Ji)
 			('MARAE',					'None',		1,			1),		-- Marae Arahurahu
+			('HARMANDIR',				'None',		1,			0),		-- Harmandir Sahib
 			('OLD_BRIDGE',				'None',		1,			1),		-- Old Bridge in Mostar
 			('MEENAKSHI',				'None',		1,			1),		-- Meenakshi Temple
 			('PETERHOF',				'None',		1,			1),		-- Peterhof Palace

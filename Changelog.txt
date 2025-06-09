@@ -7,7 +7,8 @@ v24:
 				- ???
 				- ???
 		- Policies:
-			- added 1 new World Wonders to each policy tree:
+			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
+			- connected 1 optional World Wonders to each Policy tree:
 				- Tradition: Sigiriya (lost NoCoast);
 				- Progress: Moray Terraces (no changes);
 				- Authority: Krak des Chevaliers (no changes);
@@ -17,14 +18,18 @@ v24:
 				- Imperialism:
 				- Rationalism:
 				- Industry:
-			- buffed multiple Policy WWs requirements:
+			- buffed multiple Policy WWs hard requirements:
 				- University of Sankore: now No Water (was Desert);
 				- Great Zimbabwe: now only 2 improvements required (were 3);
 				- Kilwa Kisiwani: now only 2 improvements required (were 3);
 				- Palace of Westminster: now only 2 CS Allies required (were 3);
+			- adjusted Policy Cost for some early World Wonders;
 		- Holy:
 			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by @Jarcast2):
-				- ???
+				- Songyue Pagoda for Pagoda;
+				- Hospital of St. John for Order;
+				- Tlachihualtepetl for Teocalli;
+				- Harmandir Sahib for Gurdwara;
 			- Notre Dame:
 				- removed free Cathedral;
 				- 5 Faith (was 4);
@@ -40,10 +45,20 @@ v24:
 				- 4 Faith for 5 Citizens (was 2 for 5);
 			- Rila Monastery:
 				- replaces free Order with free Monastery;
-		- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
+		- Flavoured Help Texts:
+			- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
+			- now disabled by default (influenced by community feedback who didn't like it at most);
+		- Mohenjo Daro: 
+			- now +2 Food (was +1);
+			- now +1 Production per 2 Citizens (was per 4);
+			- removed Desert requirement (Hard);
+			- added no Coast requirement (Light);
+		- Skara Brae:
+			- removed flat Food;
+			- removed Flat requirement;
 	- fixed:
 		- fixed missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
-		- fixed numerous texts;
+		- fixed and reworked numerous texts;
 - Natural Wonders:
 	- new:
 		- added 4 new Natural Wonders:

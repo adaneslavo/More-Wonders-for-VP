@@ -1010,10 +1010,6 @@ function Initialize()
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_SMITHSONIAN.ID] = {
-				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
-				iRequiredImprovements = 1
-			}
 		end
 		for id, building in pairs(tValidIsHasImprovement) do
 			--dprint("...adding (id,building,improvement1,improvement2,count,roads)", id, GameInfo.Buildings[id].Type, building.eRequiredImprovement1, building.eRequiredImprovement2, building.iRequiredImprovements, building.iRequiredRoads)

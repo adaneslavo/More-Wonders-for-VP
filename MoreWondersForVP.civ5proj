@@ -195,6 +195,102 @@ Currently compatible with VP 4.4.X.</Description>
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\2.Classical\Wonder_Songyue_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Tlachihualtepetl_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Harmandir_splash.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="1.WorldWonders\Art\5.Industrial\Wonder_America_West_Point_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>

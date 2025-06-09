@@ -2,45 +2,55 @@
 -- MANUAL SETTINGS
 --============================================--
 /*
-Two versions of new quote recordings for wonders!
-0 = Man (Default);
-1 = Woman;
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,					Value)
-VALUES	('MW-SETTING-SPEECH', 	0);
---------------------------------------------------------------
-/*
-New HELP texts!
-0 = Normal World Wonder tooltip texts made with VP standard;
-1 = Improved World Wonder tooltip texts. (Default)
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,					Value)
-VALUES	('MW-SETTING-HELP', 	0);
---------------------------------------------------------------
-/*
-Maximum Era restriction!
-0 = No restriction regarding Eras;
-1 = You cannot build World Wonders from 2 Eras behind and further (Default);
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,						Value)
-VALUES	('MW-SETTING-MAX-ERA', 		1);
---------------------------------------------------------------
-/*
 World Wonder's restrictions!
 0 = No restrictions for building World Wonders (unused; do not set!);
 1 = Light restrictions added; sort of what you saw in base VP;
-2 = Hard restrictions added - maximum attention and no "aiming" for all WWs within the eyesight (Default);
+2 = Hard restrictions added - maximum attention and no "aiming" for all WWs within the eyesight (default);
 */
 
 INSERT INTO COMMUNITY	
 		(Type,							Value)
 VALUES	('MW-SETTING-REQUIREMENT', 		2);
+--------------------------------------------------------------
+/*
+More World Wonders for each Policy tree!
+0 = 3 World Wonders per Policy tree;
+1 = 4 World Wonders per Policy tree (default);
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,							Value)
+VALUES	('MW-SETTING-POLICIES', 		1);
+--------------------------------------------------------------
+/*
+Maximum Era restriction!
+0 = No restriction regarding Eras;
+1 = You cannot build World Wonders from 2 Eras behind and further (default);
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,							Value)
+VALUES	('MW-SETTING-MAX-ERA', 			1);
+--------------------------------------------------------------
+/*
+New HELP texts!
+0 = Normal World Wonder tooltip texts made with VP standard (default);
+1 = Improved World Wonder tooltip texts;
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,							Value)
+VALUES	('MW-SETTING-HELP', 			0);
+--------------------------------------------------------------
+/*
+Two versions of new quote recordings for wonders!
+0 = Man (default);
+1 = Woman;
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,							Value)
+VALUES	('MW-SETTING-SPEECH', 			0);
 --============================================--
 -- AUTOMATED COMPATIBILITIES SQL
 --============================================--
