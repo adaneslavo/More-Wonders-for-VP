@@ -779,6 +779,7 @@ function NWCustomPlacement(x, y, row_number, method_number)
 	local ePlotHill = PlotTypes.PLOT_HILLS
 	local ePlotMountain = PlotTypes.PLOT_MOUNTAIN
 	local eTerrainCoast = TerrainTypes.TERRAIN_COAST
+	local eTerrainOcean = TerrainTypes.TERRAIN_OCEAN
 	local eTerrainGrass = TerrainTypes.TERRAIN_GRASS	
 	local eTerrainPlains = TerrainTypes.TERRAIN_PLAINS
 	local eTerrainDesert = TerrainTypes.TERRAIN_DESERT
@@ -2711,6 +2712,9 @@ function NWCustomPlacement(x, y, row_number, method_number)
 		local pSWPlot = Map.PlotDirection(x, y, tDirectionTypes[4])
 		local pNWPlot = Map.PlotDirection(x, y, tDirectionTypes[6])
 		
+		pSWPlot:SetTerrainType(eTerrainOcean, false, false)
+		pNWPlot:SetTerrainType(eTerrainOcean, false, false)
+
 		pSWPlot:SetFeatureType(GameInfoTypes.FEATURE_MARIANA_B)
 		pNWPlot:SetFeatureType(GameInfoTypes.FEATURE_MARIANA_C)
 	elseif method_number == 29 then

@@ -8,13 +8,13 @@ v24:
 				- ???
 		- Policies:
 			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
-			- connected 1 optional World Wonders to each Policy tree:
-				- Tradition: Sigiriya (lost NoCoast);
-				- Progress: Moray Terraces (no changes);
-				- Authority: Krak des Chevaliers (no changes);
-				- Fealty: Sistine Chapel (no changes);
-				- Statecraft: Summer Palace (lost Forest)
-				- Artistry: Marae Arahurahu (no changes)
+			- connected 1 optional World Wonders to each Policy tree (optional; requirements are changed only when a WW is enabled into the Policy list):
+				- Tradition: Sigiriya (lost NoCoast if a Policy WW);
+				- Progress: Moray Terraces;
+				- Authority: Krak des Chevaliers;
+				- Fealty: Sistine Chapel;
+				- Statecraft: Summer Palace (lost Forest if a Policy WW);
+				- Artistry: Marae Arahurahu;
 				- Imperialism:
 				- Rationalism:
 				- Industry:
@@ -47,7 +47,9 @@ v24:
 				- replaces free Order with free Monastery;
 		- Flavoured Help Texts:
 			- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
-			- now disabled by default (influenced by community feedback who didn't like it at most);
+			- all original help texts are cleared, and only lua abilities are added instead;
+			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
+			- all Flavoured Help Texts are now massively revised and all bonuses are added inside in a smart way;
 		- Mohenjo Daro: 
 			- now +2 Food (was +1);
 			- now +1 Production per 2 Citizens (was per 4);
@@ -65,6 +67,7 @@ v24:
 			- now +3 Culture and +1 Gold (was +2 Culture);
 	- fixed:
 		- fixed missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
+		- fixed lake requirements (found by @gwennog);
 		- fixed and reworked numerous texts;
 - Natural Wonders:
 	- new:
@@ -82,14 +85,15 @@ v24:
 		- Sylvite and Tern Egg: added names, so new players would know what they are;
 		- Great Blue Hole: special buldings are now mutually exclusive;
 		- Aurora Borealis: now does not spawn on Coast (model is invisible when spawned there);
-		- Mt. Fuji: now ability is in neaby City (was in Capital);
-		- Krakatoa: now ability is in neaby City (was in Capital);
+		- Mt. Fuji: now ability is in nearby City (was in Capital);
+		- Krakatoa: now ability is in nearby City (was in Capital);
 		- Louisiana (shrimp): compatibility check is now reworked and also uses trigger;
 		- expanded Natural Wonder's descriptions a bit (look at Civilopedia);
 	- fixed:
 		- Uluru: bonus production towards Diplomatic Units is global (was in Capital);
 		- Mt. Sinai: now grants correct 50 Faith and ownership change (was 100);
 		- replaced Plot:Area():GetNumTiles() function with Map.GetNumTilesOfLandmass(Plot:GetLandmass()) function;
+		- moved adjacent and on tile promotions to the "Abilities" section of the Natural Wonder Popup screen;
 		- added few missing civilopedia entries for new Natural Wonders;
 		- multiple text corrections and updates;
 	- cleaned:

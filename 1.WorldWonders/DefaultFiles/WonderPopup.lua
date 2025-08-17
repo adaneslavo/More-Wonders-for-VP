@@ -84,7 +84,7 @@ function OnPopup(popupInfo)
 
 	-- shorter help text for wonder splash screen (without reuirements)
 	local strGameInfoCut = strGameInfo .. "_CUT"
-	
+
 	if Locale.ConvertTextKey(strGameInfoCut) ~= strGameInfoCut then
 		strGameInfo = strGameInfoCut
 	end

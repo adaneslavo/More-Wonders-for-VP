@@ -56,6 +56,13 @@ for option in GameInfo.Community{Type="MW-SETTING-MAX-ERA"} do
 	end
 end
 
+for option in GameInfo.Community{Type="MW-SETTING-POLICIES"} do
+	if option.Value == 1 then
+		bIsSettingPolicies = true
+		break
+	end
+end
+
 for option in GameInfo.Community{Type="MW-SETTING-REQUIREMENT"} do
 	iRequirementType = option.Value
 end
@@ -752,7 +759,8 @@ function Initialize()
 	-- IsNearLake
 	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
 	for building in GameInfo.Buildings() do	
-		if building.FreshWater and building.Water and building.MinAreaSize == 1 and building.IsCorporation == 0 then
+		print(building.Type, building.FreshWater, building.Water, building.MinAreaSize)
+		if building.FreshWater and building.Water and building.MinAreaSize == 1 and not building.IsCorporation then
 			local eBuilding = GameInfoTypes[building.Type]
 			
 			--dprint("...adding (id,building,requirement)", building.ID, building.Type, "(IsNearLake)")
@@ -858,6 +866,10 @@ function Initialize()
 			[GameInfo.Buildings.BUILDING_TEMBLEQUE.ID] = true,
 			[GameInfo.Buildings.BUILDING_CURIOSITY.ID] = true			
 		}
+		-- additional requirement if WWs are not added to policy list
+		if not bIsSettingPolicies then
+			tValidIsNoCoast[GameInfo.Buildings.BUILDING_SIGIRIYA.ID] = true
+		end
 		-- EE compatibility
 		if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
 			tValidIsNoCoast[GameInfo.Buildings.BUILDING_EE_VERSAILLES.ID] = true

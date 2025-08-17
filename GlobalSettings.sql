@@ -33,16 +33,6 @@ INSERT INTO COMMUNITY
 VALUES	('MW-SETTING-MAX-ERA', 			1);
 --------------------------------------------------------------
 /*
-New HELP texts!
-0 = Normal World Wonder tooltip texts made with VP standard (default);
-1 = Improved World Wonder tooltip texts;
-*/
-
-INSERT INTO COMMUNITY	
-		(Type,							Value)
-VALUES	('MW-SETTING-HELP', 			0);
---------------------------------------------------------------
-/*
 Two versions of new quote recordings for wonders!
 0 = Man (default);
 1 = Woman;
@@ -51,6 +41,16 @@ Two versions of new quote recordings for wonders!
 INSERT INTO COMMUNITY	
 		(Type,							Value)
 VALUES	('MW-SETTING-SPEECH', 			0);
+--------------------------------------------------------------
+/*
+New HELP texts!
+0 = Normal World Wonder tooltip texts made with VP standard (default);
+1 = Improved World Wonder tooltip texts;
+*/
+
+INSERT INTO COMMUNITY	
+		(Type,							Value)
+VALUES	('MW-SETTING-HELP', 			0);
 --============================================--
 -- AUTOMATED COMPATIBILITIES SQL
 --============================================--

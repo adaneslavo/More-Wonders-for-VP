@@ -100,6 +100,19 @@
 
 
 
+		<!-- Special common abilities -->
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_COMMON_FEATURE_BERMUDA_A">
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_COMMON_FEATURE_BERMUDA_B">
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_COMMON_FEATURE_BERMUDA_C">
+			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+		</Row>
+
+
+
 		<!-- Special abilities -->
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_NEW_REEF_A">
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/all Sea luxury resources</Text>
@@ -111,7 +124,7 @@
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_FOOD]/all Fishing Boats</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_CRATER">
-			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_GOLDEN_AGE] every time you research a [ICON_RESEARCH] Technology, scaling with Era[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
+			<Text>[NEWLINE][ICON_BULLET]grants 10 [ICON_GOLDEN_AGE] every time you research a [ICON_RESEARCH] Technology, scaling with Era[NEWLINE][ICON_BULLET]+20% [ICON_PRODUCTION][ICON_PRODUCTION] during construction of Spaceship Parts</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_FUJI">
 			<Text>[NEWLINE][ICON_BULLET]+3 [ICON_GREAT_ARTIST] in nearby City[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_WRITER] in nearby City[NEWLINE][ICON_BULLET]+1 [ICON_GREAT_MUSICIAN] in nearby City</Text>
@@ -141,7 +154,7 @@
 			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_SINAI">
-			<Text>[NEWLINE][ICON_BULLET]Grants 50 [ICON_PEACE] every time you gain possession of this Natural Wonder, scaling with Era[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
+			<Text>[NEWLINE][ICON_BULLET]grants 50 [ICON_PEACE] every time you gain possession of this Natural Wonder, scaling with Era[NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/[ICON_GREAT_WORK][ICON_GREAT_WORK][NEWLINE][ICON_BULLET]+1 [ICON_PEACE], +1 [ICON_GOLDEN_AGE]/all Holy Sites</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MT_KAILASH">
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_PEACE]/all Monuments and Temples</Text>
@@ -177,13 +190,13 @@
 			<Text>[NEWLINE][ICON_BULLET]+5% [ICON_FOOD][ICON_FOOD][NEWLINE][ICON_BULLET]+10% [ICON_FOOD][ICON_FOOD] during [ICON_HAPPINESS_1] WLTKD[NEWLINE][ICON_BULLET]Grants 15 [ICON_TOURISM] every time a [ICON_CITIZEN] Citizen is born, scaling with Era</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_A">
-			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_B">
-			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_BERMUDA_C">
-			<Text>[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]stops unit[ENDCOLOR] on its tiles</Text>
+			<Text></Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_LUMI_BAY">
 			<Text>[NEWLINE][ICON_BULLET]+1 [ICON_RESEARCH]/[ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_TROPICAL_FISH][ICON_RES_TROPICAL_FISH][NEWLINE][ICON_BULLET]Grants 25 [ICON_TOURISM] every time a Civilian unit is created</Text>
@@ -243,16 +256,16 @@
 			<Text>[NEWLINE][ICON_BULLET]+2 [ICON_GREAT_ARTIST] in nearby City[NEWLINE][ICON_BULLET]When a [ICON_GREAT_ARTIST] Great Artist is born in nearby City, gain [ICON_GOLD] equal to 25% of his potential [ICON_GOLDEN_AGE] from [COLOR_POSITIVE_TEXT]Starting a Golden Age[ENDCOLOR] ability</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_A">
-			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
+			<Text>[NEWLINE][ICON_BULLET]grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_B">
-			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
+			<Text>[NEWLINE][ICON_BULLET]grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_FEATURE_MARIANA_C">
-			<Text>[NEWLINE][ICON_BULLET]Grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
+			<Text>[NEWLINE][ICON_BULLET]grants 10 [ICON_RESEARCH] every time a [ICON_GOLDEN_AGE] Golden Age starts, scaling with Era[NEWLINE][ICON_BULLET]Grants 7 XP to each newly created Submarine Unit</Text>
 		</Row>
 
-
+		
 
 		<!-- Map abilities -->
 		<Row Tag="TXT_KEY_MORE_NATURAL_WONDERS_EXTENDED_MAP_FEATURE_NEW_REEF_A">
