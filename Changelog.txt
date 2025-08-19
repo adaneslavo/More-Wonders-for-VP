@@ -9,22 +9,26 @@ v24:
 		- Policies:
 			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
 			- connected 1 optional World Wonders to each Policy tree (optional; requirements are changed only when a WW is enabled into the Policy list):
-				- Tradition: Sigiriya (lost NoCoast if a Policy WW);
+				- Tradition: Sigiriya (lost IsNoCoast requirement if a Policy WW);
 				- Progress: Moray Terraces;
 				- Authority: Krak des Chevaliers;
 				- Fealty: Sistine Chapel;
-				- Statecraft: Summer Palace (lost Forest if a Policy WW);
+				- Statecraft: Summer Palace (lost Forest requirement if a Policy WW);
 				- Artistry: Marae Arahurahu;
-				- Imperialism:
-				- Rationalism:
-				- Industry:
+				- Industry: Akihabara Electric Town;
+				- Imperialism: Panama Canal;
+				- Rationalism: Polar Expedition;
 			- buffed multiple Policy WWs hard requirements:
 				- University of Sankore: now No Water (was Desert);
 				- Great Zimbabwe: now only 2 improvements required (were 3);
 				- Kilwa Kisiwani: now only 2 improvements required (were 3);
 				- Palace of Westminster: now only 2 CS Allies required (were 3);
+				- Museum Island: now only 3 GW of Art required (were 4);
+				- Louvre: now only 3 GW of Art required (were 4);
+				- Broadway: now only 2 GW of Music required (were 3);
+				- Akihabara Electric Town: now only 2 Merchant Specialists required (were 3);
 			- adjusted Policy Cost for some early World Wonders;
-		- Holy:
+		- Holy (Holy buildings):
 			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by @Jarcast2):
 				- Songyue Pagoda for Pagoda;
 				- Hospital of St. John for Order;
@@ -44,30 +48,35 @@ v24:
 				- removed free Monastery;
 				- 4 Faith for 5 Citizens (was 2 for 5);
 			- Rila Monastery:
-				- replaces free Order with free Monastery;
+				- replaced free Order with free Monastery;
+		- balance changes of existing World Wonders:
+			- Mohenjo Daro: 
+				- now +2 Food (was +1);
+				- now +1 Production per 2 Citizens (was per 4);
+				- removed Desert requirement (Hard);
+				- added no Coast requirement (Light);
+			- Skara Brae:
+				- removed flat Food;
+				- removed Flat requirement;
+			- Stonehenge: now +1 Great Scientist Point (was Great Engineer);
+			- Temple of Artemis:
+				- deleted bonus GPP;
+				- now +12% global Food (was +10%) and +30% Production towards Archery units (was +25%);
+			- Petra:
+				- deleted bonus GPP;
+				- now +3 Culture and +1 Gold (was +2 Culture);
+			- Panama Canal:
+				- must be next to the Sea;
+				- now correct 10-tile Landmass (was 11-tile Area);
 		- Flavoured Help Texts:
 			- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
-			- all original help texts are cleared, and only lua abilities are added instead;
+			- all original help texts are cleared, and only lua abilities are added there instead;
 			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
 			- all Flavoured Help Texts are now massively revised and all bonuses are added inside in a smart way;
-		- Mohenjo Daro: 
-			- now +2 Food (was +1);
-			- now +1 Production per 2 Citizens (was per 4);
-			- removed Desert requirement (Hard);
-			- added no Coast requirement (Light);
-		- Skara Brae:
-			- removed flat Food;
-			- removed Flat requirement;
-		- Stonehenge: now +1 Great Scientist Point (was Great Engineer);
-		- Temple of Artemis:
-			- deleted bonus GPP;
-			- now +12% global Food (was +10%) and +30% Production towards Archery units (was +25%);
-		- Petra:
-			- deleted bonus GPP;
-			- now +3 Culture and +1 Gold (was +2 Culture);
 	- fixed:
-		- fixed missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
-		- fixed lake requirements (found by @gwennog);
+		- White Sands Missile Range now have correctly nullyfied value of Policy Required;
+		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
+		- lake requirements (found by @gwennog);
 		- fixed and reworked numerous texts;
 - Natural Wonders:
 	- new:

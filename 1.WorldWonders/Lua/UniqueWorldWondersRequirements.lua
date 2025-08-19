@@ -532,7 +532,7 @@ function IsOnIsthmus(ePlayer, eCity, eBuilding)
 
 	local pCity = pPlayer:GetCityByID(eCity)
 	
-	if pCity:Plot():Area():GetNumTiles() < 11 then return false end
+	if Map.GetNumTilesOfLandmass(pCity:Plot():GetLandmass()) < 10 then return false end
 	
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
@@ -1070,15 +1070,15 @@ function Initialize()
 		}
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_MUSEUM_ISLAND.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-			iRequiredGreatWorks = 4
+			iRequiredGreatWorks = 3
 		}
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-			iRequiredGreatWorks = 4
+			iRequiredGreatWorks = 3
 		}
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_BROADWAY.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
-			iRequiredGreatWorks = 3
+			iRequiredGreatWorks = 2
 		}
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SYDNEY_OPERA_HOUSE.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
@@ -1167,7 +1167,7 @@ function Initialize()
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
 			eSpecialistType = "SPECIALIST_MERCHANT",
-			iRequiredSpecialists = 3
+			iRequiredSpecialists = 2
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_CONCORDE.ID] = {
 			eSpecialistType = "SPECIALIST_ENGINEER",
