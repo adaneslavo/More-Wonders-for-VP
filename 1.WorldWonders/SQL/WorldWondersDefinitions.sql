@@ -789,7 +789,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_SONGYUE';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_ENGINEERING', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SONGYUE';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_PAGODA' WHERE Type = 'BUILDING_SONGYUE';
 	---------------------------------------------------------
 
 	---------------------------------------------------------
@@ -1184,7 +1184,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_JOHNS';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_JOHNS';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
 	---------------------------------------------------------
 
 	---------------------------------------------------------
@@ -1469,7 +1469,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	---------------------------------------------------------
 
 	---------------------------------------------------------
@@ -1724,7 +1724,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HARMANDIR';
 	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_GUNPOWDER', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HARMANDIR';
 	---------------------------------------------------------
-
+	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_GURDWARA' WHERE Type = 'BUILDING_HARMANDIR';
 	---------------------------------------------------------
 
 	---------------------------------------------------------
@@ -3377,6 +3377,17 @@
 				(BuildingType,			FlavorType,				Flavor)
 	VALUES		('BUILDING_SEED_VAULT',	'FLAVOR_GROWTH',		150),
 				('BUILDING_SEED_VAULT',	'FLAVOR_PRODUCTION',	30);
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- THREE GORGES DAM (NEW)
+	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ECOLOGY', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THREE_GORGES_DAM';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
+	UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 28, WonderSplashImage = 'WonderConceptThreeGeorgesDam.dds' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
+	---------------------------------------------------------
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_THREE_GORGES_DAM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	---------------------------------------------------------
+
+	---------------------------------------------------------
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CN TOWER

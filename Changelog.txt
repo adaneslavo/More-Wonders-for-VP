@@ -2,6 +2,8 @@ MW Changelog:
 v24:
 - World Wonders:
 	- new/changed:
+		- regular World Wonders:
+			- Three Gorges Dam (Information);
 		- Ideologies:
 			- added 2 missing World Wonders:
 				- ???

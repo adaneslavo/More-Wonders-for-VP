@@ -132,7 +132,7 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0),		-- Northern Light Cathedral
 			('SEED_VAULT',				'None',		1,			0),		-- Svalbard Global Seed Vault
-			--('THREE_GORGES_DAM',		'None',		1,			0),		-- Three Gorges Dam
+			('THREE_GORGES_DAM',		'None',		1,			0),		-- Three Gorges Dam
 			('JUMEIRAH',				'None',		1,			1),		-- Palm Jumeirah
 			('TAIPEI',					'None',		1,			1),		-- Taipei 101
 			--('PETRONAS',				'None',		1,			0);		-- Petronas Towers
