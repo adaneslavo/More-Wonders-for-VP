@@ -3378,6 +3378,7 @@
 	VALUES		('BUILDING_SEED_VAULT',	'FLAVOR_GROWTH',		150),
 				('BUILDING_SEED_VAULT',	'FLAVOR_PRODUCTION',	30);
 --------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- THREE GORGES DAM (NEW)
 	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ECOLOGY', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THREE_GORGES_DAM';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
@@ -3385,9 +3386,29 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_THREE_GORGES_DAM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
+	UPDATE Buildings SET MutuallyExclusiveGroup = 1, SpecialistType = 'SPECIALIST_ENGINEER', SpecialistCount = 2, FreeBuildingThisCity = 'BUILDINGCLASS_HYDRO_PLANT' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
+	
+	INSERT INTO Building_RiverPlotYieldChanges
+				(BuildingType,					YieldType,				Yield) 
+	VALUES		('BUILDING_THREE_GORGES_DAM',	'YIELD_PRODUCTION',		1);
 
+	INSERT INTO Building_LakePlotYieldChanges 
+				(BuildingType,					YieldType,				Yield)
+	VALUES		('BUILDING_THREE_GORGES_DAM',	'YIELD_PRODUCTION',		1);	
+
+	INSERT INTO Building_SpecialistYieldChanges
+				(BuildingType,					SpecialistType,			YieldType,				Yield) 
+	VALUES		('BUILDING_THREE_GORGES_DAM',	'SPECIALIST_ENGINEER',	'YIELD_SCIENCE',		1);
+
+	INSERT INTO Building_GrowthExtraYield
+				(BuildingType,					YieldType,		Yield) 
+	VALUES		('BUILDING_THREE_GORGES_DAM',	'YIELD_GOLD',	200);
 	---------------------------------------------------------
-
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_THREE_GORGES_DAM',	'FLAVOR_PRODUCTION',	120),
+				('BUILDING_THREE_GORGES_DAM',	'FLAVOR_GOLD',			20),
+				('BUILDING_THREE_GORGES_DAM',	'FLAVOR_SCIENCE',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- CN TOWER
