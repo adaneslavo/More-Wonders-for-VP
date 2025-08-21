@@ -57,6 +57,12 @@ v24:
 				- now +1 Production per 2 Citizens (was per 4);
 				- removed Desert requirement (Hard);
 				- added no Coast requirement (Light);
+			- Ahu Tongariki:
+				- now +2 Faith on Coast (was +1);
+				- now +1 Production to local Quarries (was Culture and all);
+				- now +1 Culture to all Stones;
+				- deleted Forest and Jungle bonuses;
+				- deleted Forest and Jungle requirements;
 			- Skara Brae:
 				- removed flat Food;
 				- removed Flat requirement;
@@ -75,6 +81,7 @@ v24:
 			- all original help texts are cleared, and only lua abilities are added there instead;
 			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
 			- all Flavoured Help Texts are now massively revised and all bonuses are added inside in a smart way;
+	- slightly reworked the formatting of few original quote texts;
 	- fixed:
 		- White Sands Missile Range now have correctly nullyfied value of Policy Required;
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);

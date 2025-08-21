@@ -1043,11 +1043,6 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_AHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
-	INSERT INTO Building_LocalFeatureOrs 
-				(BuildingType,	FeatureType) 
-	SELECT		'BUILDING_AHU',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_AHU',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	
 	INSERT INTO Building_LocalResourceOrs 
 				(BuildingType,	ResourceType) 
 	SELECT		'BUILDING_AHU',	'RESOURCE_STONE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
@@ -1062,18 +1057,17 @@
 				(BuildingType,		ResourceType,		Quantity) 
 	VALUES		('BUILDING_AHU',	'RESOURCE_TERN',	1);
 	
-	INSERT INTO Building_ImprovementYieldChangesGlobal
-				(BuildingType,		ImprovementType,		YieldType,			Yield) 
-	VALUES		('BUILDING_AHU',	'IMPROVEMENT_QUARRY',	'YIELD_CULTURE',	1);
+	INSERT INTO Building_ResourceYieldChangesGlobal
+				(BuildingType,		ResourceType,		YieldType,			Yield) 
+	VALUES		('BUILDING_AHU',	'RESOURCE_STONE',	'YIELD_CULTURE',	1);
+				
+	INSERT INTO Building_ImprovementYieldChanges
+				(BuildingType,		ImprovementType,		YieldType,				Yield) 
+	VALUES		('BUILDING_AHU',	'IMPROVEMENT_QUARRY',	'YIELD_PRODUCTION',		2);
 
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,		TerrainType,		YieldType,		Yield) 
-	VALUES		('BUILDING_AHU',	'TERRAIN_COAST',	'YIELD_FAITH',	1);
-	
-	INSERT INTO Building_FeatureYieldChanges
-				(BuildingType,		FeatureType,		YieldType,				Yield) 
-	VALUES		('BUILDING_AHU',	'FEATURE_FOREST',	'YIELD_PRODUCTION',		1),
-				('BUILDING_AHU',	'FEATURE_JUNGLE',	'YIELD_PRODUCTION',		1);
+	VALUES		('BUILDING_AHU',	'TERRAIN_COAST',	'YIELD_FAITH',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
@@ -1113,8 +1107,8 @@
 	VALUES		('BUILDING_FALUN',	'UNIT_GREAT_GENERAL',	1);
 	
 	INSERT INTO Building_GreatPersonProgressFromConstruction
-				(BuildingType,		GreatPersonType,		EraType,			Value) 
-	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_CLASSICAL',	2);
+				(BuildingType,		GreatPersonType,		EraType,		Value) 
+	VALUES		('BUILDING_FALUN',	'GREATPERSON_ENGINEER',	'ERA_MEDIEVAL',	2);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
