@@ -83,7 +83,11 @@ v24:
 			- all Flavoured Help Texts are now massively revised and all bonuses are added inside in a smart way;
 	- slightly reworked the formatting of few original quote texts;
 	- fixed:
-		- White Sands Missile Range now have correctly nullyfied value of Policy Required;
+		- White Sands Missile Range: now have correctly nullyfied value of Policy Required;
+		- Itsukushima Shrine:
+			- now correctly boosts Ocean tiles (was Coast and Ocean);
+			- deleted doubled requirements;
+		- Falun Mine: now GP points granted from Medieval era (was Classical);
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- lake requirements (found by @gwennog);
 		- fixed and reworked numerous texts;

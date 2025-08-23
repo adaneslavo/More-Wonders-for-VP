@@ -14,8 +14,8 @@ VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Cave'),
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT', '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] is an ideal hiding spot (+5[ICON_STRENGTH]) and greatly supports early culture generation (+1[ICON_CULTURE]), especially, if [COLOR_GREY]Bisons[ENDCOLOR], [COLOR_GREY]Deers[ENDCOLOR] or [COLOR_GREY]Horses[ENDCOLOR] are nearby (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON], [ICON_RES_DEER], [ICON_RES_HORSE]). Maximize its effectiveness by filling the art slot (+1[ICON_VP_GREATART]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology[ENDCOLOR]: +3[ICON_CULTURE]).');
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOLOR]; Improved Resource: [ICON_RES_BISON] [COLOR_CYAN]Bison[ENDCOLOR]/[ICON_RES_DEER] [COLOR_CYAN]Deer[ENDCOLOR]/[ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_BISON] [COLOR_CYAN]Bison[ENDCOLOR]/[ICON_RES_DEER] [COLOR_CYAN]Deer[ENDCOLOR]/[ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOLOR]; Improved Resource: [ICON_RES_BISON]/[ICON_RES_DEER]/[ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_BISON]/[ICON_RES_DEER]/[ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Ggantija
 INSERT INTO Language_en_US 
@@ -104,8 +104,8 @@ VALUES		('TXT_KEY_BUILDING_SKARA_BRAE',			'Skara Brae'),
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_SKARA_BRAE_HELP_CUT', '[COLOR_YIELD_FOOD]Skara Brae[ENDCOLOR] makes all your basic resources much more efficient  (+1[ICON_FOOD]/[ICON_RES_COW][ICON_RES_COW], [ICON_RES_SHEEP][ICON_RES_SHEEP], [ICON_RES_FISH][ICON_RES_FISH], [ICON_RES_MAIZE][ICON_RES_MAIZE], [ICON_RES_RICE][ICON_RES_RICE], [ICON_RES_WHEAT][ICON_RES_WHEAT]). This means you will be able to sell more in all your [COLOR_CITY_BROWN]Villages[ENDCOLOR] when you research them in Medieval Era (+1[ICON_PRODUCTION], +1[ICON_GOLD]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]; +1[ICON_PRODUCTION]).');
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_COW] [COLOR_CYAN]Cattle[ENDCOLOR]/[ICON_RES_FISH] [COLOR_CYAN]Fish[ENDCOLOR]/[ICON_RES_SHEEP] [COLOR_CYAN]Sheep[ENDCOLOR]/[ICON_RES_WHEAT] [COLOR_CYAN]Maize[ENDCOLOR]/[ICON_RES_WHEAT] [COLOR_CYAN]Rice[ENDCOLOR]/[ICON_RES_WHEAT] [COLOR_CYAN]Wheat[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SKARA_BRAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_COW] [COLOR_CYAN]Cattle[ENDCOLOR]/[ICON_RES_FISH] [COLOR_CYAN]Fish[ENDCOLOR]/[ICON_RES_SHEEP] [COLOR_CYAN]Sheep[ENDCOLOR]/[ICON_RES_WHEAT] [COLOR_CYAN]Wheat[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SKARA_BRAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_COW]/[ICON_RES_FISH]/[ICON_RES_SHEEP]/[ICON_RES_MAIZE]/[ICON_RES_RICE]/[ICON_RES_WHEAT].'||Text WHERE Tag ='TXT_KEY_WONDER_SKARA_BRAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_COW]/[ICON_RES_FISH]/[ICON_RES_SHEEP]/[ICON_RES_MAIZE]/[ICON_RES_RICE]/[ICON_RES_WHEAT].'||Text WHERE Tag ='TXT_KEY_WONDER_SKARA_BRAE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 ----------------------------------------------------
 -- Karnak
@@ -207,7 +207,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [CO
 ----------------------------------------------------
 -- Statue of Zeus
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges (+1[ICON_GREAT_GENERAL]; [COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) and triples your efforts towards reducing local unrest (+1[ICON_PEACE]; -1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]Workers[ENDCOLOR] are immune to [COLOR_WATER_TEXT]Prisoners of War[ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] along with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]; +1[ICON_GREAT_GENERAL]) and triples your efforts towards reducing local unrest (+1[ICON_PEACE]; -1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]Workers[ENDCOLOR] are immune to [COLOR_WATER_TEXT]Prisoners of War[ENDCOLOR]).');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Iliad', '"The Iliad", Homer') WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_QUOTE';
 
@@ -467,7 +467,7 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_COLOSSUS_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR]/[ICON_RES_COPPER] [COLOR_CYAN]Copper[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_IRON]/[ICON_RES_COPPER].'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 ----------------------------------------------------
@@ -562,9 +562,9 @@ VALUES		('TXT_KEY_BUILDING_AHU',			'Ahu Tongariki'),
 			('TXT_KEY_WONDER_AHU_HELP',			'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_AHU_HELP_CUT', 'Monumental platform, [COLOR_YIELD_FOOD]Ahu Tongariki[ENDCOLOR], significantly boosts your productionof nearby [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile[ENDCOLOR]) and expands your culture with every [COLOR_GREY]Stone[ENDCOLOR] deposit (+1[ICON_CULTURE]/[ICON_RES_STONE][ICON_RES_STONE]). Vision of the greater future motivates workers to finish this magnificient project (+20%[ICON_WORKER]), and what''s more, local resource, the [COLOR_GREY]Tern Egg[ENDCOLOR], is a God''s sign of good will announcing long-lasting prosperity (+1[ICON_RES_TERN]; +5%[ICON_PEACE][ICON_PEACE]).';
+SELECT 'TXT_KEY_WONDER_AHU_HELP_CUT', 'Monumental platform, [COLOR_YIELD_FOOD]Ahu Tongariki[ENDCOLOR], significantly boosts your production of nearby [COLOR_CITY_BROWN]Quarries[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile[ENDCOLOR]) and expands your culture with every [COLOR_GREY]Stone[ENDCOLOR] deposit (+1[ICON_CULTURE]/[ICON_RES_STONE][ICON_RES_STONE]). Vision of the greater future motivates workers to finish this magnificient project (+20%[ICON_WORKER]), and what''s more, local resource, the [COLOR_GREY]Tern Egg[ENDCOLOR], is a God''s sign of good will announcing long-lasting prosperity (+1[ICON_RES_TERN]; +5%[ICON_PEACE][ICON_PEACE]).';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_STONE] [COLOR_CYAN]Stone[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_STONE].'||Text WHERE Tag ='TXT_KEY_WONDER_AHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Falun Mine
@@ -590,18 +590,14 @@ VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
 			('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'Damascus steel was a type of steel used for manufacturing sword blades in the Near East made with wootz steel. These swords are characterized by distinctive patterns of banding and mottling reminiscent of flowing water. Such blades were reputed to be tough, resistant to shattering and capable of being honed to a sharp, resilient edge.[NEWLINE][NEWLINE] The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. Although many types of modern steel outperform ancient Damascus alloys, chemical reactions in the production process made the blades extraordinary for their time, as Damascus steel was superplastic and very hard at the same time. [COLOR_NEGATIVE_TEXT]Lost after unit upgrade[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_DAMASCUS',			'Damascus Steel'),
 			('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+10%[ICON_STRENGTH]CS.'),
-			('TXT_KEY_WONDER_DAMASCUS_HELP',		'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.');
+			/*('TXT_KEY_WONDER_DAMASCUS_HELP',		'+3 [ICON_PRODUCTION] Production with [COLOR_CYAN]Metallurgy[ENDCOLOR]. All Melee and Mounted Units in the Empire get [COLOR_POSITIVE_TEXT]Damascus Steel[ENDCOLOR] promotion.[NEWLINE][NEWLINE]All [ICON_RES_IRON] Iron: +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science.');*/
+			('');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR], thanks to recent scientific discovery, turns your melee weaponry into a masterpiece ([COLOR_WATER_TEXT]Damascus Steel[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Land[ENDCOLOR]), which cannot be copied in any other forge. Your production and science literally explodes (+2[ICON_GREAT_SCIENTIST]), so remember to claim all available [COLOR_GREY]Iron[ENDCOLOR] deposits (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_RES_IRON][ICON_RES_IRON]).'
-WHERE Tag = 'TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_DAMASCUS_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_DAMASCUS_HELP';
+SELECT 'TXT_KEY_WONDER_DAMASCUS_HELP_CUT', '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR] hides a secret forging technology turning melee weaponry into a masterpiece ([COLOR_WATER_TEXT]Damascus Steel[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Land[ENDCOLOR]; [COLOR_CYAN]Metallurgy[ENDCOLOR]: +3[ICON_PRODUCTION]). Your production and science literally explodes (+2[ICON_PRODUCTION]; +3[ICON_RESEARCH]; +2[ICON_GREAT_SCIENTIST]), so remember to claim all available [COLOR_GREY]Iron[ENDCOLOR] deposits to gain an advantage over your enemies (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_RES_IRON][ICON_RES_IRON]).';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Improved Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Improved Resource: [ICON_RES_IRON] [COLOR_CYAN]Iron[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Hospital of St. John (Holy)
 INSERT INTO Language_en_US 
@@ -631,15 +627,11 @@ VALUES		('TXT_KEY_BUILDING_SHWEDAGON',						'Golden Dagon Pagoda'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP',			'To maximize your bonus, make sure all the Great Work Slots are all filled with Artifacts created by different Players in consecutive Eras.'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',				'Diplomatic Passport'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',			'+20% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter (cannot Dig on) Enemy Territory without Open Borders Agreement[ENDCOLOR].'),
-			('TXT_KEY_WONDER_SHWEDAGON_HELP',					'All Archaeologist Units in the Empire get [COLOR_POSITIVE_TEXT]Diplomatic Passport[ENDCOLOR] promotion. +2 [ICON_PEACE] Faith from Artists. All [ICON_GREAT_WORK] Great Works in the Empire gain +1 [ICON_GOLD] Gold. Contains 4 slots for [ICON_VP_GREATART] Great Works of Art or Artifacts. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
+			/*('TXT_KEY_WONDER_SHWEDAGON_HELP',					'All Archaeologist Units in the Empire get [COLOR_POSITIVE_TEXT]Diplomatic Passport[ENDCOLOR] promotion. +2 [ICON_PEACE] Faith from Artists. All [ICON_GREAT_WORK] Great Works in the Empire gain +1 [ICON_GOLD] Gold. Contains 4 slots for [ICON_VP_GREATART] Great Works of Art or Artifacts. +3 [ICON_GOLD] Gold, [ICON_CULTURE] Culture, [ICON_PEACE] Faith and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');*/
+			('TXT_KEY_WONDER_SHWEDAGON_HELP',					'');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry. Religious and more frequent artists in this city (+2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), more valuable great works of your empire (+1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and much more space for new art (4[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]) will make your city shine! Make sure to use your new forces to find hidden artifacts ([COLOR_WATER_TEXT]Diplomatic Passport[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]).'
-WHERE Tag = 'TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_SHWEDAGON_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SHWEDAGON_HELP';
+SELECT 'TXT_KEY_WONDER_SHWEDAGON_HELP_CUT', '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry (+2[ICON_CULTURE]; +2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]) increasing the overall value of your collection (+2[ICON_GOLD]; +1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). You can now organize brilliant vernissages, where you will be able to present recent discoveries (4[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]). Make also sure to use your new abilities to find hidden artifacts ([COLOR_WATER_TEXT]Diplomatic Passport[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]). Let your city shine!';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -650,15 +642,11 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont Saint-Michel'),
 			('TXT_KEY_WONDER_MICHEL_QUOTE',		'[NEWLINE]"Church and State, Soul and Body, God and Man, are all one at Mont Saint Michel, and the business of all is to fight, each in his own way, or to stand guard for each other."[NEWLINE] - Henry Adams[NEWLINE]'),
 			('TXT_KEY_WONDER_MICHEL_PEDIA',		'Perched on a rocky islet in the midst of vast sandbanks exposed to powerful tides between Normandy and Brittany stand the "Wonder of the West", a Gothic-style Benedictine abbey dedicated to the archangel St Michael, and the village that grew up in the shadow of its great walls. Built between the 11th and 16th centuries, the abbey is a technical and artistic tour de force, having had to adapt to the problems posed by this unique natural site.'),
-			('TXT_KEY_WONDER_MICHEL_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with [COLOR_CYAN]Electricity[ENDCOLOR].');
+			/*('TXT_KEY_WONDER_MICHEL_HELP',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with [COLOR_CYAN]Electricity[ENDCOLOR].');*/
+			('TXT_KEY_WONDER_MICHEL_HELP',		'');
 			
-UPDATE Language_en_US
-SET Text = 'Lonely [COLOR_YIELD_FOOD]Mont Saint-Michel[ENDCOLOR] will turn your vulnerable into a fortress (+10[ICON_STRENGTH]; +100 HP), where you can focus on your soul (+4[ICON_PEACE]/5 [ICON_CITIZEN]) and plan next expenses for your growing treasury.'
-WHERE Tag = 'TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MICHEL_HELP';
+SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', 'Lonely [COLOR_YIELD_FOOD]Mont Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress (+10[ICON_STRENGTH]; +100 HP), where you can focus on your soul and future (+4[ICON_PEACE]/5 [ICON_CITIZEN]; +1[ICON_GOLDEN_AGE]). You can also plan another striking expansions there, that can be financed of your growing treasury (+3[ICON_GOLD]), especially when you discover advanced technologies ([COLOR_CYAN]Electricity[ENDCOLOR]: +3[ICON_GOLD], +3[ICON_TOURISM]).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -669,15 +657,11 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_BUYUK_HAN',		'Büyük Han'),
 			('TXT_KEY_WONDER_BUYUK_HAN_QUOTE',	'[NEWLINE]"There is no friendship in trade."[NEWLINE] - Cornelius Vanderbilt[NEWLINE]'),
 			('TXT_KEY_WONDER_BUYUK_HAN_PEDIA',	''),
-			('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravansary and a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravan in the City in which it is built. +2 [ICON_PRODUCTION] Production from Villages in your Empire. +2 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold with [COLOR_CYAN]Corporations[ENDCOLOR].');
+			/*('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravansary and a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Caravan in the City in which it is built. +2 [ICON_PRODUCTION] Production from Villages in your Empire. +2 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold with [COLOR_CYAN]Corporations[ENDCOLOR].');*/
+			('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]) provides wide trading opportunities. You can use brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/Tile in Empire) or find new trading partners ([COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).'
-WHERE Tag = 'TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BUYUK_HAN_HELP';
+SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]), provides wide trading opportunities and place for contemplation (+1[ICON_FOOD]; +1[ICON_PEACE]). You can use brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]; +1[ICON_PRODUCTION]) or find new trading partners (+2[ICON_GOLD]; [COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Village[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -688,17 +672,13 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ITSUKUSHIMA',		'Itsukushima Shrine'),
 			('TXT_KEY_WONDER_ITSUKUSHIMA_QUOTE',	'[NEWLINE]"Faith is not the clinging to a shrine but an endless pilgrimage of the heart."[NEWLINE] - Abraham Joshua Heschel[NEWLINE]'),
 			('TXT_KEY_WONDER_ITSUKUSHIMA_PEDIA',	'Itsukushima shrine is one of the most iconic Shinto shrines in Japan. It is world renowned for it''s iconic "Floating" torii gate, which pilgrims had to steer their boat through before they could enter the shrine''s grounds. It is located on the island of Itsukushima, at the western end of Japan''s "inland sea". There has been a shrine at the location since approximately 628 CE, when one was constructed under the reign of Empresss Suiko. The current design, however, dates from 1168, when the shrine was constructed with funds provided by the warlord Taiya no Kiyomori.[NEWLINE][NEWLINE] The shrine, and it''s floating Torii, are one of the "Three Views of Japan", along with the sandbar at Amanohashidate, and Matsushima bay. These have been designated as the most beautiful scenes of Japan, and are frequented by tourists.'),
-			('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith to Atolls and [ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats in the Empire gain +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.');
+			/*('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',	'+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith to Atolls and [ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities. +1 [ICON_PEACE] Faith from Sea tiles. All Fishing Boats in the Empire gain +1 [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Nearby [ICON_RES_CORAL] Coral: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_CRAB] Crab: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_PEARLS] Pearls: +2 [ICON_PEACE] Faith.[NEWLINE]Nearby [ICON_RES_WHALE] Whales: +2 [ICON_PEACE] Faith.');*/
+			('TXT_KEY_WONDER_ITSUKUSHIMA_HELP',		'[ICON_CULTURE] Culture cost of aquiring new tiles reduced by 50% in coastal Cities.');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Itsukushima Shrine[ENDCOLOR] boost yields generated by nearby [COLOR_CITY_BLUE]Oceans[ENDCOLOR] (+1[ICON_PEACE]/Tile), [COLOR_GREY]Sea Luxuries[ENDCOLOR] (+2[ICON_PEACE]/[COLOR_GREY]Sea Luxury[ENDCOLOR]) and [COLOR_CITY_BROWN]Fishing Boats[ENDCOLOR] (+1[ICON_CULTURE]/Tile) as well as all [COLOR_CITY_GREEN]Atolls[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]/Tile in Empire). Additionally expansion of your coastal cities is now much easier (+50%[ICON_CULTURE][ICON_CULTURE] Border Growth/all coastal Cities).'
-WHERE Tag = 'TXT_KEY_WONDER_ITSUKUSHIMA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ITSUKUSHIMA_HELP';
+SELECT 'TXT_KEY_WONDER_ITSUKUSHIMA_HELP_CUT', '[COLOR_YIELD_FOOD]Itsukushima Shrine[ENDCOLOR] gathers mystical energy from surrounding maritime elements: [COLOR_CITY_BLUE]Oceans[ENDCOLOR] (+1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]), [COLOR_GREY]Sea Luxuries[ENDCOLOR] (+2[ICON_PEACE]/[COLOR_GREY]Sea Luxury[ENDCOLOR]) and [COLOR_CITY_BROWN]Fishing Boats[ENDCOLOR] (+1[ICON_CULTURE]/[COLOR_CITY_BROWN]Tile[ENDCOLOR]), as well as all [COLOR_CITY_GREEN]Atolls[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]/[COLOR_CITY_GREEN]Tile in Empire[ENDCOLOR]). Your culture will explode soon, and thanks to that expansion of your coastal cities will be much faster now (+2[ICON_CULTURE]; +50%[ICON_CULTURE_LOCAL] Border Growth/all Coastal Cities).';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_CORAL] [COLOR_CYAN]Coral[ENDCOLOR]/[ICON_RES_CRAB] [COLOR_CYAN]Crab[ENDCOLOR]/[ICON_RES_PEARLS] [COLOR_CYAN]Pearls[ENDCOLOR]/[ICON_RES_WHALE] [COLOR_CYAN]Whales[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ITSUKUSHIMA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_CORAL]/[ICON_RES_CRAB]/[ICON_RES_PEARLS]/[ICON_RES_WHALE].'||Text WHERE Tag ='TXT_KEY_WONDER_ITSUKUSHIMA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ITSUKUSHIMA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Qalhat
@@ -707,18 +687,14 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
 			('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
 			('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO'),
-			('TXT_KEY_WONDER_QALHAT_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +50% [ICON_PRODUCTION] Production of Cargo Ships. International Sea [ICON_INTERNATIONAL_TRADE] Trade Routes connected to this City gain +1 [ICON_GOLD] Gold. +3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route from or to other Major Player in the Empire.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD] Gold.');
-			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Qalhat[ENDCOLOR], mentioned by some europeans sailors seeking unique supplies (+1[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]), is a wonderful place, where merchants of all seas meet and exchange their goods (Sea [ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]). Learn foreign culture by monopolizing worldwide sea trade (3[ICON_CULTURE]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] with Major).'
-WHERE Tag = 'TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+			/*('TXT_KEY_WONDER_QALHAT_HELP',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +50% [ICON_PRODUCTION] Production of Cargo Ships. International Sea [ICON_INTERNATIONAL_TRADE] Trade Routes connected to this City gain +1 [ICON_GOLD] Gold. +3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route from or to other Major Player in the Empire.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD] Gold.');*/
+			('TXT_KEY_WONDER_QALHAT_HELP',		'+3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route in the Empire from or to other Major Player.');
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_QALHAT_HELP';
+SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', 'According to many sailors [COLOR_YIELD_FOOD]Qalhat[ENDCOLOR] strongly supports sea trade seeking unique supplies (+1[ICON_INTERNATIONAL_TRADE]; +2[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]). It is a wonderful place, where merchants of all corners of the world meet and exchange their goods (+3[ICON_GOLD]; Sea [ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]). It is advised to spend some time there to learn foreign cultures and make additional profits (3[ICON_CULTURE]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] with Major).';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Krak des Chevaliers
 INSERT INTO Language_en_US 
@@ -726,15 +702,11 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_CHEVALIERS',			'Krak des Chevaliers'),
 			('TXT_KEY_WONDER_CHEVALIERS_QUOTE',		'[NEWLINE]"I have long since been aware that your king is a man of the greatest honor and bravery, but he is imprudent."[NEWLINE] - Saladin to Richard I the Lionheart[NEWLINE]'),
 			('TXT_KEY_WONDER_CHEVALIERS_PEDIA',		'Krak des Chevaliers, also Crac des Chevaliers, is a Crusader castle in Syria and one of the most important preserved medieval castles in the world. The site was first inhabited in the 11th century by a settlement of Kurds; as a result it was known as Hisn al Akrad, meaning the "Castle of the Kurds". In 1142 it was given by Raymond II, Count of Tripoli, to the Knights Hospitaller. It remained in their possession until it fell in 1271. It became known as Crac de l''Ospital; the name Krak des Chevaliers was coined in the 19th century.'),
-			('TXT_KEY_WONDER_CHEVALIERS_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in this City. +1 [ICON_SILVER_FIST] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities gain +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_SILVER_FIST] Military Unit Supply Cap.');
-			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Krak des Chevaliers[ENDCOLOR], castle on top of a hill, a perfect place to defend against your enemies (20[ICON_STRENGTH]) and plan next offensive. Increased production of your troops (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Mounted[ENDCOLOR], [COLOR_YIELD_GOLD]Siege[ENDCOLOR]), awesome leadership ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]), and improved management of your all other non-coastal cities (+1[ICON_PEACE], +5[ICON_STRENGTH], +1[ICON_SILVER_FIST]/non-coastal Cities) are just a beginning of your glory.'
-WHERE Tag = 'TXT_KEY_WONDER_CHEVALIERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+			/*('TXT_KEY_WONDER_CHEVALIERS_HELP',	'Greatly increase [ICON_STRENGTH] Combat Strength and +20% [ICON_PRODUCTION] Production of Mounted and Siege Units in this City. +1 [ICON_SILVER_FIST] Military Unit Supply Cap. All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities gain +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_SILVER_FIST] Military Unit Supply Cap.');*/
+			('TXT_KEY_WONDER_CHEVALIERS_HELP',		'All other [COLOR_POSITIVE_TEXT]non-coastal[ENDCOLOR] Cities gain +1 [ICON_PEACE] Faith, +5 [ICON_STRENGTH] City Defense and +1 [ICON_SILVER_FIST] Military Unit Supply Cap.');
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_CHEVALIERS_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CHEVALIERS_HELP';
+SELECT 'TXT_KEY_WONDER_CHEVALIERS_HELP_CUT', '[COLOR_YIELD_FOOD]Krak des Chevaliers[ENDCOLOR], castle on top of a small plateau, is a perfect place to defend against your enemies (20[ICON_STRENGTH]) and plan another long-term campaign (+2[ICON_FOOD]; +1[ICON_PEACE]). Increased mobilization of your siege forces (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Mounted[ENDCOLOR], [COLOR_YIELD_GOLD]Siege[ENDCOLOR]), awesome leadership (+1[ICON_GREAT_GENERAL]; COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]), and improved management of all other non-coastal cities (+1[ICON_PEACE], +5[ICON_STRENGTH], +1[ICON_SILVER_FIST]/non-coastal Cities) are just a beginning of your glory.';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CHEVALIERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CHEVALIERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -1587,7 +1559,7 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_EIFFEL_TOWER_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_EIFFEL_TOWER_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Iron[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Brandenburg Gate
@@ -1681,8 +1653,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_AUTOBAHN_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_AUTOBAHN_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Oil[ENDCOLOR]; Building: [COLOR_CYAN]Arsenal, Military Academy[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AUTOBAHN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Oil[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AUTOBAHN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_OIL]; Building: [COLOR_CYAN]Arsenal, Military Academy[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AUTOBAHN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_OIL].'||Text WHERE Tag ='TXT_KEY_WONDER_AUTOBAHN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Interstate Highway System
 INSERT INTO Language_en_US 
@@ -1700,8 +1672,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_INTERSTATE_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_INTERSTATE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Oil[ENDCOLOR]; City: [COLOR_CYAN]8 Cities[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_INTERSTATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Oil[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_INTERSTATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_OIL]; City: [COLOR_CYAN]8 Cities[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_INTERSTATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_OIL].'||Text WHERE Tag ='TXT_KEY_WONDER_INTERSTATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Hollywood
 INSERT INTO Language_en_US 
@@ -1738,8 +1710,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_CONCORDE_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CONCORDE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN][ICON_RES_ALUMINUM] Aluminum[ENDCOLOR]; City: [COLOR_CYAN]3 Engineer Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN][ICON_RES_ALUMINUM] Aluminum[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Engineer Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Sanbo Honbu
 INSERT INTO Language_en_US 
@@ -1812,7 +1784,7 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP';
 				
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Aluminum[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Kremlin
@@ -1981,8 +1953,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_SPUTNIK_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [COLOR_CYAN][ICON_RES_ALUMINUM] Aluminum[ENDCOLOR]; City: [COLOR_CYAN]3 Scientist Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [COLOR_CYAN][ICON_RES_ALUMINUM] Aluminum[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Scientist Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Anitkabir
 INSERT INTO Language_en_US 
@@ -2183,7 +2155,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_JUMEIRAH_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_JUMEIRAH_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Oil[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JUMEIRAH_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_OIL].'||Text WHERE Tag ='TXT_KEY_WONDER_JUMEIRAH_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JUMEIRAH_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Taipei 101
@@ -2221,7 +2193,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_CURIOSITY_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CURIOSITY_HELP';
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Aluminum[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CURIOSITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_CURIOSITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CURIOSITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Global Positioning System
@@ -2240,8 +2212,8 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_GPS_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GPS_HELP';
 				
-UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Strategic Defense System[ENDCOLOR]; Improved Resource: [COLOR_CYAN]Uranium[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Uranium[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Strategic Defense System[ENDCOLOR]; Improved Resource: [ICON_RES_URANIUM].'||Text WHERE Tag ='TXT_KEY_WONDER_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_URANIUM].'||Text WHERE Tag ='TXT_KEY_WONDER_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- CN Tower
 UPDATE Language_en_US
@@ -2294,8 +2266,8 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_HUBBLE_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_HUBBLE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Aluminum[ENDCOLOR]; Player: [COLOR_CYAN]Research Agreement[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Aluminum[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM]; Player: [COLOR_CYAN]Research Agreement[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- CERN
 UPDATE Language_en_US
@@ -2307,8 +2279,8 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_BUILDING_CERN_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_CERN_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Uranium[ENDCOLOR]; Building: [COLOR_CYAN]Research Lab[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_CERN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Improved Resource: [COLOR_CYAN]Uranium[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_CERN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_URANIUM]; Building: [COLOR_CYAN]Research Lab[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_CERN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_URANIUM].'||Text WHERE Tag ='TXT_KEY_BUILDING_CERN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 ----------------------------------------------------
 -- Crystal Palace

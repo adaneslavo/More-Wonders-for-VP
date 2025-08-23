@@ -147,6 +147,8 @@
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
 	VALUES		('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_PRODUCTION',		1),
 				('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_SCIENCE',		1);
+				
+	-- + global_marsh_bonus (lua)
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
@@ -1028,6 +1030,8 @@
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'UNITCOMBAT_GUN',		5),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'UNITCOMBAT_ARMOR',		5),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'UNITCOMBAT_RECON',		5);
+				
+	-- + GAP_and_production_for_active_TR (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
@@ -1329,13 +1333,6 @@
 	INSERT INTO Building_LocalResourceOrs	(BuildingType,			ResourceType)
 	SELECT DISTINCT							'BUILDING_ITSUKUSHIMA',	Type
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
-
-	INSERT INTO Building_LocalResourceOrs 
-				(BuildingType,			ResourceType) 
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CORAL'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_CRAB'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_PEARLS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) UNION ALL
-	SELECT		'BUILDING_ITSUKUSHIMA',	'RESOURCE_WHALE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
@@ -1343,24 +1340,24 @@
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_CULTURE',	2);
 
-	-- luxury sea resources
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,		YieldType,		Yield)
-	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,				'YIELD_FAITH',	2
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
-
 	INSERT INTO Building_ImprovementYieldChangesGlobal 
 				(BuildingType,				ImprovementType,				YieldType,		Yield) 
 	VALUES		('BUILDING_ITSUKUSHIMA',	'IMPROVEMENT_FISHING_BOATS',	'YIELD_CULTURE',	1);
 
-	INSERT INTO Building_SeaPlotYieldChanges 
-				(BuildingType,				YieldType,		Yield) 
-	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_FAITH',	1);
+	INSERT INTO Building_TerrainYieldChanges
+				(BuildingType,				TerrainType,		YieldType,			Yield) 
+	VALUES		('BUILDING_ITSUKUSHIMA',	'TERRAIN_OCEAN',	'YIELD_FAITH',		1);
 	
 	INSERT INTO Building_FeatureYieldChanges
 				(BuildingType,					FeatureType,		YieldType,			Yield) 
-	VALUES		('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_CULTURE',	1),
-				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FOOD',		1),
+	VALUES		('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FOOD',		1),
+				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_CULTURE',	1),
 				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FAITH',		1);
+
+	-- luxury sea resources
+	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
+	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,			'YIELD_FAITH',	2
+	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
 
 	-- + increased_border_growth_in_coastal_cities (lua)
 	-- + boost_in_coastal_cities_to_atolls (lua)
