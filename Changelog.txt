@@ -3,19 +3,20 @@ v24:
 - World Wonders:
 	- new/changed:
 		- regular World Wonders:
-			- Three Gorges Dam (Information);
+			- Three Gorges Dam (Information Era);
 		- Ideologies:
-			- added 2 missing World Wonders:
-				- ???
-				- ???
+			- added 2 missing World Wonders in Atomic Era:
+				- Great Hall of People (focus: Diplomatic) (Order);
+				- Nuclear Research Center (focus: Scientific) (Autocracy);
+			- Statue of Liberty: now requires only 7 Specialist (was 10);
 		- Policies:
 			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
 			- connected 1 optional World Wonders to each Policy tree (optional; requirements are changed only when a WW is enabled into the Policy list):
-				- Tradition: Sigiriya (lost IsNoCoast requirement if a Policy WW);
+				- Tradition: Sigiriya (losing IsNoCoast requirement if a Policy WW);
 				- Progress: Moray Terraces;
 				- Authority: Krak des Chevaliers;
 				- Fealty: Sistine Chapel;
-				- Statecraft: Summer Palace (lost Forest requirement if a Policy WW);
+				- Statecraft: Summer Palace (losing Forest requirement if a Policy WW);
 				- Artistry: Marae Arahurahu;
 				- Industry: Akihabara Electric Town;
 				- Imperialism: Panama Canal;
@@ -59,7 +60,7 @@ v24:
 				- added no Coast requirement (Light);
 			- Ahu Tongariki:
 				- now +2 Faith on Coast (was +1);
-				- now +1 Production to local Quarries (was Culture and all);
+				- now +1 Production to local Quarries (was Culture to all);
 				- now +1 Culture to all Stones;
 				- deleted Forest and Jungle bonuses;
 				- deleted Forest and Jungle requirements;

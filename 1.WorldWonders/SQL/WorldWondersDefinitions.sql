@@ -1011,7 +1011,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 	---------------------------------------------------------
 	--UPDATE Buildings SET IsNoCoast = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + Mine/Camp(3) (lua) (HARD)
+	-- + Mine/Camp(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 
@@ -1508,7 +1508,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_KILWA_KISIWANI';
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_KILWA_KISIWANI' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + Mine/Camp(3) (lua) (HARD)
+	-- + Mine/Camp(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 2 WHERE Type = 'BUILDING_KILWA_KISIWANI';
 
@@ -2030,7 +2030,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_MUSEUM_ISLAND' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + GW_of_Art(4) (lua) (HARD)
+	-- + GW_of_Art(3) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MUSEUM', GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 4, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_HELP' WHERE Type = 'BUILDING_MUSEUM_ISLAND';
 
@@ -2326,7 +2326,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_Louvre_splash.dds' WHERE Type = 'BUILDING_LOUVRE';
 	---------------------------------------------------------
 	-- + Landmark(1) (lua) (ALL)
-	-- + GW_of_Art(4) (lua) (HARD)
+	-- + GW_of_Art(3) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PALACE OF WESTMINSTER
@@ -2335,7 +2335,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_BIG_BEN';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_BIG_BEN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- + CS_Ally(3) (lua) (HARD)
+	-- + CS_Ally(2) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MONTE CARLO (NEW)
@@ -2549,7 +2549,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_STATUE_OF_LIBERTY';
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	-- + Specialists(10) (lua) (HARD)
+	-- + Specialists(7) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- POLAR EXPEDITION (NEW)
@@ -2603,7 +2603,7 @@
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 	---------------------------------------------------------
 	-- + Town(1) (lua) (HARD)
-	-- + Merchants(3) (lua) (HARD)
+	-- + Merchants(2) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_MERCHANT', SpecialistCount = 2 WHERE Type = 'BUILDING_AKIHABARA';
 	
@@ -2941,6 +2941,37 @@
 --============================================--
 -- ATOMIC ERA
 --============================================--
+-- GREAT HALL OF THE PEOPLE (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_PENICILIN', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_GREAT_HALL';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_GREAT_HALL';
+	---------------------------------------------------------
+	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_GREAT_HALL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,				BuildingClassType) 
+	SELECT		'BUILDING_GREAT_HALL',		'BUILDINGCLASS_WIRE_SERVICE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	-- + Civil Servants(3) (lua) (HARD)
+	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, FreePolicies = 1 WHERE Type = 'BUILDING_GREAT_HALL';
+
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	1);
+
+	INSERT INTO Building_YieldChangesPerPop 
+				(BuildingType,			YieldType,					Yield) 
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_GOLDEN_AGE_POINTS',	40);
+
+	INSERT INTO Building_YieldChangesPerGoldenAge 
+				(BuildingType,			YieldType,			Yield,		YieldCap)
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	10,			999);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,			FlavorType,				Flavor)
+	VALUES		('BUILDING_GREAT_HALL',	'FLAVOR_CULTURE',		80),
+				('BUILDING_GREAT_HALL',	'FLAVOR_DIPLOMACY',		80);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- HABITAT-67 (NEW)
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_PENICILIN', NumPoliciesNeeded = 20 WHERE Type = 'BUILDING_HABITAT';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_HABITAT';
@@ -3037,10 +3068,45 @@
 	VALUES		('BUILDING_MILESTII_MICI',	'HURRY_GOLD',	-10);		
 	--------------------------------------------------------
 	INSERT INTO Building_Flavors 
-				(BuildingType,		FlavorType,				Flavor)
+				(BuildingType,				FlavorType,				Flavor)
 	VALUES		('BUILDING_MILESTII_MICI',	'FLAVOR_SCIENCE',		100),
 				('BUILDING_MILESTII_MICI',	'FLAVOR_GROWTH',		40),
 				('BUILDING_MILESTII_MICI',	'FLAVOR_PRODUCTION',	20);
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+-- TEHRAN NUCLEAR RESEARCH FACILITY (NEW)
+	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ATOMIC_THEORY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_TEHRAN_FACILITY';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TEHRAN_FACILITY';
+	---------------------------------------------------------
+	UPDATE Buildings SET AnyWater = 1 WHERE Type = 'BUILDING_TEHRAN_FACILITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_TEHRAN_FACILITY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	
+	INSERT INTO Building_ClassesNeededInCity 
+				(BuildingType,					BuildingClassType) 
+	SELECT		'BUILDING_TEHRAN_FACILITY',		'BUILDINGCLASS_LABORATORY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePolicies = 1 WHERE Type = 'BUILDING_TEHRAN_FACILITY';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_TEHRAN_FACILITY',	'YIELD_SCIENCE',	4);
+				
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,					BuildingClassType,				YieldType,				YieldChange) 
+	VALUES		('BUILDING_TEHRAN_FACILITY',	'BUILDINGCLASS_NUCLEAR_PLANT',	'YIELD_PRODUCTION',		3);
+
+	INSERT INTO Building_UnitCombatProductionModifiers
+				(BuildingType,					UnitCombatType,			Modifier)
+	VALUES		('BUILDING_TEHRAN_FACILITY',	'UNITCOMBAT_MISSILE',	25);
+	
+	INSERT INTO Building_ResourceQuantity
+				(BuildingType,					ResourceType,			Quantity) 
+	VALUES		('BUILDING_TEHRAN_FACILITY',	'RESOURCE_URANIUM',		3);
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_TEHRAN_FACILITY',	'FLAVOR_SCIENCE',		100),
+				('BUILDING_TEHRAN_FACILITY',	'FLAVOR_PRODUCTION',	60);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- JFK SPACE CENTER (NEW)
@@ -3922,9 +3988,9 @@ VALUES		('BUILDING_DARJEELING',			'BUILDINGCLASS_SIBERIAN_RAILWAY'),
 --============================================--
 -- IDEOLOGY WONDERS
 --============================================--
-UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY', 'BUILDING_ORSZAGHAZ', 'BUILDING_HOLLYWOOD', 'BUILDING_JFK');
-UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_KREMLIN'/*, 'BUILDING_GREAT_HALL'*/, 'BUILDING_SPUTNIK', 'BUILDING_REVOLUTIONARY_MUSEUM');
-UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT', 'BUILDING_SANBO'/*, 'BUILDING_TEHRAN_NUCLEAR'*/, 'BUILDING_ANITKABIR');
+UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_FREEDOM'   WHERE Type IN ('BUILDING_STATUE_OF_LIBERTY',	'BUILDING_ORSZAGHAZ',	'BUILDING_HOLLYWOOD',		'BUILDING_JFK');
+UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_ORDER'     WHERE Type IN ('BUILDING_KREMLIN',			'BUILDING_GREAT_HALL',	'BUILDING_SPUTNIK',			'BUILDING_REVOLUTIONARY_MUSEUM');
+UPDATE Buildings SET PolicyBranchType = 'POLICY_BRANCH_AUTOCRACY' WHERE Type IN ('BUILDING_PRORA_RESORT',		'BUILDING_SANBO',		'BUILDING_TEHRAN_FACILITY', 'BUILDING_ANITKABIR');
 
 INSERT INTO Building_ClassNeededNowhere
 			(BuildingType,						BuildingClassType) 
@@ -3941,31 +4007,31 @@ VALUES		('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_ORSZAGHAZ'),				-- freedo
 			('BUILDING_JFK',					'BUILDINGCLASS_ORSZAGHAZ'),
 			('BUILDING_JFK',					'BUILDINGCLASS_HOLLYWOOD'),
 			------------------------------
-			--('BUILDING_KREMLIN',				'BUILDINGCLASS_GREAT_HALL'),			-- order
+			('BUILDING_KREMLIN',				'BUILDINGCLASS_GREAT_HALL'),			-- order
 			('BUILDING_KREMLIN',				'BUILDINGCLASS_SPUTNIK'),
 			('BUILDING_KREMLIN',				'BUILDINGCLASS_REVOLUTIONARY_MUSEUM'),
-			--('BUILDING_GREAT_HALL',				'BUILDINGCLASS_KREMLIN'),
-			--('BUILDING_GREAT_HALL',				'BUILDINGCLASS_SPUTNIK'),
-			--('BUILDING_GREAT_HALL',				'BUILDINGCLASS_REVOLUTIONARY_MUSEUM'),
+			('BUILDING_GREAT_HALL',				'BUILDINGCLASS_KREMLIN'),
+			('BUILDING_GREAT_HALL',				'BUILDINGCLASS_SPUTNIK'),
+			('BUILDING_GREAT_HALL',				'BUILDINGCLASS_REVOLUTIONARY_MUSEUM'),
 			('BUILDING_SPUTNIK',				'BUILDINGCLASS_KREMLIN'),
-			--('BUILDING_SPUTNIK',				'BUILDINGCLASS_GREAT_HALL'),
+			('BUILDING_SPUTNIK',				'BUILDINGCLASS_GREAT_HALL'),
 			('BUILDING_SPUTNIK',				'BUILDINGCLASS_REVOLUTIONARY_MUSEUM'),
 			('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_KREMLIN'),
-			--('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_GREAT_HALL'),
+			('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_GREAT_HALL'),
 			('BUILDING_REVOLUTIONARY_MUSEUM',	'BUILDINGCLASS_SPUTNIK'),
 			------------------------------
-			('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_SANBO'),						-- autocracy
-			--('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_TEHRAN_NUCLEAR'),
-			('BUILDING_PRORA_RESORT',		'BUILDINGCLASS_ANITKABIR'),
-			('BUILDING_SANBO',				'BUILDINGCLASS_PRORA_RESORT'),
-			--('BUILDING_SANBO',				'BUILDINGCLASS_TEHRAN_NUCLEAR'),
-			('BUILDING_SANBO',				'BUILDINGCLASS_ANITKABIR'),
-			--('BUILDING_TEHRAN_NUCLEAR',		'BUILDINGCLASS_PRORA_RESORT'),
-			--('BUILDING_TEHRAN_NUCLEAR',		'BUILDINGCLASS_SANBO'),
-			--('BUILDING_TEHRAN_NUCLEAR',		'BUILDINGCLASS_ANITKABIR'),
-			('BUILDING_ANITKABIR',			'BUILDINGCLASS_PRORA_RESORT'),
-			('BUILDING_ANITKABIR',			'BUILDINGCLASS_SANBO'); --!!!
-			--('BUILDING_ANITKABIR',			'BUILDINGCLASS_TEHRAN_NUCLEAR'),
+			('BUILDING_PRORA_RESORT',			'BUILDINGCLASS_SANBO'),					-- autocracy
+			('BUILDING_PRORA_RESORT',			'BUILDINGCLASS_TEHRAN_FACILITY'),
+			('BUILDING_PRORA_RESORT',			'BUILDINGCLASS_ANITKABIR'),
+			('BUILDING_SANBO',					'BUILDINGCLASS_PRORA_RESORT'),
+			('BUILDING_SANBO',					'BUILDINGCLASS_TEHRAN_FACILITY'),
+			('BUILDING_SANBO',					'BUILDINGCLASS_ANITKABIR'),
+			('BUILDING_TEHRAN_FACILITY',		'BUILDINGCLASS_PRORA_RESORT'),
+			('BUILDING_TEHRAN_FACILITY',		'BUILDINGCLASS_SANBO'),
+			('BUILDING_TEHRAN_FACILITY',		'BUILDINGCLASS_ANITKABIR'),
+			('BUILDING_ANITKABIR',				'BUILDINGCLASS_PRORA_RESORT'),
+			('BUILDING_ANITKABIR',				'BUILDINGCLASS_SANBO'),
+			('BUILDING_ANITKABIR',				'BUILDINGCLASS_TEHRAN_FACILITY');
 --============================================--
 -- FREE ART HELP TEXTS
 --============================================--

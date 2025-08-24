@@ -37,7 +37,6 @@ local tValidIsHasSpecialists = {}
 local tValidIsHasPlotsForResources = {}
 local tValidIsHasResearchAgreements = {}
 local tValidIsAtPolar = {}
---local tValidIsHasUniqueBuildingClassReq = {} -- fix for VP bug
 
 local bReachedMaxEra
 
@@ -715,37 +714,6 @@ function IsAtPolar(ePlayer, eCity, eBuilding)
 	return false
 end
 GameEvents.CityCanConstruct.Add(IsAtPolar)
-
--- temporary FIX for unique buildingclass requirement (ALL)
---[[function IsHasUniqueBuildingClassReq(ePlayer, eCity, eBuilding)
-	if not tValidIsHasUniqueBuildingClassReq[eBuilding] then return true end
-	if bReachedMaxEra then return false end
-
-	local pPlayer = Players[ePlayer]
-	
-	if not pPlayer:IsAlive() then return false end
-	
-	local iBuildingClass1 = tValidIsHasUniqueBuildingClassReq[eBuilding].iBuildingClass1
-	local iBuildingClass2 = tValidIsHasUniqueBuildingClassReq[eBuilding].iBuildingClass2
-	local pCity = pPlayer:GetCityByID(eCity)
-	
-	for building in GameInfo.Buildings{BuildingClass=iBuildingClass1} do
-		if pCity:IsHasBuilding(building.ID) then
-			if iBuildingClass2 == nil then
-				return true
-			else
-				for building in GameInfo.Buildings{BuildingClass=iBuildingClass2} do
-					if pCity:IsHasBuilding(building.ID) then
-						return true
-					end
-				end
-			end
-		end
-	end
-	
-	return false
-end
-GameEvents.CityCanConstruct.Add(IsHasUniqueBuildingClassReq)--]]
 -------------------------------------------------------------------------------------------------------------------------
 function Initialize()
 	-- IsMaxEra
@@ -879,7 +847,7 @@ function Initialize()
 			--dprint("...adding (id,building,requirement)", id, GameInfo.Buildings[id].Type, "(IsNoCoast)")
 		end
 
-		-- IsHasMountains
+		-- IsHasMountains (more than one Mountain)
 		tValidIsHasMountains = {
 			[GameInfo.Buildings.BUILDING_MACHU_PICHU.ID] = true,
 			[GameInfo.Buildings.BUILDING_BAMYAN.ID] = true,
@@ -1043,11 +1011,11 @@ function Initialize()
 			--dprint("...adding (id,building,approach1,approach2,approach3,approach4)", id, GameInfo.Buildings[id].Type, building.eRequiredApproach1, building.eRequiredApproach2, building.eRequiredApproach3, building.eRequiredApproach4)
 		end
 	
-		-- IsHasCsAllies
+		-- IsHasCsAllies (first reduced because of Policy requirement)
 		tValidIsHasCsAllies = {
+			[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 2,
 			[GameInfo.Buildings.BUILDING_PORCELAIN_TOWER.ID] = 2,
 			[GameInfo.Buildings.BUILDING_HOUSE_OF_TRADE.ID] = 2,
-			[GameInfo.Buildings.BUILDING_BIG_BEN.ID] = 2,
 			[GameInfo.Buildings.BUILDING_TAIPEI.ID] = 3
 		}
 		for id, building in pairs(tValidIsHasCsAllies) do
@@ -1063,11 +1031,7 @@ function Initialize()
 			--dprint("...adding (id,building,happiness)", id, GameInfo.Buildings[id].Type, tValidIsHappiness[id])
 		end
 	
-		-- IsHasGreatWorks
-		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_UFFIZI.ID] = {
-			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
-			iRequiredGreatWorks = 3
-		}
+		-- IsHasGreatWorks (first 3 reduced because of Policy requirement)
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_MUSEUM_ISLAND.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
 			iRequiredGreatWorks = 3
@@ -1079,6 +1043,10 @@ function Initialize()
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_BROADWAY.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
 			iRequiredGreatWorks = 2
+		}
+		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_UFFIZI.ID] = {
+			eGreatWorkType = "GREAT_WORK_SLOT_ART_ARTIFACT",
+			iRequiredGreatWorks = 3
 		}
 		tValidIsHasGreatWorks[GameInfo.Buildings.BUILDING_SYDNEY_OPERA_HOUSE.ID] = {
 			eGreatWorkType = "GREAT_WORK_SLOT_MUSIC",
@@ -1109,68 +1077,21 @@ function Initialize()
 			--dprint("...adding (id,building,cities)", id, GameInfo.Buildings[id].Type, tValidIsHasCities[id])
 		end
 
-		-- IsHasUniqueBuildingClassReq
-		--[[tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_STONE_WORKS"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CHAND_BAORI.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_WELL"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_LIBRARY"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_WARTBURG.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_WRITERS_GUILD"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_FORBIDDEN_PALACE.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_WALLS",
-			iBuildingClass2 = "BUILDINGCLASS_PALACE"		
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_BATH",
-			iBuildingClass2 = "BUILDINGCLASS_AMPHITHEATER"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_MARAE.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_GARDEN"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SISTINE_CHAPEL.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_ARTISTS_GUILD"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_KEW_GARDENS.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_STOCKYARD",
-			iBuildingClass2 = "BUILDINGCLASS_GARDEN"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_DARJEELING.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_TRAINSTATION"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_ORSZAGHAZ.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_CONSTABLE"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_GREAT_FIREWALL.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_POLICE_STATION",
-			iBuildingClass2 = "BUILDINGCLASS_WIRE_SERVICE"
-		}
-		tValidIsHasUniqueBuildingClassReq[GameInfo.Buildings.BUILDING_CERN.ID] = {
-			iBuildingClass1 = "BUILDINGCLASS_LABORATORY"
-		}
-		for id, building in pairs(tValidIsHasUniqueBuildingClassReq) do
-			dprint("...adding (id,building,buildingclass1,buildingclass2)", id, GameInfo.Buildings[id].Type, building.iBuildingClass1, building.iBuildingClass2)
-		end--]]
-
-		-- IsHasSpecialist
-		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
-			eSpecialistType = "NONE",
-			iRequiredSpecialists = 10
-		}
+		-- IsHasSpecialist (first reduced because of Policy requirement)
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
 			eSpecialistType = "SPECIALIST_MERCHANT",
 			iRequiredSpecialists = 2
 		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
+			eSpecialistType = "NONE",
+			iRequiredSpecialists = 7
+		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_CONCORDE.ID] = {
 			eSpecialistType = "SPECIALIST_ENGINEER",
+			iRequiredSpecialists = 3
+		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_GREAT_HALL.ID] = {
+			eSpecialistType = "SPECIALIST_CIVIL_SERVANT",
 			iRequiredSpecialists = 3
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_SPUTNIK.ID] = {
