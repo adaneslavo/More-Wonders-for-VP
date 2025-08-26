@@ -8,7 +8,7 @@ v24:
 			- added 2 missing World Wonders in Atomic Era:
 				- Great Hall of People (focus: Diplomatic) (Order);
 				- Nuclear Research Center (focus: Scientific) (Autocracy);
-			- Statue of Liberty: now requires only 7 Specialist (was 10);
+			- revised and simplified all requirements of Ideology World Wonders;
 		- Policies:
 			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
 			- connected 1 optional World Wonders to each Policy tree (optional; requirements are changed only when a WW is enabled into the Policy list):
@@ -21,15 +21,7 @@ v24:
 				- Industry: Akihabara Electric Town;
 				- Imperialism: Panama Canal;
 				- Rationalism: Polar Expedition;
-			- buffed multiple Policy WWs hard requirements:
-				- University of Sankore: now No Water (was Desert);
-				- Great Zimbabwe: now only 2 improvements required (were 3);
-				- Kilwa Kisiwani: now only 2 improvements required (were 3);
-				- Palace of Westminster: now only 2 CS Allies required (were 3);
-				- Museum Island: now only 3 GW of Art required (were 4);
-				- Louvre: now only 3 GW of Art required (were 4);
-				- Broadway: now only 2 GW of Music required (were 3);
-				- Akihabara Electric Town: now only 2 Merchant Specialists required (were 3);
+			- revised and simplified all requirements of Policy World Wonders;
 			- adjusted Policy Cost for some early World Wonders;
 		- Holy (Holy buildings):
 			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by @Jarcast2):
