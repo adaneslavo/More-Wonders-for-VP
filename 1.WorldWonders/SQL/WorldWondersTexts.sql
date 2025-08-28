@@ -875,7 +875,7 @@ VALUES		('TXT_KEY_BUILDING_KILWA_KISIWANI',			'Kilwa Kisiwani'),
 			('TXT_KEY_WONDER_KILWA_KISIWANI_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_KILWA_KISIWANI_HELP_CUT', '[COLOR_YIELD_FOOD]Kilwa Kisiwani[ENDCOLOR] trade hub (+2[ICON_INTERNATIONAL_TRADE]) acquires for you additional copies of rare luxuries (+1 [ICON_RES_JEWELRY]; +1 [ICON_RES_PORCELAIN]). Coordination of this huge project gives you quick profits (+2[ICON_GOLD]) and allows you to find new trade areas increasing the value of potentially useless spare local resources (+1[ICON_PRODUCTION]/[COLOR_GREY]all Strategic Resources[ENDCOLOR]; +1[ICON_GOLD]/[COLOR_GREY]all Luxury Resources[ENDCOLOR]).';
+SELECT 'TXT_KEY_WONDER_KILWA_KISIWANI_HELP_CUT', '[COLOR_YIELD_FOOD]Kilwa Kisiwani[ENDCOLOR] trade hub (+2[ICON_INTERNATIONAL_TRADE]) acquires for you additional copies of rare luxuries (+1 [ICON_RES_JEWELRY]; +1 [ICON_RES_PORCELAIN]). Coordination of this huge project gives you quick profits (+2[ICON_GOLD]) and allows you to find new trade areas increasing the value of potentially useless spare local resources (+1[ICON_PRODUCTION]/all [COLOR_GREY]Strategic Resources[ENDCOLOR]; +1[ICON_GOLD]/all [COLOR_GREY]Luxury Resources[ENDCOLOR]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]2 (Mines + Camps)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KILWA_KISIWANI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KILWA_KISIWANI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -890,7 +890,7 @@ VALUES		('TXT_KEY_BUILDING_ST_PETERS',			'St. Peter''s Basilica'),
 			('TXT_KEY_WONDER_ST_PETERS_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_ST_PETERS_HELP_CUT', '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR], the mightiest [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([ICON_GOLD]; [ICON_PEACE]; [ICON_MISSIONARY]; [ICON_HAPPINESS_3]) of the world, holds a papal throne that gives you not only religious (+4[ICON_PEACE]; 3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]), but also often underestimated diplomatic power (+1[ICON_DIPLOMAT] League Vote/each 6[ICON_CITY_STATE] on start). Pulling right strings and writing persuasive speeches can esily improve the reception of your rules among citizens (+1[ICON_CULTURE]; +1[ICON_HAPPINESS_1]/all Religious buildings).';
+SELECT 'TXT_KEY_WONDER_ST_PETERS_HELP_CUT', '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR], the mightiest [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([ICON_GOLD]; [ICON_PEACE]; [ICON_MISSIONARY]; [ICON_HAPPINESS_3]) of the world, holds a papal throne that gives you not only religious (+4[ICON_PEACE]; 3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]), but also often underestimated diplomatic power (+1[ICON_DIPLOMAT] League Vote/each 6[ICON_CITY_STATE] on start). Pulling right strings and writing persuasive speeches can esily improve the reception of your rules among citizens (+1[ICON_CULTURE]; +1[ICON_HAPPINESS_1]/all [COLOR_YIELD_FOOD]Religious buildings[ENDCOLOR]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ST_PETERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ST_PETERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -1852,7 +1852,7 @@ VALUES		('TXT_KEY_BUILDING_GREAT_HALL',			'Great Hall of the People'),
 			('TXT_KEY_WONDER_GREAT_HALL_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_HALL_HELP_CUT', '');
+VALUES ('TXT_KEY_WONDER_GREAT_HALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Hall of the People[ENDCOLOR]');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Building: [COLOR_CYAN]Wire Service[ENDCOLOR]; City: [COLOR_CYAN]3 Civil Servant Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_HALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_HALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -1924,7 +1924,7 @@ VALUES		('TXT_KEY_BUILDING_TEHRAN_FACILITY',			'Nuclear Research Center'),
 			('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP',			'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP_CUT', '');
+VALUES ('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP_CUT', '[COLOR_YIELD_FOOD]Nuclear Research Center[ENDCOLOR]');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR]; Building: [COLOR_CYAN]Research Lab[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEHRAN_FACILITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEHRAN_FACILITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	

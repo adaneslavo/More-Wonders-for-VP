@@ -2969,7 +2969,7 @@
 	
 	-- CivilServants(3) (lua) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, FreePolicies = 1 WHERE Type = 'BUILDING_GREAT_HALL';
+	UPDATE Buildings SET GPExpendInfluence = 10, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2, FreePolicies = 1 WHERE Type = 'BUILDING_GREAT_HALL';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2981,7 +2981,11 @@
 
 	INSERT INTO Building_YieldChangesPerGoldenAge 
 				(BuildingType,			YieldType,			Yield,		YieldCap)
-	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	10,			999);
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	100,		999);
+
+	/*INSERT INTO Building_YieldFromGoldenAgeStart 
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	5);*/
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
