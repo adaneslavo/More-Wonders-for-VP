@@ -5,20 +5,21 @@
 --============================================--
 -- HELP
 --============================================--
--- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is Sea, MinAreaSize=1 is Lake)
+-- Water - city must be built NEXT TO a COAST tile or LAKE tile (MinAreaSize=10 is COAST, MinAreaSize=1 is LAKE)
 -- River - city must be built NEXT TO a RIVER
 -- FreshWater - city must be built next to a RIVER or adjacent to a LAKE or OASIS tile
 -- Mountain - city must be built NEXT TO a MOUNTAIN tile
 -- NearbyMountainRequired - city must be built WITHIN 2 TILES OF a MOUNTAIN tile, Mountain must be within cultural borders
 -- Hill - city must be built ON a HILL tile
 -- Flat - city MUST NOT be built ON a HILL tile
--- HolyCity
--- (VP) IsNoWater - restricts Fresh Water (River, Lake)
--- (VP) IsNoRiver
--- (VP) AnyWater - requires any type of water (Lake, Coast, River)
+-- HolyCity - city where Religion was founded
+-- (VP) IsNoWater - city MUST NOT have FRESH WATER source (RIVER, LAKE)
+-- (VP) IsNoRiver - city MUST NOT be built NEXT TO a RIVER
+-- (VP) AnyWater - city must be build NEXT TO a COAST, LAKE or RIVER
 -- (VP) CapitalOnly
 -- (VP) ResourceType - allows for Building to be unlocked by a specific resource being owned (can be strategic or luxury)
 -- (VP) RequiresRail - rail connection
+-- (lua) Specific requirements defined in UniqueWorldWondersRequirements.lua file
 --============================================--
 -- NEOLITHIC ERA
 --============================================--
@@ -65,7 +66,8 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
 	---------------------------------------------------------
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1 OR Value=2);
-	-- Farm(2) lua (HARD)
+	
+	-- Farm(2) (lua) (HARD)
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,		Yield)
@@ -357,8 +359,9 @@
 	UPDATE Buildings SET Cost = 150, PrereqTech = 'TECH_MINING', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_WIELICZKA';
 	---------------------------------------------------------
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_WIELICZKA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- Mine(2) lua (HARD)
-	-- PlaceForResource lua (ALL)
+	
+	-- Mine(2) (lua) (HARD)
+	-- PlaceForResource (lua) (ALL)
 	---------------------------------------------------------	
 	INSERT INTO Building_ResourceYieldChanges 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
@@ -911,7 +914,8 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_LAVAUX';
 	---------------------------------------------------------
 	UPDATE Buildings SET Hill = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_LAVAUX' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- PlaceForResource lua
+	
+	-- PlaceForResource (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -10 WHERE Type = 'BUILDING_LAVAUX';
 	
@@ -1095,6 +1099,7 @@
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_FALUN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	-- Mine(2) (lua) (HARD)
+	-- PlaceForResource (lua) (ALL)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield)
@@ -2238,7 +2243,7 @@
 	-- IsOnIsthmus (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_PANAMA_CANAL' WHERE Type = 'BUILDING_PANAMA_CANAL';
-	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, TradeRouteRecipientBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
+	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 200, TradeRouteRecipientBonus = 1, TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -2395,7 +2400,8 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_RUHR_VALLEY';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RUHR_VALLEY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	-- PlaceForResource lua (ALL)
+	
+	-- PlaceForResource (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET CityWorkingChange = 1 WHERE Type = 'BUILDING_RUHR_VALLEY';
 
@@ -2571,7 +2577,7 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_STATUE_OF_LIBERTY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
-	-- Specialists(7) (lua) (HARD)
+	-- Specialists(8) (lua) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- POLAR EXPEDITION (NEW)
@@ -2582,6 +2588,7 @@
 	UPDATE Buildings SET /*IsNoWater = 1, IsNoCoast = 1, */NearbyTerrainRequired = 'TERRAIN_SNOW' WHERE Type = 'BUILDING_POLAR_EXPEDITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	-- IsAtPolar (lua) (HARD)
+	-- PlaceForResource (lua) (ALL)
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,					Yield)
@@ -2981,11 +2988,7 @@
 
 	INSERT INTO Building_YieldChangesPerGoldenAge 
 				(BuildingType,			YieldType,			Yield,		YieldCap)
-	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	100,		999);
-
-	/*INSERT INTO Building_YieldFromGoldenAgeStart 
-				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	5);*/
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	5,			999);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)

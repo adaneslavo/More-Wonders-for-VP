@@ -1082,11 +1082,7 @@ function Initialize()
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_STATUE_OF_LIBERTY.ID] = {
 			eSpecialistType = "NONE",
-			iRequiredSpecialists = 7
-		}
-		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_CONCORDE.ID] = {
-			eSpecialistType = "SPECIALIST_ENGINEER",
-			iRequiredSpecialists = 3
+			iRequiredSpecialists = 8
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_GREAT_HALL.ID] = {
 			eSpecialistType = "SPECIALIST_CIVIL_SERVANT",
@@ -1094,6 +1090,10 @@ function Initialize()
 		}
 		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_SPUTNIK.ID] = {
 			eSpecialistType = "SPECIALIST_SCIENTIST",
+			iRequiredSpecialists = 3
+		}
+		tValidIsHasSpecialists[GameInfo.Buildings.BUILDING_CONCORDE.ID] = {
+			eSpecialistType = "SPECIALIST_ENGINEER",
 			iRequiredSpecialists = 3
 		}
 		for id, building in pairs(tValidIsHasSpecialists) do

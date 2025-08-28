@@ -118,7 +118,7 @@ VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
 			('TXT_KEY_WONDER_KARNAK_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_KARNAK_HELP_CUT', 'Temples of [COLOR_YIELD_FOOD]Karnak[ENDCOLOR] give you significant yield advantage (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]) and can turn rare [COLOR_CITY_GREEN]Oasis[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]) and [COLOR_CITY_GREEN]Flood Plains[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/2 [COLOR_CITY_GREEN]Tiles[ENDCOLOR]) into very productive sacred places. Recently constucted [COLOR_YIELD_FOOD]Monument[ENDCOLOR] ([ICON_CULTURE]; [ICON_CULTURE_LOCAL]; +1[ICON_CULTURE][ICON_CULTURE]) should be the first of many, because now they generate even more culture than before.');
+VALUES ('TXT_KEY_WONDER_KARNAK_HELP_CUT', 'Temples of [COLOR_YIELD_FOOD]Karnak[ENDCOLOR] give you significant yield advantage (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]) and can turn rare [COLOR_CITY_GREEN]Oasis[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]) and [COLOR_CITY_GREEN]Flood Plains[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/2 [COLOR_CITY_GREEN]Tiles[ENDCOLOR]) into very productive sacred places. Recently constucted [COLOR_YIELD_FOOD]Monument[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]; +1[ICON_CULTURE][ICON_CULTURE]) should be the first of many, because now they generate even more culture than before.');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KARNAK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KARNAK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -163,14 +163,14 @@ VALUES		('TXT_KEY_BUILDING_THONG_HAI_HIN',			'Plain of Jars'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_THONG_HAI_HIN_HELP_CUT', '[COLOR_YIELD_FOOD]Plain of Jars[ENDCOLOR] lays on the crossroad of multiple trade routes, so it must fulfill many different roles: a storehouse (Internal [ICON_INTERNATIONAL_TRADE]: +2[ICON_FOOD]), a cemetery (+3[ICON_PEACE]; 5[ICON_PEACE]/Death) or a market (+2[ICON_GOLD]; International Land [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]) making it an ideal spot for religious and economic center of your future empire.');
+VALUES ('TXT_KEY_WONDER_THONG_HAI_HIN_HELP_CUT', '[COLOR_YIELD_FOOD]Plain of Jars[ENDCOLOR] lays on the crossroad of multiple trade routes, so it must fulfill many different roles: a storehouse (Incoming Internal [ICON_INTERNATIONAL_TRADE]: +2[ICON_FOOD]), a cemetery (+3[ICON_PEACE]; 5[ICON_PEACE]/Death) or a market (+2[ICON_GOLD]; International Land [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]) making it an ideal spot for religious and economic center of your future empire.');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Plains[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_THONG_HAI_HIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Plains[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_THONG_HAI_HIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Stonehenge
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	'Mysterious [COLOR_YIELD_FOOD]Stonehenge[ENDCOLOR], an improved [COLOR_YIELD_FOOD]Council[ENDCOLOR] ([ICON_RESEARCH]), induces early scientific progress (+1[ICON_RESEARCH]) and evolution of religious rituals (+2[ICON_PEACE]; 60[ICON_PEACE]). Besides guaranteeing a foundation of a new religion, it is also a field for your scientists to gain new experience (+1[ICON_GREAT_SCIENTIST]).');
+VALUES ('TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	'Mysterious [COLOR_YIELD_FOOD]Stonehenge[ENDCOLOR], an improved [COLOR_YIELD_FOOD]Council[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), induces early scientific progress (+1[ICON_RESEARCH]) and evolution of religious rituals (+2[ICON_PEACE]; 60[ICON_PEACE]). Besides guaranteeing a foundation of a new religion, it is also a field for your scientists to gain new experience (+1[ICON_GREAT_SCIENTIST]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -193,7 +193,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR].'||Text 
 ----------------------------------------------------
 -- Temple of Artemis
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP_CUT', '[COLOR_YIELD_FOOD]Temple of Artemis[ENDCOLOR] promotes qualified [COLOR_YIELD_FOOD]Herbalist''s[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]) workers, whose competences are in need in developing country (-2[ICON_HAPPINESS_3] Urbanization). Strong bond with nature provides massive amounts of food (+12%[ICON_FOOD][ICON_FOOD]), but only when you secure your rich hunting grounds, and that gives you a powerful incentive for training even more archers than before (+30%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Ranged[ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP_CUT', '[COLOR_YIELD_FOOD]Temple of Artemis[ENDCOLOR] promotes qualified [COLOR_YIELD_FOOD]Herbalist''s[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) workers, whose competences are in need in developing country (-2[ICON_HAPPINESS_3] Urbanization). Strong bond with nature provides massive amounts of food (+12%[ICON_FOOD][ICON_FOOD]), but only when you secure your rich hunting grounds, and that gives you a powerful incentive for training even more archers than before (+30%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Ranged[ENDCOLOR]).');
 				
 UPDATE Language_en_US SET Text = REPLACE(Text, '10%', '12%') WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
 UPDATE Language_en_US SET Text = REPLACE(Text, '25%', '30%') WHERE Tag ='TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP';
@@ -203,14 +203,14 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_C
 ----------------------------------------------------
 -- Mausoleum of Halicarnassus
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP_CUT', '[COLOR_YIELD_FOOD]Mausoleum of Halicarnassus[ENDCOLOR], built in honor of the most deserving ruler (+1[ICON_CULTURE]), is a sign for all citizens that we should celebrate, not cry (20 turns of [ICON_HAPPINESS_1] WLTKD; +10%[ICON_PRODUCTION], +10%[ICON_GOLD], +10%[ICON_RESEARCH]/[ICON_HAPPINESS_1] WLTKD). Your [COLOR_YIELD_FOOD]Stone Works[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GOLD]) now has its hands full of work, and the upcoming prosperity brings rich merchants to your recently built market square (+1[ICON_GREAT_MERCHANT]).');
+VALUES ('TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP_CUT', '[COLOR_YIELD_FOOD]Mausoleum of Halicarnassus[ENDCOLOR], built in honor of the most deserving ruler (+1[ICON_CULTURE]), is a sign for all citizens that we should celebrate, not cry (20 turns of [ICON_HAPPINESS_1] WLTKD; +10%[ICON_PRODUCTION], +10%[ICON_GOLD], +10%[ICON_RESEARCH]/[ICON_HAPPINESS_1] WLTKD). Your [COLOR_YIELD_FOOD]Stone Works[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) now has its hands full of work, and the upcoming prosperity brings rich merchants to your recently built market square (+1[ICON_GREAT_MERCHANT]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Quarry[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MAUSOLEUM_HALICARNASSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Statue of Zeus
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] alongside with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([ICON_SILVER_FIST]; [ICON_RESEARCH]; [ICON_HAPPINESS_3]) increases your offensive capabilities, especially during long and wasting city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]; +1[ICON_GREAT_GENERAL]), and also triples your efforts towards reducing local unrest (+1[ICON_PEACE]; -1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]Workers[ENDCOLOR] are immune to [COLOR_WATER_TEXT]Prisoners of War[ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_STATUE_ZEUS_HELP_CUT',	'Monumental [COLOR_YIELD_FOOD]Statue of Zeus[ENDCOLOR] alongside with local [COLOR_YIELD_FOOD]Barracks[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) increases your offensive capabilities, especially during long and wasting city sieges ([COLOR_WATER_TEXT]Statue of Zeus[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]; +1[ICON_GREAT_GENERAL]), and also triples your efforts towards reducing local unrest (+1[ICON_PEACE]; -1[ICON_HAPPINESS_3] Distress; [COLOR_YIELD_GOLD]Workers[ENDCOLOR] are immune to [COLOR_WATER_TEXT]Prisoners of War[ENDCOLOR]).');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Iliad', '"The Iliad", Homer') WHERE Tag ='TXT_KEY_WONDER_STATUE_ZEUS_QUOTE';
 
@@ -275,7 +275,7 @@ VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
 			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a very unique [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_RESEARCH]). It holds precious [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_CULTURE]; +4[ICON_PEACE]; +1[ICON_VP_GREATART]), which is a foundation stone of Judaism. History shows that Jews are masters of economy and can gain additional profits from unexpected sources (+1[ICON_GOLD]; 15%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).');
+VALUES ('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a very unique [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]). It holds precious [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_CULTURE]; +4[ICON_PEACE]; +1[ICON_VP_GREATART]), which is a foundation stone of Judaism. History shows that Jews are masters of economy and can gain additional profits from unexpected sources (+1[ICON_GOLD]; 15%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -342,7 +342,7 @@ VALUES		('TXT_KEY_BUILDING_SONGYUE',			'Songyue Pagoda'),
 			('TXT_KEY_WONDER_SONGYUE_HELP',			'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_SONGYUE_HELP_CUT', '[COLOR_YIELD_FOOD]Pagodas[ENDCOLOR] ([ICON_RELIGION]; [ICON_HAPPINESS_3])');
+VALUES ('TXT_KEY_WONDER_SONGYUE_HELP_CUT', '[COLOR_YIELD_FOOD]Pagodas[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR])');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SONGYUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SONGYUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -351,7 +351,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 /*UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built on the coast. ', '') WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP_CUT',	'Finding the destination can be tough without the [COLOR_YIELD_FOOD]Lighthouse[ENDCOLOR] ([ICON_FOOD]; [ICON_GOLD]; [ICON_CONNECTED]), and every sailor or merchant will confirm that (+2[ICON_PRODUCTION]; +1[ICON_GREAT_MERCHANT]). [COLOR_YIELD_FOOD]Great Lighthouse[ENDCOLOR] additionally strengthens all your sea units, including naval officers giving them significant advantage over other units, especially in harsh stormy weather ([COLOR_WATER_TEXT]Navigation II[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]; +1[ICON_GREAT_ADMIRAL]).');
+VALUES ('TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP_CUT',	'Finding the destination can be tough without the [COLOR_YIELD_FOOD]Lighthouse[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), and every sailor or merchant will confirm that (+2[ICON_PRODUCTION]; +1[ICON_GREAT_MERCHANT]). [COLOR_YIELD_FOOD]Great Lighthouse[ENDCOLOR] additionally strengthens all your sea units, including naval officers giving them significant advantage over other units, especially in harsh stormy weather ([COLOR_WATER_TEXT]Navigation II[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]; +1[ICON_GREAT_ADMIRAL]).');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Bible, Psalms 107:23-24', '"Psalms 107:23-24" from the Bible') WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_QUOTE';
 
@@ -360,7 +360,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature:
 ----------------------------------------------------
 -- Great Library
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_LIBRARY_HELP_CUT', 'Enormous collection of books from [COLOR_YIELD_FOOD]Great Library[ENDCOLOR], like all other [COLOR_YIELD_FOOD]Libraries[ENDCOLOR] ([ICON_RESEARCH]; [ICON_HAPPINESS_3]) provides massive scientific boost (+3[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]), instant technological progress ([COLOR_CYAN]free Technology[ENDCOLOR]) and additional slots for literature, guaranteeing even more scientific breakthroughs when the collection is completed (2[ICON_VP_GREATWRITING], if themed: [ICON_RESEARCH]).');
+VALUES ('TXT_KEY_WONDER_GREAT_LIBRARY_HELP_CUT', 'Enormous collection of books from [COLOR_YIELD_FOOD]Great Library[ENDCOLOR], like all other [COLOR_YIELD_FOOD]Libraries[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) provides massive scientific boost (+3[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]), instant technological progress ([COLOR_CYAN]free Technology[ENDCOLOR]) and additional slots for literature, guaranteeing even more scientific breakthroughs when the collection is completed (2[ICON_VP_GREATWRITING], if themed: [ICON_RESEARCH]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_LIBRARY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -380,7 +380,7 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: 
 ----------------------------------------------------
 -- Hanging Gardens
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hanging Gardens[ENDCOLOR] are are much bigger and spectacular version of standard [COLOR_YIELD_FOOD]Garden[ENDCOLOR] ([ICON_GREAT_PEOPLE]; [ICON_GOLD]; [ICON_FOOD]; [ICON_HAPPINESS_3]), which provides massive amount of food (+10[ICON_FOOD]). Boost your population growth using its perks.'
+SET Text = '[COLOR_YIELD_FOOD]Hanging Gardens[ENDCOLOR] are are much bigger and spectacular version of standard [COLOR_YIELD_FOOD]Garden[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), which provides massive amount of food (+10[ICON_FOOD]). Boost your population growth using its perks.'
 WHERE Tag = 'TXT_KEY_WONDER_HANGING_GARDEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -423,14 +423,14 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE
 ----------------------------------------------------
 -- Oracle
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_ORACLE_HELP_CUT', 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR], holds a powerful secret - reveals the future giving you an instant advantage over other nations (500[ICON_RESEARCH]; 500[ICON_CULTURE]). Unlike other [COLOR_YIELD_FOOD]Temples[ENDCOLOR] ([ICON_PEACE]; [ICON_CULTURE]; [ICON_GOLD]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]), it puts knowledge over anything else (+1[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]) increasing the literacy (-1[ICON_HAPPINESS_3] Illiteracy) and cultural awerness of your citizens (+1[ICON_CULTURE]).');
+VALUES ('TXT_KEY_WONDER_ORACLE_HELP_CUT', 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR], holds a powerful secret - reveals the future giving you an instant advantage over other nations (500[ICON_RESEARCH]; 500[ICON_CULTURE]). Unlike other [COLOR_YIELD_FOOD]Temples[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it puts knowledge over anything else (+1[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]) increasing the literacy (-1[ICON_HAPPINESS_3] Illiteracy) and cultural awerness of your citizens (+1[ICON_CULTURE]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Angkor Wat
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] boosts your empire''s expansion (+25%[ICON_CULTURE][ICON_CULTURE] Border Growth; -25%[ICON_GOLD][ICON_GOLD] Plot Cost) and, unlike other [COLOR_YIELD_FOOD]Mandirs[ENDCOLOR] ([ICON_FOOD]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_SPY]), supports your engineering projects (+1[ICON_GREAT_ENGINEER]).'
+SET Text = '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] boosts your empire''s expansion (+25%[ICON_CULTURE][ICON_CULTURE] Border Growth; -25%[ICON_GOLD][ICON_GOLD] Plot Cost) and, unlike other [COLOR_YIELD_FOOD]Mandirs[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), supports your engineering projects (+1[ICON_GREAT_ENGINEER]).'
 WHERE Tag = 'TXT_KEY_WONDER_ANGKOR_WAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -443,22 +443,16 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Lake[ENDCOLOR].'||Text WH
 ----------------------------------------------------
 -- Great Wall
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders (obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR])). It takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_RANGE_STRENGTH]; [ICON_HAPPINESS_3]) to the next level, allowing you to gather an army (+3[ICON_SILVER_FIST]) and train your commanders with new tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders, obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR]). It takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) to the next level, allowing you to gather an army (+3[ICON_SILVER_FIST]) and train your commanders with new tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Other Player: [COLOR_CYAN]Deceptive[ENDCOLOR]/[COLOR_CYAN]Hostile[ENDCOLOR]/[COLOR_CYAN]Warring[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Colossus
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Colossus[ENDCOLOR] will make from you the greatest merchant of all seas (+1[ICON_INTERNATIONAL_TRADE]; [COLOR_YIELD_GOLD]free Cargo Ship[ENDCOLOR]). You can only watch how your gold income in the city is growing more and more thanks to the recently established trade routes (+2[ICON_GOLD]/[ICON_INTERNATIONAL_TRADE]).'
-WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+/*UPDATE Language_en_US SET Text = REPLACE(Text, 'Can only be constructed in a Coastal City. ', '') WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built on the coast. ', '') WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_COLOSSUS_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_COLOSSUS_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_COLOSSUS_HELP_CUT', '[COLOR_YIELD_FOOD]Colossus[ENDCOLOR] is a demonstration of your ruling over the seas (+5[ICON_GOLD]). Gaining control over the most important passages (Incoming International [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]/+1[ICON_GOLD] to owner) and finding new clients and locations for selling your goods (+1[ICON_INTERNATIONAL_TRADE]; [COLOR_YIELD_GOLD]free Cargo Ship[ENDCOLOR]) are a key to become the most powerful merchant in the region (+1[ICON_GREAT_MERCHANT]).');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'William Shakespear: Julius Caesar', '"Julius Caesar", William Shakespear') WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_QUOTE';
 				
@@ -478,7 +472,7 @@ VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
 			('TXT_KEY_WONDER_NABAWI_HELP',			'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is one of the biggests [COLOR_YIELD_FOOD]Mosques[ENDCOLOR] of the world ([ICON_RESEARCH]; [ICON_PEACE]; [ICON_GREAT_WORK]; [ICON_CULTURE]; [ICON_GOLDEN_AGE]; [ICON_HAPPINESS_3]). Built by Prophet Muhammad, it is historically important religious centre (+5[ICON_PEACE]; +10%[ICON_PEACE][ICON_PEACE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER]; 2[ICON_VP_GREATWRITING], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]). Remodeled by multiple cultures, it is still the most beautiful and astonishing temple you can see (+2[ICON_CULTURE]).';
+SELECT 'TXT_KEY_WONDER_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is one of the biggests [COLOR_YIELD_FOOD]Mosques[ENDCOLOR] of the world ([COLOR_YIELD_FOOD]free[ENDCOLOR]). Built by Prophet Muhammad, it is historically important religious centre (+5[ICON_PEACE]; +10%[ICON_PEACE][ICON_PEACE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER]; 2[ICON_VP_GREATWRITING], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]). Remodeled by multiple cultures, it is still the most beautiful and astonishing temple you can see (+2[ICON_CULTURE]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -572,7 +566,7 @@ VALUES		('TXT_KEY_BUILDING_FALUN',			'Falun Mine'),
 			('TXT_KEY_WONDER_FALUN_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_FALUN_HELP_CUT', '[COLOR_CITY_BROWN]Mining[ENDCOLOR] complex at [COLOR_YIELD_FOOD]Falun[ENDCOLOR] makes all crucial investments possible (+1[ICON_GOLD]/[COLOR_CITY_BROWN]Tile[ENDCOLOR]; +1[ICON_GOLD]). Quick surge of engineering staff (2%[ICON_GREAT_ENGINEER] progress/[COLOR_YIELD_FOOD]Medieval (or later) Building construction[ENDCOLOR]) and militaristic experts (+1[ICON_GREAT_GENERAL]; [COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]) guarantees successes on many fronts. Recently discovered [COLOR_GREY]Copper[ENDCOLOR] deposits (2[ICON_RES_COPPER] spawned; +1[ICON_GOLD], +1[ICON_GOLDEN_AGE]/[ICON_RES_COPPER]) can easily buy you leadership of the world.';
+SELECT 'TXT_KEY_WONDER_FALUN_HELP_CUT', '[COLOR_CITY_BROWN]Mining[ENDCOLOR] complex at [COLOR_YIELD_FOOD]Falun[ENDCOLOR] makes all crucial investments possible (+1[ICON_GOLD]/[COLOR_CITY_BROWN]Tile[ENDCOLOR]; +1[ICON_GOLD]). Quick surge of engineering staff (2%[ICON_GREAT_ENGINEER] progress/[COLOR_YIELD_FOOD]Medieval (or later) Building[ENDCOLOR] construction) and militaristic experts (+1[ICON_GREAT_GENERAL]; [COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]) guarantees successes on many fronts. Recently discovered [COLOR_GREY]Copper[ENDCOLOR] deposits (2[ICON_RES_COPPER] spawned; +1[ICON_GOLD], +1[ICON_GOLDEN_AGE]/[ICON_RES_COPPER]) can easily buy you leadership of the world.';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Improvement: [COLOR_CYAN]2 Mines[ENDCOLOR]; City: [COLOR_CYAN]place for [ICON_RES_COPPER][ENDCOLOR]; Map: [COLOR_CYAN][ICON_RES_COPPER] on map[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; City: [COLOR_CYAN]place for [ICON_RES_COPPER][ENDCOLOR]; Map: [COLOR_CYAN][ICON_RES_COPPER] on map[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FALUN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -656,7 +650,7 @@ VALUES		('TXT_KEY_BUILDING_BUYUK_HAN',		'Büyük Han'),
 			('TXT_KEY_WONDER_BUYUK_HAN_HELP',	'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([ICON_FOOD]; [ICON_PRODUCTION]; [ICON_GOLD]; [ICON_CULTURE]; [ICON_INTERNATIONAL_TRADE]), provides wide trading opportunities and place for contemplation (+1[ICON_FOOD]; +1[ICON_PEACE]). You can now hire brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]; +1[ICON_PRODUCTION]) or find new trading partners (+2[ICON_GOLD]; [COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).';
+SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), provides wide trading opportunities and place for contemplation (+1[ICON_FOOD]; +1[ICON_PEACE]). You can now hire brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]; +1[ICON_PRODUCTION]) or find new trading partners (+2[ICON_GOLD]; [COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Village[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -686,7 +680,7 @@ VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
 			('TXT_KEY_WONDER_QALHAT_HELP',		'+3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route in the Empire from or to other Major Player.');
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', 'According to many sailors [COLOR_YIELD_FOOD]Qalhat[ENDCOLOR] strongly supports sea trade seeking unique supplies (+1[ICON_INTERNATIONAL_TRADE]; +2[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]). It is a wonderful place, where merchants of all corners of the world meet and exchange their goods (+3[ICON_GOLD]; Sea [ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]). It is advised to spend some time there to learn foreign cultures and make additional profits (3[ICON_CULTURE]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] with Major).';
+SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', 'According to many sailors [COLOR_YIELD_FOOD]Qalhat[ENDCOLOR] strongly supports sea trade seeking unique supplies (+1[ICON_INTERNATIONAL_TRADE]; +2[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]). It is a wonderful place, where merchants of all corners of the world meet and exchange their goods (+3[ICON_GOLD]; International Sea [ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]). It is advised to spend some time there to learn foreign cultures and make additional profits (+3[ICON_CULTURE]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] with Major).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -725,7 +719,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 ----------------------------------------------------
 -- University of Sankore
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR] successfully combines science and faith together. Nearby [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] ([ICON_RESEARCH]; [ICON_PEACE]; [ICON_GREAT_WORK]; [ICON_CULTURE]; [ICON_GOLDEN_AGE]; [ICON_HAPPINESS_3]) will attract noble great people, who use their influence to boost your most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).'
+SET Text = '[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR] successfully combines science and faith together. Nearby [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) will attract noble great people, who use their influence to boost your most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).'
 WHERE Tag = 'TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -740,7 +734,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[END
 ----------------------------------------------------
 -- Hagia Sophia
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hagia Sophia[ENDCOLOR] profits from its rich history and fully reorganizes your religion. New prophet ([COLOR_YIELD_GOLD]Free [ICON_PROPHET][ENDCOLOR]), recently constructed [COLOR_YIELD_FOOD]Church[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_CULTURE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]) and increased pressure on dissenters (+25%[ICON_MISSIONARY] Strength) will force your will among other nations.'
+SET Text = '[COLOR_YIELD_FOOD]Hagia Sophia[ENDCOLOR] profits from its rich history and fully reorganizes your religion. New prophet ([COLOR_YIELD_GOLD]Free [ICON_PROPHET][ENDCOLOR]), recently constructed [COLOR_YIELD_FOOD]Church[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) and increased pressure on dissenters (+25%[ICON_MISSIONARY] Strength) will force your will among other nations.'
 WHERE Tag = 'TXT_KEY_WONDER_HAGIA_SOPHIA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -755,7 +749,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 ----------------------------------------------------
 -- Borobudur
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Borobudur[ENDCOLOR] is a gigantic [COLOR_YIELD_FOOD]Stupa[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_RESEARCH]; [ICON_GOLDEN_AGE]; [ICON_TOURISM]; [ICON_HAPPINESS_3]), which focuses on small actions, that can flow other cities with your faith (+5[ICON_PEACE]). Use existing and produce new more powerful [COLOR_YIELD_GOLD]Missionaries[ENDCOLOR] (+1[ICON_MISSIONARY] Spread) to quickly convert your enemies.'
+SET Text = '[COLOR_YIELD_FOOD]Borobudur[ENDCOLOR] is a gigantic [COLOR_YIELD_FOOD]Stupa[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), which focuses on small actions, that can flow other cities with your faith (+5[ICON_PEACE]). Use existing and produce new more powerful [COLOR_YIELD_GOLD]Missionaries[ENDCOLOR] (+1[ICON_MISSIONARY] Spread) to quickly convert your enemies.'
 WHERE Tag = 'TXT_KEY_WONDER_BOROBUDUR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_WONDER_BOROBUDUR_HELP';
@@ -770,7 +764,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 ----------------------------------------------------
 -- Alhambra
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Alhambra[ENDCOLOR] is an architectural mix of two totally different cultures (+10%[ICON_CULTURE]) formed into unique [COLOR_YIELD_FOOD]Castle[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_PRODUCTION]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]), where special mounted melee units will be trained to support your expansion ([COLOR_WATER_TEXT]Jinete[ENDCOLOR]/[COLOR_YIELD_GOLD]Mounted[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Alhambra[ENDCOLOR] is an architectural mix of two totally different cultures (+10%[ICON_CULTURE]) formed into unique [COLOR_YIELD_FOOD]Castle[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), where special mounted melee units will be trained to support your expansion ([COLOR_WATER_TEXT]Jinete[ENDCOLOR]/[COLOR_YIELD_GOLD]Mounted[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_ALHAMBRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Authority[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -815,7 +809,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[END
 ----------------------------------------------------
 -- Rila Monastery (former Karlstejn) [COLOR_YIELD_FOOD]Orders[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_HAPPINESS_3])
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Rila Monastery[ENDCOLOR] takes care of all [COLOR_YIELD_FOOD]Monasteries[ENDCOLOR] ([ICON_FOOD]; [ICON_RESEARCH]; [ICON_PEACE]), has high base yields (+3[ICON_CULTURE]; +4[ICON_PEACE]) and lowers requirement for reformation (-5%[ICON_RELIGION] Followers). Use it to gain new abilities just before your enemies do the same!'
+SET Text = '[COLOR_YIELD_FOOD]Rila Monastery[ENDCOLOR] takes care of all [COLOR_YIELD_FOOD]Monasteries[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), has high base yields (+3[ICON_CULTURE]; +4[ICON_PEACE]) and lowers requirement for reformation (-5%[ICON_RELIGION] Followers). Use it to gain new abilities just before your enemies do the same!'
 WHERE Tag = 'TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Order', 'Monastery') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -890,7 +884,7 @@ VALUES		('TXT_KEY_BUILDING_ST_PETERS',			'St. Peter''s Basilica'),
 			('TXT_KEY_WONDER_ST_PETERS_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_ST_PETERS_HELP_CUT', '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR], the mightiest [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([ICON_GOLD]; [ICON_PEACE]; [ICON_MISSIONARY]; [ICON_HAPPINESS_3]) of the world, holds a papal throne that gives you not only religious (+4[ICON_PEACE]; 3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]), but also often underestimated diplomatic power (+1[ICON_DIPLOMAT] League Vote/each 6[ICON_CITY_STATE] on start). Pulling right strings and writing persuasive speeches can esily improve the reception of your rules among citizens (+1[ICON_CULTURE]; +1[ICON_HAPPINESS_1]/all [COLOR_YIELD_FOOD]Religious buildings[ENDCOLOR]).';
+SELECT 'TXT_KEY_WONDER_ST_PETERS_HELP_CUT', '[COLOR_YIELD_FOOD]St. Peter''s Basilica[ENDCOLOR], the mightiest [COLOR_YIELD_FOOD]Cathedral[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) of the world, holds a papal throne that gives you not only religious (+4[ICON_PEACE]; 3 [COLOR_YIELD_GOLD]free Inquisitors[ENDCOLOR]), but also often underestimated diplomatic power (+1[ICON_DIPLOMAT] League Vote/each 6[ICON_CITY_STATE] on start). Pulling right strings and writing persuasive speeches can esily improve the reception of your rules among citizens (+1[ICON_CULTURE]; +1[ICON_HAPPINESS_1]/all [COLOR_YIELD_FOOD]Religious Buildings[ENDCOLOR]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ST_PETERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ST_PETERS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -980,7 +974,7 @@ VALUES		('TXT_KEY_BUILDING_MEENAKSHI',			'Meenakshi Temple'),
 			('TXT_KEY_WONDER_MEENAKSHI_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Mandir in the City in which it is built. Converts 20% of [ICON_PEACE] Faith Purchase into [ICON_FOOD] Food. All [ICON_GREAT_WORK] Great Works in the Empire gain +1 [ICON_FOOD] Food. +1 [ICON_PEACE] Faith from Lake and River tiles worked by this City.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Mandir[ENDCOLOR] ([ICON_FOOD]; [ICON_PEACE]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]; [ICON_SPY]) praising [COLOR_YIELD_FOOD]Meenakshi[ENDCOLOR] increases faith in your people (+1[ICON_PEACE]/4 [ICON_CITIZEN][ICON_CITIZEN]) amazed by this colorful wonder. Waters of nearby [COLOR_CITY_GREEN]Lakes[ENDCOLOR] and [COLOR_CITY_GREEN]Rivers[ENDCOLOR] (+1[ICON_PEACE]/Tile) boost your growth, which can be raised even more by investing in religious projects (20%[ICON_PEACE] Faith Purchase into [ICON_FOOD]) or devoting to artistry (+1[ICON_FOOD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]).'
+SET Text = '[COLOR_YIELD_FOOD]Mandir[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) praising [COLOR_YIELD_FOOD]Meenakshi[ENDCOLOR] increases faith in your people (+1[ICON_PEACE]/4 [ICON_CITIZEN][ICON_CITIZEN]) amazed by this colorful wonder. Waters of nearby [COLOR_CITY_GREEN]Lakes[ENDCOLOR] and [COLOR_CITY_GREEN]Rivers[ENDCOLOR] (+1[ICON_PEACE]/Tile) boost your growth, which can be raised even more by investing in religious projects (20%[ICON_PEACE] Faith Purchase into [ICON_FOOD]) or devoting to artistry (+1[ICON_FOOD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]).'
 WHERE Tag = 'TXT_KEY_WONDER_MEENAKSHI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1115,7 +1109,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Plot: [
 ----------------------------------------------------
 -- Himeji Castle
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Himeji Castle[ENDCOLOR] turns typical [COLOR_YIELD_FOOD]Castle[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_PRODUCTION]; [ICON_HAPPINESS_3]; [ICON_GREAT_WORK]) into impenetrable fortress (+10%[ICON_STRENGTH][ICON_STRENGTH]). Moreover, you can create bigger army (+5[ICON_SILVER_FIST]) and all units on your own land receive combat bonuses ([COLOR_WATER_TEXT]Himeji Castle[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Himeji Castle[ENDCOLOR] turns typical [COLOR_YIELD_FOOD]Castle[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) into impenetrable fortress (+10%[ICON_STRENGTH][ICON_STRENGTH]). Moreover, you can create bigger army (+5[ICON_SILVER_FIST]) and all units on your own land receive combat bonuses ([COLOR_WATER_TEXT]Himeji Castle[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_HIMEJI_CASTLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1167,7 +1161,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [CO
 ----------------------------------------------------
 -- Uffizi
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Uffizi[ENDCOLOR], as a kind of [COLOR_YIELD_FOOD]Gallery[ENDCOLOR] ([ICON_GOLD], [ICON_GREAT_WORK], [ICON_GREAT_ARTIST], [ICON_TOURISM]) is perfect spot for any talented artist ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTISTS][ENDCOLOR]; 3[ICON_VP_GREATART], if themed: [ICON_CULTURE]; +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). This wonder also resolves almost all problems with urbanization in your empire (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization)'
+SET Text = '[COLOR_YIELD_FOOD]Uffizi[ENDCOLOR], as a kind of [COLOR_YIELD_FOOD]Gallery[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is perfect spot for any talented artist ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTISTS][ENDCOLOR]; 3[ICON_VP_GREATART], if themed: [ICON_CULTURE]; +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). This wonder also resolves almost all problems with urbanization in your empire (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization)'
 WHERE Tag = 'TXT_KEY_WONDER_UFFIZI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1211,7 +1205,7 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'Feature: ', 'Feature: [COLOR_CYA
 ----------------------------------------------------
 -- Red Fort
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Red Fort[ENDCOLOR] is an ideal choice for a militaristic leader. Increased global army limit (+5% of [ICON_CITIZEN][ICON_CITIZEN] as [ICON_SILVER_FIST]), upgraded city''s offensive and defensive capabilities (+10%[ICON_RANGE_STRENGTH]; +1[ICON_SWAP]; +30[ICON_STRENGTH]; +100 HP), brand new [COLOR_YIELD_FOOD]Arsenal[ENDCOLOR] ([ICON_STRENGTH]; [ICON_RANGE_STRENGTH]; [ICON_SILVER_FIST]; [ICON_SPY]; [ICON_HAPPINESS_3]) as well as support of engineers ([COLOR_YIELD_GOLD]free [ICON_GREAT_ENGINEER][ENDCOLOR]) and scientists (+1[ICON_GREAT_SCIENTIST]) will make from you unquestionable leader of the world.'
+SET Text = '[COLOR_YIELD_FOOD]Red Fort[ENDCOLOR] is an ideal choice for a militaristic leader. Increased global army limit (+5% of [ICON_CITIZEN][ICON_CITIZEN] as [ICON_SILVER_FIST]), upgraded city''s offensive and defensive capabilities (+10%[ICON_RANGE_STRENGTH]; +1[ICON_SWAP]; +30[ICON_STRENGTH]; +100 HP), brand new [COLOR_YIELD_FOOD]Arsenal[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) as well as support of engineers ([COLOR_YIELD_GOLD]free [ICON_GREAT_ENGINEER][ENDCOLOR]) and scientists (+1[ICON_GREAT_SCIENTIST]) will make from you unquestionable leader of the world.'
 WHERE Tag = 'TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Fealty[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_RED_FORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -1239,7 +1233,7 @@ VALUES		('TXT_KEY_BUILDING_MUSEUM_ISLAND',					'Museum Island'),
 			('TXT_KEY_WONDER_MUSEUM_ISLAND_HELP',				'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Museum. +50% generation of [ICON_GREAT_ARTIST] Great Artists in Empire. +2 [ICON_TOURISM] Tourism to all Museums. Contains 4 slots for [ICON_VP_GREATART] Great Works of Art or Artifacts. +5 [ICON_RESEARCH] Science, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism if [COLOR_POSITIVE_TEXT]Themed[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (4[ICON_VP_GREATART], if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) (+2[ICON_TOURISM]).'
+SET Text = '[COLOR_YIELD_FOOD]Museum Island[ENDCOLOR] is the biggest composition of artistic work ever founded (4[ICON_VP_GREATART], if themed: [ICON_RESEARCH], [ICON_CULTURE], [ICON_TOURISM]). It is an incentive for anyone eager to become an artist (+50%[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]), whose art can be stored in one of recently created [COLOR_YIELD_FOOD]Museums[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]; +2[ICON_TOURISM]).'
 WHERE Tag = 'TXT_KEY_WONDER_MUSEUM_ISLAND_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1324,7 +1318,7 @@ VALUES		('TXT_KEY_BUILDING_PANAMA_CANAL',		'Panama Canal'),
 			('TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'+1[ICON_ARROW_RIGHT]Movement Point. +10 HP [COLOR:255:230:85:255]on Heal inside Friendly Territory[ENDCOLOR].');
 			
 UPDATE Language_en_US
-SET Text = 'Important [COLOR_YIELD_FOOD]Panama Canal[ENDCOLOR] project strengthens your trade routes and allows for further voyages (+100% Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] Range; +3[ICON_GOLD]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]). All maritime buildings gain additional support (+2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Harbors[ENDCOLOR], [COLOR_YIELD_FOOD]Seaports[ENDCOLOR]) and all naval units have increased mobility and endurance ([COLOR_WATER_TEXT]Panama Canal[ENDCOLOR]/[COLOR_YIELD_GOLD]Naval[ENDCOLOR]).'
+SET Text = 'Important [COLOR_YIELD_FOOD]Panama Canal[ENDCOLOR] project strengthens your trade routes and allows for further voyages (Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +100%[ICON_SWAP]; International Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]; Incoming International [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]/+3[ICON_GOLD] to owner). All maritime buildings gain additional support (+2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Harbors[ENDCOLOR], [COLOR_YIELD_FOOD]Seaports[ENDCOLOR]) and all naval units have increased mobility and endurance ([COLOR_WATER_TEXT]Panama Canal[ENDCOLOR]/[COLOR_YIELD_GOLD]Naval[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_PANAMA_CANAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1383,7 +1377,7 @@ VALUES		('TXT_KEY_BUILDING_MONTE_CARLO',		'Monte Carlo Casino'),
 			('TXT_KEY_WONDER_MONTE_CARLO_HELP',		'+10% [ICON_GOLD] Gold in your Empire. Converts 33% of [ICON_TOURISM] Tourism produced by this City into [ICON_GOLD] Gold. 20% of [ICON_GOLD] Gold Purchase is converted into [ICON_TOURISM] Tourism. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Hotel.');
 			
 UPDATE Language_en_US
-SET Text = 'Casino of [COLOR_YIELD_FOOD]Monte Carlo[ENDCOLOR] invites anyone favoured by the fortune (+10%[ICON_GOLD][ICON_GOLD]). Promises of becoming rich attract tourists (20%[ICON_GOLD] Spent into [ICON_TOURISM]), and money they spend in your [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([ICON_TOURISM]) (+2[ICON_GOLD]; +2[ICON_TOURISM]) is what your empire needs the most (33%[ICON_TOURISM] into [ICON_GOLD]).'
+SET Text = 'Casino of [COLOR_YIELD_FOOD]Monte Carlo[ENDCOLOR] invites anyone favoured by the fortune (+10%[ICON_GOLD][ICON_GOLD]). Promises of becoming rich attract tourists (20%[ICON_GOLD] Spent into [ICON_TOURISM]), and money they spend in your [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) (+2[ICON_GOLD]; +2[ICON_TOURISM]) is what your empire needs the most (33%[ICON_TOURISM] into [ICON_GOLD]).'
 WHERE Tag = 'TXT_KEY_WONDER_MONTE_CARLO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1442,7 +1436,7 @@ VALUES		('TXT_KEY_BUILDING_BANFF',			'Banff Springs Hotel'),
 			('TXT_KEY_WONDER_BANFF_HELP',		'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from all Merchant Specialists in your Empire. +5 [ICON_GOLD] Gold and +5 [ICON_TOURISM] Tourism from all Mountain tiles worked by this City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Hotel. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Banff Springs Hotel[ENDCOLOR] is a perfect example how to make profits from [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+5[ICON_GOLD], +5[ICON_TOURISM]/Tile to City) using basic tourism infrastructure: [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([ICON_TOURISM]), merchant districts (+1[ICON_GREAT_MERCHANT]; +5[ICON_GOLD], +5[ICON_TOURISM]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) and all kind of entertainment facilities (-1[ICON_HAPPINESS_3] Boredom).'
+SET Text = '[COLOR_YIELD_FOOD]Banff Springs Hotel[ENDCOLOR] is a perfect example how to make profits from [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+5[ICON_GOLD], +5[ICON_TOURISM]/Tile to City) using basic tourism infrastructure: [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), merchant districts (+1[ICON_GREAT_MERCHANT]; +5[ICON_GOLD], +5[ICON_TOURISM]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) and all kind of entertainment facilities (-1[ICON_HAPPINESS_3] Boredom).'
 WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1475,7 +1469,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; F
 ----------------------------------------------------
 -- Neuschwanstein
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Neuschwanstein[ENDCOLOR] gives you nice boost to your treasury (+6[ICON_GOLD]; +1[ICON_GREAT_MERCHANT]), culture output (+4[ICON_CULTURE]), and turns your [COLOR_YIELD_FOOD]Castles[ENDCOLOR] (+1[ICON_GOLD], +1[ICON_CULTURE], +1[ICON_HAPPINESS_1]) into most valuable buildings in your cities.'
+SET Text = '[COLOR_YIELD_FOOD]Neuschwanstein[ENDCOLOR] gives you nice boost to your treasury (+6[ICON_GOLD]; +1[ICON_GREAT_MERCHANT]), culture output (+4[ICON_CULTURE]), and turns your [COLOR_YIELD_FOOD]Castles[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) into most valuable buildings in your cities.'
 WHERE Tag = 'TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Can only be built in a City within 2 tiles of a Mountain that is inside your territory. ', '') WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -1490,7 +1484,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOL
 ----------------------------------------------------
 -- Soho Foundry
 UPDATE Language_en_US
-SET Text = 'If you are looking for a nice industrial boost for your civilization, then [COLOR_YIELD_FOOD]Soho Foundry[ENDCOLOR] is for you. This [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) is great source of strategic [COLOR_GREY]Coal[ENDCOLOR] (+4 [ICON_RES_COAL]), supported by fresh engineering corps (+1[ICON_GREAT_ENGINEER]), that will increase your development significantly.' WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+SET Text = 'If you are looking for a nice industrial boost for your civilization, then [COLOR_YIELD_FOOD]Soho Foundry[ENDCOLOR] is for you. This [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is great source of strategic [COLOR_GREY]Coal[ENDCOLOR] (+4 [ICON_RES_COAL]), supported by fresh engineering corps (+1[ICON_GREAT_ENGINEER]), that will increase your development significantly.' WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
@@ -1502,7 +1496,7 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_C
 ----------------------------------------------------
 -- Louvre
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] is an ideal place for hiding precious artifacts (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]). This huge [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM) also contains wonderful pieces of global art (4[ICON_VP_GREATART], if themed: [ICON_CULTURE]) and invites artists from all over the world ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] is an ideal place for hiding precious artifacts (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]). This huge [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) also contains wonderful pieces of global art (4[ICON_VP_GREATART], if themed: [ICON_CULTURE]) and invites artists from all over the world ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Artistry[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -1594,7 +1588,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_AKIHABARA_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_AKIHABARA_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improvement: [COLOR_CYAN]Town[ENDCOLOR]; City: [COLOR_CYAN]2 Merchant Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improvement: [COLOR_CYAN]Town[ENDCOLOR]; City: [COLOR_CYAN]2 Merchants[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; '||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
@@ -1608,7 +1602,7 @@ VALUES		('TXT_KEY_BUILDING_ROCKEFELLER',		'Rockefeller Center'),
 			('TXT_KEY_WONDER_ROCKEFELLER_HELP',		'Provides a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Research Lab in the City in which it is built. +2 [ICON_RESEARCH] Science from all Hospitals in your Empire. +3 [ICON_GOLD] Gold to all your Cities in Empire. Receive 5% [ICON_CULTURE] Culture from each [ICON_GOLD] Gold Purchase in the Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Rockefeller Center[ENDCOLOR] strongly supports many different branches of your country: economy (+3[ICON_GOLD]/City), culture (5%[ICON_CULTURE]/[ICON_GOLD][ICON_GOLD] Purchase) and research (+2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Hospitals[ENDCOLOR]). Huge breakthroughs will be only matter of time thanks to new [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] ([ICON_RESEARCH]) working in this complex.'
+SET Text = '[COLOR_YIELD_FOOD]Rockefeller Center[ENDCOLOR] strongly supports many different branches of your country: economy (+3[ICON_GOLD]/City), culture (5%[ICON_CULTURE]/[ICON_GOLD][ICON_GOLD] Purchase) and research (+2[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Hospitals[ENDCOLOR]). Huge breakthroughs will be only matter of time thanks to new [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) working in this complex.'
 WHERE Tag = 'TXT_KEY_WONDER_ROCKEFELLER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1691,7 +1685,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_CONCORDE_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_CONCORDE_HELP';
 				
-UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Engineer Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Engineers[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_CONCORDE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Sanbo Honbu
@@ -1742,7 +1736,7 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (2 tiles)[ENDCOL
 ----------------------------------------------------
 -- Statue of Liberty
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Statue of Liberty[ENDCOLOR] is your sign towards other communities, that your development is the best way to rule the world ([COLOR_MAGENTA]free Policy[ENDCOLOR]). Such a confidence increase trust of your citizens, who become more productive in all spheres of life (+1[ICON_PRODUCTION]/All specialists).'
+SET Text = '[COLOR_YIELD_FOOD]Statue of Liberty[ENDCOLOR] is your sign towards other communities, that your development is the best way to rule the world ([COLOR_MAGENTA]free Policy[ENDCOLOR]). Such a confidence increase trust of your citizens, who become more productive in all spheres of life (+1[ICON_PRODUCTION]/All Specialists).'
 WHERE Tag = 'TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires [COLOR_MAGENTA]Freedom[ENDCOLOR]. ', '') WHERE Tag ='TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -1752,12 +1746,12 @@ INSERT INTO Language_en_US
 SELECT		'TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP_CUT',	Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; City: [COLOR_CYAN]7 Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; City: [COLOR_CYAN]8 Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_STATUE_OF_LIBERTY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Empire State Building
 UPDATE Language_en_US
-SET Text = 'Becoming rich is in your blood, so construction of [COLOR_YIELD_FOOD]Empire State Building[ENDCOLOR] is inevitable (+1[ICON_GOLD]/All specialists). It is a [COLOR_YIELD_FOOD]Stock Exchange[ENDCOLOR] ([ICON_GOLD]; [ICON_GREAT_MERCHANT]), were bankers generate huge profits and people gather to change their future ([COLOR_YIELD_GOLD]free [ICON_GREAT_PEOPLE][ENDCOLOR]).'
+SET Text = 'Becoming rich is in your blood, so construction of [COLOR_YIELD_FOOD]Empire State Building[ENDCOLOR] is inevitable (+1[ICON_GOLD]/All Specialists). It is a [COLOR_YIELD_FOOD]Stock Exchange[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), were bankers generate huge profits and people gather to change their future ([COLOR_YIELD_GOLD]free [ICON_GREAT_PEOPLE][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_BUILDING_EMPIRE_STATE_BUILDING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -1785,7 +1779,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Ter
 ----------------------------------------------------
 -- Motherland Calls
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Motherland Calls[ENDCOLOR] strengthen internal security using a [COLOR_YIELD_FOOD]Police Station[ENDCOLOR] ([ICON_SPY]; [ICON_HAPPINESS_3]; [ICON_CULTURE]; [ICON_RESEARCH]) and you will be able to motivate more troops in this city (+100% of [ICON_CITIZEN] as [ICON_SILVER_FIST]). Maintanence of your city infrastructure is much lower (-10%[ICON_GOLD][ICON_GOLD] Maintenance) and your enemies become less successful in pillaging (Enemies cannot restore HP or gain [ICON_GOLD] from Pillaging).'
+SET Text = '[COLOR_YIELD_FOOD]Motherland Calls[ENDCOLOR] strengthen internal security using a [COLOR_YIELD_FOOD]Police Station[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) and you will be able to motivate more troops in this city (+100% of [ICON_CITIZEN] as [ICON_SILVER_FIST]). Maintanence of your city infrastructure is much lower (-10%[ICON_GOLD][ICON_GOLD] Maintenance) and your enemies become less successful in pillaging (Enemies cannot restore HP or gain [ICON_GOLD] from Pillaging).'
 WHERE Tag = 'TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires [COLOR_MAGENTA]Order[ENDCOLOR]. ', '') WHERE Tag ='TXT_KEY_WONDER_MOTHERLAND_STATUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -1852,9 +1846,9 @@ VALUES		('TXT_KEY_BUILDING_GREAT_HALL',			'Great Hall of the People'),
 			('TXT_KEY_WONDER_GREAT_HALL_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_HALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Hall of the People[ENDCOLOR]');
+VALUES ('TXT_KEY_WONDER_GREAT_HALL_HELP_CUT', 'Annual meetings in [COLOR_YIELD_FOOD]Great Hall of the People[ENDCOLOR] have strong political influence on both: your empire (+2[ICON_GOLDEN_AGE]/5[ICON_CITIZEN][ICON_CITIZEN]) and all other countries that observe your governance with curiosity (+2[ICON_DIPLOMAT]; 10[ICON_INFLUENCE]/[ICON_GREAT_PEOPLE] expend). Meanwhile, in between the sessions, this place changes into a cultural gem (+1[ICON_CULTURE]; [COLOR_MAGENTA]free Policy[ENDCOLOR]) finally exploding when you successfully finish another five-year plan (cumulative +5[ICON_CULTURE]/every [ICON_GOLDEN_AGE] start).');
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Building: [COLOR_CYAN]Wire Service[ENDCOLOR]; City: [COLOR_CYAN]3 Civil Servant Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_HALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Building: [COLOR_CYAN]Wire Service[ENDCOLOR]; City: [COLOR_CYAN]3 Civil Servants[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_HALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_HALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Habitat-67
@@ -1924,8 +1918,8 @@ VALUES		('TXT_KEY_BUILDING_TEHRAN_FACILITY',			'Nuclear Research Center'),
 			('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP',			'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP_CUT', '[COLOR_YIELD_FOOD]Nuclear Research Center[ENDCOLOR]');
-				
+VALUES ('TXT_KEY_WONDER_TEHRAN_FACILITY_HELP_CUT', 'Those who control nuclear energy, control whole world as well (+2[ICON_RES_URANIUM]). That''s why [COLOR_YIELD_FOOD]Nuclear Research Center[ENDCOLOR] secretely performs broad spectrum of research and develops new technologies (+2[ICON_RESEARCH]; 40[ICON_RESEARCH]/[COLOR_YIELD_GOLD]Unit[ENDCOLOR] construction) giving your [COLOR_YIELD_FOOD]Nuclear Power Plants[ENDCOLOR] silent support (+2[ICON_PRODUCTION][ICON_PRODUCTION]). The key is no one got to know that you are using it not only for peaceful projects, but also for military purposes (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missile[ENDCOLOR]).');			
+
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR]; Building: [COLOR_CYAN]Research Lab[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEHRAN_FACILITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEHRAN_FACILITY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
@@ -1964,7 +1958,7 @@ INSERT INTO Language_en_US (Tag, Text)
 SELECT 'TXT_KEY_WONDER_SPUTNIK_HELP_CUT', Text
 FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SPUTNIK_HELP';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Scientist Specialists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM]; City: [COLOR_CYAN]3 Scientists[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Order[ENDCOLOR]; Improved Resource: [ICON_RES_ALUMINUM].'||Text WHERE Tag ='TXT_KEY_WONDER_SPUTNIK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Anitkabir
@@ -1997,7 +1991,7 @@ VALUES		('TXT_KEY_BUILDING_THULE',			'Thule Air Base'),
 			('TXT_KEY_PROMOTION_THULE_HELP',	'+5%[ICON_RANGE_STRENGTH]Offensive RCS. +2 [ICON_SWAP] Range.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Thule Air Base[ENDCOLOR] strengthen your air supremacy by keeping more planes in local hangars (+3[ICON_BULLET]Air slots; +2[ICON_SILVER_FIST]), training better pilots (+10 XP to local Planes; +5 XP to global Planes) or improving the overall units capabilities ([COLOR_WATER_TEXT]Operational Range[ENDCOLOR]/[COLOR_YIELD_GOLD]Planes[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Thule Air Base[ENDCOLOR] strengthen your air supremacy by keeping more planes in local hangars (+3[ICON_BULLET]Air slots; +2[ICON_SILVER_FIST]), training better pilots (+10 XP to local Planes; +5 XP to global Planes) or improving the overall units capabilities ([COLOR_WATER_TEXT]Operational Range[ENDCOLOR]/[COLOR_YIELD_GOLD]Airplane[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_THULE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2018,7 +2012,7 @@ VALUES		('TXT_KEY_BUILDING_WHITE_SANDS',		'White Sands Missile Range'),
 			('TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'+2 [ICON_SWAP] Range.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]/[COLOR_YIELD_GOLD]Missile[ENDCOLOR]; 1 slot for [ICON_GREAT_SCIENTIST]). Using latest technologies rockets are cheap and easy to manufacture (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missiles[ENDCOLOR]; +10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Parts[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]White Sands Missile Range[ENDCOLOR] is a facility where numerous tests made rocket engineering reach the highest level ([COLOR_WATER_TEXT]White Sands Facility[ENDCOLOR]/[COLOR_YIELD_GOLD]Missile[ENDCOLOR]; 1 slot for [ICON_GREAT_SCIENTIST]). Using latest technologies rockets are cheap and easy to manufacture (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Missile[ENDCOLOR]; +10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]; 3 [COLOR_YIELD_GOLD]free Guided Missiles[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_WHITE_SANDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2056,7 +2050,7 @@ VALUES		('TXT_KEY_BUILDING_REVOLUTIONARY_MUSEUM',		'Revolutionary Museum'),
 			('TXT_KEY_WONDER_REVOLUTIONARY_MUSEUM_HELP',	'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +3 [ICON_CULTURE] Culture from all Monuments and +2 [ICON_TOURISM] Tourism from all Police Stations and Constabularies in your Empire. +10% generation of [ICON_GREAT_PEOPLE] Great People in this City. 50 [ICON_CULTURE] Culture on Great Person expending scaling with Era.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Revolutionary Museum[ENDCOLOR] praise your civilization''s leaders like Gods (+3[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]; 50[ICON_CULTURE]/[ICON_GREAT_PEOPLE]; [COLOR_MAGENTA]free Policy[ENDCOLOR]). There''s also much higher chance to have a worthy successor on his place (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). All security services do everything to show people from all over the world the most important parts of your country (+2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Police Stations[ENDCOLOR], [COLOR_YIELD_FOOD]Constabularies[ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Revolutionary Museum[ENDCOLOR] praise your civilization''s leaders like Gods (+3[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]; 50[ICON_CULTURE]/[ICON_GREAT_PEOPLE] expend; [COLOR_MAGENTA]free Policy[ENDCOLOR]). There''s also much higher chance to have a worthy successor on his place (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). All security services do everything to show people from all over the world the most important parts of your country (+2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Police Stations[ENDCOLOR], [COLOR_YIELD_FOOD]Constabularies[ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_REVOLUTIONARY_MUSEUM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2087,7 +2081,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[E
 ----------------------------------------------------
 -- Pentagon
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Pentagon[ENDCOLOR] focuses on military abilities of your cities (+1[ICON_SILVER_FIST][ICON_SILVER_FIST]; +2 global City Air Cap). Increased forces for production of your planes (+50%[ICON_PRODUCTION], +20 XP/[COLOR_YIELD_GOLD]Air[ENDCOLOR]; 2 [COLOR_YIELD_GOLD]free Jet Fighters[ENDCOLOR]. And it can even more, thanks to hidden intelligence agency, making your spies more effective (higher chance to: Disrupt [ICON_PRODUCTION]).'
+SET Text = '[COLOR_YIELD_FOOD]Pentagon[ENDCOLOR] focuses on military abilities of your cities (+1[ICON_SILVER_FIST][ICON_SILVER_FIST]; +2 global City Air Cap). Increased forces for production of your planes (+50%[ICON_PRODUCTION], +20 XP/[COLOR_YIELD_GOLD]Airplane[ENDCOLOR]; 2 [COLOR_YIELD_GOLD]free Jet Fighters[ENDCOLOR]. And it can even more, thanks to hidden intelligence agency, making your spies more effective (higher chance to: Disrupt [ICON_PRODUCTION]).'
 WHERE Tag = 'TXT_KEY_WONDER_PENTAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Imperialism[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_PENTAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -2102,7 +2096,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[E
 ----------------------------------------------------
 -- Bletchey Park
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Bletchey Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+200[ICON_VP_SPY_POINTS]; +20[ICON_SPY][ICON_SPY] City Security). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([ICON_RESEARCH]; [ICON_GREAT_SCIENTIST]; [ICON_HAPPINESS_3]) is constructed to increase your knowledge.'
+SET Text = '[COLOR_YIELD_FOOD]Bletchey Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+200[ICON_VP_SPY_POINTS]; +20[ICON_SPY][ICON_SPY] City Security). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is constructed to increase your knowledge.'
 WHERE Tag = 'TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Rationalism[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -2145,7 +2139,7 @@ VALUES		('TXT_KEY_BUILDING_THREE_GORGES_DAM',			'Three Gorges Dam'),
 			('TXT_KEY_WONDER_THREE_GORGES_DAM_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_THREE_GORGES_DAM_HELP_CUT', 'Monumental [COLOR_YIELD_FOOD]Three Gorges Dam[ENDCOLOR] is an enormous effort of qualified engineers (+1[ICON_RESEARCH]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER]; 2 slots for [ICON_GREAT_ENGINEER]). This huge [COLOR_YIELD_FOOD]Hydroelectric Power Plant[ENDCOLOR] ([ICON_FOOD], [ICON_PRODUCTION], [ICON_RESEARCH]) supports local economy based on [COLOR_CITY_GREEN]River[ENDCOLOR] and [COLOR_CITY_GREEN]Lakes[ENDCOLOR] (+1[ICON_PRODUCTION]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]; 200% of city''s [ICON_GOLD] is added to their current [ICON_GOLD] on [ICON_CITIZEN] Birth)');
+VALUES ('TXT_KEY_WONDER_THREE_GORGES_DAM_HELP_CUT', 'Monumental [COLOR_YIELD_FOOD]Three Gorges Dam[ENDCOLOR] is an enormous effort of qualified engineers (+1[ICON_RESEARCH]/[ICON_GREAT_ENGINEER][ICON_GREAT_ENGINEER]; 2 slots for [ICON_GREAT_ENGINEER]). This huge [COLOR_YIELD_FOOD]Hydroelectric Power Plant[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) supports local economy based on [COLOR_CITY_GREEN]River[ENDCOLOR] and [COLOR_CITY_GREEN]Lakes[ENDCOLOR] (+1[ICON_PRODUCTION]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]; 200% of city''s [ICON_GOLD] is added to their current [ICON_GOLD] on [ICON_CITIZEN] Birth)');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_THREE_GORGES_DAM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_THREE_GORGES_DAM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -2228,7 +2222,7 @@ UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_URANIUM].'||Text 
 ----------------------------------------------------
 -- CN Tower
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]CN Tower[ENDCOLOR] is unusual [COLOR_YIELD_FOOD]Broadcast Tower[ENDCOLOR] ([ICON_GREAT_WORK]; [ICON_CULTURE]; [ICON_TOURISM]; [ICON_HAPPINESS_3]), which serves for masses (+1[ICON_HAPPINESS_1]/City). All works become much more valuable (+2[ICON_GOLD], +2[ICON_TOURISM], +25%[ICON_TOURISM], +25%[ICON_TOURISM][ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and all wonders are now tourism centers (+25%[ICON_CULTURE] of all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BLUE]Tiles[ENDCOLOR] is converted into [ICON_TOURISM][ICON_TOURISM] and another 25% into [ICON_TOURISM]).'
+SET Text = '[COLOR_YIELD_FOOD]CN Tower[ENDCOLOR] is unusual [COLOR_YIELD_FOOD]Broadcast Tower[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), which serves for masses (+1[ICON_HAPPINESS_1]/City). All works become much more valuable (+2[ICON_GOLD], +2[ICON_TOURISM], +25%[ICON_TOURISM], +25%[ICON_TOURISM][ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and all wonders are now tourism centers (+25%[ICON_CULTURE] of all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BLUE]Tiles[ENDCOLOR] is converted into [ICON_TOURISM][ICON_TOURISM] and another 25% into [ICON_TOURISM]).'
 WHERE Tag = 'TXT_KEY_WONDER_CN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -2269,7 +2263,7 @@ UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_BUILDING_GREAT_FIR
 ----------------------------------------------------
 -- Hubble Space Telescope
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_RESEARCH]). This huge leap towards space can be an inspiration for further development (1 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
+SET Text = '[COLOR_YIELD_FOOD]Hubble Space Telescope[ENDCOLOR] is last step to your scientific victory (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Spaceship Part[ENDCOLOR]), supported by brand new [COLOR_YIELD_FOOD]Spaceship Factory[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]). This huge leap towards space can be an inspiration for further development (1 [COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]).'
 WHERE Tag = 'TXT_KEY_WONDER_HUBBLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US 
@@ -2324,7 +2318,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR:45:150:50:255]Victory in "Unit
 ----------------------------------------------------
 -- Grand Canal
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Grand Canal[ENDCOLOR] shows your devotion to all those people, who risk their lives on sea frontline ([COLOR_WATER_TEXT]Treasure Fleet[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval (no Carriers, Submarines)[ENDCOLOR]). It also allows you to establish another trade route (+1[INTERNATIONAL_TRADE]), but it is your choice if it will be land or sea connection.'
+SET Text = '[COLOR_YIELD_FOOD]Grand Canal[ENDCOLOR] shows your devotion to all those people, who risk their lives on sea frontline ([COLOR_WATER_TEXT]Treasure Fleet[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval (no Carriers, Submarines)[ENDCOLOR]). It also allows you to establish another trade route (+1[ICON_INTERNATIONAL_TRADE]), but it is your choice if it will be land or sea connection.'
 WHERE Tag = 'TXT_KEY_BUILDING_GRAND_CANAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'May only be built collaboratively through the World Congress. ', '') WHERE Tag ='TXT_KEY_BUILDING_GRAND_CANAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
@@ -2488,7 +2482,7 @@ UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Bu
 	----------------------------------------------------
 	-- TORRE DEL ORO
 	UPDATE Language_en_US
-	SET Text = '[COLOR_YIELD_FOOD]Torre del Oro[ENDCOLOR] concentrates on naval trade routes. It makes them easier and more profitable (+1[ICON_INTERNATIONAL_TRADE]; +1[ICON_GREAT_MERCHANT]; Sea [ICON_INTERNATIONAL_TRADE]: +3[ICON_GOLD], +50%[ICON_SWAP]). Bright new [COLOR_YIELD_FOOD]Drydock[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]) will be a nice beginning to your naval supremacy.'
+	SET Text = '[COLOR_YIELD_FOOD]Torre del Oro[ENDCOLOR] concentrates on naval trade routes. It makes them easier and more profitable (+1[ICON_INTERNATIONAL_TRADE]; +1[ICON_GREAT_MERCHANT]; International Sea [ICON_INTERNATIONAL_TRADE]: +3[ICON_GOLD]; , Sea [ICON_INTERNATIONAL_TRADE]: +50%[ICON_SWAP]). Bright new [COLOR_YIELD_FOOD]Drydock[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]) will be a nice beginning to your naval supremacy.'
 	WHERE Tag = 'TXT_KEY_WONDER_EE_TORRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 
 	UPDATE Language_en_US SET Text = REPLACE(Text, '[NEWLINE][NEWLINE]City must be build on the [COLOR_CYAN]Coast[ENDCOLOR].', '') WHERE Tag ='TXT_KEY_WONDER_EE_TORRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);

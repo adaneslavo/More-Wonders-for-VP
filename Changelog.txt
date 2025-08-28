@@ -69,6 +69,7 @@ v24:
 			- Panama Canal:
 				- must be next to the Sea;
 				- now correct 10-tile Landmass (was 11-tile Area);
+				- now grants +1 Gold to your city, +3 Gold to owner and additional +2 Gold to your city if TR is Sea TR (was +3 for Sea TR and +3 to your city);
 		- Flavoured Help Texts:
 			- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
 			- all original help texts are cleared, and only lua abilities are added there instead;
