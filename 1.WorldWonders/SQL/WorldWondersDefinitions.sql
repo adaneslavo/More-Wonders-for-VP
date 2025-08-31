@@ -41,7 +41,7 @@
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_ALTAMIRA',	'YIELD_CULTURE',	1);
 
-	INSERT INTO Building_ResourceYieldChanges 
+	INSERT INTO Building_ResourceYieldChangesGlobal
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_ALTAMIRA',	'RESOURCE_BISON',	'YIELD_FOOD',		1),
 				('BUILDING_ALTAMIRA',	'RESOURCE_DEER',	'YIELD_FOOD',		1),
@@ -708,6 +708,10 @@
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
 	SELECT		'BUILDING_ANGKOR_WAT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreeBuildingThisCity = NULL, SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	
+	-- CHANGES
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIGIRIYA (NEW)

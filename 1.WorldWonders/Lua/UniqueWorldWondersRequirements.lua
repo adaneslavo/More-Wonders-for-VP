@@ -304,7 +304,8 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 				
 								if (eImprovement == eRequiredImprovement1 or eImprovement == eRequiredImprovement2 
 									or eImprovement == eRequiredImprovement3 or eImprovement == eRequiredImprovement4 
-									or eImprovement == eRequiredImprovement5) and not pSpecificPlot:IsImprovementPillaged() then
+									or eImprovement == eRequiredImprovement5 or eImprovement == eRequiredImprovement6) 
+									and not pSpecificPlot:IsImprovementPillaged() then
 									iCurrentImprovements = iCurrentImprovements + 1
 								end
 							end
@@ -924,6 +925,7 @@ function Initialize()
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
 			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
 			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
+			eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
@@ -942,11 +944,13 @@ function Initialize()
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
 			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
 			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
+			eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
@@ -956,6 +960,7 @@ function Initialize()
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_PENTAGON.ID] = {
 			eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 			eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
+			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
@@ -968,6 +973,7 @@ function Initialize()
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
 			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
 			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
+			eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
@@ -980,6 +986,7 @@ function Initialize()
 			eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
 			eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_JAR_BORGO					and GameInfo.Improvements.IMPROVEMENT_JAR_BORGO.ID					or -2,
 			eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN					and GameInfo.Improvements.IMPROVEMENT_JAR_HOGAN.ID					or -2,
+			eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 			iRequiredImprovements = 1
 		}
 		-- EE compatibility
