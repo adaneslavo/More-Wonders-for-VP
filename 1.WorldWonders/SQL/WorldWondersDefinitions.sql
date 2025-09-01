@@ -708,10 +708,6 @@
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
 	SELECT		'BUILDING_ANGKOR_WAT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = NULL, SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_ANGKOR_WAT';
-	
-	-- CHANGES
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIGIRIYA (NEW)
@@ -1431,10 +1427,6 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1, Flat = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_NOTRE_DAME' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
-	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
-	UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
-	UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KRAK DES CHEVALIERS (NEW)
@@ -1609,8 +1601,6 @@
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,				FeatureType) 
 	SELECT		'BUILDING_CHICHEN_ITZA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- GOLDEN PAVILION (NEW)
@@ -2146,8 +2136,10 @@
 -- BROOKLYN BRIDGE (NEW)
 	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_BROOKLYN';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_BROOKLYN';
+	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, River = 1 WHERE Type = 'BUILDING_BROOKLYN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	
 	-- IsHasCitizens(25) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET NumTradeRouteBonus = 1, MinorFriendshipChange = 100 WHERE Type = 'BUILDING_BROOKLYN';
@@ -2247,7 +2239,7 @@
 	-- IsOnIsthmus (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_PANAMA_CANAL' WHERE Type = 'BUILDING_PANAMA_CANAL';
-	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 200, TradeRouteRecipientBonus = 1, TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
+	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, /*TradeRouteRecipientBonus = 1,*/ TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -2634,7 +2626,6 @@
 -- AKIHABARA ELECTRIC TOWN (NEW)
 	UPDATE Buildings SET Cost = 1550, PrereqTech = 'TECH_ELECTRICITY', NumPoliciesNeeded = 18 WHERE Type = 'BUILDING_AKIHABARA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_AKIHABARA';
-	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_AKIHABARA' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 	---------------------------------------------------------
 	-- Town(1) (lua) (HARD)
 	-- Merchants(2) (lua) (HARD)
@@ -4111,7 +4102,7 @@ UPDATE Buildings
 SET Cost = -1, FaithCost = -1, PrereqTech = NULL, GreatWorkCount = -1, IsDummy = 1
 WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 --============================================--
--- VP FIXES
+-- VP FIXES/BALANCES
 --============================================--
 -- deletion of unnecessary and annoying +1 Culture from most of base WWs:
 	-- deletion with substitution
@@ -4128,7 +4119,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PYRAMID';
 		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_PYRAMID', 'YIELD_GOLDEN_AGE_POINTS', 1);
 	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CHICHEN_ITZA';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 1);
+		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 3);
 	-- ==> Great General Points
 	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STATUE_ZEUS';
 		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STATUE_ZEUS', 'YIELD_GREAT_GENERAL_POINTS', 1);
@@ -4183,6 +4174,22 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 	UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_PETRA';
 	UPDATE Building_YieldChanges SET Yield = 3 WHERE BuildingType = 'BUILDING_PETRA';
 	INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_PETRA', 'YIELD_GOLD', 1);
+	
+-- religious building replacement:
+	-- Angkor Wat
+	UPDATE Buildings SET FreeBuildingThisCity = NULL, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	UPDATE Building_YieldChanges SET Yield = 2 WHERE BuildingType = 'BUILDING_ANGKOR_WAT';
+	INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
+	INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
+	-- Chichen Itza
+	UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
+	-- Notre Dame
+	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
+	UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+	UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+	-- University of Sankore
+	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+	
 --============================================--
 -- EE Compatibility
 --============================================--

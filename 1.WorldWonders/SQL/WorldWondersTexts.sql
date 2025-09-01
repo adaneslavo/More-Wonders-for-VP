@@ -348,8 +348,6 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SONGYUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
 -- Great Lighthouse
-/*UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built on the coast. ', '') WHERE Tag ='TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
-
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP_CUT',	'Finding the destination can be tough without the [COLOR_YIELD_FOOD]Lighthouse[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), and every sailor or merchant will confirm that (+2[ICON_PRODUCTION]; +1[ICON_GREAT_MERCHANT]). [COLOR_YIELD_FOOD]Great Lighthouse[ENDCOLOR] additionally strengthens all your sea units, including naval officers giving them significant advantage over other units, especially in harsh stormy weather ([COLOR_WATER_TEXT]Navigation II[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]; +1[ICON_GREAT_ADMIRAL]).');
 
@@ -367,7 +365,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE
 ----------------------------------------------------
 -- Forum Romanum
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_FORUM_HELP_CUT',	'[COLOR_YIELD_FOOD]Forum Romanum[ENDCOLOR] uses variety of diplomatic tricks to change you into the most influential ruler in the world ([COLOR_WATER_TEXT]Imperial Seal[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]; +1[ICON_CULTURE]). Beside receiving a support of qualified experts ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +1[ICON_DIPLOMAT]), your efforts to improve and speed up training programs of your diplomatic messengers are finally accepted by the council of the elders (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]). This goes in line with the intensified production of [COLOR_GREY]Paper[ENDCOLOR] necessary for finalizing important agreements (+1[ICON_RES_PAPER]).');
+VALUES ('TXT_KEY_BUILDING_FORUM_HELP_CUT',	'[COLOR_YIELD_FOOD]Forum Romanum[ENDCOLOR] uses variety of tricks to change you into the most influential ruler in the world ([COLOR_WATER_TEXT]Imperial Seal[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]; +1[ICON_CULTURE]). You receive a support of qualified experts ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +1[ICON_DIPLOMAT]) and increase efforts on improving and speeding up training programs for your messengers (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]). This goes in line with the intensified production of [COLOR_GREY]Paper[ENDCOLOR] necessary for finalizing important agreements (+1[ICON_RES_PAPER]).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]1 Policy less needed[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]1 Policy less needed[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -381,27 +379,17 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||
 ----------------------------------------------------
 -- Terracota Army
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	'Incredible [COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] will allow you to keep your power even after you glorious death (+5[ICON_SILVER_FIST]). This cultural masterpiece is a reflection of your current military strength, and how successes of your army influence the citizens of the empire (10[ICON_CULTURE]/Kill). To finalize this project it is necessary to introduce fresh more engaged workforce (+25%[ICON_WORKER]) and to send more supplies, so necessary for your artists (+1[ICON_PRODUCTION]).');
+VALUES ('TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	'Incredible [COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] will allow you to keep your power even after you glorious death (+5[ICON_SILVER_FIST]). This cultural masterpiece is a reflection of your current military strength, and how successes of your army influence the citizens of the empire (10[ICON_CULTURE]/Kill). To finalize this project it is necessary to introduce fresh and more engaged workforce (+25%[ICON_WORKER]) and to send more supplies, so necessary for your sculptors (+1[ICON_PRODUCTION]).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]; Improvement: [COLOR_CYAN]2 (Mines + Quarries)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Parthenon
-/*
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Parthenon[ENDCOLOR] focuses not only on artistry (2[ICON_GREAT_WORK], if themed: [ICON_CULTURE]; [COLOR_CULTURE_STORED]Phidias Showing the Frieze of the Parthenon to his Friends[ENDCOLOR]) entertaining your citizens (-1[ICON_HAPPINESS_3] Boredom), but also supports your army (+10% of [ICON_CITIZEN] as [ICON_SILVER_FIST]). Additionally it turns [COLOR_YIELD_FOOD]Amphitheaters[ENDCOLOR] (+1[ICON_RESEARCH][ICON_RESEARCH]; +1[ICON_CULTURE][ICON_CULTURE]) into scientific and cultural centers.'
-WHERE Tag = 'TXT_KEY_WONDER_PARTHENON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Contains a prebuilt [ICON_GREAT_WORK] Great Work of Art in one of the [ICON_GREAT_WORK] Great Work slots.', 'Starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Phidias Showing the Frieze of the Parthenon to his Friends[ENDCOLOR].') WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,									Text) 
-SELECT		'TXT_KEY_WONDER_PARTHENON_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PARTHENON_HELP';
+-- Nalanda
+/*INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_NALANDA_HELP_CUT', '[COLOR_YIELD_FOOD]Nalanda[ENDCOLOR] is a temple containing amazing literature (2[ICON_GREAT_WORK], if themed: [ICON_CULTURE]; [COLOR_CULTURE_STORED]The Way of the Bodhisattva[ENDCOLOR]), but also acts as a university changing all [COLOR_YIELD_FOOD]Amphitheaters[ENDCOLOR] into a scientific and cultural centers (+1[ICON_RESEARCH][ICON_RESEARCH]; +1[ICON_CULTURE][ICON_CULTURE]) and increasing the quality of life of your citizens (+2[ICON_CULTURE]; -1[ICON_HAPPINESS_3] Boredom). And devoted citizens will surely swell the ranks of your army (+10% of [ICON_CITIZEN] as [ICON_SILVER_FIST]).');
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PARTHENON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
-*/
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NALANDA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NALANDA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);*/
 ----------------------------------------------------
 -- Oracle
 INSERT INTO Language_en_US (Tag, Text) 
@@ -411,28 +399,20 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [CO
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Angkor Wat
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] boosts your empire''s expansion (+25%[ICON_CULTURE][ICON_CULTURE] Border Growth; -25%[ICON_GOLD][ICON_GOLD] Plot Cost) and, unlike other [COLOR_YIELD_FOOD]Mandirs[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), supports your engineering projects (+1[ICON_GREAT_ENGINEER]).'
-WHERE Tag = 'TXT_KEY_WONDER_ANGKOR_WAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,									Text) 
-SELECT		'TXT_KEY_WONDER_ANGKOR_WAT_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_ANGKOR_WAT_HELP_CUT', '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] is a huge complex changing surrounding terrain (+25%[ICON_CULTURE_LOCAL][ICON_CULTURE_LOCAL] Border Growth; -25%[ICON_GOLD][ICON_GOLD] Plot Cost) into a monumental religious temple (+2[ICON_PEACE]; 20[ICON_PEACE]/[ICON_CULTURE_LOCAL] Border Growth). As an addition it functions as a diplomatic post which will successfully serve you and your descendants (+2[ICON_DIPLOMAT]). This unique mix of religion and diplomacy (+3[ICON_PEACE]/[ICON_DIPLOMAT]) creates an amazing cultural experience (+2[ICON_CULTURE]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR], [COLOR_CYAN]Jungle[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Lake[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Great Wall
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders, obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR]). It takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) to the next level, allowing you to gather an army (+3[ICON_SILVER_FIST]) and train your commanders with new tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project protecting its people for ages (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders, obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR]). It takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) to the next level, allowing you to gather an army (+3[ICON_SILVER_FIST]) and train your commanders with quite new brilliant tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Other Player: [COLOR_CYAN]Deceptive[ENDCOLOR]/[COLOR_CYAN]Hostile[ENDCOLOR]/[COLOR_CYAN]Warring[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Colossus
-/*UPDATE Language_en_US SET Text = REPLACE(Text, 'Can only be constructed in a Coastal City. ', '') WHERE Tag ='TXT_KEY_WONDER_COLOSSUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
-
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_COLOSSUS_HELP_CUT', '[COLOR_YIELD_FOOD]Colossus[ENDCOLOR] is a demonstration of your ruling over the seas (+5[ICON_GOLD]). Gaining control over the most important passages (Incoming International [ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]/+1[ICON_GOLD] to owner) and finding new clients and locations for selling your goods (+1[ICON_INTERNATIONAL_TRADE]; [COLOR_YIELD_GOLD]free Cargo Ship[ENDCOLOR]) are a key to become the most powerful merchant in the region (+1[ICON_GREAT_MERCHANT]).');
 
@@ -658,11 +638,11 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_QALHAT',			'Qalhat'),
 			('TXT_KEY_WONDER_QALHAT_QUOTE',		'[NEWLINE]"The haven is very large and good, and is frequented by numerous ships with goods from India, and from this city the spices and other merchandize are distributed among the cities and towns of the interior. They also export many good Arab horses from this to India."[NEWLINE] - Marco Polo[NEWLINE]'),
 			('TXT_KEY_WONDER_QALHAT_PEDIA',		'TODO'),
-			/*('TXT_KEY_WONDER_QALHAT_HELP',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +50% [ICON_PRODUCTION] Production of Cargo Ships. International Sea [ICON_INTERNATIONAL_TRADE] Trade Routes connected to this City gain +1 [ICON_GOLD] Gold. +3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route from or to other Major Player in the Empire.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD] Gold.');*/
+			/*('TXT_KEY_WONDER_QALHAT_HELP',	'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +50% [ICON_PRODUCTION] Production of Cargo Ships. International [ICON_CARGO_SHIP] Trade Routes connected to this City gain +1 [ICON_GOLD] Gold. +3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route from or to other Major Player in the Empire.[NEWLINE][NEWLINE]Nearby [ICON_RES_HORSE] Horses: +2 [ICON_GOLD] Gold.');*/
 			('TXT_KEY_WONDER_QALHAT_HELP',		'+3 [ICON_CULTURE] Culture for each International [ICON_INTERNATIONAL_TRADE] Trade Route in the Empire from or to other Major Player.');
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', 'According to many sailors [COLOR_YIELD_FOOD]Qalhat[ENDCOLOR] strongly supports sea trade seeking unique supplies (+1[ICON_INTERNATIONAL_TRADE]; +2[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]). It is a wonderful place, where merchants of all corners of the world meet and exchange their goods (+3[ICON_GOLD]; International Sea [ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]). It is advised to spend some time there to learn foreign cultures and make additional profits (+3[ICON_CULTURE]/Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE] with Major).';
+SELECT 'TXT_KEY_WONDER_QALHAT_HELP_CUT', 'According to many sailors [COLOR_YIELD_FOOD]Qalhat[ENDCOLOR] strongly supports sea trade seeking unique supplies (+1[ICON_INTERNATIONAL_TRADE]; +2[ICON_GOLD]/[ICON_RES_HORSE]; +50%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Cargo Ship[ENDCOLOR]). It is a wonderful place, where merchants of all corners of the world meet and exchange their goods (+3[ICON_GOLD]; International [ICON_CARGO_SHIP]: +1[ICON_GOLD]). It is advised to spend some time there to learn foreign cultures and make additional profits (+3[ICON_CULTURE]/[ICON_CARGO_SHIP][ICON_CARGO_SHIP] with Major).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource: [ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_QALHAT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -1263,6 +1243,8 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BROOKLYN_HELP';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; City: [COLOR_CYAN]25 Citizens[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BROOKLYN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BROOKLYN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; '||Text WHERE Tag ='TXT_KEY_WONDER_BROOKLYN_HELP' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 ----------------------------------------------------
 -- Trans-Siberian Railway
 INSERT INTO Language_en_US 
@@ -1291,13 +1273,13 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_PANAMA_CANAL',		'Panama Canal'),
 			('TXT_KEY_WONDER_PANAMA_CANAL_QUOTE',	'[NEWLINE]"A stream cannot rise larger than its source"[NEWLINE] - Theodore Roosevelt[NEWLINE]'),
 			('TXT_KEY_WONDER_PANAMA_CANAL_PEDIA',	'The Panama Canal is a manmade shipping lane located on the Panama Isthmus seperating the Pacific Ocean and Carribean Sea. The idea of a canal in the location was first proposed int he sixteenth century by Charles V, Holy Roman Emperor, who asked for a link to shorten the journey between Spain and their colony of Peru. In 1698 the Kingdom of Scotland launched a project to create an overland trade route in the area, which was abandoned due to inhospitiable conditions a year later.[NEWLINE][NEWLINE] It was not until 1855 that a link was first established, the Panama Canal Railway, as a result of the 1849 discovery of Gold in the American state of California. This railway was used extensively in the American construction of the canal from 1904 to 1914. As opposed to the French plan of constructing a flat water canal, much like that of the Suez Canal, the American design featured a series of ship locks to rise the ships over a range that caused problems for the French design. The American design proved sucessful, and was opened on August 15, 1914. Railway cars had been used to transport approximately 152,910,972 cubic metres of excevations through the construction, while it had cost 27,500 lives across the whole project.'),
-			/*('TXT_KEY_WONDER_PANAMA_CANAL_HELP',	'All Naval Units receive [COLOR_POSITIVE_TEXT]Panama Canal[ENDCOLOR] promotion. Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% range and International ones gain +3 [ICON_GOLD] Gold. All Harbors and Seaports gain +2 [ICON_GOLD] Gold.'),*/
-			('TXT_KEY_WONDER_PANAMA_CANAL_HELP',	'Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain +100% Range. All Incoming International [ICON_INTERNATIONAL_TRADE] Trade Routes gain +1 [ICON_GOLD] Gold and grant +3 [ICON_GOLD] to the [ICON_INTERNATIONAL_TRADE] Trade Route Owner. International Sea [ICON_INTERNATIONAL_TRADE] Trade Routes gain additional +2 [ICON_GOLD] Gold.'),
+			/*('TXT_KEY_WONDER_PANAMA_CANAL_HELP',	'All Naval Units receive [COLOR_POSITIVE_TEXT]Panama Canal[ENDCOLOR] promotion. [ICON_CARGO_SHIP] Trade Routes gain +100% range and International ones gain +3 [ICON_GOLD] Gold. All Harbors and Seaports gain +2 [ICON_GOLD] Gold.'),*/
+			('TXT_KEY_WONDER_PANAMA_CANAL_HELP',	'[ICON_CARGO_SHIP] Trade Routes gain +100% Range. All Incoming International [ICON_INTERNATIONAL_TRADE] Trade Routes gain +1 [ICON_GOLD] Gold and grant +3 [ICON_GOLD] to the [ICON_INTERNATIONAL_TRADE] Trade Route Owner. International [ICON_CARGO_SHIP] Trade Routes gain additional +2 [ICON_GOLD] Gold.'),
 			('TXT_KEY_PROMOTION_PANAMA_CANAL',		'Panama Canal'),
 			('TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'+1[ICON_ARROW_RIGHT]Movement Point. +10 HP [COLOR:255:230:85:255]on Heal inside Friendly Territory[ENDCOLOR].');
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_PANAMA_CANAL_HELP_CUT', 'New passage through [COLOR_YIELD_FOOD]Panama Canal[ENDCOLOR] allows you to dictate terms (Incoming International [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +1[ICON_GOLD]/+3[ICON_GOLD] to owner; International Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +2[ICON_GOLD]). World trade can reach much farther places than before thanks to a shorter watercourse (Sea [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +100%[ICON_SWAP]) and you are the one who cares about their safety ([COLOR_WATER_TEXT]Panama Canal[ENDCOLOR]/[COLOR_YIELD_GOLD]Naval[ENDCOLOR]) and boosts whole maritime industry (+3[ICON_PRODUCTION]; +2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Harbors[ENDCOLOR], [COLOR_YIELD_FOOD]Seaports[ENDCOLOR]).';
+SELECT 'TXT_KEY_WONDER_PANAMA_CANAL_HELP_CUT', 'New passage through [COLOR_YIELD_FOOD]Panama Canal[ENDCOLOR] allows you to dictate terms to cargo units (Incoming International [ICON_INTERNATIONAL_TRADE][ICON_INTERNATIONAL_TRADE]: +3[ICON_GOLD] to owner; International [ICON_CARGO_SHIP][ICON_CARGO_SHIP]: +3[ICON_GOLD]). World trade can reach much farther places than before thanks to a shorter watercourse ([ICON_CARGO_SHIP][ICON_CARGO_SHIP]: +100%[ICON_SWAP]) and you have to care about their safety ([COLOR_WATER_TEXT]Panama Canal[ENDCOLOR]/[COLOR_YIELD_GOLD]Naval[ENDCOLOR]) and to boost whole maritime industry (+3[ICON_PRODUCTION]; +2[ICON_GOLD]/all [COLOR_YIELD_FOOD]Harbors[ENDCOLOR], [COLOR_YIELD_FOOD]Seaports[ENDCOLOR]).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Isthmus on minimum coastal 10-tile area[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PANAMA_CANAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Isthmus on minimum coastal 10-tile area[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PANAMA_CANAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1564,8 +1546,6 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_AKIHABARA_HELP';
 				
 UPDATE Language_en_US SET Text = 'Improvement: [COLOR_CYAN]Town[ENDCOLOR]; City: [COLOR_CYAN]2 Merchants[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = ''||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
-
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; '||Text WHERE Tag ='TXT_KEY_WONDER_AKIHABARA_HELP' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 ----------------------------------------------------
 -- Rockefeller Center
 INSERT INTO Language_en_US 
@@ -2456,7 +2436,7 @@ UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Bu
 	----------------------------------------------------
 	-- TORRE DEL ORO
 	UPDATE Language_en_US
-	SET Text = '[COLOR_YIELD_FOOD]Torre del Oro[ENDCOLOR] concentrates on naval trade routes. It makes them easier and more profitable (+1[ICON_INTERNATIONAL_TRADE]; +1[ICON_GREAT_MERCHANT]; International Sea [ICON_INTERNATIONAL_TRADE]: +3[ICON_GOLD]; , Sea [ICON_INTERNATIONAL_TRADE]: +50%[ICON_SWAP]). Bright new [COLOR_YIELD_FOOD]Drydock[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]) will be a nice beginning to your naval supremacy.'
+	SET Text = '[COLOR_YIELD_FOOD]Torre del Oro[ENDCOLOR] concentrates on naval trade routes. It makes them easier and more profitable (+1[ICON_INTERNATIONAL_TRADE]; +1[ICON_GREAT_MERCHANT]; International [ICON_CARGO_SHIP]: +3[ICON_GOLD]; , [ICON_CARGO_SHIP]: +50%[ICON_SWAP]). Bright new [COLOR_YIELD_FOOD]Drydock[ENDCOLOR] ([ICON_STRENGTH]; [ICON_SILVER_FIST]) will be a nice beginning to your naval supremacy.'
 	WHERE Tag = 'TXT_KEY_WONDER_EE_TORRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1) AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-EE' AND Value= 1);
 
 	UPDATE Language_en_US SET Text = REPLACE(Text, '[NEWLINE][NEWLINE]City must be build on the [COLOR_CYAN]Coast[ENDCOLOR].', '') WHERE Tag ='TXT_KEY_WONDER_EE_TORRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);

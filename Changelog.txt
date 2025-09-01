@@ -3,6 +3,7 @@ v24:
 - World Wonders:
 	- new/changed:
 		- regular World Wonders:
+			- Nalanda replaced Parthenon (adapted it to VP's MUC integration);
 			- Three Gorges Dam (Information Era);
 		- Ideologies:
 			- added 2 missing World Wonders in Atomic Era:
@@ -10,83 +11,97 @@ v24:
 				- Nuclear Research Center (focus: Scientific) (Autocracy);
 			- revised and simplified all requirements of Ideology World Wonders;
 		- Policies:
-			- added option to enable additional World Wonder per Policy tree ("MW-SETTING-POLICIES");
-			- connected 1 optional World Wonders to each Policy tree (optional; requirements are changed only when a WW is enabled into the Policy list):
-				- Tradition: Sigiriya (losing IsNoCoast requirement if a Policy WW);
-				- Progress: Moray Terraces;
-				- Authority: Krak des Chevaliers;
-				- Fealty: Sistine Chapel;
-				- Statecraft: Summer Palace (losing Forest requirement if a Policy WW);
-				- Artistry: Marae Arahurahu;
-				- Industry: Akihabara Electric Town;
-				- Imperialism: Panama Canal;
-				- Rationalism: Polar Expedition;
+			- added new setting enabling additional 4th World Wonder per Policy tree (uses tag "MW-SETTING-POLICIES"):
+				- Tradition: 	Sigiriya (losing IsNoCoast requirement if a Policy WW);
+				- Progress: 	Moray Terraces;
+				- Authority: 	Krak des Chevaliers;
+				- Fealty: 		Sistine Chapel;
+				- Statecraft: 	Summer Palace (losing Forest requirement if a Policy WW);
+				- Artistry: 	Marae Arahurahu;
+				- Industry: 	Brooklyn Bridge;
+				- Imperialism: 	Panama Canal;
+				- Rationalism: 	Polar Expedition;
 			- revised and simplified all requirements of Policy World Wonders;
 			- adjusted Policy Cost for some early World Wonders;
-		- Holy (Holy buildings):
-			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by @Jarcast2):
-				- Songyue Pagoda for Pagoda;
-				- Hospital of St. John for Order;
-				- Tlachihualtepetl for Teocalli;
-				- Harmandir Sahib for Gurdwara;
-			- Notre Dame:
-				- removed free Cathedral;
-				- 5 Faith (was 4);
-				- 6 Faith and 6 Golden Age Points (was 3 and 3);
-			- Chichen Itza:
-				- removed free Teocalli;
-				- 2 Great Engineer Points (was 1);
-			- Golden Pavilion:
-				- removed free Pagoda;
-				- Lake yields now global (were local);
-			- Mont Saint-Michel:
-				- removed free Monastery;
-				- 4 Faith for 5 Citizens (was 2 for 5);
-			- Rila Monastery:
-				- replaced free Order with free Monastery;
+		- Religion:
+			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by and in cooperation with @Jarcast2):
+				- Songyue Pagoda giving Pagoda;
+				- Hospital of St. John giving Order;
+				- Tlachihualtepetl giving Teocalli;
+				- Harmandir Sahib giving Gurdwara;
+			- modified 1 World Wonder:
+				- Rila Monastery:
+					- replaced free Order with free Monastery;
+			- revised all "regular" World Wonders giving any kind of Religious Building:
+				- VP:
+					- Angkor Wat:
+						- removed free Mandir;
+						- replaced +1 Great Engineer Point with +2 Great Diplomat Points;
+						- now +2 Culture and +2 Faith (was 1 and 1);
+						- added +3 Faith to local Civil Servants;
+						- added 20 Faith on Border Growth, scaling with Era;
+					- Chichen Itza:
+						- removed free Teocalli;
+						- now +2 Great Engineer Points (was 1);
+					- Notre Dame:
+						- removed free Cathedral;
+						- now +5 Faith (was 4);
+						- now +6 Faith and +6 Golden Age Points (was 3 and 3);
+					- University of Sankore:
+						- removed free Mosque;
+						- ???
+				- MW:
+					- Golden Pavilion:
+						- removed free Pagoda;
+						- now Lake bonus global (were local);
+					- Mont Saint-Michel:
+						- removed free Monastery;
+						- now +4 Faith per 5 Citizens (was 2 per 5);
 		- balance changes of existing World Wonders:
-			- Altamira Cave:
-				- now Resource bonuses are global (were local);
-			- Mohenjo Daro: 
-				- now +2 Food (was +1);
-				- now +1 Production per 2 Citizens (was per 4);
-				- removed Desert requirement (Hard);
-				- added no Coast requirement (Light);
-			- Ahu Tongariki:
-				- now +2 Faith on Coast (was +1);
-				- now +1 Production to local Quarries (was Culture to all);
-				- now +1 Culture to all Stones;
-				- deleted Forest and Jungle bonuses;
-				- deleted Forest and Jungle requirements;
-			- Skara Brae:
-				- removed flat Food;
-				- removed Flat requirement;
-			- Stonehenge: now +1 Great Scientist Point (was Great Engineer);
-			- Temple of Artemis:
-				- deleted bonus GPP;
-				- now +12% global Food (was +10%) and +30% Production towards Archery units (was +25%);
-			- Petra:
-				- deleted bonus GPP;
-				- now +3 Culture and +1 Gold (was +2 Culture);
-			- Panama Canal:
-				- must be next to the Sea;
-				- now correct 10-tile Landmass (was 11-tile Area);
-				- now grants +1 Gold to your city, +3 Gold to owner and additional +2 Gold to your city if TR is Sea TR (was +3 for Sea TR and +3 to your city);
+			- VP:
+				- Petra:
+					- deleted Great Engineer Points;
+					- now +3 Culture and +1 Gold (was +2 Culture);
+				- Stonehenge: now +1 Great Scientist Point (was Great Engineer Point);
+				- Temple of Artemis:
+					- deleted Great Engineer Points;
+					- now +12% global Food (was +10%) and +30% Production towards Archery units (was +25%);
+			- MW:
+				- Ahu Tongariki:
+					- deleted Forest and Jungle bonuses;
+					- deleted Forest and Jungle requirements;
+					- now +2 Faith on Coast (was +1);
+					- now +1 Production to local Quarries (was Culture to all);
+					- added +1 Culture to all Stones;
+				- Altamira Cave:
+					- now Resource bonuses are global (were local);
+				- Mohenjo Daro: 
+					- removed Desert requirement (Hard);
+					- added no Coast requirement (Light);
+					- now +2 Food (was +1);
+					- now +1 Production per 2 Citizens (was 1 per 4);
+				- Panama Canal:
+					- added Coast requirement (it was possible to build it on Lake);
+					- now correct 10-tile Landmass (was 11-tile Area);
+					- now grants +3 Gold to TR owner, +1 Gold to your city and additional +2 Gold to your city if TR is Sea TR (was +3 for Sea TR and +3 to your city);
+				- Skara Brae:
+					- removed Food bonus;
+					- removed Flat requirement;
 		- Flavoured Help Texts:
-			- removed [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive text;
-			- all original help texts are cleared, and only lua abilities are added there instead;
+			- removed hated [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive texts;
+			- all original help texts are cleared, and only lua abilities are added there instead (rest can be seen in improved VP tooltip);
 			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
-			- all Flavoured Help Texts are now massively revised and all bonuses are added inside in a smart way;
-	- slightly reworked the formatting of few original quote texts;
+			- all Flavoured Help Texts are now massively revised, spellchecked and all bonuses are added inside in a smart way;
+		- slightly reworked the formatting of few quote texts;
+		- few more improvement replacements from custom civs added to the requirement lists (by @gwennog);
 	- fixed:
-		- White Sands Missile Range: now have correctly nullyfied value of Policy Required;
+		- White Sands Missile Range: now have correctly nullyfied value of Policy Required like all other Policy Wonders;
 		- Itsukushima Shrine:
 			- now correctly boosts Ocean tiles (was Coast and Ocean);
 			- deleted doubled requirements;
-		- Falun Mine: now GP points granted from Medieval era (was Classical);
+		- Falun Mine: now GPP granted starting from Medieval Era (was Classical);
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- lake requirements (found by @gwennog);
-		- few more improvement replacements from custom civs added to the requirement lists (by @gwennog);
 		- fixed and reworked numerous texts;
 - Natural Wonders:
 	- new:
