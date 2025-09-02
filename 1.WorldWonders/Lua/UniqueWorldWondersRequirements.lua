@@ -728,7 +728,6 @@ function Initialize()
 	-- IsNearLake
 	-- add lake buildings ==> lake is when: FreshWater = 1, Water = 1, MinAreaSize = 1
 	for building in GameInfo.Buildings() do	
-		print(building.Type, building.FreshWater, building.Water, building.MinAreaSize)
 		if building.FreshWater and building.Water and building.MinAreaSize == 1 and not building.IsCorporation then
 			local eBuilding = GameInfoTypes[building.Type]
 			

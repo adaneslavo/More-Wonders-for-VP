@@ -1582,6 +1582,8 @@
 	INSERT INTO Building_BuildingClassHappiness (BuildingType,				BuildingClassType,	Happiness)
 	SELECT DISTINCT								'BUILDING_ST_PETERS_DUMMY',	BuildingClass,		1
 	FROM Buildings WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
+	
+	-- happiness_to_all_religious_buildings (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1702,6 +1704,8 @@
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
 	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	120);
+	
+	-- second_free_promotion (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1785,7 +1789,7 @@
 
 	INSERT INTO Building_YieldChangesPerPopInEmpire
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',		25);
+	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FAITH',		17);
 
 	INSERT INTO Building_LakePlotYieldChanges 
 				(BuildingType,			YieldType,		Yield)
@@ -1797,7 +1801,7 @@
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,		Yield) 
-	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	20);
+	VALUES		('BUILDING_MEENAKSHI',	'YIELD_FOOD',	5);
 	
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,			YieldType,		Yield) 
@@ -1966,18 +1970,21 @@
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_SOLOVIETSKY';
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000 WHERE Type = 'BUILDING_SOLOVIETSKY';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,				YieldType,					Yield)
-	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_PRODUCTION',			1),
-				('BUILDING_SOLOVIETSKY',	'YIELD_GOLDEN_AGE_POINTS',	1),
-				('BUILDING_SOLOVIETSKY',	'YIELD_FAITH',				1);
+				(BuildingType,				YieldType,						Yield)
+	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_FAITH',					2),
+				('BUILDING_SOLOVIETSKY',	'YIELD_GREAT_ADMIRAL_POINTS',	2);
 
 	INSERT INTO Building_TerrainYieldChanges
 				(BuildingType,				TerrainType,			YieldType,				Yield) 
 	VALUES		('BUILDING_SOLOVIETSKY',	'TERRAIN_TUNDRA',		'YIELD_PRODUCTION',		1),
 				('BUILDING_SOLOVIETSKY',	'TERRAIN_TUNDRA',		'YIELD_FAITH',			1);
+
+	INSERT INTO Building_YieldFromYieldPercent
+				(BuildingType,				YieldIn,			YieldOut,			Value) 
+	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_PRODUCTION',	'YIELD_FOOD',		10);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,				UnitCombatType,				Modifier) 
@@ -2031,6 +2038,8 @@
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,					YieldType,			Yield)
 	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	5);
+	
+	-- yield_from_faith_purchase_global (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2076,6 +2085,8 @@
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'YIELD_CULTURE',	5),
 				('BUILDING_MUSEUM_ISLAND',	'YIELD_SCIENCE',	5),
 				('BUILDING_MUSEUM_ISLAND',	'YIELD_TOURISM',	5);
+				
+	-- great_person_modifier_global (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor)
@@ -2914,6 +2925,8 @@
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_HELICOPTER'),
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_FIGHTER'),
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_BOMBER');
+				
+	-- second_and_third_free_promotion (lua)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,					Flavor)
@@ -3689,17 +3702,17 @@
 -- RELIGIOUS WONDERS (MUST BE BUILT IN HOLY CITY)
 --============================================--
 -- WORLD WONDER					BELIEF BUILDING		TECHNOLOGY			RELIGION			ERA
--- El Ghriba					- Synagogue:		Drama and Poetry	Judaism				- Late Classical
--- Songyue Pagoda				- Pagoda:			Engineering			Buddhism			- Late Classical
--- Al Masjid an-Nabawi			- Mosque:			Education			Islam				- Early Medieval
--- Hagia Sophia					- Church:			Theology 			Orthodox/Islam		- Early Medieval
--- Borobudur					- Stupa:			Theology 			Buddhism			- Early Medieval
--- Hospital of St. John			- Order:			Civil Service		Catholic			- Late Medieval 
--- Rila Monastery (Karlstejn)	- Monastery:		Guilds 				Orthodox			- Late Medieval 
--- Tlachihualtepetl				- Teocalli:			Machinery			Aztec				- Late Medieval 
--- St Peter's Basilica			- Cathedral:		Printing Press 		Catholic			- Early Renaissance
--- Harmandir Sahib				- Gurdwara:			Gunpowder			Sikhizm				- Early Renaissance
--- Meenakshi Temple				- Mandir:			Chemistry			Hindu				- Early Renaissance
+-- El Ghriba					Synagogue:			Drama and Poetry	Judaism				Late Classical
+-- Songyue Pagoda				Pagoda:				Engineering			Buddhism			Late Classical
+-- Al Masjid an-Nabawi			Mosque:				Education			Islam				Early Medieval
+-- Hagia Sophia					Church:				Theology 			Orthodox/Islam		Early Medieval
+-- Borobudur					Stupa:				Theology 			Buddhism			Early Medieval
+-- Hospital of St. John			Order:				Civil Service		Catholic			Late Medieval 
+-- Rila Monastery (Karlstejn)	Monastery:			Guilds 				Orthodox			Late Medieval 
+-- Tlachihualtepetl				Teocalli:			Machinery			Aztec				Late Medieval 
+-- St Peter's Basilica			Cathedral:			Printing Press 		Catholic			Early Renaissance
+-- Harmandir Sahib				Gurdwara:			Gunpowder			Sikhizm				Early Renaissance
+-- Meenakshi Temple				Mandir:				Chemistry			Hindu				Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1 WHERE Type IN
 ('BUILDING_EL_GHRIBA',	'BUILDING_SONGYUE',		'BUILDING_NABAWI',		'BUILDING_HAGIA_SOPHIA',
@@ -4107,88 +4120,115 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 -- deletion of unnecessary and annoying +1 Culture from most of base WWs:
 	-- deletion with substitution
 	-- ==> Production
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TERRACOTTA_ARMY';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_TERRACOTTA_ARMY', 'YIELD_PRODUCTION', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TERRACOTTA_ARMY';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_TERRACOTTA_ARMY', 'YIELD_PRODUCTION', 1);
 	-- ==> Gold
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FORBIDDEN_PALACE';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_FORBIDDEN_PALACE', 'YIELD_GOLD', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FORBIDDEN_PALACE';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_FORBIDDEN_PALACE', 'YIELD_GOLD', 1);
 	-- ==> Science
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STONEHENGE';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STONEHENGE', 'YIELD_SCIENCE', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STONEHENGE';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STONEHENGE', 'YIELD_SCIENCE', 1);
 	-- ==> Golden Age Points
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PYRAMID';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_PYRAMID', 'YIELD_GOLDEN_AGE_POINTS', 1);
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CHICHEN_ITZA';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 3);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PYRAMID';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_PYRAMID', 'YIELD_GOLDEN_AGE_POINTS', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CHICHEN_ITZA';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_GOLDEN_AGE_POINTS', 3);
 	-- ==> Great General Points
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STATUE_ZEUS';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STATUE_ZEUS', 'YIELD_GREAT_GENERAL_POINTS', 1);
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_KREMLIN';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_KREMLIN', 'YIELD_GREAT_GENERAL_POINTS', 2);	
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STATUE_ZEUS';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STATUE_ZEUS', 'YIELD_GREAT_GENERAL_POINTS', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_KREMLIN';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_KREMLIN', 'YIELD_GREAT_GENERAL_POINTS', 2);	
 	-- ==> Great Admiral Points
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIGHTHOUSE';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_GREAT_LIGHTHOUSE', 'YIELD_GREAT_ADMIRAL_POINTS', 1);
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIGHTHOUSE';
+			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_GREAT_LIGHTHOUSE', 'YIELD_GREAT_ADMIRAL_POINTS', 1);
 
 	-- just deletion
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MACHU_PICHU';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIBRARY';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_COLOSSUS';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_WALL';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HIMEJI_CASTLE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SUMMER_PALACE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SOHO_FOUNDRY';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BRANDENBURG_GATE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BIG_BEN';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PENTAGON';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CN_TOWER';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BLETCHLEY_PARK';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CERN';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_FIREWALL';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HUBBLE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_INTERNATIONAL_SPACE_STATION';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GRAND_CANAL';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CRYSTAL_PALACE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_UN';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MOTHERLAND_STATUE';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PRORA_RESORT';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TWOKAY_FOODS_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TRADER_SIDS_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HEXXON_REFINERY_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GIORGIO_ARMEIER_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FIRAXITE_MATERIALS_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
-	DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MACHU_PICHU';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_LIBRARY';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_COLOSSUS';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_WALL';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HIMEJI_CASTLE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SUMMER_PALACE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SOHO_FOUNDRY';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BRANDENBURG_GATE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BIG_BEN';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PENTAGON';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CN_TOWER';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BLETCHLEY_PARK';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CERN';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_FIREWALL';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HUBBLE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_INTERNATIONAL_SPACE_STATION';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GRAND_CANAL';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CRYSTAL_PALACE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_UN';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_MOTHERLAND_STATUE';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PRORA_RESORT';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TWOKAY_FOODS_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TRADER_SIDS_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HEXXON_REFINERY_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GIORGIO_ARMEIER_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FIRAXITE_MATERIALS_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
 
 -- replacing multiple '+1 Great Engineer Point' abilities in early World Wonders:
 	-- Stonehenge
-	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST' WHERE Type = 'BUILDING_STONEHENGE';
+		UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST' WHERE Type = 'BUILDING_STONEHENGE';
 	-- Temple of Artemis
-	UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
-	UPDATE Building_UnitCombatProductionModifiers SET Modifier = 30 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
-	UPDATE Building_GlobalYieldModifiers SET Yield = 12 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
+		UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
+		UPDATE Building_UnitCombatProductionModifiers SET Modifier = 30 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
+		UPDATE Building_GlobalYieldModifiers SET Yield = 12 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
 	-- Petra
-	UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_PETRA';
-	UPDATE Building_YieldChanges SET Yield = 3 WHERE BuildingType = 'BUILDING_PETRA';
-	INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_PETRA', 'YIELD_GOLD', 1);
+		UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_PETRA';
+		UPDATE Building_YieldChanges SET Yield = 3 WHERE BuildingType = 'BUILDING_PETRA';
+		INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_PETRA', 'YIELD_GOLD', 1);
 	
--- religious building replacement:
+-- replacing religious buildings in non-religious wonders:
 	-- Angkor Wat
-	UPDATE Buildings SET FreeBuildingThisCity = NULL, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_ANGKOR_WAT';
-	UPDATE Building_YieldChanges SET Yield = 2 WHERE BuildingType = 'BUILDING_ANGKOR_WAT';
-	INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
-	INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
+		UPDATE Buildings SET FreeBuildingThisCity = NULL, SpecialistType = 'SPECIALIST_CIVIL_SERVANT', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_ANGKOR_WAT';
+		UPDATE Building_YieldChanges SET Yield = 2 WHERE BuildingType = 'BUILDING_ANGKOR_WAT';
+		INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
+		INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
+		
+		INSERT INTO Policies (Type, Description) SELECT 'POLICY_ANGKOR_WAT_DUMMY', 'TXT_KEY_POLICY_ANGKOR_WAT_DUMMY';
+		
+		INSERT INTO Policy_UnitClassReplacements (PolicyType,				ReplacedUnitClassType, ReplacementUnitClassType) 
+		SELECT									 'POLICY_ANGKOR_WAT_DUMMY', Class,				   Class||'_FAITH'
+		FROM Units
+		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
+		
+		INSERT INTO UnitClasses (Type,			  DefaultUnit)
+		SELECT					 Class||'_FAITH', Type||'_FAITH'
+		FROM Units
+		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
+	
+		INSERT INTO Unit_FreePromotions	(UnitType,		   PromotionType) 
+		SELECT							 a.Type||'_FAITH', b.PromotionType 
+		FROM Units a, Unit_FreePromotions b 
+		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+
+		INSERT INTO Unit_ResourceQuantityRequirements (UnitType,		 ResourceType,   Cost) 
+		SELECT										   a.Type||'_FAITH', b.ResourceType, b.Cost 
+		FROM Units a, Unit_ResourceQuantityRequirements b 
+		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+	
+		INSERT INTO Units (Type, 		   Class, 			Combat, BaseSightRange, Cost, FaithCost, RequiresFaithPurchaseEnabled,  GlobalFaithPurchaseCooldown, PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, PolicyType, 				  PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra)
+		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, Cost*1.8,	 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
+		FROM Units 
+		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
 	-- Chichen Itza
-	UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
+		UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	-- Notre Dame
-	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
-	UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
-	UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
+		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+		UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
 	-- University of Sankore
-	UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
+		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	
 --============================================--
 -- EE Compatibility

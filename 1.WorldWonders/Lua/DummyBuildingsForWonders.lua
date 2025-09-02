@@ -29,7 +29,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_MUSEUM_ISLAND"],
 	GameInfoTypes["BUILDING_CURIOSITY"],
 	GameInfoTypes["BUILDING_SEED_VAULT"],
-	GameInfoTypes["BUILDING_TEMBLEQUE"]
+	GameInfoTypes["BUILDING_TEMBLEQUE"],
+	GameInfoTypes["BUILDING_ANGKOR_WAT"]
 }
 
 local g_tWorldWonderDummy = {
@@ -53,7 +54,8 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_MUSEUM_ISLAND_DUMMY"],
 	GameInfoTypes["BUILDING_CURIOSITY_DUMMY"],
 	GameInfoTypes["BUILDING_SEED_VAULT_DUMMY"],
-	GameInfoTypes["BUILDING_TEMBLEQUE_DUMMY"]
+	GameInfoTypes["BUILDING_TEMBLEQUE_DUMMY"],
+	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"]
 }
 
 local g_iWonderWithDummies = #g_tWorldWonderDummy
@@ -71,8 +73,8 @@ local g_tWorldWonderExists = {}
 
 local g_tWorldWonderOwner = {}
 
--- Chevaliers (1)
--- Itsukushima (2)
+-- Krak des Chevaliers (1)
+-- Itsukushima Shrine (2)
 -- Qalhat (3)
 -- Gate of the Sun (4)
 -- Great Zimbabwe (5)
@@ -87,11 +89,12 @@ local g_tWorldWonderOwner = {}
 -- Darjeeling Himalayan Railway (14)
 -- Sanbo Honbu (15)
 -- Autobahn (16)
--- Interstate (17)
+-- Interstate Highway System (17)
 -- Museum Island (18)
 -- Curiosity Rover (19)
 -- Svalbard Global Seed Vault (20)
 -- Aqueduct of Padre Tembleque (21)
+-- Angkor Wat (22)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -114,6 +117,7 @@ Events.LoadScreenClose.Add(WasWonderAlreadyBuilt)
 
 -- check if wonder was built
 function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith) 
+	-- Krak des Chevaliers (1)
 	if not g_tWorldWonderExists[1] then	
 		if eBuilding == g_tWorldWonder[1] then
 			g_tWorldWonderExists[1] = true
@@ -129,6 +133,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Itsukushima Shrine (2)
 	if not g_tWorldWonderExists[2] then	
 		if eBuilding == g_tWorldWonder[2] then
 			g_tWorldWonderExists[2] = true
@@ -144,6 +149,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Qalhat (3)
 	if not g_tWorldWonderExists[3] then
 		if eBuilding == g_tWorldWonder[3] then
 			g_tWorldWonderExists[3] = true
@@ -195,6 +201,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Gate of the Sun (4)
 	if eBuilding == g_tWorldWonder[4] then
 		g_tWorldWonderExists[4] = true
 		g_tWorldWonderOwner[4] = ePlayer
@@ -223,6 +230,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Great Zimbabwe (5)
 	if not g_tWorldWonderExists[5] then
 		if eBuilding == g_tWorldWonder[5] then
 			g_tWorldWonderExists[5] = true
@@ -246,6 +254,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Kilwa Kisiwani (6)
 	if not g_tWorldWonderExists[6] then	
 		if eBuilding == g_tWorldWonder[6] then
 			g_tWorldWonderExists[6] = true
@@ -258,6 +267,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Marae Arahurahu (7)
 	if not g_tWorldWonderExists[7] then	
 		if eBuilding == g_tWorldWonder[7] then
 			g_tWorldWonderExists[7] = true
@@ -270,6 +280,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Kuk Swamp (8)
 	if not g_tWorldWonderExists[8] then	
 		if eBuilding == g_tWorldWonder[8] then
 			g_tWorldWonderExists[8] = true
@@ -283,6 +294,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- St. Peter's Basilica (9)
 	if not g_tWorldWonderExists[9] then	
 		if eBuilding == g_tWorldWonder[9] then
 			g_tWorldWonderExists[9] = true
@@ -295,6 +307,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Panama Canal (10)
 	if not g_tWorldWonderExists[10] then	
 		if eBuilding == g_tWorldWonder[10] then
 			g_tWorldWonderExists[10] = true
@@ -310,6 +323,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Palm Jumeirah (11)
 	if not g_tWorldWonderExists[11] then	
 		if eBuilding == g_tWorldWonder[11] then
 			g_tWorldWonderExists[11] = true
@@ -323,6 +337,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Arecibo Observatory (12)
 	if not g_tWorldWonderExists[12] then	
 		if eBuilding == g_tWorldWonder[12] then
 			g_tWorldWonderExists[12] = true
@@ -336,6 +351,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 	
+	-- Rockefeller Center (13)
 	if not g_tWorldWonderExists[13] then	
 		if eBuilding == g_tWorldWonder[13] then
 			g_tWorldWonderExists[13] = true
@@ -349,6 +365,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 	
+	-- Darjeeling Himalayan Railway (14)
 	if not g_tWorldWonderExists[14] then	
 		if eBuilding == g_tWorldWonder[14] then
 			g_tWorldWonderExists[14] = true
@@ -362,6 +379,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Sanbo Honbu (15)
 	if not g_tWorldWonderExists[15] then	
 		if eBuilding == g_tWorldWonder[15] then
 			g_tWorldWonderExists[15] = true
@@ -378,6 +396,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 	
+	-- Autobahn (16)
 	if not g_tWorldWonderExists[16] then	
 		if eBuilding == g_tWorldWonder[16] then
 			g_tWorldWonderExists[16] = true
@@ -391,6 +410,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 	
+	-- Interstate Highway System (17)
 	if not g_tWorldWonderExists[17] then	
 		if eBuilding == g_tWorldWonder[17] then
 			g_tWorldWonderExists[17] = true
@@ -404,6 +424,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Museum Island (18)
 	if not g_tWorldWonderExists[18] then	
 		if eBuilding == g_tWorldWonder[18] then
 			g_tWorldWonderExists[18] = true
@@ -417,6 +438,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Curiosity Rover (19)
 	if not g_tWorldWonderExists[19] then	
 		if eBuilding == g_tWorldWonder[19] then
 			g_tWorldWonderExists[19] = true
@@ -445,6 +467,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Svalbard Global Seed Vault (20)
 	if not g_tWorldWonderExists[20] then	
 		if eBuilding == g_tWorldWonder[20] then
 			g_tWorldWonderExists[20] = true
@@ -458,6 +481,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
+	-- Aqueduct of Padre Tembleque (21)
 	if not g_tWorldWonderExists[21] then	
 		if eBuilding == g_tWorldWonder[21] then
 			g_tWorldWonderExists[21] = true
@@ -470,11 +494,24 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			end
 		end
 	end
+	
+	-- Angkor Wat (22)
+	if not g_tWorldWonderExists[22] then	
+		if eBuilding == g_tWorldWonder[22] then
+			g_tWorldWonderExists[22] = true
+			g_tWorldWonderOwner[22] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			pPlayer:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
 -- check if wonder conquered by another player
 function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iPop, bConquest)
+	-- Krak des Chevaliers (1)
 	if g_tWorldWonderExists[1] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -503,6 +540,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 	
+	-- Itsukushima Shrine (2)
 	if g_tWorldWonderExists[2] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -531,6 +569,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Qalhat (3)
 	if g_tWorldWonderExists[3] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -556,6 +595,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Gate of the Sun (4)
 	if g_tWorldWonderExists[4] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -591,6 +631,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Great Zimbabwe (5)
 	if g_tWorldWonderExists[5] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -613,6 +654,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Kilwa Kisiwani (6)
 	if g_tWorldWonderExists[6] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -624,6 +666,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Marae Arahurahu (7)
 	if g_tWorldWonderExists[7] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -635,6 +678,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Kuk Swamp (8)
 	if g_tWorldWonderExists[8] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -661,6 +705,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- St. Peter's Basilica (9)
 	if g_tWorldWonderExists[9] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -672,6 +717,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Panama Canal (10)
 	if g_tWorldWonderExists[10] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -700,6 +746,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Palm Jumeirah (11)
 	if g_tWorldWonderExists[11] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -726,6 +773,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Arecibo Observatory (12)
 	if g_tWorldWonderExists[12] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -752,6 +800,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Rockefeller Center (13)
 	if g_tWorldWonderExists[13] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -778,6 +827,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Darjeeling Himalayan Railway (14)
 	if g_tWorldWonderExists[14] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -804,6 +854,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Sanbo Honbu (15)
 	if g_tWorldWonderExists[15] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -815,6 +866,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Autobahn (16)
 	if g_tWorldWonderExists[16] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -841,6 +893,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Museum Island (18)
 	if g_tWorldWonderExists[18] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -867,6 +920,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Curiosity Rover (19)
 	if g_tWorldWonderExists[19] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -894,6 +948,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Svalbard Global Seed Vault (20)
 	if g_tWorldWonderExists[20] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -920,6 +975,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
+	-- Aqueduct of Padre Tembleque (21)
 	if g_tWorldWonderExists[21] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
@@ -945,11 +1001,28 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end
 		end
 	end
+
+	-- Angkor Wat (22)
+	if g_tWorldWonderExists[22] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[22]) then
+			local pOldOwner = Players[eOldOwner]
+			local pNewOwner = Players[eNewOwner]
+			
+			g_tWorldWonderOwner[22] = eNewOwner
+			
+			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[22], 0) -- POLICY!!!
+			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
 -- check if new city has effects
 function BuildDummyInNewCity(ePlayer, iX, iY)
+	-- Krak des Chevaliers (1)
 	if g_tWorldWonderExists[1] then
 		if ePlayer == g_tWorldWonderOwner[1] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -961,6 +1034,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Itsukushima Shrine (2)
 	if g_tWorldWonderExists[2] then
 		if ePlayer == g_tWorldWonderOwner[2] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -972,6 +1046,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Gate of the Sun (4)
 	if g_tWorldWonderExists[4] then
 		if ePlayer == g_tWorldWonderOwner[4] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -986,6 +1061,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Kuk Swamp (8)
 	if g_tWorldWonderExists[8] then
 		if ePlayer == g_tWorldWonderOwner[8] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -995,6 +1071,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Panama Canal (10)
 	if g_tWorldWonderExists[10] then
 		if ePlayer == g_tWorldWonderOwner[10] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1006,6 +1083,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Palm Jumeirah (11)
 	if g_tWorldWonderExists[11] then
 		if ePlayer == g_tWorldWonderOwner[11] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1015,6 +1093,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Arecibo Observatory (12)
 	if g_tWorldWonderExists[12] then
 		if ePlayer == g_tWorldWonderOwner[12] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1024,6 +1103,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Rockefeller Center (13)
 	if g_tWorldWonderExists[13] then
 		if ePlayer == g_tWorldWonderOwner[13] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1033,6 +1113,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Darjeeling Himalayan Railway (14)
 	if g_tWorldWonderExists[14] then
 		if ePlayer == g_tWorldWonderOwner[14] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1042,6 +1123,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Autobahn (16)
 	if g_tWorldWonderExists[16] then
 		if ePlayer == g_tWorldWonderOwner[16] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1051,6 +1133,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Museum Island (18)
 	if g_tWorldWonderExists[18] then
 		if ePlayer == g_tWorldWonderOwner[18] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1060,6 +1143,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Svalbard Global Seed Vault (20)
 	if g_tWorldWonderExists[20] then
 		if ePlayer == g_tWorldWonderOwner[20] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1069,6 +1153,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 		end
 	end
 
+	-- Aqueduct of Padre Tembleque (21)
 	if g_tWorldWonderExists[21] then
 		if ePlayer == g_tWorldWonderOwner[21] then
 			local pPlot = Map.GetPlot(iX, iY)
@@ -1082,6 +1167,7 @@ GameEvents.PlayerCityFounded.Add(BuildDummyInNewCity)
 
 -- check if unit action changed
 function SetDummiesOnUnitActionChange(ePlayer, iUnit)
+	-- Qalhat (3)
 	if g_tWorldWonderExists[3] then
 		if ePlayer == g_tWorldWonderOwner[3] then
 			local pPlayer = Players[ePlayer]
@@ -1121,6 +1207,7 @@ function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 		end
 	end
 
+	-- Great Zimbabwe (5)
 	if g_tWorldWonderExists[5] then
 		if ePlayer == g_tWorldWonderOwner[5] then
 			local pPlayer = Players[ePlayer]
@@ -1160,6 +1247,7 @@ Events.UnitActionChanged.Add(SetDummiesOnUnitActionChange)
 
 -- checks for promotion (SANBO)
 function SetPromotionsOnCombatEnd(eAttackingPlayer, eAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, eDefendingPlayer, eDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, eInterceptingPlayer, eInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
+	-- Sanbo Honbu (15)
 	if g_tWorldWonderExists[15] then
 		if eAttackingPlayer == g_tWorldWonderOwner[15] then
 			local pAttackingPlayer = Players[eAttackingPlayer]
@@ -1207,6 +1295,7 @@ end
 GameEvents.CombatEnded.Add(SetPromotionsOnCombatEnd)
 
 function SetPromotionOnTurn(ePlayer)
+	-- Sanbo Honbu (15)
 	if g_tWorldWonderExists[15] then
 		if ePlayer == g_tWorldWonderOwner[15] then
 			local pPlayer = Players[ePlayer]
@@ -1233,6 +1322,7 @@ GameEvents.PlayerDoTurn.Add(SetPromotionOnTurn)
 
 -- Curiosity Rover Research Agreements check
 function SetRAOnTurn(ePlayer)
+	-- Curiosity Rover (19)
 	if g_tWorldWonderExists[19] then
 		if g_tWorldWonderOwner[19] == ePlayer then		
 			local pPlayer = Players[ePlayer]
