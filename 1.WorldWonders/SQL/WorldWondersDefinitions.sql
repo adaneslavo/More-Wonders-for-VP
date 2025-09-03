@@ -168,8 +168,7 @@
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_MAJORVILLE',	'YIELD_FAITH',		1),
-				('BUILDING_MAJORVILLE',	'YIELD_SCIENCE',	1);
+	VALUES		('BUILDING_MAJORVILLE',	'YIELD_SCIENCE',	1);
 	
 	INSERT INTO Building_TerrainYieldChanges 
 				(BuildingType,			TerrainType,		YieldType,		Yield) 
@@ -1304,7 +1303,7 @@
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 9, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_BUYUK_HAN';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_BUYUK_HAN';
 	---------------------------------------------------------
-	UPDATE Buildings SET /*IsNoCoast = 1, */ Flat = 1 WHERE Type = 'BUILDING_BUYUK_HAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Flat = 1 WHERE Type = 'BUILDING_BUYUK_HAN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	-- Village(1) (lua) (HARD)
 	---------------------------------------------------------
@@ -1984,14 +1983,14 @@
 
 	INSERT INTO Building_YieldFromYieldPercent
 				(BuildingType,				YieldIn,			YieldOut,			Value) 
-	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_PRODUCTION',	'YIELD_FOOD',		10);
+	VALUES		('BUILDING_SOLOVIETSKY',	'YIELD_PRODUCTION',	'YIELD_FOOD',		15);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,				UnitCombatType,				Modifier) 
-	VALUES		('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALMELEE',	15),
-				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALRANGED',	15),
-				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_SUBMARINE',		15),
-				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_CARRIER',		15);
+	VALUES		('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALMELEE',	25),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_NAVALRANGED',	25),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_SUBMARINE',		25),
+				('BUILDING_SOLOVIETSKY',	'UNITCOMBAT_CARRIER',		25);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,					Flavor)
@@ -4206,19 +4205,24 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		SELECT					 Class||'_FAITH', Type||'_FAITH'
 		FROM Units
 		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
-	
+
 		INSERT INTO Unit_FreePromotions	(UnitType,		   PromotionType) 
 		SELECT							 a.Type||'_FAITH', b.PromotionType 
 		FROM Units a, Unit_FreePromotions b 
 		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
 
+		INSERT INTO Unit_ClassUpgrades (UnitType,		 UnitClassType)
+		SELECT						   a.Type||'_FAITH', b.UnitClassType
+		FROM Units a, Unit_ClassUpgrades b
+		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+	
 		INSERT INTO Unit_ResourceQuantityRequirements (UnitType,		 ResourceType,   Cost) 
 		SELECT										   a.Type||'_FAITH', b.ResourceType, b.Cost 
 		FROM Units a, Unit_ResourceQuantityRequirements b 
 		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
 	
 		INSERT INTO Units (Type, 		   Class, 			Combat, BaseSightRange, Cost, FaithCost, RequiresFaithPurchaseEnabled,  GlobalFaithPurchaseCooldown, PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, PolicyType, 				  PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra)
-		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, Cost*1.8,	 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
+		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 200,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
 		FROM Units 
 		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
 	-- Chichen Itza

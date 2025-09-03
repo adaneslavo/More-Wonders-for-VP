@@ -21,7 +21,7 @@ v24:
 				- Industry: 	Brooklyn Bridge;
 				- Imperialism: 	Panama Canal;
 				- Rationalism: 	Polar Expedition;
-			- revised and simplified all requirements of Policy World Wonders;
+			- revised some requirements of Policy World Wonders;
 			- adjusted Policy Cost for some early World Wonders;
 		- Religion:
 			- added 4 new World Wonders for those Faith-purchase buildings that have no one (by and in cooperation with @Jarcast2):
@@ -75,6 +75,8 @@ v24:
 					- added +1 Culture to all Stones;
 				- Altamira Cave:
 					- now Resource bonuses are global (were local);
+				- Majorville Medicine Wheel:
+					- deleted basic Faith bonus;
 				- Meenakshi Temple:
 					- now gives +1 Faith per 6 Citizens (was 1 per 4);
 					- now converts 5% Faith Purchase into Food (was 20%);
@@ -88,12 +90,13 @@ v24:
 					- now correct 10-tile Landmass (was 11-tile Area);
 					- now grants +3 Gold to TR owner and +3 Gold to Sea TR (was +3 for Sea TR and +3 to your city);
 				- Skara Brae:
-					- removed Food bonus;
+					- removed basic Food bonus;
 					- removed Flat requirement;
 				- Solovietsky Monastery:
 					- removed City Supply bonus;
-					- replaced Production and GAP with increased Faith and Great Admiral Points;
-					- added 10% Production conversion to Food;
+					- replaced Production and GAP with increased +2 Faith and +2 Great Admiral Points;
+					- now +25% Production to Naval Units (was 15%);
+					- added 15% Production conversion to Food;
 		- Flavoured Help Texts:
 			- removed hated [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive texts;
 			- all original help texts are cleared, and only lua abilities are added there instead (rest can be seen in improved VP tooltip);
@@ -110,6 +113,7 @@ v24:
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- lake requirements (found by @gwennog);
 		- fixed and reworked numerous texts;
+		- overall clean up of the files;
 - Natural Wonders:
 	- new:
 		- added 4 new Natural Wonders:

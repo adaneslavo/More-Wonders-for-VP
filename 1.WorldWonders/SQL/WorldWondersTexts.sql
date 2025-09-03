@@ -74,7 +74,7 @@ VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
 			('TXT_KEY_WONDER_MAJORVILLE_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT', '[COLOR_YIELD_FOOD]Majorville Medicine Wheel[ENDCOLOR] strongly supports religious development in unpleasant cold [COLOR_CITY_BLUE]Tundra[ENDCOLOR] regions (+1[ICON_PEACE]; +1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]). Its strong scientific pattern emanates (+1[ICON_RESEARCH]), influencing numerous animals under your control and improving all your [COLOR_CITY_BROWN]Camps[ENDCOLOR] (+1[ICON_FOOD]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]) and [COLOR_GREY]Bisons[ENDCOLOR] (+1[ICON_CULTURE]/[ICON_RES_BISON][ICON_RES_BISON]).');
+VALUES ('TXT_KEY_WONDER_MAJORVILLE_HELP_CUT', '[COLOR_YIELD_FOOD]Majorville Medicine Wheel[ENDCOLOR] strongly supports religious development in unpleasant cold [COLOR_CITY_BLUE]Tundra[ENDCOLOR] regions (+1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]). Its unbelievably strong scientific pattern emanates (+1[ICON_RESEARCH]), influencing numerous creatures under your control, and improving all your [COLOR_CITY_BROWN]Camps[ENDCOLOR] (+1[ICON_FOOD]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]) and [COLOR_GREY]Bisons[ENDCOLOR] (+1[ICON_CULTURE]/[ICON_RES_BISON][ICON_RES_BISON]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MAJORVILLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MAJORVILLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -369,7 +369,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE
 ----------------------------------------------------
 -- Forum Romanum
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_FORUM_HELP_CUT',	'[COLOR_YIELD_FOOD]Forum Romanum[ENDCOLOR] uses variety of tricks to change you into the most influential ruler in the world ([COLOR_WATER_TEXT]Imperial Seal[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]; +1[ICON_CULTURE]). You receive a support of qualified experts ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +1[ICON_DIPLOMAT]) and increase efforts on improving and speeding up training programs for your messengers (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]). This goes in line with the intensified production of [COLOR_GREY]Paper[ENDCOLOR] necessary for finalizing important agreements (+1[ICON_RES_PAPER]).');
+VALUES ('TXT_KEY_BUILDING_FORUM_HELP_CUT',	'[COLOR_YIELD_FOOD]Forum Romanum[ENDCOLOR] uses variety of tricks to change you into the most influential ruler in the world ([COLOR_WATER_TEXT]Imperial Seal[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]; +1[ICON_CULTURE]). You are supported by qualified experts ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +1[ICON_DIPLOMAT]) who improve and speed up training programs for your delegates (+20%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]). This goes in line with the intensified production of [COLOR_GREY]Paper[ENDCOLOR] necessary for finalizing important agreements (+1[ICON_RES_PAPER]).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]1 Policy less needed[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Marsh[ENDCOLOR]; Policy: [COLOR_MAGENTA]1 Policy less needed[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_FORUM_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -624,8 +624,8 @@ VALUES		('TXT_KEY_BUILDING_BUYUK_HAN',		'Büyük Han'),
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_BUYUK_HAN_HELP_CUT', '[COLOR_YIELD_FOOD]Büyük Han[ENDCOLOR], a beautiful [COLOR_YIELD_FOOD]Caravansary[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), provides wide trading opportunities and place for contemplation (+1[ICON_FOOD]; +1[ICON_PEACE]). You can now hire brand new [COLOR_YIELD_GOLD]free Caravan[ENDCOLOR], use new tools to improve craftsmanship in your [COLOR_CITY_BROWN]Villages[ENDCOLOR] (+2[ICON_PRODUCTION]/[COLOR_CITY_BROWN]Tile in Empire[ENDCOLOR]; +1[ICON_PRODUCTION]) or find new trading partners (+2[ICON_GOLD]; [COLOR_CYAN]Corporations[ENDCOLOR]: +2[ICON_PRODUCTION], +3[ICON_GOLD]).';
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Village[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Village[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_BUYUK_HAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
 -- Itsukushima Shrine
 INSERT INTO Language_en_US 
@@ -1011,15 +1011,11 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_SOLOVIETSKY',			'Solovietsky Monastery'),
 			('TXT_KEY_WONDER_SOLOVIETSKY_QUOTE',		'[NEWLINE]"Everything is defeated before love."[NEWLINE] - Elder Thaddeus of Vitovnica[NEWLINE]'),
 			('TXT_KEY_WONDER_SOLOVIETSKY_PEDIA',		'The Solovetsky Monastery is a fortified monastery located on the Solovetsky Islands in the White Sea in northern Russia. It was one of the largest Christian citadels in northern Russia before it was converted into a Soviet prison and labor camp in 1926-39, and served as a prototype for the camps of the Gulag system. The monastery has experienced several major changes and military sieges. Its most important structures date from the 16th century, when Filip Kolychev was its hegumen (comparable to an abbot).'),
-			('TXT_KEY_WONDER_SOLOVIETSKY_HELP',			'+1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +1 [ICON_SILVER_FIST] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.');
+			/*('TXT_KEY_WONDER_SOLOVIETSKY_HELP',		'+1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith from Tundra tiles worked by this City. Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +1 [ICON_SILVER_FIST] Military Unit Supply Cap. +15% [ICON_PRODUCTION] Production towards Naval Military Units.');*/
+			('TXT_KEY_WONDER_SOLOVIETSKY_HELP',			'');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Solovietsky Monastery[ENDCOLOR] greatly supports your weak [COLOR_CITY_BLUE]Tundra[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/Tile) tiles. It helps you in quick navy reinforcement (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]) and strengthen your offense and deffense in the city (+10[ICON_STRENGTH]; +50 HP; +1[ICON_SILVER_FIST]).'
-WHERE Tag = 'TXT_KEY_WONDER_SOLOVIETSKY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_SOLOVIETSKY_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_SOLOVIETSKY_HELP';
+SELECT 'TXT_KEY_WONDER_SOLOVIETSKY_HELP_CUT', '[COLOR_YIELD_FOOD]Solovietsky Monastery[ENDCOLOR] is very universal project. New cadet school (+2[ICON_GREAT_ADMIRAL]) and advanced dockyard (+25%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Military Naval[ENDCOLOR]; +10[ICON_STRENGTH]; +50 HP) can greatly support your army, and from the other hand, lonely monastery (+2[ICON_PEACE]) should bring a little bit of a peace. All of this functions in a quite an inaccessible [COLOR_CITY_BLUE]Tundra[ENDCOLOR] region (+1[ICON_PRODUCTION], +1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]), and such a distant spot allows for a creation of a secret labor camp (10%[ICON_PRODUCTION] into [ICON_FOOD]).';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR], [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SOLOVIETSKY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SOLOVIETSKY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		

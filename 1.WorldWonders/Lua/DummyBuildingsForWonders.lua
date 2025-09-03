@@ -1,4 +1,3 @@
-print("Loading DummyBuildingsForWonders.lua from MWfVP")
 --------------------------------------------------------------
 -- Orginal script for Kronborg was created by LeeS 
 -- Dec 13, 2017: Retrofitted for Vox Populi, Infixo
@@ -55,7 +54,7 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_CURIOSITY_DUMMY"],
 	GameInfoTypes["BUILDING_SEED_VAULT_DUMMY"],
 	GameInfoTypes["BUILDING_TEMBLEQUE_DUMMY"],
-	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"]
+	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"]		-- POLICY!!!
 }
 
 local g_iWonderWithDummies = #g_tWorldWonderDummy
@@ -509,7 +508,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
--- check if wonder conquered by another player
+-- check if wonder was conquered by another player
 function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iPop, bConquest)
 	-- Krak des Chevaliers (1)
 	if g_tWorldWonderExists[1] then	
@@ -1020,7 +1019,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
--- check if new city has effects
+-- check if new city gains effects
 function BuildDummyInNewCity(ePlayer, iX, iY)
 	-- Krak des Chevaliers (1)
 	if g_tWorldWonderExists[1] then
@@ -1165,7 +1164,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 end
 GameEvents.PlayerCityFounded.Add(BuildDummyInNewCity)
 
--- check if unit action changed
+-- check if unit action changed (QALHAT, GREAT ZIMBABWE)
 function SetDummiesOnUnitActionChange(ePlayer, iUnit)
 	-- Qalhat (3)
 	if g_tWorldWonderExists[3] then
@@ -1320,7 +1319,7 @@ function SetPromotionOnTurn(ePlayer)
 end
 GameEvents.PlayerDoTurn.Add(SetPromotionOnTurn)
 
--- Curiosity Rover Research Agreements check
+-- check for Research Agreement (CURIOSITY ROVER)
 function SetRAOnTurn(ePlayer)
 	-- Curiosity Rover (19)
 	if g_tWorldWonderExists[19] then
@@ -1349,8 +1348,3 @@ function SetRAOnTurn(ePlayer)
 	end
 end
 GameEvents.PlayerDoTurn.Add(SetRAOnTurn)
---------------------------------------------------------------
---------------------------------------------------------------
-print("Loaded DummyBuildingsForWonders.lua from MWfVP")
---------------------------------------------------------------
---------------------------------------------------------------
