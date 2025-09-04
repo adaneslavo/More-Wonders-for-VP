@@ -500,10 +500,6 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MALWIYA';
 	---------------------------------------------------------
 	UPDATE Buildings SET Flat = 1 WHERE Type = 'BUILDING_MALWIYA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
-	
-	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_MALWIYA',	'BUILDINGCLASS_STONE_WORKS' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 2 WHERE Type = 'BUILDING_MALWIYA';
 

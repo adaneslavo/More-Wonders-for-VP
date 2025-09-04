@@ -77,6 +77,8 @@ v24:
 					- now Resource bonuses are global (were local);
 				- Majorville Medicine Wheel:
 					- deleted basic Faith bonus;
+				- Malwiya Minaret:
+					- now requires 1 Quarry instead of Stone Works (on Hard);
 				- Meenakshi Temple:
 					- now gives +1 Faith per 6 Citizens (was 1 per 4);
 					- now converts 5% Faith Purchase into Food (was 20%);
