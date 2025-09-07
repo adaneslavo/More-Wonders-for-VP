@@ -35,6 +35,7 @@ v24:
 				- VP:
 					- Angkor Wat:
 						- removed free Mandir;
+						- reverted culture deletion;
 						- replaced +1 Great Engineer Point with +2 Great Diplomat Points;
 						- now +2 Culture and +2 Faith (was 1 and 1);
 						- added +3 Faith to local Civil Servants;
@@ -45,11 +46,11 @@ v24:
 						- now +2 Great Engineer Points (was 1);
 					- Notre Dame:
 						- removed free Cathedral;
-						- now +5 Faith (was 4);
+						- now +5 Faith and +4 Culture (was 4 and 1);
 						- now +6 Faith and +6 Golden Age Points (was 3 and 3);
+						- added +5% Culture from Faith Purchase;
 					- University of Sankore:
-						- removed free Mosque;
-						- ???
+						- replaced free Mosque with free University;
 				- MW:
 					- Golden Pavilion:
 						- removed free Pagoda;
@@ -59,6 +60,8 @@ v24:
 						- now +4 Faith per 5 Citizens (was 2 per 5);
 		- balance changes of existing World Wonders:
 			- VP:
+				- Forbidden Palace:
+					- reverted culture and gold changes;
 				- Petra:
 					- deleted Great Engineer Points;
 					- now +3 Culture and +1 Gold (was +2 Culture);
@@ -75,6 +78,8 @@ v24:
 					- added +1 Culture to all Stones;
 				- Altamira Cave:
 					- now Resource bonuses are global (were local);
+				- El Ghriba Synagogue:
+					- now 10% Gold from Faith Purchase (was 15%);
 				- Majorville Medicine Wheel:
 					- deleted basic Faith bonus;
 				- Malwiya Minaret:

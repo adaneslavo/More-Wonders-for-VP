@@ -635,7 +635,7 @@
 	
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		15);
+	VALUES		('BUILDING_EL_GHRIBA',	'YIELD_GOLD',		10);
 	
 	INSERT INTO GreatWorks
 				(Type,					Description,					GreatWorkClassType,	Audio,							Image,									Quote) 
@@ -1191,9 +1191,16 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_JOHNS';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_JOHNS';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
-	---------------------------------------------------------
+	UPDATE Buildings SET AlwaysHeal = 10, ExtraCityHitPoints=100, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
 
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,		YieldType,						Yield) 
+	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',					2),
+				('BUILDING_JOHNS',	'YIELD_GREAT_GENERAL_POINTS',	2);
+
+	INSERT INTO Building_YieldFromYieldPercentGlobal
+				(BuildingType,		YieldIn,		YieldOut,		Value)
+	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',	'YIELD_FOOD',	15);
 	---------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1465,10 +1472,26 @@
 -- TLACHIHUALTEPETL (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
+	
+	INSERT INTO	Policies
+				(Type, 								Description, 								IsDummy)
+	VALUES		('POLICY_TLACHIHUALTEPETL_DUMMY',	'TXT_KEY_POLICY_TLACHIHUALTEPETL_DUMMY',	1);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
-	---------------------------------------------------------
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1, FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,						Yield)
+	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_CULTURE',				3),
+				('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					1),
+				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1);
+
+	INSERT INTO Building_YieldChangesPerGoldenAge 
+				(BuildingType,					YieldType,			Yield,		YieldCap)
+	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',		5,			999);
+
+	INSERT INTO Policy_YieldFromConstruction
+				(PolicyType, 						YieldType,					Yield)
+	VALUES		('POLICY_TLACHIHUALTEPETL_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	5);
 	---------------------------------------------------------
 
 --============================================--
@@ -4117,9 +4140,6 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 	-- ==> Production
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_TERRACOTTA_ARMY';
 			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_TERRACOTTA_ARMY', 'YIELD_PRODUCTION', 1);
-	-- ==> Gold
-		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_FORBIDDEN_PALACE';
-			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_FORBIDDEN_PALACE', 'YIELD_GOLD', 1);
 	-- ==> Science
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_STONEHENGE';
 			INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_STONEHENGE', 'YIELD_SCIENCE', 1);
@@ -4145,7 +4165,6 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_WALL';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HIMEJI_CASTLE';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SUMMER_PALACE';
-		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_NOTRE_DAME';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_PORCELAIN_TOWER';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_RED_FORT';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_SOHO_FOUNDRY';
@@ -4190,7 +4209,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
 		INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
 		
-		INSERT INTO Policies (Type, Description) SELECT 'POLICY_ANGKOR_WAT_DUMMY', 'TXT_KEY_POLICY_ANGKOR_WAT_DUMMY';
+		INSERT INTO Policies (Type, Description, IsDummy) SELECT 'POLICY_ANGKOR_WAT_DUMMY', 'TXT_KEY_POLICY_ANGKOR_WAT_DUMMY', 1;
 		
 		INSERT INTO Policy_UnitClassReplacements (PolicyType,				ReplacedUnitClassType, ReplacementUnitClassType) 
 		SELECT									 'POLICY_ANGKOR_WAT_DUMMY', Class,				   Class||'_FAITH'
@@ -4225,11 +4244,12 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	-- Notre Dame
 		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
-		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME' AND YieldType = 'YIELD_FAITH';
+		UPDATE Building_YieldChanges SET Yield = 4 WHERE BuildingType = 'BUILDING_NOTRE_DAME' AND YieldType = 'YIELD_CULTURE';
 		UPDATE Building_ThemingYieldBonus SET Yield = 6 WHERE BuildingType = 'BUILDING_NOTRE_DAME';
+		INSERT INTO Building_YieldFromFaithPurchase (BuildingType, YieldType, Yield) VALUES ('BUILDING_NOTRE_DAME',	'YIELD_CULTURE', 5);
 	-- University of Sankore
-		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
-	
+		UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_UNIVERSITY' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 --============================================--
 -- EE Compatibility
 --============================================--

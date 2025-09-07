@@ -29,7 +29,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_CURIOSITY"],
 	GameInfoTypes["BUILDING_SEED_VAULT"],
 	GameInfoTypes["BUILDING_TEMBLEQUE"],
-	GameInfoTypes["BUILDING_ANGKOR_WAT"]
+	GameInfoTypes["BUILDING_ANGKOR_WAT"],
+	GameInfoTypes["BUILDING_TLACHIHUALTEPETL"]
 }
 
 local g_tWorldWonderDummy = {
@@ -54,7 +55,8 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_CURIOSITY_DUMMY"],
 	GameInfoTypes["BUILDING_SEED_VAULT_DUMMY"],
 	GameInfoTypes["BUILDING_TEMBLEQUE_DUMMY"],
-	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"]		-- POLICY!!!
+	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"],		-- POLICY!!!
+	GameInfoTypes["BUILDING_TLACHIHUALTEPETL"]		-- POLICY!!!
 }
 
 local g_iWonderWithDummies = #g_tWorldWonderDummy
@@ -94,6 +96,7 @@ local g_tWorldWonderOwner = {}
 -- Svalbard Global Seed Vault (20)
 -- Aqueduct of Padre Tembleque (21)
 -- Angkor Wat (22)
+-- Tlachilhualtepetl (23)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -503,6 +506,18 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			local pPlayer = Players[ePlayer]
 		
 			pPlayer:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+		end
+	end
+
+	-- Tlachilhualtepetl (23)
+	if not g_tWorldWonderExists[23] then	
+		if eBuilding == g_tWorldWonder[23] then
+			g_tWorldWonderExists[23] = true
+			g_tWorldWonderOwner[23] = ePlayer
+			
+			local pPlayer = Players[ePlayer]
+		
+			pPlayer:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
 		end
 	end
 end
@@ -1014,6 +1029,22 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			
 			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[22], 0) -- POLICY!!!
 			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+		end
+	end
+
+	-- Tlachilhualtepetl (23)
+	if g_tWorldWonderExists[23] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[23]) then
+			local pOldOwner = Players[eOldOwner]
+			local pNewOwner = Players[eNewOwner]
+			
+			g_tWorldWonderOwner[23] = eNewOwner
+			
+			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[23], 0) -- POLICY!!!
+			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
 		end
 	end
 end

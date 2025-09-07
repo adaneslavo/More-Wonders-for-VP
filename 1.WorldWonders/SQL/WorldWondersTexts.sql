@@ -279,7 +279,7 @@ VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
 			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a very unique [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]). It holds precious [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_CULTURE]; +4[ICON_PEACE]; +1[ICON_VP_GREATART]), which is a foundation stone of Judaism. History shows that Jews are masters of economy and can gain additional profits from unexpected sources (+1[ICON_GOLD]; 15%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).');
+VALUES ('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a very unique [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]). It holds precious [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_CULTURE]; +4[ICON_PEACE]; +1[ICON_VP_GREATART]), which is a foundation stone of Judaism. History shows that Jews are masters of economy and can gain additional profits from unexpected sources (+1[ICON_GOLD]; 10%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EL_GHRIBA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -684,11 +684,12 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[END
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
 VALUES		('TXT_KEY_BUILDING_TLACHIHUALTEPETL',		'Tlachihualtepetl'),
+			('TXT_KEY_POLICY_TLACHIHUALTEPETL_DUMMY',	'Tlachihualtepetl'),
 			('TXT_KEY_WONDER_TLACHIHUALTEPETL_QUOTE',	'[NEWLINE]"Quetzalcoatl is a primal idea of the duality of human nature. The serpent is the embodiment of heaven and earth. It scares people in many ways."[NEWLINE] - Robert Graham[NEWLINE]'),
 			('TXT_KEY_WONDER_TLACHIHUALTEPETL_PEDIA',	'Tlachihualtepetl, also known as the Great Pyramid of Cholula, is an ancient Mesoamerican structure located in Cholula, Mexico. It is considered the largest pyramid by volume in the world, surpassing even the Great Pyramid of Giza. Built in multiple phases beginning around the 3rd century BCE by the indigenous inhabitants of Cholula, the pyramid was expanded over centuries, reaching a base of approximately 450 by 450 meters (1,480 by 1,480 feet) and a height of around 66 meters (217 feet). Its name, Tlachihualtepetl, means "man-made mountain" in Nahuatl, reflecting its layered construction as each civilization built upon the previous one. The pyramid was an important religious and ceremonial center dedicated to the god Quetzalcoatl, playing a significant role in pre-Columbian culture. [NEWLINE][NEWLINE]By the time of the Spanish conquest in the 16th century, the pyramid had been largely abandoned and overgrown, resembling a natural hill. The Spanish, unaware of the structure beneath, built the Church of Our Lady of Remedies on top, symbolizing the imposition of Christianity over indigenous beliefs. Today, Tlachihualtepetl is an important archaeological site, with a network of tunnels excavated inside the pyramid revealing its layered history. It remains a significant cultural and tourist attraction, blending pre-Hispanic and colonial heritage, and stands as a testament to the architectural and religious traditions of ancient Mesoamerican civilizations.'),
 			/*('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP',	'');*/
 			('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP',	'');
-
+	
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP_CUT', '');
 				
@@ -732,67 +733,43 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[END
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Forest[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ALHAMBRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Machu Picchu
-UPDATE Language_en_US
-SET Text = 'If your city is surrounded by [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_PEACE]/Tile to City), then [COLOR_YIELD_FOOD]Machu Picchu[ENDCOLOR] is a perfect choice. All your city connections in this difficult terrain are more profitble (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED], [ICON_INDUSTRIAL_CONNECTED][ICON_INDUSTRIAL_CONNECTED]) and your treasury is supported by qualified specialists (+1[ICON_GREAT_MERCHANT]).'
-WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built within 2 tiles of a Mountain that is inside your territory. ', '') WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';
+/*UPDATE Language_en_US SET Text = REPLACE(Text, 'City must be built within 2 tiles of a Mountain that is inside your territory. ', '') WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP';*/
 	
-INSERT INTO Language_en_US 
-			(Tag,									Text) 
-SELECT		'TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_MACHU_PICHU_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT', 'If your new city is constructed on a [COLOR_CITY_BLUE]Mountain[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]), then [COLOR_YIELD_FOOD]Machu Picchu[ENDCOLOR] is a perfect choice for you. Living in such a high spot puts you much closer to the Gods (+2[ICON_PEACE]), but also requires specific solutions for maintaining contacts with other settlements (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED], [ICON_INDUSTRIAL_CONNECTED][ICON_INDUSTRIAL_CONNECTED]) making you the exclusive ruler of these profitable lands (+5[ICON_GOLD]; +1[ICON_GREAT_MERCHANT]).');
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]2 Mountains (range 3)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Forbidden Palace
-UPDATE Language_en_US
-SET Text = 'Rich [COLOR_YIELD_FOOD]Forbidden Palace[ENDCOLOR] will help you get out of crisis (-1[ICON_HAPPINESS_3] Poverty). Huge investments in empire development (-15%[ICON_GOLD][ICON_GOLD] Purchase Cost) and brand new merchant district (+2[ICON_GREAT_MERCHANT]) will introduce you into new era.'
-WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+/*UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	'[COLOR_YIELD_FOOD]Forbidden Palace[ENDCOLOR], constructed on the ashes of previous civilization, shows how successful are your expansions and how fast you can rebuild the infrastructure and make profits of these newly acquired lands (-15%[ICON_GOLD][ICON_GOLD] Purchase Cost). Increased outlays on city development can easily endear yourself to the citizens (-1[ICON_HAPPINESS_3] Poverty) and this can really quickly pay for itself handsomely (+5[ICON_GOLD]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Rila Monastery (former Karlstejn) [COLOR_YIELD_FOOD]Orders[ENDCOLOR] ([ICON_PEACE]; [ICON_MISSIONARY]; [ICON_STRENGTH]; [ICON_SILVER_FIST]; [ICON_HAPPINESS_3])
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Rila Monastery[ENDCOLOR] takes care of all [COLOR_YIELD_FOOD]Monasteries[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), has high base yields (+3[ICON_CULTURE]; +4[ICON_PEACE]) and lowers requirement for reformation (-5%[ICON_RELIGION] Followers). Use it to gain new abilities just before your enemies do the same!'
-WHERE Tag = 'TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Order', 'Monastery') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP';
+-- Rila Monastery (former VP Karlstejn Castle)
+/*UPDATE Language_en_US SET Text = REPLACE(Text, 'Order', 'Monastery') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
+UPDATE Language_en_US SET Text = REPLACE(Text, 'Must be built in a Holy City. ', '') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP';*/
 	
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_BUILDING_KARLSTEJN_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_KARLSTEJN_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_KARLSTEJN_HELP_CUT', '[COLOR_YIELD_FOOD]Rila Monastery[ENDCOLOR], surrounded by ubiquitous nature, is not only one of the most important [COLOR_YIELD_FOOD]Monasteries[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), but also a huge tourist attraction appealing followers of many different religions (+3[ICON_CULTURE]). Large donations allowed for its quick extension, so now it can house few dozens of monks (+4[ICON_PEACE]), whose commitment and prayers can change the reception of your state religion (-5%[ICON_RELIGION] Followers/[ICON_RELIGION] Reformation Belief).');
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
-
 UPDATE Language_en_US SET Text = 'Rila Monastery' WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN';
 UPDATE Language_en_US SET Text = '[NEWLINE]"If you find that you have no love but desire to have it, do the works of love and the Lord will see your desire and effort and put love in your heart."[NEWLINE] - St. Ambrose of Optina[NEWLINE]' WHERE Tag ='TXT_KEY_WONDER_KARLSTEJN_QUOTE';
-UPDATE Language_en_US SET Text = 'TODO'||Text WHERE Tag ='TXT_KEY_CIV5_BUILDINGS_KARLSTEJN_TEXT';
+UPDATE Language_en_US SET Text = 'TODO'||Text WHERE Tag ='TXT_KEY_CIV5_BUILDINGS_KARLSTEJN_TEXT';				
+
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Notre Dame
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Notre Dame[ENDCOLOR] creates history and starts new religious era in your empire (+30% [ICON_PEACE] Religious Pressure/all your Cities of your Religion). Many impressing artwork (2[ICON_VP_GREATART], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]) collected behind its walls will make your citizens much happier (+1[ICON_HAPPINESS_1]).'
-WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
+/*UPDATE Language_en_US SET Text = REPLACE(Text, 'Receive a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Cathedral in the City in which it is built.', '') WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
+UPDATE Language_en_US SET Text = REPLACE(Text, '+3', '+6') WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Receive a [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Cathedral in the City in which it is built.', '') WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-UPDATE Language_en_US SET Text = REPLACE(Text, '+3', '+6') WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,									Text) 
-SELECT		'TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_NOTRE_DAME_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	'[COLOR_YIELD_FOOD]Notre Dame[ENDCOLOR] is not only a glorious temple (+5[ICON_PEACE]; +60%[ICON_PEACE] Pressure/all Cities of your Religion), but also a symbol visited by millions (+4[ICON_CULTURE]; 5%[ICON_CULTURE] from [ICON_PEACE] Faith Purchase). Most of them wants to see the most precious relics (2[ICON_VP_GREATART], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]), but there are few, who are impressed by its interiors or just wants to feel its sublime atmosphere (+1[ICON_HAPPINESS_1]). And no one knows everything started as a small mercantile settlement (+1[ICON_GREAT_MERCHANT]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
