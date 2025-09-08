@@ -2453,7 +2453,7 @@
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_DANXIA_A</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -2468,7 +2468,7 @@
 		</Row>
 		<Row>
 			<FeatureType>FEATURE_DANXIA_B</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 
@@ -3081,7 +3081,7 @@
 
 		<Row>
 			<FeatureType>FEATURE_DANXIA_A</FeatureType>
-			<YieldType>YIELD_CULTURE</YieldType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>

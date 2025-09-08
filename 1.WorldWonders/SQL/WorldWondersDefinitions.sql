@@ -1191,7 +1191,8 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_JOHNS';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_JOHNS';
 	---------------------------------------------------------
-	UPDATE Buildings SET AlwaysHeal = 10, ExtraCityHitPoints=100, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
+	UPDATE Buildings SET ExtraCityHitPoints = 50, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
+	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_JOHNS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield) 
@@ -1200,7 +1201,7 @@
 
 	INSERT INTO Building_YieldFromYieldPercentGlobal
 				(BuildingType,		YieldIn,		YieldOut,		Value)
-	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',	'YIELD_FOOD',	15);
+	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',	'YIELD_GOLD',	5);
 	---------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1482,12 +1483,12 @@
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
 	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_CULTURE',				3),
-				('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					1),
-				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1);
+				('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					1);
 
 	INSERT INTO Building_YieldChangesPerGoldenAge 
-				(BuildingType,					YieldType,			Yield,		YieldCap)
-	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',		5,			999);
+				(BuildingType,					YieldType,						Yield,		YieldCap)
+	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					5,			999),
+				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1,			999);
 
 	INSERT INTO Policy_YieldFromConstruction
 				(PolicyType, 						YieldType,					Yield)

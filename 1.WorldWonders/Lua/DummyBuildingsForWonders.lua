@@ -6,6 +6,7 @@
 local eUnitClassCaravan = GameInfoTypes.UNITCLASS_CARAVAN
 local eUnitClassCargo = GameInfoTypes.UNITCLASS_CARGO_SHIP
 local eClassWalls = "BUILDINGCLASS_WALLS"
+local eClassTemple = "BUILDINGCLASS_TEMPLE"
 
 local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_CHEVALIERS"],
@@ -30,7 +31,8 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_SEED_VAULT"],
 	GameInfoTypes["BUILDING_TEMBLEQUE"],
 	GameInfoTypes["BUILDING_ANGKOR_WAT"],
-	GameInfoTypes["BUILDING_TLACHIHUALTEPETL"]
+	GameInfoTypes["BUILDING_TLACHIHUALTEPETL"],
+	GameInfoTypes["BUILDING_JOHNS"]
 }
 
 local g_tWorldWonderDummy = {
@@ -56,7 +58,8 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_SEED_VAULT_DUMMY"],
 	GameInfoTypes["BUILDING_TEMBLEQUE_DUMMY"],
 	GameInfoTypes["POLICY_ANGKOR_WAT_DUMMY"],		-- POLICY!!!
-	GameInfoTypes["BUILDING_TLACHIHUALTEPETL"]		-- POLICY!!!
+	GameInfoTypes["POLICY_TLACHIHUALTEPETL_DUMMY"], -- POLICY!!!
+	GameInfoTypes["BUILDING_JOHNS_DUMMY"]
 }
 
 local g_iWonderWithDummies = #g_tWorldWonderDummy
@@ -97,6 +100,7 @@ local g_tWorldWonderOwner = {}
 -- Aqueduct of Padre Tembleque (21)
 -- Angkor Wat (22)
 -- Tlachilhualtepetl (23)
+-- Hospital of St. John (24)
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
@@ -212,7 +216,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		
 		for city in pPlayer:Cities() do
 			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-				if city:IsHasBuilding(building.Type) then
+				if city:IsHasBuilding(building.ID) then
 					city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 					break
 				end
@@ -520,6 +524,35 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			pPlayer:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
 		end
 	end
+	
+	-- Hospital of St. John (24)
+	if eBuilding == g_tWorldWonder[24] then
+		g_tWorldWonderExists[24] = true
+		g_tWorldWonderOwner[24] = ePlayer
+			
+		local pPlayer = Players[ePlayer]
+		
+		for city in pPlayer:Cities() do
+			for building in GameInfo.Buildings{BuildingClass=eClassTemple} do	
+				if city:IsHasBuilding(building.ID) then
+					city:SetNumRealBuilding(g_tWorldWonderDummy[24], 1)
+					break
+				end
+			end
+		end
+	else
+		if g_tWorldWonderExists[24] and g_tWorldWonderOwner[24] == ePlayer then
+			for building in GameInfo.Buildings{BuildingClass=eClassTemple} do
+				if eBuilding == building.ID then
+					local pPlayer = Players[ePlayer]
+					local pCity = pPlayer:GetCityByID(eCity)
+					
+					pCity:SetNumRealBuilding(g_tWorldWonderDummy[24], 1)
+					break
+				end
+			end
+		end
+	end
 end
 GameEvents.CityConstructed.Add(IsWonderConstructed)
 
@@ -626,7 +659,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			
 			for city in pNewOwner:Cities() do
 				for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-					if city:IsHasBuilding(building.Type) then
+					if city:IsHasBuilding(building.ID) then
 						city:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 						break
 					end
@@ -634,7 +667,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			end		
 		else
 			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-				if eNewOwner == g_tWorldWonderOwner[4] and pConqCity:IsHasBuilding(building.Type) then
+				if eNewOwner == g_tWorldWonderOwner[4] and pConqCity:IsHasBuilding(building.ID) then
 					pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 					break
 				elseif eNewOwner ~= g_tWorldWonderOwner[4] then
@@ -1047,6 +1080,42 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
 		end
 	end
+
+	-- Hospital of St. John (24)
+	if g_tWorldWonderExists[24] then	
+		local pPlot = Map.GetPlot(iX, iY)
+		local pConqCity = pPlot:GetWorkingCity()
+		
+		if pConqCity:IsHasBuilding(g_tWorldWonder[24]) then
+			local pOldOwner = Players[eOldOwner]
+			
+			for city in pOldOwner:Cities() do
+				city:SetNumRealBuilding(g_tWorldWonderDummy[24], 0)
+			end
+			
+			local pNewOwner = Players[eNewOwner]
+			g_tWorldWonderOwner[24] = eNewOwner
+			
+			for city in pNewOwner:Cities() do
+				for building in GameInfo.Buildings{BuildingClass=eClassTemple} do	
+					if city:IsHasBuilding(building.ID) then
+						city:SetNumRealBuilding(g_tWorldWonderDummy[24], 1)
+						break
+					end
+				end
+			end		
+		else
+			for building in GameInfo.Buildings{BuildingClass=eClassTemple} do	
+				if eNewOwner == g_tWorldWonderOwner[24] and pConqCity:IsHasBuilding(building.ID) then
+					pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[24], 1)
+					break
+				elseif eNewOwner ~= g_tWorldWonderOwner[24] then
+					pConqCity:SetNumRealBuilding(g_tWorldWonderDummy[24], 0)
+					break
+				end
+			end
+		end
+	end
 end
 GameEvents.CityCaptureComplete.Add(CheckForWonderAfterCapture)
 
@@ -1083,7 +1152,7 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			for building in GameInfo.Buildings{BuildingClass=eClassWalls} do	
-				if pCity:IsHasBuilding(building.Type) then
+				if pCity:IsHasBuilding(building.ID) then
 					pCity:SetNumRealBuilding(g_tWorldWonderDummy[4], 1)
 					break
 				end
@@ -1190,6 +1259,21 @@ function BuildDummyInNewCity(ePlayer, iX, iY)
 			local pCity = pPlot:GetWorkingCity()
 			
 			pCity:SetNumRealBuilding(g_tWorldWonderDummy[21], 1)
+		end
+	end
+
+	-- Hospital of St. John (24)
+	if g_tWorldWonderExists[24] then
+		if ePlayer == g_tWorldWonderOwner[24] then
+			local pPlot = Map.GetPlot(iX, iY)
+			local pCity = pPlot:GetWorkingCity()
+			
+			for building in GameInfo.Buildings{BuildingClass=eClassTemple} do	
+				if pCity:IsHasBuilding(building.ID) then
+					pCity:SetNumRealBuilding(g_tWorldWonderDummy[24], 1)
+					break
+				end
+			end
 		end
 	end
 end

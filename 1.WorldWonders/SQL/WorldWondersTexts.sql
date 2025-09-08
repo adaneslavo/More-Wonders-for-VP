@@ -570,7 +570,7 @@ VALUES		('TXT_KEY_BUILDING_JOHNS',			'Hospital of St. John'),
 			('TXT_KEY_WONDER_JOHNS_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_JOHNS_HELP_CUT', '');
+VALUES ('TXT_KEY_WONDER_JOHNS_HELP_CUT', '[COLOR_YIELD_FOOD]Hospital of St. John[ENDCOLOR] was created for helping people (3 global HP Heal/[COLOR_YIELD_GOLD]Land[ENDCOLOR]/Cities with a [COLOR_YIELD_FOOD]Temple[ENDCOLOR]) even during devastating wars (+50 HP). Time is changing, but knights of this [COLOR_YIELD_FOOD]Order[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), even though always devoted to the God (+2[ICON_PEACE]), they secretely try to grab something for themselves (5%[ICON_PEACE][ICON_PEACE] into [ICON_GOLD]). And no matter where the tides push them to (+2[ICON_GREAT_ADMIRAL]), they resist to rulers who want to destroy fruits of their hard work.');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JOHNS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JOHNS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -691,7 +691,7 @@ VALUES		('TXT_KEY_BUILDING_TLACHIHUALTEPETL',		'Tlachihualtepetl'),
 			('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP',	'');
 	
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP_CUT', '');
+VALUES ('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP_CUT', '[COLOR_YIELD_FOOD]Tlachihualtepetl[ENDCOLOR], constructed piece by piece over many eras and by different civilizations, one on top of another (cumulative +5[ICON_PEACE], +1[ICON_GREAT_GENERAL]/every [ICON_GOLDEN_AGE] start), represents their commitment to mighty Quetzalcoatl (+1[ICON_PEACE]; 5[ICON_GOLDEN_AGE]/global [COLOR_YIELD_FOOD]Building[ENDCOLOR] construction). This monumental [COLOR_YIELD_FOOD]Teocalli[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) amazes even more advanced civilizations (+3[ICON_CULTURE]; +1[ICON_GREAT_ENGINEER]), who want to claim it peacefully or by force to change them into a blasphemy.');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -700,10 +700,10 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 /*UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	'[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR] successfully combines science and faith together. Nearby [COLOR_YIELD_FOOD]Mosque[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) will attract noble great people, who use their influence to boost your most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).');
+VALUES ('TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	'[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR], initially a mosque (+1[ICON_PEACE]), finally converted into madrasah (+1[ICON_RESEARCH]), at its peak successfully combined both domains (+1[ICON_GREAT_SCIENTIST]). Besides being a wonderful [COLOR_YIELD_FOOD]University[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it shows that harsh terrain is no obstacle to construct such a wonderful facility (+1[ICON_CULTURE]) and attracts nobles from remote countries, whose influence boost the most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).');
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; Building: [COLOR_CYAN]Library[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Desert[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]; Building: [COLOR_CYAN]Library[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Hagia Sophia
 INSERT INTO Language_en_US (Tag, Text) 
@@ -769,7 +769,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 UPDATE Language_en_US SET Text = REPLACE(Text, '+3', '+6') WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	'[COLOR_YIELD_FOOD]Notre Dame[ENDCOLOR] is not only a glorious temple (+5[ICON_PEACE]; +60%[ICON_PEACE] Pressure/all Cities of your Religion), but also a symbol visited by millions (+4[ICON_CULTURE]; 5%[ICON_CULTURE] from [ICON_PEACE] Faith Purchase). Most of them wants to see the most precious relics (2[ICON_VP_GREATART], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]), but there are few, who are impressed by its interiors or just wants to feel its sublime atmosphere (+1[ICON_HAPPINESS_1]). And no one knows everything started as a small mercantile settlement (+1[ICON_GREAT_MERCHANT]).');
+VALUES ('TXT_KEY_BUILDING_NOTRE_DAME_HELP_CUT',	'[COLOR_YIELD_FOOD]Notre Dame[ENDCOLOR] is not only a glorious temple (+5[ICON_PEACE]; +60%[ICON_PEACE] Pressure/all Cities of your Religion), but also a symbol visited by millions (+4[ICON_CULTURE]; 5%[ICON_CULTURE] from [ICON_PEACE] Faith Purchase). Most of them wants to see precious relics (2[ICON_VP_GREATART], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]), but there are few, who are impressed by its interiors or just wants to feel its sublime atmosphere (+1[ICON_HAPPINESS_1]). And no one knows everything started as a small mercantile settlement (+1[ICON_GREAT_MERCHANT]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_NOTRE_DAME_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -993,14 +993,8 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; [COLOR_
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Globe Theater
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Globe Theater[ENDCOLOR] unites all artistic proffessions in one wonder (+2[ICON_GOLDEN_AGE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST], [ICON_GREAT_WRITER][ICON_GREAT_WRITER], [ICON_GREAT_MUSICIAN][ICON_GREAT_MUSICIAN]), but its much stronger focus on literature is obvious ([COLOR_YIELD_GOLD]free [ICON_GREAT_WRITER][ENDCOLOR]; 2[ICON_VP_GREATWRITING], if themed: [ICON_GOLD]). This wonder is so influencial, that people''s tastes change accoridng to your will (-1[ICON_HAPPINESS_3] Boredom; -1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization).'
-WHERE Tag = 'TXT_KEY_WONDER_GLOBE_THEATER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_WONDER_GLOBE_THEATER_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_GLOBE_THEATER_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_GLOBE_THEATER_HELP_CUT', '[COLOR_YIELD_FOOD]Globe Theater[ENDCOLOR] shows dozens of wonderful performances fulfilling all people''s tastes (+2[ICON_CULTURE]; -1[ICON_HAPPINESS_3] Boredom). Preparing a play for such a magnificient scene is very demanding, because it has to unite all artistic professions in one place (+2[ICON_GOLDEN_AGE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST], [ICON_GREAT_WRITER][ICON_GREAT_WRITER], [ICON_GREAT_MUSICIAN][ICON_GREAT_MUSICIAN]). Every creator will find something to do (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Urbanization), even though its much stronger focus on literature is obvious ([COLOR_YIELD_GOLD]free [ICON_GREAT_WRITER][ENDCOLOR]; 2[ICON_VP_GREATWRITING], if themed: [ICON_GOLD]).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR]; Building: [COLOR_CYAN]Amphitheater[ENDCOLOR], [COLOR_CYAN]Baths[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GLOBE_THEATER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Building: [COLOR_CYAN]Amphitheater[ENDCOLOR], [COLOR_CYAN]Baths[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GLOBE_THEATER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1034,27 +1028,15 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [C
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HIMEJI_CASTLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Leaning Tower of Pisa
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Leaning Tower of Piza[ENDCOLOR] brings attention of many influential nobles, who want to cooperate with you ([COLOR_YIELD_GOLD]free [ICON_GREAT_PEOPLE][ENDCOLOR]). Their final destination is not only this city (+25%[ICON_GREAT_PEOPLE]), but also all others in your empire (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]).'
-WHERE Tag = 'TXT_KEY_WONDER_LEANING_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_WONDER_LEANING_TOWER_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LEANING_TOWER_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_LEANING_TOWER_HELP_CUT', 'Phenomenon of [COLOR_YIELD_FOOD]Leaning Tower of Piza[ENDCOLOR], even though created by an accident, still brings an attention of intellectuals of many different domains ([COLOR_YIELD_GOLD]free [ICON_GREAT_PEOPLE][ENDCOLOR]; +25%[ICON_GREAT_PEOPLE]). Huge risk related to the stability of this bell tower is an ignition for numerous experiments performed by world-renowned scientists and engineers (+10%[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]), and millions of toursits are ready to take a chance and see this magnificient construction (+1[ICON_CULTURE]).');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Water[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_LEANING_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Water[ENDCOLOR], [COLOR_CYAN]Marsh[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_LEANING_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Porcelain Tower
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Porcelain Tower[ENDCOLOR] is a wonderful scientific building which improves education of your citizens (-1[ICON_HAPPINESS_3] Illiteracy), invites new great people to the city ([COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]; +2[ICON_GREAT_SCIENTIST]) and makes use of overall research you produce (+10%[ICON_RESEARCH]).'
-WHERE Tag = 'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PORCELAIN_TOWER_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_PORCELAIN_TOWER_HELP_CUT', '[COLOR_YIELD_FOOD]Porcelain Tower[ENDCOLOR] breaks many records, and all of this is possible thanks to numerous scientific breakthroughs ([COLOR_YIELD_GOLD]free [ICON_GREAT_SCIENTIST][ENDCOLOR]). Many generations tried to improve it or extend it, and sometimes even rebuild it after few tragic events (+10%[ICON_RESEARCH]; +2[ICON_GREAT_SCIENTIST]), so it could still please all visitors, even younger ones, who can learn something during the excursion (-1[ICON_HAPPINESS_3] Illiteracy).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR]; Player: [COLOR_CYAN]2 [ICON_CITY_STATE] Allies[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PORCELAIN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PORCELAIN_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);

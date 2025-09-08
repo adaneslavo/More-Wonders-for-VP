@@ -109,6 +109,11 @@ v24:
 			- all original help texts are cleared, and only lua abilities are added there instead (rest can be seen in improved VP tooltip);
 			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
 			- all Flavoured Help Texts are now massively revised, spellchecked and all bonuses are added inside in a smart way;
+		- added compatibility check for few mods:
+			- @gwennog's: Brittany and Ainu (Village replacements) and Tehuelche (Camp replacement);
+			- @jarcast's: Italy and Navajo (Village replacements);
+			- @pineppledan's: Timurids (Village replacement);
+			- @Hinin's: Benin (Citadel replacement);
 		- slightly reworked the formatting of few quote texts;
 		- few more improvement replacements from custom civs added to the requirement lists (by @gwennog);
 	- fixed:
@@ -119,6 +124,7 @@ v24:
 		- Falun Mine: now GPP granted starting from Medieval Era (was Classical);
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- lake requirements (found by @gwennog);
+		- lua dummies requiring other buildings (when settling with a Colonist);
 		- fixed and reworked numerous texts;
 		- overall clean up of the files;
 - Natural Wonders:
@@ -128,9 +134,6 @@ v24:
 			- Mariana Trench,
 			- Seongsan Ilchulbong,
 			- Zhangyie Danxia.
-		- added compatibility check for few mods:
-			- @gwennog's: Brittany and Ainu (Trading Posts replacements) and Tehuelche (Camp replacement);
-			- @jarcast's: Italy and Navajo (Trading Posts replacements);
 	- changed:
 		- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
 		- Ha Long Bay: added Artifact icon;
