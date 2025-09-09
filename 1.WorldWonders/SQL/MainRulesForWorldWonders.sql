@@ -225,13 +225,13 @@ VALUES		('SND_WONDER_SPEECH_AMERICA_SLATTER_MILL_MAN', 		'wonder_america_slatter
 			('SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',			'wonder_summer_palace_woman', 			'DynamicResident');
 
 INSERT INTO Audio_Sounds 
-			(SoundID, 											Filename, 							LoadType)
-VALUES		('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'art_ark_of_the_covenant_man', 		'DynamicResident'),
-			('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'art_ark_of_the_covenant_woman',	'DynamicResident'),
-			('SND_WONDER_SPEECH_HOLY_LANCE_MAN', 				'art_holy_lance_man', 				'DynamicResident'),
-			('SND_WONDER_SPEECH_HOLY_LANCE_WOMAN', 				'art_holy_lance_woman',				'DynamicResident'),
-			('SND_WONDER_SPEECH_HOLY_CROWN_MAN', 				'art_holy_crown_man', 				'DynamicResident'),
-			('SND_WONDER_SPEECH_HOLY_CROWN_WOMAN', 				'art_holy_crown_woman',				'DynamicResident');
+			(SoundID, 											Filename, 								LoadType)
+VALUES		('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'art_ark_of_the_covenant_man', 			'DynamicResident'),
+			('SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'art_ark_of_the_covenant_woman',		'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_LANCE_MAN', 				'art_holy_lance_man', 					'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_LANCE_WOMAN', 				'art_holy_lance_woman',					'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_CROWN_MAN', 				'art_holy_crown_man', 					'DynamicResident'),
+			('SND_WONDER_SPEECH_HOLY_CROWN_WOMAN', 				'art_holy_crown_woman',					'DynamicResident');
 --------------------------------------------------------------
 -- Audio_2DSounds
 INSERT INTO Audio_2DSounds 
@@ -270,13 +270,13 @@ VALUES		('AS2D_WONDER_SPEECH_AMERICA_SLATTER_MILL_MAN', 	'SND_WONDER_SPEECH_AMER
 			('AS2D_WONDER_SPEECH_SUMMER_PALACE_WOMAN', 			'SND_WONDER_SPEECH_SUMMER_PALACE_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0);
 
 INSERT INTO Audio_2DSounds 
-			(ScriptID, 											SoundID, 										SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
-VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 	'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN',	'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_HOLY_LANCE_MAN', 				'SND_WONDER_SPEECH_HOLY_LANCE_MAN', 			'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_HOLY_LANCE_WOMAN', 			'SND_WONDER_SPEECH_HOLY_LANCE_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_HOLY_CROWN_MAN', 				'SND_WONDER_SPEECH_HOLY_CROWN_MAN', 			'GAME_SPEECH', 	80, 		170, 		0, 			0),
-			('AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN', 			'SND_WONDER_SPEECH_HOLY_CROWN_WOMAN',			'GAME_SPEECH', 	80, 		170, 		0, 			0);
+			(ScriptID, 											SoundID, 											SoundType, 		MinVolume, 	MaxVolume,	IsMusic,	Looping)
+VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN', 	'SND_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN',		'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_LANCE_MAN', 				'SND_WONDER_SPEECH_HOLY_LANCE_MAN', 				'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_LANCE_WOMAN', 			'SND_WONDER_SPEECH_HOLY_LANCE_WOMAN',				'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_CROWN_MAN', 				'SND_WONDER_SPEECH_HOLY_CROWN_MAN', 				'GAME_SPEECH', 	80, 		170, 		0, 			0),
+			('AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN', 			'SND_WONDER_SPEECH_HOLY_CROWN_WOMAN',				'GAME_SPEECH', 	80, 		170, 		0, 			0);
 ------------------------------
 -- Buildings (Quotes)
 	-- Man
@@ -442,7 +442,6 @@ VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_
 	
 --============================================--
 -- DUMMY BUILDINGS
--- HolyCity doesn't need one because it is usually 1 city; 2nd religion and 2nd Holy City might allow for 2nd Wonder
 --============================================--
 INSERT INTO MWfVPConfig 
 			(WType,							WDummy,									WActive,	WHasSound)
@@ -468,8 +467,8 @@ VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
 			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0),
 			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0),
 			('TEMBLEQUE_DUMMY',				'Aqueduct of Padre Tembleque',			2,			0),
-			('ANGKOR_WAT_DUMMY',			'Angkor Wat',							2,			0),
-			('TLACHIHUALTEPETL_DUMMY',		'Tlachihualtepetl',						2,			0),
+			--('ANGKOR_WAT_DUMMY',			'Angkor Wat',							2,			0), -- POLICY!!!
+			--('TLACHIHUALTEPETL_DUMMY',	'Tlachihualtepetl',						2,			0), -- POLICY!!!
 			('JOHNS_DUMMY',					'Hospital of St. John',					2,			0);
 
 INSERT INTO BuildingClasses 
@@ -485,7 +484,15 @@ FROM MWfVPConfig WHERE WActive = 2;
 INSERT INTO Language_en_US 
 			(Tag,						Text) 
 SELECT		'TXT_KEY_BUILDING_'||WType, WDummy
-FROM MWfVPConfig WHERE WActive = 2;				
+FROM MWfVPConfig WHERE WActive = 2;
+
+--============================================--
+-- DUMMY POLICIES
+--============================================--
+INSERT INTO	Policies
+			(Type, 								Description, 								IsDummy)
+VALUES		('POLICY_TLACHIHUALTEPETL_DUMMY',	'TXT_KEY_POLICY_TLACHIHUALTEPETL_DUMMY',	1),		
+			('POLICY_ANGKOR_WAT_DUMMY',			'TXT_KEY_POLICY_ANGKOR_WAT_DUMMY',			1);	
 --============================================--
 -- Icons Atlas
 --============================================--

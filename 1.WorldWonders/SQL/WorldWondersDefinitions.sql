@@ -1473,10 +1473,6 @@
 -- TLACHIHUALTEPETL (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
-	
-	INSERT INTO	Policies
-				(Type, 								Description, 								IsDummy)
-	VALUES		('POLICY_TLACHIHUALTEPETL_DUMMY',	'TXT_KEY_POLICY_TLACHIHUALTEPETL_DUMMY',	1);
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1, FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 
@@ -4210,37 +4206,40 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
 		INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
 		
-		INSERT INTO Policies (Type, Description, IsDummy) SELECT 'POLICY_ANGKOR_WAT_DUMMY', 'TXT_KEY_POLICY_ANGKOR_WAT_DUMMY', 1;
-		
 		INSERT INTO Policy_UnitClassReplacements (PolicyType,				ReplacedUnitClassType, ReplacementUnitClassType) 
 		SELECT									 'POLICY_ANGKOR_WAT_DUMMY', Class,				   Class||'_FAITH'
 		FROM Units
-		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
+		WHERE Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
 		
 		INSERT INTO UnitClasses (Type,			  DefaultUnit)
 		SELECT					 Class||'_FAITH', Type||'_FAITH'
 		FROM Units
-		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
+		WHERE Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
 
 		INSERT INTO Unit_FreePromotions	(UnitType,		   PromotionType) 
 		SELECT							 a.Type||'_FAITH', b.PromotionType 
-		FROM Units a, Unit_FreePromotions b 
-		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+		FROM Units a, Unit_FreePromotions b
+		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
 
-		INSERT INTO Unit_ClassUpgrades (UnitType,		 UnitClassType)
+		/*INSERT INTO Unit_ClassUpgrades (UnitType,		 UnitClassType)
 		SELECT						   a.Type||'_FAITH', b.UnitClassType
 		FROM Units a, Unit_ClassUpgrades b
-		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');*/
 	
 		INSERT INTO Unit_ResourceQuantityRequirements (UnitType,		 ResourceType,   Cost) 
 		SELECT										   a.Type||'_FAITH', b.ResourceType, b.Cost 
-		FROM Units a, Unit_ResourceQuantityRequirements b 
-		WHERE a.CombatClass = 'UNITCOMBAT_DIPLOMACY' AND b.UnitType = a.Type;
+		FROM Units a, Unit_ResourceQuantityRequirements b
+		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
 	
 		INSERT INTO Units (Type, 		   Class, 			Combat, BaseSightRange, Cost, FaithCost, RequiresFaithPurchaseEnabled,  GlobalFaithPurchaseCooldown, PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, PolicyType, 				  PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra)
-		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 200,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
-		FROM Units 
-		WHERE CombatClass = 'UNITCOMBAT_DIPLOMACY';
+		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 0,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, NULL,			CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
+		FROM Units
+		WHERE Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
+
+		UPDATE Units SET FaithCost = 200 WHERE Type = 'UNIT_EMISSARY_FAITH';
+		UPDATE Units SET FaithCost = 500 WHERE Type = 'UNIT_ENVOY_FAITH';
+		UPDATE Units SET FaithCost = 800 WHERE Type = 'UNIT_DIPLOMAT_FAITH';
+		UPDATE Units SET FaithCost = 1100 WHERE Type = 'UNIT_AMBASSADOR_FAITH';
 	-- Chichen Itza
 		UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 	-- Notre Dame

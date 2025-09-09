@@ -31,7 +31,7 @@ v24:
 				- Harmandir Sahib giving Gurdwara;
 			- modified 1 World Wonder:
 				- Rila Monastery: replaced free Order with free Monastery;
-			- revised all "regular" World Wonders giving any kind of Religious Building:
+			- revised all "regular" World Wonders giving any kind of Religious Building (replaced that building with other abilities):
 				- VP:
 					- Angkor Wat:
 						- removed free Mandir;
@@ -124,7 +124,7 @@ v24:
 		- Falun Mine: now GPP granted starting from Medieval Era (was Classical);
 		- missing help text in Wonder Popup screen (credits to @jarcast and @hokath);
 		- lake requirements (found by @gwennog);
-		- lua dummies requiring other buildings (when settling with a Colonist);
+		- lua dummies requiring other buildings (when settling f.e. with a Colonist);
 		- fixed and reworked numerous texts;
 		- overall clean up of the files;
 - Natural Wonders:
