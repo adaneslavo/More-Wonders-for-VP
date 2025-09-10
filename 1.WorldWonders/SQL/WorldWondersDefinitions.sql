@@ -142,15 +142,19 @@
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,			YieldType,			Yield) 
-	VALUES		('BUILDING_KUK',		'YIELD_PRODUCTION',	3),
-				('BUILDING_KUK_DUMMY',	'YIELD_PRODUCTION',	2);
+	VALUES		('BUILDING_KUK',		'YIELD_PRODUCTION',	3);
+	---------------------------------------------------------
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_KUK_DUMMY',	'YIELD_PRODUCTION',	2);
 	
 	INSERT INTO Building_FeatureYieldChanges 
 				(BuildingType,			FeatureType,			YieldType,				Yield) 
 	VALUES		('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_PRODUCTION',		1),
 				('BUILDING_KUK_DUMMY',	'FEATURE_MARSH',		'YIELD_SCIENCE',		1);
-				
-	-- global_marsh_bonus (lua)
+	
+	-- global_yields_from_tech (lua_ability)
+	-- global_yields_to_marsh (lua_ability)
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
@@ -580,10 +584,6 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 1 WHERE Type = 'BUILDING_GATE_OF_SUN';
 	
-	INSERT INTO Building_YieldModifiers
-				(BuildingType,					YieldType,			Yield) 
-	VALUES		('BUILDING_GATE_OF_SUN_DUMMY',	'YIELD_SCIENCE',	5);
-
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield) 
 	VALUES		('BUILDING_GATE_OF_SUN',	'YIELD_CULTURE',	1),
@@ -604,8 +604,12 @@
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,				BuildingClassType,		YieldType,			YieldChange) 
 	VALUES		('BUILDING_GATE_OF_SUN',	'BUILDINGCLASS_WALLS',	'YIELD_SCIENCE',	1);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldModifiers
+				(BuildingType,					YieldType,			Yield) 
+	VALUES		('BUILDING_GATE_OF_SUN_DUMMY',	'YIELD_SCIENCE',	5);
 
-	-- science_per_city_with_walls (lua)
+	-- global_modifiers_to_cities_with_walls (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor) 
@@ -1024,8 +1028,11 @@
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,						YieldType,					Yield)
 	VALUES		('BUILDING_GREAT_ZIMBABWE',			'YIELD_FAITH',				1),
-				('BUILDING_GREAT_ZIMBABWE',			'YIELD_GOLD',				1),
-				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
+				('BUILDING_GREAT_ZIMBABWE',			'YIELD_GOLD',				1);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,						YieldType,					Yield)
+	VALUES		('BUILDING_GREAT_ZIMBABWE_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	2);
 	
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,						UnitCombatType,			Modifier) 
@@ -1037,7 +1044,8 @@
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'UNITCOMBAT_ARMOR',		5),
 				('BUILDING_GREAT_ZIMBABWE_DUMMY',	'UNITCOMBAT_RECON',		5);
 				
-	-- gap_and_production_for_active_tr (lua)
+	-- global_yields_per_tr (lua_ability)
+	-- global_production_modifiers_per_tr (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
@@ -1192,7 +1200,6 @@
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_JOHNS';
 	---------------------------------------------------------
 	UPDATE Buildings SET ExtraCityHitPoints = 50, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
-	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_JOHNS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield) 
@@ -1203,7 +1210,16 @@
 				(BuildingType,		YieldIn,		YieldOut,		Value)
 	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',	'YIELD_GOLD',	5);
 	---------------------------------------------------------
-
+	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_JOHNS_DUMMY';
+	
+	-- global_unit_healing_from_cities (lua_ability)
+	---------------------------------------------------------
+	INSERT INTO Building_Flavors
+				(BuildingType,		FlavorType,				Flavor)
+	VALUES		('BUILDING_JOHNS',	'FLAVOR_FAITH',			30),
+				('BUILDING_JOHNS',	'FLAVOR_OFFENSE',		50),
+				('BUILDING_JOHNS',	'FLAVOR_DEFENSE',		30),
+				('BUILDING_JOHNS',	'FLAVOR_GOLD',			40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RILA MONASTERY (FORMER KARLSTEJN)
@@ -1352,8 +1368,6 @@
 	SELECT DISTINCT							'BUILDING_ITSUKUSHIMA',	Type
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
 	---------------------------------------------------------
-	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
-
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
 	VALUES		('BUILDING_ITSUKUSHIMA',	'YIELD_CULTURE',	2);
@@ -1366,19 +1380,21 @@
 				(BuildingType,				TerrainType,		YieldType,			Yield) 
 	VALUES		('BUILDING_ITSUKUSHIMA',	'TERRAIN_OCEAN',	'YIELD_FAITH',		1);
 	
+	-- luxury sea resources
+	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
+	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,			'YIELD_FAITH',	2
+	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
+	---------------------------------------------------------
+	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
+
 	INSERT INTO Building_FeatureYieldChanges
 				(BuildingType,					FeatureType,		YieldType,			Yield) 
 	VALUES		('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FOOD',		1),
 				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_CULTURE',	1),
 				('BUILDING_ITSUKUSHIMA_DUMMY',	'FEATURE_ATOLL',	'YIELD_FAITH',		1);
 
-	-- luxury sea resources
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
-	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,			'YIELD_FAITH',	2
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
-
-	-- increased_border_growth_in_coastal_cities (lua)
-	-- boost_in_coastal_cities_to_atolls (lua)
+	-- border_growth_boost_in_coastal_cities (lua_ability)
+	-- yields_to_atolls_in_coastal_cities (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,					Flavor) 
@@ -1403,8 +1419,7 @@
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
-	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3),
-				('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	3);
+	VALUES		('BUILDING_QALHAT',			'YIELD_GOLD',		3);
 
 	INSERT INTO Building_ResourceYieldChanges
 				(BuildingType,		ResourceType,		YieldType,		Yield) 
@@ -1413,8 +1428,12 @@
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,		UnitCombatType,		Modifier) 
 	VALUES		('BUILDING_QALHAT', 'UNITCOMBAT_CARGO',	50);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_QALHAT_DUMMY',	'YIELD_CULTURE',	3);
 
-	-- culture_for_each_sea_trade_route_to_other_major_civ (lua)
+	-- global_bonus_to_sea_tr_from_majors (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,					Flavor) 
@@ -1441,14 +1460,12 @@
 	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1 WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
 	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
-	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
 	VALUES		('BUILDING_CHEVALIERS',			'YIELD_FOOD',					2),
 				('BUILDING_CHEVALIERS',			'YIELD_FAITH',					1),
-				('BUILDING_CHEVALIERS',			'YIELD_GREAT_GENERAL_POINTS',	1),
-				('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',					1);
+				('BUILDING_CHEVALIERS',			'YIELD_GREAT_GENERAL_POINTS',	1);
 
 	INSERT INTO Building_UnitCombatProductionModifiers 	
 				(BuildingType,			UnitCombatType,			Modifier) 
@@ -1458,8 +1475,14 @@
 	INSERT INTO Building_FreeUnits 
 				(BuildingType,			UnitType,				NumUnits)
 	VALUES		('BUILDING_CHEVALIERS', 'UNIT_GREAT_GENERAL',	1);
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
-	-- bonuses_in_non_coastal_cities (lua)
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_CHEVALIERS_DUMMY',	'YIELD_FAITH',		1);
+
+	-- different_bonuses_in_non_coastal_cities (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1485,12 +1508,19 @@
 				(BuildingType,					YieldType,						Yield,		YieldCap)
 	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					5,			999),
 				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1,			999);
-
+	---------------------------------------------------------
 	INSERT INTO Policy_YieldFromConstruction
 				(PolicyType, 						YieldType,					Yield)
 	VALUES		('POLICY_TLACHIHUALTEPETL_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	5);
+	
+	-- global_yields_from_construction (lua_ability)
 	---------------------------------------------------------
-
+	INSERT INTO Building_Flavors 
+				(BuildingType,					FlavorType,				Flavor)
+	VALUES		('BUILDING_TLACHIHUALTEPETL', 	'FLAVOR_CULTURE',		10),
+				('BUILDING_TLACHIHUALTEPETL', 	'FLAVOR_OFFENSE',		30),
+				('BUILDING_TLACHIHUALTEPETL', 	'FLAVOR_RELIGION',		100),
+				('BUILDING_TLACHIHUALTEPETL',	'FLAVOR_HAPPINESS',		40);
 --============================================--
 -- RENAISSANCE ERA
 --============================================--
@@ -1548,16 +1578,16 @@
 				(BuildingType,				ResourceType,			Quantity) 
 	VALUES		('BUILDING_KILWA_KISIWANI',	'RESOURCE_PORCELAIN',	1),
 				('BUILDING_KILWA_KISIWANI',	'RESOURCE_JEWELRY',		1);
-
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,		Yield) 
-	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_GOLD',	1
+	---------------------------------------------------------
+	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,				Yield) 
+	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_GOLD',			1
 	FROM Resources WHERE ResourceUsage = 2;
 
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,			Yield) 
-	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_PRODUCTION',	1
+	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,				Yield) 
+	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_PRODUCTION',		1
 	FROM Resources WHERE ResourceUsage = 1;
 	
-	-- production_gold_to_local_luxuries_strategics (lua)
+	-- global_yields_to_strategic_and_luxury_resources (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor)
@@ -1593,12 +1623,12 @@
 	INSERT INTO Building_FreeUnits 
 				(BuildingType,			UnitType,				NumUnits)
 	VALUES		('BUILDING_ST_PETERS', 'UNIT_INQUISITOR',		3);
-
+	---------------------------------------------------------
 	INSERT INTO Building_BuildingClassHappiness (BuildingType,				BuildingClassType,	Happiness)
 	SELECT DISTINCT								'BUILDING_ST_PETERS_DUMMY',	BuildingClass,		1
 	FROM Buildings WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
 	
-	-- happiness_to_all_religious_buildings (lua)
+	-- happiness_to_all_religious_buildings (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -1675,7 +1705,6 @@
 	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE';
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,						Yield)
@@ -1719,8 +1748,10 @@
 	INSERT INTO UnitPromotions_YieldFromKills
 				(PromotionType,			YieldType,			Yield)
 	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	120);
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
 	
-	-- second_free_promotion (lua)
+	-- second_free_promotion (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2049,12 +2080,12 @@
 				(BuildingType,			BuildingClassType,			YieldType,			YieldChange) 
 	VALUES		('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_PRODUCTION',	1),
 				('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_FAITH',		1);
-
+	---------------------------------------------------------
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,					YieldType,			Yield)
 	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	5);
 	
-	-- yield_from_faith_purchase_global (lua)
+	-- global_yields_from_faith_purchase (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2084,10 +2115,6 @@
 				(BuildingType,				BuildingClassType,		YieldType,			YieldChange) 
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'BUILDINGCLASS_MUSEUM',	'YIELD_TOURISM',	2);
 
-	INSERT INTO Building_SpecificGreatPersonRateModifier 
-				(BuildingType,						SpecialistType,			Modifier)
-	VALUES		('BUILDING_MUSEUM_ISLAND_DUMMY',	'SPECIALIST_ARTIST',	50);
-
 	INSERT INTO Building_ThemingBonuses 
 				(BuildingType,				Description,										Bonus,	MustBeArt,	UniqueEras,	RequiresAnyButOwner,	AIPriority)
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	30,		1,			1,			1,						8),
@@ -2100,8 +2127,12 @@
 	VALUES		('BUILDING_MUSEUM_ISLAND',	'YIELD_CULTURE',	5),
 				('BUILDING_MUSEUM_ISLAND',	'YIELD_SCIENCE',	5),
 				('BUILDING_MUSEUM_ISLAND',	'YIELD_TOURISM',	5);
+	---------------------------------------------------------
+	INSERT INTO Building_SpecificGreatPersonRateModifier 
+				(BuildingType,						SpecialistType,			Modifier)
+	VALUES		('BUILDING_MUSEUM_ISLAND_DUMMY',	'SPECIALIST_ARTIST',	50);
 				
-	-- great_person_modifier_global (lua)
+	-- global_great_person_modifiers (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor)
@@ -2265,7 +2296,6 @@
 	-- IsOnIsthmus (lua) (ALL)
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePromotion = 'PROMOTION_PANAMA_CANAL' WHERE Type = 'BUILDING_PANAMA_CANAL';
-	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, /*TradeRouteRecipientBonus = 1,*/ TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -2287,6 +2317,11 @@
 				('PROMOTION_PANAMA_CANAL',	'UNITCOMBAT_CARRIER'),
 				('PROMOTION_PANAMA_CANAL',	'UNITCOMBAT_CARGO'),
 				('PROMOTION_PANAMA_CANAL',	'UNITCOMBAT_SUBMARINE');
+	---------------------------------------------------------			
+	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, /*TradeRouteRecipientBonus = 1,*/ TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
+	
+	-- global_bonuses_to_sea_tr (lua_ability)
+	-- global_yields_to_tr_owners (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,						Flavor)
@@ -2481,13 +2516,6 @@
 	VALUES		('BUILDING_DARJEELING',	'YIELD_PRODUCTION',	2),
 				('BUILDING_DARJEELING',	'YIELD_TOURISM',	3);
 
-	INSERT INTO Building_YieldPerXTerrainTimes100
-				(BuildingType,					TerrainType,			YieldType,			Yield) 
-	VALUES		('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_FOOD',		100),
-				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
-				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
-				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	100);
-
 	INSERT INTO UnitPromotions 
 				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
 	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
@@ -2498,6 +2526,15 @@
 				('PROMOTION_DARJEELING',	'UNITCOMBAT_MELEE'),
 				('PROMOTION_DARJEELING',	'UNITCOMBAT_RECON'),
 				('PROMOTION_DARJEELING',	'UNITCOMBAT_ARCHER');
+	---------------------------------------------------------
+	INSERT INTO Building_YieldPerXTerrainTimes100
+				(BuildingType,					TerrainType,			YieldType,			Yield) 
+	VALUES		('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_FOOD',		100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_PRODUCTION',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_CULTURE',	100),
+				('BUILDING_DARJEELING_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_TOURISM',	100);
+				
+	-- global_yields_from_mountains (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,				Flavor)
@@ -2694,16 +2731,22 @@
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		5),
-				('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_GOLD',		3);
+	VALUES		('BUILDING_ROCKEFELLER',		'YIELD_GOLD',		5);
 	
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,				BuildingClassType,			YieldType,			YieldChange) 
 	VALUES		('BUILDING_ROCKEFELLER',	'BUILDINGCLASS_HOSPITAL',	'YIELD_SCIENCE',	2);
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,			Yield)
+	VALUES		('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_GOLD',		3);
 
 	INSERT INTO Building_YieldFromPurchase
 				(BuildingType,					YieldType,			Yield) 
 	VALUES		('BUILDING_ROCKEFELLER_DUMMY',	'YIELD_CULTURE',	5);
+	
+	-- global_yields (lua_ability)
+	-- global_yields_from_gold_purchases (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2734,7 +2777,6 @@
 	SELECT		'BUILDING_AUTOBAHN',	'BUILDINGCLASS_FACTORY' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET WorkerSpeedModifier = 30, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_AUTOBAHN';
-	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,					Yield)
@@ -2744,6 +2786,10 @@
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,			YieldType,					Yield) 
 	VALUES		('BUILDING_AUTOBAHN',	'YIELD_GOLDEN_AGE_POINTS',	10);
+	---------------------------------------------------------
+	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
+	
+	-- global_defense (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2763,11 +2809,14 @@
 	-- Cities(8) (lua) (HARD)
 	---------------------------------------------------------
 	UPDATE Buildings SET EmpireSizeModifierReductionGlobal = -5, CityConnectionTradeRouteModifier = 15 WHERE Type = 'BUILDING_INTERSTATE';
-	UPDATE Buildings SET PopulationChange = 1 WHERE Type = 'BUILDING_INTERSTATE_DUMMY';
 	
 	INSERT INTO Building_GlobalYieldModifiers
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_INTERSTATE',	'YIELD_PRODUCTION',	10);
+	---------------------------------------------------------
+	UPDATE Buildings SET PopulationChange = 1 WHERE Type = 'BUILDING_INTERSTATE_DUMMY';
+	
+	-- global_population_increase (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -2888,8 +2937,6 @@
 	SELECT		'BUILDING_SANBO',	'BUILDINGCLASS_MILITARY_ACADEMY'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
 	UPDATE Buildings SET FreePolicies = 1, FreePromotion = 'PROMOTION_SANBO_LAND' WHERE Type = 'BUILDING_SANBO';
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_AIR' WHERE Type = 'BUILDING_SANBO_2_DUMMY';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,						Yield)
@@ -2940,8 +2987,11 @@
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_HELICOPTER'),
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_FIGHTER'),
 				('PROMOTION_SANBO_AIR_EFFECT',	'UNITCOMBAT_BOMBER');
+	---------------------------------------------------------
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_SEA' WHERE Type = 'BUILDING_SANBO_DUMMY';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_SANBO_AIR' WHERE Type = 'BUILDING_SANBO_2_DUMMY';
 				
-	-- second_and_third_free_promotion (lua)
+	-- second_and_third_free_promotion (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,					Flavor)
@@ -3438,10 +3488,12 @@
 	INSERT INTO Building_BuildingClassYieldChanges 
 				(BuildingType,			BuildingClassType,				YieldType,			YieldChange) 
 	VALUES		('BUILDING_ARECIBO',	'BUILDINGCLASS_OBSERVATORY',	'YIELD_SCIENCE',	2);
-
+	---------------------------------------------------------
 	INSERT INTO Building_YieldPerXTerrainTimes100
 				(BuildingType,				TerrainType,			YieldType,			Yield) 
 	VALUES		('BUILDING_ARECIBO_DUMMY',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
+	
+	-- global_yields_from_mountains (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -3472,10 +3524,12 @@
 	VALUES		('BUILDING_SEED_VAULT',	'RESOURCE_WHEAT',	'YIELD_FOOD',		2),
 				('BUILDING_SEED_VAULT',	'RESOURCE_MAIZE',	'YIELD_FOOD',		2),
 				('BUILDING_SEED_VAULT',	'RESOURCE_RICE',	'YIELD_FOOD',		2);
-
+	---------------------------------------------------------
 	INSERT INTO Building_GrowthExtraYield
 				(BuildingType,					YieldType,			Yield) 
 	VALUES		('BUILDING_SEED_VAULT_DUMMY',	'YIELD_PRODUCTION',	50);
+	
+	-- global_yields_from_growth (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -3549,10 +3603,6 @@
 	INSERT INTO Building_TerrainYieldChanges
 				(BuildingType,			TerrainType,			YieldType,				Yield) 
 	VALUES		('BUILDING_JUMEIRAH',	'TERRAIN_DESERT',		'YIELD_PRODUCTION',		3);
-	
-	INSERT INTO Building_FeatureYieldChanges
-				(BuildingType,				FeatureType,		YieldType,				Yield) 
-	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		7);
 
 	INSERT INTO Building_ResourceYieldChangesGlobal 
 				(BuildingType,			ResourceType,		YieldType,			Yield) 
@@ -3562,6 +3612,12 @@
 				(BuildingType,			YieldIn,			YieldOut,			Value) 
 	VALUES		('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_GOLD',		10),
 				('BUILDING_JUMEIRAH',	'YIELD_PRODUCTION',	'YIELD_TOURISM',	15);
+	---------------------------------------------------------
+	INSERT INTO Building_FeatureYieldChanges
+				(BuildingType,				FeatureType,		YieldType,				Yield) 
+	VALUES		('BUILDING_JUMEIRAH_DUMMY',	'FEATURE_ATOLL',	'YIELD_TOURISM',		7);
+	
+	-- global_yields_to_atolls (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -3624,15 +3680,18 @@
 				(BuildingType,					YieldType,					Yield)
 	VALUES		('BUILDING_CURIOSITY',			'YIELD_GOLD',				1),
 				('BUILDING_CURIOSITY',			'YIELD_SCIENCE',			3),
-				('BUILDING_CURIOSITY',			'YIELD_GOLDEN_AGE_POINTS',	2),
-				('BUILDING_CURIOSITY_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	10);
+				('BUILDING_CURIOSITY',			'YIELD_GOLDEN_AGE_POINTS',	2);
 	
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,			SpecialistType,			YieldType,					Yield) 
 	VALUES		('BUILDING_CURIOSITY',	'SPECIALIST_ENGINEER',	'YIELD_GOLDEN_AGE_POINTS',	3),
 				('BUILDING_CURIOSITY',	'SPECIALIST_SCIENTIST',	'YIELD_GOLDEN_AGE_POINTS',	3);
-
-	-- yields_per_research_agreements (lua)
+	---------------------------------------------------------
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,					YieldType,					Yield)
+	VALUES		('BUILDING_CURIOSITY_DUMMY',	'YIELD_GOLDEN_AGE_POINTS',	10);
+				
+	-- global_yields_from_research_agreements (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -4187,17 +4246,20 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CIVILIZED_JEWELERS_HQ';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_LANDSEA_EXTRACTORS_HQ';
 
--- replacing multiple '+1 Great Engineer Point' abilities in early World Wonders:
+-- replacing multiple '+X Great Engineer Points' abilities in World Wonders:
+	-- Himeji Castle:
+		UPDATE Buildings SET GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_HIMEJI_CASTLE';
+		INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_HIMEJI_CASTLE', 'YIELD_GREAT_GENERAL_POINTS', 1);
+	-- Petra
+		UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_PETRA';
+		UPDATE Building_YieldChanges SET Yield = 3 WHERE BuildingType = 'BUILDING_PETRA';
+		INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_PETRA', 'YIELD_GOLD', 1);
 	-- Stonehenge
 		UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST' WHERE Type = 'BUILDING_STONEHENGE';
 	-- Temple of Artemis
 		UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
 		UPDATE Building_UnitCombatProductionModifiers SET Modifier = 30 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
 		UPDATE Building_GlobalYieldModifiers SET Yield = 12 WHERE BuildingType = 'BUILDING_TEMPLE_ARTEMIS';
-	-- Petra
-		UPDATE Buildings SET SpecialistType = NULL, GreatPeopleRateChange = 0 WHERE Type = 'BUILDING_PETRA';
-		UPDATE Building_YieldChanges SET Yield = 3 WHERE BuildingType = 'BUILDING_PETRA';
-		INSERT INTO Building_YieldChanges (BuildingType, YieldType, Yield) VALUES ('BUILDING_PETRA', 'YIELD_GOLD', 1);
 	
 -- replacing religious buildings in non-religious wonders:
 	-- Angkor Wat
@@ -4241,7 +4303,9 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		UPDATE Units SET FaithCost = 800 WHERE Type = 'UNIT_DIPLOMAT_FAITH';
 		UPDATE Units SET FaithCost = 1100 WHERE Type = 'UNIT_AMBASSADOR_FAITH';
 	-- Chichen Itza
-		UPDATE Buildings SET FreeBuildingThisCity = NULL, GreatPeopleRatechange = 2, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
+		UPDATE Buildings SET FreeBuildingThisCity = NULL, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
+		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 2);
+		INSERT INTO Building_YieldFromVictoryGlobal (BuildingType, YieldType, Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 30);
 	-- Notre Dame
 		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
 		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME' AND YieldType = 'YIELD_FAITH';

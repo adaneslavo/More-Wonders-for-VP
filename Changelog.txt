@@ -43,7 +43,9 @@ v24:
 						- player can buy Diplomatic Units with Faith;
 					- Chichen Itza:
 						- removed free Teocalli;
-						- now +2 Great Engineer Points (was 1);
+						- now +1 Faith and +3 Golden Age Points (was +1 Culture);
+						- now +60% Golden Age Length (was 50%);
+						- added 30 Faith from Victory in Empire;
 					- Notre Dame:
 						- removed free Cathedral;
 						- now +5 Faith and +4 Culture (was 4 and 1);
