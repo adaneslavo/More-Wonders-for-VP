@@ -77,30 +77,30 @@ local g_tWorldWonderExists = {}
 
 local g_tWorldWonderOwner = {}
 
--- Krak des Chevaliers (1)
--- Itsukushima Shrine (2)
--- Qalhat (3)
--- Gate of the Sun (4)
--- Great Zimbabwe (5)
--- Kilwa Kisiwani (6)
--- Marae Arahurahu (7)
--- Kuk Swamp (8)
--- St. Peter's Basilica (9)
--- Panama Canal (10)
--- Palm Jumeirah (11)
--- Arecibo Observatory (12)
--- Rockefeller Center (13)
--- Darjeeling Himalayan Railway (14)
--- Sanbo Honbu (15)
--- Autobahn (16)
--- Interstate Highway System (17)
--- Museum Island (18)
--- Curiosity Rover (19)
--- Svalbard Global Seed Vault (20)
--- Aqueduct of Padre Tembleque (21)
--- Angkor Wat (22)
--- Tlachilhualtepetl (23)
--- Hospital of St. John (24)
+-- Krak des Chevaliers (1)						MEDIEVAL
+-- Itsukushima Shrine (2)						MEDIEVAL
+-- Qalhat (3)									MEDIEVAL
+-- Gate of the Sun (4)						CLASSICAL
+-- Great Zimbabwe (5)							MEDIEVAL
+-- Kilwa Kisiwani (6)								RENAISSANCE
+-- Marae Arahurahu (7)								RENAISSANCE
+-- Kuk Swamp (8)						NEOLITHIC
+-- St. Peter's Basilica (9)							RENAISSANCE
+-- Panama Canal (10)									INDUSTRIAL
+-- Palm Jumeirah (11)												INFORMATION
+-- Arecibo Observatory (12)										ATOMIC
+-- Rockefeller Center (13)									MODERN
+-- Darjeeling Himalayan Railway (14)					INDUSTRIAL
+-- Sanbo Honbu (15)											MODERN
+-- Autobahn (16)											MODERN
+-- Interstate Highway System (17)							MODERN
+-- Museum Island (18)									INDUSTRIAL
+-- Curiosity Rover (19)												INFORMATION
+-- Svalbard Global Seed Vault (20)									INFORMATION
+-- Aqueduct of Padre Tembleque (21)					RENAISSANCE
+-- Angkor Wat (22)							CLASSICAL
+-- Tlachilhualtepetl (23)						MEDIEVAL
+-- Hospital of St. John (24)					MEDIEVAL
 
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
