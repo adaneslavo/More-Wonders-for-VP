@@ -43,7 +43,7 @@ v24:
 						- removed free Teocalli;
 						- now +1 Faith and +3 Golden Age Points (was +1 Culture);
 						- now +60% Golden Age Length (was 50%);
-						- added 30 Faith from Victory in Empire;
+						- added 45 Faith from Victory during Golden Age in Empire;
 					- Notre Dame:
 						- removed free Cathedral;
 						- now +5 Faith and +4 Culture (was 4 and 1);
@@ -81,6 +81,11 @@ v24:
 					- added +1 Culture to all Stones;
 				- Altamira Cave (buff):
 					- now Resource bonuses are global (were local);
+				- Brooklyn Bridge (rework);
+					- deleted free Great Diplomat;
+					- now 20 Influence on construction (was 100);
+					- added +1 Science;
+					- added 50 Prodution and 50 Science on Great Person expending (300 in Atomic Era after scaling);
 				- El Ghriba Synagogue (nerf):
 					- now 10% Gold from Faith Purchase (was 15%);
 				- Majorville Medicine Wheel (nerf):

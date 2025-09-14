@@ -2200,17 +2200,19 @@
 	
 	-- IsHasCitizens(25) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET NumTradeRouteBonus = 1, MinorFriendshipChange = 100 WHERE Type = 'BUILDING_BROOKLYN';
+	UPDATE Buildings SET NumTradeRouteBonus = 1, MinorFriendshipChange = 20 WHERE Type = 'BUILDING_BROOKLYN';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
-	VALUES		('BUILDING_BROOKLYN',	'YIELD_CULTURE',	2),
+	VALUES		('BUILDING_BROOKLYN',	'YIELD_SCIENCE',	1),
+				('BUILDING_BROOKLYN',	'YIELD_CULTURE',	2),
 				('BUILDING_BROOKLYN',	'YIELD_TOURISM',	4),
 				('BUILDING_BROOKLYN',	'YIELD_PRODUCTION',	1);
-
-	INSERT INTO Building_FreeUnits 
-				(BuildingType,			UnitType,				NumUnits)
-	VALUES		('BUILDING_BROOKLYN',	'UNIT_GREAT_DIPLOMAT',	1);
+				
+	INSERT INTO Building_YieldFromGPExpend
+				(BuildingType,			YieldType,			Yield)
+	VALUES		('BUILDING_BROOKLYN',	'YIELD_PRODUCTION',	50),
+				('BUILDING_BROOKLYN',	'YIELD_SCIENCE',	50);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,			Flavor)
@@ -4306,7 +4308,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 	-- Chichen Itza
 		UPDATE Buildings SET FreeBuildingThisCity = NULL, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 2);
-		INSERT INTO Building_YieldFromVictoryGlobal (BuildingType, YieldType, Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 30);
+		INSERT INTO Building_YieldFromVictoryGlobal (BuildingType, YieldType, Yield, IsEarScaling, GoldenAgeOnly) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 45, 1, 1);
 	-- Notre Dame
 		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
 		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME' AND YieldType = 'YIELD_FAITH';
