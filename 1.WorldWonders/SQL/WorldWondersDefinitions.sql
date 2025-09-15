@@ -1217,7 +1217,7 @@
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
-	VALUES		('BUILDING_JOHNS',	'FLAVOR_FAITH',			30),
+	VALUES		('BUILDING_JOHNS',	'FLAVOR_RELIGION',		30),
 				('BUILDING_JOHNS',	'FLAVOR_OFFENSE',		50),
 				('BUILDING_JOHNS',	'FLAVOR_DEFENSE',		30),
 				('BUILDING_JOHNS',	'FLAVOR_GOLD',			40);
@@ -4310,7 +4310,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 	-- Chichen Itza
 		UPDATE Buildings SET FreeBuildingThisCity = NULL, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 2);
-		INSERT INTO Building_YieldFromVictoryGlobal (BuildingType, YieldType, Yield, IsEarScaling, GoldenAgeOnly) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 45, 1, 1);
+		INSERT INTO Building_YieldFromVictoryGlobal (BuildingType, YieldType, Yield, IsEraScaling, GoldenAgeOnly) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 45, 1, 1);
 	-- Notre Dame
 		UPDATE Buildings SET FreeBuildingThisCity = NULL WHERE Type = 'BUILDING_NOTRE_DAME';
 		UPDATE Building_YieldChanges SET Yield = 5 WHERE BuildingType = 'BUILDING_NOTRE_DAME' AND YieldType = 'YIELD_FAITH';
