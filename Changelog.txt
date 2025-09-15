@@ -127,6 +127,8 @@ v24:
 			- Itsukushima Shrine:
 				- now correctly boosts Ocean tiles (was Coast and Ocean);
 				- deleted doubled requirements;
+			- Kilwa Kisiwani:
+				- now bonus yields to resources are global (were local);
 			- Panama Canal:
 				- added Coast requirement (it was possible to build it on Lake);
 				- now correct 10-tile Landmass (was 11-tile Area);

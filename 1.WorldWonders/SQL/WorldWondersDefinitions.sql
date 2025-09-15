@@ -1213,7 +1213,7 @@
 	---------------------------------------------------------
 	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_JOHNS_DUMMY';
 	
-	-- global_unit_healing_from_cities (lua_ability)
+	-- global_unit_healing_from_cities_with_temple (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,		FlavorType,				Flavor)
@@ -1580,12 +1580,12 @@
 	VALUES		('BUILDING_KILWA_KISIWANI',	'RESOURCE_PORCELAIN',	1),
 				('BUILDING_KILWA_KISIWANI',	'RESOURCE_JEWELRY',		1);
 	---------------------------------------------------------
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,				Yield) 
-	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_GOLD',			1
+	INSERT INTO Building_ResourceYieldChangesGlobal	(BuildingType,						ResourceType,		YieldType,				Yield) 
+	SELECT DISTINCT									'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_GOLD',			1
 	FROM Resources WHERE ResourceUsage = 2;
 
-	INSERT INTO Building_ResourceYieldChanges	(BuildingType,						ResourceType,		YieldType,				Yield) 
-	SELECT DISTINCT								'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_PRODUCTION',		1
+	INSERT INTO Building_ResourceYieldChangesGlobal	(BuildingType,						ResourceType,		YieldType,				Yield) 
+	SELECT DISTINCT									'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_PRODUCTION',		1
 	FROM Resources WHERE ResourceUsage = 1;
 	
 	-- global_yields_to_strategic_and_luxury_resources (lua_ability)
@@ -2323,8 +2323,8 @@
 	---------------------------------------------------------			
 	UPDATE Buildings SET TradeRouteSeaDistanceModifier = 100, TradeRouteSeaGoldBonus = 300, /*TradeRouteRecipientBonus = 1,*/ TradeRouteTargetBonus = 3 WHERE Type = 'BUILDING_PANAMA_CANAL_DUMMY';
 	
-	-- global_bonuses_to_sea_tr (lua_ability)
-	-- global_yields_to_tr_owners (lua_ability)
+	-- global_bonuses_to_sea_tr_in_coastal_cities (lua_ability)
+	-- global_yields_to_tr_owners_in_coastal_cities (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,						Flavor)
@@ -4305,6 +4305,8 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		UPDATE Units SET FaithCost = 500 WHERE Type = 'UNIT_ENVOY_FAITH';
 		UPDATE Units SET FaithCost = 800 WHERE Type = 'UNIT_DIPLOMAT_FAITH';
 		UPDATE Units SET FaithCost = 1100 WHERE Type = 'UNIT_AMBASSADOR_FAITH';
+		
+		-- faith_purchase_of_diplomatic_units (lua_ability)
 	-- Chichen Itza
 		UPDATE Buildings SET FreeBuildingThisCity = NULL, GoldenAgeModifier = 60 WHERE Type = 'BUILDING_CHICHEN_ITZA';
 		INSERT INTO Building_YieldChanges (BuildingType, YieldType,	Yield) VALUES ('BUILDING_CHICHEN_ITZA', 'YIELD_FAITH', 2);

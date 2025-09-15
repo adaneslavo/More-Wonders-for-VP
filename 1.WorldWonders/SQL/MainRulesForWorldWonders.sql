@@ -21,7 +21,7 @@ CREATE TABLE MWfVPConfig (
 	WType			TEXT			NOT NULL,		-- Wonder Type
 	WDummy			TEXT			NOT NULL,		-- Name for dummy buildings
 	WActive			INTEGER			NOT NULL,		-- 1 = Wonder active / 0 = Wonder not active
-	WHasSound		INTEGER			NOT NULL,		-- 1 = Quote recording / 0 = No recording
+	WHasSound		INTEGER			NOT NULL,		-- 1 = Quote recorded / 0 = Quote not recorded
 	PRIMARY KEY (WType)
 );
 --============================================--

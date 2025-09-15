@@ -76,32 +76,67 @@ local g_tWorldWonderExists = {}
 	end
 
 local g_tWorldWonderOwner = {}
-
--- Krak des Chevaliers (1)						MEDIEVAL
--- Itsukushima Shrine (2)						MEDIEVAL
--- Qalhat (3)									MEDIEVAL
--- Gate of the Sun (4)						CLASSICAL
--- Great Zimbabwe (5)							MEDIEVAL
--- Kilwa Kisiwani (6)								RENAISSANCE
--- Marae Arahurahu (7)								RENAISSANCE
--- Kuk Swamp (8)						NEOLITHIC
--- St. Peter's Basilica (9)							RENAISSANCE
--- Panama Canal (10)									INDUSTRIAL
--- Palm Jumeirah (11)												INFORMATION
--- Arecibo Observatory (12)										ATOMIC
--- Rockefeller Center (13)									MODERN
--- Darjeeling Himalayan Railway (14)					INDUSTRIAL
--- Sanbo Honbu (15)											MODERN
--- Autobahn (16)											MODERN
--- Interstate Highway System (17)							MODERN
--- Museum Island (18)									INDUSTRIAL
--- Curiosity Rover (19)												INFORMATION
--- Svalbard Global Seed Vault (20)									INFORMATION
--- Aqueduct of Padre Tembleque (21)					RENAISSANCE
--- Angkor Wat (22)							CLASSICAL
--- Tlachilhualtepetl (23)						MEDIEVAL
--- Hospital of St. John (24)					MEDIEVAL
-
+--------------------------------------------------------------
+--------------------------------------------------------------
+-- Kuk Swamp 						(8)		NEOLITHIC
+-- Angkor Wat 						(22)		CLASSICAL
+-- Gate of the Sun 					(4)			CLASSICAL
+-- Great Zimbabwe 					(5)				MEDIEVAL
+-- Hospital of St. John 			(24)			MEDIEVAL
+-- Itsukushima Shrine 				(2)				MEDIEVAL
+-- Krak des Chevaliers 				(1)				MEDIEVAL
+-- Qalhat 							(3)				MEDIEVAL
+-- Tlachihualtepetl 				(23)			MEDIEVAL
+-- Aqueduct of Padre Tembleque 		(21)				RENAISSANCE
+-- Kilwa Kisiwani 					(6)					RENAISSANCE
+-- Marae Arahurahu 					(7)					RENAISSANCE
+-- St. Peter's Basilica 			(9)					RENAISSANCE
+-- Darjeeling Himalayan Railway 	(14)					INDUSTRIAL
+-- Museum Island 					(18)					INDUSTRIAL
+-- Panama Canal 					(10)					INDUSTRIAL
+-- Autobahn 						(16)						MODERN
+-- Interstate Highway System 		(17)						MODERN
+-- Rockefeller Center 				(13)						MODERN
+-- Sanbo Honbu 						(15)						MODERN
+-- Arecibo Observatory 				(12)							ATOMIC
+-- Curiosity Rover 					(19)								INFORMATION
+-- Palm Jumeirah 					(11)								INFORMATION
+-- Svalbard Global Seed Vault 		(20)								INFORMATION
+--------------------------------------------------------------
+-- CODED WITH POLICY:
+	-- Angkor Wat 						(22)	faith_purchase_of_diplomatic_units
+	-- Tlachihualtepetl 				(23)	global_yields_from_constructions
+-- REQUIRES OTHER BASIC BUILDING:
+	-- Gate of the Sun 					(4)		global_modifiers_to_cities_with_walls
+	-- Hospital of St. John 			(24)	global_unit_healing_from_cities_with_temple
+-- REQUIRES COASTAL/NON-COASTAL CITY:
+	-- Krak des Chevaliers 				(1)		different_bonuses_in_non_coastal_cities	
+	-- Itsukushima Shrine 				(2)		border_growth_boost_in_coastal_cities/yields_to_atolls_in_coastal_cities
+	-- Panama Canal 					(10)	global_bonuses_to_sea_tr_in_coastal_cities/global_yields_to_tr_owners_in_coastal_cities
+-- COUNTS TRADE ROUTES:	
+	-- Qalhat 							(3)		global_bonus_to_sea_tr_from_majors
+	-- Great Zimbabwe 					(5)		global_yields_per_tr/global_production_modifiers_per_tr
+-- COUNTS RESEARCH AGREEMENTS:	
+	-- Curiosity Rover 					(19)	global_yields_from_research_agreements
+-- ADDS ADDITIONAL PROMOTIONS:
+	-- Marae Arahurahu 					(7)		second_free_promotion
+	-- Sanbo Honbu 						(15)	second_and_third_free_promotion
+-- MUST BE BUILT IN EVERY PLAYER CITY:
+	-- Kuk Swamp 						(8)		global_yields_from_tech/global_yields_to_marsh
+	-- Palm Jumeirah 					(11)	global_yields_to_atolls
+	-- Arecibo Observatory 				(12)	global_yields_from_mountains
+	-- Rockefeller Center 				(13)	global_yields/global_yields_from_gold_purchases
+	-- Darjeeling Himalayan Railway 	(14)	global_yields_from_mountains
+	-- Autobahn 						(16)	global_defense
+	-- Interstate Highway System 		(17)	global_population_increase
+	-- Museum Island 					(18)	global_great_person_modifiers
+	-- Svalbard Global Seed Vault 		(20)	global_yields_from_growth
+	-- Aqueduct of Padre Tembleque 		(21)	global_yields_from_faith_purchases
+-- CAN BE BUILT LOCALLY:
+	-- Kilwa Kisiwani 					(6)		global_yields_to_strategic_and_luxury_resources
+	-- St. Peter's Basilica 			(9)		happiness_to_all_religious_buildings
+--------------------------------------------------------------
+--------------------------------------------------------------
 -- load game and check if they are built
 function WasWonderAlreadyBuilt()
 	for i = 0, GameDefines.MAX_MAJOR_CIVS - 1, 1 do
@@ -395,10 +430,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			local pCity = pPlayer:GetCityByID(eCity)
 
 			pCity:SetNumRealBuilding(g_tWorldWonderDummy[15], 1)
-
-			if g_tWorldWonderDummy2[15] then
-				pCity:SetNumRealBuilding(g_tWorldWonderDummy2[15], 1)
-			end
+			pCity:SetNumRealBuilding(g_tWorldWonderDummy2[15], 1)
 		end
 	end
 	
@@ -513,7 +545,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 		end
 	end
 
-	-- Tlachilhualtepetl (23)
+	-- Tlachihualtepetl (23)
 	if not g_tWorldWonderExists[23] then	
 		if eBuilding == g_tWorldWonder[23] then
 			g_tWorldWonderExists[23] = true
@@ -1065,7 +1097,7 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 		end
 	end
 
-	-- Tlachilhualtepetl (23)
+	-- Tlachihualtepetl (23)
 	if g_tWorldWonderExists[23] then	
 		local pPlot = Map.GetPlot(iX, iY)
 		local pConqCity = pPlot:GetWorkingCity()
