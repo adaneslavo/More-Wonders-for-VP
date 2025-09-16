@@ -219,27 +219,27 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_128.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_256.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_45.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_64.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_80.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Johns_splash.dds">
+    <Content Include="1.WorldWonders\Art\3.Medieval\Wonder_Hospitaller_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

@@ -24,7 +24,7 @@
 --============================================--
 -- NEOLITHIC ERA
 --============================================--
--- ALTAMIRA CAVE (NEW)
+-- CAVE OF ALTAMIRA (NEW)
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_ALTAMIRA';
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_ALTAMIRA';
 	---------------------------------------------------------
@@ -350,7 +350,7 @@
 				('BUILDING_NAZCA',	'FLAVOR_CULTURE',	10);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- PYRAMIDS
+-- GIZA PYRAMIDS
 	UPDATE Buildings SET MaxStartEra = 'ERA_CLASSICAL' WHERE Type = 'BUILDING_PYRAMID';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_PYRAMID';
 	---------------------------------------------------------
@@ -626,6 +626,14 @@
 	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_PARTHENON' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- NALANDA
+	/*UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_NALANDA';
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_NALANDA';
+	---------------------------------------------------------
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_NALANDA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Hill = 1 WHERE Type = 'BUILDING_NALANDA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);*/
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- EL GHRIBA SYNAGOGUE (NEW)
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_DRAMA', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_EL_GHRIBA';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_EL_GHRIBA';
@@ -798,9 +806,22 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_SONGYUE';
 	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_ENGINEERING', NumPoliciesNeeded = 5, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_SONGYUE';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_PAGODA' WHERE Type = 'BUILDING_SONGYUE';
+	UPDATE Buildings SET HolyCity = 1, SpecialistType = 'SPECIALIST_ARTIST', GreatPeopleRateChange = 1, FreeBuildingThisCity = 'BUILDINGCLASS_PAGODA' WHERE Type = 'BUILDING_SONGYUE';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,			Yield) 
+	VALUES		('BUILDING_SONGYUE',	'YIELD_CULTURE',	2),
+				('BUILDING_SONGYUE',	'YIELD_FAITH',		2);
+	
+	INSERT INTO Building_GreatPersonPointFromConstruction
+				(BuildingType,			GreatPersonType,		EraType,			Value) 
+	VALUES		('BUILDING_SONGYUE',	'GREATPERSON_ARTIST',	'ERA_CLASSICAL',	10);
 	---------------------------------------------------------
-
+	INSERT INTO Building_YieldFromFaithPurchase
+				(BuildingType,				YieldType,			Yield)
+	VALUES		('BUILDING_SONGYUE_DUMMY',	'YIELD_PRODUCTION',	2);
+	
+	-- global_yields_from_faith_purchases (lua_ability)
 	---------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -818,7 +839,7 @@
 --============================================--
 -- MEDIEVAL ERA
 --============================================--
--- UNIVERSITY OF SANKORE
+-- SANKORE MADRASAH
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MOSQUE_OF_DJENNE';
 	---------------------------------------------------------
@@ -864,7 +885,7 @@
 				('BUILDING_NABAWI', 'FLAVOR_GREAT_PEOPLE',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MORAY TERRACES (NEW)
+-- MORAY (NEW)
 	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_EDUCATION', NumPoliciesNeeded = 6, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MORAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_MORAY';
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_MORAY' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
@@ -1184,7 +1205,7 @@
 				('BUILDING_DAMASCUS',	'FLAVOR_SCIENCE',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- FORBIDDEN PALACE
+-- FORBIDDEN CITY
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_FORBIDDEN_PALACE';
 	---------------------------------------------------------
@@ -1196,31 +1217,31 @@
 	SELECT		'BUILDING_FORBIDDEN_PALACE',	'BUILDINGCLASS_PALACE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- HOSPITAL OF ST. JOHN (NEW)
-	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_JOHNS';
-	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_JOHNS';
+-- KNIGHTS HOSPITALLER (NEW)
+	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_HOSPITALLER';
+	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HOSPITALLER';
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 50, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_JOHNS';
+	UPDATE Buildings SET HolyCity = 1, ExtraCityHitPoints = 50, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_HOSPITALLER';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,		YieldType,						Yield) 
-	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',					2),
-				('BUILDING_JOHNS',	'YIELD_GREAT_GENERAL_POINTS',	2);
+				(BuildingType,				YieldType,						Yield) 
+	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',					2),
+				('BUILDING_HOSPITALLER',	'YIELD_GREAT_GENERAL_POINTS',	2);
 
 	INSERT INTO Building_YieldFromYieldPercentGlobal
-				(BuildingType,		YieldIn,		YieldOut,		Value)
-	VALUES		('BUILDING_JOHNS',	'YIELD_FAITH',	'YIELD_GOLD',	5);
+				(BuildingType,				YieldIn,		YieldOut,		Value)
+	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',	'YIELD_GOLD',	5);
 	---------------------------------------------------------
-	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_JOHNS_DUMMY';
+	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_HOSPITALLER_DUMMY';
 	
 	-- global_unit_healing_from_cities_with_temple (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
-				(BuildingType,		FlavorType,				Flavor)
-	VALUES		('BUILDING_JOHNS',	'FLAVOR_RELIGION',		30),
-				('BUILDING_JOHNS',	'FLAVOR_OFFENSE',		50),
-				('BUILDING_JOHNS',	'FLAVOR_DEFENSE',		30),
-				('BUILDING_JOHNS',	'FLAVOR_GOLD',			40);
+				(BuildingType,				FlavorType,				Flavor)
+	VALUES		('BUILDING_HOSPITALLER',	'FLAVOR_RELIGION',		30),
+				('BUILDING_HOSPITALLER',	'FLAVOR_OFFENSE',		50),
+				('BUILDING_HOSPITALLER',	'FLAVOR_DEFENSE',		30),
+				('BUILDING_HOSPITALLER',	'FLAVOR_GOLD',			40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RILA MONASTERY (FORMER KARLSTEJN)
@@ -1237,7 +1258,7 @@
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_MONASTERY' WHERE Type = 'BUILDING_KARLSTEJN';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- GOLDEN DAGON PAGODA (NEW)
+-- SHWEDAGON PAGODA (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_SHWEDAGON';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_SHWEDAGON';
 	---------------------------------------------------------
@@ -1289,7 +1310,7 @@
 				('BUILDING_SHWEDAGON',	'FLAVOR_RELIGION',		40);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MONT SAINT-MICHEL (NEW)
+-- MONT-SAINT-MICHEL (NEW)
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_GUILDS', NumPoliciesNeeded = 9, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_MICHEL';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
 	---------------------------------------------------------
@@ -1367,7 +1388,8 @@
 	-- luxury sea resources
 	INSERT INTO Building_LocalResourceOrs	(BuildingType,			ResourceType)
 	SELECT DISTINCT							'BUILDING_ITSUKUSHIMA',	Type
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
+	FROM Resources
+	WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
 	---------------------------------------------------------
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,			Yield)
@@ -1384,7 +1406,8 @@
 	-- luxury sea resources
 	INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
 	SELECT DISTINCT								'BUILDING_ITSUKUSHIMA',		Type,			'YIELD_FAITH',	2
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
+	FROM Resources
+	WHERE ResourceClassType = 'RESOURCECLASS_LUXURY' AND SeaResource = 1;
 	---------------------------------------------------------
 	UPDATE Buildings SET PlotCultureCostModifier = -50 WHERE Type = 'BUILDING_ITSUKUSHIMA_DUMMY';
 
@@ -1498,7 +1521,7 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_MACHINERY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 	---------------------------------------------------------
-	UPDATE Buildings SET SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1, FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
+	UPDATE Buildings SET HolyCity = 1, SpecialistType = 'SPECIALIST_ENGINEER', GreatPeopleRateChange = 1, FreeBuildingThisCity = 'BUILDINGCLASS_TEOCALLI' WHERE Type = 'BUILDING_TLACHIHUALTEPETL';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
@@ -1582,11 +1605,13 @@
 	---------------------------------------------------------
 	INSERT INTO Building_ResourceYieldChangesGlobal	(BuildingType,						ResourceType,		YieldType,				Yield) 
 	SELECT DISTINCT									'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_GOLD',			1
-	FROM Resources WHERE ResourceUsage = 2;
+	FROM Resources
+	WHERE ResourceUsage = 2;
 
 	INSERT INTO Building_ResourceYieldChangesGlobal	(BuildingType,						ResourceType,		YieldType,				Yield) 
 	SELECT DISTINCT									'BUILDING_KILWA_KISIWANI_DUMMY',	Type,				'YIELD_PRODUCTION',		1
-	FROM Resources WHERE ResourceUsage = 1;
+	FROM Resources
+	WHERE ResourceUsage = 1;
 	
 	-- global_yields_to_strategic_and_luxury_resources (lua_ability)
 	---------------------------------------------------------
@@ -1627,7 +1652,8 @@
 	---------------------------------------------------------
 	INSERT INTO Building_BuildingClassHappiness (BuildingType,				BuildingClassType,	Happiness)
 	SELECT DISTINCT								'BUILDING_ST_PETERS_DUMMY',	BuildingClass,		1
-	FROM Buildings WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
+	FROM Buildings
+	WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
 	
 	-- happiness_to_all_religious_buildings (lua_ability)
 	---------------------------------------------------------
@@ -1777,7 +1803,18 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_HARMANDIR';
 	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_GUNPOWDER', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_HARMANDIR';
 	---------------------------------------------------------
-	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_GURDWARA' WHERE Type = 'BUILDING_HARMANDIR';
+	UPDATE Buildings SET HolyCity = 1, AlwaysHeal = 5, ReligiousUnrestFlatReductionGlobal = 2, FreeBuildingThisCity = 'BUILDINGCLASS_GURDWARA' WHERE Type = 'BUILDING_HARMANDIR';
+	
+	INSERT INTO Building_YieldChanges 
+				(BuildingType,			YieldType,		Yield)
+	VALUES		('BUILDING_HARMANDIR',	'YIELD_FAITH',	2);
+
+	INSERT INTO Building_BuildingClassYieldChanges (BuildingType,			BuildingClassType,	YieldType,		YieldChange)
+	SELECT DISTINCT									'BUILDING_HARMANDIR',	a.BuildingClass,	'YIELD_FOOD',	2
+	FROM Buildings a, BuildingClasses b, Building_YieldChanges c
+	WHERE a.BuildingClass = b.Type AND a.Type = c.BuildingType
+	  AND b.MaxGlobalInstances = -1 AND b.MaxPlayerInstances = -1 AND a.IsDummy = 0 
+	  AND c.YieldType = 'YIELD_FAITH';
 	---------------------------------------------------------
 
 	---------------------------------------------------------
@@ -1891,7 +1928,7 @@
 	-- GW_of_Art(3) (lua_requirement) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- PETERHOF (NEW)
+-- PETERHOF PALACE (NEW)
 	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_ECONOMICS', NumPoliciesNeeded = 12, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_PETERHOF';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,T' WHERE Type = 'BUILDING_PETERHOF';
 	---------------------------------------------------------
@@ -2058,14 +2095,14 @@
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_RED_FORT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- AQUEDUCT OF PADRE TEMBLEQUE (NEW)
+-- TEMBLEQUE AQUEDUCT (NEW)
 	UPDATE Buildings SET Cost = 850, PrereqTech = 'TECH_METALLURGY', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_TEMBLEQUE';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_TEMBLEQUE';
 	---------------------------------------------------------
 	UPDATE Buildings SET  /*IsNoCoast = 1, */ FreshWater = 1, NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET  FreshWater = 1 WHERE Type = 'BUILDING_TEMBLEQUE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET DistressFlatReduction = 1 WHERE Type = 'BUILDING_TEMBLEQUE';
+	UPDATE Buildings SET DistressFlatReductionGlobal = 1 WHERE Type = 'BUILDING_TEMBLEQUE';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield)
@@ -2083,8 +2120,8 @@
 				('BUILDING_TEMBLEQUE',	'BUILDINGCLASS_AQUEDUCT',	'YIELD_FAITH',		1);
 	---------------------------------------------------------
 	INSERT INTO Building_YieldFromFaithPurchase
-				(BuildingType,					YieldType,			Yield)
-	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_PRODUCTION',	5);
+				(BuildingType,					YieldType,		Yield)
+	VALUES		('BUILDING_TEMBLEQUE_DUMMY',	'YIELD_FOOD',	5);
 	
 	-- global_yields_from_faith_purchases (lua_ability)
 	---------------------------------------------------------
@@ -2221,7 +2258,7 @@
 				('BUILDING_BROOKLYN',	'FLAVOR_DIPLOMACY',	60);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- TRANS_SIBERIAN RAILWAY (NEW)
+-- TRANS-SIBERIAN RAILWAY (NEW)
 	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_RAILROAD', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_SIBERIAN_RAILWAY';
 	---------------------------------------------------------
@@ -2423,7 +2460,7 @@
 	-- CS_Ally(2) (lua_requirement) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- MONTE CARLO (NEW)
+-- MONTE CARLO CASINO (NEW)
 	UPDATE Buildings SET Cost = 1300, PrereqTech = 'TECH_INDUSTRIALIZATION', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_POSTMODERN' WHERE Type = 'BUILDING_MONTE_CARLO';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_MONTE_CARLO';
 	---------------------------------------------------------
@@ -3174,7 +3211,7 @@
 				('BUILDING_MILESTII_MICI',	'FLAVOR_PRODUCTION',	20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- TEHRAN NUCLEAR RESEARCH FACILITY (NEW)
+-- (TEHRAN) NUCLEAR RESEARCH CENTER (NEW)
 	UPDATE Buildings SET Cost = 2100, PrereqTech = 'TECH_ATOMIC_THEORY', NumPoliciesNeeded = 22 WHERE Type = 'BUILDING_TEHRAN_FACILITY';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_TEHRAN_FACILITY';
 	---------------------------------------------------------
@@ -3393,7 +3430,7 @@
 				('BUILDING_WHITE_SANDS',	'FLAVOR_AIR',			20);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- BLETCHEY PARK
+-- BLETCHLEY PARK
 	UPDATE Buildings SET Cost = 2350 WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_BLETCHLEY_PARK';
 	---------------------------------------------------------
@@ -3629,7 +3666,7 @@
 				('BUILDING_JUMEIRAH',	'FLAVOR_CULTURE',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
--- TAIPEI (NEW)
+-- TAIPEI 101 (NEW)
 	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ADVANCED_BALLISTICS', NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_TAIPEI';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,C' WHERE Type = 'BUILDING_TAIPEI';
 	---------------------------------------------------------
@@ -3792,9 +3829,9 @@
 -- Meenakshi Temple				Mandir:				Chemistry			Hindu				Early Renaissance
 ---------------------------------------------------------
 UPDATE Buildings SET HolyCity = 1 WHERE Type IN
-('BUILDING_EL_GHRIBA',	'BUILDING_SONGYUE',		'BUILDING_NABAWI',		'BUILDING_HAGIA_SOPHIA',
-'BUILDING_BOROBUDUR',	'BUILDING_JOHNS',		'BUILDING_KARLSTEJN',	'BUILDING_TLACHIHUALTEPETL',
-'BUILDING_ST_PETERS',	'BUILDING_HARMANDIR',	'BUILDING_MEENAKSHI');
+('BUILDING_EL_GHRIBA',	'BUILDING_SONGYUE',			'BUILDING_NABAWI',		'BUILDING_HAGIA_SOPHIA',
+'BUILDING_BOROBUDUR',	'BUILDING_HOSPITALLER',		'BUILDING_KARLSTEJN',	'BUILDING_TLACHIHUALTEPETL',
+'BUILDING_ST_PETERS',	'BUILDING_HARMANDIR',		'BUILDING_MEENAKSHI');
 
 INSERT INTO Building_ClassNeededNowhere
 			(BuildingType,					BuildingClassType) 
@@ -3805,7 +3842,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_HARMANDIR'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_EL_GHRIBA'),	
@@ -3815,7 +3852,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_KARLSTEJN'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_MEENAKSHI'),
-			('BUILDING_SONGYUE',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_SONGYUE',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_SONGYUE',			'BUILDINGCLASS_HARMANDIR'),	
 			('BUILDING_NABAWI',				'BUILDINGCLASS_EL_GHRIBA'),
@@ -3825,7 +3862,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_NABAWI',				'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_NABAWI',				'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_NABAWI',				'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_NABAWI',				'BUILDINGCLASS_JOHNS'),
+			('BUILDING_NABAWI',				'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_NABAWI',				'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_NABAWI',				'BUILDINGCLASS_HARMANDIR'),	
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_EL_GHRIBA'),
@@ -3835,7 +3872,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_JOHNS'),
+			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_HAGIA_SOPHIA',		'BUILDINGCLASS_HARMANDIR'),	
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_EL_GHRIBA'),
@@ -3845,19 +3882,19 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_BOROBUDUR',			'BUILDINGCLASS_HARMANDIR'),	
-			('BUILDING_JOHNS',				'BUILDINGCLASS_EL_GHRIBA'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_NABAWI'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_HAGIA_SOPHIA'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_BOROBUDUR'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_KARLSTEJN'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_ST_PETERS'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_MEENAKSHI'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_TLACHIHUALTEPETL'),
-			('BUILDING_JOHNS',				'BUILDINGCLASS_HARMANDIR'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_EL_GHRIBA'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_NABAWI'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_HAGIA_SOPHIA'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_BOROBUDUR'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_KARLSTEJN'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_ST_PETERS'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_MEENAKSHI'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_SONGYUE'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_TLACHIHUALTEPETL'),
+			('BUILDING_HOSPITALLER',		'BUILDINGCLASS_HARMANDIR'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_EL_GHRIBA'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_HAGIA_SOPHIA'),
@@ -3865,7 +3902,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_KARLSTEJN',			'BUILDINGCLASS_HARMANDIR'),	
 			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_EL_GHRIBA'),
@@ -3876,7 +3913,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_JOHNS'),
+			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_TLACHIHUALTEPETL',	'BUILDINGCLASS_HARMANDIR'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_EL_GHRIBA'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_NABAWI'),
@@ -3885,7 +3922,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_KARLSTEJN'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_ST_PETERS',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_ST_PETERS',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_ST_PETERS',			'BUILDINGCLASS_HARMANDIR'),	
 			('BUILDING_HARMANDIR',			'BUILDINGCLASS_EL_GHRIBA'),
@@ -3896,7 +3933,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_HARMANDIR',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_HARMANDIR',			'BUILDINGCLASS_MEENAKSHI'),
 			('BUILDING_HARMANDIR',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_HARMANDIR',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_HARMANDIR',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_HARMANDIR',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_EL_GHRIBA'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_NABAWI'),
@@ -3905,7 +3942,7 @@ VALUES		('BUILDING_EL_GHRIBA',			'BUILDINGCLASS_NABAWI'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_KARLSTEJN'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_ST_PETERS'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_SONGYUE'),
-			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_JOHNS'),
+			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_HOSPITALLER'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_TLACHIHUALTEPETL'),
 			('BUILDING_MEENAKSHI',			'BUILDINGCLASS_HARMANDIR');
 --============================================--

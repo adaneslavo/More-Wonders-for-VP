@@ -37,18 +37,18 @@ CREATE TABLE MWfVPConfig (
 --------------------------------------------------------------
 INSERT INTO MWfVPConfig	
 			(WType,						WDummy,		WActive,	WHasSound)
-VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
+VALUES		('ALTAMIRA',				'None',		1,			1),		-- Cave of Altamira
 			('GGANTIJA',				'None',		1,			1),		-- Ggantija
 			('GOEBEKLI_TEPE',			'None',		1,			1),		-- Goebekli Tepe
 			('KUK',						'None',		1,			1),		-- Kuk Swamp
-			('MAJORVILLE',				'None',		1,			1),		-- Majorville Medicine Wheel
+			('MAJORVILLE',				'None',		1,			1),		-- Majorville Medicine Wheel / Iniskim Umaapi
 			('MOHENJO_DARO',			'None',		1,			1),		-- Mohenjo-Daro
 			('SKARA_BRAE',				'None',		1,			1),		-- Skara Brae
 			-------------------ANCIENT--------------------------------------------------------------
 			('KARNAK',					'None',		1,			1),		-- Karnak Temple
 			('NAZCA',					'None',		1,			1),		-- Nazca Lines
 			('WIELICZKA',				'None',		1,			1),		-- Wieliczka Salt Mine
-			('THONG_HAI_HIN',			'None',		1,			0),		-- Thong Hai Hin (Plain of Jars)
+			('THONG_HAI_HIN',			'None',		1,			0),		-- Plain of Jars / Thong Hai Hin
 			-------------------CLASSICAL------------------------------------------------------------
 			('MALWIYA',					'None',		1,			1),		-- Malwiya Minaret (Great Mosque of Samarra)
 			('GATE_OF_SUN',				'None',		1,			1),		-- Gate of the Sun
@@ -56,21 +56,21 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('EL_GHRIBA',				'None',		1,			1),		-- El Ghriba Synagougue
 			('ETCHMIADZIN',				'None',		1,			1),		-- Etchmiadzin Cathedral
 			('SIGIRIYA',				'None',		1,			0),		-- Sirigiya
-			('CHAND_BAORI',				'None',		1,			1),		-- Chand Baori Well
+			('CHAND_BAORI',				'None',		1,			1),		-- Chand Baori
 			('SONGYUE',					'None',		1,			0),		-- Songyue Pagoda
 			-------------------MEDIEVAL-------------------------------------------------------------
-			('NABAWI',					'None',		1,			1),		-- Al-Masjid an-Nabawi (Prophet's Mosque)
-			('MORAY',					'None',		1,			0),		-- Moray (Moray Terraces)
+			('NABAWI',					'None',		1,			1),		-- Prophet's Mosque / Al-Masjid an-Nabawi
+			('MORAY',					'None',		1,			0),		-- Moray
 			('LAVAUX',					'None',		1,			1),		-- Lavaux
-			('WARTBURG',				'None',		1,			1),		-- Wartburg Castle
+			('WARTBURG',				'None',		1,			1),		-- Wartburg
 			('GREAT_ZIMBABWE',			'None',		1,			1),		-- Great Zimbabwe
 			('FALUN',					'None',		1,			1),		-- Falun Mine
 			('AHU',						'None',		1,			1),		-- Ahu Tongariki
 			('DAMASCUS',				'None',		1,			1),		-- Forge of Damascus
-			('SHWEDAGON',				'None',		1,			1),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Pagoda
-			('JOHNS',					'None',		1,			0),		-- Hospital of St. John
-			('MICHEL',					'None',		1,			1),		-- Mont Saint Michel
-			('BUYUK_HAN',				'None',		1,			0),		-- Büyük Han (Great Inn)
+			('SHWEDAGON',				'None',		1,			1),		-- Shwedagon Pagoda / Shwedagon Zedi Daw / Great Dagon Pagoda  / Golden Dagon Pagoda
+			('HOSPITALLER',				'None',		1,			0),		-- Knights Hospitaller / Hospital of St. John
+			('MICHEL',					'None',		1,			1),		-- Mont-Saint-Michel
+			('BUYUK_HAN',				'None',		1,			0),		-- Buyuk Han / Great Inn
 			('ITSUKUSHIMA',				'None',		1,			1),		-- Itsukushima Shrine
 			('QALHAT',					'None',		1,			1),		-- Qalhat
 			('CHEVALIERS',				'None',		1,			1),		-- Krak des Chevaliers
@@ -79,16 +79,16 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('BENHADDOU',				'None',		1,			1),		-- Ait Benhaddou
 			('KILWA_KISIWANI',			'None',		1,			1),		-- Kilwa Kisiwani
 			('ST_PETERS',				'None',		1,			1),		-- Papal Basilica of St. Peter in the Vatican
-			('KINKAKU_JI',				'None',		1,			1),		-- Golden Pavilion (Kikaku-Ji)
+			('KINKAKU_JI',				'None',		1,			1),		-- Golden Pavilion / Kikaku-Ji
 			('MARAE',					'None',		1,			1),		-- Marae Arahurahu
 			('HARMANDIR',				'None',		1,			0),		-- Harmandir Sahib
-			('OLD_BRIDGE',				'None',		1,			1),		-- Old Bridge in Mostar
+			('OLD_BRIDGE',				'None',		1,			1),		-- Old Bridge
 			('MEENAKSHI',				'None',		1,			1),		-- Meenakshi Temple
 			('PETERHOF',				'None',		1,			1),		-- Peterhof Palace
 			('BAKKEN',					'None',		1,			1),		-- Bakken
-			('HOUSE_OF_TRADE',			'None',		1,			1),		-- House of Trade of the Indies (Casa de Contratación)
+			('HOUSE_OF_TRADE',			'None',		1,			1),		-- House of Trade of the Indies / Casa de Contratación
 			('SOLOVIETSKY',				'None',		1,			1),		-- Solovietsky Monastery
-			('TEMBLEQUE',				'None',		1,			0),		-- Aqueducto del Padre Tembleque
+			('TEMBLEQUE',				'None',		1,			0),		-- Tembleque Aqueduct /Aqueduct del Padre Tembleque
 			-------------------ENLIGHTENMENT--------------------------------------------------------
 			--('BOLSHOI',				'None',		1,			1),		-- Bolshoi Theater
 			-------------------INDUSTRIAL-----------------------------------------------------------
@@ -105,29 +105,29 @@ VALUES		('ALTAMIRA',				'None',		1,			1),		-- Altamira Cave
 			('BANFF',					'None',		1,			1),		-- Banff Springs Hotel
 			('ORSZAGHAZ',				'None',		1,			1),		-- Orszaghaz
 			-------------------MODERN---------------------------------------------------------------
-			('POLAR_EXPEDITION',		'None',		1,			1),		-- First Polar Expedition
+			('POLAR_EXPEDITION',		'None',		1,			1),		-- Polar Expedition
 			('AKIHABARA',				'None',		1,			1),		-- Akihabara Trade Center
 			('ROCKEFELLER',				'None',		1,			1),		-- Rockefeller Center
 			('AUTOBAHN',				'None',		1,			0),		-- Autobahn
-			('INTERSTATE',				'None',		1,			0),		-- Highway Interstate System
+			('INTERSTATE',				'None',		1,			0),		-- Interstate Highway System
 			('HOLLYWOOD',				'None',		1,			0),		-- Hollywood
 			('CONCORDE',				'None',		1,			0),		-- Concorde
 			('SANBO',					'None',		1,			1),		-- Sanbo Honbu
 			('RUSHMORE',				'None',		1,			1),		-- Mount Rushmore
 			-------------------ATOMIC---------------------------------------------------------------
 			('GREAT_HALL',				'None',		1,			0),		-- Great Hall of the People
-			('HABITAT',					'None',		1,			0),		-- Habitat 67
-			--('MARACANA',				'None',		1,			0),		-- Estadio do Maracana
+			('HABITAT',					'None',		1,			0),		-- Habitat-67
+			--('MARACANA',				'None',		1,			0),		-- Maracana
 			('VOSTOK',					'None',		1,			0),		-- Vostok Station
 			('MILESTII_MICI',			'None',		1,			0),		-- Milestii Mici Winery
-			('TEHRAN_FACILITY',			'None',		1,			0),		-- Tehran Nuclear Research Facility
+			('TEHRAN_FACILITY',			'None',		1,			0),		-- (Tehran) Nuclear Research Center
 			('JFK',						'None',		1,			0),		-- JFK Space Center
 			('SPUTNIK',					'None',		1,			0),		-- Sputnik Program
-			('ANITKABIR',				'None',		1,			0),		-- Anitkabir Mausoleum
+			('ANITKABIR',				'None',		1,			0),		-- Anitkabir
 			('THULE',					'None',		1,			0),		-- Thule Airbase
 			('WHITE_SANDS',				'None',		1,			1),		-- White Sands Missile Range
 			('MILLAU',					'None',		1,			1),		-- Millau Viaduct
-			('REVOLUTIONARY_MUSEUM',	'None',		1,			0),		-- Kumsusan Palace
+			('REVOLUTIONARY_MUSEUM',	'None',		1,			0),		-- Revolutionary Museum / Kumsusan Palace
 			('ARECIBO',					'None',		1,			1),		-- Arecibo Observatory
 			-------------------INFORMATION-A--------------------------------------------------------
 			--('NORTHERN_LIGHT',		'None',		1,			0),		-- Northern Light Cathedral
@@ -445,7 +445,7 @@ VALUES		('AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_MAN', 		'SND_WONDER_SPEECH_ARK_
 --============================================--
 INSERT INTO MWfVPConfig 
 			(WType,							WDummy,									WActive,	WHasSound)
-VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
+VALUES		('KUK_DUMMY',					'Kuk',									2,			0),
 			('GATE_OF_SUN_DUMMY',			'Gate of the Sun',						2,			0),
 			('GREAT_ZIMBABWE_DUMMY',		'Great Zimbabwe',						2,			0),
 			('ITSUKUSHIMA_DUMMY',			'Itsukushima Shrine',					2,			0),
@@ -462,14 +462,15 @@ VALUES		('KUK_DUMMY',					'Kuk Swamp',							2,			0),
 			('SANBO_DUMMY',					'Sanbo Honbu',							2,			0),
 			('SANBO_2_DUMMY',				'Sanbo Honbu',							2,			0),
 			('AUTOBAHN_DUMMY',				'Autobahn',								2,			0),
-			('INTERSTATE_DUMMY',			'Interstate',							2,			0),
+			('INTERSTATE_DUMMY',			'Interstate Highway System',			2,			0),
 			('MUSEUM_ISLAND_DUMMY',			'Museum Island',						2,			0),
 			('CURIOSITY_DUMMY',				'Curiosity Rover',						2,			0),
 			('SEED_VAULT_DUMMY',			'Svalbard Global Seed Vault',			2,			0),
-			('TEMBLEQUE_DUMMY',				'Aqueduct of Padre Tembleque',			2,			0),
+			('TEMBLEQUE_DUMMY',				'Tembleque Aqueduct',					2,			0),
 			--('ANGKOR_WAT_DUMMY',			'Angkor Wat',							2,			0), -- POLICY!!!
 			--('TLACHIHUALTEPETL_DUMMY',	'Tlachihualtepetl',						2,			0), -- POLICY!!!
-			('JOHNS_DUMMY',					'Hospital of St. John',					2,			0);
+			('HOSPITALLER_DUMMY',			'Knights Hospitaller',					2,			0),
+			('SONGYUE_DUMMY',				'Songyue Pagoda',						2,			0);
 
 INSERT INTO BuildingClasses 
 			(Type,						Description,				DefaultBuilding)

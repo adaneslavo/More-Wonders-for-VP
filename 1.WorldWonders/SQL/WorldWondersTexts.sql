@@ -2,17 +2,17 @@
 -- Text file for all Wonders
 -- Feb 20, 2020: Created, adan_eslavo
 ----------------------------------------------------
--- Altamira Cave
+-- Cave of Altamira
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Altamira Cave'),
+VALUES		('TXT_KEY_BUILDING_ALTAMIRA',			'Cave of Altamira'),
 			('TXT_KEY_WONDER_ALTAMIRA_QUOTE',		'[NEWLINE]"After Altamira everything seems decadent."[NEWLINE] - Pablo Picasso[NEWLINE]'),
 			('TXT_KEY_WONDER_ALTAMIRA_PEDIA',		'Altamira Cave is approximately 1,000 m (3,280.84 ft) meters long and consists of a series of twisting passages and chambers. The main passage varies from two to six meters in height. The cave was formed through collapses following early karst phenomena in the calcareous rock of Mount Vispieres. Archaeological excavations in the cave floor found rich deposits of artifacts from the Upper Solutrean (c. 18,500 years ago) and Lower Magdalenian (between c. 16,590 and 14,000 years ago). Both periods belong to the Paleolithic or Old Stone Age. In the two millennia between these two occupations, the cave was evidently inhabited only by wild animals. Human occupants of the site were well-positioned to take advantage of the rich wildlife that grazed in the valleys of the surrounding mountains as well as the marine life available in nearby coastal areas. Around 13,000 years ago a rockfall sealed the cave''s entrance, preserving its contents until its eventual discovery, which occurred after a nearby tree fell and disturbed the fallen rocks. Human occupation was limited to the cave mouth, although paintings were created throughout the length of the cave. The artists used charcoal and ochre or hematite to create the images, often diluting these pigments to produce variations in intensity and creating an impression of chiaroscuro. They also exploited the natural contours of the cave walls to give their subjects a three-dimensional effect. The Polychrome Ceiling is the most impressive feature of the cave, depicting a herd of extinct steppe bison (Bison priscus) in different poses, two horses, a large doe, and possibly a wild boar. Dated to the Magdalenian occupation, these paintings include abstract shapes in addition to animal subjects. Solutrean paintings include images of horses and goats, as well as handprints that were created when artists placed their hands on the cave wall and blew pigment over them to leave a negative image. Numerous other caves in northern Spain contain Paleolithic art, but none is as complex or well-populated as Altamira.'),
 			/*('TXT_KEY_WONDER_ALTAMIRA_HELP',		'Greatly increase [ICON_STRENGTH] Combat Strength of this City. Contains 1 slot for [ICON_VP_GREATART] Great Work of Art or Artifact. +3 [ICON_CULTURE] Culture with [COLOR_CYAN]Archaeology[ENDCOLOR].[NEWLINE][NEWLINE]All [ICON_RES_BISON] Bison: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]All [ICON_RES_DEER] Deer: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.[NEWLINE]All [ICON_RES_HORSE] Horses: +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.');*/
 			('TXT_KEY_WONDER_ALTAMIRA_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT', '[COLOR_YIELD_FOOD]Altamira Cave[ENDCOLOR] is an ideal hiding spot (+5[ICON_STRENGTH]) and greatly supports early culture shaping (+1[ICON_CULTURE]), especially, if you find herds of [COLOR_GREY]Bisons[ENDCOLOR], [COLOR_GREY]Deers[ENDCOLOR] or [COLOR_GREY]Horses[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON][ICON_RES_BISON], [ICON_RES_DEER][ICON_RES_DEER], [ICON_RES_HORSE][ICON_RES_HORSE]). Maximize its effectiveness by painting the interior of the cave with outstanding pictures (+1[ICON_VP_GREATART]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology[ENDCOLOR]: +3[ICON_CULTURE]).');
+VALUES ('TXT_KEY_WONDER_ALTAMIRA_HELP_CUT', '[COLOR_YIELD_FOOD]Cave of Altamira[ENDCOLOR] is an ideal hiding spot (+5[ICON_STRENGTH]) and greatly supports early culture shaping (+1[ICON_CULTURE]), especially, if you find herds of [COLOR_GREY]Bisons[ENDCOLOR], [COLOR_GREY]Deers[ENDCOLOR] or [COLOR_GREY]Horses[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_CULTURE]/[ICON_RES_BISON][ICON_RES_BISON], [ICON_RES_DEER][ICON_RES_DEER], [ICON_RES_HORSE][ICON_RES_HORSE]). Maximize its effectiveness by painting the interior of the cave with outstanding pictures (+1[ICON_VP_GREATART]) or by rushing advanced technologies ([COLOR_CYAN]Archaeology[ENDCOLOR]: +3[ICON_CULTURE]).');
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]; Improved Resource: [ICON_RES_BISON]/[ICON_RES_DEER]/[ICON_RES_HORSE] [COLOR_CYAN]Horses[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_BISON]/[ICON_RES_DEER]/[ICON_RES_HORSE].'||Text WHERE Tag ='TXT_KEY_WONDER_ALTAMIRA_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -20,7 +20,7 @@ UPDATE Language_en_US SET Text = 'Improved Resource: [ICON_RES_BISON]/[ICON_RES_
 -- Ggantija
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'),
+VALUES		('TXT_KEY_BUILDING_GGANTIJA',			'Ggantija'), /*Ġgantija*/
 			('TXT_KEY_WONDER_GGANTIJA_QUOTE',		'[NEWLINE]"We need to find God, and he cannot be found in noise and restlessness. God is the friend of silence. See how nature - trees, flowers, grass - grows in silence; see the stars, the moon and the sun, how they move in silence... We need silence to be able to touch souls."[NEWLINE] - Mother Teresa[NEWLINE]'),
 			('TXT_KEY_WONDER_GGANTIJA_PEDIA',		'Ggantija (Giants'' Tower) is a megalithic temple complex in Malta on the Mediterranean island of Gozo. Its makers erected the two Ggantija temples during the Neolithic Age (c. 3600-2500 BC), which makes the buildings more than 5500 years old and the world''s second oldest manmade religious structures, after Gobekli Tepe. The temples were possibly the site of a Fertility cult - archeologists believe that the numerous figurines and statues found on site are connected with that cult.'),
 			/*('TXT_KEY_WONDER_GGANTIJA_HELP',		'Grants 50 [ICON_FOOD] Food after construction. Converts 10% [ICON_PEACE] Faith produced by this City into [ICON_FOOD] Food. All Farms in the Empire gain +1 [ICON_FOOD] Food.');*/
@@ -35,22 +35,22 @@ UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR].'||Te
 -- Goebekli Tepe	
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
-VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Goebekli Tepe'),
+VALUES		('TXT_KEY_BUILDING_GOEBEKLI_TEPE',			'Göbekli Tepe'),
 			('TXT_KEY_WONDER_GOEBEKLI_TEPE_QUOTE',		'[NEWLINE]"Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious."[NEWLINE] - Stephen Hawking[NEWLINE]'),
 			('TXT_KEY_WONDER_GOEBEKLI_TEPE_PEDIA',		'Göbekli Tepe is a religious site located in southern Turkey, near the Syrian border. It is the oldest known religious building on earth, dating to approximately 10000 BCE, during the Neolithic age of Human civilization, and predating all major civilizations and cities by several millenia. It was first observed during the 1960''s, when archeologists noted that the hill could not be natural due to the shape, yet dismissed it as a Byzantine burial ground. This belief persisted until 1994, and not excavated until a year later. The complex is similar in form to Stonehenge, with a round shape and large Monolithic stones. However, unlike Stonehenge, many of the pillars are carved with the figures of several animals, which are believed to have been sacred to the hunter-gatherers which constructed Göbekli Tepe.'),
 			/*('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'+1 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith from Mountains owned by this City.[NEWLINE][NEWLINE]All [ICON_RES_STONE] Stone: +1 [ICON_RESEARCH] Science.');*/
 			('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT', '[COLOR_YIELD_FOOD]Goebekli Tepe[ENDCOLOR] is an excellent choice for a [COLOR_CITY_BLUE]Mountainous[ENDCOLOR] area (+1[ICON_RESEARCH], +1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]). Its outstanding early yield output (+1[ICON_RESEARCH]; +1[ICON_CULTURE]; +1[ICON_PEACE]) alongside with scientific boost from all [COLOR_GREY]Stones[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_RES_STONE][ICON_RES_STONE]) makes it an ideal choice for progressive players.');
+VALUES ('TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP_CUT', '[COLOR_YIELD_FOOD]Göbekli Tepe[ENDCOLOR] is an excellent choice for a [COLOR_CITY_BLUE]Mountainous[ENDCOLOR] area (+1[ICON_RESEARCH], +1[ICON_PEACE]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]). Its outstanding early yield output (+1[ICON_RESEARCH]; +1[ICON_CULTURE]; +1[ICON_PEACE]) alongside with scientific boost from all [COLOR_GREY]Stones[ENDCOLOR] (+1[ICON_RESEARCH]/[ICON_RES_STONE][ICON_RES_STONE]) makes it an ideal choice for progressive players.');
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_GOEBEKLI_TEPE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------				
--- Kuk Swamp
+-- Kuk
 INSERT INTO Language_en_US 
 			(Tag,							Text) 
-VALUES		('TXT_KEY_BUILDING_KUK',		'Kuk Swamp'),
+VALUES		('TXT_KEY_BUILDING_KUK',		'Kuk'),
 			('TXT_KEY_WONDER_KUK_QUOTE',	'[NEWLINE]"If perfection is stagnation, then Heaven is a swamp."[NEWLINE] - Richard Bach[NEWLINE]'),
 			('TXT_KEY_WONDER_KUK_PEDIA',	'TODO'),
 			/*('TXT_KEY_WONDER_KUK_HELP',	'10% [ICON_FOOD] Food is carried over after new [ICON_CITIZEN] Citizen is born. +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science from Marshes worked in the Empire. +5 [ICON_PRODUCTION] Production in the City and +2 [ICON_PRODUCTION] Production in all other Cities with [COLOR_CYAN]Steam Power[ENDCOLOR]');*/
@@ -59,7 +59,7 @@ VALUES		('TXT_KEY_BUILDING_KUK',		'Kuk Swamp'),
 UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_KUK_HELP';
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_KUK_HELP_CUT', '[COLOR_YIELD_FOOD]Kuk Swamp[ENDCOLOR], thanks to unique agricultural techniques, turns all [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[COLOR_CITY_GREEN]Tile in Empire[ENDCOLOR]) into rich soil speeding up your local growth (10%[ICON_FOOD]/New [ICON_CITIZEN]), and after researching key technologies it will also boost your capital''s and empire''s productiveness ([COLOR_CYAN]Steam Power[ENDCOLOR]: +3[ICON_PRODUCTION], +2[ICON_PRODUCTION][ICON_PRODUCTION]).');
+VALUES ('TXT_KEY_WONDER_KUK_HELP_CUT', '[COLOR_YIELD_FOOD]Kuk[ENDCOLOR], thanks to unique agricultural techniques, turns all [COLOR_CITY_GREEN]Marshes[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[COLOR_CITY_GREEN]Tile in Empire[ENDCOLOR]) into rich soil speeding up your local growth (10%[ICON_FOOD]/New [ICON_CITIZEN]), and after researching key technologies it will also boost your capital''s and empire''s productiveness ([COLOR_CYAN]Steam Power[ENDCOLOR]: +3[ICON_PRODUCTION], +2[ICON_PRODUCTION][ICON_PRODUCTION]).');
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Feature: [COLOR_CYAN]Jungle, Marsh[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KUK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Marsh[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KUK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -67,7 +67,7 @@ UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Marsh[ENDCOLOR].'||Text W
 -- Majorville Medicine Wheel
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'),
+VALUES		('TXT_KEY_BUILDING_MAJORVILLE',			'Majorville Medicine Wheel'), /*Iniskim Umaapi*/
 			('TXT_KEY_WONDER_MAJORVILLE_QUOTE',		'[NEWLINE]"When the Earth is sick, the animals will begin to disappear, when that happens, The Warriors of the Rainbow will come to save them."[NEWLINE] - Chief Seattle[NEWLINE]'),
 			('TXT_KEY_WONDER_MAJORVILLE_PEDIA',		'The Majorville Medicine Wheel is an archaeological site of the Blackfeet nation dating to 3200 BCE. It is a round stone cairn connected to a cobble circle by 28 stone spokes. Traditionally, in certain Native American cultures, medicine wheels are metaphors for a variety of spiritual concepts. However, as it is believed that the Majorville Medicine Wheel was improved upon for successive generations, the precise meaning of the wheel may differ for each generation. Offerings found at the site included sweet grass, willow, cloth, tobacco, and iniskim stones ("buffalo calling stones").'),
 			/*('TXT_KEY_WONDER_MAJORVILLE_HELP',	'+1 [ICON_PEACE] Faith from Tundra tiles worked by this City. All Camps in the Empire gain +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]All [ICON_RES_BISON] Bison: +1 [ICON_CULTURE] Culture.');*/
@@ -158,7 +158,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; City: [COLOR
 -- Plain of Jars
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
-VALUES		('TXT_KEY_BUILDING_THONG_HAI_HIN',			'Plain of Jars'),
+VALUES		('TXT_KEY_BUILDING_THONG_HAI_HIN',			'Plain of Jars'), /*Thong Hai Hin*/
 			('TXT_KEY_WONDER_THONG_HAI_HIN_QUOTE',		'[NEWLINE]"As a well-spent day brings happy sleep, so life well used brings happy death."[NEWLINE] - Leonardo da Vinci[NEWLINE]'),
 			('TXT_KEY_WONDER_THONG_HAI_HIN_PEDIA',		'TODO'),
 			/*('TXT_KEY_WONDER_THONG_HAI_HIN_HELP',		'Units generate 5 [ICON_PEACE] Faith [COLOR_POSITIVE_TEXT]on their Death[ENDCOLOR], scaling with Era. Internal [ICON_INTERNATIONAL_TRADE] Trade Routes connected to this City gain +2 [ICON_FOOD] Food. International [ICON_CARAVAN] Trade Routes connected to this City gain +2 [ICON_GOLD] Gold.');*/
@@ -177,10 +177,11 @@ VALUES ('TXT_KEY_BUILDING_STONEHENGE_HELP_CUT',	'Mysterious [COLOR_YIELD_FOOD]St
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_STONEHENGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Pyramids
+-- Giza Pyramids
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_PYRAMIDS_HELP_CUT', 'Great [COLOR_YIELD_FOOD]Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]) announcing the arrival of a golden era you have never seen before (+1[ICON_GOLDEN_AGE]; 50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). Thanks to the efforts of the nobles you can use recently trained [COLOR_YIELD_GOLD]free Settler[ENDCOLOR] to find valuable land for expansion and found another great and prosperous city.');
+VALUES ('TXT_KEY_WONDER_PYRAMIDS_HELP_CUT', 'Great [COLOR_YIELD_FOOD]Giza Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]) announcing the arrival of a golden era you have never seen before (+1[ICON_GOLDEN_AGE]; 50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). Thanks to the efforts of the nobles you can use recently trained [COLOR_YIELD_GOLD]free Settler[ENDCOLOR] to find valuable land for expansion and found another great and prosperous city.');
 
+UPDATE Language_en_US SET Text = 'Giza Pyramids' WHERE Tag ='TXT_KEY_BUILDING_PYRAMID';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Book of the Dead', '"The Book of the Dead"') WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_QUOTE';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Tundra[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Snow[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
@@ -447,17 +448,17 @@ SELECT 'TXT_KEY_WONDER_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[EN
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
--- Moray Terraces
+-- Moray
 INSERT INTO Language_en_US 
 			(Tag,									Text)
-VALUES		('TXT_KEY_BUILDING_MORAY',				'Moray Terraces'),
+VALUES		('TXT_KEY_BUILDING_MORAY',				'Moray'),
 			('TXT_KEY_WONDER_MORAY_QUOTE',			'[NEWLINE]"Science is a way of thinking much more than it is a body of knowledge."[NEWLINE] - Carl Sagan[NEWLINE]'),
 			('TXT_KEY_WONDER_MORAY_PEDIA',			'TODO'),
 			/*('TXT_KEY_WONDER_MORAY_HELP',			'+5% [ICON_FOOD] Food in all Cities. +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production and +1 [ICON_RESEARCH] Science from Hills worked by this City. Converts 15% of [ICON_RESEARCH] Science produced by this City into [ICON_FOOD] Food.');*/
 			('TXT_KEY_WONDER_MORAY_HELP',			'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_MORAY_HELP_CUT', '[COLOR_YIELD_FOOD]Moray Terraces[ENDCOLOR], mysterious agricultural structures constructed on [COLOR_CITY_BLUE]Hills[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]; +2[ICON_FOOD]; +5%[ICON_FOOD][ICON_FOOD]) allow you to grow unusual plants and crops in places, where they are not naturally seen (+2[ICON_RESEARCH]). Use your scientific advantage to boost your growth even more (15%[ICON_RESEARCH] into [ICON_FOOD]).';
+SELECT 'TXT_KEY_WONDER_MORAY_HELP_CUT', '[COLOR_YIELD_FOOD]Moray[ENDCOLOR], mysterious agricultural structures constructed on [COLOR_CITY_BLUE]Hills[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]; +2[ICON_FOOD]; +5%[ICON_FOOD][ICON_FOOD]) allow you to grow unusual plants and crops in places, where they are not naturally seen (+2[ICON_RESEARCH]). Use your scientific advantage to boost your growth even more (15%[ICON_RESEARCH] into [ICON_FOOD]).';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Improvement: [COLOR_CYAN]Farm[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_MORAY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_WONDER_MORAY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -560,25 +561,25 @@ SELECT 'TXT_KEY_WONDER_DAMASCUS_HELP_CUT', '[COLOR_YIELD_FOOD]Forge of Damascus[
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Authority Finisher[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_DAMASCUS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
--- Hospital of St. John (Holy)
+-- Knights Hospitaller (Holy)
 INSERT INTO Language_en_US 
-			(Tag,								Text) 
-VALUES		('TXT_KEY_BUILDING_JOHNS',			'Hospital of St. John'),
-			('TXT_KEY_WONDER_JOHNS_QUOTE',		'[NEWLINE]"For Faith, for service to humanity."[NEWLINE] - Knights Hospitaller''s motto[NEWLINE]'),
-			('TXT_KEY_WONDER_JOHNS_PEDIA',		'The Order of the Hospital of St. John of Jerusalem, commonly known as the Knights Hospitaller, was a medieval Catholic military order founded in the 11th century to provide care for sick, poor, and injured pilgrims in the Holy Land. Established around 1023 by a group of merchants from Amalfi, the order initially focused on running a hospital in Jerusalem dedicated to St. John the Baptist. After the First Crusade and the establishment of the Kingdom of Jerusalem, the order gained military functions to protect pilgrims and the territories acquired by the Crusaders. The Knights Hospitaller became one of the most powerful and influential military orders of the medieval period, playing a significant role in the defense of Christian territories in the Holy Land and the Mediterranean. [NEWLINE][NEWLINE]Throughout the centuries, the order adapted to changing political and military landscapes. After the fall of Jerusalem in 1187, the Knights relocated their headquarters several times, eventually settling on the island of Rhodes in 1309 and later Malta in 1530, where they became known as the Knights of Malta. Their presence on these islands fortified them against Ottoman expansion and piracy, turning them into a formidable naval power. Even after losing Malta to Napoleon in 1798, the order continued its charitable work. Today, the Sovereign Military Order of Malta remains a humanitarian organization with a presence worldwide, continuing its founding mission of aiding the sick and poor, while maintaining its status as a sovereign entity with diplomatic relations with numerous countries.'),
-			/*('TXT_KEY_WONDER_JOHNS_HELP',		'');*/
-			('TXT_KEY_WONDER_JOHNS_HELP',		'');
+			(Tag,										Text) 
+VALUES		('TXT_KEY_BUILDING_HOSPITALLER',			'Knights Hospitaller'),
+			('TXT_KEY_WONDER_HOSPITALLER_QUOTE',		'[NEWLINE]"For Faith, for service to humanity."[NEWLINE] - Knights Hospitaller''s motto[NEWLINE]'),
+			('TXT_KEY_WONDER_HOSPITALLER_PEDIA',		'The Order of the Hospital of St. John of Jerusalem, commonly known as the Knights Hospitaller, was a medieval Catholic military order founded in the 11th century to provide care for sick, poor, and injured pilgrims in the Holy Land. Established around 1023 by a group of merchants from Amalfi, the order initially focused on running a hospital in Jerusalem dedicated to St. John the Baptist. After the First Crusade and the establishment of the Kingdom of Jerusalem, the order gained military functions to protect pilgrims and the territories acquired by the Crusaders. The Knights Hospitaller became one of the most powerful and influential military orders of the medieval period, playing a significant role in the defense of Christian territories in the Holy Land and the Mediterranean. [NEWLINE][NEWLINE]Throughout the centuries, the order adapted to changing political and military landscapes. After the fall of Jerusalem in 1187, the Knights relocated their headquarters several times, eventually settling on the island of Rhodes in 1309 and later Malta in 1530, where they became known as the Knights of Malta. Their presence on these islands fortified them against Ottoman expansion and piracy, turning them into a formidable naval power. Even after losing Malta to Napoleon in 1798, the order continued its charitable work. Today, the Sovereign Military Order of Malta remains a humanitarian organization with a presence worldwide, continuing its founding mission of aiding the sick and poor, while maintaining its status as a sovereign entity with diplomatic relations with numerous countries.'),
+			/*('TXT_KEY_WONDER_HOSPITALLER_HELP',		'');*/
+			('TXT_KEY_WONDER_HOSPITALLER_HELP',			'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_JOHNS_HELP_CUT', '[COLOR_YIELD_FOOD]Hospital of St. John[ENDCOLOR] was created for helping people (3 global HP Heal/[COLOR_YIELD_GOLD]Land[ENDCOLOR]/Cities with a [COLOR_YIELD_FOOD]Temple[ENDCOLOR]) even during devastating wars (+50 HP). Time is changing, but knights of this [COLOR_YIELD_FOOD]Order[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), even though always devoted to the God (+2[ICON_PEACE]), they secretely try to grab something for themselves (5%[ICON_PEACE][ICON_PEACE] into [ICON_GOLD]). And no matter where the tides push them to (+2[ICON_GREAT_ADMIRAL]), they resist to rulers who want to destroy fruits of their hard work.');
+VALUES ('TXT_KEY_WONDER_HOSPITALLER_HELP_CUT', '[COLOR_YIELD_FOOD]Knights Hospitaller[ENDCOLOR] was created for helping people (3 global HP Heal/[COLOR_YIELD_GOLD]Land[ENDCOLOR]/Cities with a [COLOR_YIELD_FOOD]Temple[ENDCOLOR]) even during devastating wars (+50 HP). Time is changing, but knights of this [COLOR_YIELD_FOOD]Order[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), even though always devoted to the God (+2[ICON_PEACE]), they secretely try to grab something for themselves (5%[ICON_PEACE][ICON_PEACE] into [ICON_GOLD]). And no matter where the tides push them to (+2[ICON_GREAT_ADMIRAL]), they resist to rulers who want to destroy fruits of their hard work.');
 				
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JOHNS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
-UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_JOHNS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HOSPITALLER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
+UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_HOSPITALLER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
--- Golden Dagon Pagoda
+-- Shwedagon Pagoda
 INSERT INTO Language_en_US 
 			(Tag,												Text)
-VALUES		('TXT_KEY_BUILDING_SHWEDAGON',						'Golden Dagon Pagoda'),
+VALUES		('TXT_KEY_BUILDING_SHWEDAGON',						'Shwedagon Pagoda'),
 			('TXT_KEY_WONDER_SHWEDAGON_QUOTE',					'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 			('TXT_KEY_WONDER_SHWEDAGON_PEDIA',					'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda) is a large Buddhist stupa located in the Burmese city of Rangoon. It is 99 metres tall in it''s current state, and is coated with gold donated by the Burmese populus to maintain the Stupa. It is not known when the gold was put in place, although the stupa itself is said to date back over 2,500 years. Each sucessive dynasty has built upon the Stupa, until it reached the current height of 99 metres during reconstruction following an earthquake in 1768. Shwedagon Paya also features a crown of 5,448 diamonds and 2317 Rubies.'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',			'Relics of the four previous Buddhas of the present kalpa'),
@@ -592,22 +593,22 @@ VALUES		('TXT_KEY_BUILDING_SHWEDAGON',						'Golden Dagon Pagoda'),
 			('TXT_KEY_WONDER_SHWEDAGON_HELP',					'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_SHWEDAGON_HELP_CUT', '[COLOR_YIELD_FOOD]Golden Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry (+2[ICON_CULTURE]; +2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]) increasing the overall value of your collection (+2[ICON_GOLD]; +1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). You can now organize brilliant vernissages, where you will be able to present recent discoveries (4[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]). Make also sure to use your new abilities to find hidden artifacts ([COLOR_WATER_TEXT]Diplomatic Passport[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]). Let your city shine!';
+SELECT 'TXT_KEY_WONDER_SHWEDAGON_HELP_CUT', '[COLOR_YIELD_FOOD]Shwedagon Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry (+2[ICON_CULTURE]; +2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]) increasing the overall value of your collection (+2[ICON_GOLD]; +1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). You can now organize brilliant vernissages, where you will be able to present recent discoveries (4[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]). Make also sure to use your new abilities to find hidden artifacts ([COLOR_WATER_TEXT]Diplomatic Passport[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]). Let your city shine!';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SHWEDAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
--- Mont St. Michel
+-- Mont-Saint-Michel
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
-VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont Saint-Michel'),
+VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont-Saint-Michel'),
 			('TXT_KEY_WONDER_MICHEL_QUOTE',		'[NEWLINE]"Church and State, Soul and Body, God and Man, are all one at Mont Saint Michel, and the business of all is to fight, each in his own way, or to stand guard for each other."[NEWLINE] - Henry Adams[NEWLINE]'),
 			('TXT_KEY_WONDER_MICHEL_PEDIA',		'Perched on a rocky islet in the midst of vast sandbanks exposed to powerful tides between Normandy and Brittany stand the "Wonder of the West", a Gothic-style Benedictine abbey dedicated to the archangel St Michael, and the village that grew up in the shadow of its great walls. Built between the 11th and 16th centuries, the abbey is a technical and artistic tour de force, having had to adapt to the problems posed by this unique natural site.'),
 			/*('TXT_KEY_WONDER_MICHEL_HELP',	'Greatly increase [ICON_STRENGTH] Combat Strength and Hit Points of this City. +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism with [COLOR_CYAN]Electricity[ENDCOLOR].');*/
 			('TXT_KEY_WONDER_MICHEL_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', 'Lonely [COLOR_YIELD_FOOD]Mont Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress (+10[ICON_STRENGTH]; +100 HP), where you can focus on your soul and dream about the future (+4[ICON_PEACE]/5 [ICON_CITIZEN]; +1[ICON_GOLDEN_AGE]). You can also plan another striking expansions there, that can be financed of your growing treasury (+3[ICON_GOLD]), especially when you discover advanced technologies ([COLOR_CYAN]Electricity[ENDCOLOR]: +3[ICON_GOLD], +3[ICON_TOURISM]).';
+SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', 'Lonely [COLOR_YIELD_FOOD]Mont-Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress (+10[ICON_STRENGTH]; +100 HP), where you can focus on your soul and dream about the future (+4[ICON_PEACE]/5 [ICON_CITIZEN]; +1[ICON_GOLDEN_AGE]). You can also plan another striking expansions there, that can be financed of your growing treasury (+3[ICON_GOLD]), especially when you discover advanced technologies ([COLOR_CYAN]Electricity[ENDCOLOR]: +3[ICON_GOLD], +3[ICON_TOURISM]).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -696,12 +697,14 @@ VALUES ('TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP_CUT', '[COLOR_YIELD_FOOD]Tlachihua
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TLACHIHUALTEPETL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
 ----------------------------------------------------
--- University of Sankore
+-- Sankore Madrasah
 /*UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Tradition[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	'[COLOR_YIELD_FOOD]University of Sankore[ENDCOLOR], initially a mosque (+1[ICON_PEACE]), finally converted into madrasah (+1[ICON_RESEARCH]), at its peak successfully combined both domains (+1[ICON_GREAT_SCIENTIST]). Besides being a wonderful [COLOR_YIELD_FOOD]University[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it shows that harsh terrain is no obstacle to construct such a wonderful facility (+1[ICON_CULTURE]) and attracts nobles from remote countries, whose influence boost the most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).');
+VALUES ('TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP_CUT',	'[COLOR_YIELD_FOOD]Sankoré Madrasah[ENDCOLOR], initially a mosque (+1[ICON_PEACE]), finally converted into madrasah (+1[ICON_RESEARCH]), at its peak successfully combined both domains (+1[ICON_GREAT_SCIENTIST]). Besides being a wonderful [COLOR_YIELD_FOOD]University[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it shows that harsh terrain is no obstacle to construct such a wonderful facility (+1[ICON_CULTURE]) and attracts nobles from remote countries, whose influence boost the most important research projects (50[ICON_RESEARCH]/[ICON_GREAT_PEOPLE]).');
 				
+UPDATE Language_en_US SET Text = 'Sankoré Madrasah' WHERE Tag ='TXT_KEY_BUILDING_MOSQUE_OF_DJENNE';	
+
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]; Building: [COLOR_CYAN]Library[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[ENDCOLOR]; Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MOSQUE_OF_DJENNE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
@@ -741,11 +744,13 @@ VALUES ('TXT_KEY_WONDER_MACHU_PICHU_HELP_CUT', 'If your new city is constructed 
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]2 Mountains (range 3)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MACHU_PICHU_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Forbidden Palace
+-- Forbidden City
 /*UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Progress[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);*/
 
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	'[COLOR_YIELD_FOOD]Forbidden Palace[ENDCOLOR], constructed on the ashes of previous civilization, shows how successful are your expansions and how fast you can rebuild the infrastructure and make profits of these newly acquired lands (-15%[ICON_GOLD][ICON_GOLD] Purchase Cost). Increased outlays on city development can easily endear yourself to the citizens (-1[ICON_HAPPINESS_3] Poverty) and this can really quickly pay for itself handsomely (+5[ICON_GOLD]).');
+
+UPDATE Language_en_US SET Text = 'Forbidden City' WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR]; Building: [COLOR_CYAN]Walls[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Progress Finishier[ENDCOLOR]; [COLOR_YIELD_GOLD]Capital[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -778,7 +783,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Tradition Finisher[END
 -- Ait Benhaddou
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_BENHADDOU',			'Ait Benhaddou'),
+VALUES		('TXT_KEY_BUILDING_BENHADDOU',			'Ait Benhaddou'), /*Aït Benhaddou*/
 			('TXT_KEY_WONDER_BENHADDOU_QUOTE',		'[NEWLINE]"Are you not entertained?"[NEWLINE] - Maximus Decimus Meridius[NEWLINE]'),
 			('TXT_KEY_WONDER_BENHADDOU_PEDIA',		'At the foot of the Atlas Mountains, within Ouarzazate Province in Marrakesh, sits Aït Benhaddou. The site is famous for its ksar - a pre-Saharan fortification, famed for its southern Moroccan architecture and method of construction. While little evidence suggests their construction - the earliest known references date back to only the seventeenth century - the use of the southern Moroccan building style is evidenced far back in Djebel and the southern valleys. The typology of the fort is diverse; large houses connect to a central courtyard, four tall wings fortified with angle towers, in some areas their is a connection to the lower houses and courtyard of the fort. As well as an exhibit of Moroccan architecture, Aït Benhaddou has also been featured in several films; including ''Jesus of Nazareth'', ''the Mummy'', ''Gladiator'' and ''Prince of Persia''.'),
 			/*('TXT_KEY_WONDER_BENHADDOU_HELP',		'Gain 1 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_INTERNATIONAL_TRADE] Trade Route slot. +1 [ICON_FOOD] Food from River tiles, and +3 [ICON_GOLD] Gold and +3 [ICON_TOURISM] Tourism from Villages worked by this City. +4 [ICON_TOURISM] Tourism with [COLOR_CYAN]Radio[ENDCOLOR].');*/
@@ -823,7 +828,7 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 -- Golden Pavilion
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_KINKAKU_JI',			'Golden Pavilion'),
+VALUES		('TXT_KEY_BUILDING_KINKAKU_JI',			'Golden Pavilion'), /*Rokuon-ji, Kinkaku-ji*/
 			('TXT_KEY_WONDER_KINKAKU_JI_QUOTE',		'[NEWLINE]"A book holds a house of gold."[NEWLINE] - Chinese proverb[NEWLINE]'),
 			('TXT_KEY_WONDER_KINKAKU_JI_PEDIA',		'Kinkaku-ji (literally "Temple of the Golden Pavilion") is a Buddhist temple in Kyoto, Japan. it was originally built as a villa at an unknown date, however was bought in 1397 by Shogun Ashikaga Yoshimitsu, who converted the villa into the Kinkaku-ji complex. Upon his death, it was converted to a Zen temple by his son.[NEWLINE][NEWLINE] In July 1950 it was burnt down by a Monk with a mental illness, causing a massive renovation project to be undertaken. The renovations took five years, completed in 1955. The exterior of the upper two floors were covered in pure gold leave, giving the name "Golden Pavilion", however it is unclear wether the gold leaf was present in the pre-1950''s version.'),
 			/*('TXT_KEY_WONDER_KINKAKU_JI_HELP',		'+1 [ICON_FOOD] Food, +1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from each Lake in your Empire. +1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from each Forest and Jungle, and +1 [ICON_FOOD] Food from each River tile worked by the City. Contains 1 slot for [ICON_VP_GREATWRITING] Great Work of Literature.');*/
@@ -878,14 +883,14 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[END
 -- Old Bridge
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_OLD_BRIDGE',			'Old Bridge in Mostar'),
+VALUES		('TXT_KEY_BUILDING_OLD_BRIDGE',			'Old Bridge'),
 			('TXT_KEY_WONDER_OLD_BRIDGE_QUOTE',		'[NEWLINE]"A refugee is someone who survived and who can create the future."[NEWLINE] - Amela Koluder[NEWLINE]'),
 			('TXT_KEY_WONDER_OLD_BRIDGE_PEDIA',		'TODO'),
 			/*('TXT_KEY_WONDER_OLD_BRIDGE_HELP',	'Receive 1 [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_DIPLOMAT] Great Diplomat and 2 [COLOR_POSITIVE_TEXT]Additional[ENDCOLOR] [ICON_DOPLOMAT] World Congress Delegates.');*/
 			('TXT_KEY_WONDER_OLD_BRIDGE_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_OLD_BRIDGE_HELP_CUT', '[COLOR_YIELD_FOOD]Old Bridge in Mostar[ENDCOLOR] is your scream announcing to the world leaders the will of bringing peace for the good of all people involved in numerous conflicts (+2[ICON_DIPLOMAT] League Votes; +1[ICON_HAPPINESS_1]). Use your diplomatic strength and all known tricks to bring hesitating nations onto your side ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +2[ICON_DIPLOMAT]). This bridge is not only a symbol or a wonderful architectural creation, but also a spot worth visiting for meditation (+1[ICON_CULTURE])';
+SELECT 'TXT_KEY_WONDER_OLD_BRIDGE_HELP_CUT', '[COLOR_YIELD_FOOD]Old Bridge[ENDCOLOR] is your scream announcing to the world leaders the will of bringing peace for the good of all people involved in numerous conflicts (+2[ICON_DIPLOMAT] League Votes; +1[ICON_HAPPINESS_1]). Use your diplomatic strength and all known tricks to bring hesitating nations onto your side ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; +2[ICON_DIPLOMAT]). This bridge is not only a symbol or a wonderful architectural creation, but also a spot worth visiting for meditation (+1[ICON_CULTURE])';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Player: [COLOR_CYAN]at Peace[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_OLD_BRIDGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Hill[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_OLD_BRIDGE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -905,17 +910,17 @@ SELECT 'TXT_KEY_WONDER_MEENAKSHI_HELP_CUT', 'Colorful [COLOR_YIELD_FOOD]Meenaksh
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MEENAKSHI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MEENAKSHI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
--- Peterhof
+-- Peterhof Palace
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_PETERHOF',			'Peterhof'),
+VALUES		('TXT_KEY_BUILDING_PETERHOF',			'Peterhof Palace'),
 			('TXT_KEY_WONDER_PETERHOF_QUOTE',		'[NEWLINE]"It is my great desire to reform my subjects, and yet I am ashamed to confess that I am unable to reform myself."[NEWLINE] - Peter The Great[NEWLINE]'),
 			('TXT_KEY_WONDER_PETERHOF_PEDIA',		'The Peterhof Palace is a series of palaces and gardens located in Saint Petersburg, Russia, laid out on the orders of Peter the Great. These Palaces and gardens are sometimes referred as the "Russian Versailles". The palace-ensemble along with the city center is recognised as a UNESCO World Heritage Site.'),
 			/*('TXT_KEY_WONDER_PETERHOF_HELP',		'+10% generation of [ICON_GREAT_PEOPLE] Great People in this City. Starts 20 turn of [ICON_HAPPINESS_1] WLTKD in this City. +15% [ICON_PRODUCTION] Production and [ICON_GOLD] Gold and +25% [ICON_GOLDEN_AGE] Golden Age Points during [ICON_HAPPINESS_1] WLTKD.');*/
 			('TXT_KEY_WONDER_PETERHOF_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_PETERHOF_HELP_CUT', 'Your recent projects brought a fortune to your court, and [COLOR_YIELD_FOOD]Peterhof[ENDCOLOR] is a reflection of all these events (+7[ICON_GOLDEN_AGE]; 20[ICON_HAPPINESS_1] WLTKD turns). Beautiful interiors and outstanding gardens filled with myriad of fountains attract to your palace many majestic nobles (+10%[ICON_GREAT_PEOPLE]), and the splendour around you additionally motivates your citizens to even harder work for the common good (+15%[ICON_PRODUCTION], +15%[ICON_GOLD], +25%[ICON_GOLDEN_AGE] during [ICON_HAPPINESS_1] WLTKD).';
+SELECT 'TXT_KEY_WONDER_PETERHOF_HELP_CUT', 'Your recent projects brought a fortune to your court, and [COLOR_YIELD_FOOD]Peterhof Palace[ENDCOLOR] is a reflection of all these events (+7[ICON_GOLDEN_AGE]; 20[ICON_HAPPINESS_1] WLTKD turns). Beautiful interiors and outstanding gardens filled with myriad of fountains attract to your palace many majestic nobles (+10%[ICON_GREAT_PEOPLE]), and the splendour around you additionally motivates your citizens to even harder work for the common good (+15%[ICON_PRODUCTION], +15%[ICON_GOLD], +25%[ICON_GOLDEN_AGE] during [ICON_HAPPINESS_1] WLTKD).';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Coast[ENDCOLOR]; Improved Resource [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_PETERHOF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PETERHOF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -965,10 +970,10 @@ SELECT 'TXT_KEY_WONDER_SOLOVIETSKY_HELP_CUT', '[COLOR_YIELD_FOOD]Solovietsky Mon
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR], [COLOR_CYAN]Coast[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SOLOVIETSKY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Fealty Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_SOLOVIETSKY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
--- Aqueduct of Padre Tembleque
+-- Tembleque Aqueduct
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
-VALUES		('TXT_KEY_BUILDING_TEMBLEQUE',			'Aqueduct of Padre Tembleque'),
+VALUES		('TXT_KEY_BUILDING_TEMBLEQUE',			'Tembleque Aqueduct'),
 			('TXT_KEY_WONDER_TEMBLEQUE_QUOTE',		'[NEWLINE]"Mexico is a mosaic of different realities and beauties."[NEWLINE] - Enrique Pena Nieto[NEWLINE]'),
 			('TXT_KEY_WONDER_TEMBLEQUE_PEDIA',		'TODO'),
 			/*('TXT_KEY_WONDER_TEMBLEQUE_HELP',		'+1 [ICON_FOOD] Food to Desert tiles in this City. All Aqueducts gain +1 [ICON_PRODUCTION] Production and +1 [ICON_PEACE] Faith. Converts 5% of [ICON_PEACE] Faith Purchase into [ICON_PRODUCTION] Production in your every City.[NEWLINE][NEWLINE]-1 [ICON_HAPPINESS_3] Unhappiness from [ICON_FOOD]/[ICON_PRODUCTION] Distress in you Empire.');*/
@@ -977,7 +982,7 @@ VALUES		('TXT_KEY_BUILDING_TEMBLEQUE',			'Aqueduct of Padre Tembleque'),
 UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP';			
 
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_TEMBLEQUE_HELP_CUT', '[COLOR_YIELD_FOOD]Aqueduct of Padre Tembleque[ENDCOLOR] is a simple and at the same time fantastic invention (+1[ICON_PRODUCTION], +1[ICON_PEACE]/all [COLOR_YIELD_FOOD]Aqueducts[ENDCOLOR]; +1[ICON_PRODUCTION]), which makes inhabitable [COLOR_CITY_BLUE]Desert[ENDCOLOR] areas prosperous again (+1[ICON_FOOD]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]; +2[ICON_FOOD]). Thanks to the brilliant idea and initiative of a visionary monk (+1[ICON_PEACE]; 5%[ICON_PEACE][ICON_PEACE] Faith Purchase into [ICON_PRODUCTION]) scarce water reservoirs are no more an issue for so far starving local tribes (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Distress).';
+SELECT 'TXT_KEY_WONDER_TEMBLEQUE_HELP_CUT', '[COLOR_YIELD_FOOD]Tembleque Aqueduct[ENDCOLOR] is a simple and at the same time fantastic invention (+1[ICON_PRODUCTION], +1[ICON_PEACE]/all [COLOR_YIELD_FOOD]Aqueducts[ENDCOLOR]; +1[ICON_PRODUCTION]), which makes inhabitable [COLOR_CITY_BLUE]Desert[ENDCOLOR] areas prosperous again (+1[ICON_FOOD]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]; +2[ICON_FOOD]). Thanks to the brilliant idea and initiative of a visionary monk (+1[ICON_PEACE]; 5%[ICON_PEACE][ICON_PEACE] Faith Purchase into [ICON_PRODUCTION]) scarce water reservoirs are no more an issue for so far starving native tribes (-1[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Distress).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Desert[ENDCOLOR]; [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_TEMBLEQUE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1165,14 +1170,14 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[E
 -- Zocalo
 INSERT INTO Language_en_US 
 			(Tag,								Text)
-VALUES		('TXT_KEY_BUILDING_ZOCALO',			'Zocalo'),
+VALUES		('TXT_KEY_BUILDING_ZOCALO',			'Zócalo'),
 			('TXT_KEY_WONDER_ZOCALO_QUOTE',		'[NEWLINE]"The Zocalo is a magnificent space, at least four times the size of Trafalagar Square, with the National Palace on one side, the huge cathedral on the other, and in one corner part of the old Aztec City so brutally destroyed by Hernan Cortez and the Conquistadores."[NEWLINE] - Jeremy Corbyn[NEWLINE]'),
 			('TXT_KEY_WONDER_ZOCALO_PEDIA',		'TODO'),
 			/*('TXT_KEY_WONDER_ZOCALO_HELP',	'Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] [ICON_DIPLOMAT] Great Diplomat. +1 [ICON_PEACE] Faith from Civil Servants in your Empire. +10% [ICON_PRODUCTION] Production towards Diplomatic units. +2 [ICON_TOURISM] Tourism from all Monuments in your Empire. +1 Civil Servant slot.');*/
 			('TXT_KEY_WONDER_ZOCALO_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_ZOCALO_HELP_CUT', '[COLOR_YIELD_FOOD]Zocalo[ENDCOLOR] keeps bloody past alive (+2[ICON_TOURISM]; +2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]). It hosted important religious facilities of tribes (+2[ICON_PEACE]) that through different measures ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; 1 slot for [ICON_DIPLOMAT]) were replaced by more advanced civilizations. This huge square constructed on their ashes now serves as a religious (+1[ICON_PEACE]/[ICON_DIPLOMAT][ICON_DIPLOMAT]) and diplomatic center (+10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]) commemorating this difficult memory of our times.';
+SELECT 'TXT_KEY_WONDER_ZOCALO_HELP_CUT', '[COLOR_YIELD_FOOD]Zócalo[ENDCOLOR] keeps bloody past alive (+2[ICON_TOURISM]; +2[ICON_TOURISM]/all [COLOR_YIELD_FOOD]Monuments[ENDCOLOR]). It hosted important religious facilities of tribes (+2[ICON_PEACE]) that through different measures ([COLOR_YIELD_GOLD]free [ICON_DIPLOMAT][ENDCOLOR]; 1 slot for [ICON_DIPLOMAT]) were replaced by more advanced civilizations. This huge square constructed on their ashes now serves as a religious (+1[ICON_PEACE]/[ICON_DIPLOMAT][ICON_DIPLOMAT]) and diplomatic center (+10%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]) commemorating this difficult memory of our times.';
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Plains[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ZOCALO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Lake[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ZOCALO_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1192,7 +1197,7 @@ SELECT 'TXT_KEY_WONDER_KEW_GARDENS_HELP_CUT', '[COLOR_YIELD_FOOD]Kew Gardens[END
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR]; Building: [COLOR_CYAN]Agribusiness[ENDCOLOR], [COLOR_CYAN]Garden[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KEW_GARDENS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR]; Building: [COLOR_CYAN]Agribusiness[ENDCOLOR], [COLOR_CYAN]Garden[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KEW_GARDENS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Monte Carlo
+-- Monte Carlo Casino
 INSERT INTO Language_en_US 
 			(Tag,									Text)
 VALUES		('TXT_KEY_BUILDING_MONTE_CARLO',		'Monte Carlo Casino'),
@@ -1915,9 +1920,9 @@ FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_PENTAGON_HELP';
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Improvement: [COLOR_CYAN]Citadel/Fort[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PENTAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[ENDCOLOR]; Improvement: [COLOR_CYAN]Citadel/Fort[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_PENTAGON_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
--- Bletchey Park
+-- Bletchley Park
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Bletchey Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+200[ICON_VP_SPY_POINTS]; +20[ICON_SPY][ICON_SPY] City Security). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is constructed to increase your knowledge.'
+SET Text = '[COLOR_YIELD_FOOD]Bletchley Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+200[ICON_VP_SPY_POINTS]; +20[ICON_SPY][ICON_SPY] City Security). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is constructed to increase your knowledge.'
 WHERE Tag = 'TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Rationalism[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
