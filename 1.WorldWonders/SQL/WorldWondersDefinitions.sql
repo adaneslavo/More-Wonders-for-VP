@@ -37,6 +37,9 @@
 	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
+	UPDATE Buildings SET GPPOnCitizenBirth = 3 WHERE Type = 'BUILDING_ALTAMIRA';
+	UPDATE Buildings SET GPRateModifierPerMarriage = 7 WHERE Type = 'BUILDING_GGANTIJA';
+	UPDATE Buildings SET GPRateModifierPerLocalTheme = 11 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
@@ -823,7 +826,12 @@
 	
 	-- global_yields_from_faith_purchases (lua_ability)
 	---------------------------------------------------------
-
+	
+	INSERT INTO Building_Flavors 	
+				(BuildingType, 			FlavorType,				Flavor)
+	VALUES		('BUILDING_SONGYUE',	'FLAVOR_RELIGION', 		40),
+				('BUILDING_SONGYUE',	'FLAVOR_CULTURE', 		70),
+				('BUILDING_SONGYUE',	'FLAVOR_PRODUCTION', 	30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- COLOSSUS
@@ -1816,9 +1824,12 @@
 	  AND b.MaxGlobalInstances = -1 AND b.MaxPlayerInstances = -1 AND a.IsDummy = 0 
 	  AND c.YieldType = 'YIELD_FAITH';
 	---------------------------------------------------------
-
-	---------------------------------------------------------
-
+	INSERT INTO Building_Flavors 	
+				(BuildingType, 			FlavorType,			Flavor)
+	VALUES		('BUILDING_HARMANDIR',	'FLAVOR_RELIGION', 	50),
+				('BUILDING_HARMANDIR',	'FLAVOR_GROWTH', 	40),
+				('BUILDING_HARMANDIR',	'FLAVOR_HAPPINESS', 40),
+				('BUILDING_HARMANDIR',	'FLAVOR_DEFENSE', 	10);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- OLD BRIDGE (NEW)
