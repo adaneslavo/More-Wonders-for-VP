@@ -108,7 +108,7 @@ v24:
 					- replaced Production and GAP with increased +2 Faith and +2 Great Admiral Points;
 					- now +25% Production to Naval Units (was 15%);
 					- added 15% Production conversion to Food;
-				- Tembleque Aqueduct:
+				- Tembleque Aqueduct (change):
 					- now grants Food from Faith Purchases (was Production);
 		- Flavoured Help Texts:
 			- removed hated [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive texts;
@@ -128,13 +128,13 @@ v24:
 			- Falun Mine:
 				- now GPP granted starting from Medieval Era (was Classical);
 			- Itsukushima Shrine:
-				- now correctly boosts Ocean tiles (was Coast and Ocean);
+				- now boosts only Ocean tiles (was Coast and Ocean);
 				- deleted doubled requirements;
 			- Kilwa Kisiwani:
 				- now bonus yields to resources are global (were local);
 			- Panama Canal:
 				- added Coast requirement (it was possible to build it on Lake);
-				- now correct 10-tile Landmass (was 11-tile Area);
+				- now 10-tile Landmass (was 11-tile Area);
 				- now grants +3 Gold to TR owner and +3 Gold to Sea TR (was +3 for Sea TR and +3 to your city);
 			- Tembleque Aqueduct:
 				- now grants global Distress reduction (was local);
