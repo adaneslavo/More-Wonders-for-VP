@@ -37,10 +37,11 @@
 	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
-	UPDATE Buildings SET GPPOnCitizenBirth = 3 WHERE Type = 'BUILDING_ALTAMIRA';
-	UPDATE Buildings SET GPRateModifierPerMarriage = 7 WHERE Type = 'BUILDING_GGANTIJA';
-	UPDATE Buildings SET GPRateModifierPerLocalTheme = 11 WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
-	
+	UPDATE Buildings SET GPPOnCitizenBirth = 3 WHERE Type = 'BUILDING_WARTBURG';
+	UPDATE Buildings SET GPRateModifierPerMarriage = 7 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET GPRateModifierPerLocalTheme = 11 WHERE Type = 'BUILDING_SPUTNIK';
+	UPDATE Buildings SET GreatGeneralRateModifier = 33 WHERE Type = 'BUILDING_SANBO';
+
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_ALTAMIRA',	'YIELD_CULTURE',	1);
@@ -1324,21 +1325,28 @@
 	---------------------------------------------------------
 	-- OneTileCity (lua_requirement) (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_ELECTRICITY' WHERE Type = 'BUILDING_MICHEL';
+	UPDATE Buildings SET ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_COMPUTERS' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_MICHEL',	'YIELD_TOURISM',	3),
-				('BUILDING_MICHEL',	'YIELD_GOLD',		3);
+	VALUES		('BUILDING_MICHEL',	'YIELD_PRODUCTION',	1),
+				('BUILDING_MICHEL',	'YIELD_GOLD',		3),
+				('BUILDING_MICHEL',	'YIELD_TOURISM',	5);
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
-	VALUES		('BUILDING_MICHEL',	'YIELD_GOLD',				2),
-				('BUILDING_MICHEL',	'YIELD_GOLDEN_AGE_POINTS',	2);
+	VALUES		('BUILDING_MICHEL',	'YIELD_FOOD',				1),
+				('BUILDING_MICHEL',	'YIELD_GOLD',				1),
+				('BUILDING_MICHEL',	'YIELD_GOLDEN_AGE_POINTS',	1);
 	
 	INSERT INTO Building_YieldChangesPerPop 
 				(BuildingType,		YieldType,		Yield) 
 	VALUES		('BUILDING_MICHEL', 'YIELD_FAITH',	80);
+	
+	INSERT INTO Building_ResourceYieldChangesGlobal 
+				(BuildingType,			ResourceType,		YieldType,		Yield) 
+	VALUES		('BUILDING_MICHEL',		'RESOURCE_SHEEP',	'YIELD_FOOD',	1),
+				('BUILDING_MICHEL',		'RESOURCE_SHEEP',	'YIELD_GOLD',	1);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 

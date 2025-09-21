@@ -120,7 +120,7 @@ VALUES		('TXT_KEY_BUILDING_KARNAK',			'Karnak'),
 			('TXT_KEY_WONDER_KARNAK_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_KARNAK_HELP_CUT', 'Temples of [COLOR_YIELD_FOOD]Karnak[ENDCOLOR] give you significant yield advantage (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]) and can turn rare [COLOR_CITY_GREEN]Oasis[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]) and [COLOR_CITY_GREEN]Flood Plains[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/2 [COLOR_CITY_GREEN]Tiles[ENDCOLOR]) into very productive sacred places. Remember, that recently constucted [COLOR_YIELD_FOOD]Monument[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]; +1[ICON_CULTURE][ICON_CULTURE]), being the inherent part of the complex, should be the first of many, because now they generate even more culture than before.');
+VALUES ('TXT_KEY_WONDER_KARNAK_HELP_CUT', 'Temples of [COLOR_YIELD_FOOD]Karnak[ENDCOLOR] give you significant development advantage in many fields (+1[ICON_FOOD], +1[ICON_CULTURE], +1[ICON_PEACE]) and can turn rare [COLOR_CITY_GREEN]Oasis[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/[COLOR_CITY_GREEN]Tile[ENDCOLOR]) and [COLOR_CITY_GREEN]Flood Plains[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_PEACE]/2 [COLOR_CITY_GREEN]Tiles[ENDCOLOR]) into very productive sacred places. Remember, that recently constucted [COLOR_YIELD_FOOD]Monument[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]; +1[ICON_CULTURE][ICON_CULTURE]), being the inherent part of the complex, should be the first of many, because now they generate even more culture than before.');
 				
 UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KARNAK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Flood Plains[ENDCOLOR]/[COLOR_CYAN]Oasis[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_KARNAK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -179,7 +179,7 @@ UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [CO
 ----------------------------------------------------
 -- Giza Pyramids
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_PYRAMIDS_HELP_CUT', 'Great [COLOR_YIELD_FOOD]Giza Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]) announcing the arrival of a golden era you have never seen before (+1[ICON_GOLDEN_AGE]; 50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). Thanks to the efforts of the nobles you can use recently trained [COLOR_YIELD_GOLD]free Settler[ENDCOLOR] to find valuable land for expansion and found another great and prosperous city.');
+VALUES ('TXT_KEY_WONDER_PYRAMIDS_HELP_CUT', 'Great [COLOR_YIELD_FOOD]Giza Pyramids[ENDCOLOR] are an engineering masterpiece (+1[ICON_GREAT_ENGINEER]) announcing the arrival of a golden era you have never seen before (+1[ICON_GOLDEN_AGE]; 50[ICON_GOLDEN_AGE]/[ICON_GREAT_PEOPLE][ICON_GREAT_PEOPLE]). Thanks to Gods favour and good relationship with high priests you can use recently trained [COLOR_YIELD_GOLD]free Settler[ENDCOLOR] to find valuable land for expansion and found another great and prosperous city.');
 
 UPDATE Language_en_US SET Text = 'Giza Pyramids' WHERE Tag ='TXT_KEY_BUILDING_PYRAMID';
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Book of the Dead', '"The Book of the Dead"') WHERE Tag ='TXT_KEY_WONDER_PYRAMIDS_QUOTE';
@@ -608,7 +608,7 @@ VALUES		('TXT_KEY_BUILDING_MICHEL',			'Mont-Saint-Michel'),
 			('TXT_KEY_WONDER_MICHEL_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', 'Lonely [COLOR_YIELD_FOOD]Mont-Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress (+10[ICON_STRENGTH]; +100 HP), where you can focus on your soul and dream about the future (+4[ICON_PEACE]/5 [ICON_CITIZEN]; +1[ICON_GOLDEN_AGE]). You can also plan another striking expansions there, that can be financed of your growing treasury (+3[ICON_GOLD]), especially when you discover advanced technologies ([COLOR_CYAN]Electricity[ENDCOLOR]: +3[ICON_GOLD], +3[ICON_TOURISM]).';
+SELECT 'TXT_KEY_WONDER_MICHEL_HELP_CUT', 'Lonely [COLOR_YIELD_FOOD]Mont-Saint-Michel[ENDCOLOR] will turn your vulnerable city into a fortress (+10[ICON_STRENGTH]; +200 HP), where you can focus on your soul and dream about the future (+4[ICON_PEACE]/5 [ICON_CITIZEN]; +1[ICON_GOLDEN_AGE]). Unique conditions allow you to breed an original kind of [COLOR_GREY]Sheep[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_GOLD]/[ICON_RES_SHEEP][ICON_RES_SHEEP]; +1[ICON_FOOD]; +1[ICON_GOLD]), especially when you discover advanced technologies predicitng the tides ([COLOR_CYAN]Computers[ENDCOLOR]: +1[ICON_PRODUCTION], +3[ICON_GOLD], +5[ICON_TOURISM]).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Single-tile Island[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_MICHEL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		

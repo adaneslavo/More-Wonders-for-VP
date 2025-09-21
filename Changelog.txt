@@ -57,9 +57,16 @@ v24:
 					- Golden Pavilion:
 						- removed free Pagoda;
 						- now Lake bonus global (were local);
-					- Mont-Saint-Michel:
+					- Mont-Saint-Michel (also reworked):
 						- removed free Monastery;
 						- now +4 Faith per 5 Citizens (was 2 per 5);
+						- changed base yields;
+						- changed enhanced yields;
+						- now enhanced yields at Computers (was Electricity);
+						- added global bonus to Sheep;
+						- now can be constructed on:
+							- 1-tile island in 2-tile range from a mainland;
+							- on an end of a peninsula surrounded by 5 tiles of water;
 		- balance changes of existing World Wonders:
 			- VP:
 				- Forbidden City (buff):
