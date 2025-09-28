@@ -57,20 +57,22 @@ v24:
 					- Golden Pavilion:
 						- removed free Pagoda;
 						- now Lake bonus global (were local);
-					- Mont-Saint-Michel (also reworked):
+					- Mont-Saint-Michel (removed free building and also reworked):
 						- removed free Monastery;
 						- now +4 Faith per 5 Citizens (was 2 per 5);
-						- changed base yields;
-						- changed enhanced yields;
+						- now +1 Food, +1 Gold and +1 Golden Age Point (was 2 Gold and 2 Golden Age Points);
+						- now +1 Production, +3 Gold and +5 Tourism as enhanced yields (was 3 Gold and 3 Tourism);
 						- now enhanced yields at Computers (was Electricity);
-						- added global bonus to Sheep;
+						- added +1 Food and +1 Gold to all Sheep;
 						- now can be constructed on:
 							- 1-tile island in 2-tile range from a mainland;
-							- on an end of a peninsula surrounded by 5 tiles of water;
+							- on an end of a peninsula surrounded by 5 tiles of water connected to mainland;
 		- balance changes of existing World Wonders:
 			- VP:
 				- Forbidden City (buff):
 					- reverted culture and gold changes;
+				- Globe Theater (change):
+					- now requires any Guild (was Bath);
 				- Petra (change):
 					- deleted Great Engineer Points;
 					- now +3 Culture and +1 Gold (was +2 Culture);
@@ -95,6 +97,9 @@ v24:
 					- added 50 Prodution and 50 Science on Great Person expending (300 in Atomic Era after scaling);
 				- El Ghriba Synagogue (nerf):
 					- now 10% Gold from Faith Purchase (was 15%);
+				- Goebekli Tepe (change):
+					- brought back Mountain Requirement in light version (was Desert);
+					- moved science bonus to all Shrines (was from local Mountain);
 				- Majorville Medicine Wheel (nerf):
 					- deleted basic Faith bonus;
 				- Malwiya Minaret (change):
@@ -127,6 +132,7 @@ v24:
 			- @jarcast's: Italy and Navajo (Village replacements);
 			- @pineppledan's: Timurids (Village replacement);
 			- @Hinin's: Benin (Citadel replacement);
+		- added AI generated civilopedia texts for all World Wonders added in this mod (by @jarcast2 aka dephi);
 		- slightly reworked the formatting of few quote texts;
 		- some wonders were renamed to better fit the realism;
 		- few more improvement replacements from custom civs added to the requirement lists (by @gwennog);
@@ -159,12 +165,15 @@ v24:
 			- Mariana Trench,
 			- Seongsan Ilchulbong,
 			- Zhangyie Danxia.
+		- added AI generated civilopedia texts for all Natural Wonders including original ones (by @jarcast2 aka dephi);
 	- changed:
 		- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
 		- Ha Long Bay: added Artifact icon;
 		- Sylvite and Tern Egg: added names, so new players would know what they are;
 		- Great Blue Hole: special buldings are now mutually exclusive;
-		- Aurora Borealis: now does not spawn on Coast (model is invisible when spawned there);
+		- Aurora Borealis: 
+			- now does not spawn on Coast (model is invisible when spawned there);
+			- renamed to Aurora (it can be Borealis or Australis);
 		- Mt. Fuji: now ability is in nearby City (was in Capital);
 		- Krakatoa: now ability is in nearby City (was in Capital);
 		- Louisiana (shrimp): compatibility check is now reworked and also uses trigger;

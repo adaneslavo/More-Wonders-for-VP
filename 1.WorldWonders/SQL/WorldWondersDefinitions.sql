@@ -101,7 +101,7 @@
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE', NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE';
 	---------------------------------------------------------
 	UPDATE Buildings SET NearbyMountainRequired = 1, IsNoWater = 1/*, IsNoCoast = 1*/ WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_DESERT' WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	UPDATE Buildings SET NearbyMountainRequired = 1 WHERE Type = 'BUILDING_GOEBEKLI_TEPE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------	
 	INSERT INTO Building_YieldChanges
 				(BuildingType,				YieldType,			Yield) 
@@ -109,20 +109,23 @@
 				('BUILDING_GOEBEKLI_TEPE',	'YIELD_SCIENCE',	1),
 				('BUILDING_GOEBEKLI_TEPE',	'YIELD_FAITH',		1);
 
+	INSERT INTO Building_BuildingClassYieldChanges 
+				(BuildingType,				BuildingClassType,			YieldType,			YieldChange) 
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'BUILDINGCLASS_SHRINE',		'YIELD_SCIENCE',	1);
+
 	INSERT INTO Building_ResourceYieldChangesGlobal
 				(BuildingType,				ResourceType,		YieldType,			Yield) 
 	VALUES		('BUILDING_GOEBEKLI_TEPE',	'RESOURCE_STONE',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_YieldPerXTerrainTimes100
 				(BuildingType,				TerrainType,			YieldType,			Yield) 
-	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_FAITH',		100),
-				('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_SCIENCE',	100);
+	VALUES		('BUILDING_GOEBEKLI_TEPE',	'TERRAIN_MOUNTAIN',		'YIELD_FAITH',		100);
 	---------------------------------------------------------	
 	INSERT INTO Building_Flavors 
 				(BuildingType,				FlavorType,			Flavor) 
 	VALUES		('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_CULTURE',	10),
-				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_SCIENCE',	40),
-				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_RELIGION',	40);
+				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_SCIENCE',	60),
+				('BUILDING_GOEBEKLI_TEPE',	'FLAVOR_RELIGION',	30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- KUK (NEW)
@@ -819,7 +822,7 @@
 	
 	INSERT INTO Building_GreatPersonPointFromConstruction
 				(BuildingType,			GreatPersonType,		EraType,			Value) 
-	VALUES		('BUILDING_SONGYUE',	'GREATPERSON_ARTIST',	'ERA_CLASSICAL',	10);
+	VALUES		('BUILDING_SONGYUE',	'GREATPERSON_ARTIST',	'ERA_CLASSICAL',	5);
 	---------------------------------------------------------
 	INSERT INTO Building_YieldFromFaithPurchase
 				(BuildingType,				YieldType,			Yield)
@@ -1324,14 +1327,9 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_MICHEL';
 	---------------------------------------------------------
 	-- OneTileCity (lua_requirement) (ALL)
+	-- EndOfPeninsula (lua_requirement) (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 200, Defense = 1000, EnhancedYieldTech = 'TECH_COMPUTERS' WHERE Type = 'BUILDING_MICHEL';
-
-	INSERT INTO Building_TechEnhancedYieldChanges
-				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_MICHEL',	'YIELD_PRODUCTION',	1),
-				('BUILDING_MICHEL',	'YIELD_GOLD',		3),
-				('BUILDING_MICHEL',	'YIELD_TOURISM',	5);
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000, EnhancedYieldTech = 'TECH_COMPUTERS' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
@@ -1347,12 +1345,22 @@
 				(BuildingType,			ResourceType,		YieldType,		Yield) 
 	VALUES		('BUILDING_MICHEL',		'RESOURCE_SHEEP',	'YIELD_FOOD',	1),
 				('BUILDING_MICHEL',		'RESOURCE_SHEEP',	'YIELD_GOLD',	1);
+				
+	INSERT INTO Building_ResourcePlotsToPlace
+				(BuildingType,			ResourceType,		NumPlots,	ResourceQuantityToPlace) 
+	VALUES		('BUILDING_MICHEL',		'RESOURCE_SHEEP',	1,			1);
+	
+	INSERT INTO Building_TechEnhancedYieldChanges
+				(BuildingType,		YieldType,			Yield) 
+	VALUES		('BUILDING_MICHEL',	'YIELD_PRODUCTION',	1),
+				('BUILDING_MICHEL',	'YIELD_GOLD',		3),
+				('BUILDING_MICHEL',	'YIELD_TOURISM',	5);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,		FlavorType,				Flavor) 
 	VALUES		('BUILDING_MICHEL', 'FLAVOR_GOLD',			40),
-				('BUILDING_MICHEL', 'FLAVOR_HAPPINESS',		20),
 				('BUILDING_MICHEL', 'FLAVOR_RELIGION',		30),
+				('BUILDING_MICHEL', 'FLAVOR_PRODUCTION',	10),
 				('BUILDING_MICHEL', 'FLAVOR_CITY_DEFENSE',	10),
 				('BUILDING_MICHEL', 'FLAVOR_CULTURE',		10);
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1647,8 +1655,9 @@
 	
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,				BuildingClassType) 
-	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_BATH'		 WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
 	SELECT		'BUILDING_GLOBE_THEATER',	'BUILDINGCLASS_AMPHITHEATER' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+
+	-- any Guild (lua_requirement) (ALL)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ST. PETER'S BASILICA (NEW)

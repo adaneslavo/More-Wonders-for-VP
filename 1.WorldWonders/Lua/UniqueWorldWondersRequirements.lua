@@ -25,8 +25,9 @@ local tValidIsNearLake = {}
 local tValidIsNoCoast = {} -- temporary?
 local tValidIsHasMountains = {}
 local tValidIsProhibitedTerrain = {}
-local tValidIsHasImprovement = {}
-local tValidIsOneTile = {}
+local tValidIsHasImprovementsOrs = {}
+local tValidIsHasBuildingsOrs = {}
+local tValidIsOnPeninsulaOrSingleTile = {}
 local tValidIsAtPeace = {}
 local tValidIsMajorApproach = {}
 local tValidIsHasCsAllies = {}
@@ -252,8 +253,8 @@ end
 GameEvents.CityCanConstruct.Add(IsProhibitedTerrainExpanded)
 
 -- looks for IMPROVEMENTS
-function IsHasImprovement(ePlayer, eCity, eBuilding)
-	if not tValidIsHasImprovement[eBuilding] then return true end
+function IsHasImprovementsOrs(ePlayer, eCity, eBuilding)
+	if not tValidIsHasImprovementsOrs[eBuilding] then return true end
 	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
@@ -264,15 +265,15 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 	
-	for id, building in pairs(tValidIsHasImprovement) do
+	for id, building in pairs(tValidIsHasImprovementsOrs) do
 		if id == eBuilding then
 			local eRequiredImprovement1 = building.eRequiredImprovement1
 			local eRequiredImprovement2 = building.eRequiredImprovement2
 			local eRequiredImprovement3 = building.eRequiredImprovement3
 			local eRequiredImprovement4 = building.eRequiredImprovement4
 			local eRequiredImprovement5 = building.eRequiredImprovement5
-			local iRequiredImprovements = tValidIsHasImprovement[eBuilding].iRequiredImprovements or 0
-			local iRequiredRoads = tValidIsHasImprovement[eBuilding].iRequiredRoads or 0
+			local iRequiredImprovements = tValidIsHasImprovementsOrs[eBuilding].iRequiredImprovements or 0
+			local iRequiredRoads = tValidIsHasImprovementsOrs[eBuilding].iRequiredRoads or 0
 			
 			local iCurrentImprovements = 0
 			local iCurrentRoads = 0
@@ -325,11 +326,46 @@ function IsHasImprovement(ePlayer, eCity, eBuilding)
 		end
 	end
 end
-GameEvents.CityCanConstruct.Add(IsHasImprovement)
+GameEvents.CityCanConstruct.Add(IsHasImprovementsOrs)
 
--- checks if city is ONE-tile (MONT ST MICHELLE)
-function IsOneTile(ePlayer, eCity, eBuilding)
-	if not tValidIsOneTile[eBuilding] then return true end
+-- looks for BUILDINGS (GLOBE THEATER)
+function IsHasBuildingsOrs(ePlayer, eCity, eBuilding)
+	if not tValidIsHasBuildingsOrs[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+   
+	if not pPlayer:IsAlive() then return false end
+
+	local pCity = pPlayer:GetCityByID(eCity)
+	local iCityX = pCity:GetX()
+	local iCityY = pCity:GetY()
+	
+	for id, building in pairs(tValidIsHasImprovementsOrs) do
+		if id == eBuilding then
+			local eRequiredBuildingClass1 = building.eRequiredBuildingClass1
+			local eRequiredBuildingClass2 = building.eRequiredBuildingClass2
+			local eRequiredBuildingClass3 = building.eRequiredBuildingClass3
+
+			for building in GameInfo.Buildings() do	
+				if building.BuildingClass == eRequiredBuildingClass1 
+				or building.BuildingClass == eRequiredBuildingClass2 
+				or building.BuildingClass == eRequiredBuildingClass3 then
+					if pCity:IsHasBuilding(building.ID) then
+						return true
+					end
+				end
+			end
+		end
+	end
+
+	return false
+end
+GameEvents.CityCanConstruct.Add(IsHasBuildingsOrs)
+
+-- checks if city is ONE-tile close to mainland or on an end of a penisnula (MONT-SAINT-MICHEL)
+function IsEndOfPeninsulaOrSingleTile(ePlayer, eCity, eBuilding)
+	if not tValidIsOnPeninsulaOrSingleTile[eBuilding] then return true end
 	if bReachedMaxEra then return false end
 
 	local pPlayer = Players[ePlayer]
@@ -337,19 +373,40 @@ function IsOneTile(ePlayer, eCity, eBuilding)
 	if not pPlayer:IsAlive() then return false end
 	
 	local pCity = pPlayer:GetCityByID(eCity)
+	local pPlot = pCity:Plot()
 	local iCityX = pCity:GetX()
 	local iCityY = pCity:GetY()
 	
+	local iLandAround = 0
+	local bIsOnMainland, bIsMainlandClose = false, false
+	local iAreaNear = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
+			
+	if iAreaNear >= 50 then 
+		bIsOnMainland = true
+	end
+	
 	-- check all six dir, quit if not water
 	for dir = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
-		if not Map.PlotDirection(iCityX, iCityY, dir):IsWater() then
-			return false
+		local pAdjacentPlot = Map.PlotDirection(iCityX, iCityY, dir)
+		local pAdjacentPlotType = pAdjacentPlot:GetPlotType()
+		
+		if pAdjacentPlot:IsLake() then return false end
+		if not pAdjacentPlot:IsWater() then	iLandAround = iLandAround + 1 end
+
+		for dir2 = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1 do
+			local pDistantPlot = Map.PlotDirection(pAdjacentPlot:GetX(), pAdjacentPlot:GetY(), dir2)
+			local iDistantAreaNear = Map.GetNumTilesOfLandmass(pDistantPlot:GetLandmass())
+			
+			if pDistantPlot ~= pPlot and not pDistantPlot:IsWater() and iDistantAreaNear >= 50 then
+				bIsMainlandClose = true
+				break
+			end
 		end
 	end
 	
-	return true
+	return (bIsOnMainland and iLandAround == 1) or (bIsMainlandClose and iLandAround == 0)
 end
-GameEvents.CityCanConstruct.Add(IsOneTile)
+GameEvents.CityCanConstruct.Add(IsEndOfPeninsulaOrSingleTile)
 
 -- checks if player is at PEACE (BUDDHAS OF BAMYAN, OLD BRIDGE IN MOSTAR)
 function IsAtPeace(ePlayer, eCity, eBuilding)
@@ -763,7 +820,7 @@ function Initialize()
 			end
 
 		-- IsOneTile
-			tValidIsOneTile = {
+			tValidIsOnPeninsulaOrSingleTile = {
 				[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
 			}
 		
@@ -781,10 +838,17 @@ function Initialize()
 				[GameInfo.Buildings.BUILDING_POLAR_EXPEDITION.ID] = GameInfoTypes.RESOURCE_OIL
 			}
 
-		-- IsHasImprovement
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
+		-- IsHasImprovementsOrs
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LANDMARK,
 				iRequiredImprovements = 1
+			}
+
+		-- IsHasBuildingsOrs
+			tValidIsHasBuildingsOrs[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_ARTISTS_GUILD,
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_WRITERS_GUILD,
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_MUSICIANS_GUILD
 			}
 	end
 	---------------------------------------------------------
@@ -835,7 +899,7 @@ function Initialize()
 			}
 
 		-- IsOneTile
-			tValidIsOneTile = {
+			tValidIsOnPeninsulaOrSingleTile = {
 				[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
 			}
 		
@@ -855,45 +919,45 @@ function Initialize()
 				[GameInfo.Buildings.BUILDING_PANAMA_CANAL.ID] = true
 			}
 
-		-- IsHasImprovement
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
+		-- IsHasImprovementsOrs
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_GGANTIJA.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_TEMPLE_ARTEMIS.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CAMP,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_PLANTATION,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_WIELICZKA.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_MAUSOLEUM_HALICARNASSUS.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_MALWIYA.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_QUARRY,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_QUARRY,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MORAY.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_MORAY.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_FARM,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_BENHADDOU.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 				eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
@@ -902,17 +966,17 @@ function Initialize()
 				eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_KILWA_KISIWANI.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_CAMP,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_DMS_KAN					and GameInfo.Improvements.IMPROVEMENT_DMS_KAN.ID					or -2,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_FALUN.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_FALUN.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_MINE,
 				iRequiredImprovements = 2
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_BUYUK_HAN.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 				eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
@@ -921,27 +985,27 @@ function Initialize()
 				eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_BRANDENBURG_GATE.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_LANDMARK,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_PENTAGON.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_PENTAGON.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CUSTOMS_HOUSE,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_MILLAU.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 				eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
@@ -950,11 +1014,11 @@ function Initialize()
 				eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_CL_KALLE					and GameInfo.Improvements.IMPROVEMENT_CL_KALLE.ID					or -2,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_ARECIBO.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_ACADEMY,
 				iRequiredImprovements = 1
 			}
-			tValidIsHasImprovement[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
+			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_TAIPEI.ID] = {
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_TRADING_POST,
 				eRequiredImprovement2 = GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN		and GameInfo.Improvements.IMPROVEMENT_GW_BRITTANY_KERIADENN.ID		or -2,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN			and GameInfo.Improvements.IMPROVEMENT_HININ_AINU_KOTAN.ID			or -2,
@@ -965,11 +1029,18 @@ function Initialize()
 			}
 			-- EE compatibility
 			if GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW ~= nil then
-				tValidIsHasImprovement[GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW.ID] = {
+				tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_EE_WAT_PHRA_KAEW.ID] = {
 					eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_HOLY_SITE,
 					iRequiredImprovements = 1
 				}
 			end
+
+		-- IsHasBuildingsOrs
+			tValidIsHasBuildingsOrs[GameInfo.Buildings.BUILDING_GLOBE_THEATER.ID] = {
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_ARTISTS_GUILD,
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_WRITERS_GUILD,
+				eRequiredBuildingClass1 = GameInfoTypes.BUILDINGCLASS_MUSICIANS_GUILD
+			}
 	
 		-- IsMajorApproach
 			tValidIsMajorApproach[GameInfo.Buildings.BUILDING_STATUE_ZEUS.ID] = {

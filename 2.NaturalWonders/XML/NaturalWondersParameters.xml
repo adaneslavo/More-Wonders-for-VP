@@ -1038,7 +1038,7 @@
 		<Row>
 			<Type>FEATURE_SALAR_A</Type>
 			<Description>TXT_KEY_FEATURE_SALAR_A</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_A_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_SALAR_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_A</ArtDefineTag>
 			<Movement>1</Movement>
@@ -1059,7 +1059,7 @@
 		<Row>
 			<Type>FEATURE_SALAR_B</Type>
 			<Description>TXT_KEY_FEATURE_SALAR_B</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_B_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_SALAR_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_B</ArtDefineTag>
 			<Movement>1</Movement>

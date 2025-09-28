@@ -1,5 +1,3 @@
-print("Loading UniqueNaturalWondersAbilities.lua from MWfVP");
---------------------------------------------------------------
 -- Natural Wonders Abilities
 -- Dec 13, 2017: Retrofitted for Vox Populi, Infixo
 -- May 11, 2020: Created, adan_eslavo
@@ -313,8 +311,3 @@ function CanWeBuildInBlueHole(ePlayer, eBuilding)
 	end
 end
 GameEvents.PlayerCanConstruct.Add(CanWeBuildInBlueHole)
---------------------------------------------------------------
---------------------------------------------------------------
-print("Loaded UniqueNaturalWondersAbilities.lua from MWfVP");
---------------------------------------------------------------
---------------------------------------------------------------
