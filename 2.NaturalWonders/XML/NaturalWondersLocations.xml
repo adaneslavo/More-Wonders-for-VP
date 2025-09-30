@@ -25,7 +25,7 @@
 		<!-- Barringer Crater -->
 		<Row>
 			<NaturalWonderType>FEATURE_CRATER</NaturalWonderType>
-			<OccurrenceFrequency>50</OccurrenceFrequency>
+			<OccurrenceFrequency>0</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>17</TileChangesMethodNumber>
@@ -2506,7 +2506,7 @@
 		<!-- Salar de Uyuni -->
 		<Row>
 			<NaturalWonderType>FEATURE_SALAR_A</NaturalWonderType>
-			<OccurrenceFrequency>00</OccurrenceFrequency>
+			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>6</TileChangesMethodNumber>
@@ -2656,7 +2656,7 @@
 		<!-- Giant's Causeway -->
 		<Row>
 			<NaturalWonderType>FEATURE_CAUSEWAY_A</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>5</EligibilityMethodNumber>
 			<TileChangesMethodNumber>5</TileChangesMethodNumber>
@@ -2806,7 +2806,7 @@
 		<!-- Mt. Everest -->
 		<Row>
 			<NaturalWonderType>FEATURE_MT_EVEREST</NaturalWonderType>
-			<OccurrenceFrequency>0</OccurrenceFrequency>
+			<OccurrenceFrequency>50</OccurrenceFrequency>
 
 			<EligibilityMethodNumber>-1</EligibilityMethodNumber>
 			<TileChangesMethodNumber>9</TileChangesMethodNumber>
@@ -4428,7 +4428,7 @@
 			<SetAdjacentTilesToShallowWater>0</SetAdjacentTilesToShallowWater>
 		</Row>
 
-		<!-- Aurora Borealis -->
+		<!-- Aurora -->
 		<Row>
 			<NaturalWonderType>FEATURE_AURORA_A</NaturalWonderType>
 			<OccurrenceFrequency>0</OccurrenceFrequency>

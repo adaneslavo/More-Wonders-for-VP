@@ -349,7 +349,7 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
 			('TXT_KEY_BUILDING_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
 			('TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'Zhangjiajie'),
-			('TXT_KEY_BUILDING_AURORA_DUMMY',			'Aurora Borealis'),
+			('TXT_KEY_BUILDING_AURORA_DUMMY',			'Aurora'),
 			('TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'Seongsan Ilchulbong'),
 			('TXT_KEY_BUILDING_ARCH_DUMMY',				'Delicate Arch'),
 			('TXT_KEY_BUILDING_MARIANA_DUMMY',			'Mariana Trench');

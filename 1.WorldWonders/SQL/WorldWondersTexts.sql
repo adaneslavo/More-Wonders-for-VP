@@ -260,9 +260,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_EL_GHRIBA',			'El Ghriba Synagogue'),
 			('TXT_KEY_WONDER_EL_GHRIBA_QUOTE',		'[NEWLINE]"Jesus was born a Jew, and he died a Jew. It never occurred to him to establish a new religion. He never crossed himself - he had no reason to. He never set one foot in a church. He went to synagogue."[NEWLINE] - Amos Oz[NEWLINE]'),
 			('TXT_KEY_WONDER_EL_GHRIBA_PEDIA',		'El Ghriba Synagogue, located on the island of Djerba in Tunisia, is one of the oldest and most revered Jewish sites in North Africa, with origins traditionally traced back over 2,500 years. According to local legend, the synagogue was founded by Jews fleeing the destruction of the First Temple in Jerusalem, though historical records suggest it was built and expanded over centuries, particularly during the Roman and Byzantine periods. Serving as a spiritual and cultural center for the Jewish community of Djerba, El Ghriba has become a site of pilgrimage, especially during the annual Lag BaOmer festival, when thousands of visitors come to celebrate, pray, and honor the synagogue''s sacred history. [NEWLINE][NEWLINE]Architecturally, El Ghriba combines elements of local Berber and Mediterranean design, featuring whitewashed walls, ornate mosaics, and decorative ceramic tiles. The synagogue houses a revered stone, believed to have miraculous properties, which draws worshippers seeking blessings and protection. Inside, elaborately carved wooden doors, colorful chandeliers, and sacred Torah scrolls highlight the rich religious and artistic traditions of the Jewish community on Djerba. Despite challenges over the centuries, including attacks and periods of political instability, El Ghriba continues to function as both a living place of worship and a symbol of the enduring presence of Jewish heritage in Tunisia.'),
+			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		''),
 			('TXT_KEY_GREAT_WORK_THE_ARK',			'Ark of the Covenant'),
-			('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God."[NEWLINE] - 1 Chronicles, 28:2[NEWLINE]'),
-			('TXT_KEY_WONDER_EL_GHRIBA_HELP',		'');
+			('TXT_KEY_GREAT_WORK_THE_ARK_QUOTE',	'[NEWLINE]"I had it in my heart to build a house of rest [NEWLINE]for the ark of the covenant of the Lord, [NEWLINE]and for the footstool of our God."[NEWLINE] - 1 Chronicles, 28:2[NEWLINE]');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_EL_GHRIBA_HELP_CUT', '[COLOR_YIELD_FOOD]El Ghriba[ENDCOLOR] is a very unique [COLOR_YIELD_FOOD]Synagogue[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]). It holds precious [COLOR_CULTURE_STORED]Ark of the Covenant[ENDCOLOR] (+1[ICON_CULTURE]; +4[ICON_PEACE]; +1[ICON_VP_GREATART]), which is a foundation stone of Judaism. History shows that Jews are masters of economy and can gain additional profits from unexpected sources (+1[ICON_GOLD]; 10%[ICON_PEACE] Faith Purchase into [ICON_GOLD]).');
@@ -276,9 +276,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ETCHMIADZIN',			'Etchmiadzin Cathedral'),
 			('TXT_KEY_WONDER_ETCHMIADZIN_QUOTE',		'[NEWLINE]"The wound of a dagger heals, but that of the tongue, never."[NEWLINE] - Armenian proverb[NEWLINE]'),
 			('TXT_KEY_WONDER_ETCHMIADZIN_PEDIA',		'Etchmiadzin Cathedral, located in the city of Vagharshapat in Armenia, is considered the spiritual and administrative center of the Armenian Apostolic Church and one of the oldest cathedrals in the world. Tradition holds that it was originally founded in 301 CE by Saint Gregory the Illuminator, following the adoption of Christianity as the state religion of Armenia—the first nation to do so. Over the centuries, the cathedral has undergone numerous renovations and expansions, reflecting various architectural styles, but it has remained the heart of Armenian Christian life. It has played a central role in shaping Armenian religious, cultural, and national identity, surviving invasions, earthquakes, and periods of political upheaval while maintaining its spiritual significance. [NEWLINE][NEWLINE]Architecturally, Etchmiadzin Cathedral features a cruciform design with a central dome and a combination of stone construction and decorative elements that reflect early Christian Armenian architecture. Inside, the cathedral houses sacred relics, manuscripts, and intricately carved altars, emphasizing its role as a religious and ceremonial center. The surrounding complex includes a seminary, museum, and monastic buildings, further underscoring its importance as a hub of theological study and pilgrimage. Recognized as a UNESCO World Heritage Site, Etchmiadzin Cathedral stands today not only as a place of worship but also as a testament to Armenia''s rich Christian heritage and its enduring cultural legacy.'),
+			('TXT_KEY_WONDER_ETCHMIADZIN_HELP',			''),
 			('TXT_KEY_GREAT_WORK_HOLY_LANCE',			'Holy Lance'),
-			('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',		'[NEWLINE]One of the[NEWLINE]soldiers[NEWLINE]pierced his[NEWLINE]side with[NEWLINE]a lance, and[NEWLINE]immediately[NEWLINE]there came[NEWLINE]out blood[NEWLINE]and water.[NEWLINE] - John, 19:34[NEWLINE]'),
-			('TXT_KEY_WONDER_ETCHMIADZIN_HELP',			'');
+			('TXT_KEY_GREAT_WORK_HOLY_LANCE_QUOTE',		'[NEWLINE]One of the[NEWLINE]soldiers[NEWLINE]pierced his[NEWLINE]side with[NEWLINE]a lance, and[NEWLINE]immediately[NEWLINE]there came[NEWLINE]out blood[NEWLINE]and water.[NEWLINE] - John, 19:34[NEWLINE]');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_ETCHMIADZIN_HELP_CUT', '[COLOR_YIELD_FOOD]Etchmiadzin Cathedral[ENDCOLOR], which stores a magnificient peace of art, [COLOR_CULTURE_STORED]Holy Lance[ENDCOLOR] (+1[ICON_VP_GREATART]), may become your silent supporter in religious and cultural development (+2[ICON_PEACE]; +2[ICON_GOLDEN_AGE]; +1[ICON_PEACE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). Thanks to the efforts of high up religious nobles, your culture will bloom and golden ages will be even more frequent (10%[ICON_PEACE] into [ICON_CULTURE], [ICON_GOLDEN_AGE]).');
@@ -292,9 +292,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_SIGIRIYA',				'Sigiriya'),
 			('TXT_KEY_WONDER_SIGIRIYA_QUOTE',			'[NEWLINE]"I am Budal. Came with hundreds of people to see Sigiriya. Since all the others wrote poems, I did not!"[NEWLINE] - Text of the poem from 10th century[NEWLINE]'),
 			('TXT_KEY_WONDER_SIGIRIYA_PEDIA',			'Sigiriya, also known as Lion Rock, is an ancient rock fortress located in central Sri Lanka, dating back to the 5th century CE. It was built by King Kashyapa I (477–495 CE) as a royal citadel and palace complex, strategically perched atop a massive 200-meter-high granite rock. Sigiriya served both as a defensive stronghold and a symbol of royal power, combining military engineering with sophisticated urban planning. Rediscovered in the 19th century, the site revealed extensive gardens, reservoirs, frescoes, and inscriptions, showcasing the ingenuity of ancient Sri Lankan civilization. Today, Sigiriya is recognized as a UNESCO World Heritage Site and is considered one of the country''s most iconic archaeological landmarks. [NEWLINE][NEWLINE]The fortress complex includes elaborate water gardens, terraced gardens, and mirror-like pools, reflecting advanced hydraulic engineering and aesthetic sensibilities. The upper rock plateau houses the ruins of the royal palace, while the mid-level walls feature the famous frescoes of celestial maidens, admired for their vivid colors and delicate artistry. A massive stone gateway in the shape of a lion''s paws gives the site its name, "Lion Rock." Sigiriya demonstrates a remarkable blend of natural topography and human ingenuity, representing both a defensive citadel and a center of art, culture, and administration. Its preservation allows visitors to experience the grandeur and sophistication of ancient Sri Lankan architecture and landscape design.'),
+			('TXT_KEY_WONDER_SIGIRIYA_HELP',			''),
 			('TXT_KEY_THEMING_BONUS_SIGIRIYA',			'Beautiful collection of native art'),
-			('TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with art created by you.'),
-			('TXT_KEY_WONDER_SIGIRIYA_HELP',			'');
+			('TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with art created by you.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_SIGIRIYA_HELP_CUT', '[COLOR_YIELD_FOOD]Sigiriya[ENDCOLOR] on one side contains huge treasures hidden underground (200[ICON_GOLD]), and on the other hand stores many valuable artistic creations, that can be visible to all (+2[ICON_CULTURE]; +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]; 2[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE]), and all of them are safe on top of the unreachable hill (+10[ICON_STRENGTH]).');
@@ -418,9 +418,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
 			('TXT_KEY_WONDER_NABAWI_QUOTE',			'[NEWLINE]"When you see a person who has been given more than you in money and beauty, look to those, who have been given less."[NEWLINE] - Prophet Muhammad[NEWLINE]'),
 			('TXT_KEY_WONDER_NABAWI_PEDIA',			'Al-Masjid al-Nabawi, also known as the Prophet''s Mosque, is located in the city of Medina, Saudi Arabia, and is the second holiest site in Islam after the Masjid al-Haram in Mecca. Originally built by the Prophet Muhammad in 622 CE shortly after his migration (Hijra) from Mecca, it served as a community center, court, and religious school, as well as a place of worship. Over the centuries, the mosque has undergone numerous expansions under various Islamic rulers, including the Umayyads, Abbasids, and the modern Saudi state, transforming it into one of the largest and most architecturally significant mosques in the world. The mosque also houses the Prophet Muhammad''s tomb, making it a central pilgrimage site for Muslims worldwide. [NEWLINE][NEWLINE]The mosque complex today covers hundreds of thousands of square meters and features striking green and white minarets, vast prayer halls, and retractable umbrellas in the courtyard that provide shade for worshippers. Its interior is adorned with intricate Islamic calligraphy, mosaics, and marble flooring, reflecting both spiritual significance and architectural grandeur. The mosque also includes the Rawdah, a revered area between the Prophet''s tomb and his pulpit, considered one of the gardens of Paradise according to Islamic tradition. Al-Masjid al-Nabawi continues to be a focal point of Muslim devotion, scholarship, and community life, symbolizing the enduring spiritual and cultural legacy of Islam.'),
+			('TXT_KEY_WONDER_NABAWI_HELP',			''),
 			('TXT_KEY_THEMING_BONUS_NABAWI',		'Islamic calligraphy works'),
-			('TXT_KEY_THEMING_BONUS_NABAWI_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.'),
-			('TXT_KEY_WONDER_NABAWI_HELP',			'');
+			('TXT_KEY_THEMING_BONUS_NABAWI_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is one of the biggests [COLOR_YIELD_FOOD]Mosques[ENDCOLOR] of the world ([COLOR_YIELD_FOOD]free[ENDCOLOR]). Built by Prophet Muhammad, it is historically important religious centre (+5[ICON_PEACE]; +10%[ICON_PEACE][ICON_PEACE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER]; 2[ICON_VP_GREATWRITING], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]). Remodeled by multiple cultures, it is still the most beautiful and astonishing temple you can see (+2[ICON_CULTURE]).';
@@ -464,9 +464,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_WARTBURG',				'Wartburg'),
 			('TXT_KEY_WONDER_WARTBURG_QUOTE',			'[NEWLINE]"In nature we never see anything isolated, but everything in connection with something else which is before it, beside it, under it and over it."[NEWLINE] - Johann Wolfgang von Goethe[NEWLINE]'),
 			('TXT_KEY_WONDER_WARTBURG_PEDIA',			'The Wartburg Castle, perched on a hill overlooking the town of Eisenach in Thuringia, Germany, was originally built around 1067 by Ludwig der Springer. Over the centuries, it became one of the most significant medieval fortresses in Germany, serving as a residence for nobility and a center of cultural and political activity. Its historical prominence is particularly linked to Martin Luther, who, in 1521–1522, took refuge at Wartburg after being declared an outlaw by the Holy Roman Empire. During his stay, Luther translated the New Testament from Greek into German, an act that had a profound impact on religion, literacy, and culture in Europe. Wartburg has been recognized for its historical, architectural, and cultural significance and is now a UNESCO World Heritage Site. [NEWLINE][NEWLINE]Architecturally, Wartburg Castle exhibits a blend of Romanesque, Gothic, and later Renaissance styles, reflecting centuries of construction and renovation. The castle includes fortified walls, towers, and a keep, as well as elegant halls, chapels, and residential quarters adorned with frescoes and period furnishings. Its strategic hilltop location provided both defense and commanding views of the surrounding landscape. Today, Wartburg is a museum and tourist attraction, offering visitors insights into medieval life, Reformation history, and the artistic heritage of Germany, while standing as a symbol of cultural resilience and historical memory.'),
+			('TXT_KEY_WONDER_WARTBURG_HELP',			''),
 			('TXT_KEY_THEMING_BONUS_WARTBURG',			'Literature that inspired whole nations'),
-			('TXT_KEY_THEMING_BONUS_WARTBURG_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with literature created by you.'),
-			('TXT_KEY_WONDER_WARTBURG_HELP',			'');
+			('TXT_KEY_THEMING_BONUS_WARTBURG_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with literature created by you.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_WARTBURG_HELP_CUT', 'With [COLOR_YIELD_FOOD]Wartburg[ENDCOLOR] you will become the king of literature (+1[ICON_CULTURE]; +2[ICON_GREAT_WRITER]; +30%[ICON_GREAT_WRITER]), which can be stored in an overwhelming library (+1[ICON_GOLDEN_AGE]; 3[ICON_VP_GREATWRITING], if themed: [ICON_CULTURE], [ICON_PEACE], [ICON_GOLDEN_AGE]) located in a castle (+10[ICON_STRENGTH]). All [COLOR_YIELD_FOOD]Writer''s Guilds[ENDCOLOR] will be inspired by the cutting-edge religious ideas (+1[ICON_PEACE][ICON_PEACE]), and your generals will be able to use this collection to develop new training methods (+5 XP/[COLOR_YIELD_GOLD]Land[ENDCOLOR]/[ICON_GREAT_WORK] inside).';
@@ -524,9 +524,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_DAMASCUS',			'Forge of Damascus'),
 			('TXT_KEY_WONDER_DAMASCUS_QUOTE',		'[NEWLINE]"The reputation and history of Damascus steel has given rise to many legends, such as the ability to cut through a rifle barrel or to cut a hair falling across the blade. The manufacturing technique has yet to be reverse engineered, even in modern times."[NEWLINE] - From legends about Damascus Steel[NEWLINE]'),
 			('TXT_KEY_WONDER_DAMASCUS_PEDIA',		'The term "Forge of Damascus" refers to the renowned steel production and blade-forging workshops historically located in Damascus, Syria. These forges were famed for producing Damascus steel, a high-carbon steel known for its distinctive wavy patterns and exceptional strength. The steel was crafted using the wootz process, which originated in South India and involved melting iron in a crucible with carbon-rich materials. The resulting ingots were then traded across the Middle East, including to Damascus, where skilled artisans forged them into weapons such as swords and knives. These blades gained legendary status for their sharpness, resilience, and the unique patterns on their surfaces. [NEWLINE][NEWLINE]The exact methods used in the original Damascus steel production have been lost over time, but modern metallurgical studies suggest that the distinctive patterns were due to the presence of carbon nanotubes and nanowires in the steel. Today, the term "Damascus steel" is often used to describe pattern-welded steel, where layers of different metals are forged together to create similar aesthetic patterns. While the ancient Damascus forges no longer operate, the legacy of their craftsmanship continues to influence modern blacksmithing and blade-making techniques.'),
+			('TXT_KEY_WONDER_DAMASCUS_HELP',		''),
 			('TXT_KEY_PROMOTION_DAMASCUS',			'Damascus Steel'),
-			('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+10%[ICON_STRENGTH]CS.'),
-			('TXT_KEY_WONDER_DAMASCUS_HELP',		'');
+			('TXT_KEY_PROMOTION_DAMASCUS_HELP',		'+10%[ICON_STRENGTH]CS.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_DAMASCUS_HELP_CUT', '[COLOR_YIELD_FOOD]Forge of Damascus[ENDCOLOR] holds a secret forging technology turning melee weaponry into a masterpiece ([COLOR_WATER_TEXT]Damascus Steel[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Land[ENDCOLOR]; [COLOR_CYAN]Metallurgy[ENDCOLOR]: +3[ICON_PRODUCTION]). Your production and science literally explodes (+2[ICON_PRODUCTION]; +3[ICON_RESEARCH]; +2[ICON_GREAT_SCIENTIST]), so remember to claim all available [COLOR_GREY]Iron[ENDCOLOR] deposits to gain an advantage over your enemies (+1[ICON_PRODUCTION], +1[ICON_RESEARCH]/[ICON_RES_IRON][ICON_RES_IRON]).';
@@ -554,14 +554,14 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_SHWEDAGON',						'Shwedagon Pagoda'),
 			('TXT_KEY_WONDER_SHWEDAGON_QUOTE',					'[NEWLINE]"There was a tumult among men and spirits, the blind beheld objects, the deaf heard sounds. The earth quaked, lightning flashed, gems rained down until they were knee deep, and all trees of the Himalayas, though not in season, bore blossoms and fruit."[NEWLINE] - King Okkalapa[NEWLINE]'),
 			('TXT_KEY_WONDER_SHWEDAGON_PEDIA',					'Shwedagon Paya (also known as Shwedagon Pagoda or the Great Dragon Pagoda), located in Yangon, Myanmar, is one of the most sacred Buddhist sites in the country and a symbol of Burmese religious devotion. Its origins are believed to date back over 2,500 years, making it one of the oldest pagodas in the world, though the exact founding date is uncertain. According to legend, the pagoda enshrines relics of four previous Buddhas, including eight strands of hair from Gautama Buddha, making it a central pilgrimage site for Buddhists. Over the centuries, Shwedagon Pagoda has undergone multiple restorations and expansions, particularly under the patronage of Burmese kings, and it has survived invasions, earthquakes, and colonial periods, maintaining its spiritual and cultural significance. [NEWLINE][NEWLINE]Architecturally, Shwedagon Pagoda is renowned for its stunning gilded stupa, which rises approximately 99 meters high and is adorned with thousands of gold plates and encrusted with diamonds, rubies, and other precious stones. The complex includes numerous smaller temples, shrines, bells, and statues, all arranged around the central stupa, with intricately decorated terraces and courtyards for worshippers. Its golden exterior reflects sunlight during the day and glows spectacularly at night, creating a striking visual presence. Today, Shwedagon Pagoda remains an active center of worship, meditation, and cultural gatherings, attracting both local devotees and international visitors while symbolizing Myanmar''s enduring Buddhist heritage.'),
+			('TXT_KEY_WONDER_SHWEDAGON_HELP',					''),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_KALPA',			'Relics of the four previous Buddhas of the present kalpa'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_CONSECUTIVE',		'Relics from most recent eras'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_PLAYERS',			'Relics from different creators'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_ARTIFACTS',		'Bunch of Relics'),
 			('TXT_KEY_THEMING_BONUS_SHWEDAGON_HELP',			'To maximize your bonus, make sure all the Great Work Slots are all filled with Artifacts created by different Players in consecutive Eras.'),
 			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',				'Diplomatic Passport'),
-			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',			'+20% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter (cannot Dig on) Enemy Territory without Open Borders Agreement[ENDCOLOR].'),
-			('TXT_KEY_WONDER_SHWEDAGON_HELP',					'');
+			('TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',			'+20% [ICON_WORKER] Work Rate. Unit [COLOR:255:230:85:255]can Enter (cannot Dig on) Enemy Territory without Open Borders Agreement[ENDCOLOR].');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_SHWEDAGON_HELP_CUT', '[COLOR_YIELD_FOOD]Shwedagon Pagoda[ENDCOLOR] fully focuses on every aspect related to artistry (+2[ICON_CULTURE]; +2[ICON_GREAT_ARTIST]; +2[ICON_PEACE]/[ICON_GREAT_ARTIST][ICON_GREAT_ARTIST]) increasing the overall value of your collection (+2[ICON_GOLD]; +1[ICON_GOLD]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). You can now organize brilliant vernissages, where you will be able to present recent discoveries (4[ICON_VP_GREATART], if themed: [ICON_GOLD], [ICON_CULTURE], [ICON_PEACE], [ICON_TOURISM]). Make also sure to use your new abilities to find hidden artifacts ([COLOR_WATER_TEXT]Diplomatic Passport[ENDCOLOR]/[COLOR_YIELD_GOLD]Archaeologist[ENDCOLOR]). Let your city shine!';
@@ -791,9 +791,9 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_MARAE',				'Marae Arahurahu'),
 			('TXT_KEY_WONDER_MARAE_QUOTE',			'[NEWLINE]"The leader at the front and the workers behind the scenes."[NEWLINE] - Maori proverb[NEWLINE]'),
 			('TXT_KEY_WONDER_MARAE_PEDIA',			'Marae Arahurahu, located near Papetoai on the island of Moorea in French Polynesia, is one of the best-preserved marae (traditional Polynesian sacred sites) in the region. Constructed in the 17th century, it served as a religious and ceremonial center for the local Tahitian community, where chiefs and priests conducted rituals, offered sacrifices, and performed important social and spiritual functions. Marae Arahurahu provides insight into pre-European Tahitian society, highlighting the cultural, religious, and political organization of Polynesian communities. Its preservation allows scholars and visitors to better understand the spiritual and social life of the islanders before European contact. [NEWLINE][NEWLINE]The site consists of rectangular stone platforms with upright basalt stones forming enclosures, characteristic of traditional marae architecture. The layout includes an open central courtyard, which was used for ceremonies and gatherings, surrounded by carefully arranged stones that marked sacred spaces. The precision in construction and alignment reflects both spiritual significance and architectural skill. Today, Marae Arahurahu is maintained as a cultural heritage site, offering guided tours and interpretive displays that educate visitors about Polynesian traditions, religious practices, and the artistry involved in creating these sacred communal spaces.'),
+			('TXT_KEY_WONDER_MARAE_HELP',			'All Ranged Land Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR] promotion.'),
 			('TXT_KEY_THEMING_BONUS_MARAE',			'Pre-war pump-up songs'),
 			('TXT_KEY_THEMING_BONUS_MARAE_HELP',	'To maximize your bonus, make sure all the Great Work Slots are all filled with Music created by you.'),
-			('TXT_KEY_WONDER_MARAE_HELP',			'All Ranged Land Units get [COLOR_POSITIVE_TEXT]Marae[ENDCOLOR] promotion and all Land Units get [COLOR_POSITIVE_TEXT]Arahurahu[ENDCOLOR] promotion.'),
 			('TXT_KEY_PROMOTION_MARAE',				'Marae'),
 			('TXT_KEY_PROMOTION_MARAE_HELP',		'+10%[ICON_RANGE_STRENGTH]RCS.'),
 			('TXT_KEY_PROMOTION_ARAHURAHU',			'Arahurahu'),
@@ -1007,12 +1007,12 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_MUSEUM_ISLAND',					'Museum Island'),
 			('TXT_KEY_WONDER_MUSEUM_ISLAND_QUOTE',				'[NEWLINE]"Berlin is rather a part of the world than a city."[NEWLINE] - Jean Paul[NEWLINE]'),
 			('TXT_KEY_WONDER_MUSEUM_ISLAND_PEDIA',				'Museum Island (Museumsinsel) in Berlin is a renowned cultural complex situated on the Spree Island in the heart of the city. Between 1823 and 1930, five monumental museums were constructed under the direction of Prussian kings and leading architects such as Karl Friedrich Schinkel and Friedrich August Stüler. The ensemble includes the Altes Museum (1830), Neues Museum (1855), Alte Nationalgalerie (1876), Bode Museum (1904), and Pergamon Museum (1930). These institutions collectively showcase a vast array of art and artifacts spanning from ancient civilizations to the 19th century. In 1999, Museum Island was designated a UNESCO World Heritage Site, recognized for its exceptional architectural unity and the evolution of museum design over more than a century. [NEWLINE][NEWLINE]The museum complex suffered significant damage during World War II but has undergone extensive restoration since the 1990s. A pivotal development in its revitalization was the completion of the James Simon Gallery in 2019, designed by British architect David Chipperfield. This modern entrance building serves as a central hub, connecting the museums and enhancing the visitor experience. Today, Museum Island attracts millions of visitors annually, offering a comprehensive journey through human history and artistic achievement. Notable highlights include the bust of Nefertiti in the Neues Museum, the Pergamon Altar in the Pergamon Museum, and the Ishtar Gate in the Pergamon Museum'),
+			('TXT_KEY_WONDER_MUSEUM_ISLAND_HELP',				'+50% generation of [ICON_GREAT_ARTIST] Great Artists in Empire.'),
 			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_COMPOSITION',	'Wonders of Museumsinsel'),
 			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ERAS',		'Wonders of all time'),
 			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_OTHERS',		'Wonders of all nations'),
 			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_ART',			'Artistic gallery'),
-			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by Players different than the owner, and from different Eras.'),
-			('TXT_KEY_WONDER_MUSEUM_ISLAND_HELP',				'+50% generation of [ICON_GREAT_ARTIST] Great Artists in Empire.');
+			('TXT_KEY_THEMING_BONUS_MUSEUM_ISLAND_HELP',		'To maximize your bonus, make sure all the Great Work Slots are all filled with Art created by Players different than the owner, and from different Eras.');
 
 UPDATE Language_en_US SET Text = '[NEWLINE][NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_MUSEUM_ISLAND_HELP';
 
@@ -1028,12 +1028,12 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_SIKU_QUANSHU',					'Siku Quanshu'),
 			('TXT_KEY_WONDER_SIKU_QUANSHU_QUOTE',				'[NEWLINE]"I have always imagined that Paradise will be a kind of a Library."[NEWLINE] - Jorge Luis Borges[NEWLINE]'),
 			('TXT_KEY_WONDER_SIKU_QUANSHU_PEDIA',				'The Siku Quanshu, often translated as the Complete Library in Four Sections, is one of the most ambitious literary projects in Chinese history. Commissioned by the Qianlong Emperor of the Qing dynasty in 1772, it aimed to compile, preserve, and systematize all known Chinese texts. Over a period of more than a decade, thousands of scholars meticulously collected works spanning history, philosophy, literature, science, and art. The resulting compilation encompassed approximately 36,000 volumes, covering more than 79,000 individual works, making it the largest collection of writings in Chinese history. The project also reflected the political and cultural goals of the Qing dynasty, as it sought to promote orthodox Confucian values while suppressing dissenting or heterodox views, with certain texts being edited or even banned from inclusion. [NEWLINE][NEWLINE]The Siku Quanshu is organized into four main sections, which give the work its name: Jing (Classics), Shi (History), Zi (Philosophy), and Ji (Literature). Each section was further divided into subcategories to systematically arrange texts by subject and genre, providing scholars with a comprehensive reference for study and research. Manuscripts of the collection were handwritten and copied into seven complete sets, which were stored in specially designated libraries across China, ensuring preservation and accessibility for future generations. Beyond its role as a repository of knowledge, the Siku Quanshu is also a cultural monument, reflecting the intellectual ambitions, bibliographic rigor, and imperial authority of 18th-century China. Its legacy continues to influence Chinese historiography, literature, and library science to this day.'),
+			('TXT_KEY_WONDER_SIKU_QUANSHU_HELP',				''),
 			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_COMPOSITION',	'Written legacy of all dynasties'),
 			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_ERAS',			'Literature of all time'),
 			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_OWNER',		'Literature from people'),
 			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_WRITINGS',		'Interesting composition of writings'),
-			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP',			'To maximize your bonus, make sure all the Great Work Slots are all filled with Literature created by You, and from different Eras.'),
-			('TXT_KEY_WONDER_SIKU_QUANSHU_HELP',				'');
+			('TXT_KEY_THEMING_BONUS_SIKU_QUANSHU_HELP',			'To maximize your bonus, make sure all the Great Work Slots are all filled with Literature created by You, and from different Eras.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
 SELECT 'TXT_KEY_WONDER_SIKU_QUANSHU_HELP_CUT', '[COLOR_YIELD_FOOD]Siku Quanshu[ENDCOLOR] holds knowledge, creations and history of your empire (4[ICON_VP_GREATWRITING], if themed: [ICON_RESEARCH], [ICON_CULTURE]) automatically raising its value and importance (+1[ICON_RESEARCH], +1[ICON_CULTURE]/[ICON_GREAT_WORK][ICON_GREAT_WORK]). This overwhelming collection must be catalogued, secured and preserved from devastation under the eyes of experts (2 slots for [ICON_GREAT_WRITER]; +1[ICON_RESEARCH]/[ICON_GREAT_WRITER][ICON_GREAT_WRITER]) so your charges could benefit of it for many years after your glorious death (+2[ICON_RESEARCH]; -1[ICON_HAPPINESS_3] Illiteracy).'
@@ -1156,17 +1156,12 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_DARJEELING',			'Darjeeling Himalayan Railway'),
 			('TXT_KEY_WONDER_DARJEELING_QUOTE',		'[NEWLINE]"A traditional Englishman drinks tea to the point where his blood has long-since been replaced with an infusion of Ceylon, Assam, and Darjeeling."[NEWLINE] - Fennel Hudson[NEWLINE]'),
 			('TXT_KEY_WONDER_DARJEELING_PEDIA',		'The Darjeeling Himalayan Railway (DHR), often called the "Toy Train", is a historic narrow-gauge railway in the Indian state of West Bengal. Construction of the railway began in 1879 under British colonial rule, and it was completed in 1881 to connect the plains of New Jalpaiguri with the hill station of Darjeeling. The railway was designed to navigate the challenging mountainous terrain of the Himalayas, using a series of loops, zigzags, and steep gradients to ascend over 2,000 meters (6,600 feet). Its creation was driven by both economic and administrative goals: facilitating trade, transporting tea and timber, and providing easier access to the hill station, which was a popular retreat for the British during the colonial era. In 1999, the Darjeeling Himalayan Railway was designated a UNESCO World Heritage Site in recognition of its engineering ingenuity and historical significance. [NEWLINE][NEWLINE]The DHR is renowned for its narrow-gauge tracks, steam locomotives, and scenic route through lush tea gardens, forests, and picturesque mountain landscapes. The journey spans approximately 88 kilometers (55 miles) and includes notable engineering features such as the Batasia Loop, a spiral track that allows the train to manage the steep ascent while offering panoramic views of the surrounding valleys and the Kanchenjunga peak. Beyond its functional role, the railway has become a cultural and tourist icon, attracting visitors from around the world who seek a nostalgic travel experience and a glimpse into colonial-era engineering. The Darjeeling Himalayan Railway continues to operate today, blending historical heritage with breathtaking natural scenery.'),
-			('TXT_KEY_WONDER_DARJEELING_HELP',		'All Pedestrian Military Units receive [COLOR_POSITIVE_TEXT]Toy Train[ENDCOLOR] promotion. +15% [ICON_GOLD] Gold from [ICON_CONNECTED] City Connections and [ICON_INDUSTRIAL_CONNECTED] Industrial City Connections. +1 [ICON_FOOD] Food, [ICON_PRODUCTION] Production, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism from Mountain tiles worked by this City.'),
+			('TXT_KEY_WONDER_DARJEELING_HELP',		'+1 [ICON_FOOD] Food, [ICON_PRODUCTION] Production, [ICON_CULTURE] Culture and [ICON_TOURISM] Tourism from Mountain tiles worked by every City.'),
 			('TXT_KEY_PROMOTION_DARJEELING',		'Toy Train'),
 			('TXT_KEY_PROMOTION_DARJEELING_HELP',	'Unit [COLOR:255:230:85:255]can Enter Mountain[ENDCOLOR].');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Darjeeling Himalayan Railway[ENDCOLOR] is excellent way to communicate difficult areas of your empire together ([COLOR_WATER_TEXT]Toy Train[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Pedestrian[ENDCOLOR]). Such a connection can also improve your income (+15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED], [ICON_INDUSTRIAL_CONNECTED][ICON_INDUSTRIAL_CONNECTED]) and populate [COLOR_CITY_BLUE]Mountainous[ENDCOLOR] (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_TOURISM]/Tile in Empire to corresponding City) terrain surrounding your city.'
-WHERE Tag = 'TXT_KEY_WONDER_DARJEELING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_DARJEELING_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_DARJEELING_HELP';
+SELECT 'TXT_KEY_WONDER_DARJEELING_HELP_CUT', '[COLOR_YIELD_FOOD]Darjeeling Himalayan Railway[ENDCOLOR] is a colorful attraction (+3[ICON_TOURISM]) and reduces the transport exclusion in a difficult [COLOR_CITY_BLUE]Mountainious[ENDCOLOR] area (+1[ICON_FOOD], +1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_TOURISM]/[COLOR_CITY_BLUE]Tile in Empire[ENDCOLOR]). It boosts industrialization of your empire (+2[ICON_PRODUCTION]; +15%[ICON_GOLD]/[ICON_CONNECTED][ICON_CONNECTED], [ICON_INDUSTRIAL_CONNECTED][ICON_INDUSTRIAL_CONNECTED]) and, apart from the civilian use, in exceptional situations this joyful train line can quickly transport your troop to places, where they are not expected ([COLOR_WATER_TEXT]Toy Train[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Pedestrian[ENDCOLOR]).';
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]2 Mountains (range 3)[ENDCOLOR]; Building: [COLOR_CYAN]Train Station[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_DARJEELING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_DARJEELING_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1177,15 +1172,10 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_BANFF',			'Banff Springs Hotel'),
 			('TXT_KEY_WONDER_BANFF_QUOTE',		'[NEWLINE]"A national park is not a playground. It''s a sanctuary for nature and for humans who will accept nature on nature''s own terms."[NEWLINE] - Michael Frome[NEWLINE]'),
 			('TXT_KEY_WONDER_BANFF_PEDIA',		'The Banff Springs Hotel, located in Banff National Park, Alberta, Canada, is a historic luxury hotel often referred to as the "Castle in the Rockies". Its origins date back to 1888 when the Canadian Pacific Railway commissioned its construction to promote tourism along the railway and attract visitors to the Canadian Rockies. Designed initially by architect Bruce Price and later expanded by several others, the hotel became a symbol of opulence and the natural beauty of the region. Over the decades, it has hosted royalty, celebrities, and dignitaries, while also playing a key role in the development of tourism in western Canada. Its history reflects both the ambition of the Canadian Pacific Railway and the broader movement to make the Canadian wilderness accessible and appealing to international travelers. [NEWLINE][NEWLINE]Architecturally, the Banff Springs Hotel combines Scottish baronial and château-style design, with steep pitched roofs, turrets, and stone façades that blend harmoniously with the surrounding mountainous landscape. The hotel sits near the Bow River, providing stunning views of the Rockies, and features elegant interiors, luxurious accommodations, and extensive recreational facilities, including golf courses, spas, and hiking trails. Beyond its role as a luxury resort, the hotel has become a cultural and historical landmark, representing the fusion of natural splendor, architectural grandeur, and early Canadian tourism initiatives. Today, it continues to attract visitors from around the world seeking both relaxation and an immersive experience in the Rocky Mountains.'),
-			('TXT_KEY_WONDER_BANFF_HELP',		'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from all Merchant Specialists in your Empire. +5 [ICON_GOLD] Gold and +5 [ICON_TOURISM] Tourism from all Mountain tiles worked by this City. Grants [COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Hotel. -1 [ICON_HAPPINESS_3] Unhappiness from [ICON_CULTURE] Boredom.');
+			('TXT_KEY_WONDER_BANFF_HELP',		'');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Banff Springs Hotel[ENDCOLOR] is a perfect example how to make profits from [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+5[ICON_GOLD], +5[ICON_TOURISM]/Tile to City) using basic tourism infrastructure: [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), merchant districts (+1[ICON_GREAT_MERCHANT]; +5[ICON_GOLD], +5[ICON_TOURISM]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) and all kind of entertainment facilities (-1[ICON_HAPPINESS_3] Boredom).'
-WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_BANFF_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BANFF_HELP';
+SELECT 'TXT_KEY_WONDER_BANFF_HELP_CUT', '[COLOR_YIELD_FOOD]Banff Springs Hotel[ENDCOLOR] lying in a remarkable nature park full of monumental [COLOR_CITY_BLUE]Mountains[ENDCOLOR] (+5[ICON_GOLD], +5[ICON_TOURISM]/[COLOR_CITY_BLUE]Tile[ENDCOLOR]) is a perfect example how to develop your economy (+1[ICON_GREAT_MERCHANT]; +1[ICON_GOLD], +1[ICON_TOURISM]/[ICON_GREAT_MERCHANT][ICON_GREAT_MERCHANT]) in a symbiosis with the environment (+5[ICON_TOURISM]). Such [COLOR_YIELD_FOOD]Hotels[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) are sponsored by the railway companies and have one very important function: to make the long journey pleasant (-1[ICON_HAPPINESS_3] Boredom). Now you can travel with style!';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR], [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BANFF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Industry Finisher[ENDCOLOR]; Terrain: [COLOR_CYAN]Tundra[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BANFF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1196,100 +1186,54 @@ INSERT INTO Language_en_US
 VALUES		('TXT_KEY_BUILDING_ORSZAGHAZ',				'Orszaghaz'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_QUOTE',			'[NEWLINE]"With self-government is freedom, and with freedom is justice and patriotism."[NEWLINE] - Lajos Kossuth[NEWLINE]'),
 			('TXT_KEY_WONDER_ORSZAGHAZ_PEDIA',			'The Országház, or Hungarian Parliament Building, is the seat of the National Assembly of Hungary and one of Budapest''s most iconic landmarks. Its construction began in 1885 and was completed in 1904, during a period when Hungary was part of the Austro-Hungarian Empire. The building was designed by architect Imre Steindl in a Gothic Revival style, reflecting national pride and Hungary''s growing political and cultural identity. Situated on the banks of the Danube River, the Országház was intended not only as a functional government building but also as a symbol of Hungary''s sovereignty, grandeur, and architectural achievement. Over the years, it has witnessed significant historical events, including political upheavals, revolutions, and ceremonies, cementing its status as a national symbol. [NEWLINE][NEWLINE]Architecturally, the Országház is renowned for its elaborate Gothic Revival design, featuring pointed arches, spires, and a striking central dome that rises over 96 meters, symbolizing the nation''s millennium in 1896. The building stretches 268 meters in length and houses nearly 700 rooms, including the grand staircase, ornate chambers, and the Hungarian Crown Jewels. Its exterior is adorned with statues of Hungarian rulers and national figures, while the interior boasts intricate frescoes, stained glass, and richly decorated halls. Beyond its political function, the Országház serves as a major tourist attraction and a cultural monument, representing Hungary''s architectural heritage, historical continuity, and national identity.'),
+			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			''),
 			('TXT_KEY_GREAT_WORK_HOLY_CROWN',			'Holy Crown of Hungary'),
-			('TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE',		'[NEWLINE]You desire that which exceeds my humble powers, but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]'),
-			('TXT_KEY_WONDER_ORSZAGHAZ_HELP',			'[COLOR_POSITIVE_TEXT]Free[ENDCOLOR] Policy. +10% [ICON_GOLDEN_AGE] Golden Age Points in your Empire. +1 [ICON_INFLUENCE] World Congress Vote, +1 [ICON_INFLUENCE] World Congress Vote for each 2 Declarations of Friendship and +1 [ICON_INFLUENCE] World Congress Vote for each Defensive Pact. Contains 1 slot for [ICON_VP_GREATART] Great Work of Art or Artifact, and starts with [ICON_VP_GREATART] [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR].');
+			('TXT_KEY_GREAT_WORK_HOLY_CROWN_QUOTE',		'[NEWLINE]You desire that which exceeds my humble powers, but I trust[NEWLINE]in the compassion and mercy of the All-powerful God.[NEWLINE] - Saint Stephen[NEWLINE]');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] is an evidence of your good will towards rest of the world (+1[ICON_DIPLOMAT] League Vote; +1[ICON_DIPLOMAT] League Vote/2 DoF; +1[ICON_DIPLOMAT] League Vote/DP) and also huge leap towards better future of your citizens ([COLOR_MAGENTA]free Policy[ENDCOLOR]). You also invite them to see the holiest artifact in your collection: [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR], spreading the light of new age (+15%[ICON_GOLDEN_AGE][ICON_GOLDEN_AGE]).'
-WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_WONDER_ORSZAGHAZ_HELP_CUT', Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_ORSZAGHAZ_HELP';
+SELECT 'TXT_KEY_WONDER_ORSZAGHAZ_HELP_CUT', '[COLOR_YIELD_FOOD]Orszaghaz[ENDCOLOR] celebrates the unification (+15%[ICON_GOLDEN_AGE][ICON_GOLDEN_AGE]) and praises the history (1[ICON_VP_GREATART]; [COLOR_CULTURE_STORED]Holy Crown of Hungary[ENDCOLOR]). It uses its majesty to show how democratic rules can make the world better (+1[ICON_DIPLOMAT] League Vote), and that acting alone in the politics is not the most efficient solution (+1[ICON_DIPLOMAT] League Vote/2 DoF or 2 DP). Starting from the first parliamentary session ([COLOR_MAGENTA]free Policy[ENDCOLOR]) your rules are consolidated, spreading the light of a new age.';
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Building: [COLOR_CYAN]Constabulary[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'Special: [COLOR_UNIT_TEXT]Freedom[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_ORSZAGHAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
 ----------------------------------------------------
 -- Neuschwanstein
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Neuschwanstein[ENDCOLOR] gives you nice boost to your treasury (+6[ICON_GOLD]; +1[ICON_GREAT_MERCHANT]), culture output (+4[ICON_CULTURE]), and turns your [COLOR_YIELD_FOOD]Castles[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) into most valuable buildings in your cities.'
-WHERE Tag = 'TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Can only be built in a City within 2 tiles of a Mountain that is inside your territory. ', '') WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP_CUT', 'Construction of [COLOR_YIELD_FOOD]Neuschwanstein[ENDCOLOR] is a difficult task and requires perfect treasury management (+1[ICON_GREAT_MERCHANT]), but when completed, it allows for better control over the empire and substantially boosts your economy (+6[ICON_GOLD]). This beautiful pearl exposed over the mountains (+4[ICON_CULTURE]) can be presented as an example to other cities, how to construct fabulous [COLOR_YIELD_FOOD]Castles[ENDCOLOR] (+1[ICON_GOLD]; +1[ICON_CULTURE]; +1[ICON_HAPPINESS_1]), and what''s more, how to gain profits of them.');
 				
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]; Feature: [COLOR_CYAN]Fresh Water[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_NEUSCHWANSTEIN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Soho Foundry
-UPDATE Language_en_US
-SET Text = 'If you are looking for a nice industrial boost for your civilization, then [COLOR_YIELD_FOOD]Soho Foundry[ENDCOLOR] is for you. This [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is great source of strategic [COLOR_GREY]Coal[ENDCOLOR] (+4 [ICON_RES_COAL]), supported by fresh engineering corps (+1[ICON_GREAT_ENGINEER]), that will increase your development significantly.' WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP_CUT', 'Every empire needs a solid industrial kick not to stay behind its competitors (+5[ICON_PRODUCTION]), so constructing [COLOR_YIELD_FOOD]Factories[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) should be a necessity. One of them is [COLOR_YIELD_FOOD]Soho Foundry[ENDCOLOR], huge complex of manufactories creating advanced steam engines (+1[ICON_GREAT_ENGINEER]). This strategic investment heavily relies on [COLOR_GREY]Coal[ENDCOLOR], but thankfully your recent efforts and numerous successful geological surveys found few new promising spots for excavations (+4[ICON_RES_COAL]).');
 				
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Louvre
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] is an ideal place for hiding precious artifacts (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]). This huge [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) also contains wonderful pieces of global art (4[ICON_VP_GREATART], if themed: [ICON_CULTURE]) and invites artists from all over the world ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]).'
-WHERE Tag = 'TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Artistry[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_LOUVRE_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_LOUVRE_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_LOUVRE_HELP_CUT', '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] seeks for new exibits to fill its shiny shelves and become the cultural capital of the world (+2[ICON_CULTURE]; 4[ICON_VP_GREATART], if themed: [ICON_CULTURE]). Recent discoveries give you an opportunity to hire a staff of experts working on the field (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]) as well as in the main underground headquarters ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]). Finally your dream may come true. Become the owner of the finest and wealthiest [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) anyone have ever imagined.');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Artistry Finisher[ENDCOLOR]; Improvement: [COLOR_CYAN]Landmark[ENDCOLOR]; Great Works: [COLOR_CYAN]3[ICON_VP_GREATART][ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Artistry Finisher[ENDCOLOR]; Improvement: [COLOR_CYAN]Landmark[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_LOUVRE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Palace of Westminster
-UPDATE Language_en_US
-SET Text = 'Influential [COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] brings additional seats for your world congress delegtes (+2[ICON_DIPLOMAT] League Votes (scaling)). Additionally it increases your wealth by inviting merchants ([COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]) and reducing your people''s needs (-1[ICON_HAPPINESS_3] Poverty).'
-WHERE Tag = 'TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-UPDATE Language_en_US SET Text = REPLACE(Text, 'Requires completion of [COLOR_MAGENTA]Statecraft[ENDCOLOR] Branch. ', '') WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 0);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_BIG_BEN_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BIG_BEN_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_BIG_BEN_HELP_CUT', '[COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] improves lives of your citizens (-1[ICON_HAPPINESS_3] Poverty). It can introduce new laws and edicts, raising the empire''s economy (+4[ICON_GOLD]), and new possibilities to run a bussiness in a dynamically changing market (+2[ICON_GREAT_MERCHANT]; [COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]). Ruling the "empire on which the sun never sets" can turn you into the most influential leader of the world, making it easier to find new valuable allies (+1[ICON_DIPLOMAT] League Vote/each 6[ICON_CITY_STATE] on start).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR]; Player: [COLOR_CYAN]2 [ICON_CITY_STATE] Allies[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Eiffel Tower
-UPDATE Language_en_US
-SET Text = 'Impressing [COLOR_YIELD_FOOD]Eiffel Tower[ENDCOLOR] can be a helpful tool for quick cultural development of your civilization (-10%[ICON_CULTURE] Policy Cost), which is key to world domination.'
-WHERE Tag = 'TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_EIFFEL_TOWER_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_EIFFEL_TOWER_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_EIFFEL_TOWER_HELP_CUT',	'[COLOR_YIELD_FOOD]Eiffel Tower[ENDCOLOR] - a symbol, a landmark, a monument (+1[ICON_CULTURE]). It is a commemoration of the freedom gained by the ancestors of its founders, ordinary men who fought for dignity and right to life, completely changing the world (-10%[ICON_CULTURE] Policy Cost). Now it serves as a global attraction luring visitors to spend their money or do some bussiness here (+2[ICON_GREAT_MERCHANT]). And sometimes they stay a bit longer amazed by the beauty of this timeless creation.');
 				
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR]; Improved Resource: [ICON_RES_IRON].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Terrain: [COLOR_CYAN]Grassland[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_EIFFEL_TOWER_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Brandenburg Gate
-UPDATE Language_en_US
-SET Text = 'Military potential of [COLOR_YIELD_FOOD]Brandenburg Gate[ENDCOLOR] is invaluable. Bigger (+10[ICON_SILVER_FIST]) and well-trained army (+15 global XP/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) as well as a briliant leadership ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]; +2[ICON_GREAT_SCIENTIST]) will entrench your current position amongst other nations.'
-WHERE Tag = 'TXT_KEY_WONDER_BRANDENBURG_GATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,								Text) 
-SELECT		'TXT_KEY_WONDER_BRANDENBURG_GATE_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_WONDER_BRANDENBURG_GATE_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_WONDER_BRANDENBURG_GATE_HELP_CUT',	'[COLOR_YIELD_FOOD]Brandenburg Gate[ENDCOLOR] sumptuously construted after recently finished successful war (+15 global XP/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) strengthens your position as a leader of the strongest army on the continent ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]). War loots grabbed from the defeated enemies will allow for structural changes consolidating your rules over new territories (+10[ICON_SILVER_FIST]), and new staff that moved onto your side will surely contribute to quick scientific breakthroughs (+2[ICON_GREAT_SCIENTIST]).');
 				
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[ENDCOLOR]; Plot: [COLOR_CYAN]Flat[ENDCOLOR]; Improvement: [COLOR_CYAN]Citadel[ENDCOLOR]/[COLOR_CYAN]Fort[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BRANDENBURG_GATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'Special: [COLOR_MAGENTA]Imperialism Finisher[ENDCOLOR]; Improvement: [COLOR_CYAN]Citadel[ENDCOLOR]/[COLOR_CYAN]Fort[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_WONDER_BRANDENBURG_GATE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1466,7 +1410,7 @@ VALUES		('TXT_KEY_BUILDING_RUSHMORE',		'Mount Rushmore'),
 			('TXT_KEY_WONDER_RUSHMORE_HELP',	'+1 [ICON_INFLUENCE] World Congress Vote. +1 Artist slot. +1 [ICON_PRODUCTION] Production, +1 [ICON_CULTURE] Culture and +1 [ICON_TOURISM] Tourism from all Mountains inside the City borders. +1 [ICON_CULTURE] Culture and +1 [ICON_TOURISM] Tourism from all Great Works in the Empire.');
 			
 UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Mount Rushmore[ENDCOLOR] is a fantastic artistic creation (1 slot for [ICON_GREAT_ARTIST]) cut in the [COLOR_CITY_BLUE]Mountain[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_TOURISM]/Tile). This work is the main reason people visit this part of the world (+1[ICON_CULTURE], +1[ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and, as an addition, it conmemorates 4 greatest people in history of the country (+1[ICON_DIPLOMAT] League Vote).'
+SET Text = '[COLOR_YIELD_FOOD]Mount Rushmore[ENDCOLOR] is a fantastic artistic creation (1 slot for [ICON_GREAT_ARTIST]) cut in the [COLOR_CITY_BLUE]Mountain[ENDCOLOR] (+1[ICON_PRODUCTION], +1[ICON_CULTURE], +1[ICON_TOURISM]/Tile). This work is the main reason people visit this part of the world (+1[ICON_CULTURE], +1[ICON_TOURISM]/[ICON_GREAT_WORK][ICON_GREAT_WORK]) and, as an addition, it commemorates 4 greatest people in history of the country (+1[ICON_DIPLOMAT] League Vote).'
 WHERE Tag = 'TXT_KEY_WONDER_RUSHMORE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -2123,55 +2067,34 @@ UPDATE Language_en_US SET Text = 'Special: [COLOR:45:150:50:255]Victory in "Glob
 -- AMERICA'S UNIQUE WORLD WONDERS (VP v3.8)
 ----------------------------------------------------
 -- Smithsonian Institute
-INSERT INTO Language_en_US 
-			(Tag,											Text)
-VALUES		('TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE',	'[NEWLINE]"I read a book every night. I really am that nerd, so when I get to go to the Smithsonian and get to go in the back rooms and play with stuff, things like that, for a guy like me, that''s amazing."[NEWLINE] - Rick Harrison[NEWLINE]');
+INSERT INTO Language_en_US (Tag, Text)
+VALUES ('TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE',	'[NEWLINE]"I read a book every night. I really am that nerd, so when I get to go to the Smithsonian and get to go in the back rooms and play with stuff, things like that, for a guy like me, that''s amazing."[NEWLINE] - Rick Harrison[NEWLINE]');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is an unusual [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM]) you should be proud of (+1[ICON_RESEARCH]/[ICON_GREAT_WORK][ICON_GREAT_WORK] and all Landmarks). Science is the key, but culture is the only thing that keeps a nation in one piece (+5[ICON_CULTURE], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Museums[ENDCOLOR], [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR]; +2[ICON_CULTURE], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]), so you should invest in it at all cost (10%[ICON_GOLD][ICON_GOLD] into [ICON_CULTURE][ICON_CULTURE]; -25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost).'
-WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP_CUT', '[COLOR_YIELD_FOOD]Smithsonian Institute[ENDCOLOR] is an unusual [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([ICON_CULTURE]; [ICON_GREAT_WORK]; [ICON_HAPPINESS_3]; [ICON_TOURISM]) you should be proud of (+1[ICON_RESEARCH]/[ICON_GREAT_WORK][ICON_GREAT_WORK] and all Landmarks). Science is the key, but culture is the only thing that keeps a nation in one piece (+5[ICON_CULTURE], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Museums[ENDCOLOR], [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR]; +2[ICON_CULTURE], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]), so you should invest in it at all cost (10%[ICON_GOLD][ICON_GOLD] into [ICON_CULTURE][ICON_CULTURE]; -25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost).');
 				
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SMITHSONIAN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- West Point
-INSERT INTO Language_en_US 
-			(Tag,											Text)
-VALUES		('TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE',		'[NEWLINE]"Give me an Army of West Point graduates and I''ll win a battle... Give me a handful of Texas Aggies and I''ll win a war."[NEWLINE] - George S. Patton[NEWLINE]');
+INSERT INTO Language_en_US (Tag, Text)
+VALUES ('TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE', '[NEWLINE]"Give me an Army of West Point graduates and I''ll win a battle... Give me a handful of Texas Aggies and I''ll win a war."[NEWLINE] - George S. Patton[NEWLINE]');
 			
-UPDATE Language_en_US
-SET Text = '[COLOR_YIELD_FOOD]West Point[ENDCOLOR], as a high tier [COLOR_YIELD_FOOD]Military Academy[ENDCOLOR] ([ICON_PRODUCTION], [ICON_HAPPINESS_3], [ICON_SILVER_FIST]) improves all similar facilities (+5[ICON_PRODUCTION], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Military Academies[ENDCOLOR], [COLOR_YIELD_FOOD]Arsenals[ENDCOLOR]) and your troops ([COLOR_WATER_TEXT]Splash[ENDCOLOR]/[COLOR_YIELD_GOLD]Siege[ENDCOLOR], [COLOR_YIELD_GOLD]Naval Ranged[ENDCOLOR]). New training techniques help with keeping your borders (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost) and maintaining crucial infrastructure in good shape (+2[ICON_PRODUCTION], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] into [ICON_RESEARCH][ICON_RESEARCH]).'
-WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP_CUT', '[COLOR_YIELD_FOOD]West Point[ENDCOLOR] is a high tier [COLOR_YIELD_FOOD]Military Academy[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]; +5[ICON_PRODUCTION][ICON_PRODUCTION]; +5[ICON_RESEARCH][ICON_RESEARCH]) for your huge army ([COLOR_WATER_TEXT]Splash I[ENDCOLOR]/[COLOR_YIELD_GOLD]Siege[ENDCOLOR], [COLOR_YIELD_GOLD]Naval Ranged[ENDCOLOR]; +5[ICON_GREAT_GENERAL]). Increased outlays on development (+2[ICON_RESEARCH]; 10%[ICON_GOLD][ICON_GOLD] into [ICON_RESEARCH]) and equipment quality (+5[ICON_STRENGTH]; +5[ICON_PRODUCTION], +5[ICON_RESEARCH]/all [COLOR_YIELD_FOOD]Arsenals[ENDCOLOR]) will raise your position on world''s arena (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost) keeping crucial infrastructure in a good shape (+2[ICON_PRODUCTION]; +2[ICON_PRODUCTION], +2[ICON_RESEARCH]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR])');
 				
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_WESTPOINT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Slater Mill
-INSERT INTO Language_en_US 
-			(Tag,											Text)
-VALUES		('TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE',		'[NEWLINE]"If I do not make a good yarn, as they do in England, I will have nothing for my services but will throw the whole of what I have attempted over the bridge."[NEWLINE] - Samuel Slater[NEWLINE]');
+INSERT INTO Language_en_US (Tag, Text)
+VALUES ('TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE', '[NEWLINE]"If I do not make a good yarn, as they do in England, I will have nothing for my services but will throw the whole of what I have attempted over the bridge."[NEWLINE] - Samuel Slater[NEWLINE]');
 			
-UPDATE Language_en_US
-SET Text = 'To be a leader, you need the [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR]. This modern [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([ICON_PRODUCTION]; [ICON_GREAT_PEOPLE]; [ICON_HAPPINESS_3]; [ICON_INTERNATIONAL_TRADE]) introduces new quality to your industry (+5[ICON_PRODUCTION], +5[ICON_GOLD]/all [COLOR_YIELD_FOOD]Factories[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and makes your expansion faster (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost; +1[ICON_INTERNATIONAL_TRADE]). Your investments should quickly grant you additional profits (+2[ICON_PRODUCTION], +2[ICON_GOLD]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] into [ICON_PRODUCTION][ICON_PRODUCTION]).'
-WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-HELP' AND Value= 1);
-
-INSERT INTO Language_en_US 
-			(Tag,										Text) 
-SELECT		'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP_CUT',	Text
-FROM Language_en_US WHERE Tag = 'TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP';
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP_CUT',	'To become a leader, you need the [COLOR_YIELD_FOOD]Slater Mill[ENDCOLOR], a modern [COLOR_YIELD_FOOD]Factory[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) introducing the new quality to your industry (+5[ICON_PRODUCTION], +5[ICON_GOLD]/all [COLOR_YIELD_FOOD]Factories[ENDCOLOR], [COLOR_YIELD_FOOD]Stock Exchanges[ENDCOLOR]) and makes your expansion faster (-25%[ICON_GOLD][ICON_GOLD] Tile Purchase Cost; +1[ICON_INTERNATIONAL_TRADE]). Your investments should quickly grant you additional profits (+2[ICON_PRODUCTION], +2[ICON_GOLD]/all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR]; 10%[ICON_GOLD][ICON_GOLD] into [ICON_PRODUCTION][ICON_PRODUCTION]).');
 				
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-UPDATE Language_en_US SET Text = 'Civlization: [COLOR_CYAN]America[ENDCOLOR]; Building: [COLOR_CYAN]Independence Hall[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'Civlization: [COLOR:45:90:170:255]America[ENDCOLOR]; Building: [COLOR_CYAN]Royal Collection[ENDCOLOR]; Feature: [COLOR_CYAN]River[ENDCOLOR].'||Text WHERE Tag ='TXT_KEY_BUILDING_AMERICA_SLATERMILL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 --============================================--
 -- EE Compatibility
 --============================================--

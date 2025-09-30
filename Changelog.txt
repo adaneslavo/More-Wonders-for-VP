@@ -165,6 +165,7 @@ v24:
 			- Mariana Trench,
 			- Seongsan Ilchulbong,
 			- Zhangyie Danxia.
+		- new prettier icons for some Natural Wonders (by @Putmalk);
 		- added AI generated civilopedia texts for all Natural Wonders including original ones (by @jarcast2 aka dephi);
 	- changed:
 		- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
