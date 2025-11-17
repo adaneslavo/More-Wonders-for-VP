@@ -1,5 +1,6 @@
 MW Changelog:
 v24:
+- adapted to VP 5.0;
 - World Wonders:
 	- new/changed:
 		- regular World Wonders:

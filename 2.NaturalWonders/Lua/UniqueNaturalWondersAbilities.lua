@@ -3,95 +3,99 @@
 -- May 11, 2020: Created, adan_eslavo
 --------------------------------------------------------------
 local g_tNaturalWonder = {
-	GameInfoTypes["FEATURE_SALAR_A"], -- 1
+	GameInfoTypes["FEATURE_SALAR_A"],			-- 1
 	GameInfoTypes["FEATURE_SALAR_B"],
 	GameInfoTypes["FEATURE_EL_DORADO"],
 	GameInfoTypes["FEATURE_POTOSI"],
-	GameInfoTypes["FEATURE_CRATER"], --5
+	GameInfoTypes["FEATURE_CRATER"],			-- 5
 	GameInfoTypes["FEATURE_MESA"],
 	GameInfoTypes["FEATURE_SOLOMONS_MINES"],
 	GameInfoTypes["FEATURE_VOLCANO"],
 	GameInfoTypes["FEATURE_FUJI"],
-	GameInfoTypes["FEATURE_MT_SINAI"], -- 10
+	GameInfoTypes["FEATURE_MT_SINAI"],			-- 10
 	GameInfoTypes["FEATURE_GEYSER"],
 	GameInfoTypes["FEATURE_MT_EVEREST"],
 	GameInfoTypes["FEATURE_NEW_REEF_A"],
 	GameInfoTypes["FEATURE_NEW_REEF_B"],
-	GameInfoTypes["FEATURE_NEW_REEF_C"], -- 15
+	GameInfoTypes["FEATURE_NEW_REEF_C"],		-- 15
 	GameInfoTypes["FEATURE_GIBRALTAR"],
 	GameInfoTypes["FEATURE_LAKE_VICTORIA"],
 	GameInfoTypes["FEATURE_CAUSEWAY_A"],
 	GameInfoTypes["FEATURE_CAUSEWAY_B"],
-	GameInfoTypes["FEATURE_RETBA"], -- 20
+	GameInfoTypes["FEATURE_RETBA"],				-- 20
 	GameInfoTypes["FEATURE_LUMI_BAY"],
 	GameInfoTypes["FEATURE_DALLOL"],
 	GameInfoTypes["FEATURE_EYE_OF_SAHARA_A"],
 	GameInfoTypes["FEATURE_EYE_OF_SAHARA_B"],
-	GameInfoTypes["FEATURE_EYE_OF_SAHARA_C"], -- 25
+	GameInfoTypes["FEATURE_EYE_OF_SAHARA_C"],	-- 25
 	GameInfoTypes["FEATURE_MT_PAEKTU"],
 	GameInfoTypes["FEATURE_MT_KAILASH"],
 	GameInfoTypes["FEATURE_KILIMANJARO"],
 	GameInfoTypes["FEATURE_ULURU"],
-	GameInfoTypes["FEATURE_BLUE_HOLE"], -- 30
+	GameInfoTypes["FEATURE_BLUE_HOLE"],			-- 30
 	GameInfoTypes["FEATURE_GALAPAGOS_A"],
 	GameInfoTypes["FEATURE_GALAPAGOS_B"],
 	GameInfoTypes["FEATURE_HA_LONG_A"],
 	GameInfoTypes["FEATURE_HA_LONG_B"],
-	GameInfoTypes["FEATURE_ZHANGJIAJIE"], -- 35
+	GameInfoTypes["FEATURE_ZHANGJIAJIE"],		-- 35
 	GameInfoTypes["FEATURE_AURORA_A"],
 	GameInfoTypes["FEATURE_AURORA_B"],
 	GameInfoTypes["FEATURE_AURORA_C"],
 	GameInfoTypes["FEATURE_JEJU_DO"],
-	GameInfoTypes["FEATURE_ARCH"], -- 40
+	GameInfoTypes["FEATURE_ARCH"],				-- 40
 	GameInfoTypes["FEATURE_MARIANA_A"],
 	GameInfoTypes["FEATURE_MARIANA_B"],
-	GameInfoTypes["FEATURE_MARIANA_C"]
+	GameInfoTypes["FEATURE_MARIANA_C"],
+	GameInfoTypes["FEATURE_DANXIA_A"],
+	GameInfoTypes["FEATURE_DANXIA_B"]			-- 45
 }
 
 local g_tNaturalWonderDummy = {
-	GameInfoTypes["BUILDING_SALAR_A_DUMMY"], -- 1
+	GameInfoTypes["BUILDING_SALAR_A_DUMMY"],			-- 1
 	GameInfoTypes["BUILDING_SALAR_B_DUMMY"],
 	GameInfoTypes["BUILDING_EL_DORADO_DUMMY"],
 	GameInfoTypes["BUILDING_POTOSI_DUMMY"],
-	GameInfoTypes["BUILDING_CRATER_DUMMY"], -- 5
+	GameInfoTypes["BUILDING_CRATER_DUMMY"],				-- 5
 	GameInfoTypes["BUILDING_MESA_DUMMY"],
 	GameInfoTypes["BUILDING_SOLOMONS_MINES_DUMMY"],
 	GameInfoTypes["BUILDING_VOLCANO_DUMMY"],					-- placed in wonder spot
 	GameInfoTypes["BUILDING_FUJI_1_DUMMY"],						-- placed in wonder spot
-	GameInfoTypes["BUILDING_MT_SINAI_DUMMY"], -- 10
+	GameInfoTypes["BUILDING_MT_SINAI_DUMMY"],			-- 10
 	GameInfoTypes["BUILDING_GEYSER_DUMMY"],
 	GameInfoTypes["BUILDING_MT_EVEREST_DUMMY"],
 	GameInfoTypes["BUILDING_NEW_REEF_A_DUMMY"],
 	GameInfoTypes["BUILDING_NEW_REEF_B_DUMMY"],
-	GameInfoTypes["BUILDING_NEW_REEF_C_DUMMY"], -- 15
+	GameInfoTypes["BUILDING_NEW_REEF_C_DUMMY"],			-- 15
 	GameInfoTypes["BUILDING_GIBRALTAR_DUMMY"],
 	GameInfoTypes["BUILDING_LAKE_VICTORIA_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_A_DUMMY"],
 	GameInfoTypes["BUILDING_CAUSEWAY_B_DUMMY"],
-	GameInfoTypes["BUILDING_RETBA_DUMMY"], -- 20
+	GameInfoTypes["BUILDING_RETBA_DUMMY"],				-- 20
 	GameInfoTypes["BUILDING_LUMI_BAY_DUMMY"],
 	GameInfoTypes["BUILDING_DALLOL_DUMMY"],
 	GameInfoTypes["BUILDING_EYE_OF_SAHARA_A_DUMMY"],
 	GameInfoTypes["BUILDING_EYE_OF_SAHARA_B_DUMMY"],
-	GameInfoTypes["BUILDING_EYE_OF_SAHARA_C_DUMMY"], -- 25
+	GameInfoTypes["BUILDING_EYE_OF_SAHARA_C_DUMMY"],	-- 25
 	GameInfoTypes["BUILDING_MT_PAEKTU"],						-- regular building not dummy, placed in wonder spot
 	GameInfoTypes["BUILDING_MT_KAILASH_DUMMY"],
 	GameInfoTypes["BUILDING_KILIMANJARO_DUMMY"],
 	nil,
-	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"], -- 30
+	GameInfoTypes["BUILDING_BLUE_HOLE_DUMMY"],			-- 30
 	GameInfoTypes["BUILDING_GALAPAGOS_A_DUMMY"], 
 	GameInfoTypes["BUILDING_GALAPAGOS_B_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_A_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_B_DUMMY"],
-	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"], -- 35
+	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"],		-- 35
 	GameInfoTypes["BUILDING_AURORA_A_DUMMY"], 
 	GameInfoTypes["BUILDING_AURORA_B_DUMMY"],
 	GameInfoTypes["BUILDING_AURORA_C_DUMMY"],
 	GameInfoTypes["BUILDING_JEJU_DO_DUMMY"],					-- placed in wonder spot
-	GameInfoTypes["BUILDING_ARCH_DUMMY"], -- 40					-- placed in wonder spot
+	GameInfoTypes["BUILDING_ARCH_DUMMY"],				-- 40	-- placed in wonder spot
 	GameInfoTypes["BUILDING_MARIANA_A_DUMMY"],
 	GameInfoTypes["BUILDING_MARIANA_B_DUMMY"],
-	GameInfoTypes["BUILDING_MARIANA_C_DUMMY"]
+	GameInfoTypes["BUILDING_MARIANA_C_DUMMY"],
+	nil,
+	nil													-- 45
 }
 
 local g_tNaturalWonderOwner = {}
@@ -155,6 +159,8 @@ local g_tNaturalWonderDummyPolicy = {}
 	g_tNaturalWonderDummyPolicy[41] = GameInfoTypes["POLICY_MARIANA_A_DUMMY"]
 	g_tNaturalWonderDummyPolicy[42] = GameInfoTypes["POLICY_MARIANA_B_DUMMY"]
 	g_tNaturalWonderDummyPolicy[43] = GameInfoTypes["POLICY_MARIANA_C_DUMMY"]
+	g_tNaturalWonderDummyPolicy[44] = GameInfoTypes["POLICY_DANXIA_A_DUMMY"]
+	g_tNaturalWonderDummyPolicy[45] = GameInfoTypes["POLICY_DANXIA_B_DUMMY"]
 
 
 
@@ -256,7 +262,7 @@ function SetDummiesForOwnedNaturalWonders(ePlayer)
 				else
 					-- placement in capital
 					local pCapital = pPlayer:GetCapitalCity()
-					
+
 					if g_tNaturalWonderOwner[i] == ePlayer then
 						if g_tNaturalWonderDummy[i] then
 							pCapital:SetNumRealBuilding(g_tNaturalWonderDummy[i], 1)
