@@ -1255,27 +1255,27 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_128.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_256.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_45.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_64.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_80.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_splash.dds">
+    <Content Include="1.WorldWonders\Art\4.Renaissance\Wonder_Marae_Arahurahu_splash.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

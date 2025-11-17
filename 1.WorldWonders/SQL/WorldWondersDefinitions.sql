@@ -37,11 +37,7 @@
 	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
 	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
-	UPDATE Buildings SET GPPOnCitizenBirth = 3 WHERE Type = 'BUILDING_WARTBURG';
-	UPDATE Buildings SET GPRateModifierPerMarriage = 7 WHERE Type = 'BUILDING_MARAE';
-	UPDATE Buildings SET GPRateModifierPerLocalTheme = 11 WHERE Type = 'BUILDING_SPUTNIK';
-	UPDATE Buildings SET GreatGeneralRateModifier = 33 WHERE Type = 'BUILDING_SANBO';
-
+	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
 	VALUES		('BUILDING_ALTAMIRA',	'YIELD_CULTURE',	1);
@@ -70,7 +66,7 @@
 	UPDATE Buildings SET Cost = 115, PrereqTech = 'TECH_AGRICULTURE',	NumPoliciesNeeded = 0, MaxStartEra = 'ERA_ANCIENT' WHERE Type = 'BUILDING_GGANTIJA';
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_GGANTIJA';
 	---------------------------------------------------------
-	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1 OR Value=2);
+	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_GGANTIJA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
 	-- Farm(2) (lua_requirement) (HARD)
 	---------------------------------------------------------	
@@ -1554,8 +1550,8 @@
 
 	INSERT INTO Building_YieldChangesPerGoldenAge 
 				(BuildingType,					YieldType,						Yield,		YieldCap)
-	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					5,			999),
-				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1,			999);
+	VALUES		('BUILDING_TLACHIHUALTEPETL',	'YIELD_FAITH',					5,			100),
+				('BUILDING_TLACHIHUALTEPETL',	'YIELD_GREAT_GENERAL_POINTS',	1,			100);
 	---------------------------------------------------------
 	INSERT INTO Policy_YieldFromConstruction
 				(PolicyType, 						YieldType,					Yield)
@@ -1745,40 +1741,40 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MARAE ARAHURAHU (NEW)
-	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MARAE';
-	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
+	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_ASTRONOMY', NumPoliciesNeeded = 11, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_MARAE_ARAHURAHU';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_MARAE_ARAHURAHU';
+	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_MARAE_ARAHURAHU' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
-	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_GRASS' WHERE Type = 'BUILDING_MARAE_ARAHURAHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_MARAE_ARAHURAHU' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	
 	INSERT INTO Building_ClassesNeededInCity 
-				(BuildingType,		BuildingClassType) 
-	SELECT		'BUILDING_MARAE',	'BUILDINGCLASS_GARDEN' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+				(BuildingType,				BuildingClassType) 
+	SELECT		'BUILDING_MARAE_ARAHURAHU',	'BUILDINGCLASS_GARDEN' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_MARAE', GreatWorkSlotType = 'GREAT_WORK_SLOT_MUSIC', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_MARAE_ARAHURAHU_HELP', SpecialistType = 'SPECIALIST_MUSICIAN', GreatPeopleRateChange = 1 WHERE Type = 'BUILDING_MARAE_ARAHURAHU';
 
 	INSERT INTO Building_YieldChanges 
-				(BuildingType,		YieldType,						Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_GREAT_ADMIRAL_POINTS',	1);
+				(BuildingType,					YieldType,						Yield)
+	VALUES		('BUILDING_MARAE_ARAHURAHU',	'YIELD_GREAT_ADMIRAL_POINTS',	1);
 
 	INSERT INTO Building_DomainFreeExperiencePerGreatWork
-				(BuildingType,		DomainType,		Experience)
-	VALUES		('BUILDING_MARAE',	'DOMAIN_LAND',	15),
-				('BUILDING_MARAE',	'DOMAIN_SEA',	15);
+				(BuildingType,					DomainType,		Experience)
+	VALUES		('BUILDING_MARAE_ARAHURAHU',	'DOMAIN_LAND',	15),
+				('BUILDING_MARAE_ARAHURAHU',	'DOMAIN_SEA',	15);
 
 	INSERT INTO Building_ThemingBonuses 
-				(BuildingType,		Description,					Bonus,	RequiresOwner,	AIPriority)
-	VALUES		('BUILDING_MARAE',	'TXT_KEY_THEMING_BONUS_MARAE',	14,		1,				5);
+				(BuildingType,					Description,					Bonus,	RequiresOwner,	AIPriority)
+	VALUES		('BUILDING_MARAE_ARAHURAHU',	'TXT_KEY_THEMING_BONUS_MARAE_ARAHURAHU',	14,		1,				5);
 
 	INSERT INTO Building_ThemingYieldBonus 
-				(BuildingType,		YieldType,			Yield) 
-	VALUES		('BUILDING_MARAE',	'YIELD_CULTURE',	3),
-				('BUILDING_MARAE',	'YIELD_FOOD',		8);
+				(BuildingType,					YieldType,			Yield) 
+	VALUES		('BUILDING_MARAE_ARAHURAHU',	'YIELD_CULTURE',	3),
+				('BUILDING_MARAE_ARAHURAHU',	'YIELD_FOOD',		8);
 	
 	INSERT INTO Building_YieldFromDeath
-				(BuildingType,		YieldType,		Yield)
-	VALUES		('BUILDING_MARAE',	'YIELD_FAITH',	10);
+				(BuildingType,					YieldType,		Yield)
+	VALUES		('BUILDING_MARAE_ARAHURAHU',	'YIELD_FAITH',	10);
 	
 	INSERT INTO UnitPromotions 
 				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
@@ -1801,15 +1797,15 @@
 				(PromotionType,			YieldType,			Yield)
 	VALUES		('PROMOTION_ARAHURAHU',	'YIELD_CULTURE',	120);
 	---------------------------------------------------------
-	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_DUMMY';
+	UPDATE Buildings SET FreePromotion = 'PROMOTION_ARAHURAHU' WHERE Type = 'BUILDING_MARAE_ARAHURAHU_DUMMY';
 	
 	-- second_free_promotion (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
-	VALUES		('BUILDING_MARAE',		'FLAVOR_RELIGION',		30),
-				('BUILDING_MARAE',		'FLAVOR_CULTURE',		60),
-				('BUILDING_MARAE',		'FLAVOR_OFFENSE',		30);
+	VALUES		('BUILDING_MARAE_ARAHURAHU',		'FLAVOR_RELIGION',		30),
+				('BUILDING_MARAE_ARAHURAHU',		'FLAVOR_CULTURE',		60),
+				('BUILDING_MARAE_ARAHURAHU',		'FLAVOR_OFFENSE',		30);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HIMEJI CASTLE
@@ -2676,22 +2672,22 @@
 	VALUES		('BUILDING_ORSZAGHAZ',	'FLAVOR_DIPLOMACY',	100),
 				('BUILDING_ORSZAGHAZ',	'FLAVOR_CULTURE',	30);
 --------------------------------------------------------------------------------------------------------------------------------------------
--- AMERCIAN UWWs (FROM VP 3.8)
+-- AMERCIAN UWWs (FROM VP 3.8, UPDATED TO VP 5.0.3)
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Smithsonian Institute
-	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_America_Smithsonian_splash.dds' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
-	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_SMITHSONIAN_QUOTE' WHERE Type = 'BUILDING_AMERICA_SMITHSONIAN';
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SMITHSONIAN_INSTITUTION';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,C', WonderSplashImage = 'Wonder_America_Smithsonian_splash.dds' WHERE Type = 'BUILDING_SMITHSONIAN_INSTITUTION';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_SMITHSONIAN_INSTITUTION_QUOTE' WHERE Type = 'BUILDING_SMITHSONIAN_INSTITUTION';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- West Point
-	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
-	UPDATE Buildings SET WonderSplashAnchor = 'C,B', WonderSplashImage = 'Wonder_America_West_Point_splash.dds' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
-	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_WESTPOINT_QUOTE' WHERE Type = 'BUILDING_AMERICA_WESTPOINT';
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_WEST_POINT';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B', WonderSplashImage = 'Wonder_America_West_Point_splash.dds' WHERE Type = 'BUILDING_WEST_POINT';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_WEST_POINT_QUOTE' WHERE Type = 'BUILDING_WEST_POINT';
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Slater Mill
-	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_America_Slater_Mill_splash.dds' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
-	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_AMERICA_SLATERMILL_QUOTE' WHERE Type = 'BUILDING_AMERICA_SLATERMILL';
+	UPDATE Buildings SET MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_SLATER_MILL';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,B', WonderSplashImage = 'Wonder_America_Slater_Mill_splash.dds' WHERE Type = 'BUILDING_SLATER_MILL';
+	UPDATE Buildings SET Quote = 'TXT_KEY_WONDER_SLATER_MILL_QUOTE' WHERE Type = 'BUILDING_SLATER_MILL';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_AMERICA_SLATERMILL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --============================================--
@@ -3129,7 +3125,7 @@
 
 	INSERT INTO Building_YieldChangesPerGoldenAge 
 				(BuildingType,			YieldType,			Yield,		YieldCap)
-	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	5,			999);
+	VALUES		('BUILDING_GREAT_HALL',	'YIELD_CULTURE',	5,			100);
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 
 				(BuildingType,			FlavorType,				Flavor)
@@ -4066,7 +4062,7 @@ UPDATE Buildings SET PolicyType = 'POLICY_LIBERTY_FINISHER' 	WHERE Type IN ('BUI
 UPDATE Buildings SET PolicyType = 'POLICY_HONOR_FINISHER' 		WHERE Type IN ('BUILDING_CHEVALIERS') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Buildings SET PolicyType = 'POLICY_PIETY_FINISHER' 		WHERE Type IN ('BUILDING_SISTINE_CHAPEL') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Buildings SET PolicyType = 'POLICY_PATRONAGE_FINISHER'	WHERE Type IN ('BUILDING_SUMMER_PALACE') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
-UPDATE Buildings SET PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_MARAE') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
+UPDATE Buildings SET PolicyType = 'POLICY_AESTHETICS_FINISHER'	WHERE Type IN ('BUILDING_MARAE_ARAHURAHU') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Buildings SET PolicyType = 'POLICY_COMMERCE_FINISHER'	WHERE Type IN ('BUILDING_AKIHABARA') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Buildings SET PolicyType = 'POLICY_EXPLORATION_FINISHER'	WHERE Type IN ('BUILDING_PANAMA_CANAL') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Buildings SET PolicyType = 'POLICY_RATIONALISM_FINISHER'	WHERE Type IN ('BUILDING_POLAR_EXPEDITION') AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
@@ -4103,12 +4099,12 @@ SELECT		'BUILDING_SUMMER_PALACE',			'BUILDINGCLASS_OLD_BRIDGE'			WHERE EXISTS (S
 SELECT		'BUILDING_BIG_BEN',					'BUILDINGCLASS_SUMMER_PALACE'		WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
 SELECT		'BUILDING_KILWA_KISIWANI',			'BUILDINGCLASS_SUMMER_PALACE'		WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
 SELECT		'BUILDING_OLD_BRIDGE',				'BUILDINGCLASS_SUMMER_PALACE'		WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_MARAE',					'BUILDINGCLASS_LOUVRE'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_MARAE',					'BUILDINGCLASS_MONTE_CARLO'			WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_MARAE',					'BUILDINGCLASS_MUSEUM_ISLAND'		WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_LOUVRE',					'BUILDINGCLASS_MARAE'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_MONTE_CARLO',				'BUILDINGCLASS_MARAE'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
-SELECT		'BUILDING_MUSEUM_ISLAND',			'BUILDINGCLASS_MARAE'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_MARAE_ARAHURAHU',					'BUILDINGCLASS_LOUVRE'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_MARAE_ARAHURAHU',					'BUILDINGCLASS_MONTE_CARLO'			WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_MARAE_ARAHURAHU',					'BUILDINGCLASS_MUSEUM_ISLAND'		WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_LOUVRE',					'BUILDINGCLASS_MARAE_ARAHURAHU'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_MONTE_CARLO',				'BUILDINGCLASS_MARAE_ARAHURAHU'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
+SELECT		'BUILDING_MUSEUM_ISLAND',			'BUILDINGCLASS_MARAE_ARAHURAHU'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
 SELECT		'BUILDING_AKIHABARA',				'BUILDINGCLASS_BROADWAY'			WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
 SELECT		'BUILDING_AKIHABARA',				'BUILDINGCLASS_RUHR_VALLEY'			WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
 SELECT		'BUILDING_AKIHABARA',				'BUILDINGCLASS_BANFF'				WHERE EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1) UNION ALL
@@ -4397,7 +4393,7 @@ UPDATE Buildings SET PrereqTech = 'TECH_EE_FLINTLOCK' WHERE Type = 'BUILDING_PET
 UPDATE Buildings SET PrereqTech = 'TECH_EE_MANUFACTURING' WHERE Type = 'BUILDING_SIKU_QUANSHU' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 --------------------------------------------------------------------------------------------------------------------------------------------
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_HIMEJI_CASTLE' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
-UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_MARAE' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
+UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_MARAE_ARAHURAHU' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_CHICHEN_ITZA' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_GLOBE_THEATER' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 9 WHERE Type = 'BUILDING_ST_PETERS' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');

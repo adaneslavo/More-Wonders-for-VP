@@ -140,6 +140,8 @@ v24:
 		- World Wonders:
 			- Falun Mine:
 				- now GPP granted starting from Medieval Era (was Classical);
+			- Ggantija:
+				- added missing parenthesis;
 			- Itsukushima Shrine:
 				- now boosts only Ocean tiles (was Coast and Ocean);
 				- deleted doubled requirements;

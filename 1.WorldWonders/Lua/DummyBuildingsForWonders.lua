@@ -24,7 +24,7 @@ local g_tWorldWonder = {
 	GameInfoTypes["BUILDING_GATE_OF_SUN"],
 	GameInfoTypes["BUILDING_GREAT_ZIMBABWE"],
 	GameInfoTypes["BUILDING_KILWA_KISIWANI"],
-	GameInfoTypes["BUILDING_MARAE"],
+	GameInfoTypes["BUILDING_MARAE_ARAHURAHU"],
 	GameInfoTypes["BUILDING_KUK"],
 	GameInfoTypes["BUILDING_ST_PETERS"],
 	GameInfoTypes["BUILDING_PANAMA_CANAL"],
@@ -52,7 +52,7 @@ local g_tWorldWonderDummy = {
 	GameInfoTypes["BUILDING_GATE_OF_SUN_DUMMY"],
 	GameInfoTypes["BUILDING_GREAT_ZIMBABWE_DUMMY"],
 	GameInfoTypes["BUILDING_KILWA_KISIWANI_DUMMY"],
-	GameInfoTypes["BUILDING_MARAE_DUMMY"],
+	GameInfoTypes["BUILDING_MARAE_ARAHURAHU_DUMMY"],
 	GameInfoTypes["BUILDING_KUK_DUMMY"],
 	GameInfoTypes["BUILDING_ST_PETERS_DUMMY"],
 	GameInfoTypes["BUILDING_PANAMA_CANAL_DUMMY"],
@@ -94,8 +94,8 @@ local g_tWorldWonderOwner = {}
 -- Gate of the Sun 					(4)			CLASSICAL
 -- Songyue Pagoda 					(25)		CLASSICAL
 -- Great Zimbabwe 					(5)				MEDIEVAL
--- Hospital of St. John 			(24)			MEDIEVAL
 -- Itsukushima Shrine 				(2)				MEDIEVAL
+-- Knight's Hospitaller 			(24)			MEDIEVAL
 -- Krak des Chevaliers 				(1)				MEDIEVAL
 -- Qalhat 							(3)				MEDIEVAL
 -- Tlachihualtepetl 				(23)			MEDIEVAL
@@ -120,7 +120,7 @@ local g_tWorldWonderOwner = {}
 	-- Tlachihualtepetl 				(23)	global_yields_from_constructions
 -- REQUIRES OTHER BASIC BUILDING:
 	-- Gate of the Sun 					(4)		global_modifiers_to_cities_with_walls
-	-- Hospital of St. John 			(24)	global_unit_healing_from_cities_with_temple
+	-- Knight's Hospitaller 			(24)	global_unit_healing_from_cities_with_temple
 -- REQUIRES COASTAL/NON-COASTAL CITY:
 	-- Krak des Chevaliers 				(1)		different_bonuses_in_non_coastal_cities	
 	-- Itsukushima Shrine 				(2)		border_growth_boost_in_coastal_cities/yields_to_atolls_in_coastal_cities

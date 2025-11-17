@@ -80,17 +80,6 @@ BEGIN
 	VALUES		('BUILDINGCLASS_DUMMY_LOUISIANA');
 END;
 --============================================--
--- AUTOMATED COMPATIBILITIES LUA
---============================================--
-/* for GameInfoTypes.IMPROVEMENT_TRADING_POST
-GameInfoTypes.IMPROVEMENT_GW_BRITTANY_KERIADENN (Brittany)
-GameInfoTypes.IMPROVEMENT_HININ_AINU_KOTAN (Ainu)
-GameInfoTypes.IMPROVEMENT_JAR_BORGO (Italy from Jarcast)
-GameInfoTypes.IMPROVEMENT_JAR_HOGAN (Navajo from Jarcast) */
-
-/* for GameInfoTypes.IMPROVEMENT_CAMP
-GameInfoTypes.IMPROVEMENT_DMS_KAN (Tehuelche) */
---============================================--
 -- CUSTOM_MOD_OPTIONS
 --============================================--
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_RED_COMBAT';
@@ -103,6 +92,10 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PLOTS_EXTENSIONS';
 --============================================--
 -- VP FIXES
 --============================================--
+-- temporary resource fix:
+UPDATE Resources SET Hills = 1  WHERE Type = 'RESOURCE_SALT';
+UPDATE Resources SET Hills = 1  WHERE Type = 'RESOURCE_COPPER';
+UPDATE Resources SET Flatlands = 1  WHERE Type = 'RESOURCE_COAL';
 -- additional combat classes for promotions
 INSERT OR REPLACE INTO Language_en_US 
 			(Tag,										Text) 
