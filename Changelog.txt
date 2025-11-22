@@ -116,6 +116,8 @@ v24:
 				- Skara Brae (nerf):
 					- removed basic Food bonus;
 					- removed Flat requirement;
+				- Sigiriya:
+					- reduced defense bonus to 4 (was 10);
 				- Solovietsky Monastery (buff):
 					- removed City Supply bonus;
 					- replaced Production and GAP with increased +2 Faith and +2 Great Admiral Points;
@@ -123,6 +125,8 @@ v24:
 					- added 15% Production conversion to Food;
 				- Tembleque Aqueduct (change):
 					- now grants Food from Faith Purchases (was Production);
+				- Wartburg:
+					- reduced defense bonus to 7 (was 10);
 		- Flavoured Help Texts:
 			- removed hated [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive texts;
 			- all original help texts are cleared, and only lua abilities are added there instead (rest can be seen in improved VP tooltip);
@@ -171,18 +175,26 @@ v24:
 		- new prettier icons for some Natural Wonders (by @Putmalk);
 		- added AI generated civilopedia texts for all Natural Wonders including original ones (by @jarcast2 aka dephi);
 	- changed:
-		- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
-		- Ha Long Bay: added Artifact icon;
-		- Sylvite and Tern Egg: added names, so new players would know what they are;
-		- Great Blue Hole: special buldings are now mutually exclusive;
 		- Aurora Borealis: 
 			- now does not spawn on Coast (model is invisible when spawned there);
 			- renamed to Aurora (it can be Borealis or Australis);
-		- Mt. Fuji: now ability is in nearby City (was in Capital);
+			- reworked its quotes, because they were too long;
+		- Bermuda Triangle: now spawns only in seas of 50 tiles or more;
+		- Ha Long Bay: added Artifact icon;
+		- Giant's Causeway: now gives +20% Work Rate to Archaeologists (was +10%);
+		- Great Blue Hole: special buldings are now mutually exclusive;
 		- Krakatoa: now ability is in nearby City (was in Capital);
+		- Mt. Fuji: now ability is in nearby City (was in Capital);
+		- Bathyscaphe Docking Bay: now +50% Production towards Submarines (was +35%);
+		- Sylvite and Tern Egg: added names, so new players would know what they are;
 		- Louisiana (shrimp): compatibility check is now reworked and also uses trigger;
-		- expanded Natural Wonder's descriptions a bit (look at Civilopedia);
+		- expanded Natural Wonder's Help texts a bit (look at Civilopedia or Natural Wonder Overview);
+		- Natural Wonder Overview shows short Help text on a "?" hover instead of normal Civilopedia text;
+		- Natural Wonder Popup:
+			- contains more colored texts for better visibility;
+			- reworked all texts (went back to the good old method a bit because there's a plenty of space for it);
 	- fixed:
+		- Deep Ocean Research Facility: now correctly boosts all sea resources (was only Tropical Fish);
 		- Uluru: bonus production towards Diplomatic Units is global (was in Capital);
 		- Mt. Sinai: now grants correct 50 Faith and ownership change (was 100);
 		- replaced Plot:Area():GetNumTiles() function with Map.GetNumTilesOfLandmass(Plot:GetLandmass()) function;
@@ -196,6 +208,9 @@ v24:
 		- revised NaturalWondersCustomMethods.lua file;
 		- deleted old print statements in lua files;
 		- deleted unnecessary New Reef tags;
+- Buildings:
+	- Fletcher:
+		- added back eligible combat types for Yerba de la Fleche (Archery and also Melee and Mounted for longer life of the promotion);
 	
 v23.7:
 - finally added new file that substitutes only changed function of asp.lua, so no more problems with incompatibility after an update (thanks to @azum4roll);

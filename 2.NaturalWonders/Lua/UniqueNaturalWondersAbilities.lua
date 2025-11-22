@@ -85,7 +85,7 @@ local g_tNaturalWonderDummy = {
 	GameInfoTypes["BUILDING_GALAPAGOS_B_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_A_DUMMY"],
 	GameInfoTypes["BUILDING_HA_LONG_B_DUMMY"],
-	GameInfoTypes["BUILDING_ZHANGJIAJIE_DUMMY"],		-- 35
+	nil,												-- 35
 	GameInfoTypes["BUILDING_AURORA_A_DUMMY"], 
 	GameInfoTypes["BUILDING_AURORA_B_DUMMY"],
 	GameInfoTypes["BUILDING_AURORA_C_DUMMY"],

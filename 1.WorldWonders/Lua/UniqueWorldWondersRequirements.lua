@@ -871,7 +871,7 @@ function Initialize()
 				[GameInfo.Buildings.BUILDING_TAJ_MAHAL.ID] = true,
 				[GameInfo.Buildings.BUILDING_RED_FORT.ID] = true,
 				[GameInfo.Buildings.BUILDING_SIBERIAN_RAILWAY.ID] = true,
-				[GameInfo.Buildings.BUILDING_MOTHERLAND_STATUE.ID] = true,
+				[GameInfo.Buildings.BUILDING_MOTHERLAND_CALLS.ID] = true,
 				[GameInfo.Buildings.BUILDING_BLETCHLEY_PARK.ID] = true,
 				[GameInfo.Buildings.BUILDING_ANITKABIR.ID] = true,
 				[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,

@@ -493,14 +493,14 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- FORUM ROMANUM
-	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_FORUM';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,T', PrereqTech = 'TECH_WRITING' WHERE Type = 'BUILDING_FORUM';
+	UPDATE Buildings SET MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ROMAN_FORUM';
+	UPDATE Buildings SET WonderSplashAnchor = 'L,T', PrereqTech = 'TECH_WRITING' WHERE Type = 'BUILDING_ROMAN_FORUM';
 	---------------------------------------------------------
-	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_FORUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_ROMAN_FORUM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,		FeatureType) 
-	SELECT		'BUILDING_FORUM',	'FEATURE_MARSH' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_ROMAN_FORUM',	'FEATURE_MARSH' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- MALWIYA MINARET (NEW)
@@ -734,7 +734,7 @@
 	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
 	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 1000, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
+	UPDATE Buildings SET Defense = 400, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
@@ -999,7 +999,7 @@
 				(BuildingType,			BuildingClassType) 
 	SELECT		'BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 1000, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
+	UPDATE Buildings SET Defense = 700, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield) 
@@ -2442,8 +2442,8 @@
 	---------------------------------------------------------
 	INSERT INTO Building_ClassesNeededInCity 
 				(BuildingType,			BuildingClassType) 
-	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_STOCKYARD'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
-	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_AGRIBUSINESS'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
+	SELECT		'BUILDING_KEW_GARDENS',	'BUILDINGCLASS_GARDEN'			WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
 	UPDATE Buildings SET SpecialistType = 'SPECIALIST_SCIENTIST', GreatPeopleRateChange = 3 WHERE Type = 'BUILDING_KEW_GARDENS';
 

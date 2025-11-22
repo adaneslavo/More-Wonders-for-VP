@@ -22,7 +22,7 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Mahaprasthanika Parva'),
 			('TXT_KEY_PROMOTION_DALLOL',				'Explosive Mixture'),
 			('TXT_KEY_PROMOTION_DALLOL_HELP',			'+10%[ICON_RANGE_STRENGTH]Offensive RCS.'),
 			('TXT_KEY_PROMOTION_CAUSEWAY',				'Curiosity'),
-			('TXT_KEY_PROMOTION_CAUSEWAY_HELP',			'+1[ICON_MOVES]Movement Point. +10% [ICON_WORKER] Work Rate.'),
+			('TXT_KEY_PROMOTION_CAUSEWAY_HELP',			'+1[ICON_MOVES]Movement Point. +20% [ICON_WORKER] Work Rate.'),
 			('TXT_KEY_PROMOTION_MT_EVEREST',			'Roof of the World'),
 			('TXT_KEY_PROMOTION_MT_EVEREST_HELP',		'Unit gains [ICON_TOURISM] [COLOR:255:230:85:255]for revealing tiles[ENDCOLOR].'),
 			('TXT_KEY_PROMOTION_HA_LONG',				'Descending Dragon'),
@@ -32,7 +32,7 @@ VALUES		('TXT_KEY_PROMOTION_KAILASH',				'Mahaprasthanika Parva'),
 			
 INSERT INTO UnitPromotions 
 			(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					12,				'promoVP_atlas_03',				'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
+VALUES		('PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH',			'TXT_KEY_PROMOTION_KAILASH_HELP',			'AS2D_IF_LEVELUP',	1,				0,					12,				'PROMOTION_ATLAS_VP_03',		'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_KAILASH'),
 			('PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU',				'TXT_KEY_PROMOTION_ULURU_HELP',				'AS2D_IF_LEVELUP',	1,				0,					8,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_DIPLO',		'TXT_KEY_PROMOTION_ULURU'),
 			('PROMOTION_SOLOMONS_MINES',	'TXT_KEY_PROMOTION_SOLOMONS_MINES',		'TXT_KEY_PROMOTION_SOLOMONS_MINES_HELP',	'AS2D_IF_LEVELUP',	1,				0,					4,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_SOLOMONS_MINES'),
 			('PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE',	'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					9,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_BERMUDA_TRIANGLE'),
@@ -46,7 +46,7 @@ UPDATE UnitPromotions SET DiploMissionInfluence = 10 WHERE Type = 'PROMOTION_ULU
 UPDATE UnitPromotions SET WorkRateMod = 25 WHERE Type = 'PROMOTION_SOLOMONS_MINES';
 UPDATE UnitPromotions SET ExtraNavalMovement = -3, PromotionDuration = 3 WHERE Type = 'PROMOTION_BERMUDA_TRIANGLE';
 UPDATE UnitPromotions SET RangedAttackModifier = 10 WHERE Type = 'PROMOTION_DALLOL';
-UPDATE UnitPromotions SET WorkRateMod = 10, MovesChange = 1 WHERE Type = 'PROMOTION_CAUSEWAY';
+UPDATE UnitPromotions SET WorkRateMod = 20, MovesChange = 1 WHERE Type = 'PROMOTION_CAUSEWAY';
 UPDATE UnitPromotions SET OpenDefense = 20, RoughDefense = 20 WHERE Type = 'PROMOTION_HA_LONG';
 
 INSERT INTO UnitPromotions_Terrains
@@ -176,19 +176,15 @@ INSERT INTO Language_en_US
 			(Tag,										Text) 
 VALUES		('TXT_KEY_BUILDING_MT_PAEKTU',				'Altar of the Born under the Mountain'),
 			('TXT_KEY_BUILDING_MT_PAEKTU_PEDIA',		'TODO'),
-			/*('TXT_KEY_BUILDING_MT_PAEKTU_HELP',		'+1 [ICON_GREAT_PEOPLE] Great Musician Point. Has 1 slot for [ICON_GREAT_WORK] Great Work of Art, and starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]Kim Il-sung and Kim Jong-il standing at the peak of Mount Paektu[ENDCOLOR].'),*/
 			('TXT_KEY_BUILDING_MT_PAEKTU_HELP',			''),
 			('TXT_KEY_BUILDING_SCUBA_RESORT',			'Scuba Diving Resort'),
 			('TXT_KEY_BUILDING_SCUBA_RESORT_PEDIA',		'TODO'),
-			/*('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',	'+1 [ICON_GOLD] Gold and +1 [ICON_TOURISM] Tourism from Atolls worked by this City. +1 [ICON_GOLD] Gold and +1 [ICON_RESEARCH] Science from Ocean Tiles worked by this City.'),*/
 			('TXT_KEY_BUILDING_SCUBA_RESORT_HELP',		''),
 			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY',		'Bathyscaphe Docking Bay'),
 			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_PEDIA',	'TODO'),
-			/*('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	'+35% [ICON_PRODUCTION] Production when constructing [COLOR_POSITIVE_TEXT]Submarines[ENDCOLOR] in the City.'),*/
 			('TXT_KEY_BUILDING_BATHYSCAPHE_BAY_HELP',	''),
 			('TXT_KEY_BUILDING_OCEAN_FACILITY',			'Deep Ocean Research Facility'),
 			('TXT_KEY_BUILDING_OCEAN_FACILITY_PEDIA',	'TODO'),
-			/*('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'+1 [ICON_FOOD] Food and +1 [ICON_RESEARCH] Science from Ocean Tiles worked by this City.[NEWLINE][NEWLINE]All Sea resources in this City gain +1 [ICON_FOOD] Food.');*/
 			('TXT_KEY_BUILDING_OCEAN_FACILITY_HELP',	'');
 
 INSERT INTO Building_YieldChanges 
@@ -216,11 +212,11 @@ VALUES		('BUILDING_SCUBA_RESORT',	'TERRAIN_OCEAN',	'YIELD_GOLD',		1),
 
 INSERT INTO Building_UnitCombatProductionModifiers
 			(BuildingType,					UnitCombatType,				Modifier) 
-VALUES		('BUILDING_BATHYSCAPHE_BAY',	'UNITCOMBAT_SUBMARINE',		35);
+VALUES		('BUILDING_BATHYSCAPHE_BAY',	'UNITCOMBAT_SUBMARINE',		50);
 
 INSERT INTO Building_ResourceYieldChanges	(BuildingType,				ResourceType,	YieldType,		Yield)
 SELECT DISTINCT								'BUILDING_OCEAN_FACILITY',	Type,			'YIELD_FOOD',	1
-FROM Resources WHERE TechCityTrade = 'TECH_SAILING';
+FROM Resources WHERE SeaResource = 1 AND AnimalResource = 1;
 --============================================--
 -- DUMMY BUILDINGS
 --============================================--
@@ -261,7 +257,6 @@ VALUES		('BUILDINGCLASS_JEJU_DO_DUMMY',			'TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'B
 			('BUILDINGCLASS_GALAPAGOS_B_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		'BUILDING_GALAPAGOS_B_DUMMY'),
 			('BUILDINGCLASS_HA_LONG_A_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_A_DUMMY',			'BUILDING_HA_LONG_A_DUMMY'),
 			('BUILDINGCLASS_HA_LONG_B_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_B_DUMMY',			'BUILDING_HA_LONG_B_DUMMY'),
-			('BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDING_ZHANGJIAJIE_DUMMY'),
 			('BUILDINGCLASS_AURORA_A_DUMMY',		'TXT_KEY_BUILDING_AURORA_DUMMY',			'BUILDING_AURORA_A_DUMMY'),
 			('BUILDINGCLASS_AURORA_B_DUMMY',		'TXT_KEY_BUILDING_AURORA_DUMMY',			'BUILDING_AURORA_B_DUMMY'),
 			('BUILDINGCLASS_AURORA_C_DUMMY',		'TXT_KEY_BUILDING_AURORA_DUMMY',			'BUILDING_AURORA_C_DUMMY'),
@@ -273,7 +268,6 @@ VALUES		('BUILDINGCLASS_JEJU_DO_DUMMY',			'TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'B
 INSERT INTO Buildings
 			(Type,								BuildingClass,							Description,								PrereqTech, Cost, FaithCost, GreatWorkCount , NukeImmune, ConquestProb, IsDummy)
 VALUES		-- dummy building with direct placement
-			('BUILDING_CRATER_DUMMY',			'BUILDINGCLASS_CRATER_DUMMY',			'TXT_KEY_BUILDING_CRATER_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_MESA_DUMMY',				'BUILDINGCLASS_MESA_DUMMY',				'TXT_KEY_BUILDING_MESA_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_FUJI_1_DUMMY',			'BUILDINGCLASS_FUJI_1_DUMMY',			'TXT_KEY_BUILDING_FUJI_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_FUJI_2_DUMMY',			'BUILDINGCLASS_FUJI_2_DUMMY',			'TXT_KEY_BUILDING_FUJI_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
@@ -281,6 +275,7 @@ VALUES		-- dummy building with direct placement
 			('BUILDING_JEJU_DO_DUMMY',			'BUILDINGCLASS_JEJU_DO_DUMMY',			'TXT_KEY_BUILDING_JEJU_DO_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_ARCH_DUMMY',				'BUILDINGCLASS_ARCH_DUMMY',				'TXT_KEY_BUILDING_ARCH_DUMMY',				NULL,       -1,   -1,        -1,              1,          0,			1),
 			-- dummy buildings
+			('BUILDING_CRATER_DUMMY',			'BUILDINGCLASS_CRATER_DUMMY',			'TXT_KEY_BUILDING_CRATER_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_SALAR_A_DUMMY',			'BUILDINGCLASS_SALAR_A_DUMMY',			'TXT_KEY_BUILDING_SALAR_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_SALAR_B_DUMMY',			'BUILDINGCLASS_SALAR_B_DUMMY',			'TXT_KEY_BUILDING_SALAR_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_EL_DORADO_DUMMY',		'BUILDINGCLASS_EL_DORADO_DUMMY',		'TXT_KEY_BUILDING_EL_DORADO_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
@@ -310,7 +305,6 @@ VALUES		-- dummy building with direct placement
 			('BUILDING_GALAPAGOS_B_DUMMY',		'BUILDINGCLASS_GALAPAGOS_B_DUMMY',		'TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_HA_LONG_A_DUMMY',		'BUILDINGCLASS_HA_LONG_A_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_A_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_HA_LONG_B_DUMMY',		'BUILDINGCLASS_HA_LONG_B_DUMMY',		'TXT_KEY_BUILDING_HA_LONG_B_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
-			('BUILDING_ZHANGJIAJIE_DUMMY',		'BUILDINGCLASS_ZHANGJIAJIE_DUMMY',		'TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_AURORA_A_DUMMY',			'BUILDINGCLASS_AURORA_A_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_AURORA_B_DUMMY',			'BUILDINGCLASS_AURORA_B_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
 			('BUILDING_AURORA_C_DUMMY',			'BUILDINGCLASS_AURORA_C_DUMMY',			'TXT_KEY_BUILDING_AURORA_DUMMY',			NULL,       -1,   -1,        -1,              1,          0,			1),
@@ -348,7 +342,6 @@ VALUES		('TXT_KEY_BUILDING_SALAR_A_DUMMY',			'Salar de Uyuni A'),
 			('TXT_KEY_BUILDING_GALAPAGOS_B_DUMMY',		'Galapagos B'),
 			('TXT_KEY_BUILDING_HA_LONG_A_DUMMY',		'Ha Long Bay A'),
 			('TXT_KEY_BUILDING_HA_LONG_B_DUMMY',		'Ha Long Bay B'),
-			('TXT_KEY_BUILDING_ZHANGJIAJIE_DUMMY',		'Zhangjiajie'),
 			('TXT_KEY_BUILDING_AURORA_DUMMY',			'Aurora'),
 			('TXT_KEY_BUILDING_JEJU_DO_DUMMY',			'Seongsan Ilchulbong'),
 			('TXT_KEY_BUILDING_ARCH_DUMMY',				'Delicate Arch'),
