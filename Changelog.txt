@@ -1,4 +1,7 @@
 MW Changelog:
+v24.1:
+- ???
+
 v24:
 - adapted to VP 5.0;
 - World Wonders:
@@ -116,7 +119,7 @@ v24:
 				- Skara Brae (nerf):
 					- removed basic Food bonus;
 					- removed Flat requirement;
-				- Sigiriya:
+				- Sigiriya (nerf):
 					- reduced defense bonus to 4 (was 10);
 				- Solovietsky Monastery (buff):
 					- removed City Supply bonus;
@@ -125,13 +128,13 @@ v24:
 					- added 15% Production conversion to Food;
 				- Tembleque Aqueduct (change):
 					- now grants Food from Faith Purchases (was Production);
-				- Wartburg:
+				- Wartburg (nerf):
 					- reduced defense bonus to 7 (was 10);
 		- Flavoured Help Texts:
 			- removed hated [ICON_MUSHROOM], [ICON_FLOWER] and [ICON_WORKER] (in some cases) and replaced it with more intuitive texts;
 			- all original help texts are cleared, and only lua abilities are added there instead (rest can be seen in improved VP tooltip);
-			- all Flavoured Help Texts are now used ONLY for World Wonder popup screen;
-			- all Flavoured Help Texts are now massively revised, spellchecked and all bonuses are added inside in a smart way;
+			- almost all (up to Industrial Era) Flavoured Help Texts are now used ONLY for World Wonder popup screen;
+			- almost all (up to Industrial Era) Flavoured Help Texts are now massively revised, spellchecked and all bonuses are added inside in a smart way;
 		- added compatibility check for few mods:
 			- @gwennog's: Brittany and Ainu (Village replacements) and Tehuelche (Camp replacement);
 			- @jarcast's: Italy and Navajo (Village replacements);
