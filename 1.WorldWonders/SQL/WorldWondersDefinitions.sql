@@ -4345,7 +4345,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		INSERT INTO Unit_FreePromotions	(UnitType,		   PromotionType) 
 		SELECT							 a.Type||'_FAITH', b.PromotionType 
 		FROM Units a, Unit_FreePromotions b
-		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
+		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR') AND a.Type = b.UnitType;
 
 		/*INSERT INTO Unit_ClassUpgrades (UnitType,		 UnitClassType)
 		SELECT						   a.Type||'_FAITH', b.UnitClassType
@@ -4355,7 +4355,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		INSERT INTO Unit_ResourceQuantityRequirements (UnitType,		 ResourceType,   Cost) 
 		SELECT										   a.Type||'_FAITH', b.ResourceType, b.Cost 
 		FROM Units a, Unit_ResourceQuantityRequirements b
-		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
+		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR') AND a.Type = b.UnitType;
 	
 		INSERT INTO Units (Type, 		   Class, 			Combat, BaseSightRange, Cost, FaithCost, RequiresFaithPurchaseEnabled,  GlobalFaithPurchaseCooldown, PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, PolicyType, 				  PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra)
 		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 0,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas, MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_ANGKOR_WAT_DUMMY', PrereqTech, NULL,			CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
