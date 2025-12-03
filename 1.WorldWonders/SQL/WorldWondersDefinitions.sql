@@ -1674,7 +1674,16 @@
 	INSERT INTO Building_BuildingClassHappiness (BuildingType,				BuildingClassType,	Happiness)
 	SELECT DISTINCT								'BUILDING_ST_PETERS_DUMMY',	BuildingClass,		1
 	FROM Buildings
-	WHERE Cost = -1 and FaithCost > 0 AND WonderSplashImage IS NULL;
+	WHERE Cost = -1 AND FaithCost > 0 AND WonderSplashImage IS NULL;
+
+	CREATE TRIGGER IF NOT EXISTS MWStPetersHappinessBonus
+	AFTER INSERT ON Buildings
+	WHEN NEW.Cost = -1 AND NEW.FaithCost > 0 AND NEW.WonderSplashImage IS NULL
+	BEGIN
+		INSERT INTO Building_BuildingClassHappiness
+					(BuildingType,					BuildingClassType,		Happiness)
+		VALUES		('BUILDING_ST_PETERS_DUMMY',	NEW.BuildingClass,		1);
+	END;
 	
 	-- happiness_to_all_religious_buildings (lua_ability)
 	---------------------------------------------------------
@@ -1836,6 +1845,19 @@
 	WHERE a.BuildingClass = b.Type AND a.Type = c.BuildingType
 	  AND b.MaxGlobalInstances = -1 AND b.MaxPlayerInstances = -1 AND a.IsDummy = 0 
 	  AND c.YieldType = 'YIELD_FAITH';
+
+	CREATE TRIGGER IF NOT EXISTS MWHarmandirFoodBonus
+	AFTER INSERT ON Building_YieldChanges
+	WHEN NEW.YieldType = 'YIELD_FAITH'
+	AND NEW.BuildingType IN (SELECT DefaultBuilding FROM BuildingClasses WHERE MaxGlobalInstances = -1 AND MaxPlayerInstances = -1)
+	AND NEW.BuildingType IN (SELECT Type FROM Buildings WHERE IsDummy = 0)
+	BEGIN
+		INSERT INTO Building_BuildingClassYieldChanges
+					(BuildingType,			BuildingClassType,		YieldType,		YieldChange)
+		SELECT		'BUILDING_HARMANDIR',	Type,					'YIELD_FOOD',	2
+		FROM BuildingClasses
+		WHERE DefaultBuilding = NEW.BuildingType;
+	END;
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 	
 				(BuildingType, 			FlavorType,			Flavor)
@@ -2217,7 +2239,7 @@
 
 	INSERT INTO Building_SpecialistYieldChanges
 				(BuildingType,				SpecialistType,			YieldType,			Yield) 
-	VALUES		('BUILDING_SIKU_QUANSHU',	'SPECIALIST_WRITER',	'YIELD_SCIENCE',	2);
+	VALUES		('BUILDING_SIKU_QUANSHU',	'SPECIALIST_WRITER',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO Building_GreatWorkYieldChanges
 				(BuildingType,				YieldType,			Yield) 

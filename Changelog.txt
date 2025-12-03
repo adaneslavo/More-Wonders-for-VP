@@ -1,6 +1,19 @@
 MW Changelog:
 v24.1:
-- ???
+- reworked resource monopoly texts (now more detailed and coloured);
+- reworked style of World Wonder help texts:
+	- now requirements are separated with bullet points;
+	- lua abilities are preceded with header;
+	- each part of help text is separated with dash lines;
+	- minor stuff like: added some icons, more detailed texts, reworked order;
+- reworked Wonder Splash (Flavoured) texts:
+	- changed GP icons to specialist icons if WW adds new specialist slots;
+	- changed GP icons to specialist icons if WW boosts specialists' yields;
+- added 3 missing VP Improvement replacements (Aplekton, Ordo, Isibaya) to WW lua requirements;
+- fixed:
+	- Siku Quanshu: +1 Science to Writers (was +2);
+	- Great Hall of People: now correctly shows it belongs to Order (was Autocracy);
+- deleted unnecessary commented stuff (relic of pre 5.0 version);
 
 v24:
 - adapted to VP 5.0;

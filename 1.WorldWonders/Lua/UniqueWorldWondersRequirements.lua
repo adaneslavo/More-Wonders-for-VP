@@ -989,6 +989,9 @@ function Initialize()
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
+				eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_APLEKTON					and GameInfo.Improvements.IMPROVEMENT_APLEKTON.ID					or -2,
+				eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_ISIBAYA					and GameInfo.Improvements.IMPROVEMENT_ISIBAYA.ID					or -2,
+				eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_ORDO						and GameInfo.Improvements.IMPROVEMENT_ORDO.ID						or -2,
 				iRequiredImprovements = 1
 			}
 			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_LOUVRE.ID] = {
@@ -999,6 +1002,9 @@ function Initialize()
 				eRequiredImprovement1 = GameInfoTypes.IMPROVEMENT_CITADEL,
 				eRequiredImprovement2 = GameInfoTypes.IMPROVEMENT_FORT,
 				eRequiredImprovement3 = GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA		and GameInfo.Improvements.IMPROVEMENT_TOMATEKH_BENIN_IYA.ID			or -2,
+				eRequiredImprovement4 = GameInfo.Improvements.IMPROVEMENT_APLEKTON					and GameInfo.Improvements.IMPROVEMENT_APLEKTON.ID					or -2,
+				eRequiredImprovement5 = GameInfo.Improvements.IMPROVEMENT_ISIBAYA					and GameInfo.Improvements.IMPROVEMENT_ISIBAYA.ID					or -2,
+				eRequiredImprovement6 = GameInfo.Improvements.IMPROVEMENT_ORDO						and GameInfo.Improvements.IMPROVEMENT_ORDO.ID						or -2,
 				iRequiredImprovements = 1
 			}
 			tValidIsHasImprovementsOrs[GameInfo.Buildings.BUILDING_AKIHABARA.ID] = {

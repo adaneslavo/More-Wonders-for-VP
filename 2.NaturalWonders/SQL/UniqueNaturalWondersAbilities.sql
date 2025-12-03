@@ -373,8 +373,8 @@ UPDATE Buildings SET CityConnectionTradeRouteModifier = 20 WHERE Type = 'BUILDIN
 
 
 INSERT INTO Building_ResourceQuantity
-			(BuildingType,					ResourceType,		Quantity) 
-VALUES		('BUILDING_DALLOL_DUMMY',		'RESOURCE_SYLVITE',	1);
+			(BuildingType,				ResourceType,			Quantity) 
+VALUES		('BUILDING_DALLOL_DUMMY',	'RESOURCE_SYLVITE',		1);
 
 INSERT INTO Building_GreatWorkYieldChanges
 			(BuildingType,				YieldType,					Yield) 
