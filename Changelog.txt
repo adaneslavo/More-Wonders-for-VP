@@ -1,5 +1,24 @@
 MW Changelog:
+v24.2:
+- reworked Defense bonuses for various World Wonders (reported as being op):
+	- Cave of Altamira: 5 --> 1;
+	- Sigiriya: 10 --> 4 (in previous update) --> 3;
+	- Wartburg: 10 --> 7 (in previous update) --> 4;
+	- Great Zimbabwe: 10 --> 5;
+	- Mont-Saint-Michel: 10 --> 6;
+	- Krak des Chevaliers: 20 --> 8 for main city, and 5 --> 2 for other non-coastal cities;
+	- Solovietsky Monastery: 10 --> 5;
+	- Autobahn: 7 --> 3 (global)
+- reworked some difficult requirements based on Peace/War (Buddhas of Bamiyan, Old Bridge in Mostar) or Approach (Statue of Zeus, Great Wall):
+	- now you have to fulfill the requirement up to 33% production progress; after that limit they are disabled;
+	- Approaches are disabled during multiplayer games;
+- fixed St. Peter's Basilica ability and trigger;
+- tweaked Mont-Saint-Michel requirement description;
+
+
 v24.1:
+- changed:
+	- Harmandir Sahib: now grants +3 Food (was 2), but only to non-religious basic buildings giving Faith;
 - reworked resource monopoly texts (now more detailed and coloured);
 - reworked style of World Wonder help texts:
 	- now requirements are separated with bullet points;
@@ -9,10 +28,12 @@ v24.1:
 - reworked Wonder Splash (Flavoured) texts:
 	- changed GP icons to specialist icons if WW adds new specialist slots;
 	- changed GP icons to specialist icons if WW boosts specialists' yields;
-- added 3 missing VP Improvement replacements (Aplekton, Ordo, Isibaya) to WW lua requirements;
 - fixed:
-	- Siku Quanshu: +1 Science to Writers (was +2);
+	- Siku Quanshu: +1 Science to Writers (was 2);
 	- Great Hall of People: now correctly shows it belongs to Order (was Autocracy);
+	- St. Peter's Basilica: now grants bonus only to true Religious Buildings (unlocked by a Belief);
+	- added 3 missing VP Improvement replacements (Aplekton, Ordo, Isibaya) to WW lua requirements;
+	- added triggers for some abilities that was related to other buildings that could be added in other mods;
 - deleted unnecessary commented stuff (relic of pre 5.0 version);
 
 v24:

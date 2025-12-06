@@ -36,7 +36,7 @@
 	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_DEER'		WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
 	SELECT		'BUILDING_ALTAMIRA',	'RESOURCE_HORSE'	WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------	
-	UPDATE Buildings SET Defense = 500, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
+	UPDATE Buildings SET Defense = 100, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 1, EnhancedYieldTech = 'TECH_ARCHAEOLOGY' WHERE Type = 'BUILDING_ALTAMIRA';
 	
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
@@ -734,7 +734,7 @@
 	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_FOREST' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2)) UNION ALL
 	SELECT		'BUILDING_SIGIRIYA',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 400, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
+	UPDATE Buildings SET Defense = 300, GreatWorkSlotType = 'GREAT_WORK_SLOT_ART_ARTIFACT', GreatWorkCount = 2, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_SIGIRIYA_HELP' WHERE Type = 'BUILDING_SIGIRIYA';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,			Yield) 
@@ -999,7 +999,7 @@
 				(BuildingType,			BuildingClassType) 
 	SELECT		'BUILDING_WARTBURG',	'BUILDINGCLASS_WRITERS_GUILD' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 700, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
+	UPDATE Buildings SET Defense = 400, SpecialistType = 'SPECIALIST_WRITER', GreatPeopleRateChange = 2, GreatWorkSlotType = 'GREAT_WORK_SLOT_LITERATURE', GreatWorkCount = 3, ThemingBonusHelp = 'TXT_KEY_THEMING_BONUS_WARTBURG_HELP' WHERE Type = 'BUILDING_WARTBURG';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,			YieldType,					Yield) 
@@ -1053,7 +1053,7 @@
 	
 	-- Mine/Camp(2) (lua_requirement) (HARD)
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 1000, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
+	UPDATE Buildings SET Defense = 500, GlobalPlotBuyCostModifier = -30, NumTradeRouteBonus = 1 WHERE Type = 'BUILDING_GREAT_ZIMBABWE';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,						YieldType,					Yield)
@@ -1325,7 +1325,7 @@
 	-- OneTileCity (lua_requirement) (ALL)
 	-- EndOfPeninsula (lua_requirement) (ALL)
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000, EnhancedYieldTech = 'TECH_COMPUTERS' WHERE Type = 'BUILDING_MICHEL';
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 600, EnhancedYieldTech = 'TECH_COMPUTERS' WHERE Type = 'BUILDING_MICHEL';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,		YieldType,					Yield) 
@@ -1503,7 +1503,7 @@
 	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1, IsNoWater = 1 WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET /*IsNoCoast = 1, */Hill = 1 WHERE Type = 'BUILDING_CHEVALIERS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 2000, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
+	UPDATE Buildings SET Defense = 800, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,						Yield)
@@ -1520,7 +1520,7 @@
 				(BuildingType,			UnitType,				NumUnits)
 	VALUES		('BUILDING_CHEVALIERS', 'UNIT_GREAT_GENERAL',	1);
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 500, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
+	UPDATE Buildings SET Defense = 200, CitySupplyFlat = 1 WHERE Type = 'BUILDING_CHEVALIERS_DUMMY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,					YieldType,			Yield)
@@ -1674,16 +1674,17 @@
 	INSERT INTO Building_BuildingClassHappiness (BuildingType,				BuildingClassType,	Happiness)
 	SELECT DISTINCT								'BUILDING_ST_PETERS_DUMMY',	BuildingClass,		1
 	FROM Buildings
-	WHERE Cost = -1 AND FaithCost > 0 AND WonderSplashImage IS NULL;
+	WHERE Cost = -1 AND FaithCost > 0 AND WonderSplashImage IS NULL AND BuildingClass IN (SELECT BuildingClassType FROM Belief_BuildingClassFaithPurchase);
 
-	CREATE TRIGGER IF NOT EXISTS MWStPetersHappinessBonus
-	AFTER INSERT ON Buildings
-	WHEN NEW.Cost = -1 AND NEW.FaithCost > 0 AND NEW.WonderSplashImage IS NULL
-	BEGIN
-		INSERT INTO Building_BuildingClassHappiness
-					(BuildingType,					BuildingClassType,		Happiness)
-		VALUES		('BUILDING_ST_PETERS_DUMMY',	NEW.BuildingClass,		1);
-	END;
+		CREATE TRIGGER IF NOT EXISTS MWStPetersHappinessBonus
+		AFTER INSERT ON Buildings
+		WHEN NEW.Cost = -1 AND NEW.FaithCost > 0 AND NEW.WonderSplashImage IS NULL
+			AND NEW.BuildingClass IN (SELECT BuildingClassType FROM Belief_BuildingClassFaithPurchase)
+		BEGIN
+			INSERT INTO Building_BuildingClassHappiness
+						(BuildingType,					BuildingClassType,		Happiness)
+			VALUES		('BUILDING_ST_PETERS_DUMMY',	NEW.BuildingClass,		1);
+		END;
 	
 	-- happiness_to_all_religious_buildings (lua_ability)
 	---------------------------------------------------------
@@ -1840,24 +1841,26 @@
 	VALUES		('BUILDING_HARMANDIR',	'YIELD_FAITH',	2);
 
 	INSERT INTO Building_BuildingClassYieldChanges (BuildingType,			BuildingClassType,	YieldType,		YieldChange)
-	SELECT DISTINCT									'BUILDING_HARMANDIR',	a.BuildingClass,	'YIELD_FOOD',	2
+	SELECT DISTINCT									'BUILDING_HARMANDIR',	a.BuildingClass,	'YIELD_FOOD',	3
 	FROM Buildings a, BuildingClasses b, Building_YieldChanges c
 	WHERE a.BuildingClass = b.Type AND a.Type = c.BuildingType
-	  AND b.MaxGlobalInstances = -1 AND b.MaxPlayerInstances = -1 AND a.IsDummy = 0 
-	  AND c.YieldType = 'YIELD_FAITH';
+		AND a.IsDummy = 0 AND a.Cost != -1
+		AND b.MaxGlobalInstances = -1 AND b.MaxPlayerInstances = -1
+		AND c.YieldType = 'YIELD_FAITH'
+		/*AND NOT a.BuildingClass IN (SELECT BuildingClassType FROM Belief_BuildingClassFaithPurchase)*/;
 
-	CREATE TRIGGER IF NOT EXISTS MWHarmandirFoodBonus
-	AFTER INSERT ON Building_YieldChanges
-	WHEN NEW.YieldType = 'YIELD_FAITH'
-	AND NEW.BuildingType IN (SELECT DefaultBuilding FROM BuildingClasses WHERE MaxGlobalInstances = -1 AND MaxPlayerInstances = -1)
-	AND NEW.BuildingType IN (SELECT Type FROM Buildings WHERE IsDummy = 0)
-	BEGIN
-		INSERT INTO Building_BuildingClassYieldChanges
-					(BuildingType,			BuildingClassType,		YieldType,		YieldChange)
-		SELECT		'BUILDING_HARMANDIR',	Type,					'YIELD_FOOD',	2
-		FROM BuildingClasses
-		WHERE DefaultBuilding = NEW.BuildingType;
-	END;
+		CREATE TRIGGER IF NOT EXISTS MWHarmandirFoodBonus
+		AFTER INSERT ON Building_YieldChanges
+		WHEN NEW.YieldType = 'YIELD_FAITH'
+			AND NEW.BuildingType IN (SELECT Type FROM Buildings WHERE IsDummy = 0 AND Cost != -1)
+			AND NEW.BuildingType IN (SELECT DefaultBuilding FROM BuildingClasses WHERE MaxGlobalInstances = -1 AND MaxPlayerInstances = -1)
+		BEGIN
+			INSERT INTO Building_BuildingClassYieldChanges
+						(BuildingType,			BuildingClassType,		YieldType,		YieldChange)
+			SELECT		'BUILDING_HARMANDIR',	Type,					'YIELD_FOOD',	3
+			FROM BuildingClasses
+			WHERE DefaultBuilding = NEW.BuildingType;
+		END;
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors 	
 				(BuildingType, 			FlavorType,			Flavor)
@@ -2100,7 +2103,7 @@
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10, NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	UPDATE Buildings SET NearbyTerrainRequired = 'TERRAIN_TUNDRA' WHERE Type = 'BUILDING_SOLOVIETSKY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 	---------------------------------------------------------
-	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 1000 WHERE Type = 'BUILDING_SOLOVIETSKY';
+	UPDATE Buildings SET ExtraCityHitPoints = 50, Defense = 500 WHERE Type = 'BUILDING_SOLOVIETSKY';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,						Yield)
@@ -2873,7 +2876,7 @@
 				(BuildingType,			YieldType,					Yield) 
 	VALUES		('BUILDING_AUTOBAHN',	'YIELD_GOLDEN_AGE_POINTS',	10);
 	---------------------------------------------------------
-	UPDATE Buildings SET Defense = 700 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
+	UPDATE Buildings SET Defense = 300 WHERE Type = 'BUILDING_AUTOBAHN_DUMMY';
 	
 	-- global_defense (lua_ability)
 	---------------------------------------------------------
