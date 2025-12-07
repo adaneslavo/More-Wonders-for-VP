@@ -1,4 +1,7 @@
 MW Changelog:
+v24.3:
+- reworked all dummy buildings' and policies' tags and names;
+
 v24.2:
 - reworked Defense bonuses for various World Wonders (reported as being op):
 	- Cave of Altamira: 5 --> 1;

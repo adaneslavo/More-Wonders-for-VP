@@ -386,7 +386,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 -- Angkor Wat
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
-VALUES		('TXT_KEY_POLICY_ANGKOR_WAT_DUMMY',	'Angkor Wat');
+VALUES		('TXT_KEY_POLICY_DUMMY_ANGKOR_WAT',	'Angkor Wat');
 
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_ANGKOR_WAT_HELP_CUT', '[COLOR_YIELD_FOOD]Angkor Wat[ENDCOLOR] is a huge complex changing surrounding terrain (+25%[ICON_CULTURE_LOCAL][ICON_CULTURE_LOCAL] Border Growth; -25%[ICON_GOLD][ICON_GOLD] Plot Cost) into a monumental religious temple (+2[ICON_PEACE]; 20[ICON_PEACE]/[ICON_CULTURE_LOCAL] Border Growth). It also functions as a diplomatic post, (+2[ICON_DIPLOMAT]), and such a unique mix of religion and diplomacy (+3[ICON_PEACE]/[ICON_CIVIL_SERVANT]; Player can buy [COLOR_YIELD_GOLD]Basic Diplomatic Units[ENDCOLOR] with [ICON_PEACE] Faith and they do not obsolete) creates an amazing cultural experience (+2[ICON_CULTURE]).');
@@ -652,11 +652,11 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'All requirements (including lua)
 INSERT INTO Language_en_US 
 			(Tag,										Text) 
 VALUES		('TXT_KEY_BUILDING_TLACHIHUALTEPETL',		'Tlachihualtepetl'),
-			('TXT_KEY_POLICY_TLACHIHUALTEPETL_DUMMY',	'Tlachihualtepetl'),
 			('TXT_KEY_WONDER_TLACHIHUALTEPETL_QUOTE',	'[NEWLINE]"Quetzalcoatl is a primal idea of the duality of human nature. The serpent is the embodiment of heaven and earth. It scares people in many ways."[NEWLINE] - Robert Graham[NEWLINE]'),
 			('TXT_KEY_BUILDING_TLACHIHUALTEPETL_PEDIA',	'Tlachihualtepetl, also known as the Great Pyramid of Cholula, is an ancient Mesoamerican structure located in Cholula, Mexico. It is considered the largest pyramid by volume in the world, surpassing even the Great Pyramid of Giza. Built in multiple phases beginning around the 3rd century BCE by the indigenous inhabitants of Cholula, the pyramid was expanded over centuries, reaching a base of approximately 450 by 450 meters (1,480 by 1,480 feet) and a height of around 66 meters (217 feet). Its name, Tlachihualtepetl, means "man-made mountain" in Nahuatl, reflecting its layered construction as each civilization built upon the previous one. The pyramid was an important religious and ceremonial center dedicated to the god Quetzalcoatl, playing a significant role in pre-Columbian culture. [NEWLINE][NEWLINE]By the time of the Spanish conquest in the 16th century, the pyramid had been largely abandoned and overgrown, resembling a natural hill. The Spanish, unaware of the structure beneath, built the Church of Our Lady of Remedies on top, symbolizing the imposition of Christianity over indigenous beliefs. Today, Tlachihualtepetl is an important archaeological site, with a network of tunnels excavated inside the pyramid revealing its layered history. It remains a significant cultural and tourist attraction, blending pre-Hispanic and colonial heritage, and stands as a testament to the architectural and religious traditions of ancient Mesoamerican civilizations.'),
-			('TXT_KEY_BUILDING_TLACHIHUALTEPETL_HELP',	'[ICON_BULLET]Cities gain 5 [ICON_GOLDEN_AGE] when they construct [COLOR_YIELD_FOOD]Buildings[ENDCOLOR], scaling with Era');
-
+			('TXT_KEY_BUILDING_TLACHIHUALTEPETL_HELP',	'[ICON_BULLET]Cities gain 5 [ICON_GOLDEN_AGE] when they construct [COLOR_YIELD_FOOD]Buildings[ENDCOLOR], scaling with Era'),
+			('TXT_KEY_POLICY_DUMMY_TLACHIHUALTEPETL',	'Tlachihualtepetl');
+			
 UPDATE Language_en_US SET Text = '[NEWLINE]----------------[NEWLINE]Special lua abilities:[NEWLINE]'||Text WHERE Tag ='TXT_KEY_BUILDING_TLACHIHUALTEPETL_HELP';
 	
 INSERT INTO Language_en_US (Tag, Text) 
