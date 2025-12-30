@@ -1,14 +1,21 @@
 MW Changelog:
+v24.5:
+- fixed:
+	- Globe Theater: multiple errors in lua requirement;
+	- Palace of Westminster: wrong number of CSs in splash text;
+	- Solovietsky Monastery: now correct Coast requirement (in light version) supporting production boost to Naval Units;
+
 v24.4:
 - sounds:
-	- equalized all new sounds' volume and raised it a bit to be closer to original lector;
+	- added all missing quote sounds (by @Hokath);
 	- fixed Slater Mill quote sound;
+	- reworked incomplete Mount Rushmore sound;
 	- deleted unused Motherland Calls quote sound (it was readded with different quote by VP?);
-	- added all missing quote sounds by @Hokath;
+	- equalized all new sounds' volume and raised it a bit to be closer to original lector;
 	- marked wonders with no woman version (there's a man version copied);
 - changed:
 	- Brooklyn Bridge: added new ability (by @gwennog);
-	- Angkor Wat: new Diplo units from have now separated slightly changed icons;
+	- Angkor Wat: new Diplo units (that can be bought with Faith) have now separated slightly changed icons;
 	- added new text tags to replace lua custom texts;
 - fixed:
 	- Brooklyn Bridge: now correctly set as a Industry Wonder;
