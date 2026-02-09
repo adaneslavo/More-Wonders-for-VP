@@ -826,9 +826,9 @@ function Initialize()
 		-- IsNoCoast
 			tValidIsNoCoast = {
 				[GameInfo.Buildings.BUILDING_TERRACOTTA_ARMY.ID] = true,
+				[GameInfo.Buildings.BUILDING_MOHENJO_DARO.ID] = true,
 				[GameInfo.Buildings.BUILDING_MORAY.ID] = true,
 				[GameInfo.Buildings.BUILDING_GREAT_ZIMBABWE.ID] = true,
-				[GameInfo.Buildings.BUILDING_SANKORE.ID] = true,
 				[GameInfo.Buildings.BUILDING_MOSQUE_OF_DJENNE.ID] = true,
 				[GameInfo.Buildings.BUILDING_KREMLIN.ID] = true,
 				[GameInfo.Buildings.BUILDING_MILESTII_MICI.ID] = true

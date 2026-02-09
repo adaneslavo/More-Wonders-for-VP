@@ -1,4 +1,16 @@
 MW Changelog:
+v24.6:
+- Yerba the la Fleche:
+	- reverted the change adding this promotion to Melee and Mounted units;
+	- fixed unit classes in lua file changed by VP 5.0 (Skirmishers);
+	- added Saka UU (from UCS) to the list of eligible units;
+	- added first 3 Reconaissance units to the list of eligible units;
+	- adapted the Help text;
+- fixed:
+	- deleted relic BUILDING_SANKORE entry;
+	- Great Library: deleted Coast requirement like it was planned;
+	- Mohenjo-Daro: added missing IsNoCoast requirement in LIGHT variant;
+
 v24.5:
 - fixed:
 	- Globe Theater: multiple errors in lua requirement;

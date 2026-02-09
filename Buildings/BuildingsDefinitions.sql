@@ -14,7 +14,7 @@ VALUES		('BUILDING_MORE_WONDERS_ATLAS', 	256, 		'More_Wonders_Buildings_256.dds'
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
 VALUES		('TXT_KEY_PROMOTION_FLETCHER',		'Yerba de la Fleche'),
-			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'+50%[ICON_RANGE_STRENGTH]Attacking RCS [COLOR:255:230:85:255]vs Wounded Units[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'+50%[ICON_STRENGTH]Attacking CS/[ICON_RANGE_STRENGTH]Attacking RCS [COLOR:255:230:85:255]vs Wounded Units[ENDCOLOR].');
 
 INSERT INTO UnitPromotions 
 			(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
@@ -22,11 +22,12 @@ VALUES		('PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER',		'TXT_KEY_PROMOTIO
 
 UPDATE UnitPromotions SET AttackWoundedMod = 50 WHERE Type = 'PROMOTION_FLETCHER';
 
-INSERT INTO UnitPromotions_UnitCombats
+-- Promotion is applied to eligible units in special lua function!
+/*INSERT INTO UnitPromotions_UnitCombats
 			(PromotionType,				UnitCombatType)
 VALUES		('PROMOTION_FLETCHER',		'UNITCOMBAT_ARCHER'),
 			('PROMOTION_FLETCHER',		'UNITCOMBAT_MELEE'),
-			('PROMOTION_FLETCHER',		'UNITCOMBAT_MOUNTED');
+			('PROMOTION_FLETCHER',		'UNITCOMBAT_MOUNTED');*/
 --============================================--
 -- BUILDINGS
 --============================================--
