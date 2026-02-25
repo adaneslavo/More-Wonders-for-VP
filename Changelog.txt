@@ -1,4 +1,8 @@
 MW Changelog:
+v24.7:
+- replaced some '||Text' with '||IFNULL(Text, '')' to avoid errors related to empty tooltips;
+- GPS, CERN: fixed tooltip;
+
 v24.6:
 - Yerba the la Fleche:
 	- reverted the change adding this promotion to Melee and Mounted units;
