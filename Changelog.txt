@@ -1,4 +1,20 @@
 MW Changelog:
+v24.9:
+- adapted to latest VP changes:
+	- Great Wall and Terracota Army ability swap;
+	- Angkor Wat and Hagia Sofia theme swap;
+
+v24.8:
+- Angkor Wat:
+	- added information about buying Diplo Units with Faith;
+	- readded Obsolete technology for these units;
+	- changed Faith values for these units to 200, 300, 500 and 700 (were 200, 500, 800 and 1100);
+- Mont-Saint-Michel:
+	- expanded the requirement description (landmass info);
+	- fixed the LIGHT description (replaced old one);
+- fixed setting dummy policies in lua;
+- few minor text fixes;
+
 v24.7:
 - replaced some '||Text' with '||IFNULL(Text, '')' to avoid errors related to empty tooltips;
 - GPS, CERN: fixed tooltip;

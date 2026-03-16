@@ -554,7 +554,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			
 			local pPlayer = Players[ePlayer]
 		
-			pPlayer:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+			pPlayer:SetHasPolicy(g_tWorldWonderDummy[22], true) -- POLICY!!!
 		end
 	end
 
@@ -566,7 +566,7 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 			
 			local pPlayer = Players[ePlayer]
 		
-			pPlayer:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
+			pPlayer:SetHasPolicy(g_tWorldWonderDummy[23], true) -- POLICY!!!
 		end
 	end
 	
@@ -1119,8 +1119,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			
 			g_tWorldWonderOwner[22] = eNewOwner
 			
-			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[22], 0) -- POLICY!!!
-			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[22], 1) -- POLICY!!!
+			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[22], false) -- POLICY!!!
+			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[22], true) -- POLICY!!!
 		end
 	end
 
@@ -1135,8 +1135,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			
 			g_tWorldWonderOwner[23] = eNewOwner
 			
-			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[23], 0) -- POLICY!!!
-			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[23], 1) -- POLICY!!!
+			pOldOwner:SetHasPolicy(g_tWorldWonderDummy[23], false) -- POLICY!!!
+			pNewOwner:SetHasPolicy(g_tWorldWonderDummy[23], true) -- POLICY!!!
 		end
 	end
 

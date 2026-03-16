@@ -711,6 +711,13 @@
 	INSERT INTO Building_LocalFeatureOrs 
 				(BuildingType,			FeatureType) 
 	SELECT		'BUILDING_ANGKOR_WAT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+	---------------------------------------------------------
+	-- reversion of the VP changes (swap with Hagia Sophia)
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 6 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	UPDATE Buildings SET GlobalPlotBuyCostModifier = -25, BorderGrowthRateIncreaseGlobal = 40 WHERE Type = 'BUILDING_ANGKOR_WAT';
+
+	UPDATE Buildings SET ExtraMissionaryStrengthGlobal = 0 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	DELETE FROM Building_FreeUnits WHERE BuildingType = 'BUILDING_ANGKOR_WAT';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- SIGIRIYA (NEW)
@@ -923,6 +930,14 @@
 -- HAGIA SOPHIA
 	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	---------------------------------------------------------
+	-- reversion of the VP changes (swap with Angor Wat)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Buildings SET ExtraMissionaryStrengthGlobal = 25 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Building_YieldChanges SET Yield = 2 WHERE Type = 'BUILDING_HAGIA_SOPHIA' AND YieldType = 'YIELD_CULTURE';
+
+	INSERT OR REPLACE INTO Building_FreeUnits (BuildingType, UnitType, NumUnits) VALUES ('BUILDING_HAGIA_SOPHIA', 'UNIT_GREAT_PROPHET', 1);
+	UPDATE Buildings SET GlobalPlotBuyCostModifier = 0, BorderGrowthRateIncreaseGlobal = 0 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- BOROBUDUR
@@ -4379,14 +4394,14 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		WHERE a.Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR') AND a.Type = b.UnitType;
 	
 		INSERT INTO Units (Type, 		   Class, 			Combat, BaseSightRange, Cost, FaithCost, RequiresFaithPurchaseEnabled,  GlobalFaithPurchaseCooldown, PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, PortraitIndex, IconAtlas,			 MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, PolicyType, 				  PrereqTech, ObsoleteTech, CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra)
-		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 0,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, 0,			  'MW_DIPLO_UNIT_ATLAS', MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_DUMMY_ANGKOR_WAT', PrereqTech, NULL,			CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
+		SELECT			   Type||'_FAITH', Class||'_FAITH',	Combat, BaseSightRange, Cost, 0,		 0,								0, 							 PurchaseCooldown, Moves, Immobile, CombatClass, Domain, GoodyHutUpgradeUnitClass, XPValueAttack, IsMounted, Description, Civilopedia, Strategy, Help, Pillage, MilitarySupport, MilitaryProduction, IgnoreBuildingDefense, Mechanized, AirUnitCap, AdvancedStartCost, RangedCombatLimit, CombatLimit, XPValueDefense, UnitArtInfo, UnitFlagIconOffset, UnitFlagAtlas, 0,			  'MW_DIPLO_UNIT_ATLAS', MoveRate, ShowInPedia, Range, Special, DefaultUnitAI, Suicide, HurryCostModifier, NukeDamageLevel, ProjectPrereq, 'POLICY_DUMMY_ANGKOR_WAT', PrereqTech, ObsoleteTech,	CivilianAttackPriority, MinAreaSize, ProductionCostAddedPerEra
 		FROM Units
 		WHERE Type IN ('UNIT_EMISSARY', 'UNIT_ENVOY', 'UNIT_DIPLOMAT', 'UNIT_AMBASSADOR');
 
 		UPDATE Units SET FaithCost = 200, PortraitIndex = 0 WHERE Type = 'UNIT_EMISSARY_FAITH';
-		UPDATE Units SET FaithCost = 500, PortraitIndex = 1 WHERE Type = 'UNIT_ENVOY_FAITH';
-		UPDATE Units SET FaithCost = 800, PortraitIndex = 2 WHERE Type = 'UNIT_DIPLOMAT_FAITH';
-		UPDATE Units SET FaithCost = 1100, PortraitIndex = 3 WHERE Type = 'UNIT_AMBASSADOR_FAITH';
+		UPDATE Units SET FaithCost = 300, PortraitIndex = 1 WHERE Type = 'UNIT_ENVOY_FAITH';
+		UPDATE Units SET FaithCost = 500, PortraitIndex = 2 WHERE Type = 'UNIT_DIPLOMAT_FAITH';
+		UPDATE Units SET FaithCost = 700, PortraitIndex = 3 WHERE Type = 'UNIT_AMBASSADOR_FAITH';
 		
 		-- faith_purchase_of_diplomatic_units (lua_ability)
 	-- Chichen Itza
