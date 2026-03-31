@@ -165,11 +165,11 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>0.8</Scale>
+			<Scale>1.2</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_DALLOL</ResourceType>
-			<Model>dallol_3d.fxsxml</Model>
+			<Model>dallol_3d_v3.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		
@@ -191,11 +191,11 @@
 		<Row>
 			<Era>Any</Era>
 			<State>Any</State>
-			<Scale>3</Scale>
+			<Scale>1</Scale>
 			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_EYE_OF_SAHARA_A</ResourceType>
-			<Model>eye_of_the_sahara_3_tile_version.fxsxml</Model>
+			<Model>3d_eye_of_the_sahara.fxsxml</Model>
 			<TerrainContour>1</TerrainContour>
 		</Row>
 		<Row>
@@ -318,7 +318,122 @@
 			<LayoutHandler>SNAPSHOT</LayoutHandler>
 			<ResourceType>ART_DEF_FEATURE_ZHANGJIAJIE</ResourceType>
 			<Model>feature_zhangjiajie.fxsxml</Model>
-			<TerrainContour>1.3</TerrainContour>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>3</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_AURORA_A</ResourceType>
+			<Model>AURORA_BOREALIS.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>3</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_AURORA_B</ResourceType>
+			<Model>AURORA_BOREALIS.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>3</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_AURORA_C</ResourceType>
+			<Model>AURORA_BOREALIS.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.5</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_ARCH</ResourceType>
+			<Model>Decicate_Arch.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.35</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_DANXIA_A</ResourceType>
+			<Model>Danxia_Mountain.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1.35</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_DANXIA_B</ResourceType>
+			<Model>Danxia_Mountain.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_JEJU_DO</ResourceType>
+			<Model>Jeju_Island.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+
+
+
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_MARIANA_A</ResourceType>
+			<Model>mariana_trench.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_MARIANA_B</ResourceType>
+			<!-- <Model>AURORA_BOREALIS.fxsxml</Model> --> <!-- Aurora on coast = blank -->
+			<TerrainContour>1</TerrainContour>
+		</Row>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>1</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_NONE</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_FEATURE_MARIANA_C</ResourceType>
+			<!-- <Model>AURORA_BOREALIS.fxsxml</Model> --> <!-- Aurora on coast = blank -->
+			<TerrainContour>1</TerrainContour>
 		</Row>
 	</ArtDefine_Landmarks>
 
@@ -326,17 +441,17 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_NEW_REEF_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Great Barrier Reef A</FriendlyName>
+			<FriendlyName>Great Barrier Reef (M)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_NEW_REEF_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Great Barrier Reef B</FriendlyName>
+			<FriendlyName>Great Barrier Reef (S1)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_NEW_REEF_C</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Great Barrier Reef C</FriendlyName>
+			<FriendlyName>Great Barrier Reef (S2)</FriendlyName>
 		</Row>
 		
 		
@@ -464,12 +579,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Galapagos A</FriendlyName>
+			<FriendlyName>Galapagos (B)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_GALAPAGOS_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Galapagos B</FriendlyName>
+			<FriendlyName>Galapagos (S)</FriendlyName>
 		</Row>
 
 
@@ -477,12 +592,12 @@
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_A</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Ha Long Bay A</FriendlyName>
+			<FriendlyName>Ha Long Bay (P)</FriendlyName>
 		</Row>
 		<Row>
 			<Type>ART_DEF_FEATURE_HA_LONG_B</Type>
 			<LandmarkType>Resource</LandmarkType>
-			<FriendlyName>Ha Long Bay B</FriendlyName>
+			<FriendlyName>Ha Long Bay (S)</FriendlyName>
 		</Row>
 
 
@@ -491,6 +606,71 @@
 			<Type>ART_DEF_FEATURE_ZHANGJIAJIE</Type>
 			<LandmarkType>Resource</LandmarkType>
 			<FriendlyName>Zhangjiajie</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_AURORA_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Aurora Borealis (M)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_AURORA_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Aurora Borealis (S1)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_AURORA_C</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Aurora Borealis (S2)</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_ARCH</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Delicate Arch</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_DANXIA_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Zhangye Danxia (P)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_DANXIA_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Zhangye Danxia (S)</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_JEJU_DO</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Seongsan Ilchulbong</FriendlyName>
+		</Row>
+
+
+
+		<Row>
+			<Type>ART_DEF_FEATURE_MARIANA_A</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Mariana Trench (M)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_MARIANA_B</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Mariana Trench (S1)</FriendlyName>
+		</Row>
+		<Row>
+			<Type>ART_DEF_FEATURE_MARIANA_C</Type>
+			<LandmarkType>Resource</LandmarkType>
+			<FriendlyName>Mariana Trench (S2)</FriendlyName>
 		</Row>
 	</ArtDefine_LandmarkTypes>
 
@@ -655,6 +835,71 @@
 			<TileType>Feature</TileType>
 			<Asset>sv_Zhangjiajie.dds</Asset>
 		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_AURORA_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_AURORA_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_AURORA_C</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Aurora.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_ARCH</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Delicate_Arch_hillcover.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_DANXIA_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Danxia_Mountain.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_DANXIA_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Danxia_Mountain.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_JEJU_DO</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Seongsan_tinbrush_source_dark.dds</Asset>
+		</Row>
+
+
+
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_MARIANA_A</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Mariana_trench.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_MARIANA_B</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Mariana_trench.dds</Asset>
+		</Row>
+		<Row>
+			<StrategicViewType>ART_DEF_FEATURE_MARIANA_C</StrategicViewType>
+			<TileType>Feature</TileType>
+			<Asset>sv_Mariana_trench.dds</Asset>
+		</Row>
 	</ArtDefine_StrategicView>
 	
 	<Features>
@@ -727,7 +972,7 @@
 		<Row>
 			<Type>FEATURE_NEW_REEF_A</Type>
 			<Description>TXT_KEY_FEATURE_NEW_REEF_A</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_A_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_NEW_REEF_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_NEW_REEF_A</ArtDefineTag>
 			<Movement>0</Movement>
@@ -748,7 +993,7 @@
 		<Row>
 			<Type>FEATURE_NEW_REEF_B</Type>
 			<Description>TXT_KEY_FEATURE_NEW_REEF_B</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_B_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_NEW_REEF_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_NEW_REEF_B</ArtDefineTag>
 			<Movement>0</Movement>
@@ -769,7 +1014,7 @@
 		<Row>
 			<Type>FEATURE_NEW_REEF_C</Type>
 			<Description>TXT_KEY_FEATURE_NEW_REEF_C</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_C_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_NEW_REEF_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_NEW_REEF_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_NEW_REEF_C</ArtDefineTag>
 			<Movement>0</Movement>
@@ -793,7 +1038,7 @@
 		<Row>
 			<Type>FEATURE_SALAR_A</Type>
 			<Description>TXT_KEY_FEATURE_SALAR_A</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_A_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_SALAR_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_A</ArtDefineTag>
 			<Movement>1</Movement>
@@ -814,7 +1059,7 @@
 		<Row>
 			<Type>FEATURE_SALAR_B</Type>
 			<Description>TXT_KEY_FEATURE_SALAR_B</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_B_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_SALAR_TEXT</Civilopedia>
 			<Help>TXT_KEY_CIV5_FEATURES_SALAR_HELP</Help>
 			<ArtDefineTag>ART_DEF_FEATURE_SALAR_B</ArtDefineTag>
 			<Movement>1</Movement>
@@ -1267,6 +1512,225 @@
 			<Rough>true</Rough>
 			<YieldNotAdditive>true</YieldNotAdditive>
 			<PortraitIndex>12</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_AURORA_A</Type>
+			<Description>TXT_KEY_FEATURE_AURORA</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_AURORA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_AURORA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_AURORA_A</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>13</PortraitIndex>
+			<AdjacentUnitFreePromotion>PROMOTION_AURORA</AdjacentUnitFreePromotion>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_AURORA_B</Type>
+			<Description>TXT_KEY_FEATURE_AURORA</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_AURORA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_AURORA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_AURORA_B</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>13</PortraitIndex>
+			<AdjacentUnitFreePromotion>PROMOTION_AURORA</AdjacentUnitFreePromotion>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_AURORA_C</Type>
+			<Description>TXT_KEY_FEATURE_AURORA</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_AURORA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_AURORA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_AURORA_C</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>13</PortraitIndex>
+			<AdjacentUnitFreePromotion>PROMOTION_AURORA</AdjacentUnitFreePromotion>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_ARCH</Type>
+			<Description>TXT_KEY_FEATURE_ARCH</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_ARCH_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_ARCH_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_ARCH</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>1</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>16</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_DANXIA_A</Type>
+			<Description>TXT_KEY_FEATURE_DANXIA_A</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_DANXIA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_DANXIA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_DANXIA_A</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>17</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_DANXIA_B</Type>
+			<Description>TXT_KEY_FEATURE_DANXIA_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_DANXIA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_DANXIA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_DANXIA_B</ArtDefineTag>
+			<Movement>0</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>true</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>17</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_JEJU_DO</Type>
+			<Description>TXT_KEY_FEATURE_JEJU_DO</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_JEJU_DO_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_JEJU_DO_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_JEJU_DO</ArtDefineTag>
+			<Movement>3</Movement>
+			<SeeThrough>2</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>true</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>15</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<Defense>15</Defense>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+
+
+
+		<Row>
+			<Type>FEATURE_MARIANA_A</Type>
+			<Description>TXT_KEY_FEATURE_MARIANA_A</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_MARIANA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_MARIANA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_MARIANA_A</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>14</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_MARIANA_B</Type>
+			<Description>TXT_KEY_FEATURE_MARIANA_B</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_MARIANA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_MARIANA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_MARIANA_B</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>14</PortraitIndex>
+			<InBorderHappiness>0</InBorderHappiness>
+			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>FEATURE_MARIANA_C</Type>
+			<Description>TXT_KEY_FEATURE_MARIANA_C</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_MARIANA_TEXT</Civilopedia>
+			<Help>TXT_KEY_CIV5_FEATURES_MARIANA_HELP</Help>
+			<ArtDefineTag>ART_DEF_FEATURE_MARIANA_C</ArtDefineTag>
+			<Movement>1</Movement>
+			<SeeThrough>0</SeeThrough>
+			<Impassable>false</Impassable>
+			<InfluenceCost>-3</InfluenceCost>
+			<NaturalWonder>false</NaturalWonder>
+			<PseudoNaturalWonder>true</PseudoNaturalWonder>
+			<NoCity>true</NoCity>
+			<NoImprovement>true</NoImprovement>
+			<Rough>false</Rough>
+			<YieldNotAdditive>true</YieldNotAdditive>
+			<PortraitIndex>14</PortraitIndex>
 			<InBorderHappiness>0</InBorderHappiness>
 			<IconAtlas>NATURAL_WONDERS_ATLAS</IconAtlas>
 		</Row>
@@ -1923,6 +2387,176 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>2</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_GREAT_ADMIRAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_YieldChanges>
 
 	<Feature_EraYieldChanges>
@@ -2411,6 +3045,106 @@
 			<YieldType>YIELD_TOURISM</YieldType>
 			<Yield>1</Yield>
 		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_TOURISM</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_GREAT_GENERAL_POINTS</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Feature_EraYieldChanges>
 
 	<Plot_AdjacentFeatureYieldChanges>
@@ -2634,6 +3368,124 @@
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>1</Yield>
 			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+
+
+
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>true</IgnoreNaturalWonderPlots>
+		</Row>
+
+
+
+		<Row>
+			<PlotType>PLOT_OCEAN</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_LAND</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_HILLS</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
+		</Row>
+		<Row>
+			<PlotType>PLOT_MOUNTAIN</PlotType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+			<IgnoreNaturalWonderPlots>false</IgnoreNaturalWonderPlots>
 		</Row>
 	</Plot_AdjacentFeatureYieldChanges>
 
@@ -3307,34 +4159,169 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>3</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>2</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
-			<Yield>1</Yield>
+			<Yield>2</Yield>
 		</Row>
 
 
 
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>3</Yield>
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
-			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
+		</Row>
+
+
+
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Belief_FeatureYieldChanges>
 
@@ -3344,35 +4331,35 @@
 			<IconSize>256</IconSize>
 			<Filename>More_Natural_Wonders_256.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>2</IconsPerColumn>
+			<IconsPerColumn>3</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>128</IconSize>
 			<Filename>More_Natural_Wonders_128.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>2</IconsPerColumn>
+			<IconsPerColumn>3</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>80</IconSize>
 			<Filename>More_Natural_Wonders_80.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>2</IconsPerColumn>
+			<IconsPerColumn>3</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>64</IconSize>
 			<Filename>More_Natural_Wonders_64.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>2</IconsPerColumn>
+			<IconsPerColumn>3</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>NATURAL_WONDERS_ATLAS</Atlas>
 			<IconSize>45</IconSize>
 			<Filename>More_Natural_Wonders_45.dds</Filename>
 			<IconsPerRow>8</IconsPerRow>
-			<IconsPerColumn>2</IconsPerColumn>
+			<IconsPerColumn>3</IconsPerColumn>
 		</Row>
 
 

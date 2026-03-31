@@ -2,19 +2,36 @@ local ePromotionYerba = GameInfoTypes.PROMOTION_FLETCHER
 local eBuildingFletcher = GameInfoTypes.BUILDING_FLETCHER
 
 local tArcheryUnits = {
-	GameInfoTypes.UNITCLASS_VP_SLINGER,
+	GameInfoTypes.UNITCLASS_SLINGER,
 	GameInfoTypes.UNITCLASS_ARCHER,
 	GameInfoTypes.UNITCLASS_COMPOSITE_BOWMAN,
 	GameInfoTypes.UNITCLASS_CROSSBOWMAN,
 	GameInfoTypes.UNITCLASS_LONGBOWMAN,
 	GameInfoTypes.UNITCLASS_CHARIOT_ARCHER,
-	GameInfoTypes.UNITCLASS_HORSE_ARCHER,
-	GameInfoTypes.UNITCLASS_MOUNTED_BOWMAN
+	GameInfoTypes.UNITCLASS_SKIRMISHER,
+	GameInfoTypes.UNITCLASS_HEAVY_SKIRMISHER,
+	GameInfoTypes.UNITCLASS_PATHFINDER,
+	GameInfoTypes.UNITCLASS_SCOUT,
+	GameInfoTypes.UNITCLASS_EXPLORER
 }
+
+local bInit = false
+
+function AddNewUCSUnitClasses()
+	if GameInfoTypes.UNITCLASS_SAKA ~= nil then
+		table.insert(tArcheryUnits, GameInfoTypes.UNITCLASS_SAKA)
+		print("SAKA_ADDED_TO_ARCHERY")
+	end
+end
 
 -- adding fletcher promotion to archery units
 --function OnUpgradeTakeOutFletcher(iPlayer, iOldUnit, iNewUnit, bGoodyHut)
 function OnUpgradeTakeOutFletcher(iOldPlayer, iNewPlayer, iOldUnit, iNewUnit, bIsUpgrade)
+	if not bInit then
+		AddNewUCSUnitClasses()
+		bInit = true
+	end
+
 	if bIsUpgrade then
 		local pNewPlayer = Players[iNewPlayer]
 		local pOldUnit = pNewPlayer:GetUnitByID(iOldUnit)
@@ -36,16 +53,21 @@ GameEvents.UnitConverted.Add(OnUpgradeTakeOutFletcher)
 --GameEvents.UnitUpgraded.Add(OnUpgradeTakeOutFletcher)
 
 function OnCityTrainTakeOutFletcher(iPlayer, iCity, iUnit, bGold, bFaith)
+	if not bInit then
+		AddNewUCSUnitClasses()
+		bInit = true
+	end
+
     local pPlayer = Players[iPlayer]
     local pCity = pPlayer:GetCityByID(iCity)
     local pUnit = pPlayer:GetUnitByID(iUnit)
-    
-    if pCity:IsHasBuilding(eBuildingFletcher) then
-        local eUnitClass = pUnit:GetUnitClassType()
+   
+	if pCity:IsHasBuilding(eBuildingFletcher) then
+		local eUnitClass = pUnit:GetUnitClassType()
 		
 		for _, class in ipairs(tArcheryUnits) do
-            if class == eUnitClass then
-			    pUnit:SetHasPromotion(ePromotionYerba, true)
+			if class == eUnitClass then
+				pUnit:SetHasPromotion(ePromotionYerba, true)
 			    break
 			end
 		end
@@ -56,7 +78,7 @@ GameEvents.CityTrained.Add(OnCityTrainTakeOutFletcher)
 
 
 -- code for promotion - kill chance
-function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
+--[[function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
 	local pAttackingPlayer = Players[iAttackingPlayer]
 	
 	if not (pAttackingPlayer and (iDefenderFinalDamage < iDefenderMaxHP)) then return end
@@ -89,4 +111,4 @@ function OnCombatInstaKill(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iA
 		end
 	end
 end
-GameEvents.CombatEnded.Add(OnCombatInstaKill)
+GameEvents.CombatEnded.Add(OnCombatInstaKill)--]]
