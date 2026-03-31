@@ -1,8 +1,23 @@
 MW Changelog:
 v24.9:
-- adapted to latest VP changes:
-	- Great Wall and Terracota Army ability swap;
-	- Angkor Wat and Hagia Sofia theme swap;
+- adapted to VP 5.2 changes:
+	- Great Wall and Terracota Army ability swap (only adjusted texts);
+	- Angkor Wat and Hagia Sofia swap (rivised the swap, left most abilities, slightly changed Hagia Sophia, adapted the texts);
+		- replaced free Great Prophet with free 400 Faith (half of the cost of Great Prophet);
+	- added World Trade Center World Wonder;
+	- renamed all Amphitheater entries to Theater;
+	- updated UnitPromotions_YieldFromScouting, Building_YieldPerFriend and Building_YieldPerAlly tables (added Times100 modification);
+	- readded double move on Hills for Kilimanjaro (VP deleted it, but I had it changed before, so preserved my changes);
+	- no changes to Chichen Itza (I deleted free Teocalli a while ago, and replaced it with some minor boosts);
+- rebalanced "land value" of:
+		- Mont-Saint-Michel (50 -> 15)
+	- and few Natural Wonders:
+		- Rock of Gibraltar (requirement): 40 -> 15;
+		- Giant's Causeway (limitation): 50 -> 30;
+		- Lake Retba (requirement): 30 -> 15;
+		- Bermuda Triangle (limitation): 40 -> 30;
+		- Seongsan Ilchulbong (requirement): 4-10 -> 5-15 (searches for slightly bigger islands);
+- added blank (for now) Wonder Popup texts for Corporation HQs;
 
 v24.8:
 - Angkor Wat:

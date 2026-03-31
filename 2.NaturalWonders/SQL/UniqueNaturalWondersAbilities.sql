@@ -50,13 +50,14 @@ UPDATE UnitPromotions SET WorkRateMod = 20, MovesChange = 1 WHERE Type = 'PROMOT
 UPDATE UnitPromotions SET OpenDefense = 20, RoughDefense = 20 WHERE Type = 'PROMOTION_HA_LONG';
 
 INSERT INTO UnitPromotions_Terrains
-			(PromotionType,			TerrainType,	DoubleMove)
-VALUES		('PROMOTION_KAILASH',	'TERRAIN_HILL',	1),
-			('PROMOTION_AURORA',	'TERRAIN_SNOW',	1);
+			(PromotionType,					TerrainType,	DoubleMove)
+VALUES		('PROMOTION_ALTITUDE_TRAINING',	'TERRAIN_HILL',	1),
+			('PROMOTION_AURORA',			'TERRAIN_SNOW',	1),
+			('PROMOTION_KAILASH',			'TERRAIN_HILL',	1);
 
-INSERT INTO UnitPromotions_YieldFromScouting
+INSERT INTO UnitPromotions_YieldFromScoutingTimes100
 			(PromotionType,				YieldType,			Yield)
-VALUES		('PROMOTION_MT_EVEREST',	'YIELD_TOURISM',	1);
+VALUES		('PROMOTION_MT_EVEREST',	'YIELD_TOURISM',	100);
 
 INSERT INTO UnitPromotions_YieldFromKills
 			(PromotionType,			YieldType,			Yield)

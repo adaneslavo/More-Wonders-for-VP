@@ -206,7 +206,7 @@ function NWCustomEligibility(x, y, method_number)
 			-- MOD: Don't permit small landmasses especially those single-tile islands!
 			-- MOD: Avoid mountains
 			if eAdjacentPlotType ~= ePlotOcean then
-				if Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass()) < 40
+				if Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass()) < 15
 				or eAdjacentPlotType == ePlotMountain or eAdjacentPlotType == ePlotHill
 				or eAdjacentFeatureType ~= eFeatureNo
 				or eAdjacentTerrainType == eTerrainTundra or eAdjacentTerrainType == eTerrainSnow or eAdjacentTerrainType == eTerrainPlains then return false end
@@ -317,7 +317,7 @@ function NWCustomEligibility(x, y, method_number)
 			if eAdjacentPlotType ~= ePlotOcean then
 				local iArea = Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass())
 				
-				if iArea < 5 or iArea > 50 
+				if iArea < 5 or iArea > 30
 				or not (eAdjacentTerrainType == eTerrainTundra or eAdjacentTerrainType == eTerrainGrass or eAdjacentTerrainType == eTerrainPlains)
 				or eAdjacentFeatureType ~= eFeatureNo then return false end
 				
@@ -353,7 +353,7 @@ function NWCustomEligibility(x, y, method_number)
 		
 		local pMainAreaNear = Map.GetNumTilesOfLandmass(pMainPlot:GetLandmass())
 		
-		if pMainAreaNear < 30 then return false end 
+		if pMainAreaNear < 15 then return false end 
 
 		local bIsHasSeaTiles = false
 		local iNumLandTiles = 0
@@ -611,7 +611,7 @@ function NWCustomEligibility(x, y, method_number)
 
 				local iAdjacentAreaNear = Map.GetNumTilesOfLandmass(pAdjacentPlot:GetLandmass())
 				
-				if iAdjacentAreaNear > 40 then
+				if iAdjacentAreaNear > 30 then
 					bContinent = true
 				end
 
@@ -667,20 +667,17 @@ function NWCustomEligibility(x, y, method_number)
 					if iLandAround > 1 then return false end
 				end
 
-				if (eAdjacentPlotType ~= ePlotOcean and iArea > 9) or eAdjacentTerrainType == eTerrainSnow or eAdjacentFeatureType == eFeatureIce then
+				if (eAdjacentPlotType ~= ePlotOcean and iArea > 14) or eAdjacentTerrainType == eTerrainSnow or eAdjacentFeatureType == eFeatureIce then
 					return false
-				elseif iArea >= 4 and iArea <= 9 then
+				elseif iArea >= 5 and iArea <= 14 then
 					bIsSmallIslandNearby = true
 				end
 			end
-
-			if bIsSmallIslandNearby then print("JEJU_DO", "COAST", x, y) end
 		else
 			iArea = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
 
-			if iArea >= 4 and iArea <= 10 then
+			if iArea >= 5 and iArea <= 15 then
 				bIsSmallIslandNearby = true
-				print("JEJU_DO", "LAND", x, y, iArea)
 			end
 
 			for i, direction in ipairs(tDirectionTypes) do
@@ -697,7 +694,7 @@ function NWCustomEligibility(x, y, method_number)
 		end
 
 		if not bIsSmallIslandNearby then return false end
-		print("JEJU_DO", x, y, "APPROVED")
+
 		return true		
 	elseif method_number == 27 then
 		-- reserved: Zhangye Danxia
@@ -760,7 +757,7 @@ function NWCustomEligibility(x, y, method_number)
 		local iLandSum = iLandMain + iLandSide1 + iLandSide2
 
 		if iLandSide1 == 0 or iLandSide2 == 0 or iLandSum < 4 then return false end
-		print("MARIANA_FINISH", x, y, iLandMain, iLandSide1, iLandSide2)
+
 		return true
 	elseif method_number == 29 then
 		-- reserved: Delicate Arch
@@ -2703,7 +2700,6 @@ function NWCustomPlacement(x, y, row_number, method_number)
 				if pAdjacentPlot:GetPlotType() == ePlotOcean then
 					pAdjacentPlot:SetPlotType(ePlotFlat, false, false)
 					pAdjacentPlot:SetTerrainType(eTerrainDesert, false, false)
-					print("DANXIA_DESERT", pChosenPlot:GetX(), pChosenPlot:GetY(), "PLOT_CHANGE")
 				end
 			end
 		end

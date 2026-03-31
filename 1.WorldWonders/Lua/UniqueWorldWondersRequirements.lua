@@ -328,7 +328,7 @@ function IsHasImprovementsOrs(ePlayer, eCity, eBuilding)
 end
 GameEvents.CityCanConstruct.Add(IsHasImprovementsOrs)
 
--- looks for BUILDINGS (GLOBE THEATER)
+-- looks for BUILDINGS (GLOBE THEATER, WORLD TRADE CENTER)
 function IsHasBuildingsOrs(ePlayer, eCity, eBuilding)
 	if not tValidIsHasBuildingsOrs[eBuilding] then return true end
 	if bReachedMaxEra then return false end
@@ -346,11 +346,21 @@ function IsHasBuildingsOrs(ePlayer, eCity, eBuilding)
 			local eRequiredBuildingClass1 = building.eRequiredBuildingClass1
 			local eRequiredBuildingClass2 = building.eRequiredBuildingClass2
 			local eRequiredBuildingClass3 = building.eRequiredBuildingClass3
+			local eRequiredBuildingClass4 = building.eRequiredBuildingClass4
+			local eRequiredBuildingClass5 = building.eRequiredBuildingClass5
+			local eRequiredBuildingClass6 = building.eRequiredBuildingClass6
+			local eRequiredBuildingClass7 = building.eRequiredBuildingClass7
+			local eRequiredBuildingClass8 = building.eRequiredBuildingClass8
 			
 			for buildingforclass in GameInfo.Buildings() do	
 				if buildingforclass.BuildingClass == eRequiredBuildingClass1 
 				or buildingforclass.BuildingClass == eRequiredBuildingClass2 
-				or buildingforclass.BuildingClass == eRequiredBuildingClass3 then
+				or buildingforclass.BuildingClass == eRequiredBuildingClass3 
+				or buildingforclass.BuildingClass == eRequiredBuildingClass4
+				or buildingforclass.BuildingClass == eRequiredBuildingClass5
+				or buildingforclass.BuildingClass == eRequiredBuildingClass6
+				or buildingforclass.BuildingClass == eRequiredBuildingClass7
+				or buildingforclass.BuildingClass == eRequiredBuildingClass8 then
 					if pCity:IsHasBuilding(buildingforclass.ID) then
 						return true
 					end
@@ -381,7 +391,7 @@ function IsEndOfPeninsulaOrSingleTile(ePlayer, eCity, eBuilding)
 	local bIsOnMainland, bIsMainlandClose = false, false
 	local iAreaNear = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
 			
-	if iAreaNear >= 50 then 
+	if iAreaNear >= 15 then 
 		bIsOnMainland = true
 	end
 	
@@ -397,7 +407,7 @@ function IsEndOfPeninsulaOrSingleTile(ePlayer, eCity, eBuilding)
 			local pDistantPlot = Map.PlotDirection(pAdjacentPlot:GetX(), pAdjacentPlot:GetY(), dir2)
 			local iDistantAreaNear = Map.GetNumTilesOfLandmass(pDistantPlot:GetLandmass())
 			
-			if pDistantPlot ~= pPlot and not pDistantPlot:IsWater() and iDistantAreaNear >= 50 then
+			if pDistantPlot ~= pPlot and not pDistantPlot:IsWater() and iDistantAreaNear >= 15 then
 				bIsMainlandClose = true
 				break
 			end
@@ -870,6 +880,16 @@ function Initialize()
 				eRequiredBuildingClass2 = 'BUILDINGCLASS_WRITERS_GUILD',
 				eRequiredBuildingClass3 = 'BUILDINGCLASS_MUSICIANS_GUILD'
 			}
+			tValidIsHasBuildingsOrs[GameInfo.Buildings.BUILDING_WORLD_TRADE_CENTER.ID] = {
+				eRequiredBuildingClass1 = 'BUILDINGCLASS_CENTAURUS_EXTRACTORS_HQ',
+				eRequiredBuildingClass2 = 'BUILDINGCLASS_CIVILIZED_JEWELERS_HQ',
+				eRequiredBuildingClass3 = 'BUILDINGCLASS_FIRAXITE_MATERIALS_HQ',
+				eRequiredBuildingClass4 = 'BUILDINGCLASS_GIORGIO_ARMEIER_HQ',
+				eRequiredBuildingClass5 = 'BUILDINGCLASS_HEXXON_REFINERY_HQ',
+				eRequiredBuildingClass6 = 'BUILDINGCLASS_TRADER_SIDS_HQ',
+				eRequiredBuildingClass7 = 'BUILDINGCLASS_TWOKAY_FOODS_HQ',
+				eRequiredBuildingClass8 = 'BUILDINGCLASS_POPULI_MEDICINE_HQ'
+			}
 	end
 	---------------------------------------------------------
 	-- HARD REQUIREMENTS
@@ -1066,6 +1086,16 @@ function Initialize()
 				eRequiredBuildingClass1 = 'BUILDINGCLASS_ARTISTS_GUILD',
 				eRequiredBuildingClass2 = 'BUILDINGCLASS_WRITERS_GUILD',
 				eRequiredBuildingClass3 = 'BUILDINGCLASS_MUSICIANS_GUILD'
+			}
+			tValidIsHasBuildingsOrs[GameInfo.Buildings.BUILDING_WORLD_TRADE_CENTER.ID] = {
+				eRequiredBuildingClass1 = 'BUILDINGCLASS_CENTAURUS_EXTRACTORS_HQ',
+				eRequiredBuildingClass2 = 'BUILDINGCLASS_CIVILIZED_JEWELERS_HQ',
+				eRequiredBuildingClass3 = 'BUILDINGCLASS_FIRAXITE_MATERIALS_HQ',
+				eRequiredBuildingClass4 = 'BUILDINGCLASS_GIORGIO_ARMEIER_HQ',
+				eRequiredBuildingClass5 = 'BUILDINGCLASS_HEXXON_REFINERY_HQ',
+				eRequiredBuildingClass6 = 'BUILDINGCLASS_TRADER_SIDS_HQ',
+				eRequiredBuildingClass7 = 'BUILDINGCLASS_TWOKAY_FOODS_HQ',
+				eRequiredBuildingClass8 = 'BUILDINGCLASS_POPULI_MEDICINE_HQ'
 			}
 	
 		-- IsMajorApproach

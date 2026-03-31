@@ -558,14 +558,14 @@
 	VALUES		('BUILDING_BAMYAN', 'YIELD_CULTURE',			1),
 				('BUILDING_BAMYAN', 'YIELD_FAITH',				2);
 	
-	INSERT INTO Building_YieldPerFriend
+	INSERT INTO Building_YieldPerFriendTimes100
 				(BuildingType,		YieldType,		Yield) 
-	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	2);
+	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	200);
 	
-	INSERT INTO Building_YieldPerAlly
+	INSERT INTO Building_YieldPerAllyTimes100
 				(BuildingType,		YieldType,					Yield) 
-	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	            2),
-                ('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	3);
+	VALUES		('BUILDING_BAMYAN', 'YIELD_FAITH',	            200),
+                ('BUILDING_BAMYAN', 'YIELD_GOLDEN_AGE_POINTS',	300);
 
 	INSERT INTO Building_TechEnhancedYieldChanges
 				(BuildingType,		YieldType,					Yield) 
@@ -702,7 +702,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- ANGKOR WAT
-	UPDATE Buildings SET NumPoliciesNeeded = 6, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ANGKOR_WAT';
+	UPDATE Buildings SET NumPoliciesNeeded = 6, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_ANGKOR_WAT'; -- replaced by new values
 	UPDATE Buildings SET WonderSplashAnchor = 'C,C' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	---------------------------------------------------------
 	UPDATE Buildings SET Flat = 1, FreshWater = 1, Water = 1, MinAreaSize = 1 WHERE Type = 'BUILDING_ANGKOR_WAT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
@@ -712,8 +712,8 @@
 				(BuildingType,			FeatureType) 
 	SELECT		'BUILDING_ANGKOR_WAT',	'FEATURE_JUNGLE' WHERE EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 	---------------------------------------------------------
-	-- reversion of the VP changes (swap with Hagia Sophia)
-	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 6 WHERE Type = 'BUILDING_ANGKOR_WAT';
+	-- revision of the VP changes (swap with Hagia Sophia)
+	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_ANGKOR_WAT';
 	UPDATE Buildings SET GlobalPlotBuyCostModifier = -25, BorderGrowthRateIncreaseGlobal = 40 WHERE Type = 'BUILDING_ANGKOR_WAT';
 
 	UPDATE Buildings SET ExtraMissionaryStrengthGlobal = 0 WHERE Type = 'BUILDING_ANGKOR_WAT';
@@ -928,15 +928,16 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- HAGIA SOPHIA
-	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	UPDATE Buildings SET MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HAGIA_SOPHIA'; -- replaced by new value
 	UPDATE Buildings SET WonderSplashAnchor = 'R,T' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	---------------------------------------------------------
-	-- reversion of the VP changes (swap with Angor Wat)
-	UPDATE Buildings SET Cost = 400, PrereqTech = 'TECH_THEOLOGY', NumPoliciesNeeded = 7 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
+	-- revision of the VP changes (swap with Angor Wat)
+	UPDATE Buildings SET Cost = 250, PrereqTech = 'TECH_CURRENCY', NumPoliciesNeeded = 6, MaxStartEra = 'ERA_MEDIEVAL' WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 	UPDATE Buildings SET ExtraMissionaryStrengthGlobal = 25 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
-	UPDATE Building_YieldChanges SET Yield = 2 WHERE Type = 'BUILDING_HAGIA_SOPHIA' AND YieldType = 'YIELD_CULTURE';
+	UPDATE Building_YieldChanges SET Yield = 2 WHERE BuildingType = 'BUILDING_HAGIA_SOPHIA' AND YieldType = 'YIELD_CULTURE';
 
-	INSERT OR REPLACE INTO Building_FreeUnits (BuildingType, UnitType, NumUnits) VALUES ('BUILDING_HAGIA_SOPHIA', 'UNIT_GREAT_PROPHET', 1);
+	DELETE FROM Building_FreeUnits WHERE BuildingType = 'BUILDING_HAGIA_SOPHIA';
+	INSERT INTO Building_InstantYield (BuildingType, YieldType, Yield) VALUES ('BUILDING_HAGIA_SOPHIA', 'YIELD_FAITH', 400);
 	UPDATE Buildings SET GlobalPlotBuyCostModifier = 0, BorderGrowthRateIncreaseGlobal = 0 WHERE Type = 'BUILDING_HAGIA_SOPHIA';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -3249,16 +3250,16 @@
 	VALUES		('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_FOOD',			1),
 				('BUILDING_MILESTII_MICI',	'SPECIALIST_MERCHANT',	'YIELD_PRODUCTION',		1);
 	
-	INSERT INTO Building_YieldPerFriend
+	INSERT INTO Building_YieldPerFriendTimes100
 				(BuildingType,				YieldType,		Yield) 
-	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',	1),
-				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',	1);
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',	100),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',	100);
 	
-	INSERT INTO Building_YieldPerAlly
+	INSERT INTO Building_YieldPerAllyTimes100
 				(BuildingType,				YieldType,				Yield) 
-	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',			2),
-				('BUILDING_MILESTII_MICI',	'YIELD_PRODUCTION',		1),
-				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',			2);
+	VALUES		('BUILDING_MILESTII_MICI',	'YIELD_FOOD',			200),
+				('BUILDING_MILESTII_MICI',	'YIELD_PRODUCTION',		100),
+				('BUILDING_MILESTII_MICI',	'YIELD_GOLD',			200);
 	
 	INSERT INTO Building_HurryModifiers
 				(BuildingType,				HurryType,		HurryCostModifier)
@@ -3690,6 +3691,14 @@
 	-- GW_of_Music(3) (lua_requirement) (HARD)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- WORLD TRADE CENTER
+	UPDATE Buildings SET Cost = 2650 WHERE Type = 'BUILDING_WORLD_TRADE_CENTER';
+	UPDATE Buildings SET WonderSplashAnchor = 'C,B' WHERE Type = 'BUILDING_WORLD_TRADE_CENTER';
+	UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_WORLD_TRADE_CENTER';
+	---------------------------------------------------------
+	-- any Corporation HQ (lua_requirement) (ALL)
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 -- PALM JUMEIRAH (NEW)
 	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_SATELLITES', NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_JUMEIRAH';
 	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_JUMEIRAH';
@@ -3877,9 +3886,9 @@
 --============================================--
 -- WORLD WONDER					BELIEF BUILDING		TECHNOLOGY			RELIGION			ERA
 -- El Ghriba					Synagogue:			Drama and Poetry	Judaism				Late Classical
+-- Hagia Sophia					Church:				Currency 			Orthodox/Islam		Late Classical
 -- Songyue Pagoda				Pagoda:				Engineering			Buddhism			Late Classical
 -- Al Masjid an-Nabawi			Mosque:				Education			Islam				Early Medieval
--- Hagia Sophia					Church:				Theology 			Orthodox/Islam		Early Medieval
 -- Borobudur					Stupa:				Theology 			Buddhism			Early Medieval
 -- Hospital of St. John			Order:				Civil Service		Catholic			Late Medieval 
 -- Rila Monastery (Karlstejn)	Monastery:			Guilds 				Orthodox			Late Medieval 
@@ -4330,6 +4339,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CN_TOWER';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_BLETCHLEY_PARK';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_CERN';
+		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_WORLD_TRADE_CENTER';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_GREAT_FIREWALL';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_HUBBLE';
 		DELETE FROM Building_YieldChanges WHERE YieldType = 'YIELD_CULTURE' AND BuildingType = 'BUILDING_INTERNATIONAL_SPACE_STATION';
@@ -4479,6 +4489,7 @@ UPDATE Buildings SET NumPoliciesNeeded = 25 WHERE Type = 'BUILDING_MOTHERLAND_ST
 UPDATE Buildings SET NumPoliciesNeeded = 24 WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_TAIPEI' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
+UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_WORLD_TRADE_CENTER' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 26 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_JUMEIRAH' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET NumPoliciesNeeded = 27 WHERE Type = 'BUILDING_CURIOSITY' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
@@ -4562,6 +4573,7 @@ UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_JUMEIRAH' AND EXISTS (SE
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_TAIPEI' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_CN_TOWER' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_SYDNEY_OPERA_HOUSE' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
+UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_WORLD_TRADE_CENTER' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 UPDATE Buildings SET Cost = 2700 WHERE Type = 'BUILDING_SEED_VAULT' AND EXISTS (SELECT * FROM BuildingClasses WHERE Type='BUILDINGCLASS_DUMMY_EE');
 
 /*
