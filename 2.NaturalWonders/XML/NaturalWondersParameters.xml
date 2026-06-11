@@ -3495,6 +3495,7 @@
 			<Description>TXT_KEY_IMPROVEMENT_FISHING_BOATS</Description>
 			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_FISHINGBOATS_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_FISHING_BOATS_GBH</ArtDefineTag>
+			<GraphicalOnly>true</GraphicalOnly>
 			<Water>true</Water>
 			<PillageGold>10</PillageGold>
 			<DestroyedWhenPillaged>true</DestroyedWhenPillaged>
@@ -3507,6 +3508,7 @@
 			<Description>TXT_KEY_IMPROVEMENT_OFFSHORE_PLATFORM</Description>
 			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_OFFSHOREPLATFORM_TEXT</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_OFFSHORE_PLATFORM_GBH</ArtDefineTag>
+			<GraphicalOnly>true</GraphicalOnly>
 			<Water>true</Water>
 			<PillageGold>20</PillageGold>
 			<DestroyedWhenPillaged>true</DestroyedWhenPillaged>

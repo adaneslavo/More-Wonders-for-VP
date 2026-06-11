@@ -1205,8 +1205,8 @@
 				('BUILDING_DAMASCUS',	'RESOURCE_IRON',	'YIELD_SCIENCE',	1);
 
 	INSERT INTO UnitPromotions 
-				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,			10,				0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	DefenseMod,		OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS',	'TXT_KEY_PROMOTION_DAMASCUS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,			10,				70,				70,			0,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_DAMASCUS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1237,27 +1237,109 @@
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_HOSPITALLER';
 	UPDATE Buildings SET Cost = 500, PrereqTech = 'TECH_CIVIL_SERVICE', NumPoliciesNeeded = 7, MaxStartEra = 'ERA_RENAISSANCE' WHERE Type = 'BUILDING_HOSPITALLER';
 	---------------------------------------------------------
-	UPDATE Buildings SET HolyCity = 1, ExtraCityHitPoints = 50, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER' WHERE Type = 'BUILDING_HOSPITALLER';
+	UPDATE Buildings SET HolyCity = 1, FreeBuildingThisCity = 'BUILDINGCLASS_ORDER', FreePromotion = 'PROMOTION_HOSPITALLER' WHERE Type = 'BUILDING_HOSPITALLER';
 
 	INSERT INTO Building_YieldChanges 
 				(BuildingType,				YieldType,						Yield) 
-	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',					2),
-				('BUILDING_HOSPITALLER',	'YIELD_GREAT_GENERAL_POINTS',	2);
+	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',					2);
 
 	INSERT INTO Building_YieldFromYieldPercentGlobal
-				(BuildingType,				YieldIn,		YieldOut,		Value)
-	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',	'YIELD_GOLD',	5);
+				(BuildingType,				YieldIn,		YieldOut,				Value)
+	VALUES		('BUILDING_HOSPITALLER',	'YIELD_FAITH',	'YIELD_CULTURE_LOCAL',	30);
 	---------------------------------------------------------
-	UPDATE Buildings SET AlwaysHeal = 3 WHERE Type = 'BUILDING_DUMMY_HOSPITALLER';
+	INSERT INTO UnitPromotions 
+				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	EnemyHealChange,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_HOSPITALLER',	'TXT_KEY_PROMOTION_HOSPITALLER',	'TXT_KEY_PROMOTION_HOSPITALLER_HELP',	'AS2D_IF_LEVELUP',	1,				0,					5,					70,				70,				23,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_HOSPITALLER'),
+				('PROMOTION_TUITIO_FIDEI',	'TXT_KEY_PROMOTION_TUITIO_FIDEI',	'TXT_KEY_PROMOTION_TUITIO_FIDEI_HELP',	'AS2D_IF_LEVELUP',	1,				1,					0,					95,				95,				22,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_MELEE',	'TXT_KEY_PROMOTION_TUITIO_FIDEI');
+
+	INSERT INTO UnitPromotions_YieldModifiers 
+				(PromotionType, 			YieldType, 			Yield)
+	SELECT 		'PROMOTION_TUITIO_FIDEI', 	'YIELD_FOOD',		15;
+
+	INSERT INTO UnitPromotions_UnitCombatMods
+				(PromotionType, 			UnitCombatType, 		Modifier)
+	SELECT 		'PROMOTION_TUITIO_FIDEI', 	'UNITCOMBAT_MOUNTED', 	35;
+
+	INSERT INTO UnitPromotions_UnitCombats
+				(PromotionType,					UnitCombatType)
+	VALUES		('PROMOTION_HOSPITALLER',		'UNITCOMBAT_RECON'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_ARMOR'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_GUN'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_MELEE'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_ARCHER'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_SIEGE'),
+				('PROMOTION_HOSPITALLER',		'UNITCOMBAT_MOUNTED');
+	---------------------------------------------------------
+	INSERT INTO ArtDefine_StrategicView 
+				(StrategicViewType, 				TileType,	Asset)
+	VALUES		('ART_DEF_UNIT_KNIGHT_HOSPITALLER',	'Unit', 	'sv_KnightsHospitaller.dds');
+
+	INSERT INTO ArtDefine_UnitInfos 
+				(Type, 									DamageStates,	Formation)
+	SELECT		'ART_DEF_UNIT_KNIGHT_HOSPITALLER',		DamageStates, 	Formation
+	FROM ArtDefine_UnitInfos WHERE Type = 'ART_DEF_UNIT_PIKEMAN';
+
+	INSERT INTO ArtDefine_UnitInfoMemberInfos 	
+				(UnitInfoType,						UnitMemberInfoType,							 NumMembers)
+	SELECT		'ART_DEF_UNIT_KNIGHT_HOSPITALLER', 	'ART_DEF_UNIT_MEMBER_KNIGHT_HOSPITALLER',	 NumMembers
+	FROM ArtDefine_UnitInfoMemberInfos WHERE UnitMemberInfoType = 'ART_DEF_UNIT_MEMBER_PIKEMAN';
+
+	INSERT INTO ArtDefine_UnitMemberCombats 
+				(UnitMemberType,							EnableActions, DisableActions, MoveRadius, ShortMoveRadius, ChargeRadius, AttackRadius, RangedAttackRadius, MoveRate, ShortMoveRate, TurnRateMin, TurnRateMax, TurnFacingRateMin, TurnFacingRateMax, RollRateMin, RollRateMax, PitchRateMin, PitchRateMax, LOSRadiusScale, TargetRadius, TargetHeight, HasShortRangedAttack, HasLongRangedAttack, HasLeftRightAttack, HasStationaryMelee, HasStationaryRangedAttack, HasRefaceAfterCombat, ReformBeforeCombat, HasIndependentWeaponFacing, HasOpponentTracking, HasCollisionAttack, AttackAltitude, AltitudeDecelerationDistance, OnlyTurnInMovementActions, RushAttackFormation)
+	SELECT		'ART_DEF_UNIT_MEMBER_KNIGHT_HOSPITALLER',	EnableActions, DisableActions, MoveRadius, ShortMoveRadius, ChargeRadius, AttackRadius, RangedAttackRadius, MoveRate, ShortMoveRate, TurnRateMin, TurnRateMax, TurnFacingRateMin, TurnFacingRateMax, RollRateMin, RollRateMax, PitchRateMin, PitchRateMax, LOSRadiusScale, TargetRadius, TargetHeight, HasShortRangedAttack, HasLongRangedAttack, HasLeftRightAttack, HasStationaryMelee, HasStationaryRangedAttack, HasRefaceAfterCombat, ReformBeforeCombat, HasIndependentWeaponFacing, HasOpponentTracking, HasCollisionAttack, AttackAltitude, AltitudeDecelerationDistance, OnlyTurnInMovementActions, RushAttackFormation
+	FROM ArtDefine_UnitMemberCombats WHERE UnitMemberType = 'ART_DEF_UNIT_MEMBER_PIKEMAN';
+
+	INSERT INTO ArtDefine_UnitMemberCombatWeapons	
+				(UnitMemberType,							"Index", SubIndex, ID, VisKillStrengthMin, VisKillStrengthMax, ProjectileSpeed, ProjectileTurnRateMin, ProjectileTurnRateMax, HitEffect, HitEffectScale, HitRadius, ProjectileChildEffectScale, AreaDamageDelay, ContinuousFire, WaitForEffectCompletion, TargetGround, IsDropped, WeaponTypeTag, WeaponTypeSoundOverrideTag)
+	SELECT		'ART_DEF_UNIT_MEMBER_KNIGHT_HOSPITALLER',	"Index", SubIndex, ID, VisKillStrengthMin, VisKillStrengthMax, ProjectileSpeed, ProjectileTurnRateMin, ProjectileTurnRateMax, HitEffect, HitEffectScale, HitRadius, ProjectileChildEffectScale, AreaDamageDelay, ContinuousFire, WaitForEffectCompletion, TargetGround, IsDropped, WeaponTypeTag, WeaponTypeSoundOverrideTag
+	FROM ArtDefine_UnitMemberCombatWeapons WHERE UnitMemberType = 'ART_DEF_UNIT_MEMBER_PIKEMAN';
+
+	INSERT INTO ArtDefine_UnitMemberInfos 	
+				(Type, 										Scale,	ZOffset, Domain, Model, 						MaterialTypeTag, MaterialTypeSoundOverrideTag)
+	SELECT		'ART_DEF_UNIT_MEMBER_KNIGHT_HOSPITALLER',	Scale,	ZOffset, Domain, 'KnightsHospitaller.fxsxml',	MaterialTypeTag, MaterialTypeSoundOverrideTag
+	FROM ArtDefine_UnitMemberInfos WHERE Type = 'ART_DEF_UNIT_MEMBER_PIKEMAN';
+
+	INSERT INTO UnitClasses
+						(Type,							Description,							MaxGlobalInstances, MaxTeamInstances, MaxPlayerInstances, InstanceCostModifier, DefaultUnit)
+	SELECT DISTINCT 	'UNITCLASS_KNIGHT_HOSPITALLER',	'TXT_KEY_UNIT_KNIGHT_HOSPITALLER',		MaxGlobalInstances, MaxTeamInstances, MaxPlayerInstances, InstanceCostModifier, 'UNIT_KNIGHT_HOSPITALLER'
+	FROM UnitClasses WHERE Type = 'UNITCLASS_PIKEMAN';
+
+	INSERT INTO Units
+						(Type,							Class,							Description,						Civilopedia,							Strategy,									Help,									NoMinorCivGift,	NoMinorCivUU,	Combat,		RangedCombat,	Cost,				FaithCost,				RequiresFaithPurchaseEnabled,	Moves,	BaseSightRange, Range,	PurchaseOnly,	MoveAfterPurchase,	CombatClass, Domain, DefaultUnitAI,		MilitarySupport, MilitaryProduction, Pillage, Mechanized, IgnoreBuildingDefense,	PrereqTech,				ObsoleteTech,			GoodyHutUpgradeUnitClass,	PolicyType,						AdvancedStartCost,	MinAreaSize, NukeDamageLevel, CombatLimit, XPValueAttack, XPValueDefense, Conscription,	NoMaintenance, UnitArtInfo,							UnitArtInfoEraVariation, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex,	IconAtlas,					UnitFlagAtlas,					MaxHitPoints, BaseLandAirDefense,	PurchaseCooldown, IsMounted,	UnitEraUpgrade)
+	SELECT DISTINCT 	'UNIT_KNIGHT_HOSPITALLER',		'UNITCLASS_KNIGHT_HOSPITALLER',	'TXT_KEY_UNIT_KNIGHT_HOSPITALLER',	'TXT_KEY_CIV5_UNIT_KNIGHT_HOSPITALLER',	'TXT_KEY_UNIT_KNIGHT_HOSPITALLER_STRATEGY',	'TXT_KEY_UNIT_KNIGHT_HOSPITALLER_HELP',	1,				1,				Combat+4,	RangedCombat,	round(Cost*1.1),	round(FaithCost*1.1),	RequiresFaithPurchaseEnabled,	Moves,	BaseSightRange, Range,	1,				1,					CombatClass, Domain, 'UNITAI_DEFENSE',	MilitarySupport, MilitaryProduction, Pillage, Mechanized, IgnoreBuildingDefense,	'TECH_CIVIL_SERVICE',	'TECH_RIFLING',			GoodyHutUpgradeUnitClass,	'POLICY_DUMMY_HOSPITALLER',		AdvancedStartCost,	MinAreaSize, NukeDamageLevel, CombatLimit, XPValueAttack, XPValueDefense, Conscription,	NoMaintenance, 'ART_DEF_UNIT_KNIGHT_HOSPITALLER',	UnitArtInfoEraVariation, ShowInPedia, MoveRate, 0,					0,				'UNIT_MORE_WONDERS_ATLAS',	'UNIT_MORE_WONDERS_FLAG_ATLAS',	MaxHitPoints, BaseLandAirDefense,	PurchaseCooldown, IsMounted,	UnitEraUpgrade
+	FROM Units WHERE Type = 'UNIT_PIKEMAN';
+
+	INSERT INTO Unit_AITypes 	
+				(UnitType, 					UnitAIType)
+	SELECT		'UNIT_KNIGHT_HOSPITALLER', 	UnitAIType
+	FROM Unit_AITypes WHERE UnitType = 'UNIT_PIKEMAN';
+
+	INSERT INTO Unit_Flavors 	
+				(UnitType, 					FlavorType, Flavor)
+	SELECT		'UNIT_KNIGHT_HOSPITALLER', 	FlavorType, Flavor
+	FROM Unit_Flavors WHERE UnitType = 'UNIT_PIKEMAN';
+
+	INSERT INTO Unit_FreePromotions 
+				(UnitType, 					PromotionType)
+	SELECT		'UNIT_KNIGHT_HOSPITALLER',	'PROMOTION_TUITIO_FIDEI';
+
+	INSERT INTO Unit_ClassUpgrades 	
+				(UnitType, 					UnitClassType)
+	SELECT		'UNIT_KNIGHT_HOSPITALLER', 	UnitClassType
+	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_SPANISH_TERCIO';
+	---------------------------------------------------------
+	UPDATE Buildings SET AlwaysHeal = 5 WHERE Type = 'BUILDING_DUMMY_HOSPITALLER';
 	
 	-- global_unit_healing_from_cities_with_temple (lua_ability)
+	-- allows_purchasing_unique_unit (lua_ability)
 	---------------------------------------------------------
 	INSERT INTO Building_Flavors
 				(BuildingType,				FlavorType,				Flavor)
-	VALUES		('BUILDING_HOSPITALLER',	'FLAVOR_RELIGION',		30),
+	VALUES		('BUILDING_HOSPITALLER',	'FLAVOR_RELIGION',		20),
 				('BUILDING_HOSPITALLER',	'FLAVOR_OFFENSE',		50),
-				('BUILDING_HOSPITALLER',	'FLAVOR_DEFENSE',		30),
-				('BUILDING_HOSPITALLER',	'FLAVOR_GOLD',			40);
+				('BUILDING_HOSPITALLER',	'FLAVOR_DEFENSE',		40),
+				('BUILDING_HOSPITALLER',	'FLAVOR_EXPANSION',		30),
+				('BUILDING_HOSPITALLER',	'FLAVOR_GOLD',			10);
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- RILA MONASTERY (FORMER KARLSTEJN)
@@ -1311,8 +1393,8 @@
 				('BUILDING_SHWEDAGON',	'YIELD_TOURISM',	5);
 	
 	INSERT INTO UnitPromotions 
-				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					20,				1,					11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
+				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	WorkRateMod,	RivalTerritory,		OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+	VALUES		('PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					20,				1,					70,				70,				11,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_CIVILIAN',	'TXT_KEY_PROMOTION_HIDDEN_ARTIFACTS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -1668,6 +1750,9 @@
 	UPDATE Buildings SET Cost = 700, PrereqTech = 'TECH_PRINTING_PRESS', NumPoliciesNeeded = 10, MaxStartEra = 'ERA_INDUSTRIAL' WHERE Type = 'BUILDING_ST_PETERS';
 	UPDATE Buildings SET WonderSplashAnchor = 'R,B' WHERE Type = 'BUILDING_ST_PETERS';
 	---------------------------------------------------------
+	-- for some reason, an icon for St. Peter's Basilica is available
+	UPDATE Buildings SET IconAtlas = 'EXPANSION_SCEN_WONDER_ATLAS', PortraitIndex = 6 WHERE Type = 'BUILDING_ST_PETERS';
+	---------------------------------------------------------
 	UPDATE Buildings SET FreeBuildingThisCity = 'BUILDINGCLASS_CATHEDRAL', ExtraLeagueVotes = 6 WHERE Type = 'BUILDING_ST_PETERS';
 
 	INSERT INTO Building_YieldChanges 
@@ -1795,9 +1880,9 @@
 	VALUES		('BUILDING_MARAE_ARAHURAHU',	'YIELD_FAITH',	10);
 	
 	INSERT INTO UnitPromotions 
-				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				0,					10,			2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
-				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			3,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
+				(Type,					Description,					Help,								Sound,				CannotBeChosen, LostWithUpgrade,	AttackMod,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE',		'TXT_KEY_PROMOTION_MARAE_HELP',		'AS2D_IF_LEVELUP',	1,				0,					10,			70,				70,				2,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_RANGED', 'TXT_KEY_PROMOTION_MARAE'),
+				('PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU',	'TXT_KEY_PROMOTION_ARAHURAHU_HELP',	'AS2D_IF_LEVELUP',	1,				0,					0,			70,				70,				3,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED', 'TXT_KEY_PROMOTION_ARAHURAHU');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,			UnitCombatType)
@@ -1849,7 +1934,7 @@
 	VALUES		('BUILDING_HARMANDIR',	'YIELD_FAITH',	2);
 
 	INSERT INTO Building_BuildingClassYieldChanges (BuildingType,			BuildingClassType,	YieldType,		YieldChange)
-	SELECT DISTINCT									'BUILDING_HARMANDIR',	a.BuildingClass,	'YIELD_FOOD',	3
+	SELECT DISTINCT									'BUILDING_HARMANDIR',	a.BuildingClass,	'YIELD_FOOD',	1
 	FROM Buildings a, BuildingClasses b, Building_YieldChanges c
 	WHERE a.BuildingClass = b.Type AND a.Type = c.BuildingType
 		AND a.IsDummy = 0 AND a.Cost != -1
@@ -1865,7 +1950,7 @@
 		BEGIN
 			INSERT INTO Building_BuildingClassYieldChanges
 						(BuildingType,			BuildingClassType,		YieldType,		YieldChange)
-			SELECT		'BUILDING_HARMANDIR',	Type,					'YIELD_FOOD',	3
+			SELECT		'BUILDING_HARMANDIR',	Type,					'YIELD_FOOD',	1
 			FROM BuildingClasses
 			WHERE DefaultBuilding = NEW.BuildingType;
 		END;
@@ -2340,8 +2425,8 @@
 				('BUILDING_SIBERIAN_RAILWAY',	'RESOURCE_URANIUM',		'YIELD_GOLDEN_AGE_POINTS',		5);
 	
 	INSERT INTO UnitPromotions 
-				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY_HELP',	'AS2D_IF_LEVELUP',	1,				0,					7,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY');
+				(Type,							Description,							Help,										Sound,				CannotBeChosen, LostWithUpgrade,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY_HELP',	'AS2D_IF_LEVELUP',	1,				0,					70,				70,				7,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SIBERIAN_RAILWAY');
 
 	INSERT INTO UnitPromotions_Terrains 
 				(PromotionType,					TerrainType,			DoubleMove) 
@@ -2389,8 +2474,10 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- PANAMA CANAL (NEW)
 	UPDATE Buildings SET Cost = 1100, PrereqTech = 'TECH_STEAM_POWER', NumPoliciesNeeded = 14, MaxStartEra = 'ERA_MODERN' WHERE Type = 'BUILDING_PANAMA_CANAL';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,C' WHERE Type = 'BUILDING_PANAMA_CANAL';
 	UPDATE Buildings SET NumPoliciesNeeded = 0 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
+	---------------------------------------------------------
+	-- Panama Canal is already in the game
+	UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 25, WonderSplashImage = 'WonderConceptPanamaCanal.dds', WonderSplashAnchor = 'L,C' WHERE Type = 'BUILDING_PANAMA_CANAL';
 	---------------------------------------------------------
 	UPDATE Buildings SET Water = 1, MinAreaSize = 10 WHERE Type = 'BUILDING_PANAMA_CANAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	
@@ -2408,8 +2495,8 @@
 				('BUILDING_PANAMA_CANAL',	'BUILDINGCLASS_SEAPORT',	'YIELD_GOLD',		2);
 
 	INSERT INTO UnitPromotions 
-				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	FriendlyHealChange,	MovesChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					1,				5,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
+				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	FriendlyHealChange,	MovesChange,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL_HELP',	'AS2D_IF_LEVELUP',	1,				0,					10,					1,				70,				70,				5,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_PANAMA_CANAL');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -2618,8 +2705,8 @@
 				('BUILDING_DARJEELING',	'YIELD_TOURISM',	3);
 
 	INSERT INTO UnitPromotions 
-				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_NAVAL',	'TXT_KEY_PROMOTION_DARJEELING');
+				(Type,						Description,					Help,									Sound,				CannotBeChosen, LostWithUpgrade,	CanCrossMountains,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING',	'TXT_KEY_PROMOTION_DARJEELING_HELP',	'AS2D_IF_LEVELUP',	1,				0,					1,					70,				70,				6,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_DARJEELING');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -3063,11 +3150,11 @@
 				('BUILDING_SANBO',	'UNITCOMBAT_MISSILE',		30);
 	
 	INSERT INTO UnitPromotions 
-				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	LandAirDefenseBonus,	AdjacentMod,	RangedAttackModifier,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,				10,						10,				1,		0,						0,				0,						13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
-				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		10,						10,				0,						12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
-				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				0,						14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
-				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				30,						15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
+				(Type,							Description,							Help,											Sound,				CannotBeChosen, LostWithUpgrade,	RoughAttack,	RoughRangedAttackMod,	RoughDefense,	River,	LandAirDefenseBonus,	AdjacentMod,	RangedAttackModifier,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_SANBO_LAND',		'TXT_KEY_PROMOTION_SANBO_LAND',			'TXT_KEY_PROMOTION_SANBO_LAND_HELP',			'AS2D_IF_LEVELUP',	1,				0,					10,				10,						10,				1,		0,						0,				0,						70,				70,				13,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_LAND'),
+				('PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA',			'TXT_KEY_PROMOTION_SANBO_SEA_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		10,						10,				0,						70,				70,				12,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',	'TXT_KEY_PROMOTION_SANBO_SEA'),
+				('PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR',			'TXT_KEY_PROMOTION_SANBO_AIR_HELP',				'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				0,						70,				70,				14,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR'),
+				('PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT_HELP',		'AS2D_IF_LEVELUP',	1,				0,					0,				0,						0,				0,		0,						0,				30,						70,				70,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_SANBO_AIR_EFFECT');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,					UnitCombatType)
@@ -3435,8 +3522,8 @@
 	VALUES		('BUILDING_THULE',	'DOMAIN_AIR',	5);
 	
 	INSERT INTO UnitPromotions 
-				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					5,						2,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
+				(Type,				Description,				Help,							Sound,				CannotBeChosen, LostWithUpgrade,	RangedAttackModifier,	RangeChange,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE',	'TXT_KEY_PROMOTION_THULE_HELP',	'AS2D_IF_LEVELUP',	1,				0,					5,						2,				70,				70,				15,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_THULE');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,		UnitCombatType)
@@ -3475,8 +3562,8 @@
 				('BUILDING_WHITE_SANDS',	'UNITCOMBAT_SPACESHIP_PART',	10);
 
 	INSERT INTO UnitPromotions 
-				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
-	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
+				(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	RangeChange,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,		PediaEntry) 
+	VALUES		('PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS',	'TXT_KEY_PROMOTION_WHITE_SANDS_HELP',	'AS2D_IF_LEVELUP',	1,				0,					2,				70,				70,				1,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_AIR',	'TXT_KEY_PROMOTION_WHITE_SANDS');
 
 	INSERT INTO UnitPromotions_UnitCombats
 				(PromotionType,				UnitCombatType)
@@ -3640,8 +3727,9 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- THREE GORGES DAM (NEW)
 	UPDATE Buildings SET Cost = 2650, PrereqTech = 'TECH_ECOLOGY', NumPoliciesNeeded = 23 WHERE Type = 'BUILDING_THREE_GORGES_DAM';
-	UPDATE Buildings SET WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
-	UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 28, WonderSplashImage = 'WonderConceptThreeGeorgesDam.dds' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
+	---------------------------------------------------------
+	-- Three Gorges Dam is already in the game
+	UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 28, WonderSplashImage = 'WonderConceptThreeGeorgesDam.dds', WonderSplashAnchor = 'L,B' WHERE Type = 'BUILDING_THREE_GORGES_DAM';
 	---------------------------------------------------------
 	UPDATE Buildings SET River = 1 WHERE Type = 'BUILDING_THREE_GORGES_DAM' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND (Value=1 OR Value=2));
 	---------------------------------------------------------
@@ -4251,6 +4339,19 @@ VALUES		('BUILDING_STATUE_OF_LIBERTY',		'BUILDINGCLASS_ORSZAGHAZ'),				-- freedo
 			('BUILDING_ANITKABIR',				'BUILDINGCLASS_SANBO'),
 			('BUILDING_ANITKABIR',				'BUILDINGCLASS_TEHRAN_FACILITY');
 --============================================--
+-- PROMOTION FLAGS AND ORDERING
+--============================================--
+UPDATE UnitPromotions SET OrderPriority = 70, FlagPromoOrder = 70 WHERE Type IN (
+	'PROMOTION_HIMEJI_CASTLE',
+	'PROMOTION_IMPERIAL_SEAL',
+	'PROMOTION_JINETE',
+	'PROMOTION_NAVIGATOR_2',
+	'PROMOTION_NOBILITY',
+	'PROMOTION_STATUE_ZEUS',
+	'PROMOTION_TREASURE_FLEET'
+	--'PROMOTION_SPLASH_1' -- it is part of regular promotion tree
+);
+--============================================--
 -- FREE ART HELP TEXTS
 --============================================--
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Contains a pre-built [ICON_GREAT_WORK] Great Work of Art. ', 'Starts with [ICON_GREAT_WORK] [COLOR_CULTURE_STORED]The Crown Jewels[ENDCOLOR].[NEWLINE][NEWLINE]') WHERE Tag ='TXT_KEY_BUILDING_WHITE_TOWER_HELP';
@@ -4266,30 +4367,6 @@ UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_CROWN_MAN'				WHERE Type 
 UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_ARK_OF_THE_COVENANT_WOMAN'	WHERE Type = 'GREAT_WORK_THE_ARK' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
 UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_LANCE_WOMAN'				WHERE Type = 'GREAT_WORK_HOLY_LANCE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
 UPDATE GreatWorks SET Audio = 'AS2D_WONDER_SPEECH_HOLY_CROWN_WOMAN'				WHERE Type = 'GREAT_WORK_HOLY_CROWN' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SPEECH' AND Value=1);
---============================================--
--- PROMOTION ORDERING
---============================================--
-UPDATE UnitPromotions SET FlagPromoOrder = 203, OrderPriority = 203 WHERE Type = 'PROMOTION_HIMEJI_CASTLE';
-UPDATE UnitPromotions SET FlagPromoOrder = 204, OrderPriority = 204 WHERE Type = 'PROMOTION_SANBO_LAND';
-UPDATE UnitPromotions SET FlagPromoOrder = 205, OrderPriority = 205 WHERE Type = 'PROMOTION_SANBO_SEA';
-UPDATE UnitPromotions SET FlagPromoOrder = 206, OrderPriority = 206 WHERE Type = 'PROMOTION_SANBO_AIR';
-UPDATE UnitPromotions SET FlagPromoOrder = 207, OrderPriority = 207 WHERE Type = 'PROMOTION_STATUE_ZEUS';
-UPDATE UnitPromotions SET FlagPromoOrder = 208, OrderPriority = 208 WHERE Type = 'PROMOTION_TREASURE_FLEET';
-
-UPDATE UnitPromotions SET FlagPromoOrder = 209, OrderPriority = 209 WHERE Type = 'PROMOTION_ALHAMBRA';
-UPDATE UnitPromotions SET FlagPromoOrder = 210, OrderPriority = 210 WHERE Type = 'PROMOTION_DAMASCUS';
-UPDATE UnitPromotions SET FlagPromoOrder = 211, OrderPriority = 211 WHERE Type = 'PROMOTION_MARAE';
-UPDATE UnitPromotions SET FlagPromoOrder = 212, OrderPriority = 212 WHERE Type = 'PROMOTION_ARAHURAHU';
-UPDATE UnitPromotions SET FlagPromoOrder = 213, OrderPriority = 213 WHERE Type = 'PROMOTION_THULE';
-UPDATE UnitPromotions SET FlagPromoOrder = 214, OrderPriority = 214 WHERE Type = 'PROMOTION_WHITE_SANDS';
-
-UPDATE UnitPromotions SET FlagPromoOrder = 215, OrderPriority = 215 WHERE Type = 'PROMOTION_ARSENALE';
-
-UPDATE UnitPromotions SET FlagPromoOrder = 216, OrderPriority = 216 WHERE Type = 'PROMOTION_PANAMA_CANAL';
-UPDATE UnitPromotions SET FlagPromoOrder = 217, OrderPriority = 217 WHERE Type = 'PROMOTION_SIBERIAN_RAILWAY';
-UPDATE UnitPromotions SET FlagPromoOrder = 218, OrderPriority = 218 WHERE Type = 'PROMOTION_DARJEELING';
-
-UPDATE UnitPromotions SET FlagPromoOrder = 219, OrderPriority = 219 WHERE Type = 'PROMOTION_HIDDEN_ARTIFACTS';
 --============================================--
 -- Hide all INACTIVE Wonders - override any previous settings
 -- Warning! They will still be visible in Civilopedia!
@@ -4377,7 +4454,7 @@ WHERE Type IN (SELECT 'BUILDING_'||WType FROM MWfVPConfig WHERE WActive = 0);
 		UPDATE Building_YieldChanges SET Yield = 2 WHERE BuildingType = 'BUILDING_ANGKOR_WAT';
 		INSERT INTO Building_YieldFromBorderGrowth (BuildingType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'YIELD_FAITH', 20);
 		INSERT INTO Building_SpecialistYieldChangesLocal (BuildingType, SpecialistType, YieldType, Yield) VALUES ('BUILDING_ANGKOR_WAT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_FAITH', 3);
-		
+
 		INSERT INTO Policy_UnitClassReplacements (PolicyType,				ReplacedUnitClassType, ReplacementUnitClassType) 
 		SELECT									 'POLICY_DUMMY_ANGKOR_WAT', Class,				   Class||'_FAITH'
 		FROM Units

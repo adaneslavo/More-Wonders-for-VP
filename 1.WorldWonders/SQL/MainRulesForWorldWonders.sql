@@ -165,12 +165,6 @@ INSERT INTO Buildings
 SELECT		'BUILDING_'||WType, 'BUILDINGCLASS_'||WType, 'TXT_KEY_BUILDING_'||WType, 'TXT_KEY_BUILDING_'||WType||'_PEDIA',	'TXT_KEY_BUILDING_'||WType||'_HELP',	'TXT_KEY_WONDER_'||WType||'_QUOTE', NULL,             1,    0,         1,          -5,                -1,          100,          'ATLAS_MORE_WONDERS_'||WType,		0,             'Wonder_'||WType||'_splash.dds', 'R,T'
 FROM MWfVPConfig;
 --------------------------------------------------------------
--- Panama Canal is already in the game
-UPDATE Buildings SET IconAtlas = 'BW_ATLAS_2', PortraitIndex = 25, WonderSplashImage = 'WonderConceptPanamaCanal.dds' WHERE Type = 'BUILDING_PANAMA_CANAL';
---------------------------------------------------------------
--- Also, for reasons, an icon for St. Peter's Basilica is available
-UPDATE Buildings SET IconAtlas = 'EXPANSION_SCEN_WONDER_ATLAS', PortraitIndex = 6 WHERE Type = 'BUILDING_ST_PETERS';
---------------------------------------------------------------
 -- Civilization_BuildingClassOverrides
 INSERT INTO Civilization_BuildingClassOverrides 
 			(CivilizationType,			BuildingClassType,			BuildingType)
@@ -534,8 +528,6 @@ VALUES		('DUMMY_KUK',					'KUK',					'MW-WW Kuk',							2,			0),
 			('DUMMY_CURIOSITY',				'CURIOSITY',			'MW-WW Curiosity Rover',				2,			0),
 			('DUMMY_SEED_VAULT',			'SEED_VAULT',			'MW-WW Svalbard Global Seed Vault',		2,			0),
 			('DUMMY_TEMBLEQUE',				'TEMBLEQUE',			'MW-WW Tembleque Aqueduct',				2,			0),
-			--('DUMMY_ANGKOR_WAT',			'',						'Angkor Wat',							2,			0), -- POLICY!!!
-			--('DUMMY_TLACHIHUALTEPETL',	'',						'Tlachihualtepetl',						2,			0), -- POLICY!!!
 			('DUMMY_HOSPITALLER',			'HOSPITALLER',			'MW-WW Knights Hospitaller',			2,			0),
 			('DUMMY_SONGYUE',				'SONGYUE',				'MW-WW Songyue Pagoda',					2,			0);
 
@@ -558,9 +550,11 @@ FROM MWfVPConfig WHERE WActive = 2;
 -- DUMMY POLICIES
 --============================================--
 INSERT INTO	Policies
-			(Type, 								Description, 								IsDummy)
-VALUES		('POLICY_DUMMY_TLACHIHUALTEPETL',	'TXT_KEY_POLICY_DUMMY_TLACHIHUALTEPETL',	1),		
-			('POLICY_DUMMY_ANGKOR_WAT',			'TXT_KEY_POLICY_DUMMY_ANGKOR_WAT',			1);	
+			(Type, 								Description, 								IsDummy)	
+VALUES		('POLICY_DUMMY_ANGKOR_WAT',			'TXT_KEY_POLICY_DUMMY_ANGKOR_WAT',			1),
+			('POLICY_DUMMY_HOSPITALLER',		'TXT_KEY_POLICY_DUMMY_HOSPITALLER',			1),
+			('POLICY_DUMMY_TLACHIHUALTEPETL',	'TXT_KEY_POLICY_DUMMY_TLACHIHUALTEPETL',	1);	
+
 --============================================--
 -- Icons Atlas
 --============================================--
