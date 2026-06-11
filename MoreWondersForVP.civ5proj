@@ -85,6 +85,16 @@ Currently compatible with VP 4.4.X.</Description>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>Units/UnitsDefinitions.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Buildings/BuildingsDefinitions.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>1.WorldWonders/SQL/MainRulesForWorldWonders.sql</FileName>
       </Action>
       <Action>
@@ -121,11 +131,6 @@ Currently compatible with VP 4.4.X.</Description>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>2.NaturalWonders/SQL/NaturalWondersCivilopediaTexts.sql</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
-        <FileName>Buildings/BuildingsDefinitions.sql</FileName>
       </Action>
     </ModActions>
     <ModContent>
@@ -4183,6 +4188,54 @@ Currently compatible with VP 4.4.X.</Description>
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_Flags_32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Atlases\More_Wonders_Units_80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Hospitaller\Icons\sv_KnightsHospitaller.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Hospitaller\Models\KnightsHospitaller.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Hospitaller\Models\KnightsHospitaller.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Hospitaller\Models\KnightsHospitaller.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\Hospitaller\Models\Pikeman_Hospitaller_gloss.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Units\UnitsDefinitions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="WorldWonders.ods">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -4263,6 +4316,7 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="2.NaturalWonders\XML" />
     <Folder Include="Buildings" />
     <Folder Include="Buildings\Atlases" />
+    <Folder Include="Units" />
     <Folder Include="Promotions\" />
     <Folder Include="Promotions\Atlases" />
     <Folder Include="Resources\" />
@@ -4272,6 +4326,10 @@ Currently compatible with VP 4.4.X.</Description>
     <Folder Include="Resources\Models\GiantTortoise" />
     <Folder Include="Resources\sv_icons" />
     <Folder Include="Resources\Models\TropicalFish" />
+    <Folder Include="Units\Atlases\" />
+    <Folder Include="Units\Hospitaller\Icons" />
+    <Folder Include="Units\Hospitaller\Models\" />
+    <Folder Include="Units\Hospitaller" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>

@@ -14,11 +14,11 @@ VALUES		('BUILDING_MORE_WONDERS_ATLAS', 	256, 		'More_Wonders_Buildings_256.dds'
 INSERT INTO Language_en_US 
 			(Tag,								Text) 
 VALUES		('TXT_KEY_PROMOTION_FLETCHER',		'Yerba de la Fleche'),
-			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'+50%[ICON_STRENGTH]Attacking CS/[ICON_RANGE_STRENGTH]Attacking RCS [COLOR:255:230:85:255]vs Wounded Units[ENDCOLOR].');
+			('TXT_KEY_PROMOTION_FLETCHER_HELP',	'+50% [ICON_STRENGTH] Attacking CS vs [COLOR_POSITIVE_TEXT]Wounded Units[ENDCOLOR].');
 
 INSERT INTO UnitPromotions 
-			(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
-VALUES		('PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER_HELP',		'AS2D_IF_LEVELUP',	1,				1,					20,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_FLETCHER');
+			(Type,						Description,						Help,									Sound,				CannotBeChosen, LostWithUpgrade,	OrderPriority,	FlagPromoOrder,	PortraitIndex,	IconAtlas,						PediaType,			PediaEntry) 
+VALUES		('PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER',		'TXT_KEY_PROMOTION_FLETCHER_HELP',		'AS2D_IF_LEVELUP',	1,				1,					96,				96,				20,				'PROMOTION_MORE_WONDERS_ATLAS',	'PEDIA_SHARED',		'TXT_KEY_PROMOTION_FLETCHER');
 
 UPDATE UnitPromotions SET AttackWoundedMod = 50 WHERE Type = 'PROMOTION_FLETCHER';
 

@@ -1,4 +1,25 @@
 MW Changelog:
+v24.10:
+- balanced:
+	- reworked Knight's Hospitaller World Wonder (new promotion icons by @gwennog, unit model by @JFD):
+		- fixed healing garrisoned units;
+		- deleted bonus Great Admiral Points;
+		- deleted bonus HP to City;
+		- now it converts 30% Faith into Border Growth (was 5% into Gold);
+		- grants new promotion to Land Units: Vexillum Hospitalorum (+5 Heal on Heal in Enemy Territory);
+		- allows purchasing new mercenary UU: Knight Hospitaller (unique Pikeman, stronger vs cavalry, buffs city when garrisoned);
+		- renamed back to Hospital of St. John;
+	- Harmandir Sahib: reduced bonus Food from some buildings to 1 (was 3);
+- fixed:
+	- added another bunch of reworked World Wonder Popup texts;
+	- brought back original style of promotion help texts (moved changed versions to PO);
+	- new improvements now have "<GraphicalOnly>true</GraphicalOnly>" added so they won't show in civilopedia;
+	- Toy Train now in correct civilopedia section;
+	- revised values of OrderPriority and FlagPromoOrder columns;
+	- added OrderPriority and FlagPromoOrder columns for all new promotions (also adjusted old promotions so they match new ones);
+- other:
+	- moved some art definitions to definitions file (were in main initialization);
+
 v24.9:
 - adapted to VP 5.2 changes:
 	- Great Wall and Terracota Army ability swap (only adjusted texts);

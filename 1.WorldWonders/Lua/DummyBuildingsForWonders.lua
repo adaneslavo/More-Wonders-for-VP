@@ -6,6 +6,8 @@
 local eUnitClassCaravan = GameInfoTypes.UNITCLASS_CARAVAN
 local eUnitClassCargo = GameInfoTypes.UNITCLASS_CARGO_SHIP
 
+local eUnitKnightHospitaller = GameInfoTypes.UNIT_KNIGHT_HOSPITALLER
+
 local eBuildingClassWalls = GameInfoTypes.BUILDINGCLASS_WALLS
 local eBuildingClassTemple = GameInfoTypes.BUILDINGCLASS_TEMPLE
 
@@ -13,6 +15,8 @@ local eDomainSea = GameInfoTypes.DOMAIN_SEA
 
 local ePromotionSanboAir = GameInfoTypes.PROMOTION_SANBO_AIR
 local ePromotionSanboAirEffect = GameInfoTypes.PROMOTION_SANBO_AIR_EFFECT
+
+local eTechEconomics = GameInfoTypes.TECH_ECONOMICS
 --------------------------------------------------------------
 local iCoastMinArea = 10
 local iSanboLifeThreshold = 20
@@ -80,6 +84,7 @@ local g_tWorldWonderDummy2 = {}
 		g_tWorldWonderDummy2[i] = false
 	end
 	g_tWorldWonderDummy2[15] = GameInfoTypes["BUILDING_DUMMY_SANBO_2"]
+	g_tWorldWonderDummy2[24] = GameInfoTypes["POLICY_DUMMY_HOSPITALLER"] -- POLICY!!!
 
 local g_tWorldWonderExists = {}
 	for i = 1, g_iWonderWithDummies do
@@ -95,7 +100,7 @@ local g_tWorldWonderOwner = {}
 -- Songyue Pagoda 					(25)		CLASSICAL
 -- Great Zimbabwe 					(5)				MEDIEVAL
 -- Itsukushima Shrine 				(2)				MEDIEVAL
--- Knight's Hospitaller 			(24)			MEDIEVAL
+-- Hospital of St. John 			(24)			MEDIEVAL
 -- Krak des Chevaliers 				(1)				MEDIEVAL
 -- Qalhat 							(3)				MEDIEVAL
 -- Tlachihualtepetl 				(23)			MEDIEVAL
@@ -120,7 +125,7 @@ local g_tWorldWonderOwner = {}
 	-- Tlachihualtepetl 				(23)	global_yields_from_constructions
 -- REQUIRES OTHER BASIC BUILDING:
 	-- Gate of the Sun 					(4)		global_modifiers_to_cities_with_walls
-	-- Knight's Hospitaller 			(24)	global_unit_healing_from_cities_with_temple
+	-- Hospital of St. John 			(24)	global_unit_healing_from_cities_with_temple/allows_purchasing_unique_unit
 -- REQUIRES COASTAL/NON-COASTAL CITY:
 	-- Krak des Chevaliers 				(1)		different_bonuses_in_non_coastal_cities	
 	-- Itsukushima Shrine 				(2)		border_growth_boost_in_coastal_cities/yields_to_atolls_in_coastal_cities
@@ -585,6 +590,8 @@ function IsWonderConstructed(ePlayer, eCity, eBuilding, bGold, bFaith)
 				end
 			end
 		end
+
+		pPlayer:SetHasPolicy(g_tWorldWonderDummy2[24], true) -- POLICY!!!
 	else
 		if g_tWorldWonderExists[24] and g_tWorldWonderOwner[24] == ePlayer then
 			for building in GameInfo.Buildings{BuildingClass=eBuildingClassTemple} do
@@ -1151,6 +1158,8 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 			for city in pOldOwner:Cities() do
 				city:SetNumRealBuilding(g_tWorldWonderDummy[24], 0)
 			end
+
+			pOldOwner:SetHasPolicy(g_tWorldWonderDummy2[24], false) -- POLICY!!!
 			
 			local pNewOwner = Players[eNewOwner]
 			g_tWorldWonderOwner[24] = eNewOwner
@@ -1162,7 +1171,9 @@ function CheckForWonderAfterCapture(eOldOwner, bIsCapital, iX, iY, eNewOwner, iP
 						break
 					end
 				end
-			end		
+			end
+			
+			pNewOwner:SetHasPolicy(g_tWorldWonderDummy2[24], true) -- POLICY!!!		
 		else
 			for building in GameInfo.Buildings{BuildingClass=eBuildingClassTemple} do	
 				if eNewOwner == g_tWorldWonderOwner[24] and pConqCity:IsHasBuilding(building.ID) then
@@ -1559,3 +1570,50 @@ function SetRAOnTurn(ePlayer)
 	end
 end
 GameEvents.PlayerDoTurn.Add(SetRAOnTurn)
+
+-- allows purchasing a mercenary unit: Knight Hospitaller (HOSPITAL OF ST. JOHN)
+function BuyKnightHospitaller(ePlayer, eCity, eUnit)
+	-- Knights Hospitaller (24)
+	if eUnit ~= eUnitKnightHospitaller then return true end
+	
+	local pPlayer = Players[ePlayer]
+
+	if ePlayer == g_tWorldWonderOwner[24] then
+		return true
+	end
+	
+	return false
+end
+GameEvents.CityCanTrain.Add(BuyKnightHospitaller)
+
+function KnightHospitallerBoostOnTech(eTeam, eTech, iChange)
+	-- Knights Hospitaller (24)
+	if eTech ~= eTechEconomics then return end
+	
+	local pActivePlayer = Players[Game.GetActivePlayer()]
+	
+	for unit in pActivePlayer:Units() do
+		if unit:GetUnitType() == eUnitKnightHospitaller then
+			unit:SetBaseCombatStrength(unit:GetBaseCombatStrength() + 5)
+		end
+	end	
+end
+GameEvents.TeamTechResearched.Add(KnightHospitallerBoostOnTech)
+
+function KnightHospitallerBoostOnTrain(ePlayer, eCity, eUnit, bGold, bFaith)
+    -- Knights Hospitaller (24)
+	local pPlayer = Players[ePlayer]
+
+    if not pPlayer:IsAlive() then return end
+
+    local pTeam = Teams[pPlayer:GetTeam()]
+    
+	if not pTeam:GetTeamTechs():HasTech(eTechEconomics) then return end
+
+    local pUnit = pPlayer:GetUnitByID(eUnit)
+
+    if pUnit:GetUnitType() == eUnitKnightHospitaller then
+        pUnit:SetBaseCombatStrength(pUnit:GetBaseCombatStrength() + 5)
+    end
+end
+GameEvents.CityTrained.Add(KnightHospitallerBoostOnTrain)
