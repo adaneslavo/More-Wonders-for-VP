@@ -1,4 +1,23 @@
 MW Changelog:
+v24.12:
+- updated Diplomatic Units' icons;
+- now Diplomats from Angkor Wat grant additional 10 Resting Influence;
+- fixed two minor issues with Knights Hospitallers (thanks to @jarcast2 for fixing it in the meantime);
+
+v24.11:
+- adapted to VP 5.3.X changes:
+	- added 4 new World Wonders with all relevant things like requirements, texts etc.;
+	- updated all other World Wonders with spy changes, and other minor stuff (including reworked Wonder Popup texts);
+	- GPS has now 250 Spy Points (was meant to be 2 Extra Spies, but after rework it was giving only 2 Spy Points);
+	- added and balanced Animism boost to all existing and new Natural Wonders;
+	- removed redundant Sacred Steps entry for Great Prophets (included in Great People);
+	- removed UNITCOMBAT_SPACESHIP_PART, UNITCOMBAT_MISSILE and UNITCOMBAT_ARCHAEOLOGIST and added UNITCOMBAT_NUKE (VP has already added it in the meantime);
+	- updated ASP.lua file for changes introduced in VP 5.3.3;
+	- updated WorldWonders.odt file and also main forum page with all latest changes (meanwhile fixed some errors);
+	- now Alcatraz and Chateau D'If are mutually exclusive World Wonders (both are penitentiaries, and both are on islands);
+- added MutuallyExclusiveGroup value for Transportation World Wonders (needed for my personal Wonder Planner compatibility;
+- changed colour for any mentions about World Congress (from Dark Green to Dark Red);
+
 v24.10:
 - balanced:
 	- reworked Knight's Hospitaller World Wonder (new promotion icons by @gwennog, unit model by @JFD):
@@ -21,7 +40,7 @@ v24.10:
 	- moved some art definitions to definitions file (were in main initialization);
 
 v24.9:
-- adapted to VP 5.2 changes:
+- adapted to VP 5.2.X changes:
 	- Great Wall and Terracota Army ability swap (only adjusted texts);
 	- Angkor Wat and Hagia Sofia swap (rivised the swap, left most abilities, slightly changed Hagia Sophia, adapted the texts);
 		- replaced free Great Prophet with free 400 Faith (half of the cost of Great Prophet);

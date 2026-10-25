@@ -3623,6 +3623,10 @@
 	</Belief_YieldChangeNaturalWonder>
 
 	<Belief_FeatureYieldChanges>
+		<Delete BeliefType="BELIEF_ANIMISM"/>
+	</Belief_FeatureYieldChanges>
+
+	<Belief_FeatureYieldChanges>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_CRATER</FeatureType>
@@ -3635,9 +3639,20 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_CRATER</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_CRATER</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 		
-
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_EL_DORADO</FeatureType>
@@ -3650,9 +3665,20 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_EL_DORADO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_EL_DORADO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 		
-
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
@@ -3665,7 +3691,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_FOUNTAIN_YOUTH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3680,7 +3717,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_FUJI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3695,7 +3743,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GEYSER</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3710,9 +3769,20 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GIBRALTAR</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
-		
-
+	
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
@@ -3725,7 +3795,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_KILIMANJARO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3740,7 +3821,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3755,7 +3847,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MESA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MESA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3770,7 +3873,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_KAILASH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3785,7 +3899,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_SINAI</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_SINAI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3800,7 +3925,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_POTOSI</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_POTOSI</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3813,6 +3949,12 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_NEW_REEF_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -3823,6 +3965,12 @@
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
 			<FeatureType>FEATURE_NEW_REEF_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
@@ -3839,7 +3987,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_NEW_REEF_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3854,7 +4007,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SOLOMONS_MINES</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3869,7 +4033,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SRI_PADA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3884,7 +4059,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_VOLCANO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3899,7 +4085,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ULURU</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3914,7 +4111,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_DALLOL</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3929,9 +4137,20 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_EVEREST</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
-		
-		
+
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
@@ -3944,7 +4163,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MT_PAEKTU</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3959,7 +4189,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_LUMI_BAY</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -3972,6 +4213,12 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_BERMUDA_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -3982,6 +4229,12 @@
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
 			<FeatureType>FEATURE_BERMUDA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
@@ -3998,7 +4251,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_BERMUDA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -4014,6 +4272,12 @@
 			<Yield>2</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SALAR_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_SALAR_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4025,7 +4289,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_SALAR_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -4041,6 +4310,12 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4052,7 +4327,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_CAUSEWAY_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -4067,7 +4347,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-		
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_RETBA</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
 
 		<Row>
@@ -4080,6 +4371,12 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -4090,6 +4387,12 @@
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
 			<FeatureType>FEATURE_EYE_OF_SAHARA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
@@ -4106,9 +4409,14 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_EYE_OF_SAHARA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
 		
-		
-		
+
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
@@ -4121,7 +4429,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_BLUE_HOLE</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4137,6 +4456,12 @@
 			<Yield>2</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4148,7 +4473,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_GALAPAGOS_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4164,6 +4494,12 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4175,7 +4511,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_HA_LONG_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4190,7 +4531,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ZHANGJIAJIE</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4203,6 +4555,12 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_AURORA_A</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_AURORA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 		<Row>
@@ -4213,6 +4571,12 @@
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_AURORA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
 			<FeatureType>FEATURE_AURORA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
@@ -4229,7 +4593,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_AURORA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4244,7 +4613,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_ARCH</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4260,6 +4640,12 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_DANXIA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_DANXIA_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4271,7 +4657,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_DANXIA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4286,7 +4677,18 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>3</Yield>
 		</Row>
-
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_JEJU_DO</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
 
 
 		<Row>
@@ -4302,6 +4704,12 @@
 			<Yield>1</Yield>
 		</Row>
 		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MARIANA_A</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_MARIANA_B</FeatureType>
 			<YieldType>YIELD_FAITH</YieldType>
@@ -4309,6 +4717,12 @@
 		</Row>
 		<Row>
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
+			<FeatureType>FEATURE_MARIANA_B</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
 			<FeatureType>FEATURE_MARIANA_B</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>1</Yield>
@@ -4323,6 +4737,12 @@
 			<BeliefType>BELIEF_ONE_WITH_NATURE</BeliefType>
 			<FeatureType>FEATURE_MARIANA_C</FeatureType>
 			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_ANIMISM</BeliefType>
+			<FeatureType>FEATURE_MARIANA_C</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 	</Belief_FeatureYieldChanges>

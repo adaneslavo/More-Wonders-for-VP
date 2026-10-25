@@ -378,7 +378,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Terracota Army
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	'Incredible [COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] will allow you to keep your power even after you glorious death (+5[ICON_SILVER_FIST]). This cultural masterpiece is a reflection of your current military strength, and how successes of your army influence the citizens of the empire (10[ICON_CULTURE]/Kill). To finalize this magnificient project you must reroute much of your supplies to your sculpting centers, so the artists have everything they need (+1[ICON_PRODUCTION]).');
+VALUES ('TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP_CUT',	'Incredible [COLOR_YIELD_FOOD]Terracota Army[ENDCOLOR] will allow you to keep your power even after you glorious death (+5[ICON_SILVER_FIST]). This cultural masterpiece is a reflection of your current military strength, and how successes of your army influence the citizens of the empire (8[ICON_CULTURE]/Kill). To finalize this magnificient project you must reroute much of your supplies to your sculpting centers, so the artists have everything they need (+1[ICON_PRODUCTION]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR][NEWLINE][ICON_BULLET]Improvement: [COLOR_CYAN]2 (Mines + Quarries)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Feature: [COLOR_NEGATIVE_TEXT]Water[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_TERRA_COTTA_ARMY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -394,7 +394,7 @@ UPDATE Language_en_US SET Text = Text||'All requirements (including lua):[NEWLIN
 ----------------------------------------------------
 -- Oracle
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_ORACLE_HELP_CUT', 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR], holds a powerful secret - reveals the future giving you an instant advantage over other nations (500[ICON_RESEARCH]; 500[ICON_CULTURE]). Unlike other [COLOR_YIELD_FOOD]Temples[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it puts knowledge over anything else (+1[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]) increasing the literacy (-1[ICON_HAPPINESS_3] Illiteracy) and cultural awerness of your citizens (+1[ICON_CULTURE]).');
+VALUES ('TXT_KEY_WONDER_ORACLE_HELP_CUT', 'Mysterious [COLOR_YIELD_FOOD]Oracle[ENDCOLOR], holds a powerful secret - reveals the future giving you an instant advantage over other nations (500[ICON_RESEARCH]; 500[ICON_CULTURE]). Unlike other [COLOR_YIELD_FOOD]Temples[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), it puts knowledge over anything else (+1[ICON_RESEARCH]; +1[ICON_GREAT_SCIENTIST]) increasing the literacy (-1[ICON_HAPPINESS_3] Illiteracy), cultural awerness of your citizens (+1[ICON_CULTURE]). Using its prediction you can preapre successful countermeasures increasing overall security of your empire (+15[ICON_CITY_SECURITY]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_ORACLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -410,7 +410,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Great Wall
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project protecting its people for ages (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders, obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR]). Thanks to more engaged workforce (+25%[ICON_WORKER]), it takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) to the next level allowing you to safely gather an incredible army inside your borders (+3[ICON_SILVER_FIST]) and train your commanders with quite new brilliant tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_GREAT_WALL_HELP_CUT', '[COLOR_YIELD_FOOD]Great Wall[ENDCOLOR] is unbelievably successful defensive project protecting its people for ages (+1[ICON_GREAT_ENGINEER]; [COLOR_NEGATIVE_TEXT]Enemy[ENDCOLOR]: loses all [ICON_MOVES] if crossed your borders, obsoletes at [ICON_RESEARCH] [COLOR_NEGATIVE_TEXT]Gunpowder[ENDCOLOR]). Thanks to more engaged workforce (+25%[ICON_WORKER]), it takes your [COLOR_YIELD_FOOD]Walls[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) to the next level allowing you to safely gather an incredible army (+3[ICON_SILVER_FIST]) and intel (50[ICON_SPY_POINT]) inside your borders and train your commanders with quite new brilliant tactics ([COLOR_YIELD_GOLD]free [ICON_GREAT_GENERAL][ENDCOLOR]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]River[ENDCOLOR][NEWLINE][ICON_BULLET]Other Player: [COLOR_CYAN]Deceptive[ENDCOLOR]/[COLOR_CYAN]Hostile[ENDCOLOR]/[COLOR_CYAN]Warring[ENDCOLOR]  (disabled after 33% [ICON_PRODUCTION] Progress)'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]River[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_GREAT_WALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -436,7 +436,7 @@ VALUES		('TXT_KEY_BUILDING_NABAWI',				'Prophet''s Mosque'),
 			('TXT_KEY_THEMING_BONUS_NABAWI_HELP',	'To maximize your bonus, make sure both Great Works are filled with Writings created by you.');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_BUILDING_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is one of the biggests [COLOR_YIELD_FOOD]Mosques[ENDCOLOR] of the world ([COLOR_YIELD_FOOD]free[ENDCOLOR]). Built by Prophet Muhammad, it is historically important religious centre (+5[ICON_PEACE]; +10%[ICON_PEACE][ICON_PEACE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER]; 2[ICON_GW_WRITING], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]). Remodeled by multiple cultures, it is still the most beautiful and astonishing temple you can see (+2[ICON_CULTURE]).';
+SELECT 'TXT_KEY_BUILDING_NABAWI_HELP_CUT', '[COLOR_YIELD_FOOD]Prophet''s Mosque[ENDCOLOR] is one of the biggests [COLOR_YIELD_FOOD]Mosques[ENDCOLOR] of the world ([COLOR_YIELD_FOOD]free[ENDCOLOR]). Built by Prophet Muhammad, it is historically important religious center (+5[ICON_PEACE]; +10%[ICON_PEACE][ICON_PEACE]) where you can learn arabic religious literature (+20%[ICON_GREAT_WRITER]; 2[ICON_GW_WRITING], if themed: [ICON_PEACE], [ICON_GOLDEN_AGE]). Remodeled by multiple cultures, it is still the most beautiful and astonishing temple you can see (+2[ICON_CULTURE]).';
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_BUILDING_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);		
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_BUILDING_NABAWI_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);		
@@ -711,7 +711,7 @@ INSERT INTO Language_en_US
 			(Tag,								Text) 
 VALUES		('TXT_KEY_POLICY_DUMMY_ANGKOR_WAT',	'Angkor Wat');
 
-UPDATE Language_en_US SET Text = '[ICON_BULLET]Player can buy [COLOR_YIELD_GOLD]Diplomatic Units[ENDCOLOR] with [ICON_PEACE]'||Text WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
+UPDATE Language_en_US SET Text = '[ICON_BULLET]Player can buy [COLOR_YIELD_GOLD]Diplomatic Units[ENDCOLOR] with [ICON_PEACE] (these units in addition to regular abilities grant 10 [ICON_INFLUENCE] Resting Influence)'||Text WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
 UPDATE Language_en_US SET Text = '[NEWLINE]----------------[NEWLINE]Special lua abilities:[NEWLINE]'||Text WHERE Tag ='TXT_KEY_WONDER_ANGKOR_WAT_HELP';
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -743,7 +743,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Forbidden City
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	'[COLOR_YIELD_FOOD]Forbidden City[ENDCOLOR], constructed on the ashes of previous civilization, shows how successful are your expansions and how fast you can rebuild the infrastructure and make profits of these newly acquired lands (-15%[ICON_GOLD][ICON_GOLD] Purchase Cost). Increased outlays on city development can easily endear yourself to the citizens (-1[ICON_HAPPINESS_3] Poverty) and this can really quickly pay for itself handsomely (+5[ICON_GOLD]).');
+VALUES ('TXT_KEY_WONDER_FORBIDDEN_PALACE_HELP_CUT',	'[COLOR_YIELD_FOOD]Forbidden City[ENDCOLOR], constructed on the ashes of previous civilization (+1[ICON_CULTURE]), reflects your successful expansionism and the ability to rebuild and secure the crucial infrastructure (+10[ICON_CITY_SECURITY]), and also to make profits of these newly acquired lands (-15%[ICON_GOLD][ICON_GOLD] Purchase Cost). Increased outlays on city development can easily endear yourself to the citizens (-1[ICON_HAPPINESS_3] Poverty) and this can really quickly pay for itself handsomely (+5[ICON_GOLD]).');
 
 UPDATE Language_en_US SET Text = 'Forbidden City' WHERE Tag ='TXT_KEY_BUILDING_FORBIDDEN_PALACE';
 				
@@ -760,6 +760,13 @@ UPDATE Language_en_US SET Text = 'TODO'||Text WHERE Tag ='TXT_KEY_BUILDING_KARLS
 
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_KARLSTEJN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
+-- Alamut Fortress
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_ALAMUT_FORTRESS_HELP_CUT', 'There are numerous legends about [COLOR_YIELD_FOOD]Alamut Fortress[ENDCOLOR] and its residents (+3[ICON_CULTURE]). Built as a stronghold (+3[ICON_STRENGTH]), it is believed to be a home of an "Old Man in the Mountain" (+3[ICON_PEACE]), or a place where mysterious "assasins" come from (100[ICON_PEACE]/completed [ICON_SPY] Mission). Invite some noble guests to your new court (+1[ICON_DIPLOMAT]) to update your knowledge about new technologies (+3[ICON_RESEARCH]) and recent political situation around your borders (100[ICON_SPY_POINT]).');
+				
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_ALAMUT_FORTRESS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Mountain (range 2)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_ALAMUT_FORTRESS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Notre Dame
 INSERT INTO Language_en_US (Tag, Text) 
@@ -865,7 +872,7 @@ VALUES		('TXT_KEY_BUILDING_HARMANDIR',			'Harmandir Sahib'),
 			('TXT_KEY_BUILDING_HARMANDIR_HELP',		'');
 
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_HARMANDIR_HELP_CUT', 'Four open doors to [COLOR_YIELD_FOOD]Harmandir Sahib[ENDCOLOR] welcome everyone, no matter what race they are or religion they follow (-2[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Religious Unrest). Each visitor will be well fed (+2[ICON_FOOD]/all [COLOR_YIELD_FOOD]Buildings yielding [ICON_PEACE][ENDCOLOR]) and treated properly if wounded (10 HP Heal/[COLOR_YIELD_GOLD]Land Garrison[ENDCOLOR]). Sikhs'' religion is a peaceful faith (+2[ICON_PEACE]), so please, visit this astonishing [COLOR_YIELD_FOOD]Gurdwara[ENDCOLOR], to convert yourself, and maybe even change someone else''s point of view.');
+VALUES ('TXT_KEY_BUILDING_HARMANDIR_HELP_CUT', 'Four open doors to [COLOR_YIELD_FOOD]Harmandir Sahib[ENDCOLOR] welcome everyone, no matter what race they are or religion they follow (-2[ICON_HAPPINESS_3][ICON_HAPPINESS_3] Religious Unrest). Each visitor will be well fed (+1[ICON_FOOD]/all [COLOR_YIELD_FOOD]Buildings yielding [ICON_PEACE][ENDCOLOR]) and treated properly if wounded (10 HP Heal/[COLOR_YIELD_GOLD]Land Garrison[ENDCOLOR]). Sikhs'' religion is a peaceful faith (+2[ICON_PEACE]), so please, visit this astonishing [COLOR_YIELD_FOOD]Gurdwara[ENDCOLOR], to convert yourself, and maybe even change someone else''s point of view.');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_BUILDING_HARMANDIR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);	
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_YIELD_PRODUCTION]Holy City[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_BUILDING_HARMANDIR_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);	
@@ -990,7 +997,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Himeji Castle
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_HIMEJI_CASTLE_HELP_CUT', '[COLOR_YIELD_FOOD]Himeji Castle[ENDCOLOR] turns typical [COLOR_YIELD_FOOD]Bastion Fort[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) into impenetrable fortress (+1[ICON_GREAT_ENGINEER]; +1[ICON_GREAT_GENERAL]) protecting all neighbouring regions under your rule from any upcoming invasion (+10%[ICON_STRENGTH][ICON_STRENGTH]). With help of specially recruited units (+5[ICON_SILVER_FIST]) and introduced unique training programs available for all military domains ([COLOR_WATER_TEXT]Himeji Castle[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) enemies will surely be scared to death giving you the necessary advantage.');
+VALUES ('TXT_KEY_WONDER_HIMEJI_CASTLE_HELP_CUT', '[COLOR_YIELD_FOOD]Himeji Castle[ENDCOLOR] turns typical [COLOR_YIELD_FOOD]Bastion Fort[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) into impenetrable fortress (+1[ICON_GREAT_ENGINEER]; +1[ICON_GREAT_GENERAL]) protecting all neighbouring regions under your rule from any upcoming invasion (+10%[ICON_STRENGTH][ICON_STRENGTH]; +5[ICON_CITY_SECURITY][ICON_CITY_SECURITY]). With help of specially recruited units (+5[ICON_SILVER_FIST]) and introduced unique training programs available for all military domains ([COLOR_WATER_TEXT]Himeji Castle[ENDCOLOR]/[COLOR_YIELD_GOLD]Military[ENDCOLOR]) all enemies will be scared to death, even when they are defending their lands (50[ICON_SPY_POINT]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]Forest[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_HIMEJI_CASTLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_HIMEJI_CASTLE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1027,7 +1034,7 @@ UPDATE Language_en_US SET Text = Text||'' WHERE Tag ='TXT_KEY_WONDER_UFFIZI_HELP
 ----------------------------------------------------
 -- Sistine Chapel
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_SISTINE_CHAPEL_HELP_CUT', 'Wonderful frescos (2[ICON_GW_ART], if themed: [ICON_CULTURE], [ICON_PEACE]) covering the ceiling of gorgeous [COLOR_YIELD_FOOD]Sistine Chapel[ENDCOLOR] can be an indispensable motivator for dozens of young artists, who can watch this immense creation with awe (+10%[ICON_CULTURE][ICON_CULTURE]). Author of these paitnings spent years to finish his creation, so stay at least for a while there to contemplate about the religion and its influence on humankind (+1[ICON_CULTURE]).');
+VALUES ('TXT_KEY_WONDER_SISTINE_CHAPEL_HELP_CUT', 'Frescos (2[ICON_GW_ART], if themed: [ICON_CULTURE], [ICON_PEACE]) covering the ceiling of gorgeous [COLOR_YIELD_FOOD]Sistine Chapel[ENDCOLOR] can be indispensable motivator for dozens of young artists from many countries (25[ICON_PEACE]/rigged [ICON_CITY_STATE] elections), who can watch this immense creation with awe (+10%[ICON_CULTURE][ICON_CULTURE]). Author of these paitnings spent years to finish his creation, so stay at least for a while there to contemplate about the religion and its influence on humankind (+1[ICON_CULTURE]).');
 
 UPDATE Language_en_US SET Text = Text||'[NEWLINE]----------------[NEWLINE]' WHERE Tag ='TXT_KEY_WONDER_SISTINE_CHAPEL_HELP';
 				
@@ -1038,13 +1045,20 @@ UPDATE Language_en_US SET Text = REPLACE(Text, 'All requirements (including lua)
 ----------------------------------------------------
 -- Summer Palace
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_SUMMER_PALACE_HELP_CUT', 'Emperors need their own residences to successfully govern the country (+1[ICON_DIPLOMAT]) and [COLOR_YIELD_FOOD]Summer Palace[ENDCOLOR] fulfills all requirements. It supports numerous diplomatic facilities (+3[ICON_GOLD], +1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Chanceries[ENDCOLOR]) and provides new sources of [COLOR_GREY]Paper[ENDCOLOR] necessary for their functioning (+1[ICON_RES_PAPER]). Moreover, specially recruited delegates (+20%[ICON_PRODUCTION][ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]) are much more efficient and can finalize even impossible deals ([COLOR_WATER_TEXT]Nobility[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]).');
+VALUES ('TXT_KEY_BUILDING_SUMMER_PALACE_HELP_CUT', 'You need a peaceful residence to rule the country (+1[ICON_DIPLOMAT]; 25[ICON_PRODUCTION]/rigged [ICON_CITY_STATE] elections) and [COLOR_YIELD_FOOD]Summer Palace[ENDCOLOR] fulfills the requirement supporting diplomatic facilities (+3[ICON_GOLD], +1[ICON_CULTURE]/all [COLOR_YIELD_FOOD]Chanceries[ENDCOLOR]) and providing new sources of [COLOR_GREY]Paper[ENDCOLOR] necessary for their functioning (+1[ICON_RES_PAPER]). Moreover, specially recruited delegates (+20%[ICON_PRODUCTION][ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]) are much more efficient and can finalize even impossible deals ([COLOR_WATER_TEXT]Nobility[ENDCOLOR]/[COLOR_YIELD_GOLD]Diplomatic[ENDCOLOR]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]Lake[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_SUMMER_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Hill[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]Lake[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_SUMMER_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'All requirements (including lua):', 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR]') WHERE Tag ='TXT_KEY_BUILDING_SUMMER_PALACE_HELP' AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=1);
 UPDATE Language_en_US SET Text = REPLACE(Text, 'Feature: ', 'Feature: [COLOR_CYAN]Forest[ENDCOLOR], ') WHERE Tag ='TXT_KEY_BUILDING_SUMMER_PALACE_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2) AND EXISTS (SELECT * FROM Community WHERE Type='MW-SETTING-POLICIES' AND Value=0);
+----------------------------------------------------
+-- Port Royal
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_PORT_ROYAL_HELP_CUT', 'There is no greater or more prosperous [COLOR_YIELD_FOOD]Harbor[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) on these waters than a [COLOR_YIELD_FOOD]Port Royal[ENDCOLOR]. This beautiful and fortified town focuses its economy on navy (+2[ICON_GREAT_ADMIRAL]), but... on the other hand it is a main haven of bloody pirates ([COLOR_WATER_TEXT]Piracy[ENDCOLOR]/[COLOR_YIELD_GOLD]Melee Naval[ENDCOLOR]). It is true they are very nasty people, but they can be used to attack your enemies or to gather some intel about current situation in the region (150[ICON_GOLD], 150[ICON_CULTURE]/completed [ICON_SPY] Mission; 100[ICON_SPY_POINT])');
+				
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]Marsh[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_PORT_ROYAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_PORT_ROYAL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
 -- Red Fort
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1271,6 +1285,15 @@ VALUES ('TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP_CUT', 'Every empire needs a solid in
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]River[ENDCOLOR], [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]Forest[ENDCOLOR]/[COLOR_CYAN]Jungle[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_SOHO_FOUNDRY_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
+-- Chateau d'If
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_CHATEAU_DIF_HELP_CUT', 'Long nights spent in [COLOR_YIELD_FOOD]Chateau d''If[ENDCOLOR] can be a motivation to create something memorable (+1[ICON_CULTURE]; +2[ICON_GREAT_WRITER]). Deep chambers of this huge [COLOR_YIELD_FOOD]Penitentiary[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) will be a new home of many criminals and political enemies, thinking they will be free soon. They are mistaken (100[ICON_SPY_POINT]; 50[ICON_CULTURE], 50[ICON_TOURISM]/identified [ICON_SPY]). Use them as a cheap workforce to break their resistance (+1[ICON_PRODUCTION]; 10%[ICON_DIPLOMAT] progress/[COLOR_YIELD_FOOD]Industrial (or later) Building[ENDCOLOR] construction).');
+
+UPDATE Language_en_US SET Text = REPLACE(Text, 'Alexandre Dumas, The Count of Monte Cristo', '"The Count of Monte Cristo", Alexandre Dumas') WHERE Tag ='TXT_KEY_WONDER_CHATEAU_DIF_QUOTE';
+				
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR], [COLOR_CYAN]Island (1-5-tile)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_CHATEAU_DIF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_CHATEAU_DIF_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 -- Louvre
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_WONDER_LOUVRE_HELP_CUT', '[COLOR_YIELD_FOOD]Louvre[ENDCOLOR] seeks for new exibits to fill its shiny shelves and become the cultural capital of the world (+2[ICON_CULTURE]; 4[ICON_GW_ART], if themed: [ICON_CULTURE]). Recent discoveries give you an opportunity to hire a staff of experts working on the field (2 [COLOR_YIELD_GOLD]free Archaeologists[ENDCOLOR]) as well as in the main underground headquarters ([COLOR_YIELD_GOLD]free [ICON_GREAT_ARTIST][ENDCOLOR]). Finally your dream may come true. Become the owner of the finest and wealthiest [COLOR_YIELD_FOOD]Museum[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) anyone have ever imagined.');
@@ -1282,7 +1305,7 @@ UPDATE Language_en_US SET Text = Text||'All requirements (including lua):[NEWLIN
 ----------------------------------------------------
 -- Palace of Westminster
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_BIG_BEN_HELP_CUT', '[COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] improves lives of your citizens (-1[ICON_HAPPINESS_3] Poverty). It can introduce new laws and edicts, raising the empire''s economy (+4[ICON_GOLD]), and new possibilities to run a bussiness in a dynamically changing market (+2[ICON_GREAT_MERCHANT]; [COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]). Ruling the "empire on which the sun never sets" can turn you into the most influential leader of the world, making it easier to find new valuable allies (+1[ICON_DIPLOMAT] League Vote/each 4[ICON_CITY_STATE] on start).');
+VALUES ('TXT_KEY_WONDER_BIG_BEN_HELP_CUT', '[COLOR_YIELD_FOOD]Palace of Westminster[ENDCOLOR] supports your citizens (-1[ICON_HAPPINESS_3] Poverty) and the empire''s economy by introducing new laws and edicts (+4[ICON_GOLD]; 150[ICON_GOLD]/killed [ICON_SPY]), so prepare for new ways to run a bussiness in a fresh dynamic market (+2[ICON_GREAT_MERCHANT]; [COLOR_YIELD_GOLD]free [ICON_GREAT_MERCHANT][ENDCOLOR]). Ruling the "empire on which the sun never sets" can turn you into the most influential leader of the world, making it easier to find new valuable allies (+1[ICON_DIPLOMAT] League Vote/each 4[ICON_CITY_STATE] on start).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]River[ENDCOLOR][NEWLINE][ICON_BULLET]Player: [COLOR_CYAN]2 [ICON_CITY_STATE] City-State Allies[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_MAGENTA]Statecraft Finisher[ENDCOLOR][NEWLINE][ICON_BULLET]Feature: [COLOR_CYAN]River[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_BIG_BEN_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1464,7 +1487,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Kremlin
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_WONDER_KREMLIN_HELP_CUT', 'Monumental [COLOR_YIELD_FOOD]Kremlin[ENDCOLOR] is the greatest effort showing your power. Tanks become the main part of your army (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Armored[ENDCOLOR]) keeping your civilization safe (-1[ICON_HAPPINESS_3] Distress). This will be the sign of your culture ([COLOR_MAGENTA]free Policy[ENDCOLOR]).');
+VALUES ('TXT_KEY_WONDER_KREMLIN_HELP_CUT', 'If you you want to centralize your power ([COLOR_MAGENTA]free Policy[ENDCOLOR]) then [COLOR_YIELD_FOOD]Kremlin[ENDCOLOR] should be the wise choice. Massive militarization of your country (+33%[ICON_PRODUCTION]/[COLOR_YIELD_GOLD]Armored[ENDCOLOR]) and careful indoctrination of youth (+2[ICON_GREAT_GENERAL]) is the best way to create a police state able to control literally everyone (+10[ICON_CITY_SECURITY][ICON_CITY_SECURITY]; 50[ICON_SPY_POINT]). Using this dirty trick you can easily satisfy your people''s needs, converting them onto your side for a really, really long time (-1[ICON_HAPPINESS_3] Distress).');
 
 UPDATE Language_en_US SET Text = REPLACE(Text, 'The Prophet Muhammed', 'Prophet Muhammad') WHERE Tag ='TXT_KEY_WONDER_KREMLIN_QUOTE';
 			
@@ -1505,13 +1528,20 @@ VALUES ('TXT_KEY_WONDER_PRORA_RESORT_HELP_CUT', '[COLOR_YIELD_FOOD]Prora[ENDCOLO
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR][NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Flat[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_PRORA_RESORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_UNIT_TEXT]Autocracy[ENDCOLOR][NEWLINE][ICON_BULLET]Plot: [COLOR_CYAN]Flat[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_WONDER_PRORA_RESORT_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
 ----------------------------------------------------
+-- Alcatraz
+INSERT INTO Language_en_US (Tag, Text) 
+VALUES ('TXT_KEY_BUILDING_ALCATRAZ_HELP_CUT', '[COLOR_YIELD_FOOD]Alcatraz[ENDCOLOR], a self-sufficient prison containing its own [COLOR_YIELD_FOOD]Arsenal[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]), is a place where convicted stay forever loosing their last hope thinking how to escape (+1[ICON_CITY_SECURITY]/6[ICON_CITIZEN]). Here, on this fortified island (+5[ICON_STRENGTH]), you can keep imprisoned dangerous spies (+1[ICON_DIPLOMAT]) trying to take out from them any valuable information during long and painful interrogations (100[ICON_GOLD], 100[ICON_CULTURE]/killed [ICON_SPY]). Use their knowledge wisely (100[ICON_SPY_POINT]).');
+				
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR], [COLOR_CYAN]Island (1-5-tile)[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_ALCATRAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_ALCATRAZ_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
+----------------------------------------------------
 ----------------------------------------------------
 -- Great Hall of the People
 INSERT INTO Language_en_US 
 			(Tag,									Text) 
 VALUES		('TXT_KEY_BUILDING_GREAT_HALL',			'Great Hall of the People'),
 			('TXT_KEY_WONDER_GREAT_HALL_QUOTE',		'[NEWLINE]"The people are the masters of the country."[NEWLINE] - Zhou Enlai[NEWLINE]'),
-			('TXT_KEY_BUILDING_GREAT_HALL_PEDIA',	'The Great Hall of the People is a monumental government building located on the western edge of Tiananmen Square in Beijing, China. It was constructed in just ten months and officially opened in September 1959 as one of the “Ten Great Constructions” to commemorate the 10th anniversary of the founding of the People''s Republic of China. Designed by architect Zhang Bo and thousands of workers and volunteers, the building symbolizes national unity and serves as a venue for legislative and ceremonial activities. Since its completion, it has been the site of the annual sessions of the National People''s Congress, state functions, and high-level political meetings, making it one of the most important political landmarks in modern China.[NEWLINE][NEWLINE]Architecturally, the Great Hall of the People covers 171,800 square meters and combines traditional Chinese elements with Soviet-influenced monumental style. Its grand central auditorium can seat around 10,000 people, while the Banquet Hall accommodates 5,000 guests. The interior includes a series of halls decorated to represent different provinces and autonomous regions of China, symbolizing the country''s ethnic and regional diversity. The building''s design emphasizes symmetry, vast open spaces, and imposing scale, reflecting both the authority of the state and the ambition of the young republic at the time of its construction. Today, beyond its political role, the Great Hall also serves as a symbol of China''s modernization and a venue for welcoming foreign dignitaries and hosting significant cultural events.'),
+			('TXT_KEY_BUILDING_GREAT_HALL_PEDIA',	'The Great Hall of the People is a monumental government building located on the western edge of Tiananmen Square in Beijing, China. It was constructed in just ten months and officially opened in September 1959 as one of the "Ten Great Constructions" to commemorate the 10th anniversary of the founding of the People''s Republic of China. Designed by architect Zhang Bo and thousands of workers and volunteers, the building symbolizes national unity and serves as a venue for legislative and ceremonial activities. Since its completion, it has been the site of the annual sessions of the National People''s Congress, state functions, and high-level political meetings, making it one of the most important political landmarks in modern China.[NEWLINE][NEWLINE]Architecturally, the Great Hall of the People covers 171,800 square meters and combines traditional Chinese elements with Soviet-influenced monumental style. Its grand central auditorium can seat around 10,000 people, while the Banquet Hall accommodates 5,000 guests. The interior includes a series of halls decorated to represent different provinces and autonomous regions of China, symbolizing the country''s ethnic and regional diversity. The building''s design emphasizes symmetry, vast open spaces, and imposing scale, reflecting both the authority of the state and the ambition of the young republic at the time of its construction. Today, beyond its political role, the Great Hall also serves as a symbol of China''s modernization and a venue for welcoming foreign dignitaries and hosting significant cultural events.'),
 			('TXT_KEY_BUILDING_GREAT_HALL_HELP',	'');
 
 INSERT INTO Language_en_US (Tag, Text) 
@@ -1703,7 +1733,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Bletchley Park
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP_CUT', '[COLOR_YIELD_FOOD]Bletchley Park[ENDCOLOR] is place filled with scientists (+1[ICON_RESEARCH]/All Scientists) and spies (+200[ICON_SPY_POINT]; +20[ICON_SPY][ICON_SPY] City Security). The most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) is constructed to increase your knowledge.');
+VALUES ('TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP_CUT', '[COLOR_YIELD_FOOD]Bletchley Park[ENDCOLOR], a place literally packed with scientists (+5[ICON_RESEARCH]; +1[ICON_RESEARCH]/all Scientists) developing technologies crucial for espionage. This way you not only increase your safety (+20[ICON_CITY_SECURITY][ICON_CITY_SECURITY]) but also secure a well-coordinated attack (+200[ICON_SPY_POINT]). This most advanced [COLOR_YIELD_FOOD]Research Lab[ENDCOLOR] ([COLOR_YIELD_FOOD]free[ENDCOLOR]) analyzes all the technological breakthroughs your opponent''s doing, to bring them onto your field (150[ICON_RESEARCH]/completed [ICON_SPY] Mission).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_CYAN]Grassland[ENDCOLOR], [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR_MAGENTA]Rationalism Finisher[ENDCOLOR][NEWLINE][ICON_BULLET]Terrain: [COLOR_NEGATIVE_TEXT]Coast[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_BLETCHLEY_PARK_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1794,7 +1824,7 @@ VALUES		('TXT_KEY_BUILDING_GPS',			'Global Positioning System'),
 			('TXT_KEY_BUILDING_GPS_HELP',		'');
 			
 INSERT INTO Language_en_US (Tag, Text) 
-SELECT 'TXT_KEY_BUILDING_GPS_HELP_CUT', '[COLOR_YIELD_FOOD]Global Positioning System[ENDCOLOR] helps you maintain security in your country (+200[ICON_SPY_POINT]; +20[ICON_SPY][ICON_SPY] City Security). Both, your attacks (25[ICON_GREAT_GENERAL], 25[ICON_GREAT_ADMIRAL]/[ICON_SPY] Attack) and defense (50[ICON_PRODUCTION], 50[ICON_GOLD]/[ICON_SPY] Defense) are generously rewarded.';
+SELECT 'TXT_KEY_BUILDING_GPS_HELP_CUT', '[COLOR_YIELD_FOOD]Global Positioning System[ENDCOLOR] gives you an overview of your industrial (+3[ICON_PRODUCTION]) and economical (+2[ICON_GOLD]) opportunities and reveals secrets of your enemies (+20[ICON_CITY_SECURITY][ICON_CITY_SECURITY]) boosting the security of your country (250[ICON_SPY_POINT]). The more satellites you send into the space, the more successful your attacks will be (25[ICON_GREAT_GENERAL], 25[ICON_GREAT_ADMIRAL]/completed [ICON_SPY] Mission). Use this new system to nip your opponents'' plans in the bud (50[ICON_PRODUCTION], 50[ICON_GOLD]/killed [ICON_SPY]).';
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Improved Resource: [ICON_RES_URANIUM][NEWLINE][ICON_BULLET]Building: [COLOR_CYAN]Strategic Defense System[ENDCOLOR]'||Text WHERE Tag ='TXT_KEY_BUILDING_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Improved Resource: [ICON_RES_URANIUM]'||Text WHERE Tag ='TXT_KEY_BUILDING_GPS_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1824,7 +1854,7 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 ----------------------------------------------------
 -- Great Firewall
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_GREAT_FIREWALL_HELP_CUT',	'[COLOR_YIELD_FOOD]Great Firewall[ENDCOLOR] makes hacking to your city systems much harder (+50[ICON_SPY] City Security). You will be able to resist influence of other civilizations (foreign [ICON_TOURISM] bonus from technologies is negated) and your [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] (+10[ICON_RESEARCH]) become much more effective.');
+VALUES ('TXT_KEY_BUILDING_GREAT_FIREWALL_HELP_CUT',	'Rapid developement of new technologies requires a system that stops any infiltration (-50% [ICON_TOURISM] from Civilizations that researched [COLOR_CYAN]The Internet[ENDCOLOR]). This is why [COLOR_YIELD_FOOD]Great Firewall[ENDCOLOR] was invented, literally disabling enemy attacks (+50[ICON_CITY_SECURITY]). That''s how modern empires defend themelves, their people and their knowledge. Now your [COLOR_YIELD_FOOD]Research Labs[ENDCOLOR] can work on full speed to make the final progress and win the main prize (+10[ICON_RESEARCH]).');
 				
 UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Building: [COLOR_CYAN]Police Station[ENDCOLOR], [COLOR_CYAN]Wire Service[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_GREAT_FIREWALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=2);
 UPDATE Language_en_US SET Text = ''||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_GREAT_FIREWALL_HELP' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='MW-SETTING-REQUIREMENT' AND Value=1);
@@ -1849,37 +1879,37 @@ UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICO
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_BUILDING_CRYSTAL_PALACE_HELP_CUT',	'[COLOR_YIELD_FOOD]Crystal Palace[ENDCOLOR] is a result of huge industrial potential. It boosts all [COLOR_YIELD_FOOD]Factories[ENDCOLOR] (+2[ICON_PRODUCTION]; +2[ICON_RESEARCH]) and starts new age in your civilization (Start [ICON_GOLDEN_AGE]).');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "World''s Fair" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_CRYSTAL_PALACE_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "World''s Fair" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_CRYSTAL_PALACE_HELP';
 ----------------------------------------------------
 -- UN
 INSERT INTO Language_en_US (Tag, Text) 
-VALUES ('TXT_KEY_BUILDING_UNITED_NATIONS_HELP_CUT', '[COLOR_YIELD_FOOD]United Nations[ENDCOLOR] can be the most influential comission of all in the world (Start [ICON_GOLDEN_AGE]; Start [COLOR:45:150:50:255]World Congress Session[ENDCOLOR]), where your best delegates (+1[ICON_DIPLOMAT]) will show what is most important for your citizens and those small countries, whose voice is not represented here (25[ICON_INFLUENCE]/[ICON_CITY_STATE]/[ICON_GREAT_PEOPLE]).');
+VALUES ('TXT_KEY_BUILDING_UNITED_NATIONS_HELP_CUT', '[COLOR_YIELD_FOOD]United Nations[ENDCOLOR] can be the most influential comission of all in the world (Start [ICON_GOLDEN_AGE]; Start [COLOR:170:50:90:255]World Congress Session[ENDCOLOR]), where your best delegates (+1[ICON_DIPLOMAT]) will show what is most important for your citizens and those small countries, whose voice is not represented here (25[ICON_INFLUENCE]/[ICON_CITY_STATE]/[ICON_GREAT_PEOPLE]).');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "United Nations" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_UNITED_NATIONS_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "United Nations" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_UNITED_NATIONS_HELP';
 ----------------------------------------------------
 -- Grand Canal
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_BUILDING_GRAND_CANAL_HELP_CUT', '[COLOR_YIELD_FOOD]Grand Canal[ENDCOLOR] shows your devotion to all those people, who risk their lives on sea frontline ([COLOR_WATER_TEXT]Treasure Fleet[ENDCOLOR]/[COLOR_YIELD_GOLD]Military Naval (no Carriers, Submarines)[ENDCOLOR]). It also allows you to establish another trade route (+1[ICON_INTERNATIONAL_TRADE]), but it is your choice if it will be land or sea connection.');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "Treasure Fleet" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_GRAND_CANAL_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "Treasure Fleet" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_GRAND_CANAL_HELP';
 ----------------------------------------------------
 -- International Space Station
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_BUILDING_INTERNATIONAL_SPACE_STATION_HELP_CUT', 'Scientists and engineers work together on [COLOR_YIELD_FOOD]International Space Station[ENDCOLOR] to break barriers (+1[ICON_RESEARCH]/All Engineers; (+1[ICON_PRODUCTION]/All Scientists). Their efforts gives you technological boost (+33%[ICON_RESEARCH]/[ICON_GREAT_SCIENTIST]), and are innovative solution for problems of your industry (200[ICON_PRODUCTION]/[COLOR_CYAN]Technology[ENDCOLOR]).');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "International Space Station" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_INTERNATIONAL_SPACE_STATION_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "International Space Station" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_INTERNATIONAL_SPACE_STATION_HELP';
 ----------------------------------------------------
 -- Olympic Village
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_BUILDING_OLYMPIC_VILLAGE_HELP_CUT', 'Olympic Games are great source of joy in these difficult times (+3[ICON_HAPPINESS_1]). [COLOR_YIELD_FOOD]Olympic Village[ENDCOLOR] is here to gather people together, watching games and forgetting about surrounding pain (+25%[ICON_CULTURE] of all [ICON_WONDER] [COLOR_YIELD_FOOD]World Wonders[ENDCOLOR], [COLOR_CITY_GREEN]Natural Wonders[ENDCOLOR] and [COLOR_CITY_BROWN]Improvements[ENDCOLOR] into [ICON_TOURISM]). All constructed [COLOR_YIELD_FOOD]Stadiums[ENDCOLOR] (+2[ICON_GOLD]; +2[ICON_TOURISM]) become center of upcoming world events.');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "International Games" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_OLYMPIC_VILLAGE_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "International Games" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_OLYMPIC_VILLAGE_HELP';
 ----------------------------------------------------
 -- Menin Gate
 INSERT INTO Language_en_US (Tag, Text) 
 VALUES ('TXT_KEY_BUILDING_MENIN_GATE_HELP_CUT', '[COLOR_YIELD_FOOD]Menin Gate[ENDCOLOR] will be admonishment for future generations (+2[ICON_CULTURE], +2[ICON_GOLDEN_AGE]/Death). This monument, but also each site releated to recent battles represents the huge pain (+1[ICON_GREAT_WRITER], +1[ICON_GOLDEN_AGE]/All [COLOR_CITY_BROWN]Forts[ENDCOLOR], [COLOR_CITY_BROWN]Citadels[ENDCOLOR] and [COLOR_CITY_BROWN]Landmarks[ENDCOLOR]). Maybe there''s a chance to keep current prosperity (+2[ICON_HAPPINESS_1]).');
 				
-UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:45:150:50:255]Victory in "Global Wargames" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_MENIN_GATE_HELP';
+UPDATE Language_en_US SET Text = 'All requirements (including lua):[NEWLINE][ICON_BULLET]Special: [COLOR:170:50:90:255]Victory in "Global Wargames" project[ENDCOLOR]'||IFNULL(Text, '') WHERE Tag ='TXT_KEY_BUILDING_MENIN_GATE_HELP';
 ----------------------------------------------------
 -- CORPORATION HEADQUARTERS
 ----------------------------------------------------

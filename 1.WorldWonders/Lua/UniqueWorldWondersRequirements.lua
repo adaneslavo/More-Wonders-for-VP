@@ -28,6 +28,7 @@ local tValidIsProhibitedTerrain = {}
 local tValidIsHasImprovementsOrs = {}
 local tValidIsHasBuildingsOrs = {}
 local tValidIsOnPeninsulaOrSingleTile = {}
+local tValidIsOnIsland = {}
 local tValidIsAtPeace = {}
 local tValidIsMajorApproach = {}
 local tValidIsHasCsAllies = {}
@@ -417,6 +418,29 @@ function IsEndOfPeninsulaOrSingleTile(ePlayer, eCity, eBuilding)
 	return (bIsOnMainland and iLandAround == 1) or (bIsMainlandClose and iLandAround == 0)
 end
 GameEvents.CityCanConstruct.Add(IsEndOfPeninsulaOrSingleTile)
+
+-- checks if city is on island (ALCATRAZ, CHATEAU D'IF)
+function IsOnIsland(ePlayer, eCity, eBuilding)
+	if not tValidIsOnIsland[eBuilding] then return true end
+	if bReachedMaxEra then return false end
+
+	local pPlayer = Players[ePlayer]
+	
+	if not pPlayer:IsAlive() then return false end
+	
+	local pCity = pPlayer:GetCityByID(eCity)
+	local pPlot = pCity:Plot()
+	
+	local bIsOnIsland = false
+	local iAreaNear = Map.GetNumTilesOfLandmass(pPlot:GetLandmass())
+			
+	if iAreaNear <= 5 then 
+		bIsOnIsland = true
+	end
+	
+	return bIsOnIsland
+end
+GameEvents.CityCanConstruct.Add(IsOnIsland)
 
 -- checks if player is at PEACE (BUDDHAS OF BAMYAN, OLD BRIDGE IN MOSTAR)
 function IsAtPeace(ePlayer, eCity, eBuilding)
@@ -941,6 +965,12 @@ function Initialize()
 		-- IsOneTile
 			tValidIsOnPeninsulaOrSingleTile = {
 				[GameInfo.Buildings.BUILDING_MICHEL.ID] = true
+			}
+
+		-- IsOnIsland
+			tValidIsOnIsland = {
+				[GameInfo.Buildings.BUILDING_ALCATRAZ.ID] = true,
+				[GameInfo.Buildings.BUILDING_CHATEAU_DIF.ID] = true
 			}
 		
 		-- IsAtPeace

@@ -1588,13 +1588,14 @@ GameEvents.CityCanTrain.Add(BuyKnightHospitaller)
 
 function KnightHospitallerBoostOnTech(eTeam, eTech, iChange)
 	-- Knights Hospitaller (24)
-	if eTech ~= eTechEconomics then return end
+	local pTeam = Teams[eTeam]
+	local pPlayer = Players[pTeam:GetLeaderID()]
 	
-	local pActivePlayer = Players[Game.GetActivePlayer()]
-	
-	for unit in pActivePlayer:Units() do
-		if unit:GetUnitType() == eUnitKnightHospitaller then
-			unit:SetBaseCombatStrength(unit:GetBaseCombatStrength() + 5)
+	if eTech == eTechEconomics then
+		for unit in pPlayer:Units() do
+			if unit:GetUnitType() == eUnitKnightHospitaller then
+				unit:SetBaseCombatStrength(unit:GetBaseCombatStrength() + 5)
+			end
 		end
 	end	
 end
